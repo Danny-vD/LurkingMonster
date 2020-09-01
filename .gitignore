@@ -1,0 +1,15 @@
+#IDE-Generated
+.idea/
+.vs/
+
+#Solution files
+*.sln
+*.csproj
+*.DotSettings
+
+#Auto generated
+LurkingMonster/Temp/
+LurkingMonster/Library/
+LurkingMonster/obj/
+LurkingMonster/Logs/
+LurkingMonster/UserSettings/
