@@ -628,8 +628,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d39cb0644364f78a8a1be0b460cc3f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collectableAmount: 8
-  winAmount: 8
+  collectableAmount: 4
+  winAmount: 4
 --- !u!1 &534669902
 GameObject:
   m_ObjectHideFlags: 0
@@ -806,7 +806,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 553782574}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.58, y: 1, z: -6.96}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2063533462}
@@ -2194,7 +2194,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1644165860242077951, guid: 25acec91791cf2641bf00054b71ce153, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -9.54
+      value: -7.49
       objectReference: {fileID: 0}
     - target: {fileID: 1644165860242077951, guid: 25acec91791cf2641bf00054b71ce153, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2202,7 +2202,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1644165860242077951, guid: 25acec91791cf2641bf00054b71ce153, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -11.32
+      value: -7.62
       objectReference: {fileID: 0}
     - target: {fileID: 1644165860242077951, guid: 25acec91791cf2641bf00054b71ce153, type: 3}
       propertyPath: m_LocalRotation.x
