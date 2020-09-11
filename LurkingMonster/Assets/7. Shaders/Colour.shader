@@ -2,12 +2,12 @@
 {
     Properties
     {
-        [KeywordEnum(ObjectPosition, WorldPosition, ScreenPosition, ClipPosition, normal, UV)] _colorType("Get color from:", Float) = 0
+        [KeywordEnum(ObjectPosition, WorldPosition, ScreenPosition, ClipPosition, Normal, UV, CameraDistance)] _colorType("Get color from:", Float) = 0
+        _DistanceFactor ("DistanceFactor", Float) = 20 // DistanceFactor defines how far an object has to be to have distance 1
     }
     
     SubShader
     {
-        Blend srcAlpha OneMinusSrcAlpha
         ZTest Less
     
         Tags
@@ -43,7 +43,7 @@
 			    float4 objectPosition : TEXCOORD1;
 			    float4 worldPosition : TEXCOORD2;
 				float4 screenPosition : TEXCOORD3;
-				float4 clipPosition : SV_POSITION;
+				float4 clipPosition: SV_POSITION;
 				
 				float4 texCoord : TEXCOORD0;
 			};
@@ -63,7 +63,7 @@
 	            vOutput.objectPosition = vInput.vertex;
 	            vOutput.worldPosition = mul(UNITY_MATRIX_M, vOutput.objectPosition);
 	            vOutput.screenPosition = mul(UNITY_MATRIX_V, vOutput.worldPosition);
-	            vOutput.clipPosition = mul(UNITY_MATRIX_P, vOutput.screenPosition);
+	            vOutput.clipPosition = mul(UNITY_MATRIX_P, vOutput.screenPosition); // Will be converted to NDC before fragment shader
 	            
 	            vOutput.normal = vInput.normal;
 	            
@@ -71,6 +71,8 @@
 	         
 	            return vOutput;  
 	        }
+	        
+	        float _DistanceFactor;
 	        
 	        fragmentOutput fragment(vertexOutput fInput)
 	        {
@@ -95,6 +97,11 @@
 	                    break;
 	                case 5: // uv
 	                    fOutput.color = fInput.texCoord;
+	                    break;
+	                case 6: // cameraDistance
+	                    float distance = fInput.screenPosition.z; // distance = [0, -1] so -distance = [0, 1]
+	                    float modifiedDistance = 1 - saturate(-distance / _DistanceFactor);
+	                    fOutput.color = float4(modifiedDistance, modifiedDistance, modifiedDistance, 1);
 	                    break;
 	                default:
 	                    fOutput.color = float4(1, 0, 1, 1);
