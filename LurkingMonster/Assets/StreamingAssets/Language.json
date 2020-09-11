@@ -1,0 +1,131 @@
+{
+	"Variables": 
+  [
+    {
+      "Key": "PLACEHOLDER",
+      "Value":
+      [
+        {
+          "Key": "NL",
+          "Value": "Tijdelijke tekst"
+        },
+        {
+          "Key": "EN",
+          "Value": "Placeholder text"
+        },
+        {
+          "Key": "DE",
+          "Value": "Dingen"
+        }
+      ]
+    },
+		{
+			"Key": "NEWGAME",
+			"Value": 
+      [
+				{
+					"Key": "NL",
+					"Value": "Nieuw Spel"
+				},
+				{
+					"Key": "EN",
+					"Value": "New Game"
+				},
+				{
+					"Key": "DE",
+					"Value": "Neues Spiel"
+				}
+			]
+		},
+		{
+			"Key": "SCORE",
+			"Value": 
+      [
+				{
+					"Key": "NL",
+					"Value": "Score"
+				},
+				{
+					"Key": "EN",
+					"Value": "Score"
+				},
+				{
+					"Key": "DE",
+					"Value": "Punkte"
+				}
+			]
+		},
+		{
+			"Key": "LOADINGTEXT",
+			"Value": 
+      [
+				{
+					"Key": "NL",
+					"Value": "Laden..."
+				},
+				{
+					"Key": "EN",
+					"Value": "Loading..."
+				},
+				{
+					"Key": "DE",
+					"Value": "Laden..."
+				}
+			]
+		},
+		{
+			"Key": "LOADINGINPUTTEXT",
+			"Value": 
+      [
+				{
+					"Key": "NL",
+					"Value": "Tik om verder to gaan"
+				},
+				{
+					"Key": "EN",
+					"Value": "Tap to continue"
+				},
+				{
+					"Key": "DE",
+					"Value": "Warten auf ihre Input..."
+				}
+			]
+		},
+		{
+			"Key": "SKIP",
+			"Value": 
+      [
+				{
+					"Key": "NL",
+					"Value": "Overslaan"
+				},
+				{
+					"Key": "EN",
+					"Value": "Skip"
+				},
+				{
+					"Key": "DE",
+					"Value": "Überspringen"
+				}
+			]
+		},
+		{
+			"Key": "OK",
+			"Value": 
+      [
+				{
+					"Key": "NL",
+					"Value": "Ok!"
+				},
+				{
+					"Key": "EN",
+					"Value": "Ok!"
+				},
+				{
+					"Key": "DE",
+					"Value": "Ok!"
+				}
+			]
+		}
+	]
+}
