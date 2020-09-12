@@ -2,7 +2,7 @@
 {
     Properties
     {
-        [KeywordEnum(ObjectPosition, WorldPosition, ScreenPosition, ClipPosition, Normal, UV, CameraDistance)] _colorType("Get color from:", Float) = 0
+        [KeywordEnum(ObjectPosition, WorldPosition, ScreenPosition, ClipPosition, Normal, UV, VertexColor, CameraDistance)] _colorType("Get color from:", Float) = 0
         _DistanceFactor ("DistanceFactor", Float) = 20 // DistanceFactor defines how far an object has to be to have distance 1
     }
     
@@ -34,6 +34,8 @@
                 float4 vertex : POSITION;
 				float4 texCoord : TEXCOORD0;
 				float4 normal : NORMAL;
+                
+                float4 color : COLOR;
             };
             
             struct vertexOutput
@@ -46,6 +48,8 @@
 				float4 clipPosition: SV_POSITION;
 				
 				float4 texCoord : TEXCOORD0;
+                
+                float4 color : COLOR;
 			};
 	
 	        struct fragmentOutput
@@ -55,9 +59,6 @@
 	        
 	        vertexOutput vertex(VertexInput vInput)
 	        {
-	            // Apply scaling and offset
-	            vInput.texCoord.xy = vInput.texCoord.xy;// * _MainTex_ST.xy + _MainTex_ST.zw;
-	        
 	            vertexOutput vOutput;
 	         
 	            vOutput.objectPosition = vInput.vertex;
@@ -66,8 +67,8 @@
 	            vOutput.clipPosition = mul(UNITY_MATRIX_P, vOutput.screenPosition); // Will be converted to NDC before fragment shader
 	            
 	            vOutput.normal = vInput.normal;
-	            
 	            vOutput.texCoord = vInput.texCoord;
+                vOutput.color = vInput.color;
 	         
 	            return vOutput;  
 	        }
@@ -98,13 +99,16 @@
 	                case 5: // uv
 	                    fOutput.color = fInput.texCoord;
 	                    break;
-	                case 6: // cameraDistance
-	                    float distance = fInput.screenPosition.z; // distance = [0, -1] so -distance = [0, 1]
-	                    float modifiedDistance = 1 - saturate(-distance / _DistanceFactor);
+                    case 6: // vertexColour
+                        fOutput.color = fInput.color;
+	                    break;
+	                case 7: // cameraDistance
+	                    float distance = fInput.screenPosition.z; // distance = [-∞, 0] so -distance = [0, ∞]
+	                    float modifiedDistance = 1 - saturate(-distance / _DistanceFactor); // Saturate clamps to [0, 1] range
 	                    fOutput.color = float4(modifiedDistance, modifiedDistance, modifiedDistance, 1);
 	                    break;
 	                default:
-	                    fOutput.color = float4(1, 0, 1, 1);
+	                    fOutput.color = float4(1, 0, 1, 1); // Just magenta, to signify something is wrong
 	                    break;
 	            }
 	            
