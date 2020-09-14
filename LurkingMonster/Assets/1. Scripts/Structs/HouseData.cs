@@ -6,13 +6,16 @@ namespace Structs
     {
         private float rent;
         private int weight;
+        private int price;
+
         private SoilType soilType;
         private FoundationType foundation;
         
-        public HouseData(float rent, int weight, SoilType soilType, FoundationType foundation)
+        public HouseData(float rent, int weight, int price, SoilType soilType, FoundationType foundation)
         {
             this.rent       = rent;
             this.weight     = weight;
+            this.price      = price;
             this.soilType   = soilType;
             this.foundation = foundation;
         }
@@ -40,6 +43,12 @@ namespace Structs
         {
             get => foundation;
             set => foundation = value;
+        }
+        
+        public int Price
+        {
+            get => price;
+            set => price = value;
         }
     }
 }

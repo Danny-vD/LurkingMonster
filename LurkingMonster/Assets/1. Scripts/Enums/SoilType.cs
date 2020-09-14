@@ -1,12 +1,12 @@
-﻿namespace  Enums
+﻿namespace Enums
 {
     public enum SoilType
     {
-        veen,
-        zand,
-        lichte_zavel,
-        zware_zavel,
-        lichte_klei,
-        zwarte_klei
+        Veen,
+        Zand,
+        Lichte_Zavel,
+        Zware_Zavel,
+        Lichte_klei,
+        Zwarte_klei
     }
 }
