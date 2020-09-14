@@ -395,19 +395,21 @@ namespace Utility
 		/// <summary>
 		/// A simplified way to create a dropdown menu of any enum type
 		/// </summary>
-		public static void EnumPopup<TEnum>(ref TEnum enumValue, string label)
+		public static int EnumPopup<TEnum>(ref TEnum enumValue, string label)
 			where TEnum : struct, Enum
 		{
 			Enum.TryParse(EditorGUILayout.EnumPopup(label, enumValue).ToString(), out enumValue);
+			return enumValue.ConvertTo<int>();
 		}
 		
 		/// <summary>
 		/// A simplified way to create a dropdown menu of any enum type
 		/// </summary>
-		public static void EnumPopup<TEnum>(ref TEnum enumValue, GUIContent guiContent)
+		public static int EnumPopup<TEnum>(ref TEnum enumValue, GUIContent guiContent)
 			where TEnum : struct, Enum
 		{
 			Enum.TryParse(EditorGUILayout.EnumPopup(guiContent, enumValue).ToString(), out enumValue);
+			return enumValue.ConvertTo<int>();
 		}
 
 		/// <summary>
@@ -458,7 +460,33 @@ namespace Utility
 			EditorGUIUtility.labelWidth = oldLabelWidth;
 			return newValue;
 		}
+
+		/// <summary>
+		/// Draws a selectable label that takes up only the minimum space
+		/// </summary>
+		public static void FlexibleSelectableLabel(string label)
+		{
+			float oldLabelWidth = EditorGUIUtility.labelWidth;
+			EditorGUIUtility.labelWidth = GetLabelWidth(label);
+
+			EditorGUILayout.SelectableLabel(label);
+
+			EditorGUIUtility.labelWidth = oldLabelWidth;
+		}
 		
+		/// <summary>
+		/// Draws a LabelField that takes up only the minimum space
+		/// </summary>
+		public static void FlexibleLabel(string label)
+		{
+			float oldLabelWidth = EditorGUIUtility.labelWidth;
+			EditorGUIUtility.labelWidth = GetLabelWidth(label);
+
+			EditorGUILayout.LabelField(label);
+
+			EditorGUIUtility.labelWidth = oldLabelWidth;
+		}
+
 		/// <summary>
 		/// 15 pixels per indent + 11 pixels per letter
 		/// </summary>

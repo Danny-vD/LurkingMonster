@@ -23,11 +23,6 @@ namespace Gameplay
         [SerializeField]
         private List<HouseDataPerHouseType> houseData = new List<HouseDataPerHouseType>();
 
-		private void Start()
-		{
-			Spawn(HouseType.Normal);
-		}
-
 		public void Spawn(HouseType type)
         {
             GameObject prefab = houses.First(pair => pair.Key.Equals(type)).Value;
