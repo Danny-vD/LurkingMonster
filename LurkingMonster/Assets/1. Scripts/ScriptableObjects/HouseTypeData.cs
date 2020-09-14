@@ -1,31 +1,23 @@
-﻿using UnityEngine;
+﻿using Structs;
+using UnityEngine;
 
 namespace ScriptableObjects
 {
+    [CreateAssetMenu(menuName = "HouseType Data")]
     public class HouseTypeData : ScriptableObject
     {
-        /**
-         *[serializeField]
-         * private SoilType soilType;
-         *
-         * [serializeField]
-         * private Foundation foundation;
-         *
-         * [serializeField]
-         * private float rent;
-         *
-         * etc....
-         *
-         *
-         * public HouseData GetStruct()
-         * {
-         *    return new HouseData(soilType, foundation, rent...);
-         * }
-         /**/
+        [SerializeField]
+        private float rent = 10;
 
-        public void GetStruct()
+        [SerializeField]
+        private int weight = 100;
+
+        [SerializeField]
+        private int price = 10;
+
+        public HouseData GetStruct()
         {
-            
+            return new HouseData(rent, weight, price, default, default);
         }
     }
 }

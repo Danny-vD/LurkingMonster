@@ -1,5 +1,4 @@
-﻿using System;
-using Enums;
+﻿using Enums;
 using Gameplay;
 using UnityEditor;
 using UnityEngine;
@@ -7,61 +6,65 @@ using static Utility.EditorUtils;
 
 namespace CustomInspector
 {
-    [CustomEditor(typeof(HouseSpawner))]
-    public class HouseSpawnerEditor : Editor
-    {
-        //////////////////////////////////////////////////
-        /// Variables
-        private HouseSpawner houseSpawner;
+	[CustomEditor(typeof(HouseSpawner))]
+	public class HouseSpawnerEditor : Editor
+	{
+		//////////////////////////////////////////////////
+		private HouseSpawner houseSpawner;
 
-        private bool[] prefabPerHouseTypeFoldout;
-        private bool[] houseDataPerHouseTypeFoldout;
+		private bool[] prefabPerHouseTypeFoldout;
+		private bool[] houseDataPerHouseTypeFoldout;
 
-        private bool prefabsFoldout;
-        private bool houseDataFoldout;
+		private bool prefabsFoldout;
+		private bool houseDataFoldout;
 
-        //////////////////////////////////////////////////
-        /// SerializedProperties
-        private SerializedProperty spawnType;
+		//////////////////////////////////////////////////
+		private SerializedProperty foundation;
+		private SerializedProperty soilType;
+		
+		private SerializedProperty houses;
+		private SerializedProperty houseData;
 
-        private SerializedProperty houses;
+		private void OnEnable()
+		{
+			houseSpawner = target as HouseSpawner;
 
-        private SerializedProperty houseData;
+			houseSpawner.PopulateDictionaries();
 
-        private void OnEnable()
-        {
-            houseSpawner = target as HouseSpawner;
+			foundation = serializedObject.FindProperty("foundation");
+			soilType   = serializedObject.FindProperty("soilType");
 
-            houseSpawner.PopulateDictionaries();
+			houses    = serializedObject.FindProperty("houses");
+			houseData = serializedObject.FindProperty("houseData");
 
-            spawnType = serializedObject.FindProperty("spawnType");
-            
-            houses    = serializedObject.FindProperty("houses");
-            houseData = serializedObject.FindProperty("houseData");
+			prefabPerHouseTypeFoldout    = new bool[houses.arraySize];
+			houseDataPerHouseTypeFoldout = new bool[houseData.arraySize];
+		}
 
-            prefabPerHouseTypeFoldout    = new bool[houses.arraySize];
-            houseDataPerHouseTypeFoldout = new bool[houseData.arraySize];
-        }
+		public override void OnInspectorGUI()
+		{
+			serializedObject.Update();
 
-        public override void OnInspectorGUI()
-        {
-            serializedObject.Update();
+			EditorGUILayout.PropertyField(foundation);
+			EditorGUILayout.PropertyField(soilType);
+			
+			EditorGUILayout.Space();
+			DrawSeperatorLine();
+			EditorGUILayout.Space();
+			
+			if (IsFoldOut(ref prefabsFoldout, "House prefabs"))
+			{
+				DrawFoldoutKeyValueArray<HouseType>(houses, "houseType", "prefab", prefabPerHouseTypeFoldout,
+					new GUIContent("Prefab"));
+			}
 
-            EditorGUILayout.PropertyField(spawnType);
-            
-            if (IsFoldOut(ref prefabsFoldout, "House prefabs"))
-            {
-                DrawFoldoutKeyValueArray<HouseType>(houses, "houseType", "prefab", prefabPerHouseTypeFoldout,
-                    new GUIContent("Prefab"));
-            }
+			if (IsFoldOut(ref houseDataFoldout, "House Data"))
+			{
+				DrawFoldoutKeyValueArray<HouseType>(houseData, "houseType", "houseTypeData",
+					houseDataPerHouseTypeFoldout, new GUIContent("HouseType Data"));
+			}
 
-            if (IsFoldOut(ref houseDataFoldout, "House Data"))
-            {
-                DrawFoldoutKeyValueArray<HouseType>(houseData, "houseType", "houseTypeData",
-                    houseDataPerHouseTypeFoldout, new GUIContent("HouseType Data"));
-            }
-
-            serializedObject.ApplyModifiedProperties();
-        }
-    }
+			serializedObject.ApplyModifiedProperties();
+		}
+	}
 }

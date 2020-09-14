@@ -35,6 +35,9 @@ resharper_braces_redundant=false
 resharper_constructor_or_destructor_body=expression_body
 resharper_csharp_alignment_tab_fill_style=optimal_fill
 resharper_csharp_blank_lines_around_single_line_invocable=1
+resharper_csharp_indent_style=tab
+resharper_csharp_keep_blank_lines_in_code=1
+resharper_csharp_keep_blank_lines_in_declarations=1
 resharper_enforce_line_ending_style=true
 resharper_indent_nested_fixed_stmt=true
 resharper_indent_nested_foreach_stmt=true
@@ -114,4 +117,9 @@ indent_size=2
 [*.{appxmanifest,asax,ascx,aspx,build,cs,cshtml,dtd,master,nuspec,razor,resw,resx,skin,vb,xaml,xamlx,xoml,xsd}]
 indent_style=space
 indent_size=4
+tab_width=4
+
+[*.cs]
+indent_style=tab
+indent_size=tab
 tab_width=4
