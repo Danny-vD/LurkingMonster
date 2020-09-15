@@ -6,68 +6,90 @@ using Structs.Grid;
 using UnityEngine;
 using VDFramework;
 using VDFramework.Extensions;
+using VDFramework.UnityExtensions;
 using VDFramework.Utility;
 
 namespace Grid
 {
-	[RequireComponent(typeof(GridData))]
 	public class GridCreator : BetterMonoBehaviour
 	{
-		private GridData gridData;
-		
 		[SerializeField]
 		private List<PrefabsPerTileType> prefabsPerTileTypes = new List<PrefabsPerTileType>();
 
-		private AbstractTile[,] grid;
-		
-		private void Awake()
+		public AbstractTile[,] GenerateGrid()
 		{
-			gridData = GetComponent<GridData>();
-			grid = new AbstractTile[gridData.GridSize.y, gridData.GridSize.x];
+			GridData data = GetComponent<GridData>();
+
+			return data ? GenerateGrid(data, data.CachedTransform) : new AbstractTile[0, 0];
 		}
 
-		private void Start()
+		public AbstractTile[,] GenerateGrid(GridData data, Transform parent)
 		{
-			GenerateGrid();
-		}
+			DestroyChildren();
 
-		public void GenerateGrid()
-		{
-			List<TileTypePerPosition> tileData = gridData.TileData; 
+			AbstractTile[,] grid = new AbstractTile[data.GridSize.y, data.GridSize.x];
+
+			List<TileTypePerPosition> tileData = data.TileData;
 			int length = tileData.Count;
-			
+
 			for (int i = 0; i < length; i++)
 			{
 				TileTypePerPosition tileDatum = tileData[i];
-				Vector2Int position = tileDatum.Key;
+				Vector2Int gridPosition = tileDatum.Key;
 
-				grid[position.y, position.x] = InstantiateTile(tileDatum.Value, position);
+				grid[gridPosition.y, gridPosition.x] = InstantiateTile(data, parent, tileDatum.Value, gridPosition);
 			}
+
+			return grid;
 		}
 
-		private AbstractTile InstantiateTile(TileType type, Vector2Int gridPosition)
+		private AbstractTile InstantiateTile(GridData data, Transform parent, TileType type, Vector2Int gridPosition)
 		{
 			GameObject prefab = prefabsPerTileTypes.First(pair => pair.Key.Equals(type)).Value.GetRandomItem();
 
-			GameObject instance = Instantiate(prefab, CalculatePosition(gridPosition), CachedTransform.rotation);
-			return instance.GetComponent<AbstractTile>();
+			GameObject instance = Instantiate(prefab, parent);
+			instance.transform.position += CalculatePosition(data, parent, gridPosition);
+
+			AbstractTile tile = instance.GetComponent<AbstractTile>();
+			tile.Instantiate(gridPosition);
+			
+			return tile;
 		}
 
-		private Vector3 CalculatePosition(Vector2Int gridPosition)
+		private static Vector3 CalculatePosition(GridData data, Transform parent, Vector2Int gridPosition)
 		{
-			Vector3 position = CachedTransform.position;
-			
-			float deltaX = gridPosition.x * gridData.TileSize.x + gridPosition.x * gridData.TileSpacing.x;
-			float deltaZ = gridPosition.y * gridData.TileSize.y + gridPosition.y * gridData.TileSpacing.y;
+			Vector3 position = Vector3.zero;
 
-			position.x += deltaX;
-			position.z += deltaZ;
+			float deltaX = gridPosition.x * data.TileSize.x + gridPosition.x * data.TileSpacing.x;
+			float deltaZ = gridPosition.y * data.TileSize.y + gridPosition.y * data.TileSpacing.y;
+
+			position += parent.right * deltaX;
+			position += parent.forward * deltaZ;
 
 			return position;
 		}
-		
+
+		private void DestroyChildren()
+		{
 #if UNITY_EDITOR
-		[ContextMenu("PopulateDictionaries")]
+			if (!UnityEditor.EditorApplication.isPlaying)
+			{
+				DestroyChildrenImmediate();
+			}
+			else
+#endif
+				CachedTransform.DestroyChildren();
+		}
+
+#if UNITY_EDITOR
+		private void DestroyChildrenImmediate()
+		{
+			for (int i = CachedTransform.childCount - 1; i > 0; --i)
+			{
+				DestroyImmediate(CachedTransform.GetChild(i).gameObject);
+			}
+		}
+		
 		public void PopulateDictionaries()
 		{
 			EnumDictionaryUtil.PopulateEnumDictionary<PrefabsPerTileType, TileType, List<GameObject>>(

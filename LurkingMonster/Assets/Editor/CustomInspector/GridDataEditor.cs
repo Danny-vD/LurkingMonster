@@ -2,7 +2,6 @@
 using Grid;
 using UnityEditor;
 using UnityEngine;
-using VDFramework;
 using static Utility.EditorUtils;
 
 namespace CustomInspector
@@ -10,8 +9,6 @@ namespace CustomInspector
 	[CustomEditor(typeof(GridData), true)]
 	public class GridDataEditor : Editor
 	{
-		private GridData gridData;
-
 		private static bool tileDataFoldout;
 
 		//////////////////////////////////////////////////
@@ -24,12 +21,10 @@ namespace CustomInspector
 
 		private void OnEnable()
 		{
-			gridData = target as GridData;
-
-			gridSize    = serializedObject.FindProperty("gridSize");
-			tileSize    = serializedObject.FindProperty("tileSize");
-			tileSpacing = serializedObject.FindProperty("tileSpacing");
-			tileData    = serializedObject.FindProperty("tileData");
+			gridSize    = serializedObject.FindProperty("GridSize");
+			tileSize    = serializedObject.FindProperty("TileSize");
+			tileSpacing = serializedObject.FindProperty("TileSpacing");
+			tileData    = serializedObject.FindProperty("TileData");
 		}
 
 		public override void OnInspectorGUI()
@@ -40,20 +35,16 @@ namespace CustomInspector
 			EditorGUILayout.PropertyField(tileSize);
 			EditorGUILayout.PropertyField(tileSpacing);
 
-			if (IsFoldOut(ref tileDataFoldout, "Tile Data"))
-			{
-				++EditorGUI.indentLevel;
-
-				DrawTileData();
-
-				--EditorGUI.indentLevel;
-			}
+			DrawTileData();
 
 			serializedObject.ApplyModifiedProperties();
 		}
 
 		private void DrawTileData()
 		{
+			IsFoldOut(ref tileDataFoldout, "Tile Data"); // Shows the foldout label, but ignore boolean for now
+			++EditorGUI.indentLevel;
+
 			Vector2Int dimensions = gridSize.vector2IntValue;
 
 			tileData.arraySize = dimensions.x * dimensions.y;
@@ -68,14 +59,23 @@ namespace CustomInspector
 				int y = i / dimensions.x;
 
 				position.vector2IntValue = new Vector2Int(x, y);
-				
-				FlexibleLabel("{" + x + "," + y + "}");
+
+				if (tileDataFoldout)
+				{
+					FlexibleLabel("{" + x + "," + y + "}");
+				}
 
 				TileType type = ConvertIntToEnum<TileType>(tileType.enumValueIndex);
-				tileType.enumValueIndex = EnumPopup(ref type, "");
 
-				EditorGUILayout.Space();
+				if (tileDataFoldout)
+				{
+					tileType.enumValueIndex = EnumPopup(ref type, string.Empty);
+
+					EditorGUILayout.Space();
+				}
 			}
+
+			--EditorGUI.indentLevel;
 		}
 	}
 }

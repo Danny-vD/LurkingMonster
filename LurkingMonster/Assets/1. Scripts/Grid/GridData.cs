@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
+using Enums.Grid;
 using Structs.Grid;
 using UnityEngine;
 using VDFramework;
@@ -7,24 +9,30 @@ namespace Grid
 {
 	public class GridData : BetterMonoBehaviour
 	{
-		[SerializeField]
-		private Vector2Int gridSize = Vector2Int.one;
+		public Vector2Int GridSize = Vector2Int.one;
 
-		[SerializeField]
-		private Vector2 tileSize = Vector2.one;
+		public Vector2 TileSize = new Vector2(10, 10); // 10,10 is the default plane size
 
-		[SerializeField]
-		private Vector2 tileSpacing = Vector2.zero;
+		public Vector2 TileSpacing = Vector2.zero;
 		
-		[SerializeField]
-		private List<TileTypePerPosition> tileData = new List<TileTypePerPosition>();
+		public List<TileTypePerPosition> TileData = new List<TileTypePerPosition>();
 
-		public Vector2Int GridSize => gridSize;
-		public Vector2 TileSize => tileSize;
-		public Vector2 TileSpacing => tileSpacing;
-		
-		// Return a copy of the list
-		public List<TileTypePerPosition> TileData => new List<TileTypePerPosition>(tileData);
-		
+		public void ChangeTile(Vector2Int gridPosition, TileType newType)
+		{
+			int length = TileData.Count;
+			
+			for (int i = 0; i < length; i++)
+			{
+				TileTypePerPosition tileDatum = TileData[i];
+
+				if (tileDatum.Key.Equals(gridPosition))
+				{
+					tileDatum.Value = newType;
+
+					TileData[i] = tileDatum;
+					break;
+				}
+			}
+		}
 	}
 }

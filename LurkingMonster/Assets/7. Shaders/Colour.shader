@@ -2,17 +2,19 @@
 {
     Properties
     {
-        [KeywordEnum(ObjectPosition, WorldPosition, ScreenPosition, ClipPosition, Normal, UV, VertexColor, CameraDistance)] _colorType("Get color from:", Float) = 0
+        [KeywordEnum(ObjectPosition, WorldPosition, ScreenPosition, ClipPosition, Normal, UV, VertexColor, CameraDistance, Texture, ColorProperty)] _colorType("Get color from:", Float) = 0
+        
+        _Color("Tint", Color) = (.83, .13, .13, 1)
         _DistanceFactor ("DistanceFactor", Float) = 20 // DistanceFactor defines how far an object has to be to have distance 1
+        
+        _MainTex("Texture", 2D) = "black"
     }
     
     SubShader
     {
-        ZTest Less
-    
         Tags
         {
-            "Queue" = "Geometry"
+            "Queue" = "Transparent"
         }    
     
         Pass
@@ -27,6 +29,13 @@
         
 	        ///Variables
             float _colorType;
+            
+            float _DistanceFactor;
+            
+            sampler2D _MainTex;
+			float4 _MainTex_ST; //tiling(xy) and offset(zw)
+			
+			float4 _Color;
         
             ///Structs
             struct VertexInput
@@ -73,8 +82,6 @@
 	            return vOutput;  
 	        }
 	        
-	        float _DistanceFactor;
-	        
 	        fragmentOutput fragment(vertexOutput fInput)
 	        {
 	            fragmentOutput fOutput;
@@ -106,6 +113,12 @@
 	                    float distance = fInput.screenPosition.z; // distance = [-∞, 0] so -distance = [0, ∞]
 	                    float modifiedDistance = 1 - saturate(-distance / _DistanceFactor); // Saturate clamps to [0, 1] range
 	                    fOutput.color = float4(modifiedDistance, modifiedDistance, modifiedDistance, 1);
+	                    break;
+	                case 8: // texture
+	                    fOutput.color = tex2D(_MainTex, (fInput.texCoord.xy * _MainTex_ST.xy + _MainTex_ST.zw) % 1);
+	                    break;
+	                case 9: // color property
+	                    fOutput.color = _Color;
 	                    break;
 	                default:
 	                    fOutput.color = float4(1, 0, 1, 1); // Just magenta, to signify something is wrong
