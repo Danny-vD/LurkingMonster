@@ -1,54 +1,64 @@
-﻿using Enums;
+﻿using System;
+using Enums;
+using UnityEngine;
 
 namespace Structs
 {
-    public struct HouseData
-    {
-        private float rent;
-        private int weight;
-        private int price;
+	[Serializable]
+	public struct HouseData
+	{
+		[SerializeField]
+		private float rent;
 
-        private SoilType soilType;
-        private FoundationType foundation;
-        
-        public HouseData(float rent, int weight, int price, SoilType soilType, FoundationType foundation)
-        {
-            this.rent       = rent;
-            this.weight     = weight;
-            this.price      = price;
-            this.soilType   = soilType;
-            this.foundation = foundation;
-        }
+		[SerializeField]
+		private int weight;
 
+		[SerializeField]
+		private int price;
 
-        public float Rent
-        {
-            get => rent;
-            set => rent = value;
-        }
-        
-        public int Weight
-        {
-            get => weight;
-            set => weight = value;
-        }
+		[SerializeField]
+		private SoilType soilType;
 
-        public SoilType SoilType
-        {
-            get => soilType;
-            set => soilType = value;
-        }
+		[SerializeField]
+		private FoundationType foundation;
 
-        public FoundationType Foundation
-        {
-            get => foundation;
-            set => foundation = value;
-        }
-        
-        public int Price
-        {
-            get => price;
-            set => price = value;
-        }
-    }
+		public HouseData(float rent, int weight, int price, SoilType soilType, FoundationType foundation)
+		{
+			this.rent       = rent;
+			this.weight     = weight;
+			this.price      = price;
+			this.soilType   = soilType;
+			this.foundation = foundation;
+		}
+
+		public float Rent
+		{
+			get => rent;
+			set => rent = value;
+		}
+
+		public int Weight
+		{
+			get => weight;
+			set => weight = value;
+		}
+
+		public SoilType SoilType
+		{
+			get => soilType;
+			set => soilType = value;
+		}
+
+		public FoundationType Foundation
+		{
+			get => foundation;
+			set => foundation = value;
+		}
+
+		public int Price
+		{
+			get => price;
+			set => price = value;
+		}
+	}
 }

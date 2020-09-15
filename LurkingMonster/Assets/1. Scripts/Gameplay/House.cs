@@ -1,16 +1,15 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using Enums;
-using Structs;
-using UnityEngine;
+﻿using Structs;
 using VDFramework;
 
-public class House : BetterMonoBehaviour
+namespace Gameplay
 {
-    private HouseData data;
-    
-    public void Instantiate(HouseData data)
+    public class House : BetterMonoBehaviour
     {
-        this.data = data;
+        private HouseData data;
+    
+        public void Instantiate(HouseData houseData)
+        {
+            data = houseData;
+        }
     }
 }
