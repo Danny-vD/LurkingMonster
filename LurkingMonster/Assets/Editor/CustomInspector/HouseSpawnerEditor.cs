@@ -9,7 +9,6 @@ namespace CustomInspector
 	[CustomEditor(typeof(HouseSpawner))]
 	public class HouseSpawnerEditor : Editor
 	{
-		//////////////////////////////////////////////////
 		private HouseSpawner houseSpawner;
 
 		private bool[] prefabPerHouseTypeFoldout;
@@ -61,7 +60,7 @@ namespace CustomInspector
 			if (IsFoldOut(ref houseDataFoldout, "House Data"))
 			{
 				DrawFoldoutKeyValueArray<HouseType>(houseData, "houseType", "houseTypeData",
-					houseDataPerHouseTypeFoldout, new GUIContent("HouseType Data"));
+					houseDataPerHouseTypeFoldout, new GUIContent("Data"));
 			}
 
 			serializedObject.ApplyModifiedProperties();
