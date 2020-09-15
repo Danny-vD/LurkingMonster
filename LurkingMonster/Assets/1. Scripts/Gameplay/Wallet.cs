@@ -1,35 +1,35 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using Events;
 using UnityEngine.UI;
 using VDFramework;
 using VDFramework.EventSystem;
 
-public class Wallet : BetterMonoBehaviour
+namespace Gameplay
 {
-	private Text txtWallet;
-	private float currentMoney;
-	private void Awake()
+	public class Wallet : BetterMonoBehaviour
 	{
-		txtWallet = GetComponent<Text>();
-		RentListener();
-	}
+		private Text txtWallet;
+		private float currentMoney;
 
-	private void RentListener()
-	{
-		EventManager.Instance.AddListener<CollectRentEvent>(OnCollectRent);
-	}
+		private void Awake()
+		{
+			txtWallet = GetComponent<Text>();
+			AddRentListener();
+		}
 
-	private void OnCollectRent(CollectRentEvent collectRentEvent)
-	{
-		IncreaseMoney(collectRentEvent.rent);
-	}
-        
-	private void IncreaseMoney(float increaseAmount)
-	{
-		currentMoney   += increaseAmount;
-		txtWallet.text =  "Money : " + currentMoney;
-		print(currentMoney);
+		private void AddRentListener()
+		{
+			EventManager.Instance.AddListener<CollectRentEvent>(OnCollectRent);
+		}
+
+		private void OnCollectRent(CollectRentEvent collectRentEvent)
+		{
+			IncreaseMoney(collectRentEvent.Rent);
+		}
+
+		private void IncreaseMoney(float increaseAmount)
+		{
+			currentMoney   += increaseAmount;
+			txtWallet.text =  "Money : " + currentMoney;
+		}
 	}
 }

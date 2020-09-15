@@ -1,11 +1,14 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using VDFramework.EventSystem;
+﻿using VDFramework.EventSystem;
 
-public class CollectRentEvent : VDEvent
+namespace Events
 {
-	public float rent;
+	public class CollectRentEvent : VDEvent
+	{
+		public readonly float Rent;
 
-	public CollectRentEvent(float rent) => this.rent = rent;
+		public CollectRentEvent(float rent)
+		{
+			Rent = rent;
+		}
+	}
 }

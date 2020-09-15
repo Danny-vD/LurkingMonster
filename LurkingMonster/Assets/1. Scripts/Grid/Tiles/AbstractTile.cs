@@ -18,10 +18,5 @@ namespace Grid.Tiles
 		{
 			gridPosition = position;
 		}
-
-		protected void Awake()
-		{
-			print("Yes!");
-		}
 	}
 }
