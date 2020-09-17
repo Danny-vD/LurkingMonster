@@ -12,11 +12,11 @@ namespace Grid.Tiles
 		
 		public abstract TileType TileType { get; }
 
-		private Vector2Int gridPosition;
+		public Vector2Int GridPosition;
 
 		public void Instantiate(Vector2Int position)
 		{
-			gridPosition = position;
+			GridPosition = position;
 		}
 	}
 }

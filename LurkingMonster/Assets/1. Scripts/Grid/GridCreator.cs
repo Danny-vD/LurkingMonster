@@ -84,7 +84,7 @@ namespace Grid
 #if UNITY_EDITOR
 		private void DestroyChildrenImmediate()
 		{
-			for (int i = CachedTransform.childCount - 1; i > 0; --i)
+			for (int i = CachedTransform.childCount - 1; i >= 0; --i)
 			{
 				DestroyImmediate(CachedTransform.GetChild(i).gameObject);
 			}

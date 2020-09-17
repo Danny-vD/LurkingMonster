@@ -3,17 +3,16 @@ using Grid;
 using Structs.Grid;
 using UnityEditor;
 using UnityEngine;
-using VDFramework.EventSystem;
 using static Utility.EditorUtils;
 
 namespace CustomWindow
 {
-	public class LevelEditorWindow : EditorWindow
+	public class GridEditorWindow : EditorWindow
 	{
 		[MenuItem("Level Editor/Level Editor")]
 		public static void ShowWindow()
 		{
-			GetWindow<LevelEditorWindow>("Level Editor");
+			GetWindow<GridEditorWindow>("Level Editor");
 		}
 
 		private static Vector2 scroll;
@@ -35,10 +34,7 @@ namespace CustomWindow
 
 			DrawGridProperties();
 
-			if (EditorApplication.isPlaying)
-			{
-				DrawGenerateButton();
-			}
+			DrawGenerateButton();
 
 			scroll = EditorGUILayout.BeginScrollView(scroll, true, true);
 			{
@@ -117,7 +113,7 @@ namespace CustomWindow
 
 				gridData.TileData[i] = tileDatum;
 			}
-			
+
 			EditorGUILayout.EndHorizontal();
 		}
 
