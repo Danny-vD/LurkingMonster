@@ -1,5 +1,7 @@
-﻿using UnityEngine.SceneManagement;
+﻿using Events;
+using UnityEngine.SceneManagement;
 using VDFramework;
+using VDFramework.EventSystem;
 
 namespace UI
 {
@@ -23,5 +25,5 @@ namespace UI
         {
             SceneManager.LoadScene(buildIndex);
         }
-    }
+	}
 }

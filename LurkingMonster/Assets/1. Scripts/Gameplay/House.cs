@@ -2,6 +2,7 @@
 using System.Collections;
 using Events;
 using Structs;
+using UI;
 using UnityEngine;
 using UnityEngine.UI;
 using VDFramework;
@@ -11,23 +12,35 @@ namespace Gameplay
 {
 	public class House : BetterMonoBehaviour
 	{
-		private HouseData data;
 		public float waitTimeUntilRent = 5.0f;
 		public float timer = 0.0f;
 
+		private HouseData data;
+		private GameObject popup;
+		
 		public void Instantiate(HouseData houseData)
 		{
 			data = houseData;
+			GetComponentInChildren<ButtonCollectRent>().Rent = data.Rent;
+		}
+
+		public void Awake()
+		{
+			popup = CachedTransform.GetChild(0).gameObject;
+			popup.SetActive(false);
 		}
 
 		public void Update()
 		{
-			timer += Time.deltaTime;
-
-			if (timer > waitTimeUntilRent)
+			if (!popup.activeInHierarchy)
 			{
-				EventManager.Instance.RaiseEvent(new CollectRentEvent(15));
-				timer = 0.0f;
+				timer += Time.deltaTime;
+
+				if (timer > waitTimeUntilRent)
+				{
+					popup.SetActive(true);
+					timer = 0.0f;
+				}
 			}
 		}
 	}
