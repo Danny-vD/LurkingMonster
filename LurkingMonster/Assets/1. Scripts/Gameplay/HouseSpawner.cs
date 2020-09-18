@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Enums;
 using ScriptableObjects;
@@ -22,6 +23,11 @@ namespace Gameplay
 
         [SerializeField]
         private List<HouseDataPerHouseType> houseData = new List<HouseDataPerHouseType>();
+
+		public void Start()
+		{
+			Spawn(HouseType.Normal);
+		}
 
 		public void Spawn(HouseType type)
         {

@@ -12,16 +12,17 @@ namespace Gameplay
 {
 	public class House : BetterMonoBehaviour
 	{
-		public float waitTimeUntilRent = 5.0f;
-		public float timer = 0.0f;
+		public float WaitTimeUntilRent = 5.0f;
+		public float Timer = 0.0f;
 
 		private HouseData data;
 		private GameObject popup;
-		
+
 		public void Instantiate(HouseData houseData)
 		{
-			data = houseData;
-			GetComponentInChildren<ButtonCollectRent>().Rent = data.Rent;
+			data                                             = houseData;
+			ButtonCollectRent buttonCollectRent = transform.Find("Canvas").GetComponentInChildren<ButtonCollectRent>();
+			buttonCollectRent.Rent = data.Rent;
 		}
 
 		public void Awake()
@@ -32,16 +33,23 @@ namespace Gameplay
 
 		public void Update()
 		{
+			//Rent button not active
 			if (!popup.activeInHierarchy)
 			{
-				timer += Time.deltaTime;
+				Timer += Time.deltaTime;
 
-				if (timer > waitTimeUntilRent)
+				if (Timer > WaitTimeUntilRent)
 				{
 					popup.SetActive(true);
-					timer = 0.0f;
+					Timer = 0.0f;
 				}
 			}
+		}
+
+		public HouseData Data
+		{
+			get => data;
+			set => data = value;
 		}
 	}
 }
