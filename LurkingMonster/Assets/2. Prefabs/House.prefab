@@ -281,7 +281,7 @@ GameObject:
   - component: {fileID: 6758913166034969598}
   - component: {fileID: 6758913166034969599}
   - component: {fileID: 6758913166034969595}
-  - component: {fileID: 1489648843}
+  - component: {fileID: 9065348212960834744}
   m_Layer: 0
   m_Name: House
   m_TagString: Untagged
@@ -380,7 +380,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WaitTimeUntilRent: 5
   Timer: 0
---- !u!114 &1489648843
+--- !u!114 &9065348212960834744
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
