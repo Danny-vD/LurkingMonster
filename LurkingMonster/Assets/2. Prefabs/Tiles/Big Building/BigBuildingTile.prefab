@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8960745232867538985}
   - component: {fileID: 8960745232867538997}
   m_Layer: 0
-  m_Name: GrassTile
+  m_Name: BigBuildingTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6a6dfadce43df2f4d8c1c7af259d9937, type: 2}
+  - {fileID: 2100000, guid: 255977f06d364594d98ddb0e6f14b676, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

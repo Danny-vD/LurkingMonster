@@ -11,31 +11,35 @@ namespace CustomInspector.Grid
 	public class GridModifierEditor : Editor
 	{
 		private GridModifier gridModifier;
-		private static bool regenerateGrid;
-		
+		private static bool regenerateGrid = true;
+
+		private bool showSelectedFoldout;
+
 		//////////////////////////////////////////////////
-		
+
 		private SerializedProperty selectedPositions;
 		private SerializedProperty newType;
-		
+
 		private void OnEnable()
 		{
 			gridModifier = target as GridModifier;
 
 			selectedPositions = serializedObject.FindProperty("selectedPositions");
-			newType = serializedObject.FindProperty("newType");
+			newType           = serializedObject.FindProperty("newType");
 		}
 
 		public override void OnInspectorGUI()
 		{
 			serializedObject.Update();
-			
+
 			GetAllSelectedTiles();
 
 			DrawNewType();
 
 			DrawModifyTilesButton();
-			
+
+			DrawSelectedPositions();
+
 			serializedObject.ApplyModifiedProperties();
 		}
 
@@ -62,10 +66,25 @@ namespace CustomInspector.Grid
 		private void DrawModifyTilesButton()
 		{
 			regenerateGrid = EditorGUILayout.Toggle("Regenerate Grid", regenerateGrid);
-			
+
 			if (!GUILayout.Button("Modify tiles", EditorStyles.toolbarButton)) return;
-			
+
 			gridModifier.ModifyTiles(regenerateGrid);
+		}
+
+		private void DrawSelectedPositions()
+		{
+			int length = selectedPositions.arraySize;
+
+			if (IsFoldOut(ref showSelectedFoldout, $"Selected Positions    [{length}]"))
+			{
+				for (int i = 0; i < length; i++)
+				{
+					SerializedProperty gridPosition = selectedPositions.GetArrayElementAtIndex(i); // Vector2Int
+
+					EditorGUILayout.LabelField(gridPosition.vector2IntValue.ToString());
+				}
+			}
 		}
 	}
 }

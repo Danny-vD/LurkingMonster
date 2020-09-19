@@ -1,4 +1,7 @@
-﻿using Enums.Grid;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using Enums.Grid;
 using Grid;
 using Structs.Grid;
 using UnityEditor;
@@ -15,6 +18,8 @@ namespace CustomWindow
 			GetWindow<GridEditorWindow>("Level Editor");
 		}
 
+		private Comparison<TileTypePerPosition> tileDataComparer;
+
 		private static Vector2 scroll;
 
 		private GridData gridData;
@@ -22,6 +27,8 @@ namespace CustomWindow
 		private void OnEnable()
 		{
 			gridData = FindObjectOfType<GridData>();
+
+			tileDataComparer = TileDataComparer;
 		}
 
 		private void OnGUI()
@@ -97,6 +104,9 @@ namespace CustomWindow
 			// position.width = window width
 			float maxWidth = Mathf.Max(80, CalculateMaxItemSizeForLimit(gridData.GridSize.x, position.width));
 
+			List<TileTypePerPosition> tileData = new List<TileTypePerPosition>(gridData.TileData);
+			tileData.Sort(tileDataComparer);
+
 			for (int i = 0; i < length; i++)
 			{
 				if (i % gridData.GridSize.x == 0)
@@ -106,12 +116,15 @@ namespace CustomWindow
 					EditorGUILayout.BeginHorizontal();
 				}
 
-				TileTypePerPosition tileDatum = gridData.TileData[i];
+				TileTypePerPosition tileDatum = tileData[i];
 				TileType tileType = tileDatum.Value;
 
 				tileDatum.Value = (TileType) EditorGUILayout.EnumPopup(tileType, GUILayout.MaxWidth(maxWidth));
 
-				gridData.TileData[i] = tileDatum;
+				// The original is not sorted, so we need to find the respective index
+				int index = gridData.TileData.IndexOf(gridData.TileData.First(datum => datum.Key.Equals(tileDatum.Key)));
+				
+				gridData.TileData[index] = tileDatum;
 			}
 
 			EditorGUILayout.EndHorizontal();
@@ -120,6 +133,31 @@ namespace CustomWindow
 		private static float CalculateMaxItemSizeForLimit(int amountOfItems, float limit)
 		{
 			return limit / amountOfItems;
+		}
+
+		private static int TileDataComparer(TileTypePerPosition me, TileTypePerPosition other)
+		{
+			if (me.Key.Equals(other.Key))
+			{
+				return 0;
+			}
+
+			if (me.Key.y > other.Key.y)
+			{
+				return -1;
+			}
+
+			if (me.Key.y < other.Key.y)
+			{
+				return 1;
+			}
+
+			if (me.Key.x < other.Key.x)
+			{
+				return -1;
+			}
+
+			return 1;
 		}
 	}
 }
