@@ -6,11 +6,11 @@ namespace UI
 {
 	public class ButtonCollectRent : BetterMonoBehaviour
 	{
-		public float Rent { get; set; }
+		public int Rent { get; set; }
 
 		public void CollectRent()
 		{
-			EventManager.Instance.RaiseEvent(new CollectRentEvent(15));
+			EventManager.Instance.RaiseEvent(new CollectRentEvent(Rent));
 		}
 	}
 }

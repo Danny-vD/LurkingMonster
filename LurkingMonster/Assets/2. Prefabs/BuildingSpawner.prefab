@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5718644325636833784}
   - component: {fileID: 5718644325636833785}
   m_Layer: 0
-  m_Name: HouseSpawner
+  m_Name: BuildingSpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -43,15 +43,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2354ca8db87c4d7cb2d39d6945e99377, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  foundation: 6
-  soilType: 3
-  houses:
-  - houseType: 0
+  buildings:
+  - buildingType: 0
     prefab: {fileID: 6758913166034969596, guid: 3a07d0b780df67844a24d52cd795bb3c, type: 3}
-  - houseType: 1
+  - buildingType: 1
     prefab: {fileID: 6758913166034969596, guid: 3a07d0b780df67844a24d52cd795bb3c, type: 3}
-  houseData:
-  - houseType: 0
-    houseTypeData: {fileID: 11400000, guid: c8036bf4d1df6264ab54128c2b0f20d3, type: 2}
-  - houseType: 1
-    houseTypeData: {fileID: 11400000, guid: 489afc91050081d48be9af72280cefe6, type: 2}
+  - buildingType: 2
+    prefab: {fileID: 6758913166034969596, guid: 3a07d0b780df67844a24d52cd795bb3c, type: 3}
+  buildingData:
+  - buildingType: 0
+    buildingTypeData: {fileID: 11400000, guid: c8036bf4d1df6264ab54128c2b0f20d3, type: 2}
+  - buildingType: 1
+    buildingTypeData: {fileID: 11400000, guid: c8036bf4d1df6264ab54128c2b0f20d3, type: 2}
+  - buildingType: 2
+    buildingTypeData: {fileID: 11400000, guid: 489afc91050081d48be9af72280cefe6, type: 2}

@@ -5,10 +5,10 @@ using UnityEngine;
 namespace Structs
 {
 	[Serializable]
-	public struct HouseData
+	public struct BuildingData
 	{
 		[SerializeField]
-		private float rent;
+		private int rent;
 
 		[SerializeField]
 		private int weight;
@@ -16,13 +16,11 @@ namespace Structs
 		[SerializeField]
 		private int price;
 
-		[SerializeField]
+		// Don't serialize the enums because they are decided by the tile
 		private SoilType soilType;
-
-		[SerializeField]
 		private FoundationType foundation;
 
-		public HouseData(float rent, int weight, int price, SoilType soilType, FoundationType foundation)
+		public BuildingData(int rent, int weight, int price, SoilType soilType, FoundationType foundation)
 		{
 			this.rent       = rent;
 			this.weight     = weight;
@@ -31,7 +29,7 @@ namespace Structs
 			this.foundation = foundation;
 		}
 
-		public float Rent
+		public int Rent
 		{
 			get => rent;
 			set => rent = value;

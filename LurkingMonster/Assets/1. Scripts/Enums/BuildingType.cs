@@ -1,8 +1,9 @@
 ﻿namespace Enums
 {
-    public enum HouseType
+    public enum BuildingType
     {
-        Normal,
+        NormalHouse,
+		Store,
         ApartmentBuilding,
     }
 }

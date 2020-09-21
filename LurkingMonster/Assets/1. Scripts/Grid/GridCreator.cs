@@ -50,6 +50,8 @@ namespace Grid
 			GameObject instance = Instantiate(prefab, parent);
 			instance.transform.position += CalculatePosition(data, parent, gridPosition);
 
+			instance.name = $"{type.ToString()} {gridPosition.ToString()}";
+			
 			AbstractTile tile = instance.GetComponent<AbstractTile>();
 			tile.Instantiate(gridPosition);
 			
