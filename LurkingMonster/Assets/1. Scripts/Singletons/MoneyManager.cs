@@ -37,9 +37,9 @@ namespace Singletons
 			EventManager.Instance.RemoveListener<CollectRentEvent>(OnCollectRent);
 		}
 
-		public bool PlayerHasEnoughMoney(int money)
+		public bool PlayerHasEnoughMoney(int price)
 		{
-			return money <= CurrentMoney;
+			return price <= CurrentMoney;
 		}
 
 		private void ChangeMoney(int amount)

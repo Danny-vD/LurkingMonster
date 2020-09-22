@@ -31,7 +31,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3310586d1850126429bc167a6b8d501f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  patternType: 6
+  patternType: 7
   HorizontalMultiplier: 1.5
   VerticalMultiplier: 1.5
   HorizontalOffset: 0
@@ -50,7 +50,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3310586d1850126429bc167a6b8d501f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  patternType: 6
+  patternType: 7
   HorizontalMultiplier: 1.5
   VerticalMultiplier: 1.5
   HorizontalOffset: 0

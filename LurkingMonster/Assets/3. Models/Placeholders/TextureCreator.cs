@@ -251,7 +251,7 @@ namespace _3._Models.Placeholders
 							}
 							else
 							{
-								/** //second brick wall, bigger
+								/**/ //second brick wall, bigger
 								brickWidth = 0.8f;
 								brickHeight = 0.4f;
 								space = 0.03f;
@@ -302,7 +302,7 @@ namespace _3._Models.Placeholders
 								}
 								/**/
 
-								/**/ //uuuuh...... a gradient apparently
+								/** //uuuuh...... a gradient apparently
 								Vector3 col1 = ToHSV(color1);
 								Vector3 col2 = ToHSV(color2);
 

@@ -392,8 +392,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 092639f48eb45f34a9c437d6727611f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TimeForHouseToBreak: 5
-  Timer: 0
+  TimeForBuildingToBreak: 5
 --- !u!114 &882233895
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -408,8 +407,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   patternType: 7
   HorizontalMultiplier: 4
-  VerticalMultiplier: 1.5
+  VerticalMultiplier: 1
   HorizontalOffset: 0
   VerticalOffset: 0
-  color1: {r: 1, g: 0.689, b: 0, a: 0}
-  color2: {r: 1, g: 0, b: 1, a: 0}
+  color1: {r: 0.632, g: 0.04151543, b: 0, a: 0}
+  color2: {r: 0, g: 0, b: 0, a: 0}
