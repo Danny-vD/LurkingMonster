@@ -1,4 +1,5 @@
-﻿using Structs;
+﻿using Enums;
+using Structs;
 using UnityEngine;
 
 namespace Gameplay
@@ -32,6 +33,11 @@ namespace Gameplay
 				//print(Timer);
 				Timer = 0.0f;
 			}
+		}
+
+		public void CalculateTimeDestroyHouse()
+		{
+			
 		}
 	}
 }
