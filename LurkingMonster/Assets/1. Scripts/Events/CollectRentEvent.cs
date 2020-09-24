@@ -4,9 +4,9 @@ namespace Events
 {
 	public class CollectRentEvent : VDEvent
 	{
-		public readonly float Rent;
+		public readonly int Rent;
 
-		public CollectRentEvent(float rent)
+		public CollectRentEvent(int rent)
 		{
 			Rent = rent;
 		}

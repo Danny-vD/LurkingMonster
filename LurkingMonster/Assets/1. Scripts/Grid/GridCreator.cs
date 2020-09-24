@@ -50,6 +50,8 @@ namespace Grid
 			GameObject instance = Instantiate(prefab, parent);
 			instance.transform.position += CalculatePosition(data, parent, gridPosition);
 
+			instance.name = $"{type.ToString()} {gridPosition.ToString()}";
+			
 			AbstractTile tile = instance.GetComponent<AbstractTile>();
 			tile.Instantiate(gridPosition);
 			
@@ -84,7 +86,7 @@ namespace Grid
 #if UNITY_EDITOR
 		private void DestroyChildrenImmediate()
 		{
-			for (int i = CachedTransform.childCount - 1; i > 0; --i)
+			for (int i = CachedTransform.childCount - 1; i >= 0; --i)
 			{
 				DestroyImmediate(CachedTransform.GetChild(i).gameObject);
 			}

@@ -7,16 +7,13 @@ namespace Grid.Tiles
 {
 	public abstract class AbstractTile : BetterMonoBehaviour
 	{
-		[SerializeField]
-		private TileType tileType;
-		
 		public abstract TileType TileType { get; }
 
-		private Vector2Int gridPosition;
+		public Vector2Int GridPosition { get; private set; }
 
 		public void Instantiate(Vector2Int position)
 		{
-			gridPosition = position;
+			GridPosition = position;
 		}
 	}
 }
