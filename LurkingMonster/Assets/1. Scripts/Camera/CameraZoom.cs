@@ -7,31 +7,51 @@ namespace Camera
 	public class CameraZoom : BetterMonoBehaviour
 	{
 		[SerializeField]
-		private float zoomFactor = 0.01f;
+		private float zoomFactor = 0.1f;
 
-		private UnityEngine.Camera playerCamera;
+		[SerializeField, Tooltip("The size to which you can zoom out")]
+		private float MinimumZoom = 150;
 
+		[SerializeField, Tooltip("The size to which you can zoom in")]
+		private float MaximumZoom = 10;
+
+		private UnityEngine.Camera playerCamera; // Fully qualified to not conflict with Camera namespace
+		
 		private float lastDistance;
 
-		private Action ZoomMethod;
-		
+		private Action zoomMethod;
+
 		private void Awake()
 		{
 			playerCamera = GetComponent<UnityEngine.Camera>();
 
-			ZoomMethod = SystemInfo.deviceType == DeviceType.Handheld ? (Action) PinchZoom : ScrollZoom;
+			zoomMethod = SystemInfo.deviceType == DeviceType.Handheld ? (Action) PinchZoom : ScrollZoom;
+
+			MaximumZoom = Mathf.Max(MaximumZoom, 0); // Make sure it can't go below 0
 		}
 
 		private void Update()
 		{
-			ZoomMethod();
+			zoomMethod();
+
+			EnforceMinMaxZoom();
 		}
 
+		/// <summary>
+		/// Returns the inversed lerp between Min and Max zoom
+		/// </summary>
+		public float CalculateNormalizedZoom()
+		{
+			return Mathf.InverseLerp(MinimumZoom, MaximumZoom, playerCamera.orthographicSize);
+		}
+		
 		private void ScrollZoom()
 		{
+			float scroll = Input.mouseScrollDelta.y;
+
+			playerCamera.orthographicSize -= scroll * 5; // Hard coded for non-mobile
 		}
 
-		// TODO: Add some max limit (make sure size can't be negative)
 		private void PinchZoom()
 		{
 			if (Input.touchCount < 2) // need at least 2 fingers to pinch
@@ -47,12 +67,19 @@ namespace Camera
 			if (touch1.phase == TouchPhase.Began || touch2.phase == TouchPhase.Began)
 			{
 				lastDistance = distance;
+				return;
 			}
 
 			float deltaDistance = lastDistance - distance;
 			playerCamera.orthographicSize += deltaDistance * zoomFactor;
 
 			lastDistance = distance;
+		}
+
+		private void EnforceMinMaxZoom()
+		{
+			playerCamera.orthographicSize =
+				Mathf.Min(Mathf.Max(playerCamera.orthographicSize, MaximumZoom), MinimumZoom);
 		}
 	}
 }
