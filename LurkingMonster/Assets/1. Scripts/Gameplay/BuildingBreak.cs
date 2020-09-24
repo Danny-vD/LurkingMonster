@@ -8,7 +8,7 @@ namespace Gameplay
 {
 	public class BuildingBreak : BetterMonoBehaviour
 	{
-		public float TimeForBuildingToBreak = 0.0f;
+		public float Health;
 		public HealthBar healthBar;
 		private BuildingData buildingData;
 
@@ -19,30 +19,29 @@ namespace Gameplay
 			Building building = GetComponent<Building>();
 			buildingData           =  building.Data;
 			CalculateBuildingBreakTime();
-			healthBar.SetMaxHealth((int) TimeForBuildingToBreak);
+			healthBar.SetMaxHealth((int) Health);
 		}
 
 		// Update is called once per frame
 		private void Update()
 		{
-			timer                  += Time.deltaTime;
-			TimeForBuildingToBreak -= Time.deltaTime;
-			healthBar.SetHealth((int) TimeForBuildingToBreak);
-			print(TimeForBuildingToBreak);
-			if (timer > (TimeForBuildingToBreak / 50))
+			timer  += Time.deltaTime;
+			Health -= Time.deltaTime;
+			
+			healthBar.SetHealth((int) Health);
+
+			if (Health <= 0)
 			{
-				//print(Timer);
-				print(TimeForBuildingToBreak);
-				
 				timer = 0.0f;
+				print("Het werkt!!!!!!!");
 			}
 		}
 
 		public void CalculateBuildingBreakTime()
 		{
-			TimeForBuildingToBreak =  0.0f;
-			TimeForBuildingToBreak += Switches.SoilTypeSwitch(buildingData.SoilType);
-			TimeForBuildingToBreak += Switches.FoundationTypeSwitch(buildingData.Foundation);
+			Health =  0.0f;
+			Health += Switches.SoilTypeSwitch(buildingData.SoilType);
+			Health += Switches.FoundationTypeSwitch(buildingData.Foundation);
 		}
 	}
 }
