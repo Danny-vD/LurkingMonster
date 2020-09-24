@@ -24,7 +24,7 @@ namespace Gameplay
 
 		public void Awake()
 		{
-			popup = CachedTransform.GetChild(0).gameObject;
+			popup = CachedTransform.GetChild(0).Find("btnCollectRent").gameObject;
 			popup.SetActive(false);
 		}
 

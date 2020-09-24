@@ -5,9 +5,9 @@ namespace Enums
 {
 	public enum FoundationType
 	{
-		Strook_Funderingen = 5,
-		Funderings_Plaat,
-		Funderings_Putten_Palen,
-		Ondermetselen
+		Wooden_Poles,
+		Concrete_On_Steel,
+		Reinfored_Concrete,
+		Floating_Floor_Plate
 	}
 }
