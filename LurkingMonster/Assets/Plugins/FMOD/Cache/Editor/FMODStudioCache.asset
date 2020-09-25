@@ -1,5 +1,41 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8998258928093118100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/SFX.bank
+  m_EditorClassIdentifier: 
+  Path: ../Fmod Studio/Lurking_Monster/Build/Desktop/SFX.bank
+  SubDir: 
+  lastModified: 637366437897274515
+  LoadResult: 0
+  FileSizes: []
+  Exists: 0
+--- !u!114 &-8569744894868540323
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Music.bank
+  m_EditorClassIdentifier: 
+  Path: ../Fmod Studio/Lurking_Monster/Build/Desktop/Music.bank
+  SubDir: 
+  lastModified: 637366437897264542
+  LoadResult: 0
+  FileSizes: []
+  Exists: 0
 --- !u!114 &-7517878395496611859
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -87,7 +123,7 @@ MonoBehaviour:
   Path: event:/Ambient/CityAmbience
   guid: e0eb272261ea634ab6519833c74bb066
   Banks:
-  - {fileID: 5043343692607156373}
+  - {fileID: 4685676182269444140}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -95,6 +131,24 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 0
+--- !u!114 &-4979573484831092239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/SFX.bank
+  m_EditorClassIdentifier: 
+  Path: ../Fmod Studio/Lurking_Monster/Build/Desktop/SFX.bank
+  SubDir: 
+  lastModified: 637366441328791430
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
 --- !u!114 &-4857911596020491393
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -110,6 +164,24 @@ MonoBehaviour:
   Path: ../Fmod Studio/Lurking_Monster/Build/Desktop/SFX.bank
   SubDir: 
   lastModified: 637366398818477068
+  LoadResult: 0
+  FileSizes: []
+  Exists: 0
+--- !u!114 &-3830956431727243774
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Ambient.bank
+  m_EditorClassIdentifier: 
+  Path: ../Fmod Studio/Lurking_Monster/Build/Desktop/Ambient.bank
+  SubDir: 
+  lastModified: 637366437897244620
   LoadResult: 0
   FileSizes: []
   Exists: 0
@@ -163,7 +235,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: ../Fmod Studio/Lurking_Monster/Build/Desktop/Master.strings.bank
   SubDir: 
-  lastModified: 637366399898043741
+  lastModified: 637366441288350025
   LoadResult: 0
   FileSizes:
   - Name: Desktop
@@ -222,14 +294,14 @@ MonoBehaviour:
   Path: event:/Music/MenuMusic
   guid: d7f15e4691efe545a601bfcdb9cc37c6
   Banks:
-  - {fileID: 1784299720793149809}
-  IsStream: 0
+  - {fileID: 1023089134157836629}
+  IsStream: 1
   Is3D: 0
-  IsOneShot: 1
+  IsOneShot: 0
   Parameters: []
   MinDistance: 0
   MaxDistance: 0
-  Length: 0
+  Length: 87248
 --- !u!114 &-1885945488812508454
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -301,7 +373,7 @@ MonoBehaviour:
   lastModified: 637366399290173713
   LoadResult: 0
   FileSizes: []
-  Exists: 1
+  Exists: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -316,19 +388,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EditorBanks:
   - {fileID: -3139091019790660335}
-  - {fileID: 5043343692607156373}
-  - {fileID: 4674655762080467412}
-  - {fileID: 1784299720793149809}
-  - {fileID: -473561088977440613}
+  - {fileID: 4685676182269444140}
+  - {fileID: 7615312663654499482}
+  - {fileID: 1023089134157836629}
+  - {fileID: -4979573484831092239}
   EditorEvents:
   - {fileID: -2283236934583877782}
   - {fileID: -5664809048192072162}
   EditorParameters: []
   MasterBanks:
-  - {fileID: 4674655762080467412}
+  - {fileID: 7615312663654499482}
   StringsBanks:
   - {fileID: -3139091019790660335}
-  stringsBankWriteTime: 637366399898043741
+  stringsBankWriteTime: 637366441288350025
   cacheVersion: 3
 --- !u!114 &426798143267554752
 MonoBehaviour:
@@ -363,6 +435,42 @@ MonoBehaviour:
   Path: ../Fmod Studio/Lurking_Monster/Build/Desktop/Master.bank
   SubDir: 
   lastModified: 637366398818357314
+  LoadResult: 0
+  FileSizes: []
+  Exists: 0
+--- !u!114 &1023089134157836629
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Music.bank
+  m_EditorClassIdentifier: 
+  Path: ../Fmod Studio/Lurking_Monster/Build/Desktop/Music.bank
+  SubDir: 
+  lastModified: 637366441328751534
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
+--- !u!114 &1193154654773614953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: ../Fmod Studio/Lurking_Monster/Build/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637366437897254571
   LoadResult: 0
   FileSizes: []
   Exists: 0
@@ -437,7 +545,7 @@ MonoBehaviour:
   lastModified: 637366399898113178
   LoadResult: 0
   FileSizes: []
-  Exists: 1
+  Exists: 0
 --- !u!114 &1866748099166714747
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -563,7 +671,7 @@ MonoBehaviour:
   lastModified: 637366399897983569
   LoadResult: 0
   FileSizes: []
-  Exists: 1
+  Exists: 0
 --- !u!114 &4678913401410157965
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -582,6 +690,24 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 0
+--- !u!114 &4685676182269444140
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Ambient.bank
+  m_EditorClassIdentifier: 
+  Path: ../Fmod Studio/Lurking_Monster/Build/Desktop/Ambient.bank
+  SubDir: 
+  lastModified: 637366441288190446
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
 --- !u!114 &5043343692607156373
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -599,7 +725,7 @@ MonoBehaviour:
   lastModified: 637366399290283399
   LoadResult: 0
   FileSizes: []
-  Exists: 1
+  Exists: 0
 --- !u!114 &5416224699176495708
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -618,6 +744,24 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 0
+--- !u!114 &7615312663654499482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: ../Fmod Studio/Lurking_Monster/Build/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637366441288309821
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
 --- !u!114 &8355336989045970510
 MonoBehaviour:
   m_ObjectHideFlags: 0
