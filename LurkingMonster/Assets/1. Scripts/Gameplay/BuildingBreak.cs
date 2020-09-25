@@ -71,7 +71,7 @@ namespace Gameplay
 		private void OnHouseRepair(CrackEvent crackEvent)
 		{
 			//TODO Have to adjust amount
-			if (MoneyManager.Instance.PlayerHasEnoughMoney(20000))
+			if (MoneyManager.Instance.PlayerHasEnoughMoney(15))
 			{
 				EventManager.Instance.RaiseEvent<DecreaseMoneyEvent>(new DecreaseMoneyEvent(15));
 				
