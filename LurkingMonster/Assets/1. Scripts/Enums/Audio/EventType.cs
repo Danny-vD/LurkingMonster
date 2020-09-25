@@ -5,6 +5,7 @@ namespace Enums.Audio
 	[SuppressMessage("ReSharper", "InconsistentNaming")]
 	public enum EventType
 	{
-		PLACEHOLDER,
+		MenuMusic,
+		CityAmbience,
 	}
 }
