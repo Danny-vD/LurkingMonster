@@ -1,5 +1,6 @@
 ﻿using Enums;
 using Events;
+using Singletons;
 using Structs;
 using UnityEngine;
 using Utility;
@@ -14,13 +15,13 @@ namespace Gameplay
 		public float StartingHealth;
 		public HealthBar healthBar;
 		
-		private GameObject popup;
+		private GameObject crackPopup;
 		private BuildingData buildingData;
 
 		public void Awake()
 		{
-			popup = CachedTransform.GetChild(0).Find("btnCrackHouse").gameObject;
-			popup.SetActive(false);
+			crackPopup = CachedTransform.GetChild(0).Find("btnCrackHouse").gameObject;
+			crackPopup.SetActive(false);
 		}
 		
 		// Start is called before the first frame update
@@ -41,10 +42,10 @@ namespace Gameplay
 			healthBar.SetHealth((int) Health);
 			
 			//When health is less then 25% show cracks
-			if (Health <= healthBar.StartingHealth / 100 * 25 && !popup.activeInHierarchy)
+			if (Health <= healthBar.StartingHealth / 100 * 25 && !crackPopup.activeInHierarchy)
 			{
 				print("test");
-				popup.SetActive(true);
+				crackPopup.SetActive(true);
 			}
 			
 			if (Health <= 0)
@@ -70,9 +71,17 @@ namespace Gameplay
 		private void OnHouseRepair(CrackEvent crackEvent)
 		{
 			//TODO Have to adjust amount
-			EventManager.Instance.RaiseEvent<DecreaseMoneyEvent>(new DecreaseMoneyEvent(15));
-			popup.SetActive(false);
-			Health = healthBar.StartingHealth;
+			if (MoneyManager.Instance.PlayerHasEnoughMoney(20000))
+			{
+				EventManager.Instance.RaiseEvent<DecreaseMoneyEvent>(new DecreaseMoneyEvent(15));
+				
+				crackPopup.SetActive(false);
+				Health = healthBar.StartingHealth;
+			}
+			else
+			{
+				MassageManager.Instance.ShowMessage("Not enough money!", Color.red);
+			}
 		}
 	}
 }
