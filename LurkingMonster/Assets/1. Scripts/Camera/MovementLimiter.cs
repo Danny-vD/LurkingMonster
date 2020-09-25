@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using VDFramework;
 
 namespace Camera
@@ -25,15 +26,28 @@ namespace Camera
 			// In local space we are origin, so the startPos position is the inverse vector we moved
 			Vector3 delta = -CachedTransform.InverseTransformPoint(startPos);
 
+			if (NotOutsideBounds(delta))
+			{
+				return;
+			}
+
 			// apply the x and y limits to the delta vector
 			delta.x = Mathf.Max(Mathf.Min(delta.x, RelativeLimits.x), RelativeLimits.z);
 			delta.y = Mathf.Max(Mathf.Min(delta.y, RelativeLimits.y), RelativeLimits.w);
 
 			delta.z = 0; // Keep Z the same
-
+			
 			// Set the position back to where we started and translate over the limited delta
 			CachedTransform.position = startPos;
 			CachedTransform.Translate(delta, Space.Self);
+		}
+
+		private bool NotOutsideBounds(Vector3 delta)
+		{
+			return delta.x >= RelativeLimits.z &&
+				   delta.x <= RelativeLimits.x &&
+				   delta.y >= RelativeLimits.w &&
+				   delta.y <= RelativeLimits.y;
 		}
 	}
 }

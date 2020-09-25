@@ -14,13 +14,10 @@ namespace Camera
 
 		private CameraZoom cameraZoom;
 
-		[SerializeField]
 		private float speedFactor;
 		private Action moveMethod;
 
 		private Vector2 lastPosition = Vector2.zero;
-
-		// Increase movement by 75% if max zoomed out, decrease by 75% if max zoomed in
 
 		private void Awake()
 		{
@@ -92,6 +89,9 @@ namespace Camera
 			lastPosition = touch.position;
 		}
 
+		/// <summary>
+		/// Increase movement by 75% if max zoomed out, decrease by 75% if max zoomed in
+		/// </summary>
 		private void CalculateSpeedFactor()
 		{
 			float zoomfactor = cameraZoom.CalculateNormalizedZoom();
