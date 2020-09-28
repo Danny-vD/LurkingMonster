@@ -681,7 +681,6 @@ GameObject:
   - component: {fileID: 948279848698153782}
   - component: {fileID: 2074128603572616719}
   - component: {fileID: 51152796584614185}
-  - component: {fileID: 7296503139389597400}
   m_Layer: 0
   m_Name: btnCrackHouse
   m_TagString: Untagged
@@ -789,9 +788,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7296503139389597400}
-        m_TargetAssemblyTypeName: UI.ButtonCrackHouse, Assembly-CSharp
-        m_MethodName: RepairCostHouse
+      - m_Target: {fileID: 9065348212960834744}
+        m_TargetAssemblyTypeName: Gameplay.BuildingBreak, Assembly-CSharp
+        m_MethodName: OnHouseRepair
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -801,15 +800,3 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &7296503139389597400
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7029731273974737261}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec319be5634841839ba74bc0cb09eea8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

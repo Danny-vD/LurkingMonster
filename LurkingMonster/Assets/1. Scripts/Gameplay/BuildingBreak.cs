@@ -27,7 +27,6 @@ namespace Gameplay
 		// Start is called before the first frame update
 		private void Start()
 		{
-			AddCrackEventListener();
 			Building building = GetComponent<Building>();
 			buildingData           =  building.Data;
 			CalculateBuildingBreakTime();
@@ -50,7 +49,8 @@ namespace Gameplay
 			
 			if (Health <= 0)
 			{
-				//Monster should eat the house here!!
+				print("Destroy");
+				Destroy(gameObject);
 			}
 		}
 
@@ -59,16 +59,11 @@ namespace Gameplay
 			Health =  0.0f;
 			Health += Switches.SoilTypeSwitch(buildingData.SoilType);
 			Health += Switches.FoundationTypeSwitch(buildingData.Foundation);
-			//TODO purposes so we dont have to wait a long time
+			//TODO for test purposes so we dont have to wait a long time
 			Health =  25.0f;
 		}
-		
-		private void AddCrackEventListener()
-		{
-			EventManager.Instance.AddListener<CrackEvent>(OnHouseRepair);
-		}
 
-		private void OnHouseRepair(CrackEvent crackEvent)
+		public void OnHouseRepair()
 		{
 			//TODO Have to adjust amount
 			if (MoneyManager.Instance.PlayerHasEnoughMoney(15))
