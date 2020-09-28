@@ -103,6 +103,11 @@ namespace Audio
 			bus.setVolume(volume);
 		}
 
+		/// <summary>
+		/// Sets the volume of the master bus
+		/// </summary>
+		/// <param name="volume"></param>
+		/// <param name="updateCached">Update the cached value as well (the cached value is used to get the old volume when you unmute)</param>
 		public static void SetMasterVolume(float volume, bool updateCached = true)
 		{
 			if (updateCached)
@@ -125,6 +130,9 @@ namespace Audio
 			bus.setMute(isMuted);
 		}
 
+		/// <summary>
+		/// Sets the master bus volume to 0 (muting it doesn't work)
+		/// </summary>
 		public static void SetMasterMute(bool isMuted)
 		{
 			SetMasterVolume(isMuted ? 0 : masterVolume, false);
