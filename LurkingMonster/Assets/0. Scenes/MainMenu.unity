@@ -486,16 +486,16 @@ MonoBehaviour:
     - key: 0
       value: event:/Music/MenuMusic
     - key: 1
-      value: 
+      value: event:/Ambient/CityAmbience
     buses:
     - key: 0
       value: Bus:/
     - key: 1
-      value: Bus:/
+      value: Bus:/SFX
     - key: 2
-      value: Bus:/
+      value: Bus:/Music
     - key: 3
-      value: Bus:/
+      value: Bus:/Ambient
     emitterEvents:
     - key: 0
       value: 0
