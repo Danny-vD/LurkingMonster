@@ -43,13 +43,11 @@ namespace Gameplay
 			//When health is less then 25% show cracks
 			if (Health <= healthBar.StartingHealth / 100 * 25 && !crackPopup.activeInHierarchy)
 			{
-				print("test");
 				crackPopup.SetActive(true);
 			}
 			
 			if (Health <= 0)
 			{
-				print("Destroy");
 				Destroy(gameObject);
 				EventManager.Instance.RaiseEvent(new BuildingConsumedEvent());
 			}

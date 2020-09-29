@@ -1,4 +1,6 @@
 ﻿using System;
+using Singletons;
+using UnityEngine;
 
 namespace Gameplay.Achievements
 {
@@ -28,7 +30,8 @@ namespace Gameplay.Achievements
 					{
 						unlocked[i] = true;
 						LevelBar.AddExperience(experiences[i]);
-						
+						//For now show message
+						MassageManager.Instance.ShowMessage("Unlocked achievement hurray!", Color.green);
 						//TODO show achievement!!
 						return;
 					}
