@@ -537,6 +537,7 @@ GameObject:
   - component: {fileID: 6758913166034969599}
   - component: {fileID: 6758913166034969595}
   - component: {fileID: 9065348212960834744}
+  - component: {fileID: 8740718846376473894}
   - component: {fileID: 882233895}
   m_Layer: 0
   m_Name: House
@@ -634,7 +635,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bd52fd205066d549bb3592335298a22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WaitTimeUntilRent: 5
 --- !u!114 &9065348212960834744
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -650,6 +650,19 @@ MonoBehaviour:
   Health: 0
   StartingHealth: 0
   healthBar: {fileID: 2375193678091250356}
+--- !u!114 &8740718846376473894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6758913166034969596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6e1d700793d431db1c8e2d2975381ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WaitTimeUntilRent: 5
 --- !u!114 &882233895
 MonoBehaviour:
   m_ObjectHideFlags: 0

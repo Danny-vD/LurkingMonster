@@ -1,52 +1,19 @@
 ﻿using Structs;
-using UI;
-using UnityEngine;
 using VDFramework;
 
 namespace Gameplay
 {
 	public class Building : BetterMonoBehaviour
 	{
-		public float WaitTimeUntilRent = 5.0f;
+		/// <summary>
+		///	Returns the BuildingData of the current building
+		/// <para> Be sure to only get this in OnEnable or later </para>
+		/// </summary>
+		public BuildingData Data { get; private set; }
 		
-		private float timer = 0.0f;
-		
-		private BuildingData data;
-		private GameObject popup;
-
 		public void Instantiate(BuildingData buildingData)
 		{
-			data = buildingData;
-
-			ButtonCollectRent buttonCollectRent = GetComponentInChildren<ButtonCollectRent>(true);
-			buttonCollectRent.Rent = data.Rent;
-		}
-
-		public void Awake()
-		{
-			popup = CachedTransform.GetChild(0).Find("btnCollectRent").gameObject;
-			popup.SetActive(false);
-		}
-
-		public void Update()
-		{
-			// Rent button not active
-			if (!popup.activeInHierarchy)
-			{
-				timer += Time.deltaTime;
-
-				if (timer > WaitTimeUntilRent)
-				{
-					popup.SetActive(true);
-					timer = 0.0f;
-				}
-			}
-		}
-
-		public BuildingData Data
-		{
-			get => data;
-			set => data = value;
+			Data = buildingData;
 		}
 	}
 }

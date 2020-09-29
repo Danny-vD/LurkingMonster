@@ -2,7 +2,7 @@
 using VDFramework;
 using VDFramework.EventSystem;
 
-namespace UI
+namespace UI.Buttons
 {
 	public class ButtonCollectRent : BetterMonoBehaviour
 	{

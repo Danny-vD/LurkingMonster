@@ -16,7 +16,7 @@ namespace Structs
 		[SerializeField]
 		private int price;
 
-		// Don't serialize the enums because they are decided by the tile
+		// Don't serialize the enums because they are decided by the player
 		private SoilType soilType;
 		private FoundationType foundation;
 
