@@ -1,4 +1,5 @@
 ﻿using Events;
+using Gameplay.Buildings;
 using VDFramework;
 using VDFramework.EventSystem;
 
@@ -6,11 +7,16 @@ namespace UI.Buttons
 {
 	public class ButtonCollectRent : BetterMonoBehaviour
 	{
-		public int Rent { get; set; }
+		private Building building;
+
+		private void Awake()
+		{
+			building = GetComponentInParent<Building>();
+		}
 
 		public void CollectRent()
 		{
-			EventManager.Instance.RaiseEvent(new CollectRentEvent(Rent));
+			EventManager.Instance.RaiseEvent(new CollectRentEvent(building.Data.Rent));
 		}
 	}
 }

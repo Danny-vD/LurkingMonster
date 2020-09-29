@@ -21,7 +21,7 @@ namespace Grid.Tiles
 		public override void SpawnBuilding()
 		{
 			base.SpawnBuilding();
-			EventManager.Instance.RaiseEvent(new DecreaseMoneyEvent(BuildingData.Price));
+			EventManager.Instance.RaiseEvent(new DecreaseMoneyEvent(BuildingData[0].Price));
 		}
 
 		// NOTE: temporary, it's shite, but it works...

@@ -52,8 +52,12 @@ MonoBehaviour:
     prefab: {fileID: 6758913166034969596, guid: 3a07d0b780df67844a24d52cd795bb3c, type: 3}
   buildingData:
   - buildingType: 0
-    buildingTypeData: {fileID: 11400000, guid: c8036bf4d1df6264ab54128c2b0f20d3, type: 2}
+    buildingTypeData:
+    - {fileID: 11400000, guid: c8036bf4d1df6264ab54128c2b0f20d3, type: 2}
+    - {fileID: 11400000, guid: 76dbabfef772162438e79a536af770f7, type: 2}
   - buildingType: 1
-    buildingTypeData: {fileID: 11400000, guid: c8036bf4d1df6264ab54128c2b0f20d3, type: 2}
+    buildingTypeData: []
   - buildingType: 2
-    buildingTypeData: {fileID: 11400000, guid: 489afc91050081d48be9af72280cefe6, type: 2}
+    buildingTypeData:
+    - {fileID: 11400000, guid: a7fc0cf1ebc5b6b4aa361cc3c2e912da, type: 2}
+    - {fileID: 11400000, guid: 489afc91050081d48be9af72280cefe6, type: 2}

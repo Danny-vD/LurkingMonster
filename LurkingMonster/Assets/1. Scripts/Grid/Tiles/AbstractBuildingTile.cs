@@ -1,7 +1,9 @@
 ﻿using Enums;
 using Gameplay;
+using Gameplay.Buildings;
 using Singletons;
 using Structs;
+using Structs.Buildings;
 using UnityEngine;
 
 namespace Grid.Tiles
@@ -17,19 +19,19 @@ namespace Grid.Tiles
 		[SerializeField]
 		protected FoundationType foundationType = default;
 
-		protected BuildingData BuildingData;
+		protected BuildingData[] BuildingData;
 
 		private BuildingSpawner spawner;
 
 		protected virtual void Awake()
 		{
 			spawner      = GetComponentInChildren<BuildingSpawner>();
-			BuildingData = spawner.GetBuildingData(buildingType);
+			BuildingData = spawner.GetBuildingData(buildingType, foundationType, soilType);
 		}
 
 		public virtual void SpawnBuilding()
 		{
-			if (MoneyManager.Instance.PlayerHasEnoughMoney(BuildingData.Price))
+			if (MoneyManager.Instance.PlayerHasEnoughMoney(BuildingData[0].Price))
 			{
 				spawner.Spawn(buildingType, foundationType, soilType);
 			}

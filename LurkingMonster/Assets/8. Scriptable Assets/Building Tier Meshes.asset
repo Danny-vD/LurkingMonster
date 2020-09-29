@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b27debddf9f484796621bd35c87da01, type: 3}
+  m_Name: Building Tier Meshes
+  m_EditorClassIdentifier: 
+  buildingTierMeshPerBuildingTypes:
+  - key: 0
+    value:
+    - {fileID: 614220985723484880, guid: 4f00fd714054b2d4eb12a0de6377c4e9, type: 3}
+    - {fileID: 5105466054830296628, guid: 86fb416c121c1f14ba649ae5457dca26, type: 3}
+  - key: 1
+    value: []
+  - key: 2
+    value: []

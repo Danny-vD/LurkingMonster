@@ -1,5 +1,6 @@
 ﻿using Enums;
 using Gameplay;
+using Gameplay.Buildings;
 using UnityEditor;
 using UnityEngine;
 using static Utility.EditorUtils;
@@ -46,7 +47,7 @@ namespace CustomInspector
 			if (IsFoldOut(ref buildingDataFoldout, "Building Data"))
 			{
 				DrawFoldoutKeyValueArray<BuildingType>(buildingData, "buildingType", "buildingTypeData",
-					buildingDataPerBuildingTypeFoldout, new GUIContent("Data"));
+					buildingDataPerBuildingTypeFoldout, new GUIContent("Tier Data"));
 			}
 
 			serializedObject.ApplyModifiedProperties();
