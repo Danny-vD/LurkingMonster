@@ -1,11 +1,13 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Enums;
+using Events;
 using ScriptableObjects;
 using Structs;
 using UnityEngine;
 using UnityEngine.Serialization;
 using VDFramework;
+using VDFramework.EventSystem;
 using VDFramework.Extensions;
 using VDFramework.Utility;
 
@@ -28,6 +30,8 @@ namespace Gameplay
 			
             Building house = instance.GetComponent<Building>();
             house.Instantiate(GetData(houseType, foundationType, soilType));
+			
+			EventManager.Instance.RaiseEvent(new BuildingBuildEvent());
         }
 
 		public BuildingData GetBuildingData(BuildingType houseType)

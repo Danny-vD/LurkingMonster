@@ -27,7 +27,7 @@ namespace Gameplay
 		//Todo test purposes
 		private void Update()
 		{
-			AddExperience(20);
+			//AddExperience(20);
 		}
 
 		public void AddExperience(int amount)

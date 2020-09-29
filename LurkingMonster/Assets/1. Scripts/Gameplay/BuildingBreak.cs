@@ -51,6 +51,7 @@ namespace Gameplay
 			{
 				print("Destroy");
 				Destroy(gameObject);
+				EventManager.Instance.RaiseEvent(new BuildingConsumedEvent());
 			}
 		}
 
@@ -72,6 +73,8 @@ namespace Gameplay
 				
 				crackPopup.SetActive(false);
 				Health = healthBar.StartingHealth;
+				EventManager.Instance.RaiseEvent(new BuildingSavedEvent());
+
 			}
 			else
 			{
