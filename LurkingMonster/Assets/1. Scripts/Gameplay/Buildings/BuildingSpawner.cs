@@ -20,18 +20,20 @@ namespace Gameplay.Buildings
         [SerializeField]
         private List<BuildingDataPerBuildingType> buildingData = new List<BuildingDataPerBuildingType>();
 
-		public void Spawn(BuildingType buildingType, FoundationType foundationType, SoilType soilType)
+		public Building Spawn(BuildingType buildingType, FoundationType foundationType, SoilType soilType)
         {
             GameObject prefab = buildings.First(pair => pair.Key.Equals(buildingType)).Value;
             GameObject instance = Instantiate(prefab, CachedTransform.position, CachedTransform.rotation);
 
 			instance.name = buildingType.ToString().InsertSpaceBeforeCapitals();
 			
-            Building house = instance.GetComponent<Building>();
-            house.Instantiate(buildingType, GetBuildingData(buildingType, foundationType, soilType));
+            Building building = instance.GetComponent<Building>();
+            building.Instantiate(buildingType, GetBuildingData(buildingType, foundationType, soilType));
 			
 			EventManager.Instance.RaiseEvent(new BuildingBuildEvent());
-        }
+
+			return building;
+		}
 
 		public BuildingData[] GetBuildingData(BuildingType houseType, FoundationType foundationType, SoilType soilType)
 		{
