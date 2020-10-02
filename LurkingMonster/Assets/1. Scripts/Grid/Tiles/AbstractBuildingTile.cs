@@ -1,10 +1,13 @@
-﻿using Enums;
+﻿using System;
+using Enums;
+using Events;
 using Gameplay;
 using Gameplay.Buildings;
 using Singletons;
 using Structs;
 using Structs.Buildings;
 using UnityEngine;
+using VDFramework.EventSystem;
 
 namespace Grid.Tiles
 {
@@ -19,21 +22,29 @@ namespace Grid.Tiles
 		[SerializeField]
 		protected FoundationType foundationType = default;
 
-		protected BuildingData[] BuildingData;
+		public Building Building { get; private set; }
+		
+		protected BuildingData BuildingData; // The building data of the first tier building
 
 		private BuildingSpawner spawner;
+		
+		private GameObject canvas;
 
 		protected virtual void Awake()
 		{
 			spawner      = GetComponentInChildren<BuildingSpawner>();
-			BuildingData = spawner.GetBuildingData(buildingType, foundationType, soilType);
+			BuildingData = spawner.GetBuildingData(buildingType, foundationType, soilType)[0];
+			
+			canvas = CachedTransform.Find("Canvas").gameObject;
+			
+			EventManager.Instance.AddListener<OpenMarketEvent>(ActivateBuyButton);
 		}
 
 		public virtual void SpawnBuilding()
 		{
-			if (MoneyManager.Instance.PlayerHasEnoughMoney(BuildingData[0].Price))
+			if (MoneyManager.Instance.PlayerHasEnoughMoney(BuildingData.Price))
 			{
-				spawner.Spawn(buildingType, foundationType, soilType);
+				Building = spawner.Spawn(buildingType, foundationType, soilType);
 			}
 		}
 
@@ -50,6 +61,29 @@ namespace Grid.Tiles
 		public void SetFoundation(FoundationType foundation)
 		{
 			foundationType = foundation;
+		}
+
+		// TODO: IMPROVE.
+		private void ActivateBuyButton(OpenMarketEvent openMarketEvent)
+		{
+			if (openMarketEvent.Building == null)
+			{
+				if (openMarketEvent.BuildingTile == this)
+				{
+					canvas.SetActive(true);
+					return;
+				}
+			}
+			else
+			{
+				if (openMarketEvent.Building == Building)
+				{
+					// Not setting to active so we can't build a second building
+					return;
+				}
+			}
+			
+			canvas.SetActive(false);
 		}
 	}
 }
