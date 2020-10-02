@@ -74,7 +74,7 @@ namespace Gameplay.Buildings
 			}
 			else
 			{
-				MassageManager.Instance.ShowMessage("Not enough money!", Color.red);
+				MassageManager.Instance.ShowMessageGameUI("Not enough money!", Color.red);
 			}
 		}
 	}

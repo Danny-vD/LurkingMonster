@@ -8,15 +8,10 @@ namespace Singletons
 {
 	public class MassageManager : Singleton<MassageManager>
 	{
-		private Text message;
+		[SerializeField]
+		private Text message = null;
 
-		protected override void Awake()
-		{
-			base.Awake();
-			message = GetComponent<Text>();
-		}
-
-		public void ShowMessage(string inputMessage, Color color)
+		public void ShowMessageGameUI(string inputMessage, Color color)
 		{
 			StopCoroutine(DeleteMessage());
 			
