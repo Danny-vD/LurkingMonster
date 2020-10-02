@@ -7,7 +7,7 @@ using VDFramework.Utility;
 
 namespace ScriptableObjects
 {
-	[CreateAssetMenu(menuName = "Building Tier Data")]
+	[CreateAssetMenu(menuName = "Building Data/Building Tier Data")]
 	public class BuildingTierData : ScriptableObject
 	{
 		[SerializeField]

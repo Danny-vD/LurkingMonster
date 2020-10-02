@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace ScriptableObjects
 {
-	[CreateAssetMenu(menuName = "BuildingType Data")]
+	[CreateAssetMenu(menuName = "Building Data/BuildingType Data")]
 	public class BuildingTypeData : ScriptableObject
 	{
 		[SerializeField, Tooltip("The percentage of the price that will be collected as rent")]

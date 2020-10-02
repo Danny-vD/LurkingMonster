@@ -20,8 +20,6 @@ namespace Gameplay
 
 		private UnityEngine.Camera playerCamera;
 
-		private Ray RAY;
-
 		private void Awake()
 		{
 			playerCamera = GetComponent<UnityEngine.Camera>();
@@ -32,8 +30,6 @@ namespace Gameplay
 		private void Update()
 		{
 			selectMethod();
-
-			Debug.DrawLine(RAY.origin, RAY.origin + RAY.direction * 10, Color.cyan);
 		}
 
 		/// <summary>
@@ -101,15 +97,14 @@ namespace Gameplay
 			// Selected the selected tile, so open market
 			if (tile == selectedTile)
 			{
-				EventManager.Instance.RaiseEvent(new OpenMarketEvent(tile, tile.Building));
+				EventManager.Instance.RaiseEvent(new OpenMarketEvent(tile));
 				Deselect(tile);
 				return;
 			}
 
 			Deselect(selectedTile);
 
-			selectedTile     = tile;
-			originalMaterial = tile.GetComponent<Renderer>().sharedMaterial;
+			selectedTile = tile;
 
 			ChangePlotMaterial(tile, true);
 		}
@@ -129,7 +124,16 @@ namespace Gameplay
 
 		private void ChangePlotMaterial(AbstractBuildingTile tile, bool isSelected)
 		{
-			tile.GetComponent<Renderer>().sharedMaterial = isSelected ? selectedMaterial : originalMaterial;
+			Component objectToSelect = tile.Building ? (Component) tile.Building : tile;
+
+			Renderer meshRenderer = objectToSelect.GetComponent<Renderer>();
+
+			if (isSelected)
+			{
+				originalMaterial = meshRenderer.sharedMaterial;
+			}
+
+			meshRenderer.sharedMaterial = isSelected ? selectedMaterial : originalMaterial;
 		}
 	}
 }

@@ -66,7 +66,7 @@ namespace Gameplay.Buildings
 			//TODO Have to adjust amount
 			if (MoneyManager.Instance.PlayerHasEnoughMoney(15))
 			{
-				EventManager.Instance.RaiseEvent<DecreaseMoneyEvent>(new DecreaseMoneyEvent(15));
+				EventManager.Instance.RaiseEvent(new DecreaseMoneyEvent(15));
 				
 				crackPopup.SetActive(false);
 				Health = healthBar.StartingHealth;

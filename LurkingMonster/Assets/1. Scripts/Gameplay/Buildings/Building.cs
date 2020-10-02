@@ -18,6 +18,8 @@ namespace Gameplay.Buildings
 
 		public int UpgradeCost => CalculateUpgradeCost();
 
+		public bool IsMaxTier => CurrentTier >= data.Length;
+
 		/// <summary>
 		/// The current tier of the building (one-indexed)
 		/// </summary>
@@ -33,7 +35,7 @@ namespace Gameplay.Buildings
 
 		private int CalculateUpgradeCost()
 		{
-			if (CurrentTier >= data.Length)
+			if (IsMaxTier)
 			{
 				throw new Exception("An attempt was made to upgrade while the building can not upgrade any further");
 			}
