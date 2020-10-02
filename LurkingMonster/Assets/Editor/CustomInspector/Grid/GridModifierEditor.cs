@@ -45,7 +45,7 @@ namespace CustomInspector.Grid
 
 		private void GetAllSelectedTiles()
 		{
-			AbstractTile[] selectedTiles = Selection.GetFiltered<AbstractTile>(SelectionMode.Editable);
+			AbstractTile[] selectedTiles = Selection.GetFiltered<AbstractTile>(SelectionMode.Deep);
 			Vector2Int[] gridPositions = new Vector2Int[selectedTiles.Length];
 
 			for (int i = 0; i < selectedTiles.Length; i++)

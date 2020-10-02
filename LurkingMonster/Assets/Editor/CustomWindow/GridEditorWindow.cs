@@ -12,13 +12,11 @@ namespace CustomWindow
 {
 	public class GridEditorWindow : EditorWindow
 	{
-		[MenuItem("Level Editor/Level Editor")]
+		[MenuItem("Level Editor/Grid Editor")]
 		public static void ShowWindow()
 		{
 			GetWindow<GridEditorWindow>("Level Editor");
 		}
-
-		private Comparison<TileTypePerPosition> tileDataComparer;
 
 		private static Vector2 scroll;
 
@@ -27,8 +25,6 @@ namespace CustomWindow
 		private void OnEnable()
 		{
 			gridData = FindObjectOfType<GridData>();
-
-			tileDataComparer = TileDataComparer;
 		}
 
 		private void OnGUI()
@@ -105,7 +101,7 @@ namespace CustomWindow
 			float maxWidth = Mathf.Max(80, CalculateMaxItemSizeForLimit(gridData.GridSize.x, position.width));
 
 			List<TileTypePerPosition> tileData = new List<TileTypePerPosition>(gridData.TileData);
-			tileData.Sort(tileDataComparer);
+			tileData.Sort(TileDataComparer);
 
 			for (int i = 0; i < length; i++)
 			{
