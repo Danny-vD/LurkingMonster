@@ -1,4 +1,5 @@
 ﻿using System;
+using Singletons;
 using UnityEngine;
 using VDFramework;
 
@@ -32,9 +33,15 @@ namespace Camera
 
 		private void Update()
 		{
+			if (TimeManager.Instance.IsPaused())
+			{
+				return;
+			}
+			
 			zoomMethod();
 
 			EnforceMinMaxZoom();
+
 		}
 
 		/// <summary>

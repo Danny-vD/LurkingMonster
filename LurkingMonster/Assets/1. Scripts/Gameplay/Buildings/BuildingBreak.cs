@@ -36,7 +36,7 @@ namespace Gameplay.Buildings
 		// Update is called once per frame
 		private void Update()
 		{
-			Health -= Time.deltaTime;
+			Health -= Time.deltaTime; 
 			
 			bar.SetValue((int) Health);
 			
