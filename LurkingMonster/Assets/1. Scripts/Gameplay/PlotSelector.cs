@@ -1,6 +1,7 @@
 ﻿using System;
 using Events;
 using Grid.Tiles;
+using Singletons;
 using UnityEngine;
 using VDFramework;
 using VDFramework.EventSystem;
@@ -29,6 +30,10 @@ namespace Gameplay
 
 		private void Update()
 		{
+			if (TimeManager.Instance.IsPaused())
+			{
+				return;
+			}
 			selectMethod();
 		}
 
