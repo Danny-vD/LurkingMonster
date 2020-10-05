@@ -6,7 +6,7 @@ using VDFramework.Singleton;
 
 namespace Singletons
 {
-	public class MassageManager : Singleton<MassageManager>
+	public class MessageManager : Singleton<MessageManager>
 	{
 		[SerializeField]
 		private Text message = null;
