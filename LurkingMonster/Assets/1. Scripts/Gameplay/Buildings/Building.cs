@@ -1,12 +1,19 @@
 ﻿using System;
 using Enums;
+using Events;
+using Singletons;
 using Structs.Buildings;
+using UnityEngine;
 using VDFramework;
+using VDFramework.EventSystem;
 
 namespace Gameplay.Buildings
 {
 	public class Building : BetterMonoBehaviour
 	{
+		[SerializeField]
+		private GlobalBuildingData globalBuildingData;
+
 		private BuildingData[] data;
 
 		/// <summary>
@@ -16,6 +23,11 @@ namespace Gameplay.Buildings
 		/// </summary>
 		public BuildingData Data => data[CurrentTier - 1]; // tier is one-indexed
 
+		/// <summary>
+		/// Returns data this is the same for every building
+		/// </summary>
+		public GlobalBuildingData GlobalData => globalBuildingData;
+
 		public int UpgradeCost => CalculateUpgradeCost();
 
 		public bool IsMaxTier => CurrentTier >= data.Length;
@@ -24,13 +36,28 @@ namespace Gameplay.Buildings
 		/// The current tier of the building (one-indexed)
 		/// </summary>
 		public int CurrentTier { get; set; } = 1;
-		
+
 		public BuildingType BuildingType { get; private set; }
-		
+
 		public void Instantiate(BuildingType type, BuildingData[] buildingData)
 		{
 			BuildingType = type;
-			data = buildingData;
+			data         = buildingData;
+		}
+
+		public void RemoveBuilding(bool payForRemoval = false)
+		{
+			if (payForRemoval)
+			{
+				if (!MoneyManager.Instance.PlayerHasEnoughMoney(GlobalData.DestructionCost))
+				{
+					return;
+				}
+				
+				EventManager.Instance.RaiseEvent(new DecreaseMoneyEvent(GlobalData.DestructionCost));
+			}
+			
+			Destroy(gameObject);
 		}
 
 		private int CalculateUpgradeCost()

@@ -47,7 +47,7 @@ namespace Gameplay.Buildings
 			
 			if (Health <= 0)
 			{
-				Destroy(gameObject);
+				building.RemoveBuilding();
 				EventManager.Instance.RaiseEvent(new BuildingConsumedEvent());
 			}
 		}

@@ -1,5 +1,4 @@
-﻿using System;
-using Events;
+﻿using Events;
 using Gameplay.Buildings;
 using Grid.Tiles;
 using UnityEngine;
@@ -13,17 +12,19 @@ namespace UI.Market
 		[SerializeField]
 		private Button buyButton = null;
 		
-		[SerializeField]
-		private Button someOtherButton = null;
+		//[SerializeField]
+		//private Button someOtherButton = null;
 		
 		[SerializeField]
-		private Button theOtherButton = null;
+		private Button destroyButton = null;
 
 		private Text buyText;
+		private Text destroyText;
 
 		private void Awake()
 		{
 			buyText = buyButton.GetComponentInChildren<Text>();
+			destroyText = destroyButton.GetComponentInChildren<Text>();
 		}
 
 		private void OnEnable()
@@ -54,6 +55,7 @@ namespace UI.Market
 		private void OnMarketOpened(OpenMarketEvent openMarketEvent)
 		{
 			SetBuyButton(openMarketEvent.BuildingTile);
+			SetDestroyButton(openMarketEvent.BuildingTile);
 		}
 
 		private void SetBuyButton(AbstractBuildingTile buildingTile)
@@ -77,9 +79,28 @@ namespace UI.Market
 			buyButton.onClick.AddListener(buildingTile.SpawnBuilding);
 		}
 
+		private void SetDestroyButton(AbstractBuildingTile buildingTile)
+		{
+			destroyButton.onClick.RemoveAllListeners();
+			
+			if (buildingTile.Building)
+			{
+				SetDestroyText($"Remove [{buildingTile.Building.GlobalData.DestructionCost}]");
+				destroyButton.onClick.AddListener(() => buildingTile.Building.RemoveBuilding(true));
+				return; 
+			}
+			
+			SetDestroyText("Nothing to remove");
+		}
+
 		private void SetBuyText(string text)
 		{
 			buyText.text = text;
+		}
+
+		private void SetDestroyText(string text)
+		{
+			destroyText.text = text;
 		}
 	}
 }
