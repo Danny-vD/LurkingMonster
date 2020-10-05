@@ -11,10 +11,10 @@ namespace UI.Market
 	{
 		[SerializeField]
 		private Button buyButton = null;
-		
+
 		//[SerializeField]
 		//private Button someOtherButton = null;
-		
+
 		[SerializeField]
 		private Button destroyButton = null;
 
@@ -23,7 +23,7 @@ namespace UI.Market
 
 		private void Awake()
 		{
-			buyText = buyButton.GetComponentInChildren<Text>();
+			buyText     = buyButton.GetComponentInChildren<Text>();
 			destroyText = destroyButton.GetComponentInChildren<Text>();
 		}
 
@@ -36,19 +36,19 @@ namespace UI.Market
 		{
 			RemoveListeners();
 		}
-		
+
 		private void AddListeners()
 		{
 			EventManager.Instance.AddListener<OpenMarketEvent>(OnMarketOpened);
 		}
-		
+
 		private void RemoveListeners()
 		{
 			if (!EventManager.IsInitialized)
 			{
 				return;
 			}
-    
+
 			EventManager.Instance.RemoveListener<OpenMarketEvent>(OnMarketOpened);
 		}
 
@@ -61,7 +61,7 @@ namespace UI.Market
 		private void SetBuyButton(AbstractBuildingTile buildingTile)
 		{
 			buyButton.onClick.RemoveAllListeners();
-			
+
 			if (buildingTile.Building)
 			{
 				if (buildingTile.Building.IsMaxTier)
@@ -69,12 +69,12 @@ namespace UI.Market
 					SetBuyText($"MAX UPGRADED");
 					return;
 				}
-				
+
 				SetBuyText($"Upgrade [{buildingTile.Building.UpgradeCost}]");
 				buyButton.onClick.AddListener(buildingTile.Building.GetComponent<BuildingUpgrade>().Upgrade);
-				return; 
+				return;
 			}
-			
+
 			SetBuyText($"Buy House [{buildingTile.GetBuildingPrice()}]");
 			buyButton.onClick.AddListener(buildingTile.SpawnBuilding);
 		}
@@ -82,14 +82,14 @@ namespace UI.Market
 		private void SetDestroyButton(AbstractBuildingTile buildingTile)
 		{
 			destroyButton.onClick.RemoveAllListeners();
-			
+
 			if (buildingTile.Building)
 			{
 				SetDestroyText($"Remove [{buildingTile.Building.GlobalData.DestructionCost}]");
 				destroyButton.onClick.AddListener(() => buildingTile.Building.RemoveBuilding(true));
-				return; 
+				return;
 			}
-			
+
 			SetDestroyText("Nothing to remove");
 		}
 
