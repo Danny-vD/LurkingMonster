@@ -61,6 +61,7 @@ namespace Gameplay.Achievements
 			for (int i = 0; i < achievements.Count; i++)
 			{
 				GameObject prefabAchievement = Instantiate(prefabSingleAchievement, achievementParent);
+				prefabAchievement.GetComponent<ProgressImageHandler>().Instantiate(achievements[i]);
 				achievements[i].PrintAchievement(prefabAchievement);
 			}
 		}

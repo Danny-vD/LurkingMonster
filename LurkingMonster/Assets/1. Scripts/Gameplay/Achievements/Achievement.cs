@@ -63,5 +63,7 @@ namespace Gameplay.Achievements
 				
 			prefabAchievement.GetComponentInChildren<Image>().color = Color.green;
 		}
+
+		public bool[] Unlocked => unlocked;
 	}
 }
