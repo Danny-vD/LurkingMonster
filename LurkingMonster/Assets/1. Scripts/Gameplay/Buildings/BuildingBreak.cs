@@ -1,6 +1,7 @@
 ﻿using Events;
 using Singletons;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Utility;
 using VDFramework;
 using VDFramework.EventSystem;
@@ -11,7 +12,7 @@ namespace Gameplay.Buildings
 	{
 		public float Health;
 		public float StartingHealth;
-		public HealthBar healthBar;
+		public Bar bar;
 
 		private Building building;
 		
@@ -29,7 +30,7 @@ namespace Gameplay.Buildings
 			building = GetComponent<Building>();
 			
 			CalculateBuildingBreakTime();
-			healthBar.SetMaxHealth((int) Health);
+			bar.SetMax((int) Health);
 		}
 
 		// Update is called once per frame
@@ -37,12 +38,13 @@ namespace Gameplay.Buildings
 		{
 			Health -= Time.deltaTime;
 			
-			healthBar.SetHealth((int) Health);
+			bar.SetValue((int) Health);
 			
 			//When health is less then 25% show cracks
-			if (Health <= healthBar.StartingHealth / 100 * 25 && !crackPopup.activeInHierarchy)
+			if (Health <= bar.maxValue / 100 * 25 && !crackPopup.activeInHierarchy)
 			{
 				crackPopup.SetActive(true);
+				print("Health below 25%");
 			}
 			
 			if (Health <= 0)
@@ -69,12 +71,12 @@ namespace Gameplay.Buildings
 				EventManager.Instance.RaiseEvent(new DecreaseMoneyEvent(15));
 				
 				crackPopup.SetActive(false);
-				Health = healthBar.StartingHealth;
+				Health = bar.maxValue;
 				EventManager.Instance.RaiseEvent(new BuildingSavedEvent());
 			}
 			else
 			{
-				MassageManager.Instance.ShowMessageGameUI("Not enough money!", Color.red);
+				MessageManager.Instance.ShowMessageGameUI("Not enough money!", Color.red);
 			}
 		}
 	}

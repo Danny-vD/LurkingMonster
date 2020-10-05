@@ -447,7 +447,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 4217036813707069561}
-  StartingHealth: 0
 --- !u!1 &5338143314773929652
 GameObject:
   m_ObjectHideFlags: 0
@@ -636,7 +635,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Health: 0
   StartingHealth: 0
-  healthBar: {fileID: 2375193678091250356}
+  bar: {fileID: 2375193678091250356}
 --- !u!114 &8740718846376473894
 MonoBehaviour:
   m_ObjectHideFlags: 0
