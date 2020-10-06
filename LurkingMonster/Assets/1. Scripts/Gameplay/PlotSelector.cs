@@ -35,6 +35,7 @@ namespace Gameplay
 			{
 				return;
 			}
+			
 			selectMethod();
 		}
 
@@ -130,7 +131,7 @@ namespace Gameplay
 
 		private void ChangePlotMaterial(AbstractBuildingTile tile, bool isSelected)
 		{
-			Component objectToSelect = tile.Building ? (Component) tile.Building : tile;
+			Component objectToSelect = tile; //tile.Building ? (Component) tile.Building : tile;
 
 			Renderer meshRenderer = objectToSelect.GetComponent<Renderer>();
 
