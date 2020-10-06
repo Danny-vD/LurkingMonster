@@ -1,6 +1,7 @@
 ﻿using System;
 using Enums;
 using Events;
+using ScriptableObjects;
 using Singletons;
 using Structs.Buildings;
 using UnityEngine;
@@ -24,7 +25,7 @@ namespace Gameplay.Buildings
 		public BuildingData Data => data[CurrentTier - 1]; // tier is one-indexed
 
 		/// <summary>
-		/// Returns data this is the same for every building
+		/// Returns data that is the same for every building
 		/// </summary>
 		public GlobalBuildingData GlobalData => globalBuildingData;
 

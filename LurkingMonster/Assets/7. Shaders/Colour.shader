@@ -96,6 +96,10 @@
 	                    break;
 	                case 2: // screenPosition
 	                    fOutput.color = fInput.screenPosition;
+	                    
+	                    // Some basic mathematics (explained under cameraDistance) to make the Z depend on distance to camera
+	                    float Zpos = saturate(-fInput.screenPosition.z / _DistanceFactor);
+	                    fOutput.color.z = Zpos;
 	                    break;
 	                case 3: // clipPosition
 	                    fOutput.color = fInput.clipPosition;

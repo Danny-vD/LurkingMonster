@@ -32,9 +32,24 @@ namespace CustomInspector
 			serializedObject.Update();
 
 			DrawFoldoutKeyValueArray<BuildingType>(buildingTierMeshPerBuildingTypes, "key", "value",
-				buildingTierMeshPerBuildingTypesFoldouts, new GUIContent("Meshes"));
+				buildingTierMeshPerBuildingTypesFoldouts, DrawMeshArray);
 
 			serializedObject.ApplyModifiedProperties();
+		}
+
+		private void DrawMeshArray(int index, SerializedProperty buildingType, SerializedProperty meshes)
+		{
+			meshes.arraySize = Mathf.Clamp(EditorGUILayout.IntField("Tier Count", meshes.arraySize), 0, int.MaxValue);
+			
+			for (int i = 0; i < meshes.arraySize; i++)
+			{
+				DrawArrayElement(i, meshes.GetArrayElementAtIndex(i));
+			}
+			
+			void DrawArrayElement(int elementIndex, SerializedProperty mesh)
+			{
+				EditorGUILayout.PropertyField(mesh, new GUIContent($"Tier {elementIndex + 1}"));
+			}
 		}
 	}
 }

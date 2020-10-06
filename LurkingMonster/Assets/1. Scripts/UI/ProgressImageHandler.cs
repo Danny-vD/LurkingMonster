@@ -1,31 +1,32 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using Gameplay.Achievements;
+﻿using Gameplay.Achievements;
 using UnityEngine;
 using UnityEngine.UI;
 using VDFramework;
 
-public class ProgressImageHandler : BetterMonoBehaviour
+namespace UI
 {
-	[SerializeField]
-	private Transform parent = null;
-
-	[SerializeField]
-	private GameObject prefabImage = null;
-	
-	[SerializeField]
-	private Color unlockedColor;
-	
-	[SerializeField]
-	private Color lockedColor;
-
-	public void Instantiate(Achievement achievement)
+	public class ProgressImageHandler : BetterMonoBehaviour
 	{
-		for (int i = 0; i < achievement.Unlocked.Length; i++)
-		{
-			GameObject gameObject = Instantiate(prefabImage, parent);
+		[SerializeField]
+		private Transform parent = null;
 
-			gameObject.GetComponent<Image>().color = achievement.Unlocked[i] ? unlockedColor : lockedColor;
+		[SerializeField]
+		private GameObject prefabImage = null;
+	
+		[SerializeField]
+		private Color unlockedColor = Color.green;
+	
+		[SerializeField]
+		private Color lockedColor = Color.red;
+
+		public void Instantiate(Achievement achievement)
+		{
+			for (int i = 0; i < achievement.Unlocked.Length; i++)
+			{
+				GameObject gameObject = Instantiate(prefabImage, parent);
+
+				gameObject.GetComponent<Image>().color = achievement.Unlocked[i] ? unlockedColor : lockedColor;
+			}
 		}
 	}
 }

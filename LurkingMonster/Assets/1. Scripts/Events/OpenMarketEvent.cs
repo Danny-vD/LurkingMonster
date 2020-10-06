@@ -1,5 +1,6 @@
 ﻿using Gameplay.Buildings;
 using Grid.Tiles;
+using Grid.Tiles.Building;
 using VDFramework.EventSystem;
 
 namespace Events

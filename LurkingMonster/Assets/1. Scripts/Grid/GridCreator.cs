@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Enums.Grid;
 using Grid.Tiles;
@@ -47,12 +48,23 @@ namespace Grid
 		{
 			GameObject prefab = prefabsPerTileTypes.First(pair => pair.Key.Equals(type)).Value.GetRandomItem();
 
+			if (prefab == null)
+			{
+				throw new NullReferenceException($"A prefab for {type} is not assigned!");
+			}
+			
 			GameObject instance = Instantiate(prefab, parent);
 			instance.transform.position += CalculatePosition(data, parent, gridPosition);
 
 			instance.name = $"{type.ToString()} {gridPosition.ToString()}";
 			
 			AbstractTile tile = instance.GetComponent<AbstractTile>();
+
+			if (tile == null)
+			{
+				throw new NullReferenceException($"Prefab {prefab.name} does not have an AbstractTileComponent attached to it!");
+			}
+			
 			tile.Instantiate(gridPosition);
 			
 			return tile;
