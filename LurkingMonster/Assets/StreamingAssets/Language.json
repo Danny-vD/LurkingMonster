@@ -126,6 +126,150 @@
 					"Value": "Ok!"
 				}
 			]
-		}
+		},
+    {
+      "Key": "BUILDINGSBUILDACHIEVEMENT",
+      "Value":
+      [
+        {
+          "Key": "NL",
+          "Value": "Bouw Gebouwen :"
+        },
+        {
+          "Key": "EN",
+          "Value": "Build Buildings :"
+        },
+        {
+          "Key": "DE",
+          "Value": "Ok!"
+        }
+      ]
+    },
+    {
+      "Key": "RENTCOLLECTEDACHIEVEMENT",
+      "Value":
+      [
+        {
+          "Key": "NL",
+          "Value": "Incasseer Huur :"
+        },
+        {
+          "Key": "EN",
+          "Value": "Collect Rent :"
+        },
+        {
+          "Key": "DE",
+          "Value": "Ok!"
+        }
+      ]
+    },
+    {
+      "Key": "BUILDINGSAVEDACHIEVEMENT",
+      "Value":
+      [
+        {
+          "Key": "NL",
+          "Value": "Gebouwen Gered :"
+        },
+        {
+          "Key": "EN",
+          "Value": "Save Buildings :"
+        },
+        {
+          "Key": "DE",
+          "Value": "Ok!"
+        }
+      ]
+    },
+    {
+      "Key": "BUILDINGCONSUMEDACHIEVEMENT",
+      "Value":
+      [
+        {
+          "Key": "NL",
+          "Value": "Kapotte Gebouwen :"
+        },
+        {
+          "Key": "EN",
+          "Value": "Consume Buildings :"
+        },
+        {
+          "Key": "DE",
+          "Value": "Ok!"
+        }
+      ]
+    },
+    {
+      "Key": "AMOUNTOFPLOTSACHIEVEMENT",
+      "Value":
+      [
+        {
+          "Key": "NL",
+          "Value": "Koop Grond :"
+        },
+        {
+          "Key": "EN",
+          "Value": "Buy Plots :"
+        },
+        {
+          "Key": "DE",
+          "Value": "Ok!"
+        }
+      ]
+    },
+    {
+      "Key": "ACHIEVEMENT_UNLOCKED",
+      "Value":
+      [
+        {
+          "Key": "NL",
+          "Value": "Achievement Vrijgespeeld"
+        },
+        {
+          "Key": "EN",
+          "Value": "Achievement Unlocked"
+        },
+        {
+          "Key": "DE",
+          "Value": "Ok!"
+        }
+      ]
+    },
+    {
+      "Key": "ALL_ACHIEVEMENTS_UNLOCKED",
+      "Value":
+      [
+        {
+          "Key": "NL",
+          "Value": "Alle Achievements Vrijgespeeld"
+        },
+        {
+          "Key": "EN",
+          "Value": "All Achievements Unlocked"
+        },
+        {
+          "Key": "DE",
+          "Value": "Ok!"
+        }
+      ]
+    },
+    {
+      "Key": "MONEY",
+      "Value":
+      [
+        {
+          "Key": "NL",
+          "Value": "Geld : "
+        },
+        {
+          "Key": "EN",
+          "Value": "Money : "
+        },
+        {
+          "Key": "DE",
+          "Value": "Ok!"
+        }
+      ]
+    }
 	]
 }

@@ -1,6 +1,8 @@
-﻿using Events;
+﻿using Enums;
+using Events;
 using Singletons;
 using UnityEngine.UI;
+using Utility;
 using VDFramework;
 using VDFramework.EventSystem;
 
@@ -25,7 +27,7 @@ namespace UI
 
 		private void SetText(int currentMoney)
 		{
-			moneyText.text =  "Money: " + currentMoney;
+			moneyText.text =  LanguageUtil.GetJsonString("MONEY") + currentMoney;
 		}
 		
 		private void OnMoneyChanged(MoneyChangedEvent moneyChangedEvent)

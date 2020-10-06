@@ -1,7 +1,10 @@
 ﻿using System;
+using Enums;
+using IO;
 using Singletons;
 using UnityEngine;
 using UnityEngine.UI;
+using Utility;
 
 namespace Gameplay.Achievements
 {
@@ -34,7 +37,7 @@ namespace Gameplay.Achievements
 						unlocked[i] = true;
 						
 						//For now show message
-						MessageManager.Instance.ShowMessageGameUI("Achievement Unlocked", Color.green);
+						MessageManager.Instance.ShowMessageGameUI(LanguageUtil.GetJsonString("ACHIEVEMENT_UNLOCKED"), Color.green);
 
 						//TODO show achievement!!
 						return;
@@ -59,7 +62,7 @@ namespace Gameplay.Achievements
 			}
 			
 			prefabAchievement.GetComponentsInChildren<Text>()[0].text = $"{message}";
-			prefabAchievement.GetComponentsInChildren<Text>()[1].text = $"All Achievements Unlocked";
+			prefabAchievement.GetComponentsInChildren<Text>()[1].text = LanguageUtil.GetJsonString("ALL_ACHIEVEMENTS_UNLOCKED");
 				
 			prefabAchievement.GetComponentInChildren<Image>().color = Color.green;
 		}
