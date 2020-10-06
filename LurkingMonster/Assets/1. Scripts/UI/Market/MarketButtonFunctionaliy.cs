@@ -1,6 +1,6 @@
 ﻿using Events;
 using Gameplay.Buildings;
-using Grid.Tiles;
+using Grid.Tiles.Building;
 using UnityEngine;
 using UnityEngine.UI;
 using VDFramework.EventSystem;

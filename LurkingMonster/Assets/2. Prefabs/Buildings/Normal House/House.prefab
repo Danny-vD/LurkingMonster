@@ -537,7 +537,6 @@ GameObject:
   - component: {fileID: 9065348212960834744}
   - component: {fileID: 8740718846376473894}
   - component: {fileID: 4707960237150791921}
-  - component: {fileID: 882233895}
   m_Layer: 0
   m_Name: House
   m_TagString: Untagged
@@ -587,7 +586,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -255740635699595513, guid: 8cf1c8ea77bce6d4b8c212df58ff5535, type: 3}
+  - {fileID: -2654978325711545279, guid: 4f00fd714054b2d4eb12a0de6377c4e9, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -621,8 +620,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bd52fd205066d549bb3592335298a22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  globalBuildingData:
-    DestructionCost: 200
+  globalBuildingData: {fileID: 0}
 --- !u!114 &9065348212960834744
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -664,25 +662,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buildingTierData: {fileID: 11400000, guid: 27ef68d1b402b694fac3b32415cb7e74, type: 2}
---- !u!114 &882233895
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6758913166034969596}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3310586d1850126429bc167a6b8d501f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  patternType: 7
-  HorizontalMultiplier: 4
-  VerticalMultiplier: 1
-  HorizontalOffset: 0
-  VerticalOffset: 0
-  color1: {r: 0.632, g: 0.04151543, b: 0, a: 0}
-  color2: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &7029731273974737261
 GameObject:
   m_ObjectHideFlags: 0
