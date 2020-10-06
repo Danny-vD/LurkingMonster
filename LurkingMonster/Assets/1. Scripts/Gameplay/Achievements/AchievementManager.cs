@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using Enums;
 using Events;
+using IO;
 using UI;
 using UnityEngine;
 using UnityEngine.Serialization;
+using Utility;
 using VDFramework;
 using VDFramework.EventSystem;
 using VDFramework.UnityExtensions;
@@ -31,11 +34,11 @@ namespace Gameplay.Achievements
 		{
 			achievements                = new List<Achievement>();
 			
-			buildingBuildAchievement    = new Achievement(new int[] {5, 10, 15}, "Build Buildings :");
-			rentCollectedAchievement    = new Achievement(new int[] {1000, 10000, 100000, 200000}, "Collect Rent :");
-			buildingSavedAchievement    = new Achievement(new int[] {10, 20, 30}, "Save Buildings :");
-			buildingConsumedAchievement = new Achievement(new int[] {5, 10, 20}, "Consume Buildings :");
-			amountOfPlotsAchievement    = new Achievement(new int[] {5, 10, 20}, "Build Plots :");
+			buildingBuildAchievement    = new Achievement(new int[] {5, 10, 15}, LanguageUtil.GetJsonString("BUILDINGSBUILDACHIEVEMENT"));
+			rentCollectedAchievement    = new Achievement(new int[] {1000, 10000, 100000, 200000}, LanguageUtil.GetJsonString("RENTCOLLECTEDACHIEVEMENT"));
+			buildingSavedAchievement    = new Achievement(new int[] {10, 20, 30}, LanguageUtil.GetJsonString("BUILDINGSAVEDACHIEVEMENT"));
+			buildingConsumedAchievement = new Achievement(new int[] {5, 10, 20}, LanguageUtil.GetJsonString("BUILDINGCONSUMEDACHIEVEMENT"));
+			amountOfPlotsAchievement    = new Achievement(new int[] {5, 10, 20}, LanguageUtil.GetJsonString("AMOUNTOFPLOTSACHIEVEMENT"));
 			
 			achievements.Add(buildingBuildAchievement);
 			achievements.Add(rentCollectedAchievement);
