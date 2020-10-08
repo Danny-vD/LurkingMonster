@@ -7275,7 +7275,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b076665397d9834386a7fea3ab56812, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RelativeLimits: {x: 120, y: 70, z: 48, w: 50}
+  RelativeLimits: {x: 70, y: 10, z: 14, w: 48}
 --- !u!114 &463725856
 MonoBehaviour:
   m_ObjectHideFlags: 0
