@@ -7275,7 +7275,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b076665397d9834386a7fea3ab56812, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RelativeLimits: {x: 120, y: 70, z: 48, w: 50}
+  RelativeLimits: {x: 70, y: 10, z: 14, w: 48}
 --- !u!114 &463725856
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7934,18 +7934,6 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 1336979861}
-        m_TargetAssemblyTypeName: Singletons.TimeManager, Assembly-CSharp
-        m_MethodName: UnPause
-        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -12090,6 +12078,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 834959467}
+  - component: {fileID: 834959468}
   m_Layer: 5
   m_Name: AchievementUI
   m_TagString: Untagged
@@ -12119,6 +12108,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &834959468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 834959466}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80413850a5ac83847abfd2cd447878ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &837837398
 GameObject:
   m_ObjectHideFlags: 0
@@ -17729,6 +17730,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1183828378}
+  - component: {fileID: 1183828379}
   m_Layer: 5
   m_Name: MarketUI
   m_TagString: Untagged
@@ -17757,6 +17759,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1183828379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1183828377}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80413850a5ac83847abfd2cd447878ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1186574176
 GameObject:
   m_ObjectHideFlags: 0
@@ -29836,18 +29850,6 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 1336979861}
-        m_TargetAssemblyTypeName: Singletons.TimeManager, Assembly-CSharp
-        m_MethodName: Pause
-        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

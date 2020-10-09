@@ -620,7 +620,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bd52fd205066d549bb3592335298a22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  globalBuildingData: {fileID: 0}
+  globalBuildingData: {fileID: 11400000, guid: b1e589b5116ce7d42b4cd5afddc4fd3e, type: 2}
 --- !u!114 &9065348212960834744
 MonoBehaviour:
   m_ObjectHideFlags: 0
