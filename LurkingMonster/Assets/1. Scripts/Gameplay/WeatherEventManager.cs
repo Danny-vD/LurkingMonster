@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Enums;
 using Events;
 using ScriptableObjects;
@@ -22,10 +21,10 @@ namespace Gameplay
 		private List<EventDataPerEventType> eventDataPerEventType;
 
 		[SerializeField]
-		private float minTime = 900;
+		private float minTime = 900.0f;
 
 		[SerializeField]
-		private float maxTime = 3000;
+		private float maxTime = 3000.0f;
 		
 		private void Start()
 		{
@@ -37,7 +36,7 @@ namespace Gameplay
 		{
 			timer -= Time.deltaTime;
 
-			if (timer <= 0)
+			if (timer <= 0.0f)
 			{
 				WeatherEventData weatherEventData = GetData(RandomWeatherEventType.Drought.GetRandomValue());
 				print(weatherEventData.name);

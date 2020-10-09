@@ -50,7 +50,6 @@ namespace Gameplay.Buildings
 			if (TotalHealth <= bar.maxValue / 100 * 25 && !crackPopup.activeInHierarchy)
 			{
 				crackPopup.SetActive(true);
-				print("Health below 25%");
 			}
 			
 			if (TotalHealth <= 0)
