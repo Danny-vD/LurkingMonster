@@ -25,18 +25,16 @@
         
         [Space]
         [MaterialToggle] _LimitLines("Limited", float) = 0
-        [Integer] _LineCount("Line Amount", Int) = 2
+        _LineCount("Line Amount", Int) = 2
     }
     SubShader
     {
         Tags { "RenderType"="Transparent" "Queue" = "Transparent" }
-        
-        Blend off
 
         CGPROGRAM
         
         // Physically based Standard lighting model, and enable shadows on all light types
-        #pragma surface surf Standard fullforwardshadows alpha
+        #pragma surface surf Standard fullforwardshadows alpha:blend
         #pragma vertex vertex
 
         // Use shader model 3.0 target, to get nicer looking lighting
