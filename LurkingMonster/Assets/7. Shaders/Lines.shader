@@ -1,27 +1,27 @@
-﻿Shader "Custom/Circle"
+﻿Shader "Custom/Lines"
 {
     Properties
     { 
         [KeywordEnum(objectSpace, worldSpace, screenSpace)] _SpaceCalculation("Space", float) = 0
-        [KeywordEnum(X axis, Y axis, Z axis)] _CircleAxis("Circle Axis:", Float) = 0
+        [KeywordEnum(X axis, Y axis, Z axis)] _LineAxis("Lines Axis:", Float) = 0
     
         [Space]
         _Center("Origin Position", vector) = (0,0,0,0)
     
         [Space]
         _MainColor("Main color", Color) = (.83, .5, .13, 1)
-        _CircleColor("Circle Color", Color) = (1, 1, 1, 1)
+        _LineColor("Line Color", Color) = (1, 1, 1, 1)
         
         [Space]
-        _distanceToCircle("Distance to Circle", float) = 1
-        _distanceBetweenCircles("Distance between circles", float) = 2
+        _DistanceToLine("Distance to line", float) = 1
+        _DistanceBetweenLines("Distance between lines", float) = 2
         
         [Space]
-        _CircleSize("Circle Size", float) = 1
+        _LineSize("Line Size", float) = 1
         
         [Space]
-        [MaterialToggle] _LimitCircles("Limited", float) = 0
-        [Integer] _CircleCount("Circle Amount", Int) = 2
+        [MaterialToggle] _LimitLines("Limited", float) = 0
+        _LineCount("Lines Amount", Int) = 2
     }
     
     SubShader
@@ -44,22 +44,22 @@
 	        ///Variables
 	        float _SpaceCalculation;
 	        
-            float _CircleAxis;
+            float _LineAxis;
             
 			float4 _MainColor;
-			float4 _CircleColor;
+			float4 _LineColor;
         
             float4 _Center;
             
-            float _distanceToCircle;
-            float _distanceBetweenCircles;
-            float _CircleSize;
+            float _DistanceToLine;
+            float _DistanceBetweenLines;
+            float _LineSize;
             
-            bool _LimitCircles;
-            int _CircleCount;
+            bool _LimitLines;
+            int _LineCount;
             
             // Functions
-            float4 DrawCircles(float4 objectPosition);
+            float4 DrawLines(float4 objectPosition);
             float CalculateDistance(float4 objectPosition);
             float PingPong(float value, float length);
         
@@ -129,45 +129,45 @@
 	                    break;
 	            }
 	            
-	            fOutput.color = DrawCircles(position);
+	            fOutput.color = DrawLines(position);
 	            
 	            return fOutput;
 	        }
 	        
-	        float4 DrawCircles(float4 objectPosition)
+	        float4 DrawLines(float4 objectPosition)
 	        {
 	            float distance = CalculateDistance(objectPosition);
 	        
-	            if (distance < _distanceToCircle)
+	            if (distance < _DistanceToLine)
 	            {
 	                return _MainColor;
 	            }
 	            
-	            if (distance <= _distanceToCircle + _CircleSize)
+	            if (distance <= _DistanceToLine + _LineSize)
 	            {
-	                return _CircleColor;
+	                return _LineColor;
 	            }
 	            
-	            distance -= _distanceToCircle + _CircleSize; // Distance is now distance from end of first circle
+	            distance -= _DistanceToLine + _LineSize; // Distance is now distance from end of first circle
 	            
-	            float patternLength = _distanceBetweenCircles + _CircleSize; 
+	            float patternLength = _DistanceBetweenLines + _LineSize; 
 	            
 	            int circleNumber = distance / patternLength + 1; // Get the number of the current circle
 	            distance %= patternLength; // Make sure the pattern repeats itself
 	            
-	            if (_LimitCircles && circleNumber >= _CircleCount)
+	            if (_LimitLines && circleNumber >= _LineCount)
 	            {
 	                return _MainColor;
 	            }
 	            
-	            if (distance < _distanceBetweenCircles)
+	            if (distance < _DistanceBetweenLines)
 	            {
 	                return _MainColor;
 	            }
 	            
-	            if (distance <= _distanceBetweenCircles + _CircleSize)
+	            if (distance <= _DistanceBetweenLines + _LineSize)
 	            {
-	                return _CircleColor;
+	                return _LineColor;
 	            }
 	            
 	            return _MainColor;
@@ -177,7 +177,7 @@
 	        {
 	            float distance;
 	            
-	            switch(_CircleAxis)
+	            switch(_LineAxis)
 	            {
 	                case 0: // X axis
 	                    distance = objectPosition.x - _Center.x;
@@ -195,29 +195,6 @@
 	            
 	            distance = abs(distance);
 	            return distance;
-	        }
-	        
-	        float PingPong(float value, float length)
-	        {
-	            if (value > length) //check if we are over our limit
-                {
-		            float a = value % length; //grab the remainder
-		            int b = value / length; //check how many times we are over our limit
-		           
-		            bool c = (b & 1 == 0); //see if it's an even number
-		            if (c) //even
-		            {
-		                return a;
-		            }
-		            else //not even
-		            {
-		                return length - a;
-		            }    
-		        }
-	            else
-	            {
-		            return value;
-	            }
 	        }
             ENDCG
         }
