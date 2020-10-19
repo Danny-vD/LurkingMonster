@@ -13,5 +13,8 @@ namespace ScriptableObjects
 		
 		[SerializeField]
 		public float BuildingTime;
+
+		[SerializeField]
+		public float Timer;
 	}
 }
