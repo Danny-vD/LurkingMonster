@@ -1,4 +1,4 @@
-﻿Shader "Custom/NoCulling"
+Shader "Custom/NoCulling"
 {
     Properties
     {
@@ -47,7 +47,7 @@
 
         CGPROGRAM
         // Physically based Standard lighting model, and enable shadows on all light types
-        #pragma surface surface Standard fullforwardshadows
+        #pragma surface surface Standard fullforwardshadows alpha:blend
 
         // Use shader model 3.0 target, to get nicer looking lighting
         #pragma target 3.0
