@@ -1,4 +1,5 @@
-﻿using Events;
+﻿using System;
+using Events;
 using Singletons;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -15,6 +16,11 @@ namespace Gameplay.Buildings
 		public float TotalHealth;
 		public float StartingHealth;
 		public float SpeedPercentage;
+
+		//Weather event variables
+		private float weatherEventTimeLength;
+		private float timerWeatherEvent;
+		private Boolean weatherEvent;
 		
 		public Bar bar;
 
@@ -26,6 +32,7 @@ namespace Gameplay.Buildings
 		{
 			crackPopup = CachedTransform.GetChild(0).Find("btnCrackHouse").gameObject;
 			crackPopup.SetActive(false);
+			weatherEvent = false;
 		}
 		
 		// Start is called before the first frame update
@@ -41,6 +48,18 @@ namespace Gameplay.Buildings
 		// Update is called once per frame
 		private void Update()
 		{
+			if (weatherEvent)
+			{
+				timerWeatherEvent += Time.deltaTime;
+				
+				if (weatherEventTimeLength <= timerWeatherEvent)
+				{
+					SpeedPercentage   = 0;
+					weatherEvent      = false;
+					timerWeatherEvent = 0;
+				}
+			}
+			
 			//TODO reset speedpercentage when weather event is done
 			TotalHealth -= Time.deltaTime * (SpeedPercentage / 100 + 1); 
 			
@@ -61,10 +80,10 @@ namespace Gameplay.Buildings
 
 		public void OnWeatherEvent(RandomWeatherEvent randomWeatherEvent)
 		{
-			SpeedPercentage += randomWeatherEvent.WeatherEventData.BuildingTime;
-			SpeedPercentage += randomWeatherEvent.WeatherEventData.SoilTime;
-			
-			print(SpeedPercentage);
+			SpeedPercentage        += randomWeatherEvent.WeatherEventData.BuildingTime;
+			SpeedPercentage        += randomWeatherEvent.WeatherEventData.SoilTime;
+			weatherEventTimeLength =  randomWeatherEvent.WeatherEventData.Timer;
+			weatherEvent           =  true;
 		}
 
 		public void CalculateBuildingBreakTime()
@@ -74,7 +93,7 @@ namespace Gameplay.Buildings
 			FoundationHealth += Switches.FoundationTypeSwitch(building.Data.Foundation);
 			
 			//TODO for test purposes so we dont have to wait a long time
-			TotalHealth = (SoilHealth + FoundationHealth) / 20;
+			TotalHealth = (SoilHealth + FoundationHealth);
 		}
 
 		public void OnHouseRepair()
