@@ -18,7 +18,7 @@
         
         [Space]
         _distanceToLine("Distance to Line", float) = 1
-        _distanceBetweenLines("Distance between circles", float) = 2
+        _distanceBetweenLines("Distance between Lines", float) = 2
         
         [Space]
         _LineSize("Line Size", float) = 1
@@ -30,6 +30,7 @@
     SubShader
     {
         Tags { "RenderType"="Transparent" "Queue" = "Transparent" }
+    	ZWrite off
 
         CGPROGRAM
         

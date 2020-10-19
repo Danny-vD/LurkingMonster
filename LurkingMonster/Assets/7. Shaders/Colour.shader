@@ -5,7 +5,9 @@
         [KeywordEnum(ObjectPosition, WorldPosition, ScreenPosition, ClipPosition, Normal, UV, VertexColor, CameraDistance, Texture, ColorProperty)] _colorType("Get color from:", Float) = 0
         
         _Color("Tint", Color) = (.83, .13, .13, 1)
-        _DistanceFactor ("DistanceFactor", Float) = 20 // DistanceFactor defines how far an object has to be to have distance 1
+    	
+    	[Header(how far an object has to be to have distance 1)]
+        _DistanceFactor ("DistanceFactor", Float) = 20
         
         _MainTex("Texture", 2D) = "black"
     }
