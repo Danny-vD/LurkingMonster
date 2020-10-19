@@ -20,7 +20,7 @@ namespace Gameplay.Buildings
 		//Weather event variables
 		private float weatherEventTimeLength;
 		private float timerWeatherEvent;
-		private Boolean weatherEvent;
+		private bool weatherEvent;
 		
 		public Bar bar;
 
@@ -60,7 +60,6 @@ namespace Gameplay.Buildings
 				}
 			}
 			
-			//TODO reset speedpercentage when weather event is done
 			TotalHealth -= Time.deltaTime * (SpeedPercentage / 100 + 1); 
 			
 			bar.SetValue((int) TotalHealth);
