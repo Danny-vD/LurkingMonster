@@ -1,4 +1,4 @@
-﻿using Enums;
+using Enums;
 using Events;
 using ScriptableObjects;
 using Singletons;
@@ -27,7 +27,13 @@ namespace Gameplay.Buildings
 			building = GetComponent<Building>();
 			buildingType = building.BuildingType;
 
+			if (buildingTierData == null)
+			{
+				Debug.LogError("Mesh Tier data is not set!", gameObject);
+			}
+
 			maxTier = buildingTierData.GetMaxTier(buildingType);
+			meshFilter.mesh = buildingTierData.GetMesh(buildingType, building.CurrentTier);
 		}
 
 		public bool CanUpgrade()
