@@ -7,9 +7,10 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Mat_Environment_Leaves
+  m_Name: Mat_Environment_Bin
   m_Shader: {fileID: 4800000, guid: 934a690b2d5662542bffccf8afe8afed, type: 3}
-  m_ShaderKeywords: _ALPHATEST_ON _USEALBEDO_ON
+  m_ShaderKeywords: _METALLICGLOSSMAP _NORMALMAP _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
+    _USEALBEDO_ON _USEMETALLIC_ON _USENORMAL_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -20,11 +21,11 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _AlbedoMap:
-        m_Texture: {fileID: 2800000, guid: c4345e98a23c6ff40a8f6d2448c752cd, type: 3}
+        m_Texture: {fileID: 2800000, guid: f372d6be27e815a4e9fa2c3662cfa80a, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: b7ae16d915b4938479dae5ecebca94a8, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
@@ -45,22 +46,22 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _HeightMap:
         m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
+        m_Scale: {x: 0, y: 0}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: c4345e98a23c6ff40a8f6d2448c752cd, type: 3}
+        m_Texture: {fileID: 2800000, guid: f372d6be27e815a4e9fa2c3662cfa80a, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: a7df2e1f28b8afc49a7b1e99ed51ec09, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicMap:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: a7df2e1f28b8afc49a7b1e99ed51ec09, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _NormalMap:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: b7ae16d915b4938479dae5ecebca94a8, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
@@ -77,15 +78,15 @@ Material:
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _GlossMapScale: 1
-    - _Glossiness: 1
+    - _Glossiness: 0.5
     - _GlossyReflections: 1
     - _HeightIntensity: 0.2
     - _Metallic: 0
-    - _Mode: 1
+    - _Mode: 0
     - _OcclusionIntensity: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
-    - _SmoothnessTextureChannel: 0
+    - _SmoothnessTextureChannel: 1
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _UVSec: 0
@@ -93,8 +94,8 @@ Material:
     - _UseAlpha: 0
     - _UseEmission: 0
     - _UseHeight: 0
-    - _UseMetallic: 0
-    - _UseNormal: 0
+    - _UseMetallic: 1
+    - _UseNormal: 1
     - _UseOcclusion: 0
     - _ZWrite: 1
     m_Colors:
