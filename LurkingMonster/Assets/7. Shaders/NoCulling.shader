@@ -1,4 +1,4 @@
-﻿Shader "Custom/NoCulling"
+Shader "Custom/NoCulling"
 {
 	Properties
 	{

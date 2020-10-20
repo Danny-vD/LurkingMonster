@@ -15,4 +15,4 @@ MonoBehaviour:
   SoilTime: 20
   FoundationTime: 20
   BuildingTime: 20
-  Timer: 0
+  Timer: 20
