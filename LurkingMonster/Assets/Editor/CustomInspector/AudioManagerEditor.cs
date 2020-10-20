@@ -54,7 +54,7 @@ namespace CustomInspector
 			audioManager.EventPaths.UpdateDictionaries();
 			EnumDictionaryUtil.PopulateEnumDictionary<InitialValuePerBus, BusType, float>(audioManager.initialVolumes);
 
-			initialVolumes = serializedObject.FindProperty("initialVolumes");
+			initialVolumes   = serializedObject.FindProperty("initialVolumes");
 			busVolumeFoldout = new bool[initialVolumes.arraySize];
 
 			// EventPaths
@@ -108,7 +108,7 @@ namespace CustomInspector
 		{
 			if (IsFoldOut(ref showEventPaths, "Event Paths"))
 			{
-				DrawFoldoutKeyValueArray<EventType>(events, eventPathsFoldout, eventIcon, new GUIContent("Path"));
+				DrawFoldoutKeyValueArray<EventType>(events, "key", "value", eventPathsFoldout, eventIcon, new GUIContent("Path"));
 			}
 		}
 
@@ -142,7 +142,7 @@ namespace CustomInspector
 		{
 			if (IsFoldOut(ref showEmitterEvents, "Emitters"))
 			{
-				DrawFoldoutKeyValueArray<EmitterType>(emitterEvents, emitterEventsFoldout,
+				DrawFoldoutKeyValueArray<EmitterType>(emitterEvents, "key", "value", emitterEventsFoldout,
 					new GUIContent("Event to play", eventIcon[0]));
 			}
 		}

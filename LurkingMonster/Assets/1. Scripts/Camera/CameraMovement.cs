@@ -1,4 +1,5 @@
 ﻿using System;
+using Singletons;
 using UnityEngine;
 using VDFramework;
 
@@ -11,6 +12,9 @@ namespace Camera
 
 		[SerializeField]
 		private float deadZone = 0.2f;
+
+		[SerializeField, Tooltip("The % that the movement slows down and speeds up when fully zoomed in and out respectively"), Range(0, 1)]
+		private float zoomSlowDown = 0.75f;
 
 		private CameraZoom cameraZoom;
 
@@ -28,6 +32,11 @@ namespace Camera
 
 		private void Update()
 		{
+			if (TimeManager.Instance.IsPaused())
+			{
+				return;
+			}
+			
 			CalculateSpeedFactor();
 			moveMethod();
 		}
@@ -103,13 +112,13 @@ namespace Camera
 			{
 				percentageApplied = Mathf.InverseLerp(0.5f, 1, zoomfactor);
 
-				speedFactor -= 0.75f * percentageApplied;
+				speedFactor -= zoomSlowDown * percentageApplied;
 			}
 			else if (zoomfactor < 0.5f) // zoomed out, so increase speed
 			{
 				percentageApplied = Mathf.InverseLerp(0.5f, 0, zoomfactor);
 
-				speedFactor += 0.75f * percentageApplied;
+				speedFactor += zoomSlowDown * percentageApplied;
 			}
 		}
 	}

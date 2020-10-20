@@ -88,7 +88,16 @@ namespace Utility
 		/// <summary>
 		/// Draws a vector4 property with custom labels and variable width
 		/// </summary>
-		public static Vector4 DrawVector4(float x, string xLabel, float y, string yLabel, float z, string zLabel, float w, string wLabel)
+		public static Vector4 DrawVector4(
+			float  x,
+			string xLabel,
+			float  y,
+			string yLabel,
+			float  z,
+			string zLabel,
+			float  w,
+			string wLabel
+		)
 		{
 			Vector4 vector4 = Vector4.zero;
 
@@ -138,7 +147,16 @@ namespace Utility
 		/// <summary>
 		/// Draws a vector4Int property with custom labels and variable width
 		/// </summary>
-		public static Vector4 DrawVector4Int(int x, string xLabel, int y, string yLabel, int z, string zLabel, int w, string wLabel)
+		public static Vector4 DrawVector4Int(
+			int    x,
+			string xLabel,
+			int    y,
+			string yLabel,
+			int    z,
+			string zLabel,
+			int    w,
+			string wLabel
+		)
 		{
 			Vector4 vector4 = Vector4.zero;
 
@@ -153,6 +171,7 @@ namespace Utility
 
 		#region KeyValueArray
 
+		// @formatter:off — prevent R# from formatting this block
 		/// <summary>
 		/// Calls elementAction(index, @struct) for every element in the array
 		/// </summary>
@@ -174,7 +193,8 @@ namespace Utility
 		/// Calls elementAction(index, key, value) for every element in the array
 		/// </summary>
 		public static void DrawKeyValueArray(SerializedProperty array, string keyName, string valueName,
-			Action<int, SerializedProperty, SerializedProperty> elementAction)
+			Action<int, SerializedProperty, SerializedProperty> elementAction
+		)
 		{
 			++EditorGUI.indentLevel;
 
@@ -191,19 +211,12 @@ namespace Utility
 		}
 
 		/// <summary>
-		/// Calls elementAction(index, key, value) for every element in the array
-		/// <para>(assumes the property names are "key" and "value")</para>
-		/// </summary>
-		public static void DrawKeyValueArray(SerializedProperty array,
-			Action<int, SerializedProperty, SerializedProperty> elementAction)
-		{
-			DrawKeyValueArray(array, "key", "value", elementAction);
-		}
-
-		/// <summary>
 		/// Will create a foldout label with a texture for every value in the enum and call elementAction(index, @struct) for every element
 		/// </summary>
-		public static void DrawFoldoutKeyValueArray<TEnum>(SerializedProperty array, string keyName, bool[] foldouts, Texture[] keyTextures, Action<int, SerializedProperty>                                   elementAction)
+		public static void DrawFoldoutKeyValueArray<TEnum>(
+			SerializedProperty array, string keyName, bool[] foldouts,
+			Texture[] keyTextures, Action<int, SerializedProperty> elementAction
+		)
 			where TEnum : struct, Enum
 		{
 			DrawKeyValueArray(array, DrawFoldout);
@@ -211,7 +224,8 @@ namespace Utility
 			void DrawFoldout(int i, SerializedProperty @struct)
 			{
 				string enumString = ConvertIntToEnum<TEnum>(@struct.FindPropertyRelative(keyName).enumValueIndex)
-					.ToString().ReplaceUnderscoreWithSpace();
+					.ToString()
+					.ReplaceUnderscoreWithSpace();
 
 				if (IsFoldOut(ref foldouts[i], keyTextures[i % keyTextures.Length], enumString))
 				{
@@ -225,7 +239,9 @@ namespace Utility
 		/// <summary>
 		/// Will create a foldout label with a texture for every value in the enum and call elementAction(index, key, value) for every element
 		/// </summary>
-		public static void DrawFoldoutKeyValueArray<TEnum>(SerializedProperty array, string keyName, string valueName, bool[] foldouts, Texture[] keyTextures, Action<int, SerializedProperty, SerializedProperty>               elementAction)
+		public static void DrawFoldoutKeyValueArray<TEnum>(SerializedProperty array, string keyName, string valueName, bool[] foldouts,
+			Texture[] keyTextures, Action<int, SerializedProperty, SerializedProperty> elementAction
+		)
 			where TEnum : struct, Enum
 		{
 			DrawKeyValueArray(array, keyName, valueName, DrawFoldout);
@@ -246,7 +262,9 @@ namespace Utility
 		/// <summary>
 		/// Will create a foldout label for every value in the enum and call elementAction(index, @struct) for every element
 		/// </summary>
-		public static void DrawFoldoutKeyValueArray<TEnum>(SerializedProperty array, string keyName, bool[] foldouts, Action<int, SerializedProperty> elementAction)
+		public static void DrawFoldoutKeyValueArray<TEnum>(SerializedProperty array, string keyName, bool[] foldouts,
+			Action<int, SerializedProperty> elementAction
+		)
 			where TEnum : struct, Enum
 		{
 			DrawKeyValueArray(array, DrawFoldout);
@@ -254,7 +272,8 @@ namespace Utility
 			void DrawFoldout(int i, SerializedProperty @struct)
 			{
 				string enumString = ConvertIntToEnum<TEnum>(@struct.FindPropertyRelative(keyName).enumValueIndex)
-					.ToString().ReplaceUnderscoreWithSpace();
+					.ToString()
+					.ReplaceUnderscoreWithSpace();
 
 				if (IsFoldOut(ref foldouts[i], enumString))
 				{
@@ -264,11 +283,12 @@ namespace Utility
 				}
 			}
 		}
-
+		
 		/// <summary>
 		/// Will create a foldout label for every value in the enum and call elementAction(index, key, value) for every element
 		/// </summary>
-		public static void DrawFoldoutKeyValueArray<TEnum>(SerializedProperty array, string keyName, string valueName, bool[] foldouts, Action<int, SerializedProperty, SerializedProperty> elementAction)
+		public static void DrawFoldoutKeyValueArray<TEnum>(SerializedProperty array, string keyName, string valueName,bool[] foldouts,
+			Action<int, SerializedProperty, SerializedProperty> elementAction)
 			where TEnum : struct, Enum
 		{
 			DrawKeyValueArray(array, keyName, valueName, DrawFoldout);
@@ -289,10 +309,8 @@ namespace Utility
 		/// <summary>
 		/// Will create a foldout label with a texture for every value in the enum and draw every value with a specified label
 		/// </summary>
-		public static void DrawFoldoutKeyValueArray<TEnum>(SerializedProperty array, string keyName,
-			string                                                            valueName,
-			bool[]                                                            foldouts, Texture[] keyTextures,
-			GUIContent                                                        valueLabel)
+		public static void DrawFoldoutKeyValueArray<TEnum>(SerializedProperty array, string keyName, string valueName, bool[] foldouts,
+			Texture[] keyTextures, GUIContent valueLabel)
 			where TEnum : struct, Enum
 		{
 			DrawFoldoutKeyValueArray<TEnum>(array, keyName, valueName, foldouts, keyTextures, DrawValue);
@@ -306,7 +324,8 @@ namespace Utility
 		/// <summary>
 		/// Will create a foldout label for every value in the enum and draw every value with a specified label
 		/// </summary>
-		public static void DrawFoldoutKeyValueArray<TEnum>(SerializedProperty array, string keyName, string valueName, bool[] foldouts, GUIContent valueLabel)
+		public static void DrawFoldoutKeyValueArray<TEnum>(SerializedProperty array, string keyName, string valueName, bool[] foldouts,
+			GUIContent valueLabel)
 			where TEnum : struct, Enum
 		{
 			DrawFoldoutKeyValueArray<TEnum>(array, keyName, valueName, foldouts, DrawValue);
@@ -316,33 +335,21 @@ namespace Utility
 				EditorGUILayout.PropertyField(value, valueLabel);
 			}
 		}
-
-		/// <summary>
-		/// Will create a foldout label with a texture for every value in the enum and draw every value with a specified label
-		/// <para>(assumes the property names are "key" and "value")</para>
-		/// </summary>
-		public static void DrawFoldoutKeyValueArray<TEnum>(SerializedProperty array, bool[] foldouts, Texture[] keyTextures, GUIContent valueLabel)
-			where TEnum : struct, Enum
-		{
-			DrawFoldoutKeyValueArray<TEnum>(array, "key", "value", foldouts, keyTextures, valueLabel);
-		}
-
-		/// <summary>
-		/// Will create a foldout label for every value in the enum and draw every value with a specified label
-		/// <para>(assumes the property names are "key" and "value")</para>
-		/// </summary>
-		public static void DrawFoldoutKeyValueArray<TEnum>(SerializedProperty array, bool[] foldouts, GUIContent valueLabel)
-			where TEnum : struct, Enum
-		{
-			DrawFoldoutKeyValueArray<TEnum>(array, "key", "value", foldouts, valueLabel);
-		}
+		// @formatter:on — enable formatter after this line
 
 		#endregion
 
 		/// <summary>
 		/// Will draw an adjustable-size list with custom labels and a texture and calls elementAction(index, array[i]) for every element
 		/// </summary>
-		public static void DrawArray(SerializedProperty array, string propertyName, Texture propertyIcon, string sizeLabel, Action<int, SerializedProperty> elementAction, ref bool isFoldOut)
+		public static void DrawArray(
+			SerializedProperty              array,
+			string                          propertyName,
+			Texture                         propertyIcon,
+			string                          sizeLabel,
+			Action<int, SerializedProperty> elementAction,
+			ref bool                        isFoldOut
+		)
 		{
 			if (IsFoldOut(ref isFoldOut, propertyIcon, propertyName))
 			{
@@ -363,7 +370,13 @@ namespace Utility
 		/// <summary>
 		/// Will draw an adjustable-size list with custom labels and calls elementAction(index, array[i]) for every element
 		/// </summary>
-		public static void DrawArray(SerializedProperty array, string propertyName, string sizeLabel, Action<int, SerializedProperty> elementAction, ref bool isFoldOut)
+		public static void DrawArray(
+			SerializedProperty              array,
+			string                          propertyName,
+			string                          sizeLabel,
+			Action<int, SerializedProperty> elementAction,
+			ref bool                        isFoldOut
+		)
 		{
 			if (IsFoldOut(ref isFoldOut, propertyName))
 			{
@@ -372,7 +385,7 @@ namespace Utility
 
 				array.arraySize = FlexibleIntField(ref size, sizeLabel);
 
-				for (int i = 0; i < size; i++)
+				for (int i = 0; i < array.arraySize; i++)
 				{
 					elementAction(i, array.GetArrayElementAtIndex(i));
 				}
@@ -439,10 +452,10 @@ namespace Utility
 			float oldLabelWidth = EditorGUIUtility.labelWidth;
 
 			EditorGUIUtility.labelWidth = GetLabelWidth(label);
-			float newValue = EditorGUILayout.FloatField(label, value, GUILayout.Width(GetNumberWidth(value)));
+			value = EditorGUILayout.FloatField(label, value, GUILayout.Width(GetNumberWidth(value)));
 
 			EditorGUIUtility.labelWidth = oldLabelWidth;
-			return newValue;
+			return value;
 		}
 
 		/// <summary>
@@ -453,10 +466,10 @@ namespace Utility
 			float oldLabelWidth = EditorGUIUtility.labelWidth;
 
 			EditorGUIUtility.labelWidth = GetLabelWidth(label);
-			int newValue = EditorGUILayout.IntField(label, value, GUILayout.Width(GetNumberWidth(value)));
+			value = EditorGUILayout.IntField(label, value, GUILayout.Width(GetNumberWidth(value)));
 
 			EditorGUIUtility.labelWidth = oldLabelWidth;
-			return newValue;
+			return value;
 		}
 
 		/// <summary>

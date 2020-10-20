@@ -447,7 +447,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 4217036813707069561}
-  StartingHealth: 0
 --- !u!1 &5338143314773929652
 GameObject:
   m_ObjectHideFlags: 0
@@ -534,10 +533,10 @@ GameObject:
   - component: {fileID: 6758913166034969592}
   - component: {fileID: 6758913166034969593}
   - component: {fileID: 6758913166034969598}
-  - component: {fileID: 6758913166034969599}
   - component: {fileID: 6758913166034969595}
   - component: {fileID: 9065348212960834744}
-  - component: {fileID: 882233895}
+  - component: {fileID: 8740718846376473894}
+  - component: {fileID: 4707960237150791921}
   m_Layer: 0
   m_Name: House
   m_TagString: Untagged
@@ -554,7 +553,7 @@ Transform:
   m_GameObject: {fileID: 6758913166034969596}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.0933537, y: -1.435455, z: -5.7117786}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 265130012}
   m_Father: {fileID: 0}
@@ -567,7 +566,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6758913166034969596}
-  m_Mesh: {fileID: -8670151273213183110, guid: 8cf1c8ea77bce6d4b8c212df58ff5535, type: 3}
+  m_Mesh: {fileID: 614220985723484880, guid: 4f00fd714054b2d4eb12a0de6377c4e9, type: 3}
 --- !u!23 &6758913166034969598
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -587,7 +586,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -255740635699595513, guid: 8cf1c8ea77bce6d4b8c212df58ff5535, type: 3}
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -609,19 +608,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &6758913166034969599
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6758913166034969596}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &6758913166034969595
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -634,7 +620,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bd52fd205066d549bb3592335298a22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WaitTimeUntilRent: 5
+  globalBuildingData: {fileID: 11400000, guid: b1e589b5116ce7d42b4cd5afddc4fd3e, type: 2}
 --- !u!114 &9065348212960834744
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -647,10 +633,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 092639f48eb45f34a9c437d6727611f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 0
+  SoilHealth: 0
+  FoundationHealth: 0
+  TotalHealth: 0
   StartingHealth: 0
-  healthBar: {fileID: 2375193678091250356}
---- !u!114 &882233895
+  SpeedPercentage: 0
+  bar: {fileID: 2375193678091250356}
+--- !u!114 &8740718846376473894
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -659,16 +648,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 6758913166034969596}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3310586d1850126429bc167a6b8d501f, type: 3}
+  m_Script: {fileID: 11500000, guid: e6e1d700793d431db1c8e2d2975381ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  patternType: 7
-  HorizontalMultiplier: 4
-  VerticalMultiplier: 1
-  HorizontalOffset: 0
-  VerticalOffset: 0
-  color1: {r: 0.632, g: 0.04151543, b: 0, a: 0}
-  color2: {r: 0, g: 0, b: 0, a: 0}
+  waitTimeUntilRent: 5
+--- !u!114 &4707960237150791921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6758913166034969596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65c9ff81c5944e542b7f3bc870b313fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buildingTierData: {fileID: 11400000, guid: 27ef68d1b402b694fac3b32415cb7e74, type: 2}
 --- !u!1 &7029731273974737261
 GameObject:
   m_ObjectHideFlags: 0

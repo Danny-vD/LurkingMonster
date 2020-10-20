@@ -14,6 +14,9 @@ LurkingMonster/obj/
 LurkingMonster/Logs/
 LurkingMonster/UserSettings/
 LurkingMonster/LurkingMonster.sln.DotSettings.user
+
+#Fmod
+*/fmod_editor.log
 Fmod Studio/Lurking_Monster/.unsaved/
 Fmod Studio/Lurking_Monster/.user/
 Fmod Studio/Lurking_Monster/.cache/

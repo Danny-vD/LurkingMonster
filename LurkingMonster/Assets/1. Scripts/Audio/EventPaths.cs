@@ -14,6 +14,8 @@ namespace Audio
 	[Serializable]
 	public class EventPaths
 	{
+		private const string masterBusPath = "Bus:/";
+		
 		[SerializeField]
 		private List<EventPathPerEvent> events = new List<EventPathPerEvent>();
 
@@ -28,7 +30,7 @@ namespace Audio
 
 		public EventPaths()
 		{
-			buses.Add(new BusPathPerBus() {Key = BusType.Master, Value = "Bus:/"});
+			buses.Add(new BusPathPerBus() {Key = BusType.Master, Value = masterBusPath});
 		}
 
 		public void UpdateDictionaries()

@@ -1,9 +1,10 @@
 ﻿using Structs;
+using Structs.Buildings;
 using UnityEngine;
 
 namespace ScriptableObjects
 {
-	[CreateAssetMenu(menuName = "BuildingType Data")]
+	[CreateAssetMenu(menuName = "Building Data/BuildingType Data")]
 	public class BuildingTypeData : ScriptableObject
 	{
 		[SerializeField, Tooltip("The percentage of the price that will be collected as rent")]
@@ -17,7 +18,12 @@ namespace ScriptableObjects
 
 		public BuildingData GetStruct()
 		{
-			return new BuildingData((int) (rentPercentage / 100.0f * price), weight, price, default, default);
+			return new BuildingData(GetPricePercentage(rentPercentage), weight, price, default, default);
+		}
+
+		private int GetPricePercentage(int percentage)
+		{
+			return (int) (percentage / 100.0f * price);
 		}
 	}
 }
