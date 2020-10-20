@@ -29994,8 +29994,8 @@ MonoBehaviour:
     value: {fileID: 11400000, guid: 18616be9a992b304eabd4409c3b76aff, type: 2}
   - key: 5
     value: {fileID: 11400000, guid: 4e8ac87d215557c4c82a33fc4f2a1359, type: 2}
-  minTime: 5
-  maxTime: 15
+  minTime: 60
+  maxTime: 80
 --- !u!4 &1984091603
 Transform:
   m_ObjectHideFlags: 0

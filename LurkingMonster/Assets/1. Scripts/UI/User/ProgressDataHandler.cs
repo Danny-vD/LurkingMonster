@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System.Data;
+using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using Singletons;
 using UnityEngine;
@@ -18,21 +19,13 @@ namespace UI.User
 
 		public void Start()
 		{
-			GetComponent<UnityEngine.UI.Button>().onClick.AddListener(SaveFile);
+			GetComponent<UnityEngine.UI.Button>().onClick.AddListener(SetData);
 		}
 
-		public void SaveFile()
+		public void SetData()
 		{
-			string destination = Application.persistentDataPath + "/save.dat";
-			FileStream file;
-
-			if (File.Exists(destination)) file = File.OpenWrite(destination);
-			else file                          = File.Create(destination);
-			
-			GameData data = new GameData(cityName.text, userName.text);
-			BinaryFormatter bf = new BinaryFormatter();
-			bf.Serialize(file, data);
-			file.Close();
+			// UserSettings.Instance.GameData.CityName = cityName.text;
+			// UserSettings.Instance.GameData.UserName = userName.text;
 		}
 	}
 }

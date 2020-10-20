@@ -1,4 +1,5 @@
-﻿using Events;
+﻿using System;
+using Events;
 using VDFramework.EventSystem;
 using VDFramework.Singleton;
 
@@ -6,18 +7,25 @@ namespace Singletons
 {
 	public class MoneyManager : Singleton<MoneyManager>
 	{
-		public int CurrentMoney { get; private set; } = 10000;
+		public int CurrentMoney { get; set; }
 
 		private void OnEnable()
 		{
 			AddListeners();
+			CurrentMoney = UserSettings.Instance.GameData.Money;
 		}
 
 		private void OnDisable()
 		{
+			UserSettings.Instance.GameData.Money = CurrentMoney;
 			RemoveListeners();
 		}
-		
+
+		private void OnApplicationQuit()
+		{
+			UserSettings.Instance.GameData.Money = CurrentMoney;
+		}
+
 		private void AddListeners()
 		{
 			EventManager.Instance.AddListener<IncreaseMoneyEvent>(OnIncreaseMoney);
