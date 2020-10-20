@@ -1,11 +1,12 @@
 ﻿using Enums;
 using Gameplay.Buildings;
-using Singletons;
 using Structs.Buildings;
 using UnityEngine;
 
 namespace Grid.Tiles.Building
 {
+	using ScriptableObjects;
+
 	public abstract class AbstractBuildingTile : AbstractTile
 	{
 		[SerializeField]
@@ -18,10 +19,12 @@ namespace Grid.Tiles.Building
 		protected FoundationType foundationType = default;
 
 		public Gameplay.Buildings.Building Building { get; private set; }
-		
+		public bool HasFoundation => foundationObject || Building;
+
 		protected BuildingData BuildingData; // The building data of the first tier building
 
 		private BuildingSpawner spawner;
+		private GameObject foundationObject;
 
 		protected virtual void Awake()
 		{
@@ -31,15 +34,29 @@ namespace Grid.Tiles.Building
 
 		public virtual void SpawnBuilding()
 		{
-			if (MoneyManager.Instance.PlayerHasEnoughMoney(GetBuildingPrice()))
-			{
-				Building = spawner.Spawn(buildingType, foundationType, soilType);
-			}
+			RemoveFoundation();
+			Building = spawner.Spawn(buildingType, foundationType, soilType);
+		}
+
+		public virtual void SpawnFoundation()
+		{
+			RemoveFoundation();
+			foundationObject = spawner.SpawnFoundation(foundationType);
+		}
+
+		public virtual void RemoveFoundation()
+		{
+			Destroy(foundationObject);
 		}
 
 		public int GetBuildingPrice()
 		{
 			return BuildingData.Price;
+		}
+
+		public FoundationTypeData GetFoundationData(FoundationType foundation)
+		{
+			return spawner.GetFoundationData(foundation);
 		}
 
 		public void SetBuildingType(BuildingType house)

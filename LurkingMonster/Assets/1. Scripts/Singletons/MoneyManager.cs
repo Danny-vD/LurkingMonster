@@ -4,6 +4,8 @@ using VDFramework.Singleton;
 
 namespace Singletons
 {
+	using System;
+
 	public class MoneyManager : Singleton<MoneyManager>
 	{
 		public int CurrentMoney { get; private set; } = 10000;

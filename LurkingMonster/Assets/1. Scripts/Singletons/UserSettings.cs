@@ -14,7 +14,7 @@ namespace Singletons
 		protected override void Awake()
 		{
 			base.Awake();
-			
+
 			destination = Application.persistentDataPath + "/save.dat";
 
 			if (File.Exists(destination))
@@ -26,18 +26,18 @@ namespace Singletons
 		public void ReloadData()
 		{
 			FileStream file;
- 
-			if(File.Exists(destination)) file = File.OpenRead(destination);
+
+			if (File.Exists(destination)) file = File.OpenRead(destination);
 			else
 			{
 				Debug.LogError("File not found");
 				return;
 			}
- 
+
 			BinaryFormatter bf = new BinaryFormatter();
 			gameData = (GameData) bf.Deserialize(file);
 			file.Close();
-			
+
 			print(gameData.CityName);
 			print(gameData.UserName);
 		}
