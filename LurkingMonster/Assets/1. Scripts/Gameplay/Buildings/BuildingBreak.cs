@@ -74,7 +74,7 @@ namespace Gameplay.Buildings
 			{
 				building.RemoveBuilding();
 				EventManager.Instance.RaiseEvent(new BuildingConsumedEvent());
-				Handheld.Vibrate();
+				VibrationUtil.Vibrate();
 			}
 		}
 

@@ -33,7 +33,7 @@ namespace Singletons
 		{
 			base.Awake();
 
-			gameData = new GameData("", "", startMoney);
+			gameData = new GameData("", "", startMoney, true);
 
 			destination = Application.persistentDataPath + "/save.dat";
 

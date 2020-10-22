@@ -8,12 +8,14 @@ namespace Utility
 		private string cityName;
 		private string userName;
 		private int money;
+		private bool vibrate;
 
-		public GameData(string cityName, string userName, int money)
+		public GameData(string cityName, string userName, int money, bool vibrate)
 		{
 			this.cityName = cityName;
 			this.userName = userName;
 			this.money    = money;
+			this.vibrate  = vibrate;
 		}
 
 		public string CityName
@@ -32,6 +34,12 @@ namespace Utility
 		{
 			get => money;
 			set => money = value;
+		}
+
+		public bool Vibrate
+		{
+			get => vibrate;
+			set => vibrate = value;
 		}
 	}
 }
