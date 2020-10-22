@@ -1,0 +1,259 @@
+{
+  "Variables": [
+	{
+	  "Key": "PLACEHOLDER",
+	  "Value": [
+		{
+		  "Key": "NL",
+		  "Value": "Tijdelijke tekst"
+		},
+		{
+		  "Key": "EN",
+		  "Value": "Lorem Ipsum Dolor Sit Amet"
+		},
+		{
+		  "Key": "DE",
+		  "Value": "Einigkeit und Recht und Freiheid für das Deutsche Vaterland!"
+		}
+	  ]
+	},
+	{
+	  "Key": "NEWGAME",
+	  "Value": [
+		{
+		  "Key": "NL",
+		  "Value": "Nieuw Spel"
+		},
+		{
+		  "Key": "EN",
+		  "Value": "New Game"
+		},
+		{
+		  "Key": "DE",
+		  "Value": "Neues Spiel"
+		}
+	  ]
+	},
+	{
+	  "Key": "SCORE",
+	  "Value": [
+		{
+		  "Key": "NL",
+		  "Value": "Score"
+		},
+		{
+		  "Key": "EN",
+		  "Value": "Score"
+		},
+		{
+		  "Key": "DE",
+		  "Value": "Punkte"
+		}
+	  ]
+	},
+	{
+	  "Key": "LOADINGTEXT",
+	  "Value": [
+		{
+		  "Key": "NL",
+		  "Value": "Laden..."
+		},
+		{
+		  "Key": "EN",
+		  "Value": "Loading..."
+		},
+		{
+		  "Key": "DE",
+		  "Value": "Laden..."
+		}
+	  ]
+	},
+	{
+	  "Key": "LOADINGINPUTTEXT",
+	  "Value": [
+		{
+		  "Key": "NL",
+		  "Value": "Tik om verder to gaan"
+		},
+		{
+		  "Key": "EN",
+		  "Value": "Tap to continue"
+		},
+		{
+		  "Key": "DE",
+		  "Value": "Warten auf ihre Input..."
+		}
+	  ]
+	},
+	{
+	  "Key": "SKIP",
+	  "Value": [
+		{
+		  "Key": "NL",
+		  "Value": "Overslaan"
+		},
+		{
+		  "Key": "EN",
+		  "Value": "Skip"
+		},
+		{
+		  "Key": "DE",
+		  "Value": "Überspringen"
+		}
+	  ]
+	},
+	{
+	  "Key": "OK",
+	  "Value": [
+		{
+		  "Key": "NL",
+		  "Value": "Ok!"
+		},
+		{
+		  "Key": "EN",
+		  "Value": "Ok!"
+		},
+		{
+		  "Key": "DE",
+		  "Value": "Ok!"
+		}
+	  ]
+	},
+	{
+	  "Key": "BUILDINGSBUILDACHIEVEMENT",
+	  "Value": [
+		{
+		  "Key": "NL",
+		  "Value": "Bouw Gebouwen :"
+		},
+		{
+		  "Key": "EN",
+		  "Value": "Build Buildings :"
+		},
+		{
+		  "Key": "DE",
+		  "Value": "Ok!"
+		}
+	  ]
+	},
+	{
+	  "Key": "RENTCOLLECTEDACHIEVEMENT",
+	  "Value": [
+		{
+		  "Key": "NL",
+		  "Value": "Incasseer Huur :"
+		},
+		{
+		  "Key": "EN",
+		  "Value": "Collect Rent :"
+		},
+		{
+		  "Key": "DE",
+		  "Value": "Ok!"
+		}
+	  ]
+	},
+	{
+	  "Key": "BUILDINGSAVEDACHIEVEMENT",
+	  "Value": [
+		{
+		  "Key": "NL",
+		  "Value": "Gebouwen Gered :"
+		},
+		{
+		  "Key": "EN",
+		  "Value": "Save Buildings :"
+		},
+		{
+		  "Key": "DE",
+		  "Value": "Ok!"
+		}
+	  ]
+	},
+	{
+	  "Key": "BUILDINGCONSUMEDACHIEVEMENT",
+	  "Value": [
+		{
+		  "Key": "NL",
+		  "Value": "Kapotte Gebouwen :"
+		},
+		{
+		  "Key": "EN",
+		  "Value": "Consume Buildings :"
+		},
+		{
+		  "Key": "DE",
+		  "Value": "Ok!"
+		}
+	  ]
+	},
+	{
+	  "Key": "AMOUNTOFPLOTSACHIEVEMENT",
+	  "Value": [
+		{
+		  "Key": "NL",
+		  "Value": "Koop Grond :"
+		},
+		{
+		  "Key": "EN",
+		  "Value": "Buy Plots :"
+		},
+		{
+		  "Key": "DE",
+		  "Value": "Ok!"
+		}
+	  ]
+	},
+	{
+	  "Key": "ACHIEVEMENT_UNLOCKED",
+	  "Value": [
+		{
+		  "Key": "NL",
+		  "Value": "Achievement Vrijgespeeld"
+		},
+		{
+		  "Key": "EN",
+		  "Value": "Achievement Unlocked"
+		},
+		{
+		  "Key": "DE",
+		  "Value": "Ok!"
+		}
+	  ]
+	},
+	{
+	  "Key": "ALL_ACHIEVEMENTS_UNLOCKED",
+	  "Value": [
+		{
+		  "Key": "NL",
+		  "Value": "Alle Achievements Vrijgespeeld"
+		},
+		{
+		  "Key": "EN",
+		  "Value": "All Achievements Unlocked"
+		},
+		{
+		  "Key": "DE",
+		  "Value": "Ok!"
+		}
+	  ]
+	},
+	{
+	  "Key": "MONEY",
+	  "Value": [
+		{
+		  "Key": "NL",
+		  "Value": "Geld : "
+		},
+		{
+		  "Key": "EN",
+		  "Value": "Money : "
+		},
+		{
+		  "Key": "DE",
+		  "Value": "Ok!"
+		}
+	  ]
+	}
+  ]
+}

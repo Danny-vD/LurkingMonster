@@ -9,12 +9,17 @@ namespace Singletons
 
 	public class MoneyManager : Singleton<MoneyManager>
 	{
-		public int CurrentMoney { get; set; }
+		public int CurrentMoney { get; private set; }
+
+		protected override void Awake()
+		{
+			base.Awake();
+			CurrentMoney = UserSettings.GameData.Money;
+		}
 
 		private void OnEnable()
 		{
 			AddListeners();
-			CurrentMoney = UserSettings.GameData.Money;
 		}
 
 		private void OnDisable()
@@ -31,12 +36,10 @@ namespace Singletons
 			}
 		}
 
-#if UNITY_EDITOR
 		private void OnApplicationQuit()
 		{
 			UserSettings.GameData.Money = CurrentMoney;
 		}
-#endif
 
 		private void AddListeners()
 		{

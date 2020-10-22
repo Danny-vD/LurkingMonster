@@ -5,6 +5,9 @@ using VDFramework.EventSystem;
 
 namespace UI
 {
+    using Audio;
+    using Enums.Audio;
+
     public class ButtonFunctionality : BetterMonoBehaviour
     {
         public void QuitApplication()
@@ -25,5 +28,5 @@ namespace UI
         {
             SceneManager.LoadScene(buildIndex);
         }
-	}
+    }
 }

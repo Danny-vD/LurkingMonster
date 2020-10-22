@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 138696814}
   - component: {fileID: 138696813}
   - component: {fileID: 138696816}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: btnCollectRent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -169,7 +169,7 @@ GameObject:
   - component: {fileID: 265130014}
   - component: {fileID: 265130013}
   - component: {fileID: 265130016}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -281,7 +281,7 @@ GameObject:
   - component: {fileID: 5840186168035317792}
   - component: {fileID: 7615597218366273062}
   - component: {fileID: 2019353029970825561}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Border
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -356,7 +356,7 @@ GameObject:
   - component: {fileID: 472988314417894494}
   - component: {fileID: 4217036813707069561}
   - component: {fileID: 2375193678091250356}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: HealthBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -458,7 +458,7 @@ GameObject:
   - component: {fileID: 8524459643729643222}
   - component: {fileID: 5438434724519294980}
   - component: {fileID: 8139466020588459974}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -677,7 +677,7 @@ GameObject:
   - component: {fileID: 948279848698153782}
   - component: {fileID: 2074128603572616719}
   - component: {fileID: 51152796584614185}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: btnCrackHouse
   m_TagString: Untagged
   m_Icon: {fileID: 0}

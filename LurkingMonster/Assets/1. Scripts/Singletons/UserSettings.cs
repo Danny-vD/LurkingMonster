@@ -1,5 +1,4 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
 using Utility;
@@ -22,7 +21,7 @@ namespace Singletons
 				if (gameData == null)
 				{
 					// Force it to initialise
-					UserSettings temp = UserSettings.Instance;
+					_ = UserSettings.Instance;
 				}
 
 				return gameData;
