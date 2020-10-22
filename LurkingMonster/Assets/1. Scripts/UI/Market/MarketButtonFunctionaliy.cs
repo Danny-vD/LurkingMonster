@@ -7,24 +7,28 @@ using VDFramework.EventSystem;
 
 namespace UI.Market
 {
+	using Enums;
+
 	public class MarketButtonFunctionaliy : MonoBehaviour
 	{
 		[SerializeField]
 		private Button buyButton = null;
 
-		//[SerializeField]
-		//private Button someOtherButton = null;
+		[SerializeField]
+		private Button buyFoundationButton = null;
 
 		[SerializeField]
 		private Button destroyButton = null;
 
 		private Text buyText;
+		private Text buyFoundationText;
 		private Text destroyText;
 
 		private void Awake()
 		{
-			buyText     = buyButton.GetComponentInChildren<Text>();
-			destroyText = destroyButton.GetComponentInChildren<Text>();
+			buyText           = buyButton.GetComponentInChildren<Text>();
+			buyFoundationText = buyFoundationButton.GetComponentInChildren<Text>();
+			destroyText       = destroyButton.GetComponentInChildren<Text>();
 		}
 
 		private void OnEnable()
@@ -55,6 +59,7 @@ namespace UI.Market
 		private void OnMarketOpened(OpenMarketEvent openMarketEvent)
 		{
 			SetBuyButton(openMarketEvent.BuildingTile);
+			SetBuyFoundationButton(openMarketEvent.BuildingTile);
 			SetDestroyButton(openMarketEvent.BuildingTile);
 		}
 
@@ -62,11 +67,17 @@ namespace UI.Market
 		{
 			buyButton.onClick.RemoveAllListeners();
 
+			if (!buildingTile.HasFoundation)
+			{
+				SetBuyText("NO FOUNDATION!");
+				return;
+			}
+			
 			if (buildingTile.Building)
 			{
 				if (buildingTile.Building.IsMaxTier)
 				{
-					SetBuyText($"MAX UPGRADED");
+					SetBuyText("MAX UPGRADED"); //LanguageUtil.GetJsonString("MAXUPGRADE")
 					return;
 				}
 
@@ -77,6 +88,20 @@ namespace UI.Market
 
 			SetBuyText($"Buy House [{buildingTile.GetBuildingPrice()}]");
 			buyButton.onClick.AddListener(buildingTile.SpawnBuilding);
+		}
+
+		private void SetBuyFoundationButton(AbstractBuildingTile buildingTile)
+		{
+			buyFoundationButton.onClick.RemoveAllListeners();
+
+			if (buildingTile.HasFoundation)
+			{
+				SetBuyFoundationText("FOUNDATION ALREADY BUILD");
+				return;
+			}
+			
+			SetBuyFoundationText($"Buy foundation [{buildingTile.GetFoundationData(FoundationType.Wooden_Poles).BuildCost}]");
+			buyFoundationButton.onClick.AddListener(buildingTile.SpawnFoundation);
 		}
 
 		private void SetDestroyButton(AbstractBuildingTile buildingTile)
@@ -90,12 +115,24 @@ namespace UI.Market
 				return;
 			}
 
+			if (buildingTile.HasFoundation)
+			{
+				SetDestroyText($"Remove foundation [{buildingTile.GetFoundationData(FoundationType.Wooden_Poles).DestroyCost}]");
+				destroyButton.onClick.AddListener(buildingTile.RemoveFoundation);
+				return;
+			}
+
 			SetDestroyText("Nothing to remove");
 		}
 
 		private void SetBuyText(string text)
 		{
 			buyText.text = text;
+		}
+
+		private void SetBuyFoundationText(string text)
+		{
+			buyFoundationText.text = text;
 		}
 
 		private void SetDestroyText(string text)

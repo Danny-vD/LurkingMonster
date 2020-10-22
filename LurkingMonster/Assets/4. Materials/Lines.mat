@@ -8,8 +8,9 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Lines
-  m_Shader: {fileID: 4800000, guid: 49f7ae730cd46564f8cdcd412a7058cb, type: 3}
+  m_Shader: {fileID: 4800000, guid: 934a690b2d5662542bffccf8afe8afed, type: 3}
   m_ShaderKeywords: _CIRCLEAXIS_Y_AXIS _COLORTYPE_NORMAL _LINESAXIS_Y_AXIS _SPACECALCULATION_OBJECTSPACE
+    _USEALBEDO_ON _USEEMISSION_ON _USEHEIGHT_ON _USEMETALLIC_ON _USENORMAL_ON _USEOCCLUSION_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -19,6 +20,10 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - _AlbedoMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _BumpMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -39,11 +44,23 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _HeightMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _MainTex:
         m_Texture: {fileID: 10309, guid: 0000000000000000f000000000000000, type: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MetallicMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NormalMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -67,6 +84,7 @@ Material:
     - _GlossMapScale: 1
     - _Glossiness: 1
     - _GlossyReflections: 1
+    - _HeightIntensity: 0.2
     - _LimitCircles: 0
     - _LimitLines: 0
     - _LineCount: 2
@@ -74,6 +92,7 @@ Material:
     - _LinesAxis: 1
     - _Metallic: 0
     - _Mode: 0
+    - _OcclusionIntensity: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
     - _SmoothnessTextureChannel: 0
@@ -81,6 +100,13 @@ Material:
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _UVSec: 0
+    - _UseAlbedo: 1
+    - _UseAlpha: 0
+    - _UseEmission: 1
+    - _UseHeight: 1
+    - _UseMetallic: 1
+    - _UseNormal: 1
+    - _UseOcclusion: 1
     - _ZWrite: 1
     - _colorType: 4
     - _distanceBetweenCircles: 50
@@ -94,4 +120,5 @@ Material:
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _LineColor: {r: 1, g: 1, b: 1, a: 1}
     - _MainColor: {r: 0.4392157, g: 0.3387551, b: 0, a: 0}
+    - _Tint: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []

@@ -5,6 +5,8 @@ using VDFramework.Singleton;
 
 namespace Singletons
 {
+	using System;
+
 	public class MoneyManager : Singleton<MoneyManager>
 	{
 		public int CurrentMoney { get; set; }

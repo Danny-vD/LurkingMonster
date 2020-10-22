@@ -15,6 +15,12 @@ namespace Gameplay.Buildings
     public class BuildingSpawner : BetterMonoBehaviour
     {
 		[SerializeField]
+		private List<PrefabPerFoundationType> foundations = new List<PrefabPerFoundationType>();
+		
+		[SerializeField]
+		private List<FoundationDataPerFoundationType> foundationData = new List<FoundationDataPerFoundationType>();
+        
+		[SerializeField]
         private List<PrefabPerBuildingType> buildings = new List<PrefabPerBuildingType>();
 
         [SerializeField]
@@ -50,9 +56,26 @@ namespace Gameplay.Buildings
 			return data;
 		}
 
+		public FoundationTypeData GetFoundationData(FoundationType foundationType)
+		{
+			return foundationData.First(pair => pair.Key.Equals(foundationType)).Value;
+		}
+
+		public GameObject SpawnFoundation(FoundationType foundationType)
+		{
+			GameObject prefab = foundations.First(pair => pair.Key.Equals(foundationType)).Value;
+			GameObject instance = Instantiate(prefab, CachedTransform.position, CachedTransform.rotation);
+
+			instance.name = foundationType.ToString().InsertSpaceBeforeCapitals();
+
+			return instance;
+		}
+
 #if UNITY_EDITOR
         public void PopulateDictionaries()
         {
+            EnumDictionaryUtil.PopulateEnumDictionary<PrefabPerFoundationType, FoundationType, GameObject>(foundations);
+            EnumDictionaryUtil.PopulateEnumDictionary<FoundationDataPerFoundationType, FoundationType, FoundationTypeData>(foundationData);
             EnumDictionaryUtil.PopulateEnumDictionary<PrefabPerBuildingType, BuildingType, GameObject>(buildings);
             EnumDictionaryUtil.PopulateEnumDictionary<BuildingDataPerBuildingType, BuildingType, List<BuildingTypeData>>(buildingData);
         }

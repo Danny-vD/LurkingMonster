@@ -1,5 +1,4 @@
 ﻿using Enums;
-using Gameplay;
 using Gameplay.Buildings;
 using UnityEditor;
 using UnityEngine;
@@ -12,13 +11,19 @@ namespace CustomInspector
 	{
 		private BuildingSpawner buildingSpawner;
 
+		private bool[] prefabPerFoundationTypeFoldout;
+		private bool[] foundationDataPerFoundationTypeFoldout;
 		private bool[] prefabPerBuildingTypeFoldout;
 		private bool[] buildingDataPerBuildingTypeFoldout;
 
-		private bool prefabsFoldout;
+		private bool foundationPrefabsFoldout;
+		private bool foundationDataFoldout;
+		private bool buildingPrefabsFoldout;
 		private bool buildingDataFoldout;
 
 		//////////////////////////////////////////////////
+		private SerializedProperty foundations;
+		private SerializedProperty foundationData;
 		private SerializedProperty buildings;
 		private SerializedProperty buildingData;
 
@@ -27,20 +32,39 @@ namespace CustomInspector
 			buildingSpawner = target as BuildingSpawner;
 			buildingSpawner.PopulateDictionaries();
 
-			buildings = serializedObject.FindProperty("buildings");
-			buildingData = serializedObject.FindProperty("buildingData");
+			foundations    = serializedObject.FindProperty("foundations");
+			foundationData = serializedObject.FindProperty("foundationData");
+			buildings      = serializedObject.FindProperty("buildings");
+			buildingData   = serializedObject.FindProperty("buildingData");
 
-			prefabPerBuildingTypeFoldout    = new bool[buildings.arraySize];
-			buildingDataPerBuildingTypeFoldout = new bool[buildingData.arraySize];
+			prefabPerFoundationTypeFoldout         = new bool[foundations.arraySize];
+			foundationDataPerFoundationTypeFoldout = new bool[foundationData.arraySize];
+			prefabPerBuildingTypeFoldout           = new bool[buildings.arraySize];
+			buildingDataPerBuildingTypeFoldout     = new bool[buildingData.arraySize];
 		}
 
 		public override void OnInspectorGUI()
 		{
 			serializedObject.Update();
-			
-			if (IsFoldOut(ref prefabsFoldout, "Building prefabs"))
+
+			if (IsFoldOut(ref foundationPrefabsFoldout, "Foundation prefabs"))
 			{
-				DrawFoldoutKeyValueArray<BuildingType>(buildings, "buildingType", "prefab", prefabPerBuildingTypeFoldout,
+				DrawFoldoutKeyValueArray<FoundationType>(foundations, "foundationType", "prefab",
+					prefabPerFoundationTypeFoldout,
+					new GUIContent("Prefab"));
+			}
+
+			if (IsFoldOut(ref foundationDataFoldout, "Foundation Data"))
+			{
+				DrawFoldoutKeyValueArray<FoundationType>(foundationData, "foundationType", "foundationTypeData",
+					foundationDataPerFoundationTypeFoldout,
+					new GUIContent("Foundation Data"));
+			}
+
+			if (IsFoldOut(ref buildingPrefabsFoldout, "Building prefabs"))
+			{
+				DrawFoldoutKeyValueArray<BuildingType>(buildings, "buildingType", "prefab",
+					prefabPerBuildingTypeFoldout,
 					new GUIContent("Prefab"));
 			}
 

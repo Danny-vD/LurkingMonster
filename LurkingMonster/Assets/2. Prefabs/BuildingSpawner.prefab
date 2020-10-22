@@ -43,6 +43,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2354ca8db87c4d7cb2d39d6945e99377, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  foundations:
+  - foundationType: 0
+    prefab: {fileID: 6818269562256822877, guid: 6b95d8474802c2144a8b2a8fe0ef47e5, type: 3}
+  - foundationType: 1
+    prefab: {fileID: 6818269562256822877, guid: 6b95d8474802c2144a8b2a8fe0ef47e5, type: 3}
+  - foundationType: 2
+    prefab: {fileID: 6818269562256822877, guid: 6b95d8474802c2144a8b2a8fe0ef47e5, type: 3}
+  - foundationType: 3
+    prefab: {fileID: 6818269562256822877, guid: 6b95d8474802c2144a8b2a8fe0ef47e5, type: 3}
+  foundationData:
+  - foundationType: 0
+    foundationTypeData: {fileID: 11400000, guid: 9737f8052a98e8e489bf1bc399fc8d4e, type: 2}
+  - foundationType: 1
+    foundationTypeData: {fileID: 0}
+  - foundationType: 2
+    foundationTypeData: {fileID: 0}
+  - foundationType: 3
+    foundationTypeData: {fileID: 0}
   buildings:
   - buildingType: 0
     prefab: {fileID: 6758913166034969596, guid: 3a07d0b780df67844a24d52cd795bb3c, type: 3}
