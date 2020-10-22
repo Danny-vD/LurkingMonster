@@ -19,7 +19,7 @@ namespace UI.User
 
 		public void Start()
 		{
-			GetComponent<UnityEngine.UI.Button>().onClick.AddListener(SetData);
+			GetComponent<Button>().onClick.AddListener(SetData);
 		}
 
 		public void SetData()

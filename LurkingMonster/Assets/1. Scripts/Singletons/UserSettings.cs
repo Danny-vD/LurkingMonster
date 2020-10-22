@@ -9,17 +9,32 @@ namespace Singletons
 {
 	public class UserSettings : Singleton<UserSettings>
 	{
-		private GameData gameData;
+		private static GameData gameData;
 		private string destination;
+
 		[SerializeField]
 		private int startMoney = 10000;
+
+		public static GameData GameData
+		{
+			get
+			{
+				if (gameData == null)
+				{
+					// Force it to initialise
+					UserSettings temp = UserSettings.Instance;
+				}
+
+				return gameData;
+			}
+		}
 
 		protected override void Awake()
 		{
 			base.Awake();
-			
+
 			gameData = new GameData("", "", startMoney);
-			
+
 			destination = Application.persistentDataPath + "/save.dat";
 
 			if (File.Exists(destination))
@@ -36,35 +51,29 @@ namespace Singletons
 		public void ReloadData()
 		{
 			FileStream file;
- 
-			if(File.Exists(destination)) file = File.OpenRead(destination);
+
+			if (File.Exists(destination))
+			{
+				file = File.OpenRead(destination);
+			}
 			else
 			{
 				Debug.LogError("File not found");
 				return;
 			}
- 
+
 			BinaryFormatter bf = new BinaryFormatter();
-			gameData                           = (GameData) bf.Deserialize(file);
+			gameData = (GameData) bf.Deserialize(file);
 			file.Close();
 		}
-		
+
 		public void SaveFile()
 		{
-			string destination = Application.persistentDataPath + "/save.dat";
-			FileStream file;
+			FileStream file = File.Exists(destination) ? File.OpenWrite(destination) : File.Create(destination);
 
-			if (File.Exists(destination)) file = File.OpenWrite(destination);
-			else file                          = File.Create(destination);
-			
 			BinaryFormatter bf = new BinaryFormatter();
 			bf.Serialize(file, gameData);
 			file.Close();
-		}
-
-		public GameData GameData
-		{
-			get => gameData;
 		}
 	}
 }

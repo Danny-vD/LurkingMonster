@@ -14,18 +14,18 @@ namespace Singletons
 		private void OnEnable()
 		{
 			AddListeners();
-			CurrentMoney = UserSettings.Instance.GameData.Money;
+			CurrentMoney = UserSettings.GameData.Money;
 		}
 
 		private void OnDisable()
 		{
-			UserSettings.Instance.GameData.Money = CurrentMoney;
+			UserSettings.GameData.Money = CurrentMoney;
 			RemoveListeners();
 		}
 
 		private void OnApplicationQuit()
 		{
-			UserSettings.Instance.GameData.Money = CurrentMoney;
+			UserSettings.GameData.Money = CurrentMoney;
 		}
 
 		private void AddListeners()

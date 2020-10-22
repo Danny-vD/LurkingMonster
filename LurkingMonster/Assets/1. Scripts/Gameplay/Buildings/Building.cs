@@ -13,7 +13,7 @@ namespace Gameplay.Buildings
 	public class Building : BetterMonoBehaviour
 	{
 		[SerializeField]
-		private GlobalBuildingData globalBuildingData;
+		private GlobalBuildingData globalBuildingData = null;
 
 		private BuildingData[] data;
 
