@@ -11,6 +11,7 @@ namespace Singletons
 	{
 		private GameData gameData;
 		private string destination;
+		
 		[SerializeField]
 		private int startMoney = 10000;
 
