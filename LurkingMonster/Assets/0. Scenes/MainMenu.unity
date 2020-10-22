@@ -724,7 +724,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ec438bf7adb8424982a2982ead4ea08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FileName: Language.json
+  FileName: Language
 --- !u!114 &635546119
 MonoBehaviour:
   m_ObjectHideFlags: 0

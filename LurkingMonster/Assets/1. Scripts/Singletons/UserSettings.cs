@@ -22,7 +22,7 @@ namespace Singletons
 				if (gameData == null)
 				{
 					// Force it to initialise
-					UserSettings temp = UserSettings.Instance;
+					_ = UserSettings.Instance;
 				}
 
 				return gameData;
