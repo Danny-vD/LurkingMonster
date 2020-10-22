@@ -43,6 +43,14 @@ namespace Singletons
 			}
 		}
 
+		private void OnApplicationPause(bool pauseStatus)
+		{
+			if (pauseStatus)
+			{
+				SaveFile();
+			}
+		}
+		
 		private void OnApplicationQuit()
 		{
 			SaveFile();

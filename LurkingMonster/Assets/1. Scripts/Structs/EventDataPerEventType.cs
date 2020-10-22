@@ -29,7 +29,7 @@ namespace Structs
 		public WeatherEventData Value
 		{
 			get => value;
-			set => value = value;
+			set => this.value = value;
 		}
 	}
 }

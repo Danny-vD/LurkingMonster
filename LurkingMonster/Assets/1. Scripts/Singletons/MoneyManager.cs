@@ -23,10 +23,20 @@ namespace Singletons
 			RemoveListeners();
 		}
 
+		private void OnApplicationPause(bool pauseStatus)
+		{
+			if (pauseStatus)
+			{
+				UserSettings.GameData.Money = CurrentMoney;
+			}
+		}
+
+#if UNITY_EDITOR
 		private void OnApplicationQuit()
 		{
 			UserSettings.GameData.Money = CurrentMoney;
 		}
+#endif
 
 		private void AddListeners()
 		{
@@ -34,14 +44,14 @@ namespace Singletons
 			EventManager.Instance.AddListener<DecreaseMoneyEvent>(OnDecreaseMoney);
 			EventManager.Instance.AddListener<CollectRentEvent>(OnCollectRent);
 		}
-		
+
 		private void RemoveListeners()
 		{
 			if (!EventManager.IsInitialized)
 			{
 				return;
 			}
-    
+
 			EventManager.Instance.RemoveListener<IncreaseMoneyEvent>(OnIncreaseMoney);
 			EventManager.Instance.RemoveListener<DecreaseMoneyEvent>(OnDecreaseMoney);
 			EventManager.Instance.RemoveListener<CollectRentEvent>(OnCollectRent);
@@ -55,15 +65,15 @@ namespace Singletons
 		private void ChangeMoney(int amount)
 		{
 			CurrentMoney += amount;
-			
+
 			EventManager.Instance.RaiseEvent(new MoneyChangedEvent(CurrentMoney, amount));
 		}
-		
+
 		private void OnIncreaseMoney(IncreaseMoneyEvent increaseMoneyEvent)
 		{
 			ChangeMoney(increaseMoneyEvent.Amount);
 		}
-		
+
 		private void OnDecreaseMoney(DecreaseMoneyEvent decreaseMoneyEvent)
 		{
 			ChangeMoney(-decreaseMoneyEvent.Amount);
