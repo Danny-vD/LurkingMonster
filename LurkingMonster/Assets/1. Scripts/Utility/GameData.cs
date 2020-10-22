@@ -9,13 +9,17 @@ namespace Utility
 		private string userName;
 		private int money;
 		private bool vibrate;
+		private float musicVolume;
+		private float ambientVolume;
 
-		public GameData(string cityName, string userName, int money, bool vibrate)
+		public GameData(string cityName, string userName, int money, bool vibrate, float musicVolume, float ambientVolume)
 		{
-			this.cityName = cityName;
-			this.userName = userName;
-			this.money    = money;
-			this.vibrate  = vibrate;
+			this.cityName      = cityName;
+			this.userName      = userName;
+			this.money         = money;
+			this.vibrate       = vibrate;
+			this.musicVolume   = musicVolume;
+			this.ambientVolume = ambientVolume;
 		}
 
 		public string CityName
