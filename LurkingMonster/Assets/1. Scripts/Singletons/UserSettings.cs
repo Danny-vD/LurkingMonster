@@ -12,8 +12,6 @@ namespace Singletons
 		private static GameData gameData;
 		private string destination;
 		
-		[SerializeField]
-		private Button buttonContinue = null;
 
 		[SerializeField]
 		private int startMoney = 10000;
@@ -42,7 +40,6 @@ namespace Singletons
 
 			if (!File.Exists(destination))
 			{
-				buttonContinue.interactable = false;
 				return;
 			}
 			
