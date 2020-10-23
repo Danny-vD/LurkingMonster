@@ -45,5 +45,17 @@ namespace Utility
 			get => vibrate;
 			set => vibrate = value;
 		}
+
+		public float MusicVolume
+		{
+			get => musicVolume;
+			set => musicVolume = value;
+		}
+
+		public float AmbientVolume
+		{
+			get => ambientVolume;
+			set => ambientVolume = value;
+		}
 	}
 }

@@ -1,6 +1,7 @@
 ﻿using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
+using UnityEngine.UI;
 using Utility;
 using VDFramework.Singleton;
 
@@ -10,6 +11,9 @@ namespace Singletons
 	{
 		private static GameData gameData;
 		private string destination;
+		
+		[SerializeField]
+		private Button buttonContinue = null;
 
 		[SerializeField]
 		private int startMoney = 10000;
@@ -36,10 +40,13 @@ namespace Singletons
 
 			destination = Application.persistentDataPath + "/save.dat";
 
-			if (File.Exists(destination))
+			if (!File.Exists(destination))
 			{
-				ReloadData();
+				buttonContinue.interactable = false;
+				return;
 			}
+			
+			ReloadData();
 		}
 
 		private void OnApplicationPause(bool pauseStatus)
@@ -77,7 +84,6 @@ namespace Singletons
 		public void SaveFile()
 		{
 			FileStream file = File.Exists(destination) ? File.OpenWrite(destination) : File.Create(destination);
-
 			BinaryFormatter bf = new BinaryFormatter();
 			bf.Serialize(file, gameData);
 			file.Close();
