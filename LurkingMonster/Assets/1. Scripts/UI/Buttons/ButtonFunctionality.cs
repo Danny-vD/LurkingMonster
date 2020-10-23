@@ -36,20 +36,5 @@ namespace UI
         {
             SceneManager.LoadScene(buildIndex);
         }
-
-		//TODO Only for develop branch
-		public void DeleteSavedFile()
-		{
-			string destination = Application.persistentDataPath + "/save.dat";
-
-			if (!File.Exists(destination))
-			{
-				textDeleteFile.text = "File Does not exist!";
-				return;
-			}
-
-			File.Delete(destination);
-			textDeleteFile.text = "File Deleted!";
-		}
-    }
+	}
 }

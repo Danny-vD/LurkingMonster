@@ -64,6 +64,12 @@ namespace Grid.Tiles.Building
 			buildingType = house;
 		}
 
+		public BuildingType BuildingType
+		{
+			get => buildingType;
+			set => buildingType = value;
+		}
+
 		public void SetSoilType(SoilType soil)
 		{
 			soilType = soil;

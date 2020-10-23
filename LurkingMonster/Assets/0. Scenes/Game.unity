@@ -9391,7 +9391,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ff345642ec59074fabc0019c8cb656c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zoomSpeed: 0.1
+  zoomFactor: 0.1
   MinimumZoom: 150
   MaximumZoom: 3
 --- !u!114 &463725854
@@ -26380,6 +26380,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae3c57b0bb9eba947bfe276f78465771, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  textDeleteFile: {fileID: 0}
 --- !u!114 &1254105184
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29701,6 +29702,7 @@ GameObject:
   - component: {fileID: 1449896297}
   - component: {fileID: 1449896298}
   - component: {fileID: 1449896299}
+  - component: {fileID: 1449896300}
   m_Layer: 0
   m_Name: GridCreator
   m_TagString: Untagged
@@ -30241,158 +30243,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f7ca0714e1d4bb28f32495ee23b0908, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedPositions:
-  - {x: 1, y: 3}
-  - {x: 2, y: 3}
-  - {x: 5, y: 8}
-  - {x: 2, y: 4}
-  - {x: 11, y: 3}
-  - {x: 12, y: 3}
-  - {x: 2, y: 2}
-  - {x: 9, y: 2}
-  - {x: 10, y: 2}
-  - {x: 8, y: 0}
-  - {x: 14, y: 6}
-  - {x: 1, y: 5}
-  - {x: 0, y: 1}
-  - {x: 11, y: 6}
-  - {x: 5, y: 1}
-  - {x: 5, y: 6}
-  - {x: 6, y: 6}
-  - {x: 9, y: 9}
-  - {x: 10, y: 9}
-  - {x: 11, y: 1}
-  - {x: 1, y: 9}
-  - {x: 2, y: 9}
-  - {x: 3, y: 9}
-  - {x: 6, y: 4}
-  - {x: 7, y: 4}
-  - {x: 14, y: 0}
-  - {x: 13, y: 6}
-  - {x: 3, y: 1}
-  - {x: 1, y: 8}
-  - {x: 2, y: 8}
-  - {x: 3, y: 8}
-  - {x: 4, y: 8}
-  - {x: 5, y: 3}
-  - {x: 8, y: 4}
-  - {x: 5, y: 2}
-  - {x: 8, y: 6}
-  - {x: 11, y: 8}
-  - {x: 2, y: 1}
-  - {x: 13, y: 1}
-  - {x: 9, y: 0}
-  - {x: 7, y: 7}
-  - {x: 2, y: 5}
-  - {x: 3, y: 5}
-  - {x: 4, y: 5}
-  - {x: 13, y: 0}
-  - {x: 10, y: 1}
-  - {x: 11, y: 4}
-  - {x: 2, y: 7}
-  - {x: 3, y: 7}
-  - {x: 0, y: 6}
-  - {x: 1, y: 6}
-  - {x: 8, y: 8}
-  - {x: 9, y: 8}
-  - {x: 0, y: 4}
-  - {x: 4, y: 4}
-  - {x: 10, y: 4}
-  - {x: 5, y: 0}
-  - {x: 3, y: 3}
-  - {x: 4, y: 3}
-  - {x: 12, y: 0}
-  - {x: 9, y: 1}
-  - {x: 3, y: 2}
-  - {x: 6, y: 9}
-  - {x: 7, y: 9}
-  - {x: 13, y: 9}
-  - {x: 14, y: 9}
-  - {x: 9, y: 4}
-  - {x: 3, y: 4}
-  - {x: 12, y: 2}
-  - {x: 12, y: 7}
-  - {x: 13, y: 7}
-  - {x: 14, y: 7}
-  - {x: 0, y: 8}
-  - {x: 8, y: 2}
-  - {x: 0, y: 0}
-  - {x: 8, y: 1}
-  - {x: 10, y: 8}
-  - {x: 14, y: 1}
-  - {x: 10, y: 7}
-  - {x: 11, y: 7}
-  - {x: 8, y: 3}
-  - {x: 9, y: 3}
-  - {x: 4, y: 9}
-  - {x: 5, y: 9}
-  - {x: 0, y: 5}
-  - {x: 9, y: 6}
-  - {x: 10, y: 6}
-  - {x: 6, y: 0}
-  - {x: 0, y: 2}
-  - {x: 6, y: 1}
-  - {x: 8, y: 9}
-  - {x: 11, y: 9}
-  - {x: 12, y: 9}
-  - {x: 12, y: 1}
-  - {x: 11, y: 0}
-  - {x: 3, y: 0}
-  - {x: 5, y: 4}
-  - {x: 7, y: 1}
-  - {x: 4, y: 2}
-  - {x: 10, y: 3}
-  - {x: 13, y: 4}
-  - {x: 14, y: 4}
-  - {x: 6, y: 2}
-  - {x: 7, y: 2}
-  - {x: 8, y: 7}
-  - {x: 9, y: 7}
-  - {x: 2, y: 0}
-  - {x: 1, y: 7}
-  - {x: 6, y: 3}
-  - {x: 7, y: 3}
-  - {x: 5, y: 5}
-  - {x: 6, y: 5}
-  - {x: 12, y: 6}
-  - {x: 4, y: 6}
-  - {x: 12, y: 5}
-  - {x: 13, y: 5}
-  - {x: 14, y: 5}
-  - {x: 1, y: 0}
-  - {x: 4, y: 0}
-  - {x: 7, y: 6}
-  - {x: 0, y: 7}
-  - {x: 0, y: 3}
-  - {x: 10, y: 0}
-  - {x: 13, y: 2}
-  - {x: 14, y: 2}
-  - {x: 1, y: 4}
-  - {x: 11, y: 2}
-  - {x: 4, y: 7}
-  - {x: 5, y: 7}
-  - {x: 12, y: 8}
-  - {x: 13, y: 8}
-  - {x: 14, y: 8}
-  - {x: 0, y: 9}
-  - {x: 13, y: 3}
-  - {x: 14, y: 3}
-  - {x: 6, y: 7}
-  - {x: 12, y: 4}
-  - {x: 1, y: 2}
-  - {x: 10, y: 5}
-  - {x: 11, y: 5}
-  - {x: 4, y: 1}
-  - {x: 2, y: 6}
-  - {x: 3, y: 6}
-  - {x: 7, y: 5}
-  - {x: 8, y: 5}
-  - {x: 9, y: 5}
-  - {x: 7, y: 0}
-  - {x: 1, y: 1}
-  - {x: 6, y: 8}
-  - {x: 7, y: 8}
+  selectedPositions: []
   newType: 0
+--- !u!114 &1449896300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1449896295}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddc92c4c81724e86a3753d2300ce5387, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1450363288
 GameObject:
   m_ObjectHideFlags: 0

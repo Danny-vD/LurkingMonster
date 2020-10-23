@@ -1,11 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Runtime.Serialization.Formatters.Binary;
-using Grid;
-using Grid.Tiles;
 using Structs;
 using UnityEngine;
-using UnityEngine.UI;
 using Utility;
 using VDFramework.Singleton;
 
@@ -13,8 +11,6 @@ namespace Singletons
 {
 	using Grid;
 	using Grid.Tiles;
-	using Grid.Tiles.Building;
-	using Grid.Tiles.Road;
 
 	public class UserSettings : Singleton<UserSettings>
 	{
@@ -42,7 +38,7 @@ namespace Singletons
 		{
 			base.Awake();
 
-			gameData = new GameData("", "", startMoney, true, 1f, 1f, new Dictionary<Vector2Int, TileData>());
+			gameData = new GameData("", "", startMoney, true, 1f, 1f, new Dictionary<Vector2IntSerializable, TileData>());
 
 			destination = Application.persistentDataPath + "/save.dat";
 
@@ -54,16 +50,25 @@ namespace Singletons
 			ReloadData();
 		}
 
+				
+		private void OnApplicationQuit()
+		{
+			SaveDictionary();
+			SaveFile();
+		}
+		
 		private void OnApplicationPause(bool pauseStatus)
 		{
 			if (pauseStatus)
 			{
+				SaveDictionary();
 				SaveFile();
 			}
 		}
 
 		private void SaveDictionary()
 		{
+			gameData.Dictionary.Clear();
 			AbstractTile[,] grid = GridUtil.Grid;
 
 			for (int y = 0; y < GridUtil.GridData.GridSize.y; y++)
@@ -79,24 +84,7 @@ namespace Singletons
 		private void SaveTile(AbstractTile tile)
 		{
 			Vector2Int gridPosition = tile.GridPosition;
-			
-			// Using a switch to check and cast to approriate type directly
-			switch (tile)
-			{
-				case AbstractBuildingTile buildingTile:
-					// You can get all your information through this one
-					break;
-				case AbstractRoadTile roadTile:
-					// Could be removed, maybe useful later, probably not
-					break;
-				default:
-					break;
-			}
-		}
-		
-		private void OnApplicationQuit()
-		{
-			SaveFile();
+			gameData.Dictionary.Add(tile.GridPosition, new TileData(tile));
 		}
 
 		public void ReloadData()
