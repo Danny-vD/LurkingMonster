@@ -46,7 +46,7 @@ namespace Gameplay.Buildings
 			data         = buildingData;
 		}
 
-		public void RemoveBuilding(bool payForRemoval = false)
+		public void RemoveBuilding(bool payForRemoval)
 		{
 			if (payForRemoval)
 			{

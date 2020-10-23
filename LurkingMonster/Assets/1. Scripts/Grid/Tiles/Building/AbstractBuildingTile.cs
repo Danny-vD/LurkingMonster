@@ -34,17 +34,17 @@ namespace Grid.Tiles.Building
 
 		public virtual void SpawnBuilding()
 		{
-			RemoveFoundation();
+			RemoveFoundation(false);
 			Building = spawner.Spawn(buildingType, foundationType, soilType);
 		}
 
 		public virtual void SpawnFoundation()
 		{
-			RemoveFoundation();
+			RemoveFoundation(false);
 			foundationObject = spawner.SpawnFoundation(foundationType);
 		}
 
-		public virtual void RemoveFoundation()
+		public virtual void RemoveFoundation(bool payForRemoval)
 		{
 			Destroy(foundationObject);
 		}

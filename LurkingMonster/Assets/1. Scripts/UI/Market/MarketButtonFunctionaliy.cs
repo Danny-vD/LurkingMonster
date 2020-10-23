@@ -118,7 +118,7 @@ namespace UI.Market
 			if (buildingTile.HasFoundation)
 			{
 				SetDestroyText($"Remove foundation [{buildingTile.GetFoundationData(FoundationType.Wooden_Poles).DestroyCost}]");
-				destroyButton.onClick.AddListener(buildingTile.RemoveFoundation);
+				destroyButton.onClick.AddListener(() => buildingTile.RemoveFoundation(true));
 				return;
 			}
 

@@ -24,27 +24,31 @@ namespace Grid.Tiles.Building
 		public override void SpawnFoundation()
 		{
 			int cost = GetFoundationData(foundationType).BuildCost;
-			
+
 			if (!MoneyManager.Instance.PlayerHasEnoughMoney(cost))
 			{
 				return;
 			}
-			
+
 			base.SpawnFoundation();
 			EventManager.Instance.RaiseEvent(new DecreaseMoneyEvent(cost));
 		}
 
-		public override void RemoveFoundation()
+		public override void RemoveFoundation(bool payForRemoval)
 		{
-			int cost = GetFoundationData(foundationType).DestroyCost;
-			
-			if (!MoneyManager.Instance.PlayerHasEnoughMoney(cost))
+			if (payForRemoval)
 			{
-				return;
+				int cost = GetFoundationData(foundationType).DestroyCost;
+
+				if (!MoneyManager.Instance.PlayerHasEnoughMoney(cost))
+				{
+					return;
+				}
+
+				EventManager.Instance.RaiseEvent(new DecreaseMoneyEvent(cost));
 			}
-			
-			base.RemoveFoundation();
-			EventManager.Instance.RaiseEvent(new DecreaseMoneyEvent(cost));
+
+			base.RemoveFoundation(false);
 		}
 	}
 }

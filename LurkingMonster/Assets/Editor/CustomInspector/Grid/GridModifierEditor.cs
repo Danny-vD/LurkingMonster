@@ -7,6 +7,9 @@ using static Utility.EditorUtils;
 
 namespace CustomInspector.Grid
 {
+	using System.Collections.Generic;
+	using System.Linq;
+
 	[CustomEditor(typeof(GridModifier))]
 	public class GridModifierEditor : Editor
 	{

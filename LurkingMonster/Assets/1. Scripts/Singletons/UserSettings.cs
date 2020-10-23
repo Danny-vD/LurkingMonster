@@ -9,10 +9,11 @@ namespace Singletons
 	public class UserSettings : Singleton<UserSettings>
 	{
 		private static GameData gameData;
-		private string destination;
 
 		[SerializeField]
 		private int startMoney = 10000;
+
+		private string destination;
 
 		public static GameData GameData
 		{
@@ -49,7 +50,7 @@ namespace Singletons
 				SaveFile();
 			}
 		}
-		
+
 		private void OnApplicationQuit()
 		{
 			SaveFile();
