@@ -72,7 +72,7 @@ namespace Gameplay.Buildings
 			
 			if (TotalHealth <= 0)
 			{
-				building.RemoveBuilding();
+				building.RemoveBuilding(false); // TODO: Should spawn a 'destroyed building' asset instead
 				EventManager.Instance.RaiseEvent(new BuildingConsumedEvent());
 				VibrationUtil.Vibrate();
 			}
