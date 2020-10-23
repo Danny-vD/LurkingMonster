@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
+using Structs;
+using UnityEngine;
 
 namespace Utility
 {
@@ -12,7 +15,9 @@ namespace Utility
 		private float musicVolume;
 		private float ambientVolume;
 
-		public GameData(string cityName, string userName, int money, bool vibrate, float musicVolume, float ambientVolume)
+		private Dictionary<Vector2IntSerializable, TileData> dictionary; 
+
+		public GameData(string cityName, string userName, int money, bool vibrate, float musicVolume, float ambientVolume, Dictionary<Vector2IntSerializable, TileData> dictionary)
 		{
 			this.cityName      = cityName;
 			this.userName      = userName;
@@ -20,6 +25,7 @@ namespace Utility
 			this.vibrate       = vibrate;
 			this.musicVolume   = musicVolume;
 			this.ambientVolume = ambientVolume;
+			this.dictionary    = dictionary;
 		}
 
 		public string CityName
@@ -56,6 +62,12 @@ namespace Utility
 		{
 			get => ambientVolume;
 			set => ambientVolume = value;
+		}
+
+		public Dictionary<Vector2IntSerializable, TileData> Dictionary
+		{
+			get => dictionary;
+			set => dictionary = value;
 		}
 	}
 }
