@@ -1,5 +1,9 @@
-﻿using System.IO;
+﻿using System.Collections.Generic;
+using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
+using Grid;
+using Grid.Tiles;
+using Structs;
 using UnityEngine;
 using UnityEngine.UI;
 using Utility;
@@ -34,7 +38,7 @@ namespace Singletons
 		{
 			base.Awake();
 
-			gameData = new GameData("", "", startMoney, true, 1f, 1f);
+			gameData = new GameData("", "", startMoney, true, 1f, 1f, new Dictionary<Vector2Int, TileData>());
 
 			destination = Application.persistentDataPath + "/save.dat";
 
