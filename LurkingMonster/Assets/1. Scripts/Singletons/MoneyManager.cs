@@ -15,6 +15,7 @@ namespace Singletons
 		{
 			base.Awake();
 			CurrentMoney = UserSettings.GameData.Money;
+			RegisterToOnGameQuit();
 		}
 
 		private void OnEnable()
@@ -26,19 +27,6 @@ namespace Singletons
 		{
 			UserSettings.GameData.Money = CurrentMoney;
 			RemoveListeners();
-		}
-
-		private void OnApplicationPause(bool pauseStatus)
-		{
-			if (pauseStatus)
-			{
-				UserSettings.GameData.Money = CurrentMoney;
-			}
-		}
-
-		private void OnApplicationQuit()
-		{
-			UserSettings.GameData.Money = CurrentMoney;
 		}
 
 		private void AddListeners()
@@ -58,6 +46,16 @@ namespace Singletons
 			EventManager.Instance.RemoveListener<IncreaseMoneyEvent>(OnIncreaseMoney);
 			EventManager.Instance.RemoveListener<DecreaseMoneyEvent>(OnDecreaseMoney);
 			EventManager.Instance.RemoveListener<CollectRentEvent>(OnCollectRent);
+		}
+		
+		private void RegisterToOnGameQuit()
+		{
+			UserSettings.OnGameQuit += SaveCurrentMoney;
+		}
+
+		private void SaveCurrentMoney()
+		{
+			UserSettings.GameData.Money = CurrentMoney;
 		}
 
 		public bool PlayerHasEnoughMoney(int price)

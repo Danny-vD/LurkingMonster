@@ -1230,7 +1230,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca94e754e77448cf8c7f8b268ca466df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonContinue: {fileID: 236636219}
   startMoney: 10000
 --- !u!114 &635546120
 MonoBehaviour:
@@ -1784,7 +1783,7 @@ MonoBehaviour:
   m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 1920, y: 1080}
+  m_ReferenceResolution: {x: 1080, y: 2280}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -2643,8 +2642,9 @@ GameObject:
   - component: {fileID: 1900713374}
   - component: {fileID: 1900713373}
   - component: {fileID: 1900713376}
+  - component: {fileID: 1900713377}
   m_Layer: 5
-  m_Name: StartGameButton
+  m_Name: NewGameButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2713,10 +2713,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1163837777}
-        m_TargetAssemblyTypeName: UI.ButtonFunctionality, Assembly-CSharp
-        m_MethodName: LoadScene
-        m_Mode: 3
+      - m_Target: {fileID: 1900713377}
+        m_TargetAssemblyTypeName: IO.DeleteFile, Assembly-CSharp
+        m_MethodName: RemoveFile
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2725,14 +2725,26 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1163837777}
-        m_TargetAssemblyTypeName: UI.ButtonFunctionality, Assembly-CSharp
-        m_MethodName: DeleteSavedFile
+      - m_Target: {fileID: 635546119}
+        m_TargetAssemblyTypeName: Singletons.UserSettings, Assembly-CSharp
+        m_MethodName: NewGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1163837777}
+        m_TargetAssemblyTypeName: UI.ButtonFunctionality, Assembly-CSharp
+        m_MethodName: LoadScene
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -2789,6 +2801,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cityName: {fileID: 0}
   userName: {fileID: 0}
+--- !u!114 &1900713377
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1900713371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e013849bbd81d014a89c823cac3c7f93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fileToDelete: Save.dat
 --- !u!1 &1968636548
 GameObject:
   m_ObjectHideFlags: 0

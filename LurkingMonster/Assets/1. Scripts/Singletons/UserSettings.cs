@@ -20,6 +20,10 @@ namespace Singletons
 		[SerializeField]
 		private int startMoney = 10000;
 
+		public delegate void GameQuit();
+
+		public static event GameQuit OnGameQuit; // Create an event that will be called as the application quits
+
 		public static GameData GameData
 		{
 			get
@@ -37,30 +41,28 @@ namespace Singletons
 		protected override void Awake()
 		{
 			base.Awake();
-
-			gameData = new GameData("", "", startMoney, true, 1f, 1f, new Dictionary<Vector2IntSerializable, TileData>());
-
 			destination = Application.persistentDataPath + "/save.dat";
 
-			if (!File.Exists(destination))
+			if (File.Exists(destination))
 			{
-				return;
+				ReloadData();
 			}
-			
-			ReloadData();
 		}
 
-				
 		private void OnApplicationQuit()
 		{
+			OnGameQuit?.Invoke();
+			
 			SaveDictionary();
 			SaveFile();
 		}
-		
+
 		private void OnApplicationPause(bool pauseStatus)
 		{
 			if (pauseStatus)
 			{
+				OnGameQuit?.Invoke();
+
 				SaveDictionary();
 				SaveFile();
 			}
@@ -112,6 +114,12 @@ namespace Singletons
 			BinaryFormatter bf = new BinaryFormatter();
 			bf.Serialize(file, gameData);
 			file.Close();
+		}
+
+		public void NewGame()
+		{
+			gameData = new GameData("", "", startMoney, true, 1f, 1f,
+				new Dictionary<Vector2IntSerializable, TileData>());
 		}
 	}
 }
