@@ -11,11 +11,15 @@ using VDFramework.Singleton;
 
 namespace Singletons
 {
+	using Grid;
+	using Grid.Tiles;
+	using Grid.Tiles.Building;
+	using Grid.Tiles.Road;
+
 	public class UserSettings : Singleton<UserSettings>
 	{
 		private static GameData gameData;
 		private string destination;
-		
 
 		[SerializeField]
 		private int startMoney = 10000;
@@ -55,6 +59,38 @@ namespace Singletons
 			if (pauseStatus)
 			{
 				SaveFile();
+			}
+		}
+
+		private void SaveDictionary()
+		{
+			AbstractTile[,] grid = GridUtil.Grid;
+
+			for (int y = 0; y < GridUtil.GridData.GridSize.y; y++)
+			{
+				for (int x = 0; x < GridUtil.GridData.GridSize.x; x++)
+				{
+					AbstractTile tile = grid[y, x];
+					SaveTile(tile);
+				}
+			}
+		}
+
+		private void SaveTile(AbstractTile tile)
+		{
+			Vector2Int gridPosition = tile.GridPosition;
+			
+			// Using a switch to check and cast to approriate type directly
+			switch (tile)
+			{
+				case AbstractBuildingTile buildingTile:
+					// You can get all your information through this one
+					break;
+				case AbstractRoadTile roadTile:
+					// Could be removed, maybe useful later, probably not
+					break;
+				default:
+					break;
 			}
 		}
 		
