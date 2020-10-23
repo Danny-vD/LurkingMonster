@@ -52,6 +52,7 @@ namespace CustomInspector.Grid
 
 			List<AbstractTile> selectedTiles = selectedObjects.Select(GetAbstractTile).ToList();
 			selectedTiles.RemoveAll(item => item == null);
+			selectedTiles = selectedTiles.Distinct().ToList();
 			
 			Vector2Int[] gridPositions = new Vector2Int[selectedTiles.Count];
 

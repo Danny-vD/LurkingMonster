@@ -12,8 +12,6 @@ using VDFramework.Utility;
 
 namespace Grid
 {
-	using VDFramework.EventSystem;
-
 	public class GridCreator : BetterMonoBehaviour
 	{
 		[SerializeField]

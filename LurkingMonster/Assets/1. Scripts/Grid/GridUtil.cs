@@ -1,10 +1,9 @@
-﻿namespace Grid
-{
-	using System;
-	using Tiles;
-	using UnityEngine;
-	using VDFramework;
+﻿using Grid.Tiles;
+using UnityEngine;
+using VDFramework;
 
+namespace Grid
+{
 	[RequireComponent(typeof(GridCreator))]
 	public class GridUtil : BetterMonoBehaviour
 	{
@@ -13,7 +12,7 @@
 
 		public static AbstractTile[,] Grid => grid;
 		public static GridData GridData => gridData;
-		
+
 		private void Start()
 		{
 			gridData = GetComponent<GridData>();
