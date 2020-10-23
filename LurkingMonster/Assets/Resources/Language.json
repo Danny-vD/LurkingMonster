@@ -34,6 +34,23 @@
 		}
 	  ]
 	},
+    {
+      "Key": "QUIT_GAME",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "Afsluiten"
+        },
+        {
+          "Key": "EN",
+          "Value": "Quit"
+        },
+        {
+          "Key": "DE",
+          "Value": "Neues Spiel"
+        }
+      ]
+    },
 	{
 	  "Key": "SCORE",
 	  "Value": [
@@ -254,6 +271,23 @@
 		  "Value": "Ok!"
 		}
 	  ]
-	}
+	},
+    {
+      "Key": "CONTINUE_GAME",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "Verder Spelen"
+        },
+        {
+          "Key": "EN",
+          "Value": "Continue"
+        },
+        {
+          "Key": "DE",
+          "Value": "Ok!"
+        }
+      ]
+    }
   ]
 }

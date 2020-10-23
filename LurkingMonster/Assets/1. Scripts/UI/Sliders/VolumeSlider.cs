@@ -1,4 +1,6 @@
-﻿namespace UI.Sliders
+﻿using Singletons;
+
+namespace UI.Sliders
 {
 	using System;
 	using Audio;
@@ -35,12 +37,17 @@
 			{
 				case BusType.Master:
 					//currentVolume = UserSettings.GameData.MasterVolume;
+					print("Master volume is not in the game currently");
 					break;
 				case BusType.SFX:
+					//currentVolume = UserSettings.GameData.SFX;
+					print("SFX volume is not in the game currently");
 					break;
 				case BusType.Music:
+					currentVolume = UserSettings.GameData.MusicVolume;
 					break;
 				case BusType.Ambient:
+					currentVolume = UserSettings.GameData.AmbientVolume;
 					break;
 				default:
 					throw new ArgumentOutOfRangeException();
@@ -51,8 +58,6 @@
 		
 		private void SetVolume(float volume)
 		{
-			print(volume);
-			
 			AudioManager.Instance.SetVolume(busType, volume);
 
 			StoreVolume(volume);
@@ -64,12 +69,17 @@
 			{
 				case BusType.Master:
 					// UserSettings.GameData.MasterVolume = volume
+					print("Master volume is not in the game currently");
 					break;
 				case BusType.SFX:
+					// UserSettings.GameData.SFX = volume
+					print("SFX volume is not in the game currently");
 					break;
 				case BusType.Music:
+					UserSettings.GameData.MusicVolume = volume;
 					break;
 				case BusType.Ambient:
+					UserSettings.GameData.AmbientVolume = volume;
 					break;
 				default:
 					throw new ArgumentOutOfRangeException();

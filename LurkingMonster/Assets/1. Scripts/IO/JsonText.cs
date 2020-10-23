@@ -18,7 +18,7 @@ namespace IO
             text = GetComponent<Text>();
         }
 
-        private void OnEnable()
+        private void Start()
         {
             ReloadText();
         }
