@@ -1,9 +1,9 @@
-﻿using System;
+using System;
 using Singletons;
 using UnityEngine;
 using VDFramework;
 
-namespace Camera
+namespace CameraScripts
 {
 	public class CameraMovement : BetterMonoBehaviour
 	{

@@ -1,8 +1,8 @@
-﻿using System;
+using System;
 using UnityEngine;
 using VDFramework;
 
-namespace Camera
+namespace CameraScripts
 {
 	public class MovementLimiter : BetterMonoBehaviour
 	{
