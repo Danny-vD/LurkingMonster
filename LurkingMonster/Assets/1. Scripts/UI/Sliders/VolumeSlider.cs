@@ -13,7 +13,7 @@ namespace UI.Sliders
 	public class VolumeSlider : BetterMonoBehaviour
 	{
 		[SerializeField]
-		private BusType busType;
+		private BusType busType = default;
 		
 		private Slider volumeSlider;
 

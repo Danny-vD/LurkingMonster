@@ -723,7 +723,7 @@ MonoBehaviour:
       value: 0
   initialVolumes:
   - key: 0
-    value: 1
+    value: 0.7
     isMuted: 0
   - key: 1
     value: 1
