@@ -12,6 +12,8 @@ using VDFramework.Utility;
 
 namespace Grid
 {
+	using VDFramework.EventSystem;
+
 	public class GridCreator : BetterMonoBehaviour
 	{
 		[SerializeField]
@@ -40,7 +42,7 @@ namespace Grid
 
 				grid[gridPosition.y, gridPosition.x] = InstantiateTile(data, parent, tileDatum.Value, gridPosition);
 			}
-
+			
 			return grid;
 		}
 

@@ -1,14 +1,13 @@
 ﻿using Singletons;
+using System;
+using Audio;
+using Enums.Audio;
+using UnityEngine;
+using UnityEngine.UI;
+using VDFramework;
 
 namespace UI.Sliders
 {
-	using System;
-	using Audio;
-	using Enums.Audio;
-	using UnityEngine;
-	using UnityEngine.UI;
-	using VDFramework;
-
 	[RequireComponent(typeof(Slider))]
 	public class VolumeSlider : BetterMonoBehaviour
 	{
