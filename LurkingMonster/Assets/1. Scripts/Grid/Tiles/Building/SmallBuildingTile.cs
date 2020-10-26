@@ -23,7 +23,7 @@ namespace Grid.Tiles.Building
 
 		public override void SpawnFoundation()
 		{
-			int cost = GetFoundationData(foundationType).BuildCost;
+			int cost = GetFoundationData(GetFoundationType()).BuildCost;
 
 			if (!MoneyManager.Instance.PlayerHasEnoughMoney(cost))
 			{
@@ -38,7 +38,7 @@ namespace Grid.Tiles.Building
 		{
 			if (payForRemoval)
 			{
-				int cost = GetFoundationData(foundationType).DestroyCost;
+				int cost = GetFoundationData(GetFoundationType()).DestroyCost;
 
 				if (!MoneyManager.Instance.PlayerHasEnoughMoney(cost))
 				{

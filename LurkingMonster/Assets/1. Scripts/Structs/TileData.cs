@@ -13,16 +13,26 @@ namespace Structs
 		private TileType tileType;
 		private BuildingType buildingType;
 		private int buildingTier;
-		private SoilType SoilType;
+		private SoilType soilType;
 		private FoundationType foundationType;
 
+		public TileType TileType => tileType;
+
+		public BuildingType BuildingType => buildingType;
+
+		public int BuildingTier => buildingTier;
+
+		public SoilType SoilType => soilType;
+
+		public FoundationType FoundationType => foundationType;
+		
 		public TileData(AbstractTile tile)
 		{
 			tileType = tile.TileType;
-			getType(tile);
+			GetType(tile);
 		}
 
-		public void getType(AbstractTile tile)
+		public void GetType(AbstractTile tile)
 		{
 			// Using a switch to check and cast to approriate type directly
 			switch (tile)
@@ -34,45 +44,14 @@ namespace Structs
 						return;
 					}
 					
-					buildingType   = buildingTile.BuildingType;
+					buildingType   = buildingTile.GetBuildingType();
 					buildingTier   = buildingTile.Building.CurrentTier;
-					SoilType       = buildingTile.GetSoilType();
+					soilType       = buildingTile.GetSoilType();
 					foundationType = buildingTile.GetFoundationType();
-					
 					break;
 				default:
 					break;
 			}
-		}
-
-		public TileType TileType
-		{
-			get => tileType;
-			set => tileType = value;
-		}
-
-		public BuildingType BuildingType
-		{
-			get => buildingType;
-			set => buildingType = value;
-		}
-
-		public int BuildingTier
-		{
-			get => buildingTier;
-			set => buildingTier = value;
-		}
-
-		public SoilType SoilType1
-		{
-			get => SoilType;
-			set => SoilType = value;
-		}
-
-		public FoundationType FoundationType
-		{
-			get => foundationType;
-			set => foundationType = value;
 		}
 	}
 }

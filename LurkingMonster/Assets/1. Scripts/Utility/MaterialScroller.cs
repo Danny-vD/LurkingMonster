@@ -9,9 +9,9 @@ namespace Utility
 		private static readonly int mainTex = Shader.PropertyToID("_MainTex");
 
 		[SerializeField, Tooltip("The speed it needs to move per second")]
-		private Vector2 speed = new Vector2(1, 1);
+		private Vector2 speed = new Vector2(1, 0);
 
-		[SerializeField]
+		[SerializeField, Tooltip("Is the material that we scroll on an UI element or is it on an object in the game?")]
 		private bool IsUITexture = true;
 
 		private Material currentMaterial;

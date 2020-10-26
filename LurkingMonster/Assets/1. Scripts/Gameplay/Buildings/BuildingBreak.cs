@@ -1,15 +1,13 @@
-﻿using System;
-using Events;
+﻿using Events;
 using Singletons;
 using UnityEngine;
-using UnityEngine.Serialization;
 using Utility;
 using VDFramework;
 using VDFramework.EventSystem;
 
 namespace Gameplay.Buildings
 {
-	public class BuildingBreak : BetterMonoBehaviour //TODO: add a getCurrentHealth and GetMaxHealth for Foundation and Building
+	public class BuildingBreak : BetterMonoBehaviour // TODO: add a getCurrentHealth and GetMaxHealth for Foundation and Building
 	{
 		public Bar bar;
 
@@ -78,6 +76,26 @@ namespace Gameplay.Buildings
 			}
 		}
 
+		public void CalculateBuildingBreakTime()
+		{
+			TotalHealth      =  0.0f;
+			SoilHealth       += Switches.SoilTypeSwitch(building.Data.SoilType);
+			FoundationHealth += GetMaximumFoundationHealth();
+			
+			//TODO for test purposes so we dont have to wait a long time
+			TotalHealth = (SoilHealth + FoundationHealth);
+		}
+
+		public float GetCurrentFoundationHealth()
+		{
+			return FoundationHealth;
+		}
+
+		public float GetMaximumFoundationHealth()
+		{
+			return Switches.FoundationTypeSwitch(building.Data.Foundation);
+		}
+
 		public void OnWeatherEvent(RandomWeatherEvent randomWeatherEvent)
 		{
 			SpeedPercentage        += randomWeatherEvent.WeatherEventData.BuildingTime;
@@ -85,17 +103,7 @@ namespace Gameplay.Buildings
 			weatherEventTimeLength =  randomWeatherEvent.WeatherEventData.Timer;
 			weatherEvent           =  true;
 		}
-
-		public void CalculateBuildingBreakTime()
-		{
-			TotalHealth =  0.0f;
-			SoilHealth += Switches.SoilTypeSwitch(building.Data.SoilType);
-			FoundationHealth += Switches.FoundationTypeSwitch(building.Data.Foundation);
-			
-			//TODO for test purposes so we dont have to wait a long time
-			TotalHealth = (SoilHealth + FoundationHealth);
-		}
-
+		
 		public void OnHouseRepair()
 		{
 			//TODO Have to adjust amount

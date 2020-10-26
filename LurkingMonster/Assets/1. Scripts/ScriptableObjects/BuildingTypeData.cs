@@ -1,4 +1,4 @@
-﻿using Structs;
+﻿using Gameplay.Buildings;
 using Structs.Buildings;
 using UnityEngine;
 
