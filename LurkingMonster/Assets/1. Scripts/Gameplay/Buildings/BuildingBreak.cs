@@ -9,8 +9,10 @@ using VDFramework.EventSystem;
 
 namespace Gameplay.Buildings
 {
-	public class BuildingBreak : BetterMonoBehaviour
+	public class BuildingBreak : BetterMonoBehaviour //TODO: add a getCurrentHealth and GetMaxHealth for Foundation and Building
 	{
+		public Bar bar;
+
 		public float SoilHealth;
 		public float FoundationHealth;
 		public float TotalHealth;
@@ -21,8 +23,6 @@ namespace Gameplay.Buildings
 		private float weatherEventTimeLength;
 		private float timerWeatherEvent;
 		private bool weatherEvent;
-		
-		public Bar bar;
 
 		private Building building;
 		

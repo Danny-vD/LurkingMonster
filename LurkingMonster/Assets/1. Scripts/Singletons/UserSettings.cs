@@ -1,28 +1,25 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Runtime.Serialization.Formatters.Binary;
 using Structs;
 using UnityEngine;
 using Utility;
 using VDFramework.Singleton;
+using Grid;
+using Grid.Tiles;
 
 namespace Singletons
 {
-	using Grid;
-	using Grid.Tiles;
-
 	public class UserSettings : Singleton<UserSettings>
 	{
+		public static event Action OnGameQuit; // Create an event that will be called as the application quits
+
 		private static GameData gameData;
 		private string destination;
 
 		[SerializeField]
 		private int startMoney = 10000;
-
-		public delegate void GameQuit();
-
-		public static event GameQuit OnGameQuit; // Create an event that will be called as the application quits
 
 		public static GameData GameData
 		{
@@ -52,7 +49,7 @@ namespace Singletons
 		private void OnApplicationQuit()
 		{
 			OnGameQuit?.Invoke();
-			
+
 			SaveDictionary();
 			SaveFile();
 		}

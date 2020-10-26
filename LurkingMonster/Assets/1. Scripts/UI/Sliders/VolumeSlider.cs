@@ -39,7 +39,7 @@ namespace UI.Sliders
 					print("Master volume is not in the game currently");
 					break;
 				case BusType.SFX:
-					//currentVolume = UserSettings.GameData.SFX;
+					//currentVolume = UserSettings.GameData.SFXVolume;
 					print("SFX volume is not in the game currently");
 					break;
 				case BusType.Music:
@@ -71,7 +71,7 @@ namespace UI.Sliders
 					print("Master volume is not in the game currently");
 					break;
 				case BusType.SFX:
-					// UserSettings.GameData.SFX = volume
+					// UserSettings.GameData.SFXVolume = volume
 					print("SFX volume is not in the game currently");
 					break;
 				case BusType.Music:
