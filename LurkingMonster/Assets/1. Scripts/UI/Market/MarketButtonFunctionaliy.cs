@@ -100,7 +100,7 @@ namespace UI.Market
 				return;
 			}
 			
-			SetBuyFoundationText($"Buy foundation [{buildingTile.GetFoundationData(FoundationType.Wooden_Poles).BuildCost}]");
+			SetBuyFoundationText($"Buy foundation [{buildingTile.GetFoundationData(buildingTile.GetFoundationType()).BuildCost}]");
 			buyFoundationButton.onClick.AddListener(buildingTile.SpawnFoundation);
 		}
 
@@ -117,7 +117,7 @@ namespace UI.Market
 
 			if (buildingTile.HasFoundation)
 			{
-				SetDestroyText($"Remove foundation [{buildingTile.GetFoundationData(FoundationType.Wooden_Poles).DestroyCost}]");
+				SetDestroyText($"Remove foundation [{buildingTile.GetFoundationData(buildingTile.GetFoundationType()).DestroyCost}]");
 				destroyButton.onClick.AddListener(() => buildingTile.RemoveFoundation(true));
 				return;
 			}

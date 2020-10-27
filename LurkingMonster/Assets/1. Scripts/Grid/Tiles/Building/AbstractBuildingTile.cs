@@ -1,6 +1,5 @@
 ﻿using Enums;
 using Gameplay.Buildings;
-using Structs.Buildings;
 using UnityEngine;
 
 namespace Grid.Tiles.Building
@@ -11,12 +10,6 @@ namespace Grid.Tiles.Building
 	{
 		[SerializeField]
 		protected BuildingType buildingType = default;
-
-		[SerializeField]
-		protected SoilType soilType = default;
-
-		[SerializeField]
-		protected FoundationType foundationType = default;
 
 		public Gameplay.Buildings.Building Building { get; private set; }
 		public bool HasFoundation => foundationObject || Building;
@@ -29,19 +22,19 @@ namespace Grid.Tiles.Building
 		protected virtual void Awake()
 		{
 			spawner      = GetComponentInChildren<BuildingSpawner>();
-			BuildingData = spawner.GetBuildingData(buildingType, foundationType, soilType)[0];
+			BuildingData = spawner.GetBuildingData(buildingType, default, default)[0];
 		}
 
 		public virtual void SpawnBuilding()
 		{
 			RemoveFoundation(false);
-			Building = spawner.Spawn(buildingType, foundationType, soilType);
+			Building = spawner.Spawn(buildingType, BuildingData.Foundation, BuildingData.SoilType);
 		}
 
 		public virtual void SpawnFoundation()
 		{
 			RemoveFoundation(false);
-			foundationObject = spawner.SpawnFoundation(foundationType);
+			foundationObject = spawner.SpawnFoundation(BuildingData.Foundation);
 		}
 
 		public virtual void RemoveFoundation(bool payForRemoval)
@@ -64,30 +57,29 @@ namespace Grid.Tiles.Building
 			buildingType = house;
 		}
 
-		public BuildingType BuildingType
+		public BuildingType GetBuildingType()
 		{
-			get => buildingType;
-			set => buildingType = value;
+			return buildingType;
 		}
 
 		public void SetSoilType(SoilType soil)
 		{
-			soilType = soil;
+			BuildingData.SoilType = soil;
 		}
 
 		public SoilType GetSoilType()
 		{
-			return soilType;
+			return BuildingData.SoilType;
 		}
 
 		public void SetFoundation(FoundationType foundation)
 		{
-			foundationType = foundation;
+			BuildingData.Foundation = foundation;
 		}
 
 		public FoundationType GetFoundationType()
 		{
-			return foundationType;
+			return BuildingData.Foundation;
 		}
 	}
 }
