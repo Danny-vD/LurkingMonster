@@ -2,6 +2,7 @@
 using System.IO;
 using System.Linq;
 using System.Runtime.Serialization.Formatters.Binary;
+using _1._Scripts.Tests;
 using Structs;
 using UnityEngine;
 using Utility;
@@ -34,6 +35,11 @@ namespace Singletons
 					_ = Instance;
 				}
 
+				if (gameData == null)
+				{
+					Instance.NewGame();
+				}
+
 				return gameData;
 			}
 		}
@@ -52,6 +58,11 @@ namespace Singletons
 		private void OnApplicationQuit()
 		{
 			OnGameQuit?.Invoke();
+
+			if (gameData == null)
+			{
+				return;
+			}
 			
 			SaveDictionary();
 			SaveFile();
@@ -61,8 +72,13 @@ namespace Singletons
 		{
 			if (pauseStatus)
 			{
+				if (gameData == null)
+				{
+					return;
+				}
+				
 				OnGameQuit?.Invoke();
-
+				
 				SaveDictionary();
 				SaveFile();
 			}
@@ -71,11 +87,12 @@ namespace Singletons
 		private void SaveDictionary()
 		{
 			gameData.Dictionary.Clear();
-			AbstractTile[,] grid = GridUtil.Grid;
 
-			for (int y = 0; y < GridUtil.GridData.GridSize.y; y++)
+			AbstractTile[,] grid = GridUtil.Grid;
+			
+			for (int y = 0; y < grid.GetLength(0); y++)
 			{
-				for (int x = 0; x < GridUtil.GridData.GridSize.x; x++)
+				for (int x = 0; x < grid.GetLength(1); x++)
 				{
 					AbstractTile tile = grid[y, x];
 					SaveTile(tile);
@@ -115,11 +132,13 @@ namespace Singletons
 			bf.Serialize(file, gameData);
 			file.Close();
 		}
-
+		
 		public void NewGame()
 		{
 			gameData = new GameData("", "", startMoney, true, 1f, 1f,
 				new Dictionary<Vector2IntSerializable, TileData>());
+			
+			RunTimeTests.TestStartMoney();
 		}
 	}
 }

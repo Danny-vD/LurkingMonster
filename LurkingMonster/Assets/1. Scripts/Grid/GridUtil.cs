@@ -10,7 +10,8 @@ namespace Grid
 		private static AbstractTile[,] grid;
 		private static GridData gridData;
 
-		public static AbstractTile[,] Grid => grid;
+		public static AbstractTile[,] Grid => grid ?? new AbstractTile[0, 0];
+
 		public static GridData GridData => gridData;
 
 		private void Start()
