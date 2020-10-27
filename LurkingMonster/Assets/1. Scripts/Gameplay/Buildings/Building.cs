@@ -13,7 +13,7 @@ namespace Gameplay.Buildings
 	public class Building : BetterMonoBehaviour
 	{
 		[SerializeField]
-		private GlobalBuildingData globalBuildingData;
+		private GlobalBuildingData globalBuildingData = null;
 
 		private BuildingData[] data;
 
@@ -46,7 +46,7 @@ namespace Gameplay.Buildings
 			data         = buildingData;
 		}
 
-		public void RemoveBuilding(bool payForRemoval = false)
+		public void RemoveBuilding(bool payForRemoval)
 		{
 			if (payForRemoval)
 			{

@@ -9,5 +9,7 @@
 		Road,
 		RoadEnd,
 		RoadRoundabout,
+		RoadCorner,
+		RoadTSection,
 	}
 }

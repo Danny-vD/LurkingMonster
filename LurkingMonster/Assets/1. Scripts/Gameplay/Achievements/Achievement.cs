@@ -12,13 +12,13 @@ namespace Gameplay.Achievements
 	{
 		private readonly int[] limits;
 		private readonly bool[] unlocked;
-		private readonly string message;
+		private readonly string keyMessage;
 		private int counter;
 		
-		public Achievement(int[] limits, string message)
+		public Achievement(int[] limits, string keyMessage)
 		{
 			this.limits      = limits;
-			this.message     = message;
+			this.keyMessage     = keyMessage;
 			counter          = 0;
 
 			unlocked = new bool[limits.Length];
@@ -48,6 +48,7 @@ namespace Gameplay.Achievements
 
 		public void PrintAchievement(GameObject prefabAchievement)
 		{
+			string message = LanguageUtil.GetJsonString(keyMessage);
 			for (int i = 0; i < limits.Length; i++)
 			{
 				if (!unlocked[i])

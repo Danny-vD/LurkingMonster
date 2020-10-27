@@ -112,7 +112,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buildingType: 0
   soilType: 1
-  foundationType: 5
+  foundationType: 0
 --- !u!1001 &312741033021125353
 PrefabInstance:
   m_ObjectHideFlags: 0
