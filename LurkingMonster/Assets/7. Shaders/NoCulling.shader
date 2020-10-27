@@ -105,7 +105,7 @@ Shader "Custom/NoCulling"
 			}
 
 			o.Alpha = _Tint.a;
-			
+
 			if (_UseAlbedo)
 			{
 				// Albedo comes from a albedo map tinted by color

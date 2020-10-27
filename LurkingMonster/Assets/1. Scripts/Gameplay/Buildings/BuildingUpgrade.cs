@@ -27,7 +27,7 @@ namespace Gameplay.Buildings
 			building = GetComponent<Building>();
 			buildingType = building.BuildingType;
 
-			if (buildingTierData == null)
+			if (!buildingTierData)
 			{
 				Debug.LogError("Mesh Tier data is not set!", gameObject);
 			}

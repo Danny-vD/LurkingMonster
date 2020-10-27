@@ -16,23 +16,24 @@ namespace UI
 		{
 			moneyText = GetComponent<Text>();
 			AddMoneyListener();
-			
-			SetText(MoneyManager.Instance.CurrentMoney);
+
+			SetText();
 		}
 
 		private void AddMoneyListener()
 		{
 			EventManager.Instance.AddListener<MoneyChangedEvent>(OnMoneyChanged);
+			EventManager.Instance.AddListener<LanguageChangedEvent>(SetText);
 		}
 
-		private void SetText(int currentMoney)
+		private void SetText()
 		{
-			moneyText.text =  LanguageUtil.GetJsonString("MONEY") + currentMoney;
+			moneyText.text = LanguageUtil.GetJsonString("MONEY") + MoneyManager.Instance.CurrentMoney;
 		}
-		
+
 		private void OnMoneyChanged(MoneyChangedEvent moneyChangedEvent)
 		{
-			SetText(moneyChangedEvent.CurrentMoney);
+			SetText();
 		}
 
 		private void OnDestroy()
@@ -41,7 +42,7 @@ namespace UI
 			{
 				return;
 			}
-			
+
 			EventManager.Instance.RemoveListener<MoneyChangedEvent>(OnMoneyChanged);
 		}
 	}

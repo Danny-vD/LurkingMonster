@@ -1,16 +1,16 @@
-﻿using System;
-using Events;
+﻿using Events;
 using Singletons;
 using UnityEngine;
-using UnityEngine.Serialization;
 using Utility;
 using VDFramework;
 using VDFramework.EventSystem;
 
 namespace Gameplay.Buildings
 {
-	public class BuildingBreak : BetterMonoBehaviour
+	public class BuildingBreak : BetterMonoBehaviour // TODO: add a getCurrentHealth and GetMaxHealth for Foundation and Building
 	{
+		public Bar bar;
+
 		public float SoilHealth;
 		public float FoundationHealth;
 		public float TotalHealth;
@@ -21,8 +21,6 @@ namespace Gameplay.Buildings
 		private float weatherEventTimeLength;
 		private float timerWeatherEvent;
 		private bool weatherEvent;
-		
-		public Bar bar;
 
 		private Building building;
 		
@@ -72,9 +70,30 @@ namespace Gameplay.Buildings
 			
 			if (TotalHealth <= 0)
 			{
-				building.RemoveBuilding();
+				building.RemoveBuilding(false); // TODO: Should spawn a 'destroyed building' asset instead
 				EventManager.Instance.RaiseEvent(new BuildingConsumedEvent());
+				VibrationUtil.Vibrate();
 			}
+		}
+
+		public void CalculateBuildingBreakTime()
+		{
+			TotalHealth      =  0.0f;
+			SoilHealth       += Switches.SoilTypeSwitch(building.Data.SoilType);
+			FoundationHealth += GetMaximumFoundationHealth();
+			
+			//TODO for test purposes so we dont have to wait a long time
+			TotalHealth = (SoilHealth + FoundationHealth);
+		}
+
+		public float GetCurrentFoundationHealth()
+		{
+			return FoundationHealth;
+		}
+
+		public float GetMaximumFoundationHealth()
+		{
+			return Switches.FoundationTypeSwitch(building.Data.Foundation);
 		}
 
 		public void OnWeatherEvent(RandomWeatherEvent randomWeatherEvent)
@@ -84,17 +103,7 @@ namespace Gameplay.Buildings
 			weatherEventTimeLength =  randomWeatherEvent.WeatherEventData.Timer;
 			weatherEvent           =  true;
 		}
-
-		public void CalculateBuildingBreakTime()
-		{
-			TotalHealth =  0.0f;
-			SoilHealth += Switches.SoilTypeSwitch(building.Data.SoilType);
-			FoundationHealth += Switches.FoundationTypeSwitch(building.Data.Foundation);
-			
-			//TODO for test purposes so we dont have to wait a long time
-			TotalHealth = (SoilHealth + FoundationHealth);
-		}
-
+		
 		public void OnHouseRepair()
 		{
 			//TODO Have to adjust amount

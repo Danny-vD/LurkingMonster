@@ -60,7 +60,7 @@ Material:
     - _CircleAxis: 0
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
-    - _DistanceFactor: 50
+    - _DistanceFactor: 35
     - _DstBlend: 0
     - _GlossMapScale: 1
     - _Glossiness: 0.5

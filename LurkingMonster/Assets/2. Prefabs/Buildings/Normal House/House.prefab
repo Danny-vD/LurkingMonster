@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 138696814}
   - component: {fileID: 138696813}
   - component: {fileID: 138696816}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: btnCollectRent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -169,7 +169,7 @@ GameObject:
   - component: {fileID: 265130014}
   - component: {fileID: 265130013}
   - component: {fileID: 265130016}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -270,6 +270,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae3c57b0bb9eba947bfe276f78465771, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  textDeleteFile: {fileID: 0}
 --- !u!1 &1220154156152069820
 GameObject:
   m_ObjectHideFlags: 0
@@ -281,7 +282,7 @@ GameObject:
   - component: {fileID: 5840186168035317792}
   - component: {fileID: 7615597218366273062}
   - component: {fileID: 2019353029970825561}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Border
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -356,7 +357,7 @@ GameObject:
   - component: {fileID: 472988314417894494}
   - component: {fileID: 4217036813707069561}
   - component: {fileID: 2375193678091250356}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: HealthBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -458,7 +459,7 @@ GameObject:
   - component: {fileID: 8524459643729643222}
   - component: {fileID: 5438434724519294980}
   - component: {fileID: 8139466020588459974}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -566,7 +567,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6758913166034969596}
-  m_Mesh: {fileID: 614220985723484880, guid: 4f00fd714054b2d4eb12a0de6377c4e9, type: 3}
+  m_Mesh: {fileID: 0}
 --- !u!23 &6758913166034969598
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -633,12 +634,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 092639f48eb45f34a9c437d6727611f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bar: {fileID: 2375193678091250356}
   SoilHealth: 0
   FoundationHealth: 0
   TotalHealth: 0
   StartingHealth: 0
   SpeedPercentage: 0
-  bar: {fileID: 2375193678091250356}
 --- !u!114 &8740718846376473894
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -677,7 +678,7 @@ GameObject:
   - component: {fileID: 948279848698153782}
   - component: {fileID: 2074128603572616719}
   - component: {fileID: 51152796584614185}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: btnCrackHouse
   m_TagString: Untagged
   m_Icon: {fileID: 0}
