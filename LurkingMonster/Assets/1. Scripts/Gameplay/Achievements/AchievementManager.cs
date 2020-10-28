@@ -34,11 +34,11 @@ namespace Gameplay.Achievements
 		{
 			achievements                = new List<Achievement>();
 			
-			buildingBuildAchievement    = new Achievement(new int[] {5, 10, 15}, "BUILDINGSBUILDACHIEVEMENT");
-			rentCollectedAchievement    = new Achievement(new int[] {1000, 10000, 100000, 200000}, "RENTCOLLECTEDACHIEVEMENT");
-			buildingSavedAchievement    = new Achievement(new int[] {10, 20, 30}, "BUILDINGSAVEDACHIEVEMENT");
-			buildingConsumedAchievement = new Achievement(new int[] {5, 10, 20}, "BUILDINGCONSUMEDACHIEVEMENT");
-			amountOfPlotsAchievement    = new Achievement(new int[] {5, 10, 20}, "AMOUNTOFPLOTSACHIEVEMENT");
+			buildingBuildAchievement    = new Achievement(new int[] {1, 3, 15}, "BUILDINGSBUILDACHIEVEMENT", new object[] {SoilType.Peet, FoundationType.Reinfored_Concrete, SoilType.Sand});
+			rentCollectedAchievement    = new Achievement(new int[] {1000, 10000, 100000, 200000}, "RENTCOLLECTEDACHIEVEMENT", new object[] {SoilType.Peet, 15, SoilType.Sand});
+			buildingSavedAchievement    = new Achievement(new int[] {10, 20, 30}, "BUILDINGSAVEDACHIEVEMENT", new object[] {SoilType.Peet, 15, SoilType.Sand});
+			buildingConsumedAchievement = new Achievement(new int[] {5, 10, 20}, "BUILDINGCONSUMEDACHIEVEMENT", new object[] {SoilType.Peet, 15, SoilType.Sand});
+			amountOfPlotsAchievement    = new Achievement(new int[] {5, 10, 20}, "AMOUNTOFPLOTSACHIEVEMENT", new object[] {SoilType.Peet, 15, SoilType.Sand});
 			
 			achievements.Add(buildingBuildAchievement);
 			achievements.Add(rentCollectedAchievement);

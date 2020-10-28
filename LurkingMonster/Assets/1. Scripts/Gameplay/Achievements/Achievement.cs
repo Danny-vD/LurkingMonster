@@ -14,12 +14,15 @@ namespace Gameplay.Achievements
 		private readonly bool[] unlocked;
 		private readonly string keyMessage;
 		private int counter;
+
+		private readonly object[] objects;
 		
-		public Achievement(int[] limits, string keyMessage)
+		public Achievement(int[] limits, string keyMessage, object[] objects)
 		{
-			this.limits      = limits;
-			this.keyMessage     = keyMessage;
-			counter          = 0;
+			this.limits     = limits;
+			this.keyMessage = keyMessage;
+			counter         = 0;
+			this.objects    = objects;
 
 			unlocked = new bool[limits.Length];
 		}
@@ -35,6 +38,8 @@ namespace Gameplay.Achievements
 					if (counter >= limits[i])
 					{
 						unlocked[i] = true;
+						
+						RewardManager.Instance.Unlock(objects[i]);
 						
 						//For now show message
 						MessageManager.Instance.ShowMessageGameUI(LanguageUtil.GetJsonString("ACHIEVEMENT_UNLOCKED"), Color.green);
