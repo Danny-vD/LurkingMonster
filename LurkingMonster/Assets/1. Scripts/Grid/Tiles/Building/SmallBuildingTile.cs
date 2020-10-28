@@ -18,7 +18,7 @@ namespace Grid.Tiles.Building
 			}
 
 			base.SpawnBuilding();
-			EventManager.Instance.RaiseEvent(new DecreaseMoneyEvent(BuildingData.Price));
+			EventManager.Instance.RaiseEvent(new DecreaseMoneyEvent(FirstTierData.Price));
 		}
 
 		public override void SpawnFoundation()

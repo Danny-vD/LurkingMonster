@@ -79,7 +79,7 @@ namespace Gameplay.Buildings
 		public void CalculateBuildingBreakTime()
 		{
 			TotalHealth      =  0.0f;
-			SoilHealth       += Switches.SoilTypeSwitch(building.Data.SoilType);
+			SoilHealth       += GetMaximumSoilHealth();
 			FoundationHealth += GetMaximumFoundationHealth();
 			
 			//TODO for test purposes so we dont have to wait a long time
@@ -94,6 +94,16 @@ namespace Gameplay.Buildings
 		public float GetMaximumFoundationHealth()
 		{
 			return Switches.FoundationTypeSwitch(building.Data.Foundation);
+		}
+
+		public float GetCurrentSoilHealth()
+		{
+			return SoilHealth;
+		}
+
+		public float GetMaximumSoilHealth()
+		{
+			return Switches.SoilTypeSwitch(building.Data.SoilType);
 		}
 
 		public void OnWeatherEvent(RandomWeatherEvent randomWeatherEvent)

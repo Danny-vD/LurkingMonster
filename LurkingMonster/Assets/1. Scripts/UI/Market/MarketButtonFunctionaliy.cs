@@ -7,8 +7,6 @@ using VDFramework.EventSystem;
 
 namespace UI.Market
 {
-	using Enums;
-
 	public class MarketButtonFunctionaliy : MonoBehaviour
 	{
 		[SerializeField]
