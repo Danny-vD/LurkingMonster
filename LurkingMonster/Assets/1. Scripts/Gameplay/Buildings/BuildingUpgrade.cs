@@ -20,11 +20,11 @@ namespace Gameplay.Buildings
 		private MeshFilter meshFilter;
 		private BuildingType buildingType;
 
-		private void Start()
+		private void Awake()
 		{
 			meshFilter = GetComponent<MeshFilter>();
 
-			building = GetComponent<Building>();
+			building     = GetComponent<Building>();
 			buildingType = building.BuildingType;
 
 			if (!buildingTierData)
@@ -32,7 +32,7 @@ namespace Gameplay.Buildings
 				Debug.LogError("Mesh Tier data is not set!", gameObject);
 			}
 
-			maxTier = buildingTierData.GetMaxTier(buildingType);
+			maxTier         = buildingTierData.GetMaxTier(buildingType);
 			meshFilter.mesh = buildingTierData.GetMesh(buildingType, building.CurrentTier);
 		}
 
@@ -40,23 +40,26 @@ namespace Gameplay.Buildings
 		{
 			return building.CurrentTier < maxTier;
 		}
-		
-		public void Upgrade()
+
+		public void Upgrade(bool payForUpgrade)
 		{
 			if (!CanUpgrade())
 			{
 				return;
 			}
 
-			int upgradeCost = building.UpgradeCost;
-
-			if (!MoneyManager.Instance.PlayerHasEnoughMoney(upgradeCost))
+			if (payForUpgrade)
 			{
-				return;
+				int upgradeCost = building.UpgradeCost;
+
+				if (!MoneyManager.Instance.PlayerHasEnoughMoney(upgradeCost))
+				{
+					return;
+				}
+
+				EventManager.Instance.RaiseEvent(new DecreaseMoneyEvent(upgradeCost));
 			}
 
-			EventManager.Instance.RaiseEvent(new DecreaseMoneyEvent(upgradeCost));
-			
 			meshFilter.mesh = buildingTierData.GetMesh(buildingType, ++building.CurrentTier);
 		}
 	}

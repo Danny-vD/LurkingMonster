@@ -21,8 +21,8 @@ namespace Gameplay.Buildings
 			this.rent         = rent;
 			this.weight       = weight;
 			this.price        = price;
-			this.SoilType     = soilType;
-			this.Foundation   = foundation;
+			SoilType     = soilType;
+			Foundation   = foundation;
 		}
 
 		public int Rent => rent;

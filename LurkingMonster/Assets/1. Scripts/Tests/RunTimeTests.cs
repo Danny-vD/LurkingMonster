@@ -1,12 +1,7 @@
-﻿using System.Diagnostics;
-using System.IO;
-using Events;
-using Singletons;
-using UnityEngine;
+﻿using Singletons;
 using UnityEngine.Assertions;
-using VDFramework.EventSystem;
 
-namespace _1._Scripts.Tests
+namespace Tests
 {
 	public static class RunTimeTests
 	{

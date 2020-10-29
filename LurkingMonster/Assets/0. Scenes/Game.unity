@@ -1322,8 +1322,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buildingType: 0
-  soilType: 1
-  foundationType: 0
 --- !u!64 &53876407
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1884,8 +1882,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buildingType: 0
-  soilType: 1
-  foundationType: 0
 --- !u!64 &74400991
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -2394,8 +2390,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buildingType: 0
-  soilType: 1
-  foundationType: 0
 --- !u!64 &103472642
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -4433,7 +4427,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 181479820}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.52, y: 0, z: -6.45}
+  m_LocalPosition: {x: 0.36, y: 0, z: 0.02}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 168901880}
@@ -5373,8 +5367,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buildingType: 0
-  soilType: 1
-  foundationType: 0
 --- !u!64 &213439464
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -7037,8 +7029,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buildingType: 0
-  soilType: 1
-  foundationType: 0
 --- !u!64 &278860790
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -11978,8 +11968,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buildingType: 0
-  soilType: 1
-  foundationType: 0
 --- !u!64 &531778071
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -26608,8 +26596,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buildingType: 0
-  soilType: 1
-  foundationType: 0
 --- !u!64 &1191674414
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -27577,8 +27563,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buildingType: 0
-  soilType: 1
-  foundationType: 0
 --- !u!64 &1234757639
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -33186,8 +33170,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buildingType: 0
-  soilType: 1
-  foundationType: 0
 --- !u!64 &1479534346
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -35360,8 +35342,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buildingType: 0
-  soilType: 1
-  foundationType: 0
 --- !u!64 &1574517799
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -39710,7 +39690,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1808934980}
   m_LocalRotation: {x: 0.000115747986, y: 0.7075135, z: -0.00011714611, w: 0.7066999}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 742052420}
@@ -41233,8 +41213,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buildingType: 0
-  soilType: 1
-  foundationType: 0
 --- !u!64 &1893453631
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -45047,8 +45025,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buildingType: 0
-  soilType: 1
-  foundationType: 0
 --- !u!64 &2094000358
 MeshCollider:
   m_ObjectHideFlags: 0

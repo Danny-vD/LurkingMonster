@@ -14,7 +14,7 @@ namespace Grid.Tiles.Building
 		public Gameplay.Buildings.Building Building { get; private set; }
 		public bool HasFoundation => foundationObject || Building;
 
-		protected BuildingData BuildingData; // The building data of the first tier building
+		protected BuildingData FirstTierData; // The building data of the first tier building
 
 		private BuildingSpawner spawner;
 		private GameObject foundationObject;
@@ -22,19 +22,19 @@ namespace Grid.Tiles.Building
 		protected virtual void Awake()
 		{
 			spawner      = GetComponentInChildren<BuildingSpawner>();
-			BuildingData = spawner.GetBuildingData(buildingType, default, default)[0];
+			FirstTierData = spawner.GetBuildingData(buildingType, default, default)[0];
 		}
 
 		public virtual void SpawnBuilding()
 		{
 			RemoveFoundation(false);
-			Building = spawner.Spawn(buildingType, BuildingData.Foundation, BuildingData.SoilType);
+			Building = spawner.Spawn(buildingType, FirstTierData.Foundation, FirstTierData.SoilType);
 		}
 
 		public virtual void SpawnFoundation()
 		{
 			RemoveFoundation(false);
-			foundationObject = spawner.SpawnFoundation(BuildingData.Foundation);
+			foundationObject = spawner.SpawnFoundation(FirstTierData.Foundation);
 		}
 
 		public virtual void RemoveFoundation(bool payForRemoval)
@@ -44,7 +44,7 @@ namespace Grid.Tiles.Building
 
 		public int GetBuildingPrice()
 		{
-			return BuildingData.Price;
+			return FirstTierData.Price;
 		}
 
 		public FoundationTypeData GetFoundationData(FoundationType foundation)
@@ -52,9 +52,10 @@ namespace Grid.Tiles.Building
 			return spawner.GetFoundationData(foundation);
 		}
 
-		public void SetBuildingType(BuildingType house)
+		public void SetBuildingType(BuildingType building)
 		{
-			buildingType = house;
+			buildingType  = building;
+			FirstTierData = spawner.GetBuildingData(buildingType, default, FirstTierData.SoilType)[0];
 		}
 
 		public BuildingType GetBuildingType()
@@ -64,22 +65,22 @@ namespace Grid.Tiles.Building
 
 		public void SetSoilType(SoilType soil)
 		{
-			BuildingData.SoilType = soil;
+			FirstTierData.SoilType = soil;
 		}
 
 		public SoilType GetSoilType()
 		{
-			return BuildingData.SoilType;
+			return FirstTierData.SoilType;
 		}
 
 		public void SetFoundation(FoundationType foundation)
 		{
-			BuildingData.Foundation = foundation;
+			FirstTierData.Foundation = foundation;
 		}
 
 		public FoundationType GetFoundationType()
 		{
-			return BuildingData.Foundation;
+			return FirstTierData.Foundation;
 		}
 	}
 }

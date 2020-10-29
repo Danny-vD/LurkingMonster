@@ -7,8 +7,6 @@ using VDFramework.EventSystem;
 
 namespace UI.Market
 {
-	using Enums;
-
 	public class MarketButtonFunctionaliy : MonoBehaviour
 	{
 		[SerializeField]
@@ -82,7 +80,7 @@ namespace UI.Market
 				}
 
 				SetBuyText($"Upgrade [{buildingTile.Building.UpgradeCost}]");
-				buyButton.onClick.AddListener(buildingTile.Building.GetComponent<BuildingUpgrade>().Upgrade);
+				buyButton.onClick.AddListener(() => buildingTile.Building.GetComponent<BuildingUpgrade>().Upgrade(true));
 				return;
 			}
 
