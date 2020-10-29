@@ -1,18 +1,16 @@
 ﻿using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Runtime.Serialization.Formatters.Binary;
-using _1._Scripts.Tests;
+using Grid;
+using Grid.Tiles;
 using Structs;
+using Tests;
 using UnityEngine;
 using Utility;
 using VDFramework.Singleton;
 
 namespace Singletons
 {
-	using Grid;
-	using Grid.Tiles;
-
 	public class UserSettings : Singleton<UserSettings>
 	{
 		private static GameData gameData;
@@ -63,8 +61,7 @@ namespace Singletons
 			{
 				return;
 			}
-			
-			SaveDictionary();
+
 			SaveFile();
 		}
 
@@ -76,10 +73,9 @@ namespace Singletons
 				{
 					return;
 				}
-				
+
 				OnGameQuit?.Invoke();
-				
-				SaveDictionary();
+
 				SaveFile();
 			}
 		}
@@ -89,7 +85,7 @@ namespace Singletons
 			gameData.Dictionary.Clear();
 
 			AbstractTile[,] grid = GridUtil.Grid;
-			
+
 			for (int y = 0; y < grid.GetLength(0); y++)
 			{
 				for (int x = 0; x < grid.GetLength(1); x++)
@@ -104,6 +100,15 @@ namespace Singletons
 		{
 			Vector2Int gridPosition = tile.GridPosition;
 			gameData.Dictionary.Add(tile.GridPosition, new TileData(tile));
+		}
+
+		private void SaveFile()
+		{
+			SaveDictionary();
+			FileStream file = File.Exists(destination) ? File.OpenWrite(destination) : File.Create(destination);
+			BinaryFormatter bf = new BinaryFormatter();
+			bf.Serialize(file, gameData);
+			file.Close();
 		}
 
 		public void ReloadData()
@@ -125,19 +130,11 @@ namespace Singletons
 			file.Close();
 		}
 
-		public void SaveFile()
-		{
-			FileStream file = File.Exists(destination) ? File.OpenWrite(destination) : File.Create(destination);
-			BinaryFormatter bf = new BinaryFormatter();
-			bf.Serialize(file, gameData);
-			file.Close();
-		}
-		
 		public void NewGame()
 		{
 			gameData = new GameData("", "", startMoney, true, 1f, 1f,
 				new Dictionary<Vector2IntSerializable, TileData>());
-			
+
 			RunTimeTests.TestStartMoney();
 		}
 	}
