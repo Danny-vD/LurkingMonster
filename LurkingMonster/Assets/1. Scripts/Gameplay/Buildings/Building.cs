@@ -59,6 +59,7 @@ namespace Gameplay.Buildings
 			}
 			
 			Destroy(gameObject);
+			EventManager.Instance.RaiseEvent(new BuildingDestroyedEvent());
 		}
 
 		private int CalculateUpgradeCost()

@@ -64,7 +64,6 @@ namespace Singletons
 				return;
 			}
 			
-			SaveDictionary();
 			SaveFile();
 		}
 
@@ -79,7 +78,6 @@ namespace Singletons
 				
 				OnGameQuit?.Invoke();
 				
-				SaveDictionary();
 				SaveFile();
 			}
 		}
@@ -127,6 +125,8 @@ namespace Singletons
 
 		public void SaveFile()
 		{
+			SaveDictionary();
+			
 			FileStream file = File.Exists(destination) ? File.OpenWrite(destination) : File.Create(destination);
 			BinaryFormatter bf = new BinaryFormatter();
 			bf.Serialize(file, gameData);

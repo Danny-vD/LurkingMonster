@@ -37,7 +37,7 @@ namespace Singletons
 				case BuildingType type3:
 					return buildingReward[type3];
 				default:
-					throw new Exception("Type not found in rewardmanager " + obj);
+					throw new Exception("Type not found in reward manager " + obj);
 			}
 		}
 		

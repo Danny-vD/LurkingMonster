@@ -9,6 +9,9 @@ namespace Gameplay.Buildings
 {
 	public class BuildingBreak : BetterMonoBehaviour // TODO: add a getCurrentHealth and GetMaxHealth for Foundation and Building
 	{
+		[SerializeField]
+		private GameObject brokenBuildingPrefab;
+		
 		public Bar bar;
 
 		public float SoilHealth;
@@ -71,6 +74,7 @@ namespace Gameplay.Buildings
 			if (TotalHealth <= 0)
 			{
 				building.RemoveBuilding(false); // TODO: Should spawn a 'destroyed building' asset instead
+				Instantiate(brokenBuildingPrefab, CachedTransform.position, CachedTransform.rotation);
 				EventManager.Instance.RaiseEvent(new BuildingConsumedEvent());
 				VibrationUtil.Vibrate();
 			}
@@ -83,7 +87,7 @@ namespace Gameplay.Buildings
 			FoundationHealth += GetMaximumFoundationHealth();
 			
 			//TODO for test purposes so we dont have to wait a long time
-			TotalHealth = (SoilHealth + FoundationHealth);
+			TotalHealth = (SoilHealth + FoundationHealth) / 100;
 		}
 
 		public float GetCurrentFoundationHealth()

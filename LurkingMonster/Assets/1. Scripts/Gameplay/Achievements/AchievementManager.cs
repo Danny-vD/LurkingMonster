@@ -27,6 +27,7 @@ namespace Gameplay.Achievements
 		private Achievement buildingSavedAchievement;
 		private Achievement buildingConsumedAchievement;
 		private Achievement amountOfPlotsAchievement;
+		private Achievement destroyHousesAchievement;
 
 		private List<Achievement> achievements;
 
@@ -34,17 +35,27 @@ namespace Gameplay.Achievements
 		{
 			achievements                = new List<Achievement>();
 			
-			buildingBuildAchievement    = new Achievement(new int[] {1, 3, 15}, "BUILDINGSBUILDACHIEVEMENT", new object[] {SoilType.Peet, FoundationType.Reinfored_Concrete, SoilType.Sand});
-			rentCollectedAchievement    = new Achievement(new int[] {1000, 10000, 100000, 200000}, "RENTCOLLECTEDACHIEVEMENT", new object[] {SoilType.Peet, 15, SoilType.Sand});
-			buildingSavedAchievement    = new Achievement(new int[] {10, 20, 30}, "BUILDINGSAVEDACHIEVEMENT", new object[] {SoilType.Peet, 15, SoilType.Sand});
-			buildingConsumedAchievement = new Achievement(new int[] {5, 10, 20}, "BUILDINGCONSUMEDACHIEVEMENT", new object[] {SoilType.Peet, 15, SoilType.Sand});
-			amountOfPlotsAchievement    = new Achievement(new int[] {5, 10, 20}, "AMOUNTOFPLOTSACHIEVEMENT", new object[] {SoilType.Peet, 15, SoilType.Sand});
-			
+			buildingBuildAchievement    = new Achievement(new int[] {5, 10, 20}, "BUILDINGSBUILDACHIEVEMENT",
+				new object[] {PowerUpType.WeatherEvent15Min, SoilType.Sandy_Clay, FoundationType.Concrete_On_Steel});
+			rentCollectedAchievement    = new Achievement(new int[] {1000, 10000, 100000}, "RENTCOLLECTEDACHIEVEMENT",
+				new object[] {FoundationType.Floating_Floor_Plate, SoilType.Clay, FoundationType.Reinfored_Concrete});
+			buildingSavedAchievement    = new Achievement(new int[] {10, 20, 30}, "BUILDINGSAVEDACHIEVEMENT",
+				new object[] {SoilType.Peet, PowerUpType.WeatherEvent10Min, SoilType.Sand});
+			buildingConsumedAchievement = new Achievement(new int[] {5, 10, 20}, "BUILDINGCONSUMEDACHIEVEMENT",
+				new object[] {RandomWeatherEventType.Earthquake, RandomWeatherEventType.Storm, RandomWeatherEventType.BuildingTunnels});
+			amountOfPlotsAchievement    = new Achievement(new int[] {5, 10, 20}, "AMOUNTOFPLOTSACHIEVEMENT",
+				new object[] {8, 10, BuildingType.ApartmentBuilding});
+			destroyHousesAchievement               = new Achievement(new int[] {2, 5, 10}, "DESTROYHOUSESACHIEVEMENT",
+				new object[] {PowerUpType.WeatherEvent5Min, FoundationType.Wooden_Poles, BuildingType.Store});
+
+
+
 			achievements.Add(buildingBuildAchievement);
 			achievements.Add(rentCollectedAchievement);
 			achievements.Add(buildingSavedAchievement);
 			achievements.Add(buildingConsumedAchievement);
 			achievements.Add(amountOfPlotsAchievement);
+			achievements.Add(destroyHousesAchievement);
 			
 			AddListeners();
 		}
@@ -56,6 +67,7 @@ namespace Gameplay.Achievements
 			EventManager.Instance.AddListener<BuildingSavedEvent>(OnBuildingsSavedListener);
 			EventManager.Instance.AddListener<BuildingConsumedEvent>(OnBuildingsConsumedListener);
 			EventManager.Instance.AddListener<AmountOfPlotsEvent>(OnAmountOfPlotsListener);
+			EventManager.Instance.AddListener<BuildingDestroyedEvent>(OnBuildingDestroyedListener);
 		}
 
 		public void ShowAchievementProgress()
@@ -94,6 +106,11 @@ namespace Gameplay.Achievements
 		private void OnAmountOfPlotsListener()
 		{
 			amountOfPlotsAchievement.CheckAchievement(1);
+		}
+
+		private void OnBuildingDestroyedListener()
+		{
+			destroyHousesAchievement.CheckAchievement(1);
 		}
 	}
 }

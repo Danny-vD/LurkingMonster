@@ -54,6 +54,7 @@ namespace Gameplay.Achievements
 		public void PrintAchievement(GameObject prefabAchievement)
 		{
 			string message = LanguageUtil.GetJsonString(keyMessage);
+			
 			for (int i = 0; i < limits.Length; i++)
 			{
 				if (!unlocked[i])
