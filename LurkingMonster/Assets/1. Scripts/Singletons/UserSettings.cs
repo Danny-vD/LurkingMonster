@@ -14,7 +14,7 @@ namespace Singletons
 	public class UserSettings : Singleton<UserSettings>
 	{
 		private static GameData gameData;
-		private string destination;
+		private static string destination;
 
 		[SerializeField]
 		private int startMoney = 10000;
@@ -47,7 +47,7 @@ namespace Singletons
 			base.Awake();
 			destination = Application.persistentDataPath + "/save.dat";
 
-			if (File.Exists(destination))
+			if (SettingsExist())
 			{
 				ReloadData();
 			}
@@ -80,42 +80,13 @@ namespace Singletons
 			}
 		}
 
-		private void SaveDictionary()
-		{
-			gameData.Dictionary.Clear();
-
-			AbstractTile[,] grid = GridUtil.Grid;
-
-			for (int y = 0; y < grid.GetLength(0); y++)
-			{
-				for (int x = 0; x < grid.GetLength(1); x++)
-				{
-					AbstractTile tile = grid[y, x];
-					SaveTile(tile);
-				}
-			}
-		}
-
-		private void SaveTile(AbstractTile tile)
-		{
-			Vector2Int gridPosition = tile.GridPosition;
-			gameData.Dictionary.Add(tile.GridPosition, new TileData(tile));
-		}
-
-		private void SaveFile()
-		{
-			SaveDictionary();
-			FileStream file = File.Exists(destination) ? File.OpenWrite(destination) : File.Create(destination);
-			BinaryFormatter bf = new BinaryFormatter();
-			bf.Serialize(file, gameData);
-			file.Close();
-		}
-
-		public void ReloadData()
+		public static bool SettingsExist() => File.Exists(destination);
+		
+		public static void ReloadData()
 		{
 			FileStream file;
 
-			if (File.Exists(destination))
+			if (SettingsExist())
 			{
 				file = File.OpenRead(destination);
 			}
@@ -127,6 +98,37 @@ namespace Singletons
 
 			BinaryFormatter bf = new BinaryFormatter();
 			gameData = (GameData) bf.Deserialize(file);
+			file.Close();
+		}
+		
+		private static void SaveDictionary()
+		{
+			gameData.GridData.Clear();
+
+			AbstractTile[,] grid = GridUtil.Grid;
+
+			for (int y = 0; y < grid.GetLength(0); y++)
+			{
+				for (int x = 0; x < grid.GetLength(1); x++)
+				{
+					SaveTile(grid[y, x]);
+				}
+			}
+		}
+
+		private static void SaveTile(AbstractTile tile)
+		{
+			gameData.GridData.Add(tile.GridPosition, new TileData(tile));
+			
+			print(tile.GridPosition + ": " + tile.TileType);
+		}
+
+		private void SaveFile()
+		{
+			SaveDictionary();
+			FileStream file = File.Exists(destination) ? File.OpenWrite(destination) : File.Create(destination);
+			BinaryFormatter bf = new BinaryFormatter();
+			bf.Serialize(file, gameData);
 			file.Close();
 		}
 

@@ -64,7 +64,7 @@ namespace Utility
 			set => ambientVolume = value;
 		}
 
-		public Dictionary<Vector2IntSerializable, TileData> Dictionary
+		public Dictionary<Vector2IntSerializable, TileData> GridData
 		{
 			get => dictionary;
 			set => dictionary = value;

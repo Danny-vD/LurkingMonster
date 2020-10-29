@@ -5,6 +5,7 @@ using Events;
 using ScriptableObjects;
 using Structs.Buildings;
 using UnityEngine;
+using UnityEngine.Serialization;
 using VDFramework;
 using VDFramework.EventSystem;
 using VDFramework.Extensions;
@@ -24,7 +25,7 @@ namespace Gameplay.Buildings
 		private List<PrefabPerBuildingType> buildings = new List<PrefabPerBuildingType>();
 
 		[SerializeField]
-		private List<BuildingDataPerBuildingType> buildingData = new List<BuildingDataPerBuildingType>();
+		private List<BuildingDataPerBuildingType> buildingTierData = new List<BuildingDataPerBuildingType>();
 
 		public Building Spawn(BuildingType buildingType, FoundationType foundationType, SoilType soilType)
 		{
@@ -44,7 +45,7 @@ namespace Gameplay.Buildings
 		public BuildingData[] GetBuildingData(BuildingType buildingType, FoundationType foundationType,
 			SoilType                                       soilType)
 		{
-			List<BuildingTypeData> buildingTypeData = buildingData.First(pair => pair.Key.Equals(buildingType)).Value;
+			List<BuildingTypeData> buildingTypeData = buildingTierData.First(pair => pair.Key.Equals(buildingType)).Value;
 			BuildingData[] data = new BuildingData[buildingTypeData.Count];
 
 			for (int i = 0; i < buildingTypeData.Count; i++)
@@ -85,7 +86,7 @@ namespace Gameplay.Buildings
 			EnumDictionaryUtil
 				.PopulateEnumDictionary<PrefabPerBuildingType, BuildingType, GameObject>(buildings);
 			EnumDictionaryUtil
-				.PopulateEnumDictionary<BuildingDataPerBuildingType, BuildingType, List<BuildingTypeData>>(buildingData);
+				.PopulateEnumDictionary<BuildingDataPerBuildingType, BuildingType, List<BuildingTypeData>>(buildingTierData);
 		}
 #endif
 	}

@@ -34,23 +34,18 @@ namespace Structs
 
 		public void GetType(AbstractTile tile)
 		{
-			// Using a switch to check and cast to approriate type directly
-			switch (tile)
+			// check and cast to approriate type directly
+			if (tile is AbstractBuildingTile buildingTile)
 			{
-				case AbstractBuildingTile buildingTile:
-					// You can get all your information through this one
-					if (buildingTile.Building == null)
-					{
-						return;
-					}
-					
-					buildingType   = buildingTile.GetBuildingType();
-					buildingTier   = buildingTile.Building.CurrentTier;
-					soilType       = buildingTile.GetSoilType();
-					foundationType = buildingTile.GetFoundationType();
-					break;
-				default:
-					break;
+				if (buildingTile.Building == null)
+				{
+					return;
+				}
+
+				buildingType   = buildingTile.GetBuildingType();
+				buildingTier   = buildingTile.Building.CurrentTier;
+				soilType       = buildingTile.GetSoilType();
+				foundationType = buildingTile.GetFoundationType();
 			}
 		}
 	}
