@@ -5,7 +5,6 @@ using Events;
 using ScriptableObjects;
 using Structs.Buildings;
 using UnityEngine;
-using UnityEngine.Serialization;
 using VDFramework;
 using VDFramework.EventSystem;
 using VDFramework.Extensions;
@@ -37,6 +36,7 @@ namespace Gameplay.Buildings
 			Building building = instance.GetComponent<Building>();
 			building.Instantiate(buildingType, GetBuildingData(buildingType, foundationType, soilType));
 
+			//TODO: make an option to not raise event
 			EventManager.Instance.RaiseEvent(new BuildingBuildEvent());
 
 			return building;

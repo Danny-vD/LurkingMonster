@@ -42,12 +42,25 @@ namespace Singletons
 			}
 		}
 
+		public static bool SettingsExist
+		{
+			get
+			{
+				if (string.IsNullOrEmpty(destination))
+				{
+					// Lazy definition
+					destination = Application.persistentDataPath + "/save.dat";
+				}
+				
+				return File.Exists(destination);
+			}
+		}
+		
 		protected override void Awake()
 		{
 			base.Awake();
-			destination = Application.persistentDataPath + "/save.dat";
 
-			if (SettingsExist())
+			if (SettingsExist)
 			{
 				ReloadData();
 			}
@@ -80,13 +93,11 @@ namespace Singletons
 			}
 		}
 
-		public static bool SettingsExist() => File.Exists(destination);
-		
 		public static void ReloadData()
 		{
 			FileStream file;
 
-			if (SettingsExist())
+			if (SettingsExist)
 			{
 				file = File.OpenRead(destination);
 			}
@@ -119,11 +130,9 @@ namespace Singletons
 		private static void SaveTile(AbstractTile tile)
 		{
 			gameData.GridData.Add(tile.GridPosition, new TileData(tile));
-			
-			print(tile.GridPosition + ": " + tile.TileType);
 		}
 
-		private void SaveFile()
+		private static void SaveFile()
 		{
 			SaveDictionary();
 			FileStream file = File.Exists(destination) ? File.OpenWrite(destination) : File.Create(destination);
