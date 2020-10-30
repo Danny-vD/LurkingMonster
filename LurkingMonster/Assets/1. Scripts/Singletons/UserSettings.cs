@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
+using Audio;
+using Enums.Audio;
 using Grid;
 using Grid.Tiles;
 using Structs;
@@ -47,7 +49,7 @@ namespace Singletons
 			base.Awake();
 			destination = Application.persistentDataPath + "/save.dat";
 
-			if (SettingsExist())
+			if (SettingsExist)
 			{
 				ReloadData();
 			}
@@ -67,26 +69,28 @@ namespace Singletons
 
 		private void OnApplicationPause(bool pauseStatus)
 		{
-			if (pauseStatus)
+			if (!pauseStatus)
 			{
-				if (gameData == null)
-				{
-					return;
-				}
-
-				OnGameQuit?.Invoke();
-
-				SaveFile();
+				return;
 			}
+
+			if (gameData == null)
+			{
+				return;
+			}
+
+			OnGameQuit?.Invoke();
+
+			SaveFile();
 		}
 
-		public static bool SettingsExist() => File.Exists(destination);
-		
-		public static void ReloadData()
+		public static bool SettingsExist => File.Exists(destination);
+
+		private static void ReloadData()
 		{
 			FileStream file;
 
-			if (SettingsExist())
+			if (SettingsExist)
 			{
 				file = File.OpenRead(destination);
 			}
@@ -99,6 +103,14 @@ namespace Singletons
 			BinaryFormatter bf = new BinaryFormatter();
 			gameData = (GameData) bf.Deserialize(file);
 			file.Close();
+
+			SetSound();
+		}
+
+		private static void SetSound()
+		{
+			AudioManager.Instance.SetVolume(BusType.Music, gameData.MusicVolume);
+			AudioManager.Instance.SetVolume(BusType.Ambient, gameData.AmbientVolume);
 		}
 		
 		private static void SaveDictionary()
@@ -123,7 +135,7 @@ namespace Singletons
 			print(tile.GridPosition + ": " + tile.TileType);
 		}
 
-		private void SaveFile()
+		private static void SaveFile()
 		{
 			SaveDictionary();
 			FileStream file = File.Exists(destination) ? File.OpenWrite(destination) : File.Create(destination);
@@ -132,7 +144,7 @@ namespace Singletons
 			file.Close();
 		}
 
-		public void NewGame()
+		private void NewGame()
 		{
 			gameData = new GameData("", "", startMoney, true, 1f, 1f,
 				new Dictionary<Vector2IntSerializable, TileData>());

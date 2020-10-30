@@ -25,14 +25,14 @@ namespace Grid
 		{
 			gridData = GetComponent<GridData>();
 
-			if (UserSettings.SettingsExist() && UserSettings.GameData.GridData.Count != 0)
+			if (UserSettings.SettingsExist && UserSettings.GameData.GridData.Count != 0)
 			{
 				LoadData();
 			}
 
 			grid = GetComponent<GridCreator>().GenerateGrid();
 
-			if (UserSettings.SettingsExist() && UserSettings.GameData.GridData.Count != 0)
+			if (UserSettings.SettingsExist && UserSettings.GameData.GridData.Count != 0)
 			{
 				SpawnBuildings();
 			}
