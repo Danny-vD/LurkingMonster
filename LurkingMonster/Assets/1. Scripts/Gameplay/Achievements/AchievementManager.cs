@@ -36,17 +36,17 @@ namespace Gameplay.Achievements
 			achievements                = new List<Achievement>();
 			
 			buildingBuildAchievement    = new Achievement(new int[] {5, 10, 20}, "BUILDINGSBUILDACHIEVEMENT",
-				new object[] {PowerUpType.WeatherEvent15Min, SoilType.Sandy_Clay, FoundationType.Concrete_On_Steel});
+				new object[] {PowerUpType.WeatherEvent15Min, SoilType.Sandy_Clay, FoundationType.Concrete_On_Steel}, "PLACEHOLDER");
 			rentCollectedAchievement    = new Achievement(new int[] {1000, 10000, 100000}, "RENTCOLLECTEDACHIEVEMENT",
-				new object[] {FoundationType.Floating_Floor_Plate, SoilType.Clay, FoundationType.Reinfored_Concrete});
+				new object[] {FoundationType.Floating_Floor_Plate, SoilType.Clay, FoundationType.Reinfored_Concrete}, "PLACEHOLDER");
 			buildingSavedAchievement    = new Achievement(new int[] {10, 20, 30}, "BUILDINGSAVEDACHIEVEMENT",
-				new object[] {SoilType.Peet, PowerUpType.WeatherEvent10Min, SoilType.Sand});
+				new object[] {SoilType.Peet, PowerUpType.WeatherEvent10Min, SoilType.Sand}, "PLACEHOLDER");
 			buildingConsumedAchievement = new Achievement(new int[] {5, 10, 20}, "BUILDINGCONSUMEDACHIEVEMENT",
-				new object[] {RandomWeatherEventType.Earthquake, RandomWeatherEventType.Storm, RandomWeatherEventType.BuildingTunnels});
+				new object[] {RandomWeatherEventType.Earthquake, RandomWeatherEventType.Storm, RandomWeatherEventType.BuildingTunnels}, "PLACEHOLDER");
 			amountOfPlotsAchievement    = new Achievement(new int[] {5, 10, 20}, "AMOUNTOFPLOTSACHIEVEMENT",
-				new object[] {8, 10, BuildingType.ApartmentBuilding});
-			destroyHousesAchievement               = new Achievement(new int[] {2, 5, 10}, "DESTROYHOUSESACHIEVEMENT",
-				new object[] {PowerUpType.WeatherEvent5Min, FoundationType.Wooden_Poles, BuildingType.Store});
+				new object[] {8, 10, BuildingType.ApartmentBuilding}, "PLACEHOLDER");
+			destroyHousesAchievement    = new Achievement(new int[] {2, 5, 10}, "DESTROYHOUSESACHIEVEMENT",
+				new object[] {PowerUpType.WeatherEvent5Min, FoundationType.Wooden_Poles, BuildingType.Store}, "PLACEHOLDER");
 
 
 
