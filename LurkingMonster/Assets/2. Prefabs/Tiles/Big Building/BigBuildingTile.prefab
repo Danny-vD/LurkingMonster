@@ -111,6 +111,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buildingType: 0
+  debrisMeshes: {fileID: 11400000, guid: 5b9391d2f14bb86419d4f7d4b9b518bd, type: 2}
 --- !u!1001 &6864207109392869438
 PrefabInstance:
   m_ObjectHideFlags: 0

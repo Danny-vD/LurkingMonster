@@ -270,7 +270,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae3c57b0bb9eba947bfe276f78465771, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textDeleteFile: {fileID: 0}
 --- !u!1 &1220154156152069820
 GameObject:
   m_ObjectHideFlags: 0

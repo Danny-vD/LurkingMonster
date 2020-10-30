@@ -2,7 +2,7 @@
 using Enums;
 using Enums.Grid;
 using Grid.Tiles;
-using Grid.Tiles.Building;
+using Grid.Tiles.Buildings;
 using Grid.Tiles.Road;
 
 namespace Structs

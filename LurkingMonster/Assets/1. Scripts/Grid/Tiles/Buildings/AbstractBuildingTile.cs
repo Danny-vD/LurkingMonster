@@ -1,8 +1,10 @@
 ﻿using Enums;
+using Events;
 using Gameplay.Buildings;
 using UnityEngine;
+using VDFramework.EventSystem;
 
-namespace Grid.Tiles.Building
+namespace Grid.Tiles.Buildings
 {
 	using ScriptableObjects;
 
@@ -11,18 +13,42 @@ namespace Grid.Tiles.Building
 		[SerializeField]
 		protected BuildingType buildingType = default;
 
-		public Gameplay.Buildings.Building Building { get; private set; }
-		public bool HasFoundation => foundationObject || Building;
+		[SerializeField]
+		private DebrisPrefabs debrisMeshes = null;
 
+		public Building Building { get; private set; }
+		
 		protected BuildingData FirstTierData; // The building data of the first tier building
+		protected BuildingData DestroyedBuildingData;
 
 		private BuildingSpawner spawner;
 		private GameObject foundationObject;
+		
+		private GameObject debrisObject;
 
+		public bool HasFoundation => foundationObject || Building;
+		public bool HasDebris => debrisObject;
+		public int DebrisRemovalCost => DestroyedBuildingData.CleanupCosts;
+		
 		protected virtual void Awake()
 		{
-			spawner      = GetComponentInChildren<BuildingSpawner>();
+			spawner       = GetComponentInChildren<BuildingSpawner>();
 			FirstTierData = spawner.GetBuildingData(buildingType, default, default)[0];
+		}
+
+		private void Start()
+		{
+			EventManager.Instance.AddListener<BuildingConsumedEvent>(SpawnBrokenHouseAsset);
+		}
+
+		private void OnDisable()
+		{
+			if (!EventManager.IsInitialized)
+			{
+				return;
+			}
+			
+			EventManager.Instance.RemoveListener<BuildingConsumedEvent>(SpawnBrokenHouseAsset);
 		}
 
 		public virtual void SpawnBuilding()
@@ -40,6 +66,11 @@ namespace Grid.Tiles.Building
 		public virtual void RemoveFoundation(bool payForRemoval)
 		{
 			Destroy(foundationObject);
+		}
+
+		public virtual void RemoveDebris(bool payForRemoval)
+		{
+			Destroy(debrisObject);
 		}
 
 		public int GetBuildingPrice()
@@ -81,6 +112,23 @@ namespace Grid.Tiles.Building
 		public FoundationType GetFoundationType()
 		{
 			return FirstTierData.Foundation;
+		}
+
+		private void SpawnBrokenHouseAsset(BuildingConsumedEvent buildingConsumedEvent)
+		{
+			Building building = buildingConsumedEvent.Building;
+
+			if (building != Building)
+			{
+				return;
+			}
+
+			// Still possible to grab data from the class since the object is only removed at the end of the frame
+			DestroyedBuildingData = building.Data;
+			
+			GameObject prefab = debrisMeshes.GetPrefab(building.BuildingType, building.CurrentTier);
+
+			debrisObject = Instantiate(prefab, spawner.CachedTransform.position, spawner.CachedTransform.rotation);
 		}
 	}
 }

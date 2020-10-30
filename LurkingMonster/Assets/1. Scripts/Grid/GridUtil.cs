@@ -2,7 +2,7 @@
 using System.Linq;
 using Gameplay.Buildings;
 using Grid.Tiles;
-using Grid.Tiles.Building;
+using Grid.Tiles.Buildings;
 using Singletons;
 using Structs;
 using Structs.Grid;

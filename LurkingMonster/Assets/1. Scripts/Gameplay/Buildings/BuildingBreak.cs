@@ -9,12 +9,6 @@ namespace Gameplay.Buildings
 {
 	public class BuildingBreak : BetterMonoBehaviour
 	{
-		//TODO: Make it a list so that we can have different debris per tier
-		//(optionally: make it a list of lists so we can have multiple debris per tier)
-		
-		[SerializeField]
-		private GameObject brokenBuildingPrefab = null;
-
 		public Bar bar;
 
 		public float SoilHealth;
@@ -77,8 +71,7 @@ namespace Gameplay.Buildings
 			if (TotalHealth <= 0)
 			{
 				building.RemoveBuilding(false); // TODO: Should spawn a 'destroyed building' asset instead
-				Instantiate(brokenBuildingPrefab, CachedTransform.position, CachedTransform.rotation);
-				EventManager.Instance.RaiseEvent(new BuildingConsumedEvent());
+				EventManager.Instance.RaiseEvent(new BuildingConsumedEvent(building));
 				VibrationUtil.Vibrate();
 			}
 		}

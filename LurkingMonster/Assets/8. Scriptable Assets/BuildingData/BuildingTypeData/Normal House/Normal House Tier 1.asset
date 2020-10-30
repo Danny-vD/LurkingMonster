@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Normal House Tier 1
   m_EditorClassIdentifier: 
   rentPercentage: 30
-  upgradePercentage: 30
   weight: 100
   price: 10
+  destructionCost: 0
+  cleanupCosts: 500

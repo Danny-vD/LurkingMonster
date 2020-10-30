@@ -15,10 +15,16 @@ namespace ScriptableObjects
 
 		[SerializeField]
 		private int price = 10;
+		
+		[SerializeField]
+		private int destructionCost;
+
+		[SerializeField, Tooltip("The cost of removing the debris")]
+		private int cleanupCosts;
 
 		public BuildingData GetStruct()
 		{
-			return new BuildingData(GetPricePercentage(rentPercentage), weight, price, default, default);
+			return new BuildingData(GetPricePercentage(rentPercentage), weight, price, destructionCost, cleanupCosts, default, default);
 		}
 
 		private int GetPricePercentage(int percentage)

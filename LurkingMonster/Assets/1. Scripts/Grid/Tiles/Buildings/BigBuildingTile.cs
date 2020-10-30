@@ -1,6 +1,6 @@
 ﻿using Enums.Grid;
 
-namespace Grid.Tiles.Building
+namespace Grid.Tiles.Buildings
 {
 	public class BigBuildingTile : AbstractBuildingTile
 	{

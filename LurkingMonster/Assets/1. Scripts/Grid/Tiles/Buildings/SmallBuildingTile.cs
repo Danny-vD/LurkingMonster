@@ -2,7 +2,7 @@
 using Events;
 using VDFramework.EventSystem;
 
-namespace Grid.Tiles.Building
+namespace Grid.Tiles.Buildings
 {
 	using Singletons;
 
@@ -49,6 +49,23 @@ namespace Grid.Tiles.Building
 			}
 
 			base.RemoveFoundation(false);
+		}
+
+		public override void RemoveDebris(bool payForRemoval)
+		{
+			if (payForRemoval)
+			{
+				int cost = DestroyedBuildingData.CleanupCosts;
+
+				if (!MoneyManager.Instance.PlayerHasEnoughMoney(cost))
+				{
+					return;
+				}
+				
+				EventManager.Instance.RaiseEvent(new DecreaseMoneyEvent(cost));
+			}
+			
+			base.RemoveDebris(payForRemoval);
 		}
 	}
 }
