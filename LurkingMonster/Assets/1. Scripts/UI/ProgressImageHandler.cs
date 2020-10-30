@@ -23,7 +23,7 @@ namespace UI
 		private Color lockedColor = Color.red;
 
 		[SerializeField]
-		private Button collectReward;
+		private Button collectReward = null;
 
 		private Achievement achievement;
 		

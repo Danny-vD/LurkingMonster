@@ -11,13 +11,13 @@ namespace UI
 	public class RewardsPopup : BetterMonoBehaviour
 	{
 		[SerializeField]
-		private Text achievementInfo;
+		private Text achievementInfo = null;
 		
 		[SerializeField]
-		private Text rewardInfo;
+		private Text rewardInfo = null;
 
 		[SerializeField]
-		private Button collectReward;
+		private Button collectReward = null;
 		
 		private void Start()
 		{

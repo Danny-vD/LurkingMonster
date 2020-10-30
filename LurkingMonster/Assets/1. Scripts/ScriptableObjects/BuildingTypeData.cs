@@ -17,10 +17,10 @@ namespace ScriptableObjects
 		private int price = 10;
 		
 		[SerializeField]
-		private int destructionCost;
+		private int destructionCost = 50;
 
 		[SerializeField, Tooltip("The cost of removing the debris")]
-		private int cleanupCosts;
+		private int cleanupCosts = 500;
 
 		public BuildingData GetStruct()
 		{
