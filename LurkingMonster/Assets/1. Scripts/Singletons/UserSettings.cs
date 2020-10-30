@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
+using Audio;
+using Enums.Audio;
 using Grid;
 using Grid.Tiles;
 using Structs;
@@ -110,6 +112,14 @@ namespace Singletons
 			BinaryFormatter bf = new BinaryFormatter();
 			gameData = (GameData) bf.Deserialize(file);
 			file.Close();
+			
+			SetVolumeOnLoad();
+		}
+
+		private static void SetVolumeOnLoad()
+		{
+			AudioManager.Instance.SetVolume(BusType.Music, gameData.MusicVolume);
+			AudioManager.Instance.SetVolume(BusType.Ambient, gameData.AmbientVolume);
 		}
 		
 		private static void SaveDictionary()
