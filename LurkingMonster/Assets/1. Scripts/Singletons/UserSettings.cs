@@ -1,8 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
-using Audio;
-using Enums.Audio;
 using Grid;
 using Grid.Tiles;
 using Structs;
@@ -44,10 +42,23 @@ namespace Singletons
 			}
 		}
 
+		public static bool SettingsExist
+		{
+			get
+			{
+				if (string.IsNullOrEmpty(destination))
+				{
+					// Lazy definition
+					destination = Application.persistentDataPath + "/save.dat";
+				}
+				
+				return File.Exists(destination);
+			}
+		}
+		
 		protected override void Awake()
 		{
 			base.Awake();
-			destination = Application.persistentDataPath + "/save.dat";
 
 			if (SettingsExist)
 			{
@@ -69,24 +80,20 @@ namespace Singletons
 
 		private void OnApplicationPause(bool pauseStatus)
 		{
-			if (!pauseStatus)
+			if (pauseStatus)
 			{
-				return;
+				if (gameData == null)
+				{
+					return;
+				}
+
+				OnGameQuit?.Invoke();
+
+				SaveFile();
 			}
-
-			if (gameData == null)
-			{
-				return;
-			}
-
-			OnGameQuit?.Invoke();
-
-			SaveFile();
 		}
 
-		public static bool SettingsExist => File.Exists(destination);
-
-		private static void ReloadData()
+		public static void ReloadData()
 		{
 			FileStream file;
 
@@ -103,14 +110,6 @@ namespace Singletons
 			BinaryFormatter bf = new BinaryFormatter();
 			gameData = (GameData) bf.Deserialize(file);
 			file.Close();
-
-			SetSound();
-		}
-
-		private static void SetSound()
-		{
-			AudioManager.Instance.SetVolume(BusType.Music, gameData.MusicVolume);
-			AudioManager.Instance.SetVolume(BusType.Ambient, gameData.AmbientVolume);
 		}
 		
 		private static void SaveDictionary()
@@ -131,8 +130,6 @@ namespace Singletons
 		private static void SaveTile(AbstractTile tile)
 		{
 			gameData.GridData.Add(tile.GridPosition, new TileData(tile));
-			
-			print(tile.GridPosition + ": " + tile.TileType);
 		}
 
 		private static void SaveFile()
@@ -144,7 +141,7 @@ namespace Singletons
 			file.Close();
 		}
 
-		private void NewGame()
+		public void NewGame()
 		{
 			gameData = new GameData("", "", startMoney, true, 1f, 1f,
 				new Dictionary<Vector2IntSerializable, TileData>());
