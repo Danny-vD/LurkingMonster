@@ -7,7 +7,8 @@ namespace Utility
 {
 	public static class LanguageUtil
 	{
-		private static Dictionary<object, string> rewardInfo = new Dictionary<object, string>()
+		//TODO: Make dominique add entries for every reward possible.
+		private static readonly Dictionary<object, string> rewardInfo = new Dictionary<object, string>()
 		{
 			{
 				FoundationType.Wooden_Poles, "WOODEN_POLES"
@@ -32,7 +33,7 @@ namespace Utility
 				return rewardInfo[@object];
 			}
 			
-			throw new Exception("Reward info does not exist " + @object);
+			throw new Exception("Reward info does not exist for " + @object);
 		}
 	}
 }
