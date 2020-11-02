@@ -12,7 +12,7 @@ namespace UI.Buttons
 			DisableContinueButton();
 		}
 
-		private void DisableContinueButton()
+		public void DisableContinueButton()
 		{
 			Button buttonContinue = GetComponent<Button>();
 			string destination = Application.persistentDataPath + "/save.dat";

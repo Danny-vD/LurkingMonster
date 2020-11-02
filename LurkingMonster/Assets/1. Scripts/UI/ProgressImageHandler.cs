@@ -1,7 +1,10 @@
-﻿using Gameplay.Achievements;
+﻿using System;
+using Events;
+using Gameplay.Achievements;
 using UnityEngine;
 using UnityEngine.UI;
 using VDFramework;
+using VDFramework.EventSystem;
 
 namespace UI
 {
@@ -19,14 +22,33 @@ namespace UI
 		[SerializeField]
 		private Color lockedColor = Color.red;
 
+		[SerializeField]
+		private Button collectReward = null;
+
+		private Achievement achievement;
+		
 		public void Instantiate(Achievement achievement)
 		{
+			this.achievement = achievement;
+			
 			for (int i = 0; i < achievement.Unlocked.Length; i++)
 			{
 				GameObject gameObject = Instantiate(prefabImage, parent);
 
 				gameObject.GetComponent<Image>().color = achievement.Unlocked[i] ? unlockedColor : lockedColor;
 			}
+			
+			collectReward.onClick.AddListener(ShowPopup);
+		}
+
+		private void OnDestroy()
+		{
+			collectReward.onClick.RemoveListener(ShowPopup);
+		}
+
+		private void ShowPopup()
+		{
+			EventManager.Instance.RaiseEvent(new AchievementTappedEvent(achievement));
 		}
 	}
 }

@@ -1,14 +1,12 @@
 ﻿using Events;
 using Gameplay.Buildings;
-using Grid.Tiles.Building;
+using Grid.Tiles.Buildings;
 using UnityEngine;
 using UnityEngine.UI;
 using VDFramework.EventSystem;
 
 namespace UI.Market
 {
-	using Enums;
-
 	public class MarketButtonFunctionaliy : MonoBehaviour
 	{
 		[SerializeField]
@@ -67,12 +65,18 @@ namespace UI.Market
 		{
 			buyButton.onClick.RemoveAllListeners();
 
+			if (buildingTile.HasDebris)
+			{
+				SetBuyText("PLOT OBSTRUCTED!");
+				return;
+			}
+			
 			if (!buildingTile.HasFoundation)
 			{
 				SetBuyText("NO FOUNDATION!");
 				return;
 			}
-			
+
 			if (buildingTile.Building)
 			{
 				if (buildingTile.Building.IsMaxTier)
@@ -82,7 +86,7 @@ namespace UI.Market
 				}
 
 				SetBuyText($"Upgrade [{buildingTile.Building.UpgradeCost}]");
-				buyButton.onClick.AddListener(buildingTile.Building.GetComponent<BuildingUpgrade>().Upgrade);
+				buyButton.onClick.AddListener(() => buildingTile.Building.GetComponent<BuildingUpgrade>().Upgrade(true));
 				return;
 			}
 
@@ -94,6 +98,12 @@ namespace UI.Market
 		{
 			buyFoundationButton.onClick.RemoveAllListeners();
 
+			if (buildingTile.HasDebris)
+			{
+				SetBuyFoundationText("PLOT OBSTRUCTED!");
+				return;
+			}
+			
 			if (buildingTile.HasFoundation)
 			{
 				SetBuyFoundationText("FOUNDATION ALREADY BUILD");
@@ -108,6 +118,13 @@ namespace UI.Market
 		{
 			destroyButton.onClick.RemoveAllListeners();
 
+			if (buildingTile.HasDebris)
+			{
+				SetDestroyText($"Remove debris [{buildingTile.DebrisRemovalCost}]");
+				destroyButton.onClick.AddListener(() => buildingTile.RemoveDebris(true));
+				return;
+			}
+			
 			if (buildingTile.Building)
 			{
 				SetDestroyText($"Remove [{buildingTile.Building.GlobalData.DestructionCost}]");

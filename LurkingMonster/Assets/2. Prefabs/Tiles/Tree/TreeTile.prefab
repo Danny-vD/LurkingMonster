@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8960745232867538999}
   - component: {fileID: 8960745232867538984}
   - component: {fileID: 8960745232867538985}
-  - component: {fileID: 8960745232867538997}
+  - component: {fileID: 6163009007971856902}
   m_Layer: 0
   m_Name: TreeTile
   m_TagString: Untagged
@@ -99,7 +99,7 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &8960745232867538997
+--- !u!114 &6163009007971856902
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -108,7 +108,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8960745232867538986}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6813e683d5bd4ce2ac873e68397e90c2, type: 3}
+  m_Script: {fileID: 11500000, guid: b882da5885170ac4da339384eae67eed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &4014476139774039859

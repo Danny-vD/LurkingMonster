@@ -5,8 +5,6 @@ using VDFramework.Singleton;
 
 namespace Singletons
 {
-	using System;
-
 	public class MoneyManager : Singleton<MoneyManager>
 	{
 		public int CurrentMoney { get; private set; }
@@ -26,6 +24,8 @@ namespace Singletons
 		private void OnDisable()
 		{
 			UserSettings.GameData.Money = CurrentMoney;
+
+			UserSettings.OnGameQuit -= SaveCurrentMoney;
 			RemoveListeners();
 		}
 
@@ -47,7 +47,7 @@ namespace Singletons
 			EventManager.Instance.RemoveListener<DecreaseMoneyEvent>(OnDecreaseMoney);
 			EventManager.Instance.RemoveListener<CollectRentEvent>(OnCollectRent);
 		}
-		
+
 		private void RegisterToOnGameQuit()
 		{
 			UserSettings.OnGameQuit += SaveCurrentMoney;
