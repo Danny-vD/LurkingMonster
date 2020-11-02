@@ -249,7 +249,7 @@ MonoBehaviour:
   Path: event:/Ambient/CityAmbience
   guid: e0eb272261ea634ab6519833c74bb066
   Banks:
-  - {fileID: 730437305355915321}
+  - {fileID: 9188316187603568508}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -469,7 +469,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: ../Fmod Studio/Lurking_Monster/Build/Desktop/Master.strings.bank
   SubDir: 
-  lastModified: 637369776352648045
+  lastModified: 637394862185869464
   LoadResult: 0
   FileSizes:
   - Name: Desktop
@@ -564,7 +564,7 @@ MonoBehaviour:
   Path: event:/Music/MenuMusic
   guid: d7f15e4691efe545a601bfcdb9cc37c6
   Banks:
-  - {fileID: 7049615983183455744}
+  - {fileID: 4754998198240851049}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
@@ -680,6 +680,24 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 0
+--- !u!114 &-562189674495852379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: ../Fmod Studio/Lurking_Monster/Build/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637394862185859475
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
 --- !u!114 &-473561088977440613
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -730,19 +748,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EditorBanks:
   - {fileID: -3139091019790660335}
-  - {fileID: 730437305355915321}
-  - {fileID: 5224084917986685655}
-  - {fileID: 7049615983183455744}
-  - {fileID: -9090182524665103985}
+  - {fileID: 9188316187603568508}
+  - {fileID: -562189674495852379}
+  - {fileID: 4754998198240851049}
+  - {fileID: 8434327095026795070}
   EditorEvents:
   - {fileID: -2283236934583877782}
   - {fileID: -5664809048192072162}
   EditorParameters: []
   MasterBanks:
-  - {fileID: 5224084917986685655}
+  - {fileID: -562189674495852379}
   StringsBanks:
   - {fileID: -3139091019790660335}
-  stringsBankWriteTime: 637369776352648045
+  stringsBankWriteTime: 637394862185869464
   cacheVersion: 3
 --- !u!114 &171115059095255313
 MonoBehaviour:
@@ -1410,6 +1428,24 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 1
+--- !u!114 &4754998198240851049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Music.bank
+  m_EditorClassIdentifier: 
+  Path: ../Fmod Studio/Lurking_Monster/Build/Desktop/Music.bank
+  SubDir: 
+  lastModified: 637394862185948994
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
 --- !u!114 &5043343692607156373
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1608,6 +1644,24 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 0
+--- !u!114 &8434327095026795070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/SFX.bank
+  m_EditorClassIdentifier: 
+  Path: ../Fmod Studio/Lurking_Monster/Build/Desktop/SFX.bank
+  SubDir: 
+  lastModified: 637394862185959489
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
 --- !u!114 &8554211493943188380
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1662,6 +1716,24 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 0
+--- !u!114 &9188316187603568508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Ambient.bank
+  m_EditorClassIdentifier: 
+  Path: ../Fmod Studio/Lurking_Monster/Build/Desktop/Ambient.bank
+  SubDir: 
+  lastModified: 637394862185859475
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
 --- !u!114 &9205661182687299782
 MonoBehaviour:
   m_ObjectHideFlags: 0

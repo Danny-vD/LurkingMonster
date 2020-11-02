@@ -1,24 +1,22 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using Events;
 using NUnit.Framework;
 using Singletons;
 using Structs;
 using UnityEngine;
-using UnityEngine.TestTools;
 using Utility;
 using VDFramework.EventSystem;
 
-namespace Tests
+namespace Tests.Playmode
 {
     public class TestNewGame
     {
-		private const int StartMoney = 10000;
+		private const int startMoney = 10000;
 		
 		private readonly string destination = Application.persistentDataPath + "/save.dat";
 		
-		private GameData gameData = new GameData("", "", StartMoney, true, 1f, 1f,
+		private GameData gameData = new GameData("", "", startMoney, true, 1f, 1f,
 			new Dictionary<Vector2IntSerializable, TileData>());
 		
 		[Test]
@@ -57,7 +55,7 @@ namespace Tests
 		{
 			if (!File.Exists(destination))
 			{
-				Assert.AreEqual(StartMoney, UserSettings.GameData.Money);
+				Assert.AreEqual(startMoney, UserSettings.GameData.Money);
 			}
 			else
 			{
