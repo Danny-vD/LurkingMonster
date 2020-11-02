@@ -32,8 +32,10 @@ namespace Utility
 			{
 				return rewardInfo[@object];
 			}
-			
-			throw new Exception("Reward info does not exist for " + @object);
+
+			return "No reward info available";
+
+			//throw new Exception("Reward info does not exist for " + @object);
 		}
 	}
 }

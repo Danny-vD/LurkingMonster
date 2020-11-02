@@ -1,4 +1,6 @@
-﻿using Events;
+﻿using System;
+using Enums;
+using Events;
 using Singletons;
 using UnityEngine;
 using Utility;
@@ -16,7 +18,7 @@ namespace Gameplay.Buildings
 		public float TotalHealth;
 		public float StartingHealth;
 		public float SpeedPercentage;
-
+		
 		//Weather event variables
 		private float weatherEventTimeLength;
 		private float timerWeatherEvent;
@@ -58,6 +60,11 @@ namespace Gameplay.Buildings
 				}
 			}
 
+			if (PowerUpManager.Instance.AvoidWeatherActive)
+			{
+				SpeedPercentage = 1;
+			}
+			
 			TotalHealth -= Time.deltaTime * (SpeedPercentage / 100 + 1);
 
 			bar.SetValue((int) TotalHealth);
@@ -68,12 +75,22 @@ namespace Gameplay.Buildings
 				crackPopup.SetActive(true);
 			}
 
-			if (TotalHealth <= 0)
+			if (TotalHealth <= 0 && !PowerUpManager.Instance.AvoidMonsterFeedActive)
 			{
-				building.RemoveBuilding(false); // TODO: Should spawn a 'destroyed building' asset instead
+				building.RemoveBuilding(false);
 				EventManager.Instance.RaiseEvent(new BuildingConsumedEvent(building));
 				VibrationUtil.Vibrate();
 			}
+		}
+
+		private void OnDestroy()
+		{
+			if (!EventManager.IsInitialized)
+			{
+				return;
+			}
+			
+			EventManager.Instance.RemoveListener<RandomWeatherEvent>(OnWeatherEvent);
 		}
 
 		public void CalculateBuildingBreakTime()
@@ -83,9 +100,9 @@ namespace Gameplay.Buildings
 			FoundationHealth += GetMaximumFoundationHealth();
 
 			//TODO for test purposes so we dont have to wait a long time
-			TotalHealth = (SoilHealth + FoundationHealth) / 100;
+			TotalHealth = (SoilHealth + FoundationHealth) / 25;
 		}
-
+		
 		public float GetCurrentFoundationHealth()
 		{
 			return FoundationHealth;
@@ -119,7 +136,7 @@ namespace Gameplay.Buildings
 			//TODO Have to adjust amount
 			if (MoneyManager.Instance.PlayerHasEnoughMoney(15))
 			{
-				EventManager.Instance.RaiseEvent(new DecreaseMoneyEvent(15));
+				//EventManager.Instance.RaiseEvent(new DecreaseMoneyEvent(15));
 
 				crackPopup.SetActive(false);
 				TotalHealth = bar.maxValue;

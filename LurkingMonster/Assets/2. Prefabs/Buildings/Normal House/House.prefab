@@ -169,6 +169,7 @@ GameObject:
   - component: {fileID: 265130014}
   - component: {fileID: 265130013}
   - component: {fileID: 265130016}
+  - component: {fileID: 5051624712688164840}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -270,6 +271,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae3c57b0bb9eba947bfe276f78465771, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5051624712688164840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 265130011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d74f99fa1474872812199e437a2e67b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  btnRepair: {fileID: 51152796584614185}
 --- !u!1 &1220154156152069820
 GameObject:
   m_ObjectHideFlags: 0
@@ -633,7 +647,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 092639f48eb45f34a9c437d6727611f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  brokenBuildingPrefab: {fileID: 7358105945269485936, guid: 1167ecb20d7dea8458c88c9e7df02a78, type: 3}
   bar: {fileID: 2375193678091250356}
   SoilHealth: 0
   FoundationHealth: 0

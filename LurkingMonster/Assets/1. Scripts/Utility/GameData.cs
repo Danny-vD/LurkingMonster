@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Enums;
 using Structs;
 using UnityEngine;
 
@@ -14,10 +15,20 @@ namespace Utility
 		private bool vibrate;
 		private float musicVolume;
 		private float ambientVolume;
+		private Language language;
 
-		private Dictionary<Vector2IntSerializable, TileData> dictionary; 
+		private Dictionary<Vector2IntSerializable, TileData> dictionary;
 
-		public GameData(string cityName, string userName, int money, bool vibrate, float musicVolume, float ambientVolume, Dictionary<Vector2IntSerializable, TileData> dictionary)
+		public GameData(
+			string                                       cityName,
+			string                                       userName,
+			int                                          money,
+			bool                                         vibrate,
+			float                                        musicVolume,
+			float                                        ambientVolume,
+			Dictionary<Vector2IntSerializable, TileData> dictionary,
+			Language                                     language
+		)
 		{
 			this.cityName      = cityName;
 			this.userName      = userName;
@@ -26,6 +37,7 @@ namespace Utility
 			this.musicVolume   = musicVolume;
 			this.ambientVolume = ambientVolume;
 			this.dictionary    = dictionary;
+			this.language      = language;
 		}
 
 		public string CityName
@@ -68,6 +80,12 @@ namespace Utility
 		{
 			get => dictionary;
 			set => dictionary = value;
+		}
+
+		public Language Language
+		{
+			get => language;
+			set => language = value;
 		}
 	}
 }
