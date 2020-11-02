@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Data;
 using Enums;
 using IO;
 using Singletons;
@@ -14,14 +16,23 @@ namespace Gameplay.Achievements
 		private readonly bool[] unlocked;
 		private readonly string keyMessage;
 		private int counter;
-		
-		public Achievement(int[] limits, string keyMessage)
-		{
-			this.limits      = limits;
-			this.keyMessage     = keyMessage;
-			counter          = 0;
 
-			unlocked = new bool[limits.Length];
+		private readonly string achievementInfo;
+
+		private readonly object[] objects;
+
+		public bool[] rewardsCollected { get; private set;}
+		
+		public Achievement(int[] limits, string keyMessage, object[] objects, string achievementInfo)
+		{
+			this.limits          = limits;
+			this.keyMessage      = keyMessage;
+			counter              = 0;
+			this.objects         = objects;
+			this.achievementInfo = achievementInfo;
+			
+			unlocked             = new bool[limits.Length];
+			rewardsCollected     = new bool[objects.Length];
 		}
 
 		public void CheckAchievement(int value)
@@ -46,9 +57,42 @@ namespace Gameplay.Achievements
 			}
 		}
 
+		public void CollectReward()
+		{
+			int i = GetIndexFirstNotCollectedReward();
+			rewardsCollected[i] = true;
+			RewardManager.Instance.Unlock(objects[i]);
+		}
+		
+		public string GetAchievementInfo()
+		{
+			return LanguageUtil.GetJsonString(achievementInfo);
+		}
+
+		public string RewardInfo()
+		{
+			return LanguageUtil.GetJsonString(LanguageUtil.GetRewardInfo(objects[GetIndexFirstNotCollectedReward()]));
+		}
+
+		private int GetIndexFirstNotCollectedReward()
+		{
+			for (int i = 0; i < rewardsCollected.Length; i++)
+			{
+				if (!rewardsCollected[i])
+				{
+					return i;
+				}
+			}
+			
+			throw new Exception("All rewards already collected");
+		}
+		
+		
+
 		public void PrintAchievement(GameObject prefabAchievement)
 		{
 			string message = LanguageUtil.GetJsonString(keyMessage);
+			
 			for (int i = 0; i < limits.Length; i++)
 			{
 				if (!unlocked[i])

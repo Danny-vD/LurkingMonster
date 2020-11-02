@@ -1,0 +1,27 @@
+﻿using System.Collections.Generic;
+using System.Linq;
+using Enums;
+using Structs.Buildings;
+using UnityEngine;
+using VDFramework.Utility;
+
+namespace ScriptableObjects
+{
+	[CreateAssetMenu(menuName = "Building Data/Debris Data")]
+	public class DebrisPrefabs : ScriptableObject
+	{
+		[SerializeField]
+		private List<DebrisPerBuilding> debrisPerBuilding = new List<DebrisPerBuilding>();
+
+		public GameObject GetPrefab(BuildingType buildingType, int buildingTier)
+		{
+			// Buildingtier is one-indexed to we subtract 1
+			return debrisPerBuilding.First(pair => pair.Key.Equals(buildingType)).Value[buildingTier - 1];
+		}
+
+		public void PopulateDictionary()
+		{
+			EnumDictionaryUtil.PopulateEnumDictionary<DebrisPerBuilding, BuildingType, List<GameObject>>(debrisPerBuilding);
+		}
+	}
+}

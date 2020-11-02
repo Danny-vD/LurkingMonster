@@ -221,6 +221,40 @@
 		}
 	  ]
 	},
+  {
+    "Key": "DESTROYHOUSESACHIEVEMENT",
+    "Value": [
+      {
+        "Key": "NL",
+        "Value": "Huizen Afgebroken :"
+      },
+      {
+        "Key": "EN",
+        "Value": "Houses Destroyed :"
+      },
+      {
+        "Key": "DE",
+        "Value": "Ok!"
+      }
+    ]
+  },
+  {
+    "Key": "REPAIRHOUSESACHIEVEMENT",
+    "Value": [
+      {
+        "Key": "NL",
+        "Value": "Huizen Afgebroken :"
+      },
+      {
+        "Key": "EN",
+        "Value": "Houses Destroyed :"
+      },
+      {
+        "Key": "DE",
+        "Value": "Ok!"
+      }
+    ]
+  },
 	{
 	  "Key": "ACHIEVEMENT_UNLOCKED",
 	  "Value": [

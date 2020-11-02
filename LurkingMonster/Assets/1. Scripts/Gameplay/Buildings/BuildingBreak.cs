@@ -7,7 +7,7 @@ using VDFramework.EventSystem;
 
 namespace Gameplay.Buildings
 {
-	public class BuildingBreak : BetterMonoBehaviour // TODO: add a getCurrentHealth and GetMaxHealth for Foundation and Building
+	public class BuildingBreak : BetterMonoBehaviour
 	{
 		public Bar bar;
 
@@ -23,7 +23,7 @@ namespace Gameplay.Buildings
 		private bool weatherEvent;
 
 		private Building building;
-		
+
 		private GameObject crackPopup;
 
 		public void Awake()
@@ -32,12 +32,12 @@ namespace Gameplay.Buildings
 			crackPopup.SetActive(false);
 			weatherEvent = false;
 		}
-		
+
 		// Start is called before the first frame update
 		private void Start()
 		{
 			building = GetComponent<Building>();
-			
+
 			CalculateBuildingBreakTime();
 			bar.SetMax((int) TotalHealth);
 			EventManager.Instance.AddListener<RandomWeatherEvent>(OnWeatherEvent);
@@ -49,7 +49,7 @@ namespace Gameplay.Buildings
 			if (weatherEvent)
 			{
 				timerWeatherEvent += Time.deltaTime;
-				
+
 				if (weatherEventTimeLength <= timerWeatherEvent)
 				{
 					SpeedPercentage   = 0;
@@ -57,21 +57,21 @@ namespace Gameplay.Buildings
 					timerWeatherEvent = 0;
 				}
 			}
-			
-			TotalHealth -= Time.deltaTime * (SpeedPercentage / 100 + 1); 
-			
+
+			TotalHealth -= Time.deltaTime * (SpeedPercentage / 100 + 1);
+
 			bar.SetValue((int) TotalHealth);
-			
+
 			//When health is less then 25% show cracks
 			if (TotalHealth <= bar.maxValue / 100 * 25 && !crackPopup.activeInHierarchy)
 			{
 				crackPopup.SetActive(true);
 			}
-			
+
 			if (TotalHealth <= 0)
 			{
 				building.RemoveBuilding(false); // TODO: Should spawn a 'destroyed building' asset instead
-				EventManager.Instance.RaiseEvent(new BuildingConsumedEvent());
+				EventManager.Instance.RaiseEvent(new BuildingConsumedEvent(building));
 				VibrationUtil.Vibrate();
 			}
 		}
@@ -79,11 +79,11 @@ namespace Gameplay.Buildings
 		public void CalculateBuildingBreakTime()
 		{
 			TotalHealth      =  0.0f;
-			SoilHealth       += Switches.SoilTypeSwitch(building.Data.SoilType);
+			SoilHealth       += GetMaximumSoilHealth();
 			FoundationHealth += GetMaximumFoundationHealth();
-			
+
 			//TODO for test purposes so we dont have to wait a long time
-			TotalHealth = (SoilHealth + FoundationHealth);
+			TotalHealth = (SoilHealth + FoundationHealth) / 100;
 		}
 
 		public float GetCurrentFoundationHealth()
@@ -96,6 +96,16 @@ namespace Gameplay.Buildings
 			return Switches.FoundationTypeSwitch(building.Data.Foundation);
 		}
 
+		public float GetCurrentSoilHealth()
+		{
+			return SoilHealth;
+		}
+
+		public float GetMaximumSoilHealth()
+		{
+			return Switches.SoilTypeSwitch(building.Data.SoilType);
+		}
+
 		public void OnWeatherEvent(RandomWeatherEvent randomWeatherEvent)
 		{
 			SpeedPercentage        += randomWeatherEvent.WeatherEventData.BuildingTime;
@@ -103,14 +113,14 @@ namespace Gameplay.Buildings
 			weatherEventTimeLength =  randomWeatherEvent.WeatherEventData.Timer;
 			weatherEvent           =  true;
 		}
-		
+
 		public void OnHouseRepair()
 		{
 			//TODO Have to adjust amount
 			if (MoneyManager.Instance.PlayerHasEnoughMoney(15))
 			{
 				EventManager.Instance.RaiseEvent(new DecreaseMoneyEvent(15));
-				
+
 				crackPopup.SetActive(false);
 				TotalHealth = bar.maxValue;
 				EventManager.Instance.RaiseEvent(new BuildingSavedEvent());

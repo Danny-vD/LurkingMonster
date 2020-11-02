@@ -37,7 +37,7 @@ namespace CustomInspector
 			serializedObject.ApplyModifiedProperties();
 		}
 
-		private void DrawMeshArray(int index, SerializedProperty buildingType, SerializedProperty meshes)
+		private static void DrawMeshArray(int index, SerializedProperty buildingType, SerializedProperty meshes)
 		{
 			meshes.arraySize = Mathf.Clamp(EditorGUILayout.IntField("Tier Count", meshes.arraySize), 0, int.MaxValue);
 			

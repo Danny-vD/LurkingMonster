@@ -3,7 +3,6 @@ using Enums;
 using Events;
 using ScriptableObjects;
 using Singletons;
-using Structs.Buildings;
 using UnityEngine;
 using VDFramework;
 using VDFramework.EventSystem;
@@ -59,6 +58,7 @@ namespace Gameplay.Buildings
 			}
 			
 			Destroy(gameObject);
+			EventManager.Instance.RaiseEvent(new BuildingDestroyedEvent());
 		}
 
 		private int CalculateUpgradeCost()

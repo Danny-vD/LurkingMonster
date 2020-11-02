@@ -25,7 +25,7 @@ namespace CustomInspector
 		private SerializedProperty foundations;
 		private SerializedProperty foundationData;
 		private SerializedProperty buildings;
-		private SerializedProperty buildingData;
+		private SerializedProperty buildingTierData;
 
 		private void OnEnable()
 		{
@@ -35,12 +35,12 @@ namespace CustomInspector
 			foundations    = serializedObject.FindProperty("foundations");
 			foundationData = serializedObject.FindProperty("foundationData");
 			buildings      = serializedObject.FindProperty("buildings");
-			buildingData   = serializedObject.FindProperty("buildingData");
+			buildingTierData   = serializedObject.FindProperty("buildingTierData");
 
 			prefabPerFoundationTypeFoldout         = new bool[foundations.arraySize];
 			foundationDataPerFoundationTypeFoldout = new bool[foundationData.arraySize];
 			prefabPerBuildingTypeFoldout           = new bool[buildings.arraySize];
-			buildingDataPerBuildingTypeFoldout     = new bool[buildingData.arraySize];
+			buildingDataPerBuildingTypeFoldout     = new bool[buildingTierData.arraySize];
 		}
 
 		public override void OnInspectorGUI()
@@ -68,9 +68,9 @@ namespace CustomInspector
 					new GUIContent("Prefab"));
 			}
 
-			if (IsFoldOut(ref buildingDataFoldout, "Building Data"))
+			if (IsFoldOut(ref buildingDataFoldout, "Building Tier Data"))
 			{
-				DrawFoldoutKeyValueArray<BuildingType>(buildingData, "buildingType", "buildingTypeData",
+				DrawFoldoutKeyValueArray<BuildingType>(buildingTierData, "buildingType", "buildingTypeData",
 					buildingDataPerBuildingTypeFoldout, new GUIContent("Tier Data"));
 			}
 
