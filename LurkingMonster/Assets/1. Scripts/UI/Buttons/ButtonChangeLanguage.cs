@@ -1,19 +1,24 @@
 ﻿using System;
 using Enums;
+using UnityEngine;
+using UnityEngine.UI;
 using VDFramework;
 
 namespace UI.Buttons
 {
 	public class ButtonChangeLanguage : BetterMonoBehaviour
 	{
-		public void ChangeLanguageToEnglish()
-		{
-			LanguageSettings.Language = Language.EN;
-		}
+		[SerializeField]
+		private Language languageToSet;
 		
-		public void ChangeLanguageToDutch()
+		private void Awake()
 		{
-			LanguageSettings.Language = Language.NL;
+			GetComponent<Button>().onClick.AddListener(SetLanguage);
+		}
+
+		private void SetLanguage()
+		{
+			LanguageSettings.Language = languageToSet;
 		}
 	}
 }

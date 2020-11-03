@@ -8,7 +8,7 @@ namespace UI.Buttons
 	{
 		public void ActivatePowerUp()
 		{
-			PowerUpManager.Instance.ActivatePowerUp(PowerUpType.FixProblems);
+			PowerUpManager.Instance.ActivatePowerUp(PowerUpType.AvoidWeatherEvent);
 		}
 	}
 }

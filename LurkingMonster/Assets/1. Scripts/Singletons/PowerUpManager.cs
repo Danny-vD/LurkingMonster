@@ -32,7 +32,7 @@ namespace Singletons
 			{
 				new PowerUp(false, 60f, "Monster Feed", PowerUpType.AvoidMonster),
 				new PowerUp(false, 10f, "KCAF Manager", PowerUpType.FixProblems),
-				new PowerUp(false, 300f, "Time Stop", PowerUpType.AvoidWeatherEvent)
+				new PowerUp(false, 10f, "Time Stop", PowerUpType.AvoidWeatherEvent)
 			};
 
 			EventManager.Instance.AddListener<PowerUpIncreaseEvent>(AddPowerUp);

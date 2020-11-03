@@ -62,11 +62,15 @@ namespace Gameplay.Buildings
 
 			if (PowerUpManager.Instance.AvoidWeatherActive)
 			{
-				SpeedPercentage = 1;
+				TotalHealth -= Time.deltaTime;
 			}
-			
-			TotalHealth -= Time.deltaTime * (SpeedPercentage / 100 + 1);
+			else
+			{
+				TotalHealth -= Time.deltaTime * (SpeedPercentage / 100 + 1);
+			}
 
+			
+			
 			bar.SetValue((int) TotalHealth);
 
 			//When health is less then 25% show cracks

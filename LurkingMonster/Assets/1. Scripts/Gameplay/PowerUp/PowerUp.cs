@@ -40,7 +40,5 @@ namespace Gameplay
 			get => powerUpType;
 			set => powerUpType = value;
 		}
-		
-		
 	}
 }
