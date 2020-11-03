@@ -16,7 +16,7 @@ namespace ScriptableObjects
 		public GameObject GetPrefab(BuildingType buildingType, int buildingTier)
 		{
 			// Buildingtier is one-indexed to we subtract 1
-			return debrisPerBuilding.First(pair => pair.Key.Equals(buildingType)).Value[buildingTier - 1];
+			return debrisPerBuilding.First(pair => pair.Key.Equals(buildingType)).Value[buildingTier];
 		}
 
 		public void PopulateDictionary()

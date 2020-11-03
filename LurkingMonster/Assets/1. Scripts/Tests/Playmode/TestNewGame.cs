@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.IO;
+using Enums;
 using Events;
 using NUnit.Framework;
 using Singletons;
@@ -17,7 +18,7 @@ namespace Tests.Playmode
 		private readonly string destination = Application.persistentDataPath + "/save.dat";
 		
 		private GameData gameData = new GameData("", "", startMoney, true, 1f, 1f,
-			new Dictionary<Vector2IntSerializable, TileData>());
+			new Dictionary<Vector2IntSerializable, TileData>(), Language.NL, new AchievementData[1]);
 		
 		[Test]
         public void TestCollectRent()

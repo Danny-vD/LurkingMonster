@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using Enums;
 using Events;
 using IO;
+using Singletons;
+using Structs;
 using UI;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -47,8 +49,7 @@ namespace Gameplay.Achievements
 				new object[] {8, 10, BuildingType.ApartmentBuilding}, "PLACEHOLDER");
 			destroyHousesAchievement    = new Achievement(new int[] {2, 5, 10}, "DESTROYHOUSESACHIEVEMENT",
 				new object[] {PowerUpType.AvoidWeatherEvent, FoundationType.Wooden_Poles, BuildingType.Store}, "PLACEHOLDER");
-
-
+			
 
 			achievements.Add(buildingBuildAchievement);
 			achievements.Add(rentCollectedAchievement);
@@ -57,19 +58,28 @@ namespace Gameplay.Achievements
 			achievements.Add(amountOfPlotsAchievement);
 			achievements.Add(destroyHousesAchievement);
 			
+			
 			AddListeners();
+			
+			if (UserSettings.SettingsExist)
+			{
+				LoadData();
+			}
 		}
 
 		private void AddListeners()
 		{
+			//TODO Create remove listeners
 			EventManager.Instance.AddListener<BuildingBuildEvent>(OnBuildingBuildListener);
 			EventManager.Instance.AddListener<CollectRentEvent>(OnRentCollectListener);
 			EventManager.Instance.AddListener<BuildingSavedEvent>(OnBuildingsSavedListener);
 			EventManager.Instance.AddListener<BuildingConsumedEvent>(OnBuildingsConsumedListener);
 			EventManager.Instance.AddListener<AmountOfPlotsEvent>(OnAmountOfPlotsListener);
 			EventManager.Instance.AddListener<BuildingDestroyedEvent>(OnBuildingDestroyedListener);
-		}
 
+			UserSettings.OnGameQuit += SaveData;
+		}
+		
 		public void ShowAchievementProgress()
 		{
 			achievementParent.DestroyChildren();
@@ -81,7 +91,29 @@ namespace Gameplay.Achievements
 				achievements[i].PrintAchievement(prefabAchievement);
 			}
 		}
-		
+
+		private void SaveData()
+		{
+			AchievementData[] achievementData = new AchievementData[achievements.Count];  
+			
+			for (int i = 0; i < achievements.Count; i++)
+			{
+				achievementData[i] = achievements[i].GetData();
+			}
+
+			UserSettings.GameData.AchievementData = achievementData;
+		}
+
+		private void LoadData()
+		{
+			AchievementData[] achievementData = UserSettings.GameData.AchievementData;
+			
+			for (int i = 0; i < achievements.Count; i++)
+			{
+				achievements[i].SetData(achievementData[i]);
+			}
+		}
+
 		private void OnBuildingBuildListener()
 		{
 			buildingBuildAchievement.CheckAchievement(1);

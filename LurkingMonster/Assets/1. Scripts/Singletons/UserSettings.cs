@@ -161,7 +161,7 @@ namespace Singletons
 		public void NewGame()
 		{
 			gameData = new GameData("", "", startMoney, true, 1f, 1f,
-				new Dictionary<Vector2IntSerializable, TileData>(), Language.NL);
+				new Dictionary<Vector2IntSerializable, TileData>(), Language.NL, new AchievementData[0]);
 
 			RunTimeTests.TestStartMoney();
 		}

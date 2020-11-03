@@ -63,17 +63,30 @@ namespace Grid
 					}
 
 					TileData tileData = UserSettings.GameData.GridData[new Vector2IntSerializable(x, y)];
-
+					
 					buildingTile.SetSoilType(tileData.SoilType);
 					buildingTile.SetFoundation(tileData.FoundationType);
 					buildingTile.SetBuildingType(tileData.BuildingType);
 
+					if (tileData.DebrisExists)
+					{
+						buildingTile.SpawnDebris(tileData.BuildingType, tileData.BuildingTier);
+						continue;
+					}
+					
 					if (tileData.BuildingTier > 0)
 					{
 						buildingTile.SpawnBuilding();
 					}
 					else
 					{
+						//TODO change later
+						if (tileData.FoundationExists)
+						{
+							print("SpawnFoundation");
+							buildingTile.SpawnFoundation();
+						}
+
 						continue;
 					}
 

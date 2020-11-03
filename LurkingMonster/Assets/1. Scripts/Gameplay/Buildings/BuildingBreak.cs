@@ -104,7 +104,7 @@ namespace Gameplay.Buildings
 			FoundationHealth += GetMaximumFoundationHealth();
 
 			//TODO for test purposes so we dont have to wait a long time
-			TotalHealth = (SoilHealth + FoundationHealth) / 25;
+			TotalHealth = (SoilHealth + FoundationHealth) / 35;
 		}
 		
 		public float GetCurrentFoundationHealth()

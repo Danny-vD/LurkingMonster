@@ -123,10 +123,17 @@ namespace Grid.Tiles.Buildings
 				return;
 			}
 
-			// Still possible to grab data from the class since the object is only removed at the end of the frame
-			DestroyedBuildingData = building.Data;
+			SpawnDebris(buildingType, building.CurrentTier);
+		}
+
+		public void SpawnDebris(BuildingType buildingType, int buildingTier)
+		{
+			int tier = Mathf.Max(0, buildingTier - 1);
 			
-			GameObject prefab = debrisMeshes.GetPrefab(building.BuildingType, building.CurrentTier);
+			// Still possible to grab data from the class since the object is only removed at the end of the frame
+			DestroyedBuildingData = spawner.GetBuildingData(buildingType, GetFoundationType(), GetSoilType())[tier];
+
+			GameObject prefab = debrisMeshes.GetPrefab(buildingType, tier);
 
 			debrisObject = Instantiate(prefab, spawner.CachedTransform.position, spawner.CachedTransform.rotation);
 		}

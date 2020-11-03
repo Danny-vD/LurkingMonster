@@ -16,6 +16,7 @@ namespace Utility
 		private float musicVolume;
 		private float ambientVolume;
 		private Language language;
+		private AchievementData[] achievementData;
 
 		private Dictionary<Vector2IntSerializable, TileData> dictionary;
 
@@ -27,17 +28,20 @@ namespace Utility
 			float                                        musicVolume,
 			float                                        ambientVolume,
 			Dictionary<Vector2IntSerializable, TileData> dictionary,
-			Language                                     language
+			Language                                     language,
+			AchievementData[] achievementData
+			
 		)
 		{
-			this.cityName      = cityName;
-			this.userName      = userName;
-			this.money         = money;
-			this.vibrate       = vibrate;
-			this.musicVolume   = musicVolume;
-			this.ambientVolume = ambientVolume;
-			this.dictionary    = dictionary;
-			this.language      = language;
+			this.cityName        = cityName;
+			this.userName        = userName;
+			this.money           = money;
+			this.vibrate         = vibrate;
+			this.musicVolume     = musicVolume;
+			this.ambientVolume   = ambientVolume;
+			this.dictionary      = dictionary;
+			this.language        = language;
+			this.achievementData = achievementData;
 		}
 
 		public string CityName
@@ -86,6 +90,12 @@ namespace Utility
 		{
 			get => language;
 			set => language = value;
+		}
+
+		public AchievementData[] AchievementData
+		{
+			get => achievementData;
+			set => achievementData = value;
 		}
 	}
 }
