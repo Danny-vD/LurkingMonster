@@ -80,7 +80,7 @@ namespace Grid
 					}
 					else
 					{
-						//TODO change later
+						//TODO change later so that foundation always spawns
 						if (tileData.FoundationExists)
 						{
 							print("SpawnFoundation");
