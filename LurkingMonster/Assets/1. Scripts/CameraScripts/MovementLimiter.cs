@@ -1,8 +1,9 @@
-﻿namespace CameraScripts
-{
-	using UnityEngine;
-	using VDFramework;
+using System;
+using UnityEngine;
+using VDFramework;
 
+namespace CameraScripts
+{
 	public class MovementLimiter : BetterMonoBehaviour
 	{
 		[SerializeField, Header("X: Right, Y: Top, Z: Left, W: Bottom")]

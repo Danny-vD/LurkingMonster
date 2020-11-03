@@ -1,10 +1,10 @@
-﻿namespace CameraScripts
-{
-	using System;
-	using Singletons;
-	using UnityEngine;
-	using VDFramework;
+using System;
+using Singletons;
+using UnityEngine;
+using VDFramework;
 
+namespace CameraScripts
+{
 	public class CameraMovement : BetterMonoBehaviour
 	{
 		[SerializeField]

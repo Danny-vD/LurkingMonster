@@ -1,14 +1,16 @@
-﻿namespace CameraScripts
+using System;
+using Singletons;
+using UnityEngine;
+using VDFramework;
+
+namespace CameraScripts
 {
-	using System;
-	using Singletons;
-	using UnityEngine;
-	using VDFramework;
+	using UnityEngine.Serialization;
 
 	public class CameraZoom : BetterMonoBehaviour
 	{
 		[SerializeField]
-		private float zoomFactor = 0.1f;
+		private float zoomSpeed = 0.1f;
 
 		[SerializeField, Tooltip("The size to which you can zoom out")]
 		private float MinimumZoom = 150;
@@ -41,7 +43,6 @@
 			zoomMethod();
 
 			EnforceMinMaxZoom();
-
 		}
 
 		/// <summary>
@@ -78,7 +79,7 @@
 			}
 
 			float deltaDistance = lastDistance - distance;
-			playerCamera.orthographicSize += deltaDistance * zoomFactor;
+			playerCamera.orthographicSize += deltaDistance * zoomSpeed;
 
 			lastDistance = distance;
 		}
