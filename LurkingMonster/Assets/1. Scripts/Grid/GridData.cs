@@ -23,13 +23,12 @@ namespace Grid
 			
 			for (int i = 0; i < length; i++)
 			{
-				TileTypePerPosition tileDatum = TileData[i];
+				TileTypePerPosition pair = TileData[i];
 
-				if (tileDatum.Key.Equals(gridPosition))
+				if (pair.Key.Equals(gridPosition))
 				{
-					tileDatum.Value = newType;
-
-					TileData[i] = tileDatum;
+					pair.Value = newType;
+					TileData[i]     = pair;
 					break;
 				}
 			}

@@ -38,7 +38,9 @@ namespace Grid
 				TileTypePerPosition tileDatum = tileData[i];
 				Vector2Int gridPosition = tileDatum.Key;
 
-				grid[gridPosition.y, gridPosition.x] = InstantiateTile(data, parent, tileDatum.Value, gridPosition);
+				AbstractTile tile = InstantiateTile(data, parent, tileDatum.Value, gridPosition);
+				grid[gridPosition.y, gridPosition.x] = tile;
+				AddNeighborsToTile(grid, tile);
 			}
 			
 			return grid;
@@ -74,8 +76,8 @@ namespace Grid
 		{
 			Vector3 position = Vector3.zero;
 
-			float deltaX = gridPosition.x * data.TileSize.x + gridPosition.x * data.TileSpacing.x;
-			float deltaZ = gridPosition.y * data.TileSize.y + gridPosition.y * data.TileSpacing.y;
+			float deltaX = gridPosition.x * (data.TileSize.x + data.TileSpacing.x);
+			float deltaZ = gridPosition.y * (data.TileSize.y + data.TileSpacing.y);
 
 			position += parent.right * deltaX;
 			position += parent.forward * deltaZ;
@@ -83,6 +85,32 @@ namespace Grid
 			return position;
 		}
 
+		private static void AddNeighborsToTile(AbstractTile[,] grid, AbstractTile tile)
+		{
+			Vector2Int gridPosition = tile.GridPosition;
+			
+			// Make sure we can never sample below 0,0
+			Vector2Int samplePosition = Vector2Int.zero;
+			samplePosition.x = Mathf.Max(0, gridPosition.x - 1);
+			samplePosition.y = Mathf.Max(0, gridPosition.y - 1);
+
+			AbstractTile neighbor = grid[samplePosition.y, gridPosition.x]; // One below us, in the same column
+
+			if (neighbor != tile)
+			{
+				tile.AddNeighbor(neighbor);
+				neighbor.AddNeighbor(tile);
+			}
+
+			neighbor = grid[gridPosition.y, samplePosition.x]; // One before us, in the same row
+			
+			if (neighbor != tile)
+			{
+				tile.AddNeighbor(neighbor);
+				neighbor.AddNeighbor(tile);
+			}
+		}
+		
 		private void DestroyChildren()
 		{
 #if UNITY_EDITOR
@@ -96,7 +124,9 @@ namespace Grid
 		}
 
 #if UNITY_EDITOR
-		private void DestroyChildrenImmediate()
+		
+		[ContextMenu("Remove Grid")]
+		public void DestroyChildrenImmediate()
 		{
 			for (int i = CachedTransform.childCount - 1; i >= 0; --i)
 			{

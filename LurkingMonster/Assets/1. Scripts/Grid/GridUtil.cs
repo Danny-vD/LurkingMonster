@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Gameplay.Buildings;
 using Grid.Tiles;
@@ -23,18 +24,13 @@ namespace Grid
 
 		private void Start()
 		{
-			gridData = GetComponent<GridData>();
+			GetGridData();
+
+			InstantiateGrid();
 
 			if (UserSettings.SettingsExist && UserSettings.GameData.GridData.Count != 0)
 			{
-				LoadData();
-			}
-
-			grid = GetComponent<GridCreator>().GenerateGrid();
-
-			if (UserSettings.SettingsExist && UserSettings.GameData.GridData.Count != 0)
-			{
-				SpawnBuildings();
+				LoadGameplayElements();
 			}
 		}
 
@@ -49,6 +45,16 @@ namespace Grid
 			}
 		}
 
+		// Go over the data, and set the roads correctly (Corners, Straight, T-Sections etc.)
+		private static void SetupData()
+		{
+		}
+
+		private static void LoadGameplayElements()
+		{
+			SpawnBuildings();
+		}
+		
 		private static void SpawnBuildings()
 		{
 			for (int y = 0; y < grid.GetLength(0); y++)
@@ -63,7 +69,7 @@ namespace Grid
 					}
 
 					TileData tileData = UserSettings.GameData.GridData[new Vector2IntSerializable(x, y)];
-					
+
 					buildingTile.SetSoilType(tileData.SoilType);
 					buildingTile.SetFoundation(tileData.FoundationType);
 					buildingTile.SetBuildingType(tileData.BuildingType);
@@ -73,7 +79,8 @@ namespace Grid
 						buildingTile.SpawnDebris(tileData.BuildingType, tileData.BuildingTier);
 						continue;
 					}
-					
+
+					// If there's a building, the tier would be higher than 0
 					if (tileData.BuildingTier > 0)
 					{
 						buildingTile.SpawnBuilding();
@@ -83,7 +90,6 @@ namespace Grid
 						//TODO change later so that foundation always spawns
 						if (tileData.FoundationExists)
 						{
-							print("SpawnFoundation");
 							buildingTile.SpawnFoundation();
 						}
 
@@ -98,6 +104,25 @@ namespace Grid
 					}
 				}
 			}
+		}
+		
+		private void GetGridData()
+		{
+			gridData = GetComponent<GridData>();
+
+			if (UserSettings.SettingsExist && UserSettings.GameData.GridData.Count != 0)
+			{
+				LoadData();
+			}
+			else
+			{
+				SetupData();
+			}
+		}
+
+		private void InstantiateGrid()
+		{
+			grid = GetComponent<GridCreator>().GenerateGrid(GridData, CachedTransform);
 		}
 	}
 }
