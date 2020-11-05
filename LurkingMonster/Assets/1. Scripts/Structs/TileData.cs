@@ -18,6 +18,10 @@ namespace Structs
 		private FoundationType foundationType;
 		private bool foundationExists;
 		private bool debrisExists;
+		private float buildingHealth;
+		private float foundationHealth;
+		private float soilHealth;
+
 
 		public TileType TileType => tileType;
 
@@ -33,6 +37,12 @@ namespace Structs
 		
 		public bool DebrisExists => debrisExists;
 
+		public float BuildingHealth => buildingHealth;
+		
+		public float FoundationHealth => foundationHealth;
+		
+		public float SoilHealth => soilHealth;
+		
 		public TileData(AbstractTile tile)
 		{
 			tileType = tile.TileType;
@@ -56,6 +66,12 @@ namespace Structs
 				buildingTier     = buildingTile.Building.CurrentTier;
 				soilType         = buildingTile.GetSoilType();
 				foundationType   = buildingTile.GetFoundationType();
+
+				BuildingBreak buildingBreak = buildingTile.Building.GetComponent<BuildingBreak>();
+
+				buildingHealth   = buildingBreak.BuildingHealth;
+				foundationHealth = buildingBreak.FoundationHealth;
+				soilHealth       = buildingBreak.SoilHealth;
 			}
 		}
 	}

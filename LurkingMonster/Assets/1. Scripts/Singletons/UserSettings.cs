@@ -113,7 +113,7 @@ namespace Singletons
 			BinaryFormatter bf = new BinaryFormatter();
 			gameData = (GameData) bf.Deserialize(file);
 			file.Close();
-			
+
 			SetVolumeOnLoad();
 			SetLanguageOnLoad();
 		}
@@ -151,12 +151,12 @@ namespace Singletons
 
 		private static void SaveFile()
 		{
-			print("Saved");
 			SaveDictionary();
 			FileStream file = File.Exists(destination) ? File.OpenWrite(destination) : File.Create(destination);
 			BinaryFormatter bf = new BinaryFormatter();
 			bf.Serialize(file, gameData);
 			file.Close();
+			
 		}
 
 		public void NewGame()
