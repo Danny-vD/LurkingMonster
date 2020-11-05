@@ -69,7 +69,6 @@ namespace Gameplay.Achievements
 
 		private void AddListeners()
 		{
-			//TODO Create remove listeners
 			EventManager.Instance.AddListener<BuildingBuildEvent>(OnBuildingBuildListener);
 			EventManager.Instance.AddListener<CollectRentEvent>(OnRentCollectListener);
 			EventManager.Instance.AddListener<BuildingSavedEvent>(OnBuildingsSavedListener);
@@ -79,7 +78,7 @@ namespace Gameplay.Achievements
 
 			UserSettings.OnGameQuit += SaveData;
 		}
-		
+
 		public void ShowAchievementProgress()
 		{
 			achievementParent.DestroyChildren();
@@ -143,6 +142,20 @@ namespace Gameplay.Achievements
 		private void OnBuildingDestroyedListener()
 		{
 			destroyHousesAchievement.CheckAchievement(1);
+		}
+		
+		private void OnDestroy()
+		{
+			if (!EventManager.IsInitialized) return;
+			
+			EventManager.Instance.RemoveListener<BuildingBuildEvent>(OnBuildingBuildListener);
+			EventManager.Instance.RemoveListener<CollectRentEvent>(OnRentCollectListener);
+			EventManager.Instance.RemoveListener<BuildingSavedEvent>(OnBuildingsSavedListener);
+			EventManager.Instance.RemoveListener<BuildingConsumedEvent>(OnBuildingsConsumedListener);
+			EventManager.Instance.RemoveListener<AmountOfPlotsEvent>(OnAmountOfPlotsListener);
+			EventManager.Instance.RemoveListener<BuildingDestroyedEvent>(OnBuildingDestroyedListener);
+
+			UserSettings.OnGameQuit -= SaveData;
 		}
 	}
 }

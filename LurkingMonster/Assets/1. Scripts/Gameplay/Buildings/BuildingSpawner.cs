@@ -44,7 +44,7 @@ namespace Gameplay.Buildings
 
 		public BuildingData[] GetBuildingData(BuildingType buildingType, FoundationType foundationType, SoilType soilType)
 		{
-			List<BuildingTypeData> buildingTypeData = buildingTierData.First(pair => pair.Key.Equals(buildingType)).Value;
+			List<BuildingTierData> buildingTypeData = buildingTierData.First(pair => pair.Key.Equals(buildingType)).Value;
 			BuildingData[] data = new BuildingData[buildingTypeData.Count];
 
 			for (int i = 0; i < buildingTypeData.Count; i++)
@@ -88,7 +88,7 @@ namespace Gameplay.Buildings
 				.PopulateEnumDictionary<PrefabPerBuildingType, BuildingType, GameObject>(buildings);
 
 			EnumDictionaryUtil
-				.PopulateEnumDictionary<BuildingDataPerBuildingType, BuildingType, List<BuildingTypeData>>(buildingTierData);
+				.PopulateEnumDictionary<BuildingDataPerBuildingType, BuildingType, List<BuildingTierData>>(buildingTierData);
 		}
 #endif
 	}

@@ -3,6 +3,7 @@ using Events;
 using ScriptableObjects;
 using Singletons;
 using UnityEngine;
+using UnityEngine.Serialization;
 using VDFramework;
 using VDFramework.EventSystem;
 
@@ -11,8 +12,8 @@ namespace Gameplay.Buildings
 	[RequireComponent(typeof(Building))]
 	public class BuildingUpgrade : BetterMonoBehaviour
 	{
-		[SerializeField]
-		private BuildingTierData buildingTierData = null;
+		[FormerlySerializedAs("buildingTierData"),SerializeField]
+		private BuildingMeshData buildingMeshData = null;
 
 		private int maxTier;
 
@@ -27,13 +28,13 @@ namespace Gameplay.Buildings
 			building     = GetComponent<Building>();
 			buildingType = building.BuildingType;
 
-			if (!buildingTierData)
+			if (!buildingMeshData)
 			{
 				Debug.LogError("Mesh Tier data is not set!", gameObject);
 			}
 
-			maxTier         = buildingTierData.GetMaxTier(buildingType);
-			meshFilter.mesh = buildingTierData.GetMesh(buildingType, building.CurrentTier);
+			maxTier         = buildingMeshData.GetMaxTier(buildingType);
+			meshFilter.mesh = buildingMeshData.GetMesh(buildingType, building.CurrentTier);
 		}
 
 		public bool CanUpgrade()
@@ -60,7 +61,7 @@ namespace Gameplay.Buildings
 				EventManager.Instance.RaiseEvent(new DecreaseMoneyEvent(upgradeCost));
 			}
 
-			meshFilter.mesh = buildingTierData.GetMesh(buildingType, ++building.CurrentTier);
+			meshFilter.mesh = buildingMeshData.GetMesh(buildingType, ++building.CurrentTier);
 		}
 	}
 }

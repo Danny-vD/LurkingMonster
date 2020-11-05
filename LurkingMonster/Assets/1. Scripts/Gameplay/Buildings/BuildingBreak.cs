@@ -97,14 +97,15 @@ namespace Gameplay.Buildings
 			EventManager.Instance.RemoveListener<RandomWeatherEvent>(OnWeatherEvent);
 		}
 
-		public void CalculateBuildingBreakTime()
+		private void CalculateBuildingBreakTime()
 		{
-			TotalHealth      =  0.0f;
+			TotalHealth      =  building.Data.MaxHealth;
 			SoilHealth       += GetMaximumSoilHealth();
 			FoundationHealth += GetMaximumFoundationHealth();
 
 			//TODO for test purposes so we dont have to wait a long time
-			TotalHealth = (SoilHealth + FoundationHealth) / 35;
+			TotalHealth += (SoilHealth + FoundationHealth);
+			TotalHealth /= 50;
 		}
 		
 		public float GetCurrentFoundationHealth()

@@ -1,35 +1,38 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using Enums;
+﻿using Gameplay.Buildings;
 using Structs.Buildings;
 using UnityEngine;
-using VDFramework.Utility;
 
 namespace ScriptableObjects
 {
-	[CreateAssetMenu(menuName = "Building Data/Building Tier Data")]
+	[CreateAssetMenu(menuName = "Building Data/BuildingTier Data")]
 	public class BuildingTierData : ScriptableObject
 	{
+		[SerializeField, Tooltip("The percentage of the price that will be collected as rent")]
+		private int rentPercentage = 30;
+
 		[SerializeField]
-		private List<BuildingTierMeshPerBuildingType> buildingTierMeshPerBuildingTypes =
-			new List<BuildingTierMeshPerBuildingType>();
+		private int weight = 100;
 
-		public Mesh GetMesh(BuildingType buildingType, int tier)
-		{
-			return buildingTierMeshPerBuildingTypes.First(pair => pair.Key.Equals(buildingType)).Value[tier - 1];
-		}
-
-		public int GetMaxTier(BuildingType buildingType)
-		{
-			return buildingTierMeshPerBuildingTypes.First(pair => pair.Key.Equals(buildingType)).Value.Count;
-		}
+		[SerializeField]
+		private int price = 10;
 		
-#if UNITY_EDITOR
-		public void PopulateDictionaries()
+		[SerializeField]
+		private int destructionCost = 50;
+
+		[SerializeField, Tooltip("The cost of removing the debris")]
+		private int cleanupCosts = 500;
+
+		[SerializeField]
+		private float maxHealth = 100;
+
+		public BuildingData GetStruct()
 		{
-			EnumDictionaryUtil.PopulateEnumDictionary<BuildingTierMeshPerBuildingType, BuildingType, List<Mesh>>(
-				buildingTierMeshPerBuildingTypes);
+			return new BuildingData(GetPricePercentage(rentPercentage), weight, price, destructionCost, cleanupCosts, default, default, maxHealth);
 		}
-#endif
+
+		private int GetPricePercentage(int percentage)
+		{
+			return (int) (percentage / 100.0f * price);
+		}
 	}
 }

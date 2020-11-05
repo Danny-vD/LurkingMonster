@@ -8,13 +8,13 @@ using VDFramework.Interfaces;
 namespace Structs.Buildings
 {
     [Serializable]
-    public struct BuildingDataPerBuildingType : IKeyValuePair<BuildingType, List<BuildingTypeData>>
+    public struct BuildingDataPerBuildingType : IKeyValuePair<BuildingType, List<BuildingTierData>>
     {
         [SerializeField]
         private BuildingType buildingType;
         
         [SerializeField]
-        private List<BuildingTypeData> buildingTypeData;
+        private List<BuildingTierData> buildingTypeData;
 
         public BuildingType Key
         {
@@ -22,12 +22,12 @@ namespace Structs.Buildings
             set => buildingType = value;
         }
 
-        public List<BuildingTypeData> Value
+        public List<BuildingTierData> Value
         {
             get => buildingTypeData;
             set => buildingTypeData = value;
         }
         
-        public bool Equals(IKeyValuePair<BuildingType, List<BuildingTypeData>> other) => Key.Equals(other.Key);
+        public bool Equals(IKeyValuePair<BuildingType, List<BuildingTierData>> other) => Key.Equals(other.Key);
     }
 }
