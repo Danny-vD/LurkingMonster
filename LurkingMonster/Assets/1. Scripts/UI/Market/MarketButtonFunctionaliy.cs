@@ -58,7 +58,7 @@ namespace UI.Market
 		{
 			AbstractBuildingTile buildingTile = openMarketEvent.BuildingTile;
 			
-			if (buildingTile)
+			if (!buildingTile)
 			{
 				buildingTile = openMarketEvent.Building.GetComponentInParent<AbstractBuildingTile>();
 			}

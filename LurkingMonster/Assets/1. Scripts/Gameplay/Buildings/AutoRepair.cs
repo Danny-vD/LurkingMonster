@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using VDFramework;
 
-namespace Gameplay
+namespace Gameplay.Buildings
 {
 	public class AutoRepair : BetterMonoBehaviour
 	{
