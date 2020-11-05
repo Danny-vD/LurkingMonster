@@ -5,10 +5,11 @@ using VDFramework;
 
 namespace UI.Buttons
 {
+	[RequireComponent(typeof(Button))]
 	public class ClickImagineSwapper : BetterMonoBehaviour
 	{
 		[SerializeField]
-		private Image image;
+		private Image image = null;
 
 		[SerializeField]
 		private List<Sprite> sprites = new List<Sprite>();

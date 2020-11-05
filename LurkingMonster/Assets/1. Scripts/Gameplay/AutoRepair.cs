@@ -1,20 +1,14 @@
-﻿using System;
-using Enums;
-using Events;
-using Singletons;
+﻿using Singletons;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.UI;
-using UnityEngine.XR;
 using VDFramework;
-using VDFramework.EventSystem;
 
 namespace Gameplay
 {
 	public class AutoRepair : BetterMonoBehaviour
 	{
 		[SerializeField]
-		private Button btnRepair;
+		private Button btnRepair = null;
 		
 		private bool fixProblems;
 
