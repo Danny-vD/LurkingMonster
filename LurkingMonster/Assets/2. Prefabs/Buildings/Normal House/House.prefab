@@ -648,11 +648,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bar: {fileID: 2375193678091250356}
-  SoilHealth: 0
-  FoundationHealth: 0
-  TotalHealth: 0
-  StartingHealth: 0
-  SpeedPercentage: 0
 --- !u!114 &8740718846376473894
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -678,7 +673,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65c9ff81c5944e542b7f3bc870b313fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buildingTierData: {fileID: 11400000, guid: 27ef68d1b402b694fac3b32415cb7e74, type: 2}
+  buildingMeshData: {fileID: 11400000, guid: 27ef68d1b402b694fac3b32415cb7e74, type: 2}
 --- !u!1 &7029731273974737261
 GameObject:
   m_ObjectHideFlags: 0
@@ -799,8 +794,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 9065348212960834744}
-        m_TargetAssemblyTypeName: Gameplay.BuildingBreak, Assembly-CSharp
-        m_MethodName: OnHouseRepair
+        m_TargetAssemblyTypeName: Gameplay.Buildings.BuildingBreak, GameAssembly
+        m_MethodName: CrackedPopupClicked
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

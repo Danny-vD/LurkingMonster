@@ -37,14 +37,18 @@ namespace Gameplay.Buildings
 			crackPopup.SetActive(false);
 			weatherEvent = false;
 			building     = GetComponent<Building>();
-
-			CalculateBuildingBreakTime();
 		}
 
 		// Start is called before the first frame update
 		private void Start()
 		{
+			if (!UserSettings.SettingsExist)
+			{
+				ResetHealth();
+			}
+			
 			float maxTotalHealth = GetMaximumFoundationHealth() + GetMaximumSoilHealth() + GetMaxBuildingHealth();
+			
 			bar.SetMax((int) maxTotalHealth);
 			EventManager.Instance.AddListener<RandomWeatherEvent>(OnWeatherEvent);
 		}
@@ -74,9 +78,10 @@ namespace Gameplay.Buildings
 			}
 			else
 			{
-				buildingHealth   -= Time.deltaTime * (buildingWeatherFactor / 100 + 1);
-				foundationHealth -= Time.deltaTime * (foundationWeatherFactor / 100 + 1);
-				soilHealth       -= Time.deltaTime * (soilWeatherFactor / 100 + 1);
+				//TODO CHANGE STUFF
+				buildingHealth   -= Time.deltaTime * (buildingWeatherFactor / 100 + 15);
+				foundationHealth -= Time.deltaTime * (foundationWeatherFactor / 100 + 15);
+				soilHealth       -= Time.deltaTime * (soilWeatherFactor / 100 + 15);
 			}
 
 			bar.SetValue((int) TotalHealth);
@@ -95,13 +100,11 @@ namespace Gameplay.Buildings
 			}
 		}
 
-		private void CalculateBuildingBreakTime()
+		private void ResetHealth()
 		{
 			buildingHealth   = GetMaxBuildingHealth();
 			soilHealth       = GetMaximumSoilHealth();
 			foundationHealth = GetMaximumFoundationHealth();
-
-			//TODO for test purposes so we dont have to wait a long time
 		}
 
 		public void OnWeatherEvent(RandomWeatherEvent randomWeatherEvent)
@@ -120,7 +123,11 @@ namespace Gameplay.Buildings
 
 		public void CrackedPopupClicked()
 		{
-			//EventManager.Instance.RaiseEvent();
+			//TODO remove
+			ResetHealth();
+			crackPopup.SetActive(false);
+			
+			EventManager.Instance.RaiseEvent(new OpenMarketEvent(building));
 		}
 
 		public float GetMaximumFoundationHealth()
