@@ -21,6 +21,7 @@ namespace Grid.Tiles.Road
 
 				Vector3 delta = neighbor2.position - CachedTransform.position;
 
+				// The endings of the curve are at positive Z and negative X (forward and left)
 				if (-CachedTransform.right != delta.normalized)
 				{
 					CachedTransform.LookAt(neighbor2);

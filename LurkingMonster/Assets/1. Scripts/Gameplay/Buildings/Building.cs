@@ -49,12 +49,12 @@ namespace Gameplay.Buildings
 		{
 			if (payForRemoval)
 			{
-				if (!MoneyManager.Instance.PlayerHasEnoughMoney(GlobalData.DestructionCost))
+				if (!MoneyManager.Instance.PlayerHasEnoughMoney(Data.DestructionCost))
 				{
 					return;
 				}
 				
-				EventManager.Instance.RaiseEvent(new DecreaseMoneyEvent(GlobalData.DestructionCost));
+				EventManager.Instance.RaiseEvent(new DecreaseMoneyEvent(Data.DestructionCost));
 			}
 			
 			Destroy(gameObject);

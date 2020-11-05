@@ -23,7 +23,6 @@ namespace Gameplay.Achievements
 		[SerializeField]
 		private GameObject prefabSingleAchievement = null;
 
-		
 		private Achievement buildingBuildAchievement;
 		private Achievement rentCollectedAchievement;
 		private Achievement buildingSavedAchievement;
@@ -49,7 +48,6 @@ namespace Gameplay.Achievements
 				new object[] {8, 10, BuildingType.ApartmentBuilding}, "PLACEHOLDER");
 			destroyHousesAchievement    = new Achievement(new int[] {2, 5, 10}, "DESTROYHOUSESACHIEVEMENT",
 				new object[] {PowerUpType.AvoidWeatherEvent, FoundationType.Wooden_Poles, BuildingType.Store}, "PLACEHOLDER");
-			
 
 			achievements.Add(buildingBuildAchievement);
 			achievements.Add(rentCollectedAchievement);
@@ -57,8 +55,7 @@ namespace Gameplay.Achievements
 			achievements.Add(buildingConsumedAchievement);
 			achievements.Add(amountOfPlotsAchievement);
 			achievements.Add(destroyHousesAchievement);
-			
-			
+
 			AddListeners();
 			
 			if (UserSettings.SettingsExist)

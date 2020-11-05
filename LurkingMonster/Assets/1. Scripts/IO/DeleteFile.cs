@@ -10,9 +10,12 @@ namespace IO
 
         public void RemoveFile()
         {
-            if (File.Exists(fileToDelete))
+            string path = $"{Application.persistentDataPath}/{fileToDelete}";
+            print(path);
+            
+            if (File.Exists(path))
             {
-                File.Delete(Application.persistentDataPath + '/' + fileToDelete);
+                File.Delete(path);
             }
         }
     }
