@@ -4,6 +4,9 @@ using UnityEngine;
 
 namespace Gameplay.Buildings
 {
+	/// <summary>
+	/// Building Tier Data, but then with the Soil and Foundation type added
+	/// </summary>
 	[Serializable]
 	public class BuildingData
 	{
