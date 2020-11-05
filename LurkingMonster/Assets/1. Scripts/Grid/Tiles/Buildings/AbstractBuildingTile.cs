@@ -25,6 +25,7 @@ namespace Grid.Tiles.Buildings
 		private GameObject foundationObject;
 		
 		private GameObject debrisObject;
+		private MeshRenderer meshRenderer;
 
 		public bool HasFoundation => foundationObject || Building;
 		public bool HasDebris => debrisObject;
@@ -32,6 +33,7 @@ namespace Grid.Tiles.Buildings
 		
 		protected virtual void Awake()
 		{
+			meshRenderer  = GetComponent<MeshRenderer>();
 			spawner       = GetComponentInChildren<BuildingSpawner>();
 			FirstTierData = spawner.GetBuildingData(buildingType, default, default)[0];
 		}
@@ -61,11 +63,14 @@ namespace Grid.Tiles.Buildings
 		{
 			RemoveFoundation(false);
 			foundationObject = spawner.SpawnFoundation(FirstTierData.Foundation);
+
+			meshRenderer.enabled = false;
 		}
 
 		public virtual void RemoveFoundation(bool payForRemoval)
 		{
 			Destroy(foundationObject);
+			meshRenderer.enabled = true;
 		}
 
 		public virtual void RemoveDebris(bool payForRemoval)

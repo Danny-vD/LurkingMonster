@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 601143205643207486}
   - component: {fileID: 6110240085153558257}
   m_Layer: 0
-  m_Name: Image
+  m_Name: ProgressButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

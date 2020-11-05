@@ -151,6 +151,7 @@ namespace Singletons
 
 		private static void SaveFile()
 		{
+			print("Saved");
 			SaveDictionary();
 			FileStream file = File.Exists(destination) ? File.OpenWrite(destination) : File.Create(destination);
 			BinaryFormatter bf = new BinaryFormatter();
