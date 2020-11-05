@@ -29,7 +29,7 @@ namespace Gameplay.Buildings
 		public Building Spawn(BuildingType buildingType, FoundationType foundationType, SoilType soilType)
 		{
 			GameObject prefab = buildings.First(pair => pair.Key.Equals(buildingType)).Value;
-			GameObject instance = Instantiate(prefab, CachedTransform.position, CachedTransform.rotation);
+			GameObject instance = Instantiate(prefab, CachedTransform.position, CachedTransform.rotation, CachedTransform);
 
 			instance.name = buildingType.ToString().InsertSpaceBeforeCapitals();
 
