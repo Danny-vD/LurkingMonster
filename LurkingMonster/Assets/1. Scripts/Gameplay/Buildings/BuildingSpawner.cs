@@ -15,12 +15,14 @@ namespace Gameplay.Buildings
 	public class BuildingSpawner : BetterMonoBehaviour
 	{
 		[SerializeField]
+		//TODO: Merge with FoundationData
 		private List<PrefabPerFoundationType> foundations = new List<PrefabPerFoundationType>();
 
 		[SerializeField]
 		private List<FoundationDataPerFoundationType> foundationData = new List<FoundationDataPerFoundationType>();
 
 		[SerializeField]
+		//TODO: Merge with buildingData
 		private List<PrefabPerBuildingType> buildings = new List<PrefabPerBuildingType>();
 
 		[SerializeField]
@@ -34,7 +36,7 @@ namespace Gameplay.Buildings
 			instance.name = buildingType.ToString().InsertSpaceBeforeCapitals();
 
 			Building building = instance.GetComponent<Building>();
-			building.Instantiate(buildingType, GetBuildingData(buildingType, foundationType, soilType));
+			building.Initialize(buildingType, GetBuildingData(buildingType, foundationType, soilType));
 
 			//TODO: make an option to not raise event
 			EventManager.Instance.RaiseEvent(new BuildingBuildEvent());
