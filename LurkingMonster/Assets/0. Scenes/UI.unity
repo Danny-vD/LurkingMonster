@@ -1134,7 +1134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e013849bbd81d014a89c823cac3c7f93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fileToDelete: Safe.dat
+  fileToDelete: save.dat
 --- !u!114 &121333118
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4479,7 +4479,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &648621281
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7633,7 +7633,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1199702672
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10494,7 +10494,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1761417707
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10789,7 +10789,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000049591, y: -0.0021682}
+  m_AnchoredPosition: {x: 0.000026703, y: -0.0021682}
   m_SizeDelta: {x: 57.200195, y: 66.77924}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1777587897
