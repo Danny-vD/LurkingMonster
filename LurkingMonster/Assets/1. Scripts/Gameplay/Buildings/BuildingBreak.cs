@@ -1,7 +1,4 @@
-﻿using System;
-using Enums;
-using Events;
-using Grid;
+﻿using Events;
 using Singletons;
 using UnityEngine;
 using Utility;
@@ -35,6 +32,7 @@ namespace Gameplay.Buildings
 		{
 			crackPopup = CachedTransform.GetChild(0).Find("btnCrackHouse").gameObject;
 			crackPopup.SetActive(false);
+
 			weatherEvent = false;
 			building     = GetComponent<Building>();
 		}
@@ -44,11 +42,12 @@ namespace Gameplay.Buildings
 		{
 			if (!UserSettings.SettingsExist)
 			{
+				// BUG: Doesn't reset health when you build a new Building. Needs to happen between Awake and Start to not override the loaded settings and give Building the time to be initialized
 				ResetHealth();
 			}
-			
+
 			float maxTotalHealth = GetMaximumFoundationHealth() + GetMaximumSoilHealth() + GetMaxBuildingHealth();
-			
+
 			bar.SetMax((int) maxTotalHealth);
 			EventManager.Instance.AddListener<RandomWeatherEvent>(OnWeatherEvent);
 		}
@@ -126,7 +125,7 @@ namespace Gameplay.Buildings
 			//TODO remove
 			ResetHealth();
 			crackPopup.SetActive(false);
-			
+
 			EventManager.Instance.RaiseEvent(new OpenMarketEvent(building));
 		}
 

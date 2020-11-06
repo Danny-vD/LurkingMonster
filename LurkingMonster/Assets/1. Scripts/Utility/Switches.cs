@@ -1,6 +1,4 @@
-﻿using System;
-using Enums;
-using UnityEngine;
+﻿using Enums;
 
 namespace Utility
 {

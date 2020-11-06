@@ -135,7 +135,6 @@ namespace Grid.Tiles.Buildings
 		{
 			int tier = Mathf.Max(0, buildingTier - 1);
 			
-			// Still possible to grab data from the class since the object is only removed at the end of the frame
 			DestroyedBuildingData = spawner.GetBuildingData(buildingType, GetFoundationType(), GetSoilType())[tier];
 
 			GameObject prefab = debrisMeshes.GetPrefab(buildingType, tier);
