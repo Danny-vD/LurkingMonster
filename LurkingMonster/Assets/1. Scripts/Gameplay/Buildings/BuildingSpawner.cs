@@ -20,7 +20,10 @@ namespace Gameplay.Buildings
 
 		[SerializeField]
 		private List<FoundationDataPerFoundationType> foundationData = new List<FoundationDataPerFoundationType>();
-
+		
+		[SerializeField]
+		private List<SoilDataPerSoilType> soilData = new List<SoilDataPerSoilType>();
+		
 		[SerializeField]
 		//TODO: Merge with buildingData
 		private List<PrefabPerBuildingType> buildings = new List<PrefabPerBuildingType>();
@@ -91,6 +94,9 @@ namespace Gameplay.Buildings
 
 			EnumDictionaryUtil
 				.PopulateEnumDictionary<BuildingDataPerBuildingType, BuildingType, List<BuildingTierData>>(buildingTierData);
+			
+			EnumDictionaryUtil
+				.PopulateEnumDictionary<SoilDataPerSoilType, SoilType, SoilTypeData>(soilData);
 		}
 #endif
 	}

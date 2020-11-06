@@ -61,6 +61,15 @@ MonoBehaviour:
     foundationTypeData: {fileID: 0}
   - foundationType: 3
     foundationTypeData: {fileID: 0}
+  soilData:
+  - soilType: 0
+    soilTypeData: {fileID: 11400000, guid: 97a44a923315d784c89ad5f41b48c116, type: 2}
+  - soilType: 1
+    soilTypeData: {fileID: 11400000, guid: 37e2529af495f844d9b0d4e41c573ba5, type: 2}
+  - soilType: 2
+    soilTypeData: {fileID: 11400000, guid: 3a28eac9031f72b41bdddc7afe5d3335, type: 2}
+  - soilType: 3
+    soilTypeData: {fileID: 11400000, guid: 2b5d2db8f05ec16449784aeb1e9ab71e, type: 2}
   buildings:
   - buildingType: 0
     prefab: {fileID: 6758913166034969596, guid: 3a07d0b780df67844a24d52cd795bb3c, type: 3}
