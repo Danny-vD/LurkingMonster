@@ -1,7 +1,7 @@
-﻿namespace ScriptableObjects
-{
-	using UnityEngine;
+﻿using UnityEngine;
 
+namespace ScriptableObjects
+{
 	[CreateAssetMenu(menuName = "Building Data/FoundationType Data")]
 	public class FoundationTypeData : ScriptableObject
 	{
