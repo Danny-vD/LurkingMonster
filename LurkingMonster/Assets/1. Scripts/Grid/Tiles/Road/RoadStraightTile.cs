@@ -1,4 +1,5 @@
 ﻿using Enums.Grid;
+using VDFramework.Utility;
 
 namespace Grid.Tiles.Road
 {
@@ -11,6 +12,14 @@ namespace Grid.Tiles.Road
 			base.AddRoadNeighbor(tile);
 
 			CachedTransform.LookAt(tile.CachedTransform, CachedTransform.up);
+
+			// Get a random boolean to randomly rotate 180°
+			bool shouldRotate = RandomUtil.RandomBool();
+
+			if (shouldRotate)
+			{
+				CachedTransform.Rotate(CachedTransform.up, 180.0f);
+			}
 		}
 	}
 }
