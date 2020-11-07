@@ -21,7 +21,7 @@ namespace ExtentionMethods
 		/// <summary>
 		/// Rotates the transform so that a certain direction will be facing a transform
 		/// </summary>
-		public static void DirectionLookAt(this Transform transformToRotate, Direction directionToRotate, Transform lookAtTransform)
+		public static void DirectionLookAtTransform(this Transform transformToRotate, Direction directionToRotate, Transform lookAtTransform)
 		{
 			transformToRotate.LookAt(lookAtTransform);
 
@@ -36,7 +36,7 @@ namespace ExtentionMethods
 		/// <summary>
 		/// Rotates the transform so that a certain direction will be facing a point
 		/// </summary>
-		public static void DirectionLookAt(this Transform transformToRotate, Direction directionToRotate, Vector3 lookAtPoint)
+		public static void DirectionLookAtPoint(this Transform transformToRotate, Direction directionToRotate, Vector3 lookAtPoint)
 		{
 			transformToRotate.LookAt(lookAtPoint);
 
@@ -51,7 +51,7 @@ namespace ExtentionMethods
 		/// <summary>
 		/// Rotates the transform so that a certain direction will be facing another direction
 		/// </summary>
-		public static void DirectionLookAt(this Transform transformToRotate, Direction directionToRotate, Direction lookAtDirection)
+		public static void DirectionLookAtDirection(this Transform transformToRotate, Direction directionToRotate, Direction lookAtDirection)
 		{
 			// The Enum values are ordered in a circle.
 			// If we rotate with the delta index of the directions
@@ -66,7 +66,7 @@ namespace ExtentionMethods
 		/// </summary>
 		public static void LookAt(this Transform transformToRotate, Direction lookAtDirection)
 		{
-			transformToRotate.DirectionLookAt(Direction.Forward, lookAtDirection);
+			transformToRotate.DirectionLookAtDirection(Direction.Forward, lookAtDirection);
 		}
 		
 		/// <summary>
