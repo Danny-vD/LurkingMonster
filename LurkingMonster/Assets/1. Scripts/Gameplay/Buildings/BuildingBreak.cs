@@ -15,7 +15,7 @@ namespace Gameplay.Buildings
 		private float foundationWeatherFactor;
 		private float soilWeatherFactor;
 
-		//Weather event variables
+		// Weather event variables
 		private float weatherEventTimeLength;
 		private float timerWeatherEvent;
 		private bool weatherEvent;
@@ -106,6 +106,8 @@ namespace Gameplay.Buildings
 		{
 			//TODO: change so that it does not immediately repair the house (has to be fixed through market)
 			crackPopup.SetActive(false);
+
+			buildingHealth.ResetHealth();
 
 			EventManager.Instance.RaiseEvent(new OpenMarketEvent(building));
 		}

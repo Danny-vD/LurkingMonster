@@ -45,7 +45,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   foundations:
   - foundationType: 0
-    prefab: {fileID: 6818269562256822877, guid: 6b95d8474802c2144a8b2a8fe0ef47e5, type: 3}
+    prefab: {fileID: 5383898165352170578, guid: bfeb45db77b94b24f9464182238b4050, type: 3}
   - foundationType: 1
     prefab: {fileID: 6818269562256822877, guid: 6b95d8474802c2144a8b2a8fe0ef47e5, type: 3}
   - foundationType: 2

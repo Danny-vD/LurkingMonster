@@ -12,7 +12,7 @@ namespace Gameplay.Buildings
 	[RequireComponent(typeof(Building))]
 	public class BuildingUpgrade : BetterMonoBehaviour
 	{
-		[FormerlySerializedAs("buildingTierData"),SerializeField]
+		[SerializeField]
 		private BuildingMeshData buildingMeshData = null;
 
 		private int maxTier;
