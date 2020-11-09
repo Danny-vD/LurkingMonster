@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buildCost: 200
   removeCost: 100
-  maxHealth: 50
+  maxHealth: 300
   materials: []
