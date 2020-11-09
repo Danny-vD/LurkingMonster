@@ -1,12 +1,17 @@
 ﻿using Gameplay.Buildings;
 using Structs.Buildings;
 using UnityEngine;
+using VDFramework.Extensions;
 
 namespace ScriptableObjects
 {
 	[CreateAssetMenu(menuName = "Building Data/BuildingTier Data")]
 	public class BuildingTierData : ScriptableObject
 	{
+		[SerializeField]
+		private GameObject[] Prefabs = new GameObject[0];
+
+		[Space]
 		[SerializeField, Tooltip("The percentage of the price that will be collected as rent")]
 		private int rentPercentage = 30;
 
@@ -30,6 +35,12 @@ namespace ScriptableObjects
 			return new BuildingData(GetPricePercentage(rentPercentage), weight, price, destructionCost, cleanupCosts, default, default, maxHealth);
 		}
 
+		public GameObject GetPrefab()
+		{
+			return Prefabs.GetRandomItem();
+		}
+		
+		
 		private int GetPricePercentage(int percentage)
 		{
 			return (int) (percentage / 100.0f * price);

@@ -54,7 +54,7 @@ namespace CustomWindow
 		{
 			EditorGUILayout.LabelField("Could not find grid data", EditorStyles.boldLabel);
 
-			if (GUILayout.Button("Find grid data in scene", EditorStyles.toolbarButton))
+			if (GUILayout.Button("Find grid data in scene", EditorStyles.miniButtonMid))
 			{
 				gridData = FindObjectOfType<GridData>();
 			}
@@ -86,7 +86,7 @@ namespace CustomWindow
 
 		private void DrawGenerateButton()
 		{
-			if (!GUILayout.Button("Generate Grid", EditorStyles.toolbarButton)) return;
+			if (!GUILayout.Button("Generate Grid", EditorStyles.miniButtonMid)) return;
 
 			gridData.GetComponent<GridCreator>().GenerateGrid(gridData, gridData.transform);
 		}

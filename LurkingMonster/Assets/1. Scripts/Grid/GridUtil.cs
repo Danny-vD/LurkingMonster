@@ -85,11 +85,9 @@ namespace Grid
 					{
 						buildingTile.SpawnBuilding();
 						
-						BuildingBreak buildingBreak = buildingTile.Building.GetComponent<BuildingBreak>();
+						BuildingHealth buildingHealth = buildingTile.Building.GetComponent<BuildingHealth>();
 
-						buildingBreak.BuildingHealth = tileData.BuildingHealth;
-						buildingBreak.FoundationHealth = tileData.FoundationHealth;
-						buildingBreak.SoilHealth = tileData.SoilHealth;
+						buildingHealth.SetCurrentHealth(tileData.SoilHealth, tileData.FoundationHealth, tileData.BuildingHealth);
 					}
 					else
 					{

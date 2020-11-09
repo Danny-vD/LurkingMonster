@@ -8,7 +8,7 @@ using VDFramework.Interfaces;
 namespace Structs.Buildings
 {
     [Serializable]
-    public struct BuildingDataPerBuildingType : IKeyValuePair<BuildingType, List<BuildingTierData>>
+    public struct BuildingTierDataPerBuildingType : IKeyValuePair<BuildingType, List<BuildingTierData>>
     {
         [SerializeField]
         private BuildingType buildingType;

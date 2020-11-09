@@ -11,20 +11,17 @@ namespace Gameplay.Buildings
 	{
 		public Bar bar;
 
-		private float buildingHealth;
-		private float soilHealth;
-		private float foundationHealth;
-
 		private float buildingWeatherFactor;
 		private float foundationWeatherFactor;
 		private float soilWeatherFactor;
 
-		//Weather event variables
+		// Weather event variables
 		private float weatherEventTimeLength;
 		private float timerWeatherEvent;
 		private bool weatherEvent;
 
 		private Building building;
+		private BuildingHealth buildingHealth;
 
 		private GameObject crackPopup;
 
@@ -34,21 +31,15 @@ namespace Gameplay.Buildings
 			crackPopup.SetActive(false);
 
 			weatherEvent = false;
-			building     = GetComponent<Building>();
+
+			building       = GetComponent<Building>();
+			buildingHealth = GetComponent<BuildingHealth>();
 		}
 
 		// Start is called before the first frame update
 		private void Start()
 		{
-			if (!UserSettings.SettingsExist)
-			{
-				// BUG: Doesn't reset health when you build a new Building. Needs to happen between Awake and Start to not override the loaded settings and give Building the time to be initialized
-				ResetHealth();
-			}
-
-			float maxTotalHealth = GetMaximumFoundationHealth() + GetMaximumSoilHealth() + GetMaxBuildingHealth();
-
-			bar.SetMax((int) maxTotalHealth);
+			bar.SetMax((int) buildingHealth.MaxTotalHealth);
 			EventManager.Instance.AddListener<RandomWeatherEvent>(OnWeatherEvent);
 		}
 
@@ -69,29 +60,31 @@ namespace Gameplay.Buildings
 				}
 			}
 
+			float damage = Time.deltaTime; // Use 1 external call instead of 3.
+
 			if (PowerUpManager.Instance.AvoidWeatherActive)
 			{
-				buildingHealth   -= Time.deltaTime;
-				foundationHealth -= Time.deltaTime;
-				soilHealth       -= Time.deltaTime;
+				buildingHealth.DamageSoil(damage);
+				buildingHealth.DamageFoundation(damage);
+				buildingHealth.DamageBuilding(damage);
 			}
 			else
 			{
-				//TODO CHANGE STUFF
-				buildingHealth   -= Time.deltaTime * (buildingWeatherFactor / 100 + 15);
-				foundationHealth -= Time.deltaTime * (foundationWeatherFactor / 100 + 15);
-				soilHealth       -= Time.deltaTime * (soilWeatherFactor / 100 + 15);
+				buildingHealth.DamageBuilding(damage * (buildingWeatherFactor / 100 + 15));
+				buildingHealth.DamageFoundation(damage * (foundationWeatherFactor / 100 + 15));
+				buildingHealth.DamageSoil(damage * (soilWeatherFactor / 100 + 15));
 			}
 
-			bar.SetValue((int) TotalHealth);
+			bar.SetValue((int) buildingHealth.TotalHealth);
 
+			//TODO: make 3 seperate popups instead?
 			//When health is less then 25% show cracks
-			if (TotalHealth <= bar.maxValue / 100 * 25 && !crackPopup.activeInHierarchy)
+			if (buildingHealth.TotalHealth <= bar.maxValue / 100 * 25 && !crackPopup.activeInHierarchy)
 			{
 				crackPopup.SetActive(true);
 			}
 
-			if (TotalHealth <= 0 && !PowerUpManager.Instance.AvoidMonsterFeedActive)
+			if (buildingHealth.TotalHealth <= 0 && !PowerUpManager.Instance.AvoidMonsterFeedActive)
 			{
 				building.RemoveBuilding(false);
 				EventManager.Instance.RaiseEvent(new BuildingConsumedEvent(building));
@@ -99,65 +92,25 @@ namespace Gameplay.Buildings
 			}
 		}
 
-		private void ResetHealth()
-		{
-			buildingHealth   = GetMaxBuildingHealth();
-			soilHealth       = GetMaximumSoilHealth();
-			foundationHealth = GetMaximumFoundationHealth();
-		}
-
 		public void OnWeatherEvent(RandomWeatherEvent randomWeatherEvent)
 		{
 			buildingWeatherFactor   += randomWeatherEvent.WeatherEventData.BuildingTime;
 			foundationWeatherFactor += randomWeatherEvent.WeatherEventData.FoundationTime;
 			soilWeatherFactor       += randomWeatherEvent.WeatherEventData.SoilTime;
-			weatherEventTimeLength  =  randomWeatherEvent.WeatherEventData.Timer;
-			weatherEvent            =  true;
-		}
 
-		public float GetMaxBuildingHealth()
-		{
-			return building.Data.MaxHealth;
+			weatherEventTimeLength = randomWeatherEvent.WeatherEventData.Timer;
+			weatherEvent           = true;
 		}
 
 		public void CrackedPopupClicked()
 		{
-			//TODO remove
-			ResetHealth();
+			//TODO: change so that it does not immediately repair the house (has to be fixed through market)
 			crackPopup.SetActive(false);
+
+			buildingHealth.ResetHealth();
 
 			EventManager.Instance.RaiseEvent(new OpenMarketEvent(building));
 		}
-
-		public float GetMaximumFoundationHealth()
-		{
-			return Switches.FoundationTypeSwitch(building.Data.Foundation);
-		}
-
-		public float GetMaximumSoilHealth()
-		{
-			return Switches.SoilTypeSwitch(building.Data.SoilType);
-		}
-
-		public float BuildingHealth
-		{
-			get => buildingHealth;
-			set => buildingHealth = value;
-		}
-
-		public float SoilHealth
-		{
-			get => soilHealth;
-			set => soilHealth = value;
-		}
-
-		public float FoundationHealth
-		{
-			get => foundationHealth;
-			set => foundationHealth = value;
-		}
-
-		public float TotalHealth => buildingHealth + soilHealth + foundationHealth;
 
 		private void OnDestroy()
 		{

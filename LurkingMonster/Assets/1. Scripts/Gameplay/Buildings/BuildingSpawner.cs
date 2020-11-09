@@ -15,25 +15,17 @@ namespace Gameplay.Buildings
 	public class BuildingSpawner : BetterMonoBehaviour
 	{
 		[SerializeField]
-		//TODO: Merge with FoundationData
-		private List<PrefabPerFoundationType> foundations = new List<PrefabPerFoundationType>();
-
-		[SerializeField]
-		private List<FoundationDataPerFoundationType> foundationData = new List<FoundationDataPerFoundationType>();
-		
-		[SerializeField]
 		private List<SoilDataPerSoilType> soilData = new List<SoilDataPerSoilType>();
 		
 		[SerializeField]
-		//TODO: Merge with buildingData
-		private List<PrefabPerBuildingType> buildings = new List<PrefabPerBuildingType>();
+		private List<FoundationDataPerFoundationType> foundationData = new List<FoundationDataPerFoundationType>();
 
 		[SerializeField]
-		private List<BuildingDataPerBuildingType> buildingTierData = new List<BuildingDataPerBuildingType>();
+		private List<BuildingTierDataPerBuildingType> buildingTierData = new List<BuildingTierDataPerBuildingType>();
 
 		public Building Spawn(BuildingType buildingType, FoundationType foundationType, SoilType soilType)
 		{
-			GameObject prefab = buildings.First(pair => pair.Key.Equals(buildingType)).Value;
+			GameObject prefab = buildingTierData.First(pair => pair.Key.Equals(buildingType)).Value[0].GetPrefab();
 			GameObject instance = Instantiate(prefab, CachedTransform.position, CachedTransform.rotation, CachedTransform);
 
 			instance.name = buildingType.ToString().InsertSpaceBeforeCapitals();
@@ -72,7 +64,7 @@ namespace Gameplay.Buildings
 
 		public GameObject SpawnFoundation(FoundationType foundationType)
 		{
-			GameObject prefab = foundations.First(pair => pair.Key.Equals(foundationType)).Value;
+			GameObject prefab = foundationData.First(pair => pair.Key.Equals(foundationType)).Value.Prefabs.GetRandomItem();
 			GameObject instance = Instantiate(prefab, CachedTransform.position, CachedTransform.rotation);
 
 			instance.name = foundationType.ToString().InsertSpaceBeforeCapitals();
@@ -84,16 +76,10 @@ namespace Gameplay.Buildings
 		public void PopulateDictionaries()
 		{
 			EnumDictionaryUtil
-				.PopulateEnumDictionary<PrefabPerFoundationType, FoundationType, GameObject>(foundations);
-
-			EnumDictionaryUtil
 				.PopulateEnumDictionary<FoundationDataPerFoundationType, FoundationType, FoundationTypeData>(foundationData);
 
 			EnumDictionaryUtil
-				.PopulateEnumDictionary<PrefabPerBuildingType, BuildingType, GameObject>(buildings);
-
-			EnumDictionaryUtil
-				.PopulateEnumDictionary<BuildingDataPerBuildingType, BuildingType, List<BuildingTierData>>(buildingTierData);
+				.PopulateEnumDictionary<BuildingTierDataPerBuildingType, BuildingType, List<BuildingTierData>>(buildingTierData);
 			
 			EnumDictionaryUtil
 				.PopulateEnumDictionary<SoilDataPerSoilType, SoilType, SoilTypeData>(soilData);

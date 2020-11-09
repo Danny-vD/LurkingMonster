@@ -11,7 +11,6 @@ namespace IO
         public void RemoveFile()
         {
             string path = $"{Application.persistentDataPath}/{fileToDelete}";
-            print(path);
             
             if (File.Exists(path))
             {

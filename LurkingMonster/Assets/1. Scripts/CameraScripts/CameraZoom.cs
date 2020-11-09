@@ -18,7 +18,7 @@ namespace CameraScripts
 		[SerializeField, Tooltip("The size to which you can zoom in")]
 		private float MaximumZoom = 10;
 
-		private UnityEngine.Camera playerCamera; // Fully qualified to not conflict with Camera namespace
+		private Camera playerCamera;
 		
 		private float lastDistance;
 
@@ -52,17 +52,22 @@ namespace CameraScripts
 		{
 			return Mathf.InverseLerp(MinimumZoom, MaximumZoom, playerCamera.orthographicSize);
 		}
-		
+
+		public Vector2 GetMinMaxZoom()
+		{
+			return new Vector2(MinimumZoom, MaximumZoom);
+		}
+
 		private void ScrollZoom()
 		{
 			float scroll = Input.mouseScrollDelta.y;
 
-			playerCamera.orthographicSize -= scroll * 5; // Hard coded for non-mobile
+			playerCamera.orthographicSize -= scroll;
 		}
 
 		private void PinchZoom()
 		{
-			if (Input.touchCount < 2) // need at least 2 fingers to pinch
+			if (Input.touchCount < 2) // Need at least 2 fingers to pinch
 			{
 				return;
 			}

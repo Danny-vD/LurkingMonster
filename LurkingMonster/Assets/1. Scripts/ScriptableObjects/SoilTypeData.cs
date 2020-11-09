@@ -1,17 +1,17 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace ScriptableObjects
 {
 	[CreateAssetMenu(menuName = "Building Data/SoilType Data")]
 	public class SoilTypeData : ScriptableObject
 	{
-		public int buildCost = 200;
+		public Material[] Materials = new Material[0];
 		
-		public int removeCost = 100;
+		[Space]
+		public int BuildCost = 200;
+		
+		public int RemoveCost = 100;
 
-		public float maxHealth = 50;
-
-		public Material[] materials = new Material[0];
+		public float MaxHealth = 50;
 	}
 }

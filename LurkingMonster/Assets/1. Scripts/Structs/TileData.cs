@@ -11,6 +11,8 @@ namespace Structs
 	[Serializable]
 	public class TileData
 	{
+		// TODO: split up between structs?
+		
 		private TileType tileType;
 		private BuildingType buildingType;
 		private int buildingTier;
@@ -18,10 +20,10 @@ namespace Structs
 		private FoundationType foundationType;
 		private bool foundationExists;
 		private bool debrisExists;
+		
 		private float buildingHealth;
 		private float foundationHealth;
 		private float soilHealth;
-
 
 		public TileType TileType => tileType;
 
@@ -34,15 +36,15 @@ namespace Structs
 		public FoundationType FoundationType => foundationType;
 
 		public bool FoundationExists => foundationExists;
-		
+
 		public bool DebrisExists => debrisExists;
 
 		public float BuildingHealth => buildingHealth;
-		
+
 		public float FoundationHealth => foundationHealth;
-		
+
 		public float SoilHealth => soilHealth;
-		
+
 		public TileData(AbstractTile tile)
 		{
 			tileType = tile.TileType;
@@ -56,22 +58,22 @@ namespace Structs
 			{
 				foundationExists = buildingTile.HasFoundation;
 				debrisExists     = buildingTile.HasDebris;
-				
+
 				if (buildingTile.Building == null)
 				{
 					return;
 				}
 
-				buildingType     = buildingTile.GetBuildingType();
-				buildingTier     = buildingTile.Building.CurrentTier;
-				soilType         = buildingTile.GetSoilType();
-				foundationType   = buildingTile.GetFoundationType();
+				buildingType   = buildingTile.GetBuildingType();
+				buildingTier   = buildingTile.Building.CurrentTier;
+				soilType       = buildingTile.GetSoilType();
+				foundationType = buildingTile.GetFoundationType();
 
-				BuildingBreak buildingBreak = buildingTile.Building.GetComponent<BuildingBreak>();
+				BuildingHealth buildingHealth = buildingTile.Building.GetComponent<BuildingHealth>();
 
-				buildingHealth   = buildingBreak.BuildingHealth;
-				foundationHealth = buildingBreak.FoundationHealth;
-				soilHealth       = buildingBreak.SoilHealth;
+				this.buildingHealth = buildingHealth.CurrentBuildingHealth;
+				foundationHealth    = buildingHealth.CurrentFoundationHealth;
+				soilHealth          = buildingHealth.CurrentSoilHealth;
 			}
 		}
 	}
