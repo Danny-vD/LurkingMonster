@@ -15,6 +15,8 @@ namespace Singletons
 		private Dictionary<FoundationType, bool> foundationReward;
 		private Dictionary<BuildingType, bool> buildingReward;
 
+		private int counter = 0;
+		
 		protected override void Awake()
 		{
 			soilReward = new Dictionary<SoilType, bool>();
@@ -60,9 +62,14 @@ namespace Singletons
 					break;
 			}
 
-			//Print(obj);
+			counter--;
 		}
 
+		public void IncreaseCounter()
+		{
+			counter++;
+		}
+		
 		private void Print(object obj)
 		{
 			foreach (KeyValuePair<SoilType, bool> soil in soilReward)
@@ -99,5 +106,7 @@ namespace Singletons
 				buildingReward.Add(buildingType, false);
 			}	
 		}
+
+		public int Counter => counter;
 	}
 }

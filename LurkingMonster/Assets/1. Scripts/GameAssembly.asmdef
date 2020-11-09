@@ -1,7 +1,8 @@
 {
     "name": "GameAssembly",
     "references": [
-        "FmodAssembly"
+        "FmodAssembly",
+        "Unity.TextMeshPro"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

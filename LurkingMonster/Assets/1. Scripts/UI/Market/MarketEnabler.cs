@@ -43,7 +43,7 @@ namespace UI.Market
 		{
 			market.SetActive(true);
 			
-			objectsToDisable.ForEach(@object => @object.gameObject.SetActive(false));
+			objectsToDisable.ForEach(@object => @object.SetActive(false));
 		}
 	}
 }
