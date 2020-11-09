@@ -56,9 +56,16 @@ namespace UI.Market
 
 		private void OnMarketOpened(OpenMarketEvent openMarketEvent)
 		{
-			SetBuyButton(openMarketEvent.BuildingTile);
-			SetBuyFoundationButton(openMarketEvent.BuildingTile);
-			SetDestroyButton(openMarketEvent.BuildingTile);
+			AbstractBuildingTile buildingTile = openMarketEvent.BuildingTile;
+			
+			if (!buildingTile)
+			{
+				buildingTile = openMarketEvent.Building.GetComponentInParent<AbstractBuildingTile>();
+			}
+			
+			SetBuyButton(buildingTile);
+			SetBuyFoundationButton(buildingTile);
+			SetDestroyButton(buildingTile);
 		}
 
 		private void SetBuyButton(AbstractBuildingTile buildingTile)

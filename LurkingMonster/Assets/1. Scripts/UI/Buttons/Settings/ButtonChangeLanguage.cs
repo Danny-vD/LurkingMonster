@@ -1,19 +1,46 @@
 ﻿using System;
 using Enums;
+using Events;
+using UnityEngine;
+using UnityEngine.UI;
 using VDFramework;
+using VDFramework.EventSystem;
 
-namespace UI.Buttons
+namespace UI.Buttons.Settings
 {
 	public class ButtonChangeLanguage : BetterMonoBehaviour
 	{
-		public void ChangeLanguageToEnglish()
-		{
-			LanguageSettings.Language = Language.EN;
-		}
+		[SerializeField]
+		private Sprite selected;
 		
-		public void ChangeLanguageToDutch()
+		[SerializeField]
+		private Sprite notSelected;
+		
+		[SerializeField]
+		private Language languageToSet = Language.NL;
+
+		private Image image;
+		
+		private void Awake()
 		{
-			LanguageSettings.Language = Language.NL;
+			GetComponent<Button>().onClick.AddListener(SetLanguage);
+			image = GetComponent<Image>();
+			EventManager.Instance.AddListener<LanguageChangedEvent>(ChangeSprite);
+		}
+
+		private void SetLanguage()
+		{
+			LanguageSettings.Language = languageToSet;
+		}
+
+		private void ChangeSprite()
+		{
+			image.sprite = LanguageSettings.Language == languageToSet ? selected : notSelected;
+		}
+
+		private void OnDestroy()
+		{
+			EventManager.Instance.RemoveListener<LanguageChangedEvent>(ChangeSprite);
 		}
 	}
 }

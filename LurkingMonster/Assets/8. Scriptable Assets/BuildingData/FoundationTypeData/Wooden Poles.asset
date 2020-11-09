@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 812fa6569c454136b1058f296eecfc3b, type: 3}
   m_Name: Wooden Poles
   m_EditorClassIdentifier: 
+  Prefabs:
+  - {fileID: 5383898165352170578, guid: bfeb45db77b94b24f9464182238b4050, type: 3}
   BuildCost: 200
   DestroyCost: 500

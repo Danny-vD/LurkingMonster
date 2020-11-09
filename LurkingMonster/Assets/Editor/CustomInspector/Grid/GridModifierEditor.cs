@@ -87,7 +87,7 @@ namespace CustomInspector.Grid
 		{
 			regenerateGrid = EditorGUILayout.Toggle("Regenerate Grid", regenerateGrid);
 
-			if (!GUILayout.Button("Modify tiles", EditorStyles.toolbarButton)) return;
+			if (!GUILayout.Button("Modify tiles", EditorStyles.miniButtonMid)) return;
 
 			gridModifier.ModifyTiles(regenerateGrid);
 		}

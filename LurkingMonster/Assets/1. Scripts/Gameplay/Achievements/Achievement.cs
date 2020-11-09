@@ -4,6 +4,7 @@ using System.Data;
 using Enums;
 using IO;
 using Singletons;
+using Structs;
 using UnityEngine;
 using UnityEngine.UI;
 using Utility;
@@ -13,7 +14,7 @@ namespace Gameplay.Achievements
 	public class Achievement
 	{
 		private readonly int[] limits;
-		private readonly bool[] unlocked;
+		private bool[] unlocked;
 		private readonly string keyMessage;
 		private int counter;
 
@@ -57,6 +58,18 @@ namespace Gameplay.Achievements
 			}
 		}
 
+		public AchievementData GetData()
+		{
+			return new AchievementData(counter, unlocked, rewardsCollected);
+		}
+
+		public void SetData(AchievementData data)
+		{
+			counter          = data.counter;
+			unlocked         = data.unlocked;
+			rewardsCollected = data.collected;
+		}
+		
 		public void CollectReward()
 		{
 			int i = GetIndexFirstNotCollectedReward();

@@ -39,24 +39,26 @@ namespace Gameplay.Buildings
 
 		public BuildingType BuildingType { get; private set; }
 
-		public void Instantiate(BuildingType type, BuildingData[] buildingData)
+		public void Initialize(BuildingType type, BuildingData[] buildingData)
 		{
 			BuildingType = type;
 			data         = buildingData;
+
+			GetComponent<BuildingHealth>().Initialize(200.0f, 500.0f, Data.MaxHealth);
 		}
 
 		public void RemoveBuilding(bool payForRemoval)
 		{
 			if (payForRemoval)
 			{
-				if (!MoneyManager.Instance.PlayerHasEnoughMoney(GlobalData.DestructionCost))
+				if (!MoneyManager.Instance.PlayerHasEnoughMoney(Data.DestructionCost))
 				{
 					return;
 				}
-				
-				EventManager.Instance.RaiseEvent(new DecreaseMoneyEvent(GlobalData.DestructionCost));
+
+				EventManager.Instance.RaiseEvent(new DecreaseMoneyEvent(Data.DestructionCost));
 			}
-			
+
 			Destroy(gameObject);
 			EventManager.Instance.RaiseEvent(new BuildingDestroyedEvent());
 		}

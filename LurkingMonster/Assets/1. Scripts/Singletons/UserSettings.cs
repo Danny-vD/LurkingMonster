@@ -2,6 +2,7 @@
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using Audio;
+using Enums;
 using Enums.Audio;
 using Grid;
 using Grid.Tiles;
@@ -95,7 +96,7 @@ namespace Singletons
 			}
 		}
 
-		public static void ReloadData()
+		private static void ReloadData()
 		{
 			FileStream file;
 
@@ -112,8 +113,14 @@ namespace Singletons
 			BinaryFormatter bf = new BinaryFormatter();
 			gameData = (GameData) bf.Deserialize(file);
 			file.Close();
-			
+
 			SetVolumeOnLoad();
+			SetLanguageOnLoad();
+		}
+
+		private static void SetLanguageOnLoad()
+		{
+			LanguageSettings.Language = gameData.Language;
 		}
 
 		private static void SetVolumeOnLoad()
@@ -149,12 +156,13 @@ namespace Singletons
 			BinaryFormatter bf = new BinaryFormatter();
 			bf.Serialize(file, gameData);
 			file.Close();
+			
 		}
 
 		public void NewGame()
 		{
 			gameData = new GameData("", "", startMoney, true, 1f, 1f,
-				new Dictionary<Vector2IntSerializable, TileData>());
+				new Dictionary<Vector2IntSerializable, TileData>(), Language.NL, new AchievementData[0]);
 
 			RunTimeTests.TestStartMoney();
 		}

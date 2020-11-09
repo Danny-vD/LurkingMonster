@@ -55,11 +55,12 @@ namespace Singletons
 					buildingReward[type3] = true;
 					break;
 				case PowerUpType type4:
+					print("Raise increased event");
 					EventManager.Instance.RaiseEvent(new PowerUpIncreaseEvent(type4));
 					break;
 			}
 
-			Print(obj);
+			//Print(obj);
 		}
 
 		private void Print(object obj)

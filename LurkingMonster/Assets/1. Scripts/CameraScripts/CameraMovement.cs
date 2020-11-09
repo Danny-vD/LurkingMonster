@@ -5,6 +5,7 @@ using VDFramework;
 
 namespace CameraScripts
 {
+	[RequireComponent(typeof(CameraZoom))]
 	public class CameraMovement : BetterMonoBehaviour
 	{
 		[SerializeField]
@@ -13,8 +14,11 @@ namespace CameraScripts
 		[SerializeField]
 		private float deadZone = 0.2f;
 
-		[SerializeField, Tooltip("The % that the movement slows down and speeds up when fully zoomed in and out respectively"), Range(0, 1)]
+		[SerializeField, Tooltip("The % that the movement slows down when fully zoomed in"), Range(0, 1)]
 		private float zoomSlowDown = 0.75f;
+		
+		[SerializeField, Tooltip("The % that the movement speeds up when fully out respectively"), Range(0, 1)]
+		private float zoomSpeedUp = 0.75f;
 
 		private CameraZoom cameraZoom;
 
@@ -118,7 +122,7 @@ namespace CameraScripts
 			{
 				percentageApplied = Mathf.InverseLerp(0.5f, 0, zoomfactor);
 
-				speedFactor += zoomSlowDown * percentageApplied;
+				speedFactor += zoomSpeedUp * percentageApplied;
 			}
 		}
 	}

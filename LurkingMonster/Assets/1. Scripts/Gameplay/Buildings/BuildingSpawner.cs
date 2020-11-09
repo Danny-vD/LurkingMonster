@@ -15,26 +15,23 @@ namespace Gameplay.Buildings
 	public class BuildingSpawner : BetterMonoBehaviour
 	{
 		[SerializeField]
-		private List<PrefabPerFoundationType> foundations = new List<PrefabPerFoundationType>();
-
+		private List<SoilDataPerSoilType> soilData = new List<SoilDataPerSoilType>();
+		
 		[SerializeField]
 		private List<FoundationDataPerFoundationType> foundationData = new List<FoundationDataPerFoundationType>();
 
 		[SerializeField]
-		private List<PrefabPerBuildingType> buildings = new List<PrefabPerBuildingType>();
-
-		[SerializeField]
-		private List<BuildingDataPerBuildingType> buildingTierData = new List<BuildingDataPerBuildingType>();
+		private List<BuildingTierDataPerBuildingType> buildingTierData = new List<BuildingTierDataPerBuildingType>();
 
 		public Building Spawn(BuildingType buildingType, FoundationType foundationType, SoilType soilType)
 		{
-			GameObject prefab = buildings.First(pair => pair.Key.Equals(buildingType)).Value;
-			GameObject instance = Instantiate(prefab, CachedTransform.position, CachedTransform.rotation);
+			GameObject prefab = buildingTierData.First(pair => pair.Key.Equals(buildingType)).Value[0].GetPrefab();
+			GameObject instance = Instantiate(prefab, CachedTransform.position, CachedTransform.rotation, CachedTransform);
 
 			instance.name = buildingType.ToString().InsertSpaceBeforeCapitals();
 
 			Building building = instance.GetComponent<Building>();
-			building.Instantiate(buildingType, GetBuildingData(buildingType, foundationType, soilType));
+			building.Initialize(buildingType, GetBuildingData(buildingType, foundationType, soilType));
 
 			//TODO: make an option to not raise event
 			EventManager.Instance.RaiseEvent(new BuildingBuildEvent());
@@ -42,10 +39,9 @@ namespace Gameplay.Buildings
 			return building;
 		}
 
-		public BuildingData[] GetBuildingData(BuildingType buildingType, FoundationType foundationType,
-			SoilType                                       soilType)
+		public BuildingData[] GetBuildingData(BuildingType buildingType, FoundationType foundationType, SoilType soilType)
 		{
-			List<BuildingTypeData> buildingTypeData = buildingTierData.First(pair => pair.Key.Equals(buildingType)).Value;
+			List<BuildingTierData> buildingTypeData = buildingTierData.First(pair => pair.Key.Equals(buildingType)).Value;
 			BuildingData[] data = new BuildingData[buildingTypeData.Count];
 
 			for (int i = 0; i < buildingTypeData.Count; i++)
@@ -68,7 +64,7 @@ namespace Gameplay.Buildings
 
 		public GameObject SpawnFoundation(FoundationType foundationType)
 		{
-			GameObject prefab = foundations.First(pair => pair.Key.Equals(foundationType)).Value;
+			GameObject prefab = foundationData.First(pair => pair.Key.Equals(foundationType)).Value.Prefabs.GetRandomItem();
 			GameObject instance = Instantiate(prefab, CachedTransform.position, CachedTransform.rotation);
 
 			instance.name = foundationType.ToString().InsertSpaceBeforeCapitals();
@@ -80,13 +76,13 @@ namespace Gameplay.Buildings
 		public void PopulateDictionaries()
 		{
 			EnumDictionaryUtil
-				.PopulateEnumDictionary<PrefabPerFoundationType, FoundationType, GameObject>(foundations);
-			EnumDictionaryUtil
 				.PopulateEnumDictionary<FoundationDataPerFoundationType, FoundationType, FoundationTypeData>(foundationData);
+
 			EnumDictionaryUtil
-				.PopulateEnumDictionary<PrefabPerBuildingType, BuildingType, GameObject>(buildings);
+				.PopulateEnumDictionary<BuildingTierDataPerBuildingType, BuildingType, List<BuildingTierData>>(buildingTierData);
+			
 			EnumDictionaryUtil
-				.PopulateEnumDictionary<BuildingDataPerBuildingType, BuildingType, List<BuildingTypeData>>(buildingTierData);
+				.PopulateEnumDictionary<SoilDataPerSoilType, SoilType, SoilTypeData>(soilData);
 		}
 #endif
 	}

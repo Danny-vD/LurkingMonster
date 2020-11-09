@@ -6,10 +6,13 @@
 		SmallBuilding,
 		BigBuilding,
 		Tree,
-		Road,
+		RoadStraight,
 		RoadEnd,
-		RoadRoundabout,
+		RoadRoundaboutCentre,
+		RoadRoundaboutEntrance,
+		RoadRoundaboutCorner,
 		RoadCorner,
 		RoadTSection,
+		RoadIntersection,
 	}
 }
