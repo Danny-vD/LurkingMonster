@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using System.Data;
 using Enums;
+using Events;
 using IO;
 using Singletons;
 using Structs;
 using UnityEngine;
 using UnityEngine.UI;
 using Utility;
+using VDFramework.EventSystem;
 
 namespace Gameplay.Achievements
 {
@@ -49,8 +51,10 @@ namespace Gameplay.Achievements
 						unlocked[i] = true;
 						
 						//For now show message
-						MessageManager.Instance.ShowMessageGameUI(LanguageUtil.GetJsonString("ACHIEVEMENT_UNLOCKED"), Color.green);
-
+						//MessageManager.Instance.ShowMessageGameUI(LanguageUtil.GetJsonString("ACHIEVEMENT_UNLOCKED"), Color.green);
+						RewardManager.Instance.IncreaseCounter();
+						EventManager.Instance.RaiseEvent(new AchievementUnlockedEvent());
+						
 						//TODO show achievement!!
 						return;
 					}

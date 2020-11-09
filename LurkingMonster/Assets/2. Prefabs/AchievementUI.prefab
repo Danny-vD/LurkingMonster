@@ -443,11 +443,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96f88a5dc3fa4ac40b39fe5cfbca0d39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parent: {fileID: 0}
+  parent: {fileID: 4754912547741685802}
   prefabImage: {fileID: 2277310962652356669, guid: 30931c39d8bd34f4f9d210758d886b48, type: 3}
   unlockedColor: {r: 0.11612021, g: 0.764151, b: 0.025231415, a: 1}
   lockedColor: {r: 0.7924528, g: 0.18316127, b: 0.18316127, a: 1}
-  collectReward: {fileID: 0}
+  collectReward: {fileID: 4675197183078135986}
 --- !u!1 &6475424643440965883
 GameObject:
   m_ObjectHideFlags: 0

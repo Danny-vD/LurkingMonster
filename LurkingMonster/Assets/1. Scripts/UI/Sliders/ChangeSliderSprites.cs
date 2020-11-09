@@ -8,7 +8,7 @@ namespace UI.Buttons
 	public class ChangeSliderSprites : BetterMonoBehaviour
 	{
 		[SerializeField]
-		Sprite[] sprites = new Sprite[0];
+		private Sprite[] sprites = new Sprite[0];
 
 		[SerializeField]
 		private Slider slider;

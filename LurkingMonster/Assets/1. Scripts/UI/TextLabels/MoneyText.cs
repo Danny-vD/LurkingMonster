@@ -1,20 +1,21 @@
 ﻿using Enums;
 using Events;
 using Singletons;
+using TMPro;
 using UnityEngine.UI;
 using Utility;
 using VDFramework;
 using VDFramework.EventSystem;
 
-namespace UI
+namespace UI.TextLabels
 {
 	public class MoneyText : BetterMonoBehaviour
 	{
-		private Text moneyText;
+		private TextMeshProUGUI moneyText;
 
 		private void Start()
 		{
-			moneyText = GetComponent<Text>();
+			moneyText = GetComponent<TextMeshProUGUI>();
 			AddMoneyListener();
 
 			SetText();
@@ -28,7 +29,7 @@ namespace UI
 
 		private void SetText()
 		{
-			moneyText.text = LanguageUtil.GetJsonString("MONEY") + MoneyManager.Instance.CurrentMoney;
+			moneyText.text = MoneyManager.Instance.CurrentMoney.ToString();
 		}
 
 		private void OnMoneyChanged(MoneyChangedEvent moneyChangedEvent)
