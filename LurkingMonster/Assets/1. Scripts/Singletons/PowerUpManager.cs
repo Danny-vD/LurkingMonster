@@ -12,6 +12,9 @@ namespace Singletons
 	public class PowerUpManager : Singleton<PowerUpManager>
 	{
 		[SerializeField]
+		private PowerUpTimer powerUpTimer;
+		
+		[SerializeField]
 		private int avoidMonsters;
 		
 		[SerializeField]
@@ -22,11 +25,13 @@ namespace Singletons
 
 		private PowerUp[] powerUps;
 
+		private bool powerUpActive;
+
 		private void Start()
 		{
-			avoidMonsters = 0;
-			fixProblems   = 0;
-			avoidWeather  = 0;
+			avoidMonsters = 1;
+			fixProblems   = 1;
+			avoidWeather  = 1;
 
 			powerUps = new[]
 			{
@@ -42,25 +47,9 @@ namespace Singletons
 		{
 			PowerUp powerUp = powerUps.First(item => item.PowerUpType == powerUpType);
 			powerUp.IsActive = true;
-			StartNewTimer(powerUp.Timer, (() => DeactivatePowerUp(powerUpType)));
-		}
-		
-		private void AddPowerUp(PowerUpIncreaseEvent powerType)
-		{
-			switch (powerType.Type)
-			{
-				case PowerUpType.AvoidMonster:
-					++avoidMonsters;
-					break;
-				case PowerUpType.FixProblems:
-					++fixProblems;
-					break;
-				case PowerUpType.AvoidWeatherEvent:
-					++avoidWeather;
-					break;
-				default:
-					throw new ArgumentOutOfRangeException(nameof(powerType.Type), powerType.Type, null);
-			}
+			powerUpTimer.StartTimer(powerUp.Timer, () => DeactivatePowerUp(powerUpType), powerUpType);
+			
+			ChangePowerUpAmount(powerUpType, -1);
 		}
 
 		private void DeactivatePowerUp(PowerUpType powerUpType)
@@ -68,10 +57,28 @@ namespace Singletons
 			PowerUp powerUp = powerUps.First(item => item.PowerUpType == powerUpType);
 			powerUp.IsActive = false;
 		}
-		
-		private void StartNewTimer(float timer, Action action)
+
+		private void AddPowerUp(PowerUpIncreaseEvent powerType)
 		{
-			new GameObject().AddComponent<PowerUpTimer>().Initiate(timer, action);
+			ChangePowerUpAmount(powerType.Type, 1);
+		}
+
+		private void ChangePowerUpAmount(PowerUpType powerType, int amount)
+		{
+			switch (powerType)
+			{
+				case PowerUpType.AvoidMonster:
+					avoidMonsters += amount;
+					break;
+				case PowerUpType.FixProblems:
+					fixProblems += amount;
+					break;
+				case PowerUpType.AvoidWeatherEvent:
+					avoidWeather += amount;
+					break;
+				default:
+					throw new ArgumentOutOfRangeException(nameof(powerType), powerType, null);
+			}
 		}
 
 		public bool AvoidMonsterFeedActive => powerUps[0].IsActive;
@@ -79,6 +86,10 @@ namespace Singletons
 
 		public bool AvoidWeatherActive => powerUps[2].IsActive;
 
+		public bool CheckIfAnPowerUpIsActive()
+		{
+			return powerUps.Any(powerUp => powerUp.IsActive);
+		}
 		
 		public int AvoidMonsters
 		{
