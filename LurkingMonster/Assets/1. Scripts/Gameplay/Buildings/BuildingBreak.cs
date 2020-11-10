@@ -9,6 +9,9 @@ namespace Gameplay.Buildings
 {
 	public class BuildingBreak : BetterMonoBehaviour
 	{
+		[SerializeField]
+		private GameObject crackPopup = null;
+		
 		public Bar bar;
 
 		private float buildingWeatherFactor;
@@ -23,11 +26,9 @@ namespace Gameplay.Buildings
 		private Building building;
 		private BuildingHealth buildingHealth;
 
-		private GameObject crackPopup;
 
 		public void Awake()
 		{
-			crackPopup = CachedTransform.GetChild(0).Find("btnCrackHouse").gameObject;
 			crackPopup.SetActive(false);
 
 			weatherEvent = false;
