@@ -12,7 +12,10 @@ namespace Utility
 
 		private void OnDisable()
 		{
-			TimeManager.Instance.UnPause();
+			if (TimeManager.IsInitialized)
+			{
+				TimeManager.Instance.UnPause();
+			}
 		}
 	}
 }

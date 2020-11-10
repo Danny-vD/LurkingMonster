@@ -9,7 +9,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: Tree
   m_Shader: {fileID: 4800000, guid: 3da4a14e13c110547b4375e5206e36c5, type: 3}
-  m_ShaderKeywords: _COLORTYPE_TEXTURE
+  m_ShaderKeywords: _COLORTYPE_TEXTURE _ENABLESHADOWS_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -40,7 +40,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: be2c2257a07361a46bb6cc8e0e6f3062, type: 3}
+        m_Texture: {fileID: 2800000, guid: 1db53e21aa1113548836a82e324a006c, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -61,6 +61,7 @@ Material:
     - _DetailNormalMapScale: 1
     - _DistanceFactor: 20
     - _DstBlend: 0
+    - _EnableShadows: 1
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1

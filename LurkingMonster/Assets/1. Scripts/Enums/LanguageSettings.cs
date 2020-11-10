@@ -1,4 +1,8 @@
-﻿namespace Enums
+﻿using Events;
+using UnityEngine;
+using VDFramework.EventSystem;
+
+namespace Enums
 {
     // ReSharper disable InconsistentNaming
     public enum Language : int
@@ -10,6 +14,16 @@
 
     public static class LanguageSettings
     {
-        public static Language Language { get; set; } = 0;
-    }
+		private static Language language = 0;
+
+		public static Language Language
+		{
+			get => language;
+			set
+			{
+				language = value; 
+				EventManager.Instance.RaiseEvent(new LanguageChangedEvent());
+			}
+		}
+	}
 }

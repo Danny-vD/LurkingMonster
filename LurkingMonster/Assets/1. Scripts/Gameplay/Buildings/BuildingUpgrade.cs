@@ -1,8 +1,9 @@
-﻿using Enums;
+using Enums;
 using Events;
 using ScriptableObjects;
 using Singletons;
 using UnityEngine;
+using UnityEngine.Serialization;
 using VDFramework;
 using VDFramework.EventSystem;
 
@@ -12,7 +13,7 @@ namespace Gameplay.Buildings
 	public class BuildingUpgrade : BetterMonoBehaviour
 	{
 		[SerializeField]
-		private BuildingTierData buildingTierData = null;
+		private BuildingMeshData buildingMeshData = null;
 
 		private int maxTier;
 
@@ -20,38 +21,47 @@ namespace Gameplay.Buildings
 		private MeshFilter meshFilter;
 		private BuildingType buildingType;
 
-		private void Start()
+		private void Awake()
 		{
 			meshFilter = GetComponent<MeshFilter>();
 
-			building = GetComponent<Building>();
+			building     = GetComponent<Building>();
 			buildingType = building.BuildingType;
 
-			maxTier = buildingTierData.GetMaxTier(buildingType);
+			if (!buildingMeshData)
+			{
+				Debug.LogError("Mesh Tier data is not set!", gameObject);
+			}
+
+			maxTier         = buildingMeshData.GetMaxTier(buildingType);
+			meshFilter.mesh = buildingMeshData.GetMesh(buildingType, building.CurrentTier);
 		}
 
 		public bool CanUpgrade()
 		{
 			return building.CurrentTier < maxTier;
 		}
-		
-		public void Upgrade()
+
+		public void Upgrade(bool payForUpgrade)
 		{
 			if (!CanUpgrade())
 			{
 				return;
 			}
 
-			int upgradeCost = building.UpgradeCost;
-
-			if (!MoneyManager.Instance.PlayerHasEnoughMoney(upgradeCost))
+			if (payForUpgrade)
 			{
-				return;
+				int upgradeCost = building.UpgradeCost;
+
+				if (!MoneyManager.Instance.PlayerHasEnoughMoney(upgradeCost))
+				{
+					return;
+				}
+
+				EventManager.Instance.RaiseEvent(new DecreaseMoneyEvent(upgradeCost));
 			}
 
-			EventManager.Instance.RaiseEvent(new DecreaseMoneyEvent(upgradeCost));
-			
-			meshFilter.mesh = buildingTierData.GetMesh(buildingType, ++building.CurrentTier);
+			meshFilter.mesh = buildingMeshData.GetMesh(buildingType, ++building.CurrentTier);
 		}
 	}
 }

@@ -7,10 +7,10 @@ using static Utility.EditorUtils;
 
 namespace CustomInspector
 {
-	[CustomEditor(typeof(BuildingTierData))]
+	[CustomEditor(typeof(BuildingMeshData))]
 	public class BuildingTierDataEditor : Editor
 	{
-		private BuildingTierData buildingTierData;
+		private BuildingMeshData buildingMeshData;
 
 		private bool[] buildingTierMeshPerBuildingTypesFoldouts;
 
@@ -19,8 +19,8 @@ namespace CustomInspector
 
 		private void OnEnable()
 		{
-			buildingTierData = target as BuildingTierData;
-			buildingTierData.PopulateDictionaries();
+			buildingMeshData = target as BuildingMeshData;
+			buildingMeshData.PopulateDictionaries();
 
 			buildingTierMeshPerBuildingTypes = serializedObject.FindProperty("buildingTierMeshPerBuildingTypes");
 
@@ -37,7 +37,7 @@ namespace CustomInspector
 			serializedObject.ApplyModifiedProperties();
 		}
 
-		private void DrawMeshArray(int index, SerializedProperty buildingType, SerializedProperty meshes)
+		private static void DrawMeshArray(int index, SerializedProperty buildingType, SerializedProperty meshes)
 		{
 			meshes.arraySize = Mathf.Clamp(EditorGUILayout.IntField("Tier Count", meshes.arraySize), 0, int.MaxValue);
 			

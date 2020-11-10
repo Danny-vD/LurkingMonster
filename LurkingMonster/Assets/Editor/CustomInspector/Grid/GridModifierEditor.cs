@@ -7,6 +7,9 @@ using static Utility.EditorUtils;
 
 namespace CustomInspector.Grid
 {
+	using System.Collections.Generic;
+	using System.Linq;
+
 	[CustomEditor(typeof(GridModifier))]
 	public class GridModifierEditor : Editor
 	{
@@ -42,19 +45,36 @@ namespace CustomInspector.Grid
 
 			serializedObject.ApplyModifiedProperties();
 		}
-
+		
 		private void GetAllSelectedTiles()
 		{
-			AbstractTile[] selectedTiles = Selection.GetFiltered<AbstractTile>(SelectionMode.Deep);
-			Vector2Int[] gridPositions = new Vector2Int[selectedTiles.Length];
+			GameObject[] selectedObjects = Selection.GetFiltered<GameObject>(SelectionMode.Unfiltered);
 
-			for (int i = 0; i < selectedTiles.Length; i++)
+			List<AbstractTile> selectedTiles = selectedObjects.Select(GetAbstractTile).ToList();
+			selectedTiles.RemoveAll(item => item == null);
+			selectedTiles = selectedTiles.Distinct().ToList();
+			
+			Vector2Int[] gridPositions = new Vector2Int[selectedTiles.Count];
+
+			for (int i = 0; i < selectedTiles.Count; i++)
 			{
 				AbstractTile tile = selectedTiles[i];
 				gridPositions[i] = tile.GridPosition;
 			}
 
 			gridModifier.selectedPositions = gridPositions;
+
+			AbstractTile GetAbstractTile(GameObject gameObject)
+			{
+				AbstractTile tile = gameObject.GetComponent<AbstractTile>();
+
+				if (tile == null)
+				{
+					tile = gameObject.GetComponentInParent<AbstractTile>();
+				}
+
+				return tile;
+			}
 		}
 
 		private void DrawNewType()
@@ -67,7 +87,7 @@ namespace CustomInspector.Grid
 		{
 			regenerateGrid = EditorGUILayout.Toggle("Regenerate Grid", regenerateGrid);
 
-			if (!GUILayout.Button("Modify tiles", EditorStyles.toolbarButton)) return;
+			if (!GUILayout.Button("Modify tiles", EditorStyles.miniButtonMid)) return;
 
 			gridModifier.ModifyTiles(regenerateGrid);
 		}

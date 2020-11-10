@@ -3,7 +3,6 @@ using Enums;
 using Events;
 using ScriptableObjects;
 using Singletons;
-using Structs.Buildings;
 using UnityEngine;
 using VDFramework;
 using VDFramework.EventSystem;
@@ -13,7 +12,7 @@ namespace Gameplay.Buildings
 	public class Building : BetterMonoBehaviour
 	{
 		[SerializeField]
-		private GlobalBuildingData globalBuildingData;
+		private GlobalBuildingData globalBuildingData = null;
 
 		private BuildingData[] data;
 
@@ -40,25 +39,28 @@ namespace Gameplay.Buildings
 
 		public BuildingType BuildingType { get; private set; }
 
-		public void Instantiate(BuildingType type, BuildingData[] buildingData)
+		public void Initialize(BuildingType type, BuildingData[] buildingData)
 		{
 			BuildingType = type;
 			data         = buildingData;
+
+			GetComponent<BuildingHealth>().Initialize(200.0f, 500.0f, Data.MaxHealth);
 		}
 
-		public void RemoveBuilding(bool payForRemoval = false)
+		public void RemoveBuilding(bool payForRemoval)
 		{
 			if (payForRemoval)
 			{
-				if (!MoneyManager.Instance.PlayerHasEnoughMoney(GlobalData.DestructionCost))
+				if (!MoneyManager.Instance.PlayerHasEnoughMoney(Data.DestructionCost))
 				{
 					return;
 				}
-				
-				EventManager.Instance.RaiseEvent(new DecreaseMoneyEvent(GlobalData.DestructionCost));
+
+				EventManager.Instance.RaiseEvent(new DecreaseMoneyEvent(Data.DestructionCost));
 			}
-			
+
 			Destroy(gameObject);
+			EventManager.Instance.RaiseEvent(new BuildingDestroyedEvent());
 		}
 
 		private int CalculateUpgradeCost()

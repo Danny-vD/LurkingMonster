@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using VDFramework.Singleton;
@@ -9,7 +10,7 @@ namespace Singletons
 	public class MessageManager : Singleton<MessageManager>
 	{
 		[SerializeField]
-		private Text message = null;
+		private TextMeshProUGUI message = null;
 
 		public void ShowMessageGameUI(string inputMessage, Color color)
 		{

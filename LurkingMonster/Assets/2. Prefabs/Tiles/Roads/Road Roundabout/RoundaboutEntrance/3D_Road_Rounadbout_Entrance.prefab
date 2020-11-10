@@ -171,7 +171,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4823518237038296379}
-  - component: {fileID: 3848177280122570131}
+  - component: {fileID: 4440518250773859465}
   m_Layer: 0
   m_Name: 3D_Road_Rounadbout_Entrance
   m_TagString: Untagged
@@ -195,7 +195,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3848177280122570131
+--- !u!114 &4440518250773859465
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -204,6 +204,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 8407039212768972584}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc5ce399d7eb41e7add7704abfb98327, type: 3}
+  m_Script: {fileID: 11500000, guid: 257726683c224a729d74f0e0a01a49bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  perpendicular: 3
+  ending2: 0
+  ending3: 2

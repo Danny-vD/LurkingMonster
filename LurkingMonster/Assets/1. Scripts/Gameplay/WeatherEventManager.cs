@@ -18,7 +18,7 @@ namespace Gameplay
 		private float timeToEvent;
 
 		[SerializeField]
-		private List<EventDataPerEventType> eventDataPerEventType;
+		private List<EventDataPerEventType> eventDataPerEventType = null;
 
 		[SerializeField]
 		private float minTime = 900.0f;

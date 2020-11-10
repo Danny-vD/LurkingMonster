@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8960745232867538999}
   - component: {fileID: 8960745232867538984}
   - component: {fileID: 8960745232867538985}
-  - component: {fileID: 8960745232867538997}
+  - component: {fileID: 279368025569766287}
   m_Layer: 0
   m_Name: RoadEndTile
   m_TagString: Untagged
@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 8960745232867538986}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 1, z: 0.5}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -97,7 +97,7 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &8960745232867538997
+--- !u!114 &279368025569766287
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -106,8 +106,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 8960745232867538986}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6813e683d5bd4ce2ac873e68397e90c2, type: 3}
+  m_Script: {fileID: 11500000, guid: fc5ce399d7eb41e7add7704abfb98327, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileType: 0
-  GridPosition: {x: 0, y: 0}

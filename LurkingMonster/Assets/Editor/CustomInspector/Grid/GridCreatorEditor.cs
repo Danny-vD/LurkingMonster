@@ -1,10 +1,12 @@
 ﻿using Enums.Grid;
 using Grid;
 using UnityEditor;
+using UnityEditor.SceneManagement;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using static Utility.EditorUtils;
 
-namespace CustomInspector
+namespace CustomInspector.Grid
 {
 	[CustomEditor(typeof(GridCreator))]
 	public class GridCreatorEditor : Editor
@@ -20,7 +22,7 @@ namespace CustomInspector
 
 		private void OnEnable()
 		{
-			gridCreator = target as GridCreator;
+			gridCreator = (GridCreator) target;
 			gridCreator.PopulateDictionaries();
 
 			prefabsPerTileTypes = serializedObject.FindProperty("prefabsPerTileTypes");
@@ -42,20 +44,37 @@ namespace CustomInspector
 				DrawPrefabsPerTileTypes();
 			}
 
+			EditorGUILayout.Space();
+			DrawSeperatorLine();
+			EditorGUILayout.Space();
+
+			DrawDeleteButton();
+			
 			serializedObject.ApplyModifiedProperties();
 		}
 
 		private void DrawGenerateButton()
 		{
-			if (!GUILayout.Button("Generate Grid", EditorStyles.toolbarButton)) return;
+			if (!GUILayout.Button("Generate Grid", EditorStyles.miniButtonMid)) return;
 
 			gridCreator.GenerateGrid();
+
+			EditorSceneManager.MarkSceneDirty(SceneManager.GetActiveScene());
 		}
 
 		private void DrawPrefabsPerTileTypes()
 		{
 			DrawFoldoutKeyValueArray<TileType>(prefabsPerTileTypes, "tileType", "prefabs", prefabsPerTileTypesFoldout,
 				new GUIContent("Prefabs"));
+		}
+
+		private void DrawDeleteButton()
+		{
+			if (!GUILayout.Button("Remove Grid", EditorStyles.miniButtonMid)) return;
+
+			gridCreator.DestroyChildrenImmediate();
+			
+			EditorSceneManager.MarkSceneDirty(SceneManager.GetActiveScene());
 		}
 	}
 }

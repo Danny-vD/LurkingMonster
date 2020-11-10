@@ -1,5 +1,4 @@
 ﻿using Enums;
-using Gameplay;
 using Gameplay.Buildings;
 using UnityEditor;
 using UnityEngine;
@@ -12,41 +11,53 @@ namespace CustomInspector
 	{
 		private BuildingSpawner buildingSpawner;
 
-		private bool[] prefabPerBuildingTypeFoldout;
+		private bool[] soilDataPerSoilTypeFoldout;
+		private bool[] foundationDataPerFoundationTypeFoldout;
 		private bool[] buildingDataPerBuildingTypeFoldout;
 
-		private bool prefabsFoldout;
+		private bool soilDataFoldout;
+		private bool foundationDataFoldout;
 		private bool buildingDataFoldout;
 
 		//////////////////////////////////////////////////
-		private SerializedProperty buildings;
-		private SerializedProperty buildingData;
+		private SerializedProperty soilData;
+		private SerializedProperty foundationData;
+		private SerializedProperty buildingTierData;
 
 		private void OnEnable()
 		{
-			buildingSpawner = target as BuildingSpawner;
+			buildingSpawner = (BuildingSpawner) target;
 			buildingSpawner.PopulateDictionaries();
 
-			buildings = serializedObject.FindProperty("buildings");
-			buildingData = serializedObject.FindProperty("buildingData");
+			soilData         = serializedObject.FindProperty("soilData");
+			foundationData   = serializedObject.FindProperty("foundationData");
+			buildingTierData = serializedObject.FindProperty("buildingTierData");
 
-			prefabPerBuildingTypeFoldout    = new bool[buildings.arraySize];
-			buildingDataPerBuildingTypeFoldout = new bool[buildingData.arraySize];
+			foundationDataPerFoundationTypeFoldout = new bool[foundationData.arraySize];
+			buildingDataPerBuildingTypeFoldout     = new bool[buildingTierData.arraySize];
+			soilDataPerSoilTypeFoldout             = new bool[soilData.arraySize];
 		}
 
 		public override void OnInspectorGUI()
 		{
 			serializedObject.Update();
-			
-			if (IsFoldOut(ref prefabsFoldout, "Building prefabs"))
+
+			if (IsFoldOut(ref soilDataFoldout, "Soil Data"))
 			{
-				DrawFoldoutKeyValueArray<BuildingType>(buildings, "buildingType", "prefab", prefabPerBuildingTypeFoldout,
-					new GUIContent("Prefab"));
+				DrawFoldoutKeyValueArray<SoilType>(soilData, "soilType", "soilTypeData",
+					soilDataPerSoilTypeFoldout, new GUIContent("Soil Data"));
+			}
+			
+			if (IsFoldOut(ref foundationDataFoldout, "Foundation Data"))
+			{
+				DrawFoldoutKeyValueArray<FoundationType>(foundationData, "foundationType", "foundationTypeData",
+					foundationDataPerFoundationTypeFoldout,
+					new GUIContent("Foundation Data"));
 			}
 
-			if (IsFoldOut(ref buildingDataFoldout, "Building Data"))
+			if (IsFoldOut(ref buildingDataFoldout, "Building Tier Data"))
 			{
-				DrawFoldoutKeyValueArray<BuildingType>(buildingData, "buildingType", "buildingTypeData",
+				DrawFoldoutKeyValueArray<BuildingType>(buildingTierData, "buildingType", "buildingTypeData",
 					buildingDataPerBuildingTypeFoldout, new GUIContent("Tier Data"));
 			}
 

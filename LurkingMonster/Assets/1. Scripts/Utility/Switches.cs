@@ -1,6 +1,4 @@
-﻿using System;
-using Enums;
-using UnityEngine;
+﻿using Enums;
 
 namespace Utility
 {
@@ -18,9 +16,9 @@ namespace Utility
 					return 180.0f;
 				case SoilType.Peet:
 					return 120.0f;
+				default:
+					return 0.0f;
 			}
-
-			return 0.0f;
 		}
 
 		public static float FoundationTypeSwitch(FoundationType foundationType)
@@ -35,9 +33,9 @@ namespace Utility
 					return 180.0f;
 				case FoundationType.Floating_Floor_Plate:
 					return 120.0f;
+				default:
+					return 0.0f;
 			}
-
-			return 0.0f;
 		}
 	}
 }

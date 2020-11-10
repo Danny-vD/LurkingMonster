@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Structs.Audio;
 using Enums.Audio;
@@ -14,6 +15,11 @@ namespace Audio
 		
 		protected override void Awake()
 		{
+			if (EventPaths == null)
+			{
+				throw new Exception("Audiomanager should not be initialized through code, it needs to be present in the scene already.");
+			}
+			
 			base.Awake();
 			EventPaths.AddEmitters(gameObject);
 

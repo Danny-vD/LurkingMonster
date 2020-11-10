@@ -1,7 +1,6 @@
 ﻿using System;
 using Events;
-using Grid.Tiles;
-using Grid.Tiles.Building;
+using Grid.Tiles.Buildings;
 using Singletons;
 using UnityEngine;
 using VDFramework;

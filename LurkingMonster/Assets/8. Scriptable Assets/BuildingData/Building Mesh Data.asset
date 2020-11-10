@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b27debddf9f484796621bd35c87da01, type: 3}
+  m_Name: Building Mesh Data
+  m_EditorClassIdentifier: 
+  buildingTierMeshPerBuildingTypes:
+  - key: 0
+    value:
+    - {fileID: 6531846097320760791, guid: 28a89af65110a0747ac1c987e3c83912, type: 3}
+    - {fileID: -4948366212873048268, guid: 1cb7d498151db9040b5832bf3c9f2b29, type: 3}
+  - key: 1
+    value: []
+  - key: 2
+    value: []

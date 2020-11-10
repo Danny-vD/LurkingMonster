@@ -5,22 +5,19 @@ using System.Linq;
 using UnityEngine;
 using VDFramework;
 
-// ReSharper disable ConvertToNullCoalescingCompoundAssignment
-// Reason: Unity does not support it
-
 namespace IO
 {
     public class JsonParser : BetterMonoBehaviour
     {
         [Tooltip("The name of the .json file")]
-        public string FileName = "Language.json";
+        public string FileName = "Language";
 
         public static string FileContent { get; private set; }
 
         private void Awake()
         {
-            string pathToFile = Application.streamingAssetsPath + "/" + FileName;
-            FileContent = File.ReadAllText(pathToFile);
+            TextAsset file = (TextAsset) Resources.Load(FileName);
+            FileContent = file.ToString();
         }
     }
 
@@ -35,7 +32,15 @@ namespace IO
 
         public static JsonVariables Instance
         {
-            get { return instance = instance ?? JsonUtility.FromJson<JsonVariables>(JsonParser.FileContent); }
+            get
+            {
+                if (JsonParser.FileContent == null)
+                {
+                    throw new NullReferenceException("No Json parser present in the scene");
+                }
+                
+                return instance = instance ?? JsonUtility.FromJson<JsonVariables>(JsonParser.FileContent);
+            }
         }
 
         public string GetVariable(string variableName, string keyName)
