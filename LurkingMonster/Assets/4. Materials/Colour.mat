@@ -62,6 +62,7 @@ Material:
     - _DetailNormalMapScale: 1
     - _DistanceFactor: 35
     - _DstBlend: 0
+    - _EnableShadows: 1
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
@@ -78,7 +79,7 @@ Material:
     m_Colors:
     - _Center: {r: 0, g: 0, b: 0, a: 0}
     - _CircleColor: {r: 1, g: 1, b: 1, a: 1}
-    - _Color: {r: 0.38085228, g: 0.7882353, b: 0.03529412, a: 1}
+    - _Color: {r: 0.13333331, g: 0.83137256, b: 0.81973857, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _MainColor: {r: 0.83, g: 0.5, b: 0.13, a: 1}
   m_BuildTextureStacks: []
