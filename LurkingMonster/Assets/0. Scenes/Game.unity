@@ -19382,9 +19382,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventory: {fileID: 2119261049}
   background: {fileID: 1788742372}
+  boxImage: {fileID: 854371058}
   meat: {fileID: 936838579}
   time: {fileID: 899474760}
   kcaf: {fileID: 1585288421}
+  inventorySprite:
+  - {fileID: 21300000, guid: aa09de3436a11594a8d92cb967069517, type: 3}
+  - {fileID: 21300000, guid: f7a0a92ff5be3744d9f4c879b5dbaedb, type: 3}
   meatSprite:
   - {fileID: 21300000, guid: 2277ac7c318bd0c48a89349da9d14277, type: 3}
   - {fileID: 21300000, guid: 31c57ab95f3f2f2459330a1c95b42ed9, type: 3}
@@ -25054,6 +25058,17 @@ Transform:
   m_Father: {fileID: 1139090454}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &854371058 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4643391365682546543, guid: 7f0b294344eb24f4eac3da88658dd5fa, type: 3}
+  m_PrefabInstance: {fileID: 1880470844}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &855845060
 GameObject:
   m_ObjectHideFlags: 0
@@ -43449,7 +43464,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 50.95
+  m_fontSize: 42.85
   m_fontSizeBase: 50
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -51456,9 +51471,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventory: {fileID: 0}
   background: {fileID: 0}
+  boxImage: {fileID: 0}
   meat: {fileID: 0}
   time: {fileID: 0}
   kcaf: {fileID: 0}
+  inventorySprite: []
   meatSprite: []
   timeSprite: []
   kcafSprite: []
@@ -54122,6 +54139,14 @@ PrefabInstance:
       propertyPath: m_Transition
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4643391364923952815, guid: 7f0b294344eb24f4eac3da88658dd5fa, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4643391365237238829, guid: 7f0b294344eb24f4eac3da88658dd5fa, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4643391365286349808, guid: 7f0b294344eb24f4eac3da88658dd5fa, type: 3}
       propertyPath: m_Pivot.x
       value: 1
@@ -54209,6 +54234,10 @@ PrefabInstance:
     - target: {fileID: 4643391365286349809, guid: 7f0b294344eb24f4eac3da88658dd5fa, type: 3}
       propertyPath: m_Name
       value: Inventory
+      objectReference: {fileID: 0}
+    - target: {fileID: 4643391365286349809, guid: 7f0b294344eb24f4eac3da88658dd5fa, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4643391365781301339, guid: 7f0b294344eb24f4eac3da88658dd5fa, type: 3}
       propertyPath: m_Transition
@@ -60091,7 +60120,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 51.4
+  m_fontSize: 43.3
   m_fontSizeBase: 50
   m_fontWeight: 400
   m_enableAutoSizing: 1
