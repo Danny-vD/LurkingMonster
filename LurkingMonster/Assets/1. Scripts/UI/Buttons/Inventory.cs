@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Enums;
-using Events;
 using Singletons;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.UI;
 using VDFramework;
-using VDFramework.EventSystem;
 
 namespace UI.Buttons
 {
@@ -60,6 +56,7 @@ namespace UI.Buttons
 
 		private void OpenMeatPopUp()
 		{
+			//TODO: serialize the transforms of the popups, this won't work anymore
 			OpenPopup(meat.transform, PowerUpManager.Instance.AvoidMonsters, PowerUpType.AvoidMonster);
 		}
 
