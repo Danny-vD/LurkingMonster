@@ -16,7 +16,7 @@ namespace UI.Market.MarketScreens
 
 		private void SetupBuyButton(AbstractBuildingTile tile, MarketManager manager)
 		{
-			SetButton(buyButton, tile.SpawnBuilding, () => manager.gameObject.SetActive(false));
+			SetButton(buyButton, tile.SpawnBuilding, manager.CloseMarket);
 		}
 	}
 }

@@ -3,6 +3,7 @@ using Grid.Tiles.Buildings;
 using Interfaces;
 using UI.Market.MarketScreens;
 using UnityEngine;
+using UnityEngine.UI;
 using VDFramework;
 using VDFramework.EventSystem;
 
@@ -11,12 +12,15 @@ namespace UI.Market
 	public class MarketManager : BetterMonoBehaviour, IListener
 	{
 		[SerializeField]
+		private Button btnExit;
+		
+		[SerializeField]
 		private Structs.Market.MarketScreens screens;
 
 		private AbstractBuildingTile tile;
 
 		public Structs.Market.MarketScreens Screens => screens;
-		
+
 		private void Start()
 		{
 			SetupReturnButtons();
@@ -34,6 +38,11 @@ namespace UI.Market
 			screen.SetUI(tile, this);
 		}
 
+		public void CloseMarket()
+		{
+			btnExit.onClick.Invoke();
+		}
+		
 		private void SetupReturnButtons()
 		{
 			// Setup every back button to go back to the main screen 

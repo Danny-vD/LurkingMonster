@@ -30,8 +30,8 @@ namespace Singletons
 		private void Start()
 		{
 			avoidMonsters = 1;
-			fixProblems   = 1;
-			avoidWeather  = 1;
+			fixProblems   = 3;
+			avoidWeather  = 0;
 
 			powerUps = new[]
 			{
