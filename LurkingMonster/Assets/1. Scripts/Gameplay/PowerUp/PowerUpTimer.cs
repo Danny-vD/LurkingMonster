@@ -73,5 +73,11 @@ namespace Gameplay
 			powerUpActive.Invoke();
 			gameObject.SetActive(false);
 		}
+
+		public float Timer
+		{
+			get => timer;
+			set => timer = value;
+		}
 	}
 }
