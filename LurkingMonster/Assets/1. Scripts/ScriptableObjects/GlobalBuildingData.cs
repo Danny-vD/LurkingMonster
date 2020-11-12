@@ -8,6 +8,5 @@ namespace ScriptableObjects
 	[CreateAssetMenu(menuName = "Building Data/Global Data")]
 	public class GlobalBuildingData : ScriptableObject
 	{
-		public int DestructionCost; //TODO: Move to buildingData since it's suddenly different per building
 	}
 }
