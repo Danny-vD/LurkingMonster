@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using Enums;
 using Events;
 using Singletons;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -19,6 +21,9 @@ namespace UI.Buttons
 		private Image background;
 
 		[SerializeField]
+		private Image boxImage;
+		
+		[SerializeField]
 		private Button meat;
 		
 		[SerializeField]
@@ -27,6 +32,9 @@ namespace UI.Buttons
 		[SerializeField]
 		private Button kcaf;
 
+		[SerializeField, Header("0: Disabled, 1: Enabled")]
+		private Sprite[] inventorySprite = new Sprite[0];
+		
 		[SerializeField]
 		private Sprite[] meatSprite = new Sprite[0];
 		
@@ -52,20 +60,20 @@ namespace UI.Buttons
 
 		private void OpenMeatPopUp()
 		{
-			OpenPopup(meat.transform, ActivateMeatPowerUp);
+			OpenPopup(meat.transform, PowerUpManager.Instance.AvoidMonsters, PowerUpType.AvoidMonster);
 		}
 
 		private void OpenTimePopUp()
 		{
-			OpenPopup(time.transform, ActivateTimePowerUp);
+			OpenPopup(time.transform, PowerUpManager.Instance.AvoidWeather, PowerUpType.AvoidWeatherEvent);
 		}
 		
 		private void OpenKcafPopUp()
 		{
-			OpenPopup(kcaf.transform, ActivateKcafPowerUp);
+			OpenPopup(kcaf.transform, PowerUpManager.Instance.FixProblems, PowerUpType.FixProblems);
 		}
 		
-		private void OpenPopup(Transform transform, UnityAction activateAction)
+		private void OpenPopup(Transform transform, int counter, PowerUpType type)
 		{
 			if (lastPopup)
 			{
@@ -83,36 +91,22 @@ namespace UI.Buttons
 			
 			popup.gameObject.SetActive(true);
 			Button activate = popup.GetComponentInChildren<Button>();
+			TextMeshProUGUI textCounter = popup.Find("Text_counter").GetComponentInChildren<TextMeshProUGUI>();
+			textCounter.text = counter.ToString();
 			
-			activate.onClick.AddListener(activateAction);
-		}
-		
-		private void ActivateMeatPowerUp()
-		{
-			meat.transform.GetChild(0).gameObject.SetActive(false);
+			activate.onClick.AddListener(Activate);
 
-			PowerUpManager.Instance.ActivatePowerUp(PowerUpType.AvoidMonster);
-			
-			ToggleInventory();
-			EnablePowerUps();
+			void Activate()
+			{
+				ActivatePowerUp(transform, type);
+			}
 		}
-		
-		private void ActivateTimePowerUp()
-		{
-			time.transform.GetChild(0).gameObject.SetActive(false);
 
-			PowerUpManager.Instance.ActivatePowerUp(PowerUpType.AvoidWeatherEvent);
-			
-			ToggleInventory();
-			EnablePowerUps();
-		}
-		
-		private void ActivateKcafPowerUp()
+		private void ActivatePowerUp(Transform btn, PowerUpType type)
 		{
-			kcaf.transform.GetChild(0).gameObject.SetActive(false);
+			btn.GetChild(0).gameObject.SetActive(false);
 
-			PowerUpManager.Instance.ActivatePowerUp(PowerUpType.FixProblems);
-			
+			PowerUpManager.Instance.ActivatePowerUp(type);
 			ToggleInventory();
 			EnablePowerUps();
 		}
@@ -121,50 +115,36 @@ namespace UI.Buttons
 		{
 			if (isActive)
 			{
-				isActive = false;
-				background.gameObject.SetActive(isActive);
+				boxImage.sprite = inventorySprite[0];
 			}
 			else
 			{
 				EnablePowerUps();
-				isActive = true;
-				background.gameObject.SetActive(isActive);
+				boxImage.sprite = inventorySprite[1];
 			}
+			
+			isActive = !isActive;
+			background.gameObject.SetActive(isActive);
 		}
 
 		private void EnablePowerUps()
 		{
-			if (PowerUpManager.Instance.AvoidMonsters > 0)
+			ChangeSpritesPowerUps(PowerUpManager.Instance.AvoidMonsters, meat, meatSprite);
+			ChangeSpritesPowerUps(PowerUpManager.Instance.AvoidWeather, time, timeSprite);
+			ChangeSpritesPowerUps(PowerUpManager.Instance.FixProblems, kcaf, kcafSprite);
+		}
+
+		private static void ChangeSpritesPowerUps(int powerUpCounter, Selectable btn, IReadOnlyList<Sprite> sprites)
+		{
+			if (powerUpCounter > 0)
 			{
-				meat.image.sprite = meatSprite[1];
-				meat.interactable = true;
+				btn.image.sprite  = sprites[1];
+				btn.interactable  = true;
 			}
 			else
 			{
-				meat.image.sprite = meatSprite[0];
-				meat.interactable = false;
-			}
-			
-			if (PowerUpManager.Instance.AvoidWeather > 0)
-			{
-				time.image.sprite = timeSprite[1];
-				time.interactable = true;
-			}
-			else
-			{
-				time.image.sprite = timeSprite[0];
-				time.interactable = false;
-			}
-			
-			if (PowerUpManager.Instance.FixProblems > 0)
-			{
-				kcaf.image.sprite = kcafSprite[1];
-				kcaf.interactable = true;
-			}
-			else
-			{
-				kcaf.image.sprite = kcafSprite[0];
-				kcaf.interactable = false;
+				btn.image.sprite = sprites[0];
+				btn.interactable = false;
 			}
 		}
 	}

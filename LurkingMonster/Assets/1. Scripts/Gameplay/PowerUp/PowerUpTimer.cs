@@ -36,7 +36,6 @@ namespace Gameplay
 
 		public void StartTimer(float timer, Action powerUpActive, PowerUpType powerUpType)
 		{
-			print(gameObject);
 			gameObject.SetActive(true);
 			circleTimer.fillAmount = 1;
 			maxTimer               = timer;
