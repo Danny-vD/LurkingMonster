@@ -1,48 +1,29 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Enums;
-using Events;
 using Singletons;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.UI;
 using VDFramework;
-using VDFramework.EventSystem;
 
 namespace UI.Buttons
 {
 	public class Inventory : BetterMonoBehaviour
 	{
-		[SerializeField]
-		private Button inventory;
-
-		[SerializeField]
-		private Image background;
-
-		[SerializeField]
-		private Image boxImage;
-		
-		[SerializeField]
-		private Button meat;
-		
-		[SerializeField]
-		private Button time;
-		
-		[SerializeField]
-		private Button kcaf;
-
-		[SerializeField, Header("0: Disabled, 1: Enabled")]
-		private Sprite[] inventorySprite = new Sprite[0];
-		
-		[SerializeField]
-		private Sprite[] meatSprite = new Sprite[0];
-		
-		[SerializeField]
-		private Sprite[] timeSprite = new Sprite[0];
-		
-		[SerializeField]
-		private Sprite[] kcafSprite = new Sprite[0];
+		[SerializeField] private Transform popupMonster;
+		[SerializeField] private Transform popupTime;
+		[SerializeField] private Transform popupKcaf;
+		[SerializeField] private Button inventory;
+		[SerializeField] private Image background;
+		[SerializeField] private Image boxImage;
+		[SerializeField] private Button meat;
+		[SerializeField] private Button time;
+		[SerializeField] private Button kcaf;
+		[SerializeField, Header("0: Disabled, 1: Enabled")] private Sprite[] inventorySprite = new Sprite[0];
+		[SerializeField] private Sprite[] meatSprite = new Sprite[0];
+		[SerializeField] private Sprite[] timeSprite = new Sprite[0];
+		[SerializeField] private Sprite[] kcafSprite = new Sprite[0];
+	
 
 		private Transform lastPopup;
 		
@@ -60,17 +41,18 @@ namespace UI.Buttons
 
 		private void OpenMeatPopUp()
 		{
-			OpenPopup(meat.transform, PowerUpManager.Instance.AvoidMonsters, PowerUpType.AvoidMonster);
+			//TODO: serialize the transforms of the popups, this won't work anymore
+			OpenPopup(popupMonster, PowerUpManager.Instance.AvoidMonsters, PowerUpType.AvoidMonster);
 		}
 
 		private void OpenTimePopUp()
 		{
-			OpenPopup(time.transform, PowerUpManager.Instance.AvoidWeather, PowerUpType.AvoidWeatherEvent);
+			OpenPopup(popupTime, PowerUpManager.Instance.AvoidWeather, PowerUpType.AvoidWeatherEvent);
 		}
 		
 		private void OpenKcafPopUp()
 		{
-			OpenPopup(kcaf.transform, PowerUpManager.Instance.FixProblems, PowerUpType.FixProblems);
+			OpenPopup(popupKcaf, PowerUpManager.Instance.FixProblems, PowerUpType.FixProblems);
 		}
 		
 		private void OpenPopup(Transform transform, int counter, PowerUpType type)
@@ -84,14 +66,12 @@ namespace UI.Buttons
 			{
 				return;
 			}
-			
-			Transform popup = transform.GetChild(0);
 
-			lastPopup = popup;
+			lastPopup = transform;
 			
-			popup.gameObject.SetActive(true);
-			Button activate = popup.GetComponentInChildren<Button>();
-			TextMeshProUGUI textCounter = popup.Find("Text_counter").GetComponentInChildren<TextMeshProUGUI>();
+			transform.gameObject.SetActive(true);
+			Button activate = transform.GetComponentInChildren<Button>();
+			TextMeshProUGUI textCounter = transform.Find("Text_counter").GetComponent<TextMeshProUGUI>();
 			textCounter.text = counter.ToString();
 			
 			activate.onClick.AddListener(Activate);
@@ -99,6 +79,7 @@ namespace UI.Buttons
 			void Activate()
 			{
 				ActivatePowerUp(transform, type);
+				transform.gameObject.SetActive(false);
 			}
 		}
 
@@ -116,6 +97,7 @@ namespace UI.Buttons
 			if (isActive)
 			{
 				boxImage.sprite = inventorySprite[0];
+				DisablePopups();
 			}
 			else
 			{
@@ -125,6 +107,13 @@ namespace UI.Buttons
 			
 			isActive = !isActive;
 			background.gameObject.SetActive(isActive);
+		}
+
+		private void DisablePopups()
+		{
+			popupKcaf.gameObject.SetActive(false);
+			popupMonster.gameObject.SetActive(false);
+			popupTime.gameObject.SetActive(false);
 		}
 
 		private void EnablePowerUps()
