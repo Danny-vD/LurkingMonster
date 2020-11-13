@@ -5,6 +5,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using VDFramework;
+// ReSharper disable MissingLinebreak
 
 namespace UI.Buttons
 {
