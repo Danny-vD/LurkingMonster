@@ -52,8 +52,6 @@ namespace Singletons
 				avoidWeather  = UserSettings.GameData.PowerUps[1];
 				fixProblems   = UserSettings.GameData.PowerUps[2];
 				
-				print(UserSettings.GameData.TimerPowerUp);
-				print(UserSettings.GameData.PowerUpType);
 				ActivatePowerUpOnLoad(UserSettings.GameData.TimerPowerUp, UserSettings.GameData.PowerUpType);
 			}
 
@@ -145,6 +143,16 @@ namespace Singletons
 			int index = ReturnActivePowerUpIndex(out float timer);
 			gameData.PowerUpType  = default(PowerUpType).GetValues().ElementAt(index);
 			gameData.TimerPowerUp = timer;
+		}
+
+		protected override void OnDestroy()
+		{
+			if (!EventManager.IsInitialized)
+			{
+				return;
+			}
+
+			EventManager.Instance.RemoveListener<PowerUpIncreaseEvent>(AddPowerUp);
 		}
 
 		public bool AvoidMonsterFeedActive => powerUps[0].IsActive;

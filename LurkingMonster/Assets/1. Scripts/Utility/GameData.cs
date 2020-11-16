@@ -21,6 +21,8 @@ namespace Utility
 		private int[] powerUps;
 		private PowerUpType powerUpType;
 		private float timerPowerUp;
+		private RandomWeatherEventType randomWeatherEventType;
+		private float timerWeatherEvent;
 
 		private Dictionary<Vector2IntSerializable, TileData> dictionary;
 
@@ -36,21 +38,25 @@ namespace Utility
 			int[]                                        powerUps,
 			AchievementData[]                            achievementData,
 			PowerUpType powerUpType,
-			float timerPowerUp
+			float timerPowerUp,
+			RandomWeatherEventType randomWeatherEventType,
+			float timerWeatherEvent	
 		)
 		{
-			this.cityName        = cityName;
-			this.userName        = userName;
-			this.money           = money;
-			this.vibrate         = vibrate;
-			this.musicVolume     = musicVolume;
-			this.ambientVolume   = ambientVolume;
-			this.dictionary      = dictionary;
-			this.language        = language;
-			this.powerUps        = powerUps;
-			this.achievementData = achievementData;
-			this.powerUpType     = powerUpType;
-			this.timerPowerUp    = timerPowerUp;
+			this.cityName               = cityName;
+			this.userName               = userName;
+			this.money                  = money;
+			this.vibrate                = vibrate;
+			this.musicVolume            = musicVolume;
+			this.ambientVolume          = ambientVolume;
+			this.dictionary             = dictionary;
+			this.language               = language;
+			this.powerUps               = powerUps;
+			this.achievementData        = achievementData;
+			this.powerUpType            = powerUpType;
+			this.timerPowerUp           = timerPowerUp;
+			this.randomWeatherEventType = randomWeatherEventType;
+			this.timerWeatherEvent      = timerWeatherEvent;
 		}
 
 		public string CityName
@@ -123,6 +129,18 @@ namespace Utility
 		{
 			get => timerPowerUp;
 			set => timerPowerUp = value;
+		}
+
+		public RandomWeatherEventType RandomWeatherEventType
+		{
+			get => randomWeatherEventType;
+			set => randomWeatherEventType = value;
+		}
+
+		public float TimerWeatherEvent
+		{
+			get => timerWeatherEvent;
+			set => timerWeatherEvent = value;
 		}
 	}
 }

@@ -35,6 +35,23 @@
 	  ]
 	},
     {
+      "Key": "SETTINGS",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "Opties"
+        },
+        {
+          "Key": "EN",
+          "Value": "Settings"
+        },
+        {
+          "Key": "DE",
+          "Value": "Neues Spiel"
+        }
+      ]
+    },
+    {
       "Key": "QUIT_GAME",
       "Value": [
         {
@@ -316,6 +333,74 @@
         {
           "Key": "EN",
           "Value": "Continue"
+        },
+        {
+          "Key": "DE",
+          "Value": "Ok!"
+        }
+      ]
+    },
+    {
+      "Key": "DUTCH_FLAG",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "Nederlands"
+        },
+        {
+          "Key": "EN",
+          "Value": "Dutch"
+        },
+        {
+          "Key": "DE",
+          "Value": "Ok!"
+        }
+      ]
+    },
+    {
+      "Key": "ENGLISH_FLAG",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "Engels"
+        },
+        {
+          "Key": "EN",
+          "Value": "English"
+        },
+        {
+          "Key": "DE",
+          "Value": "Ok!"
+        }
+      ]
+    },
+    {
+      "Key": "MUSIC_VOLUME",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "Muziek Volume"
+        },
+        {
+          "Key": "EN",
+          "Value": "Music Volume"
+        },
+        {
+          "Key": "DE",
+          "Value": "Ok!"
+        }
+      ]
+    },
+    {
+      "Key": "SOUND_EFFECTS_VOLUME",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "GeluidsEffecten Volume"
+        },
+        {
+          "Key": "EN",
+          "Value": "Music Effects Volume"
         },
         {
           "Key": "DE",
