@@ -54,11 +54,11 @@ namespace Singletons
 					// Lazy definition
 					destination = Application.persistentDataPath + "/save.dat";
 				}
-				
+
 				return File.Exists(destination);
 			}
 		}
-		
+
 		protected override void Awake()
 		{
 			base.Awake();
@@ -66,6 +66,7 @@ namespace Singletons
 			if (SettingsExist)
 			{
 				ReloadData();
+				SetLanguageOnLoad();
 			}
 		}
 
@@ -113,9 +114,6 @@ namespace Singletons
 			BinaryFormatter bf = new BinaryFormatter();
 			gameData = (GameData) bf.Deserialize(file);
 			file.Close();
-
-			SetVolumeOnLoad();
-			SetLanguageOnLoad();
 		}
 
 		private static void SetLanguageOnLoad()
@@ -123,12 +121,6 @@ namespace Singletons
 			LanguageSettings.Language = gameData.Language;
 		}
 
-		private static void SetVolumeOnLoad()
-		{
-			AudioManager.Instance.SetVolume(BusType.Music, gameData.MusicVolume);
-			AudioManager.Instance.SetVolume(BusType.Ambient, gameData.AmbientVolume);
-		}
-		
 		private static void SaveDictionary()
 		{
 			gameData.GridData.Clear();
@@ -149,7 +141,6 @@ namespace Singletons
 			gameData.GridData.Add(tile.GridPosition, new TileData(tile));
 		}
 
-	
 
 		private static void SaveFile()
 		{
@@ -163,7 +154,8 @@ namespace Singletons
 		public void NewGame()
 		{
 			gameData = new GameData("", "", startMoney, true, 1f, 1f,
-				new Dictionary<Vector2IntSerializable, TileData>(), Language.NL, new int[3], new AchievementData[0], default, 0);
+				new Dictionary<Vector2IntSerializable, TileData>(), Language.NL, new int[3], new AchievementData[0], default, 0, default,
+				0);
 
 			RunTimeTests.TestStartMoney();
 		}

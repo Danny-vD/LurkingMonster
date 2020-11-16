@@ -1,4 +1,5 @@
-﻿using Enums.Grid;
+﻿using System;
+using Enums.Grid;
 using Events;
 using VDFramework.EventSystem;
 
@@ -10,20 +11,22 @@ namespace Grid.Tiles.Buildings
 	{
 		public override TileType TileType => TileType.SmallBuilding;
 
-		public override void SpawnBuilding()
+		public override void SpawnSoil()
 		{
-			if (!MoneyManager.Instance.PlayerHasEnoughMoney(GetBuildingPrice()))
+			int cost = GetSoilPrice();
+
+			if (!MoneyManager.Instance.PlayerHasEnoughMoney(cost))
 			{
 				return;
 			}
 
-			base.SpawnBuilding();
-			EventManager.Instance.RaiseEvent(new DecreaseMoneyEvent(FirstTierData.Price));
+			base.SpawnSoil();
+			EventManager.Instance.RaiseEvent(new DecreaseMoneyEvent(cost));
 		}
 
 		public override void SpawnFoundation()
 		{
-			int cost = GetFoundationData(GetFoundationType()).BuildCost;
+			int cost = GetFoundationPrice();
 
 			if (!MoneyManager.Instance.PlayerHasEnoughMoney(cost))
 			{
@@ -33,7 +36,37 @@ namespace Grid.Tiles.Buildings
 			base.SpawnFoundation();
 			EventManager.Instance.RaiseEvent(new DecreaseMoneyEvent(cost));
 		}
+		
+		public override void SpawnBuilding()
+		{
+			int cost = GetBuildingPrice();
+			
+			if (!MoneyManager.Instance.PlayerHasEnoughMoney(cost))
+			{
+				return;
+			}
 
+			base.SpawnBuilding();
+			EventManager.Instance.RaiseEvent(new DecreaseMoneyEvent(cost));
+		}
+
+		public override void RemoveSoil(bool payForRemoval)
+		{
+			if (payForRemoval)
+			{
+				int cost = GetSoilData(GetSoilType()).RemoveCost;
+
+				if (!MoneyManager.Instance.PlayerHasEnoughMoney(cost))
+				{
+					return;
+				}
+
+				EventManager.Instance.RaiseEvent(new DecreaseMoneyEvent(cost));
+			}
+
+			base.RemoveSoil(payForRemoval);
+		}
+		
 		public override void RemoveFoundation(bool payForRemoval)
 		{
 			if (payForRemoval)
@@ -48,7 +81,7 @@ namespace Grid.Tiles.Buildings
 				EventManager.Instance.RaiseEvent(new DecreaseMoneyEvent(cost));
 			}
 
-			base.RemoveFoundation(false);
+			base.RemoveFoundation(payForRemoval);
 		}
 
 		public override void RemoveDebris(bool payForRemoval)

@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Prefabs:
   - {fileID: 6758913166034969596, guid: 3a07d0b780df67844a24d52cd795bb3c, type: 3}
-  rentPercentage: 30
+  rentPercentage: 8
   weight: 100
-  price: 100
+  price: 500
   destructionCost: 50
-  cleanupCosts: 500
-  maxHealth: 100
+  cleanupCosts: 50
+  maxHealth: 540

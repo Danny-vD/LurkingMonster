@@ -12,6 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f85a17c77a56f3a4f859cb0bde353643, type: 3}
   m_Name: Apartment Tier 2
   m_EditorClassIdentifier: 
-  rentPercentage: 30
+  Prefabs: []
+  rentPercentage: 8
   weight: 250
-  price: 100
+  price: 500
+  destructionCost: 50
+  cleanupCosts: 50
+  maxHealth: 100
