@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86a62c3d0c2d4d03854b5375ed7d03e9, type: 3}
   m_Name: Peet
   m_EditorClassIdentifier: 
-  buildCost: 200
-  removeCost: 100
-  maxHealth: 120
-  materials: []
+  Prefabs:
+  - {fileID: 6379112786290133786, guid: f277441722a807d4e83d7991fffd24c9, type: 3}
+  BuildCost: 200
+  RemoveCost: 100
+  MaxHealth: 50

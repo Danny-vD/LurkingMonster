@@ -26,7 +26,6 @@ namespace Gameplay.Buildings
 		private Building building;
 		private BuildingHealth buildingHealth;
 
-
 		public void Awake()
 		{
 			crackPopup.SetActive(false);
@@ -80,7 +79,7 @@ namespace Gameplay.Buildings
 
 			//TODO: make 3 seperate popups instead?
 			//When health is less then 25% show cracks
-			if (buildingHealth.TotalHealth <= bar.maxValue / 100 * 25 && !crackPopup.activeInHierarchy)
+			if (buildingHealth.TotalHealth <= bar.MaxValue / 100 * 25 && !crackPopup.activeInHierarchy)
 			{
 				crackPopup.SetActive(true);
 			}

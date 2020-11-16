@@ -11,5 +11,7 @@ namespace ScriptableObjects
 		public int BuildCost = 200;
 
 		public int DestroyCost = 500;
+
+		public float MaxHealth = 50.0f;
 	}
 }

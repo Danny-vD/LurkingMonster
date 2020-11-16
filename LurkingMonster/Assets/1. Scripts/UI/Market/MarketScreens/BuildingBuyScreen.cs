@@ -16,6 +16,7 @@ namespace UI.Market.MarketScreens
 
 		private void SetupBuyButton(AbstractBuildingTile tile, MarketManager manager)
 		{
+			//TODO: block the button if we can't affort it
 			SetButton(buyButton, tile.SpawnBuilding, manager.CloseMarket);
 		}
 	}

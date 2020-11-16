@@ -8,10 +8,10 @@ namespace UI.Market.MarketScreens
 	{
 		[SerializeField]
 		private Button buildingButton;
-		
+
 		[SerializeField]
 		private Button foundationButton;
-		
+
 		[SerializeField]
 		private Button soilButton;
 
@@ -24,38 +24,38 @@ namespace UI.Market.MarketScreens
 
 		private void SetupBuildingButton(AbstractBuildingTile tile, MarketManager manager)
 		{
-			if (tile.HasDebris || !tile.HasFoundation) //TODO: || !tile.HasSoil
+			if (tile.HasDebris || !tile.HasFoundation || !tile.HasSoil)
 			{
 				//TODO: Block the button with something....
 				buildingButton.onClick.RemoveAllListeners();
 			}
-			
+
 			if (tile.Building)
 			{
 				SetButton(buildingButton, () => manager.PutScreenInFocus(manager.Screens.BuildingManageScreen));
 				return;
 			}
-			
+
 			SetButton(buildingButton, () => manager.PutScreenInFocus(manager.Screens.BuildingBuyScreen));
 		}
-		
+
 		private void SetupFoundationButton(AbstractBuildingTile tile, MarketManager manager)
 		{
-			if (tile.HasDebris) //TODO: || !tile.HasSoil
+			if (tile.HasDebris || !tile.HasSoil)
 			{
 				//TODO: Block the button with something....
 				foundationButton.onClick.RemoveAllListeners();
 			}
-			
+
 			if (tile.HasFoundation)
 			{
 				SetButton(foundationButton, () => manager.PutScreenInFocus(manager.Screens.FoundationManageScreen));
 				return;
 			}
-			
+
 			SetButton(foundationButton, () => manager.PutScreenInFocus(manager.Screens.FoundationBuyScreen));
 		}
-		
+
 		private void SetupSoilButton(AbstractBuildingTile tile, MarketManager manager)
 		{
 			if (tile.HasDebris)
@@ -64,14 +64,13 @@ namespace UI.Market.MarketScreens
 				soilButton.onClick.RemoveAllListeners();
 			}
 
-			if (false) //TODO: tile.HasSoil
+			if (tile.HasSoil)
 			{
 				SetButton(soilButton, () => manager.PutScreenInFocus(manager.Screens.SoilManageScreen));
 				return;
 			}
-			
+
 			SetButton(soilButton, () => manager.PutScreenInFocus(manager.Screens.SoilBuyScreen));
 		}
-
 	}
 }
