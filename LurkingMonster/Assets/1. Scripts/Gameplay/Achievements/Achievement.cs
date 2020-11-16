@@ -6,6 +6,7 @@ using Events;
 using IO;
 using Singletons;
 using Structs;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using Utility;
@@ -114,8 +115,8 @@ namespace Gameplay.Achievements
 			{
 				if (!unlocked[i])
 				{
-					prefabAchievement.GetComponentsInChildren<Text>()[0].text = $"{message} {limits[i]}";
-					prefabAchievement.GetComponentsInChildren<Text>()[1].text = $"{counter} / {limits[i]}";
+					prefabAchievement.GetComponentsInChildren<TextMeshProUGUI>()[0].text = $"{message} {limits[i]}";
+					prefabAchievement.GetComponentsInChildren<TextMeshProUGUI>()[1].text = $"{counter} / {limits[i]}";
 					
 					prefabAchievement.GetComponentsInChildren<Bar>()[0].SetMax(limits[i]);
 					prefabAchievement.GetComponentsInChildren<Bar>()[0].SetValue(counter);
@@ -123,8 +124,8 @@ namespace Gameplay.Achievements
 				}
 			}
 			
-			prefabAchievement.GetComponentsInChildren<Text>()[0].text = $"{message}";
-			prefabAchievement.GetComponentsInChildren<Text>()[1].text = LanguageUtil.GetJsonString("ALL_ACHIEVEMENTS_UNLOCKED");
+			prefabAchievement.GetComponentsInChildren<TextMeshProUGUI>()[0].text = $"{message}";
+			prefabAchievement.GetComponentsInChildren<TextMeshProUGUI>()[1].text = LanguageUtil.GetJsonString("ALL_ACHIEVEMENTS_UNLOCKED");
 				
 			prefabAchievement.GetComponentInChildren<Image>().color = Color.green;
 		}

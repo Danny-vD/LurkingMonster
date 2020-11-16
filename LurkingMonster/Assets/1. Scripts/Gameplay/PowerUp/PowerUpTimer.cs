@@ -3,6 +3,7 @@ using Enums;
 using Events;
 using Singletons;
 using UnityEngine;
+using UnityEngine.UI;
 using VDFramework;
 using VDFramework.EventSystem;
 
@@ -10,25 +11,73 @@ namespace Gameplay
 {
 	public class PowerUpTimer : BetterMonoBehaviour
 	{
+		[SerializeField]
+		private Sprite meatSprite;
+
+		[SerializeField]
+		private Sprite weatherSprite;
+
+		[SerializeField]
+		private Sprite KcafSprite;
+
+		[SerializeField]
+		private Image icon;
+
+		private Image circleTimer;
+
+		private float maxTimer;
 		private float timer;
 		private Action powerUpActive;
 
-		public void Initiate(float timer, Action powerUpActive)
+		private void Awake()
 		{
-			this.timer         = timer;
-			this.powerUpActive = powerUpActive;
+			circleTimer = GetComponent<Image>();
+		}
+
+		public void StartTimer(float timer, Action powerUpActive, PowerUpType powerUpType)
+		{
+			gameObject.SetActive(true);
+			circleTimer.fillAmount = 1;
+			maxTimer               = timer;
+			this.timer             = maxTimer;
+			this.powerUpActive     = powerUpActive;
+
+			switch (powerUpType)
+			{
+				case PowerUpType.AvoidMonster:
+					icon.sprite = meatSprite;
+					break;
+				case PowerUpType.FixProblems:
+					icon.sprite = KcafSprite;
+					break;
+				case PowerUpType.AvoidWeatherEvent:
+					icon.sprite = weatherSprite;
+					break;
+				default:
+					throw new ArgumentOutOfRangeException(nameof(powerUpType), powerUpType, null);
+			}
 		}
 
 		private void Update()
 		{
 			timer -= Time.deltaTime;
 
-			if (timer <= 0)
+			circleTimer.fillAmount = Mathf.InverseLerp(0, maxTimer, timer);
+
+			if (timer >= 0)
 			{
-				timer         = 0;
-				powerUpActive.Invoke();
-				Destroy(gameObject);
+				return;
 			}
+			
+			timer = 0;
+			powerUpActive.Invoke();
+			gameObject.SetActive(false);
+		}
+
+		public float Timer
+		{
+			get => timer;
+			set => timer = value;
 		}
 	}
 }

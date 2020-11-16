@@ -4,13 +4,19 @@ using Enums;
 using Events;
 using Gameplay;
 using UnityEngine;
+using Utility;
 using VDFramework.EventSystem;
 using VDFramework.Singleton;
+using VDFramework.Extensions;
+
 
 namespace Singletons
 {
 	public class PowerUpManager : Singleton<PowerUpManager>
 	{
+		[SerializeField]
+		private PowerUpTimer powerUpTimer;
+		
 		[SerializeField]
 		private int avoidMonsters;
 		
@@ -22,45 +28,57 @@ namespace Singletons
 
 		private PowerUp[] powerUps;
 
+		private bool powerUpActive;
+
 		private void Start()
 		{
-			avoidMonsters = 0;
-			fixProblems   = 0;
-			avoidWeather  = 0;
-
 			powerUps = new[]
 			{
 				new PowerUp(false, 60f, "Monster Feed", PowerUpType.AvoidMonster),
 				new PowerUp(false, 10f, "KCAF Manager", PowerUpType.FixProblems),
 				new PowerUp(false, 10f, "Time Stop", PowerUpType.AvoidWeatherEvent)
 			};
+			
+			//TODO change
+			if (!UserSettings.SettingsExist)
+			{
+				avoidMonsters = 1;
+				fixProblems   = 3;
+				avoidWeather  = 0;
+			}
+			else
+			{
+				avoidMonsters = UserSettings.GameData.PowerUps[0];
+				avoidWeather  = UserSettings.GameData.PowerUps[1];
+				fixProblems   = UserSettings.GameData.PowerUps[2];
+				
+				ActivatePowerUpOnLoad(UserSettings.GameData.TimerPowerUp, UserSettings.GameData.PowerUpType);
+			}
 
 			EventManager.Instance.AddListener<PowerUpIncreaseEvent>(AddPowerUp);
+			UserSettings.OnGameQuit += SavePowerUps;
 		}
 
 		public void ActivatePowerUp(PowerUpType powerUpType)
 		{
 			PowerUp powerUp = powerUps.First(item => item.PowerUpType == powerUpType);
 			powerUp.IsActive = true;
-			StartNewTimer(powerUp.Timer, (() => DeactivatePowerUp(powerUpType)));
+			powerUpTimer.StartTimer(powerUp.Timer, () => DeactivatePowerUp(powerUpType), powerUpType);
+			
+			ChangePowerUpAmount(powerUpType, -1);
 		}
-		
-		private void AddPowerUp(PowerUpIncreaseEvent powerType)
+
+		private void ActivatePowerUpOnLoad(float time, PowerUpType powerUpType)
 		{
-			switch (powerType.Type)
+			if (powerUpType == (PowerUpType) (-1))
 			{
-				case PowerUpType.AvoidMonster:
-					++avoidMonsters;
-					break;
-				case PowerUpType.FixProblems:
-					++fixProblems;
-					break;
-				case PowerUpType.AvoidWeatherEvent:
-					++avoidWeather;
-					break;
-				default:
-					throw new ArgumentOutOfRangeException(nameof(powerType.Type), powerType.Type, null);
+				return;
 			}
+
+			PowerUp powerUp = powerUps.First(item => item.PowerUpType == powerUpType);
+			powerUp.IsActive = true;
+			powerUpTimer.StartTimer(powerUp.Timer, () => DeactivatePowerUp(powerUpType), powerUpType);
+			powerUpTimer.Timer = time;
 		}
 
 		private void DeactivatePowerUp(PowerUpType powerUpType)
@@ -68,10 +86,73 @@ namespace Singletons
 			PowerUp powerUp = powerUps.First(item => item.PowerUpType == powerUpType);
 			powerUp.IsActive = false;
 		}
-		
-		private void StartNewTimer(float timer, Action action)
+
+		private void AddPowerUp(PowerUpIncreaseEvent powerType)
 		{
-			new GameObject().AddComponent<PowerUpTimer>().Initiate(timer, action);
+			ChangePowerUpAmount(powerType.Type, 1);
+		}
+
+		private void ChangePowerUpAmount(PowerUpType powerType, int amount)
+		{
+			switch (powerType)
+			{
+				case PowerUpType.AvoidMonster:
+					avoidMonsters += amount;
+					break;
+				case PowerUpType.FixProblems:
+					fixProblems += amount;
+					break;
+				case PowerUpType.AvoidWeatherEvent:
+					avoidWeather += amount;
+					break;
+				default:
+					throw new ArgumentOutOfRangeException(nameof(powerType), powerType, null);
+			}
+		}
+
+		private int ReturnActivePowerUpIndex(out float timer)
+		{
+			foreach (PowerUp powerUp in powerUps)
+			{
+				if (!powerUp.IsActive)
+				{
+					continue;
+				}
+
+				timer = powerUpTimer.Timer;
+				return (int) powerUp.PowerUpType;
+			}
+
+			timer = 0;
+			return -1;
+		}
+		
+		private void SavePowerUps()
+		{
+			GameData gameData = UserSettings.GameData;
+			gameData.PowerUps[0] = AvoidMonsters;
+			gameData.PowerUps[1] = AvoidWeather;
+			gameData.PowerUps[2] = FixProblems;
+
+			if (!CheckIfAnPowerUpIsActive())
+			{
+				gameData.PowerUpType = (PowerUpType) (-1);
+				return;
+			}
+		
+			int index = ReturnActivePowerUpIndex(out float timer);
+			gameData.PowerUpType  = default(PowerUpType).GetValues().ElementAt(index);
+			gameData.TimerPowerUp = timer;
+		}
+
+		protected override void OnDestroy()
+		{
+			if (!EventManager.IsInitialized)
+			{
+				return;
+			}
+
+			EventManager.Instance.RemoveListener<PowerUpIncreaseEvent>(AddPowerUp);
 		}
 
 		public bool AvoidMonsterFeedActive => powerUps[0].IsActive;
@@ -79,6 +160,10 @@ namespace Singletons
 
 		public bool AvoidWeatherActive => powerUps[2].IsActive;
 
+		public bool CheckIfAnPowerUpIsActive()
+		{
+			return powerUps.Any(powerUp => powerUp.IsActive);
+		}
 		
 		public int AvoidMonsters
 		{

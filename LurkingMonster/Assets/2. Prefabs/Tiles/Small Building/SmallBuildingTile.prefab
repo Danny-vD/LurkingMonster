@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 8960745232867538998}
   - component: {fileID: 8960745232867538999}
   - component: {fileID: 8960745232867538984}
-  - component: {fileID: 8960745232867538985}
   - component: {fileID: 205954692983551827}
+  - component: {fileID: 4453183926066230150}
   m_Layer: 0
   m_Name: SmallBuildingTile
   m_TagString: Untagged
@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 8960745232867538986}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 1, z: 0.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5407592692283257617}
   m_Father: {fileID: 0}
@@ -42,7 +42,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8960745232867538986}
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: -7835664460937394586, guid: af5946cf0339de54f994c77ed90693dd, type: 3}
 --- !u!23 &8960745232867538984
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -62,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 847f3e0b6eaa1794a9af1b51284b65d7, type: 2}
+  - {fileID: 2100000, guid: 22799e1644448794db781d659f024790, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -84,20 +84,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &8960745232867538985
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8960745232867538986}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!114 &205954692983551827
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -112,6 +98,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buildingType: 0
   debrisMeshes: {fileID: 11400000, guid: 5b9391d2f14bb86419d4f7d4b9b518bd, type: 2}
+--- !u!65 &4453183926066230150
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8960745232867538986}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 5, y: 0.4483966, z: 5}
+  m_Center: {x: 0, y: -0.2241983, z: 0}
 --- !u!1001 &312741033021125353
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -119,6 +118,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8960745232867538998}
     m_Modifications:
+    - target: {fileID: 5718644325636833784, guid: a7944c3765470d84cb974d13ec917c02, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5718644325636833784, guid: a7944c3765470d84cb974d13ec917c02, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -132,6 +135,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5718644325636833784, guid: a7944c3765470d84cb974d13ec917c02, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5718644325636833784, guid: a7944c3765470d84cb974d13ec917c02, type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
@@ -141,14 +148,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5718644325636833784, guid: a7944c3765470d84cb974d13ec917c02, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5718644325636833784, guid: a7944c3765470d84cb974d13ec917c02, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5718644325636833784, guid: a7944c3765470d84cb974d13ec917c02, type: 3}
-      propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5718644325636833784, guid: a7944c3765470d84cb974d13ec917c02, type: 3}

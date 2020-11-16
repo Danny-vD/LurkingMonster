@@ -134,7 +134,7 @@ namespace UI.Market
 			
 			if (buildingTile.Building)
 			{
-				SetDestroyText($"Remove [{buildingTile.Building.GlobalData.DestructionCost}]");
+				SetDestroyText($"Remove [{buildingTile.Building.Data.DestructionCost}]");
 				destroyButton.onClick.AddListener(() => buildingTile.Building.RemoveBuilding(true));
 				return;
 			}

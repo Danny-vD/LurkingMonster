@@ -16,21 +16,24 @@ namespace Grid.Tiles.Buildings
 		[SerializeField]
 		private DebrisPrefabs debrisMeshes = null;
 
-		public Building Building { get; private set; }
-		
 		protected BuildingData FirstTierData; // The building data of the first tier building
 		protected BuildingData DestroyedBuildingData;
 
 		private BuildingSpawner spawner;
+
+		private GameObject soilObject;
 		private GameObject foundationObject;
-		
 		private GameObject debrisObject;
+
 		private MeshRenderer meshRenderer;
 
+		public Building Building { get; private set; }
+
+		public bool HasSoil => soilObject || HasFoundation;
 		public bool HasFoundation => foundationObject || Building;
 		public bool HasDebris => debrisObject;
 		public int DebrisRemovalCost => DestroyedBuildingData.CleanupCosts;
-		
+
 		protected virtual void Awake()
 		{
 			meshRenderer  = GetComponent<MeshRenderer>();
@@ -49,28 +52,40 @@ namespace Grid.Tiles.Buildings
 			{
 				return;
 			}
-			
+
 			EventManager.Instance.RemoveListener<BuildingConsumedEvent>(SpawnBrokenHouseAsset);
 		}
 
-		public virtual void SpawnBuilding()
+		public virtual void SpawnSoil()
 		{
-			RemoveFoundation(false);
-			Building = spawner.Spawn(buildingType, FirstTierData.Foundation, FirstTierData.SoilType);
+			meshRenderer.enabled = false;
+
+			soilObject = spawner.SpawnSoil(FirstTierData.SoilType);
 		}
 
 		public virtual void SpawnFoundation()
 		{
 			RemoveFoundation(false);
 			foundationObject = spawner.SpawnFoundation(FirstTierData.Foundation);
+		}
 
-			meshRenderer.enabled = false;
+		public virtual void SpawnBuilding()
+		{
+			RemoveSoil(false);
+			RemoveFoundation(false);
+			Building = spawner.SpawnBuilding(buildingType, FirstTierData.Foundation, FirstTierData.SoilType);
+		}
+
+		public virtual void RemoveSoil(bool payForRemoval)
+		{
+			Destroy(soilObject);
+
+			meshRenderer.enabled = true;
 		}
 
 		public virtual void RemoveFoundation(bool payForRemoval)
 		{
 			Destroy(foundationObject);
-			meshRenderer.enabled = true;
 		}
 
 		public virtual void RemoveDebris(bool payForRemoval)
@@ -78,9 +93,24 @@ namespace Grid.Tiles.Buildings
 			Destroy(debrisObject);
 		}
 
+		public int GetSoilPrice()
+		{
+			return spawner.GetSoilData(GetSoilType()).BuildCost;
+		}
+		
+		public int GetFoundationPrice()
+		{
+			return spawner.GetFoundationData(GetFoundationType()).BuildCost;
+		}
+		
 		public int GetBuildingPrice()
 		{
 			return FirstTierData.Price;
+		}
+
+		public SoilTypeData GetSoilData(SoilType soilType)
+		{
+			return spawner.GetSoilData(soilType);
 		}
 
 		public FoundationTypeData GetFoundationData(FoundationType foundation)
@@ -134,7 +164,7 @@ namespace Grid.Tiles.Buildings
 		public void SpawnDebris(BuildingType buildingType, int buildingTier)
 		{
 			int tier = Mathf.Max(0, buildingTier - 1);
-			
+
 			DestroyedBuildingData = spawner.GetBuildingData(buildingType, GetFoundationType(), GetSoilType())[tier];
 
 			GameObject prefab = debrisMeshes.GetPrefab(buildingType, tier);

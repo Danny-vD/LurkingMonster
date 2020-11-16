@@ -19,9 +19,6 @@ namespace Gameplay
 			slider.value = progress;
 		}
 
-		public float maxValue
-		{
-			get => slider.maxValue;
-		}
+		public float MaxValue => slider.maxValue;
 	}
 }

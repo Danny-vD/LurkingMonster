@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using Enums;
 using Structs;
 using UnityEngine;
@@ -17,6 +18,11 @@ namespace Utility
 		private float ambientVolume;
 		private Language language;
 		private AchievementData[] achievementData;
+		private int[] powerUps;
+		private PowerUpType powerUpType;
+		private float timerPowerUp;
+		private RandomWeatherEventType randomWeatherEventType;
+		private float timerWeatherEvent;
 
 		private Dictionary<Vector2IntSerializable, TileData> dictionary;
 
@@ -29,19 +35,28 @@ namespace Utility
 			float                                        ambientVolume,
 			Dictionary<Vector2IntSerializable, TileData> dictionary,
 			Language                                     language,
-			AchievementData[] achievementData
-			
+			int[]                                        powerUps,
+			AchievementData[]                            achievementData,
+			PowerUpType powerUpType,
+			float timerPowerUp,
+			RandomWeatherEventType randomWeatherEventType,
+			float timerWeatherEvent	
 		)
 		{
-			this.cityName        = cityName;
-			this.userName        = userName;
-			this.money           = money;
-			this.vibrate         = vibrate;
-			this.musicVolume     = musicVolume;
-			this.ambientVolume   = ambientVolume;
-			this.dictionary      = dictionary;
-			this.language        = language;
-			this.achievementData = achievementData;
+			this.cityName               = cityName;
+			this.userName               = userName;
+			this.money                  = money;
+			this.vibrate                = vibrate;
+			this.musicVolume            = musicVolume;
+			this.ambientVolume          = ambientVolume;
+			this.dictionary             = dictionary;
+			this.language               = language;
+			this.powerUps               = powerUps;
+			this.achievementData        = achievementData;
+			this.powerUpType            = powerUpType;
+			this.timerPowerUp           = timerPowerUp;
+			this.randomWeatherEventType = randomWeatherEventType;
+			this.timerWeatherEvent      = timerWeatherEvent;
 		}
 
 		public string CityName
@@ -96,6 +111,36 @@ namespace Utility
 		{
 			get => achievementData;
 			set => achievementData = value;
+		}
+
+		public int[] PowerUps
+		{
+			get => powerUps;
+			set => powerUps = value;
+		}
+
+		public PowerUpType PowerUpType
+		{
+			get => powerUpType;
+			set => powerUpType = value;
+		}
+
+		public float TimerPowerUp
+		{
+			get => timerPowerUp;
+			set => timerPowerUp = value;
+		}
+
+		public RandomWeatherEventType RandomWeatherEventType
+		{
+			get => randomWeatherEventType;
+			set => randomWeatherEventType = value;
+		}
+
+		public float TimerWeatherEvent
+		{
+			get => timerWeatherEvent;
+			set => timerWeatherEvent = value;
 		}
 	}
 }
