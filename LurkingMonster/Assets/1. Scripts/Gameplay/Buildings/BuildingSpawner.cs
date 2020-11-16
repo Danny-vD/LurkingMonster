@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Enums;
 using Events;
@@ -24,11 +25,27 @@ namespace Gameplay.Buildings
 		[SerializeField]
 		private List<BuildingTierDataPerBuildingType> buildingTierData = new List<BuildingTierDataPerBuildingType>();
 
+		[SerializeField, Header("All spawnpoints are relative")]
+		private Vector3 soilSpawnpoint;
+
+		[SerializeField]
+		private Vector3 foundationSpawnpoint;
+
+		[SerializeField]
+		private Vector3 buildingSpawnpoint;
+
+		private void Awake()
+		{
+			Vector3 position = CachedTransform.TransformPoint(CachedTransform.position);
+		}
+
 		public GameObject SpawnSoil(SoilType soilType)
 		{
 			GameObject prefab = soilData.First(pair => pair.Key.Equals(soilType)).Value.Prefabs.GetRandomItem();
 			GameObject instance = Instantiate(prefab, CachedTransform.position, CachedTransform.rotation);
 
+			instance.transform.Translate(soilSpawnpoint, Space.World);
+			
 			instance.name = soilType.ToString().ReplaceUnderscoreWithSpace();
 
 			return instance;
@@ -39,6 +56,8 @@ namespace Gameplay.Buildings
 			GameObject prefab = foundationData.First(pair => pair.Key.Equals(foundationType)).Value.Prefabs.GetRandomItem();
 			GameObject instance = Instantiate(prefab, CachedTransform.position, CachedTransform.rotation);
 
+			instance.transform.Translate(foundationSpawnpoint, Space.World);
+			
 			instance.name = foundationType.ToString().ReplaceUnderscoreWithSpace();
 
 			return instance;
@@ -49,6 +68,8 @@ namespace Gameplay.Buildings
 			GameObject prefab = buildingTierData.First(pair => pair.Key.Equals(buildingType)).Value[0].GetPrefab();
 			GameObject instance = Instantiate(prefab, CachedTransform.position, CachedTransform.rotation, CachedTransform);
 
+			instance.transform.Translate(buildingSpawnpoint, Space.World);
+			
 			instance.name = buildingType.ToString().InsertSpaceBeforeCapitals();
 
 			Building building = instance.GetComponent<Building>();
@@ -69,7 +90,7 @@ namespace Gameplay.Buildings
 		{
 			return foundationData.First(pair => pair.Key.Equals(foundationType)).Value;
 		}
-		
+
 		public BuildingData[] GetBuildingData(BuildingType buildingType, FoundationType foundationType, SoilType soilType)
 		{
 			List<BuildingTierData> buildingTypeData = buildingTierData.First(pair => pair.Key.Equals(buildingType)).Value;

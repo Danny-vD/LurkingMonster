@@ -88,9 +88,9 @@ namespace Gameplay.Buildings
 		{
 			WeatherEventData data = randomWeatherEvent.weatherEventManager.WeatherEventData;
 			
-			buildingWeatherFactor   += data.BuildingTime;
-			foundationWeatherFactor += data.FoundationTime;
-			soilWeatherFactor       += data.SoilTime;
+			buildingWeatherFactor   = data.BuildingTime;
+			foundationWeatherFactor = data.FoundationTime;
+			soilWeatherFactor       = data.SoilTime;
 			
 			weatherEventManager = randomWeatherEvent.weatherEventManager;
 		}

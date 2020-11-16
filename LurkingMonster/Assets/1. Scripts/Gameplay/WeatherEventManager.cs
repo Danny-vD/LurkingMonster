@@ -36,14 +36,14 @@ namespace Gameplay
 
 		[SerializeField]
 		private float maxTime = 3000.0f;
-		
+
 		private void Start()
 		{
 			timeToEvent        = Random.Range(minTime, maxTime);
 			timer              = timeToEvent;
 			weatherEventActive = false;
 
-			UserSettings.OnGameQuit += SaveWeatherEvent;
+			UserSettings.OnGameQuit += SaveData;
 
 			if (UserSettings.SettingsExist)
 			{
@@ -74,9 +74,9 @@ namespace Gameplay
 				EventManager.Instance.RaiseEvent(new RandomWeatherEvent(this));
 				weatherEventActive = true;
 				weatherEventTimer  = weatherEventData.Timer;
-				
+
 				print(randomWeatherEventType);
-				
+
 				timeToEvent = Random.Range(minTime, maxTime);
 				timer       = timeToEvent;
 			}
@@ -88,7 +88,8 @@ namespace Gameplay
 
 			if (weatherEventTimer <= 0)
 			{
-				weatherEventActive = false;
+				randomWeatherEventType = (RandomWeatherEventType) (-1);
+				weatherEventActive     = false;
 			}
 		}
 
@@ -106,7 +107,7 @@ namespace Gameplay
 			return null;
 		}
 
-		private void SaveWeatherEvent()
+		private void SaveData()
 		{
 			GameData gameData = UserSettings.GameData;
 
@@ -124,15 +125,25 @@ namespace Gameplay
 			GameData gameData = UserSettings.GameData;
 
 			randomWeatherEventType = gameData.RandomWeatherEventType;
-			weatherEventTimer      = gameData.TimerWeatherEvent;
+
+			if (randomWeatherEventType == (RandomWeatherEventType) (-1))
+			{
+				return;
+			}
 			
+			weatherEventData = GetData(randomWeatherEventType);
+			
+			weatherEventTimer  = gameData.TimerWeatherEvent;
+			weatherEventActive = true;
+
 			EventManager.Instance.RaiseEvent(new RandomWeatherEvent(this));
 		}
-		
+
 		[ContextMenu("Populate")]
 		private void PopulateList()
 		{
-			EnumDictionaryUtil.PopulateEnumDictionary<EventDataPerEventType, RandomWeatherEventType, WeatherEventData>(eventDataPerEventType);
+			EnumDictionaryUtil.PopulateEnumDictionary<EventDataPerEventType, RandomWeatherEventType, WeatherEventData>(
+				eventDataPerEventType);
 		}
 
 		public bool WeatherEventActive => weatherEventActive;
