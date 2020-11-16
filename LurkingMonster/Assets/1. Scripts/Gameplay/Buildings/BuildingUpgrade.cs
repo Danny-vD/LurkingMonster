@@ -3,7 +3,6 @@ using Events;
 using ScriptableObjects;
 using Singletons;
 using UnityEngine;
-using UnityEngine.Serialization;
 using VDFramework;
 using VDFramework.EventSystem;
 
