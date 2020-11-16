@@ -43,8 +43,9 @@ namespace Gameplay.Buildings
 		{
 			BuildingType = type;
 			data         = buildingData;
-
-			GetComponent<BuildingHealth>().Initialize(200.0f, 500.0f, Data.MaxHealth);
+			
+			//TODO Add maxSoilHealth, MaxFoundationHealth
+			GetComponent<BuildingHealth>().Initialize(Data.MaxHealth, Data.MaxHealth, Data.MaxHealth);
 		}
 
 		public void RemoveBuilding(bool payForRemoval)

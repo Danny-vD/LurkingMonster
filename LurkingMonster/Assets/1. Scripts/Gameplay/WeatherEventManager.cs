@@ -2,11 +2,14 @@
 using Enums;
 using Events;
 using ScriptableObjects;
+using Singletons;
 using Structs;
 using UnityEngine;
+using Utility;
 using VDFramework;
 using VDFramework.EventSystem;
 using VDFramework.Extensions;
+using VDFramework.Singleton;
 using VDFramework.Utility;
 using Random = UnityEngine.Random;
 
@@ -20,6 +23,14 @@ namespace Gameplay
 		[SerializeField]
 		private List<EventDataPerEventType> eventDataPerEventType = null;
 
+		private RandomWeatherEventType randomWeatherEventType;
+
+		private bool weatherEventActive;
+
+		private WeatherEventData weatherEventData;
+
+		private float weatherEventTimer;
+
 		[SerializeField]
 		private float minTime = 900.0f;
 
@@ -28,22 +39,56 @@ namespace Gameplay
 		
 		private void Start()
 		{
-			timeToEvent = Random.Range(minTime, maxTime);
-			timer       = timeToEvent;
+			timeToEvent        = Random.Range(minTime, maxTime);
+			timer              = timeToEvent;
+			weatherEventActive = false;
+
+			UserSettings.OnGameQuit += SaveWeatherEvent;
+
+			if (UserSettings.SettingsExist)
+			{
+				LoadData();
+			}
 		}
 
 		private void Update()
+		{
+			if (weatherEventActive)
+			{
+				WeatherEventTimer();
+			}
+			else
+			{
+				TimerToNextWeatherEvent();
+			}
+		}
+
+		private void TimerToNextWeatherEvent()
 		{
 			timer -= Time.deltaTime;
 
 			if (timer <= 0.0f)
 			{
-				WeatherEventData weatherEventData = GetData(RandomWeatherEventType.Drought.GetRandomValue());
-				print(weatherEventData.name);
-				EventManager.Instance.RaiseEvent(new RandomWeatherEvent(weatherEventData));
+				randomWeatherEventType = RandomWeatherEventType.Drought.GetRandomValue();
+				weatherEventData       = GetData(randomWeatherEventType);
+				EventManager.Instance.RaiseEvent(new RandomWeatherEvent(this));
+				weatherEventActive = true;
+				weatherEventTimer  = weatherEventData.Timer;
+				
+				print(randomWeatherEventType);
 				
 				timeToEvent = Random.Range(minTime, maxTime);
 				timer       = timeToEvent;
+			}
+		}
+
+		private void WeatherEventTimer()
+		{
+			weatherEventTimer -= Time.deltaTime;
+
+			if (weatherEventTimer <= 0)
+			{
+				weatherEventActive = false;
 			}
 		}
 
@@ -60,11 +105,38 @@ namespace Gameplay
 			Debug.LogError("No Data found for " + randomWeatherEventType);
 			return null;
 		}
+
+		private void SaveWeatherEvent()
+		{
+			GameData gameData = UserSettings.GameData;
+
+			if (!weatherEventActive)
+			{
+				return;
+			}
+
+			gameData.RandomWeatherEventType = randomWeatherEventType;
+			gameData.TimerWeatherEvent      = weatherEventTimer;
+		}
+
+		private void LoadData()
+		{
+			GameData gameData = UserSettings.GameData;
+
+			randomWeatherEventType = gameData.RandomWeatherEventType;
+			weatherEventTimer      = gameData.TimerWeatherEvent;
+			
+			EventManager.Instance.RaiseEvent(new RandomWeatherEvent(this));
+		}
 		
 		[ContextMenu("Populate")]
 		private void PopulateList()
 		{
 			EnumDictionaryUtil.PopulateEnumDictionary<EventDataPerEventType, RandomWeatherEventType, WeatherEventData>(eventDataPerEventType);
 		}
+
+		public bool WeatherEventActive => weatherEventActive;
+
+		public WeatherEventData WeatherEventData => weatherEventData;
 	}
 }
