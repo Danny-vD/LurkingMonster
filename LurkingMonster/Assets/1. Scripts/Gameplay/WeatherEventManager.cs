@@ -4,7 +4,9 @@ using Events;
 using ScriptableObjects;
 using Singletons;
 using Structs;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UIElements;
 using Utility;
 using VDFramework;
 using VDFramework.EventSystem;
@@ -17,11 +19,16 @@ namespace Gameplay
 {
 	public class WeatherEventManager : BetterMonoBehaviour
 	{
-		private float timer;
-		private float timeToEvent;
-
 		[SerializeField]
 		private List<EventDataPerEventType> eventDataPerEventType = null;
+
+		[SerializeField]
+		private GameObject newsEventScreen;
+
+		private TextMeshProUGUI content;
+		
+		private float timer;
+		private float timeToEvent;
 
 		private RandomWeatherEventType randomWeatherEventType;
 
@@ -42,7 +49,9 @@ namespace Gameplay
 			timeToEvent        = Random.Range(minTime, maxTime);
 			timer              = timeToEvent;
 			weatherEventActive = false;
-
+			
+			content = newsEventScreen.GetComponentInChildren<TextMeshProUGUI>();
+			
 			UserSettings.OnGameQuit += SaveData;
 
 			if (UserSettings.SettingsExist)
@@ -74,6 +83,7 @@ namespace Gameplay
 				EventManager.Instance.RaiseEvent(new RandomWeatherEvent(this));
 				weatherEventActive = true;
 				weatherEventTimer  = weatherEventData.Timer;
+				EnableEventScreen(true);
 
 				print(randomWeatherEventType);
 
@@ -90,6 +100,7 @@ namespace Gameplay
 			{
 				randomWeatherEventType = (RandomWeatherEventType) (-1);
 				weatherEventActive     = false;
+				EnableEventScreen(false);
 			}
 		}
 
@@ -105,6 +116,16 @@ namespace Gameplay
 
 			Debug.LogError("No Data found for " + randomWeatherEventType);
 			return null;
+		}
+
+		private void EnableEventScreen(bool active)
+		{
+			newsEventScreen.SetActive(active);
+
+			if (active)
+			{
+				content.text = LanguageUtil.GetJsonString(weatherEventData.JsonContentKey);
+			}
 		}
 
 		private void SaveData()
