@@ -20,6 +20,9 @@ namespace Gameplay
 	public class WeatherEventManager : BetterMonoBehaviour
 	{
 		[SerializeField]
+		private string reporterName = "Lif van der Zandt";
+		
+		[SerializeField]
 		private List<EventDataPerEventType> eventDataPerEventType = null;
 
 		[SerializeField]
@@ -124,7 +127,7 @@ namespace Gameplay
 
 			if (active)
 			{
-				content.text = LanguageUtil.GetJsonString(weatherEventData.JsonContentKey);
+				content.text = LanguageUtil.GetJsonString(weatherEventData.JsonContentKey, reporterName);
 			}
 		}
 

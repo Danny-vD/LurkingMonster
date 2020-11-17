@@ -430,11 +430,11 @@
       "Value": [
         {
           "Key": "NL",
-          "Value": "BREAKING NEWS, Liv van der Sandt here to inform you that there is a heavy storm coming. This will result in soil becoming unstable and foundations might be affected as well as buildings might become damaged."
+          "Value": "BREAKING NEWS, {0} here to inform you that there is a heavy storm coming. This will result in soil becoming unstable and foundations might be affected as well as buildings might become damaged."
         },
         {
           "Key": "EN",
-          "Value": "BREAKING NEWS, Liv van der Sandt here to inform you that there is a heavy storm coming. This will result in soil becoming unstable and foundations might be affected as well as buildings might become damaged."
+          "Value": "BREAKING NEWS, {0} here to inform you that there is a heavy storm coming. This will result in soil becoming unstable and foundations might be affected as well as buildings might become damaged."
         },
         {
           "Key": "DE",
@@ -464,11 +464,11 @@
       "Value": [
         {
           "Key": "NL",
-          "Value": "BREAKING NEWS, Liv van der Sandt here to inform you that there is a drought coming, this will have an extreme effect on your soil, it'll deteriorate quicker."
+          "Value": "BREAKING NEWS, {0} here to inform you that there is a drought coming, this will have an extreme effect on your soil, it'll deteriorate quicker."
         },
         {
           "Key": "EN",
-          "Value": "BREAKING NEWS, Liv van der Sandt here to inform you that there is a drought coming, this will have an extreme effect on your soil, it'll deteriorate quicker."
+          "Value": "BREAKING NEWS, {0} here to inform you that there is a drought coming, this will have an extreme effect on your soil, it'll deteriorate quicker."
         },
         {
           "Key": "DE",
@@ -498,11 +498,11 @@
       "Value": [
         {
           "Key": "NL",
-          "Value": "BREAKING NEWS, Liv van der Sandt to inform you that there is heavy rainfall coming. This will result in soil becoming unstable and foundations might be affected."
+          "Value": "BREAKING NEWS, {0} to inform you that there is heavy rainfall coming. This will result in soil becoming unstable and foundations might be affected."
         },
         {
           "Key": "EN",
-          "Value": "BREAKING NEWS, Liv van der Sandt here to inform you that there is heavy rainfall coming. This will result in soil becoming unstable and foundations might be affected."
+          "Value": "BREAKING NEWS, {0} here to inform you that there is heavy rainfall coming. This will result in soil becoming unstable and foundations might be affected."
         },
         {
           "Key": "DE",
@@ -532,11 +532,11 @@
       "Value": [
         {
           "Key": "NL",
-          "Value": "BREAKING NEWS, Liv van der Sandt here to inform you that there is a size earthquake coming. This will result in soil becoming unstable and foundations might be affected as well as houses might become damaged."
+          "Value": "BREAKING NEWS, {0} here to inform you that there is a size earthquake coming. This will result in soil becoming unstable and foundations might be affected as well as houses might become damaged."
         },
         {
           "Key": "EN",
-          "Value": "BREAKING NEWS, Liv van der Sandt here to inform you that there is a size earthquake coming. This will result in soil becoming unstable and foundations might be affected as well as houses might become damaged."
+          "Value": "BREAKING NEWS, {0} here to inform you that there is a size earthquake coming. This will result in soil becoming unstable and foundations might be affected as well as houses might become damaged."
         },
         {
           "Key": "DE",
@@ -566,11 +566,11 @@
       "Value": [
         {
           "Key": "NL",
-          "Value": "BREAKING NEWS, Liv van der Sandt here to inform you that Company YFUELhas been drilling for gas and because of that soil has started descending! This will have a disastrous effect on soil and buildings"
+          "Value": "BREAKING NEWS, {0} here to inform you that Company YFUELhas been drilling for gas and because of that soil has started descending! This will have a disastrous effect on soil and buildings"
         },
         {
           "Key": "EN",
-          "Value": "BREAKING NEWS, Liv van der Sandt here to inform you that Company YFUELhas been drilling for gas and because of that soil has started descending! This will have a disastrous effect on soil and buildings"
+          "Value": "BREAKING NEWS, {0} here to inform you that Company YFUELhas been drilling for gas and because of that soil has started descending! This will have a disastrous effect on soil and buildings"
         },
         {
           "Key": "DE",
@@ -600,11 +600,11 @@
       "Value": [
         {
           "Key": "NL",
-          "Value": "BREAKING NEWS, Liv van der Sandt here to inform you that Company TUNNELO has been building tunnels underneath our city and because of that soil has started descending! This will have a disastrous effect on soil and buildings"
+          "Value": "BREAKING NEWS, {0} here to inform you that Company TUNNELO has been building tunnels underneath our city and because of that soil has started descending! This will have a disastrous effect on soil and buildings"
         },
         {
           "Key": "EN",
-          "Value": "BREAKING NEWS, Liv van der Sandt here to inform you that Company TUNNELO has been building tunnels underneath our city and because of that soil has started descending! This will have a disastrous effect on soil and buildings"
+          "Value": "BREAKING NEWS, {0} here to inform you that Company TUNNELO has been building tunnels underneath our city and because of that soil has started descending! This will have a disastrous effect on soil and buildings"
         },
         {
           "Key": "DE",

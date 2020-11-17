@@ -68191,7 +68191,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.6528972, y: 0.017637573}
   m_AnchorMax: {x: 0.8751177, y: 0.18454696}
-  m_AnchoredPosition: {x: -0.75305176, y: -0.792572}
+  m_AnchoredPosition: {x: -0.75305176, y: -0.7925415}
   m_SizeDelta: {x: 0.072052, y: 0.072052}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1043588659
@@ -125881,7 +125881,7 @@ GameObject:
   - component: {fileID: 1984091603}
   - component: {fileID: 1984091602}
   m_Layer: 0
-  m_Name: WeatherEvent Manager Singleton
+  m_Name: Weather Event Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
