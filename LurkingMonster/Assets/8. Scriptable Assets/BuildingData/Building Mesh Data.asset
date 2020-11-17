@@ -15,8 +15,10 @@ MonoBehaviour:
   buildingTierMeshPerBuildingTypes:
   - key: 0
     value:
-    - {fileID: -869085112349392085, guid: 59c26864533fdf047ad9265f71223cc8, type: 3}
-    - {fileID: -4948366212873048268, guid: 1cb7d498151db9040b5832bf3c9f2b29, type: 3}
+    - Mesh: {fileID: -869085112349392085, guid: 59c26864533fdf047ad9265f71223cc8, type: 3}
+      Material: {fileID: 2100000, guid: 23653c0c49c93a045a7d239e70381237, type: 2}
+    - Mesh: {fileID: -4948366212873048268, guid: 1cb7d498151db9040b5832bf3c9f2b29, type: 3}
+      Material: {fileID: 1200918526215187638, guid: 1cb7d498151db9040b5832bf3c9f2b29, type: 3}
   - key: 1
     value: []
   - key: 2

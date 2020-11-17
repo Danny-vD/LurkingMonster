@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Enums;
-using Structs.Buildings;
+using Structs.Buildings.MeshData;
 using UnityEngine;
 using VDFramework.Utility;
 
@@ -14,7 +14,7 @@ namespace ScriptableObjects
 		private List<BuildingTierMeshPerBuildingType> buildingTierMeshPerBuildingTypes =
 			new List<BuildingTierMeshPerBuildingType>();
 
-		public Mesh GetMesh(BuildingType buildingType, int tier)
+		public TierMeshData GetMeshData(BuildingType buildingType, int tier)
 		{
 			return buildingTierMeshPerBuildingTypes.First(pair => pair.Key.Equals(buildingType)).Value[tier - 1];
 		}
@@ -27,7 +27,7 @@ namespace ScriptableObjects
 #if UNITY_EDITOR
 		public void PopulateDictionaries()
 		{
-			EnumDictionaryUtil.PopulateEnumDictionary<BuildingTierMeshPerBuildingType, BuildingType, List<Mesh>>(
+			EnumDictionaryUtil.PopulateEnumDictionary<BuildingTierMeshPerBuildingType, BuildingType, List<TierMeshData>>(
 				buildingTierMeshPerBuildingTypes);
 		}
 #endif

@@ -8,7 +8,7 @@ using static Utility.EditorUtils;
 namespace CustomInspector
 {
 	[CustomEditor(typeof(BuildingMeshData))]
-	public class BuildingTierDataEditor : Editor
+	public class BuildingMeshDataEditor : Editor
 	{
 		private BuildingMeshData buildingMeshData;
 
@@ -19,7 +19,7 @@ namespace CustomInspector
 
 		private void OnEnable()
 		{
-			buildingMeshData = target as BuildingMeshData;
+			buildingMeshData = (BuildingMeshData) target;
 			buildingMeshData.PopulateDictionaries();
 
 			buildingTierMeshPerBuildingTypes = serializedObject.FindProperty("buildingTierMeshPerBuildingTypes");
