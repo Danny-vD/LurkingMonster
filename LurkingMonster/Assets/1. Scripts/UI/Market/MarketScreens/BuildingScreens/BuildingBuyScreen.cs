@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace UI.Market.MarketScreens
+namespace UI.Market.MarketScreens.BuildingScreens
 {
 	public class BuildingBuyScreen : AbstractMarketScreen
 	{
