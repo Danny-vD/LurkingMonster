@@ -16,3 +16,5 @@ MonoBehaviour:
   FoundationTime: 0
   BuildingTime: 10
   Timer: 40
+  JsonEventKey: GAS_WINNING
+  JsonContentKey: GAS_WINNING_CONTENT

@@ -76,7 +76,7 @@ namespace Gameplay
 		{
 			timer -= Time.deltaTime;
 
-			if (timer <= 0.0f)
+			if (timer <= 0.0f && !PowerUpManager.Instance.AvoidWeatherActive)
 			{
 				randomWeatherEventType = RandomWeatherEventType.Drought.GetRandomValue();
 				weatherEventData       = GetData(randomWeatherEventType);

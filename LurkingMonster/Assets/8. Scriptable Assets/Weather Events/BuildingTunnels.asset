@@ -16,3 +16,5 @@ MonoBehaviour:
   FoundationTime: 10
   BuildingTime: 10
   Timer: 40
+  JsonEventKey: BUILDING_TUNNELS
+  JsonContentKey: BUILDING_TUNNELS_CONTENT

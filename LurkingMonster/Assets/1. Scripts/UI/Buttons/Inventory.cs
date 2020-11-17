@@ -74,7 +74,7 @@ namespace UI.Buttons
 			Button activate = transform.GetComponentInChildren<Button>();
 			TextMeshProUGUI textCounter = transform.Find("Text_counter").GetComponent<TextMeshProUGUI>();
 			textCounter.text = counter.ToString();
-			
+
 			activate.onClick.AddListener(Activate);
 
 			void Activate()
@@ -92,7 +92,7 @@ namespace UI.Buttons
 			ToggleInventory();
 			EnablePowerUps();
 		}
-
+		
 		private void ToggleInventory()
 		{
 			if (isActive)

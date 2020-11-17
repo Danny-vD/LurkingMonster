@@ -16,3 +16,5 @@ MonoBehaviour:
   FoundationTime: 10
   BuildingTime: 0
   Timer: 40
+  JsonEventKey: DROUGHT
+  JsonContentKey: DROUGHT_CONTENT

@@ -34,9 +34,9 @@ namespace Singletons
 		{
 			powerUps = new[]
 			{
-				new PowerUp(false, 60f, "Monster Feed", PowerUpType.AvoidMonster),
-				new PowerUp(false, 10f, "KCAF Manager", PowerUpType.FixProblems),
-				new PowerUp(false, 10f, "Time Stop", PowerUpType.AvoidWeatherEvent)
+				new PowerUp(false, 300f, "Monster Feed", PowerUpType.AvoidMonster),
+				new PowerUp(false, 1200f, "KCAF Manager", PowerUpType.FixProblems),
+				new PowerUp(false, 600f, "Time Stop", PowerUpType.AvoidWeatherEvent)
 			};
 			
 			//TODO change
@@ -44,7 +44,7 @@ namespace Singletons
 			{
 				avoidMonsters = 1;
 				fixProblems   = 3;
-				avoidWeather  = 0;
+				avoidWeather  = 1;
 			}
 			else
 			{

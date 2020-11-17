@@ -16,3 +16,5 @@ MonoBehaviour:
   FoundationTime: 20
   BuildingTime: 20
   Timer: 20
+  JsonEventKey: EARTHQUAKE
+  JsonContentKey: EARTHQUAKE_CONTENT
