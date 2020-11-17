@@ -9,7 +9,7 @@ namespace UI.Market.MarketScreens
 	public abstract class AbstractMarketScreen : BetterMonoBehaviour
 	{
 		[SerializeField]
-		private Button returnButton;
+		private Button returnButton = null;
 
 		public void Hide()
 		{

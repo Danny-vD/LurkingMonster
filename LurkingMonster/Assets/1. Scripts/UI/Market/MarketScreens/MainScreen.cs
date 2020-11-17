@@ -7,13 +7,13 @@ namespace UI.Market.MarketScreens
 	public class MainScreen : AbstractMarketScreen
 	{
 		[SerializeField]
-		private Button buildingButton;
+		private Button buildingButton = null;
 
 		[SerializeField]
-		private Button foundationButton;
+		private Button foundationButton = null;
 
 		[SerializeField]
-		private Button soilButton;
+		private Button soilButton = null;
 
 		public override void SetUI(AbstractBuildingTile tile, MarketManager manager)
 		{

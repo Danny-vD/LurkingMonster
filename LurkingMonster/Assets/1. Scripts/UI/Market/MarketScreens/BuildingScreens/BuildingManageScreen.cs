@@ -9,18 +9,19 @@ namespace UI.Market.MarketScreens.BuildingScreens
 	public class BuildingManageScreen : AbstractMarketScreen
 	{
 		[SerializeField]
-		private List<Button> btnUpgrade;
+		private List<Button> btnUpgrade = null;
 
 		[Space(20), SerializeField]
-		private Button btnDemolish;
+		private Button btnDemolish = null;
 	
 		[SerializeField]
-		private Button btnRepair;
+		private Button btnRepair = null;
 		
 		public override void SetUI(AbstractBuildingTile tile, MarketManager manager)
 		{
 			SetupUpgradeButtons(tile, manager);
 			SetupRepairButton(tile, manager);
+			SetupDemolishButton(tile, manager);
 		}
 
 		private void SetupUpgradeButtons(AbstractBuildingTile tile, MarketManager manager)
@@ -35,6 +36,7 @@ namespace UI.Market.MarketScreens.BuildingScreens
 				void OnClick()
 				{
 					buildingUpgrade.Upgrade(true);
+					manager.CloseMarket();
 				}
 			}
 		}
@@ -42,7 +44,18 @@ namespace UI.Market.MarketScreens.BuildingScreens
 		private void SetupRepairButton(AbstractBuildingTile tile, MarketManager manager)
 		{
 			BuildingHealth buildingHealth = tile.Building.GetComponent<BuildingHealth>();
-			SetButton(btnRepair, buildingHealth.ResetBuildingHealth);
+			SetButton(btnRepair, buildingHealth.ResetBuildingHealth, manager.CloseMarket);
+		}
+		
+		private void SetupDemolishButton(AbstractBuildingTile tile, MarketManager manager)
+		{
+			SetButton(btnDemolish, OnClick);
+
+			void OnClick()
+			{
+				tile.Building.RemoveBuilding(true);
+				manager.CloseMarket();
+			}
 		}
 	}
 }
