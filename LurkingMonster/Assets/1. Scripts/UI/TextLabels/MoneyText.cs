@@ -1,9 +1,7 @@
-﻿using Enums;
+﻿using System;
 using Events;
 using Singletons;
 using TMPro;
-using UnityEngine.UI;
-using Utility;
 using VDFramework;
 using VDFramework.EventSystem;
 
@@ -13,31 +11,34 @@ namespace UI.TextLabels
 	{
 		private TextMeshProUGUI moneyText;
 
-		private void Start()
+		private void Awake()
 		{
 			moneyText = GetComponent<TextMeshProUGUI>();
-			AddMoneyListener();
+		}
 
+		private void Start()
+		{
 			SetText();
 		}
 
-		private void AddMoneyListener()
+		private void OnEnable()
+		{
+			AddListeners();
+			SetText();
+		}
+
+		private void OnDisable()
+		{
+			RemoveListeners();
+		}
+
+		private void AddListeners()
 		{
 			EventManager.Instance.AddListener<MoneyChangedEvent>(OnMoneyChanged);
 			EventManager.Instance.AddListener<LanguageChangedEvent>(SetText);
 		}
 
-		private void SetText()
-		{
-			moneyText.text = MoneyManager.Instance.CurrentMoney.ToString();
-		}
-
-		private void OnMoneyChanged(MoneyChangedEvent moneyChangedEvent)
-		{
-			SetText();
-		}
-
-		private void OnDestroy()
+		private void RemoveListeners()
 		{
 			if (!EventManager.IsInitialized)
 			{
@@ -45,6 +46,17 @@ namespace UI.TextLabels
 			}
 
 			EventManager.Instance.RemoveListener<MoneyChangedEvent>(OnMoneyChanged);
+			EventManager.Instance.RemoveListener<LanguageChangedEvent>(SetText);
+		}
+
+		private void SetText()
+		{
+			moneyText.text =  $"{MoneyManager.Instance.CurrentMoney:N0}";
+		}
+
+		private void OnMoneyChanged(MoneyChangedEvent moneyChangedEvent)
+		{
+			SetText();
 		}
 	}
 }
