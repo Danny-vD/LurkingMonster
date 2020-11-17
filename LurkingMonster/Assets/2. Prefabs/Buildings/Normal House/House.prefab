@@ -853,7 +853,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6e1d700793d431db1c8e2d2975381ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waitTimeUntilRent: 5
+  waitTimeUntilRent: 60
 --- !u!114 &4707960237150791921
 MonoBehaviour:
   m_ObjectHideFlags: 0
