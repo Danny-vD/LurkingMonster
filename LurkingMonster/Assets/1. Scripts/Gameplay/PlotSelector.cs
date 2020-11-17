@@ -3,6 +3,7 @@ using Events;
 using Grid.Tiles.Buildings;
 using Singletons;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using VDFramework;
 using VDFramework.EventSystem;
 
@@ -89,6 +90,11 @@ namespace Gameplay
 
 		private void HandleSelection()
 		{
+			if (EventSystem.current.IsPointerOverGameObject())
+			{
+				return;	
+			}
+			
 			if (!RayCast(out AbstractBuildingTile buildingTile)) // return if raycast did not hit a building
 			{
 				Deselect(selectedTile);

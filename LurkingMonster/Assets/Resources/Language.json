@@ -611,6 +611,125 @@
           "Value": "Ok!"
         }
       ]
+    },
+    {
+      "Key": "KCAF_CONTENT",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "Lost alles problemen op voor 20 minuten"
+        },
+        {
+          "Key": "EN",
+          "Value": "Fixes everything for 20 minutes"
+        },
+        {
+          "Key": "DE",
+          "Value": "Ok!"
+        }
+      ]
+    },
+    {
+      "Key": "TIME_CONTENT",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "Voorkomt dat er nieuwsgebeurtenissen plaatsvinden gedurende 10 minuten"
+        },
+        {
+          "Key": "EN",
+          "Value": "Stops breaking news events from happening for 10 minutes"
+        },
+        {
+          "Key": "DE",
+          "Value": "Ok!"
+        }
+      ]
+    },
+    {
+      "Key": "MEAT_CONTENT",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "Voorkomt dat het monster je huis vernietigd voor 5 minuten"
+        },
+        {
+          "Key": "EN",
+          "Value": "Stops monster from destroying your house for 5 minutes"
+        },
+        {
+          "Key": "DE",
+          "Value": "Ok!"
+        }
+      ]
+    },
+    {
+      "Key": "ACHIEVEMENTS",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "Prestaties"
+        },
+        {
+          "Key": "EN",
+          "Value": "Achievements"
+        },
+        {
+          "Key": "DE",
+          "Value": "Ok!"
+        }
+      ]
+    },
+    {
+      "Key": "INFORMATION",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "Informatie"
+        },
+        {
+          "Key": "EN",
+          "Value": "Information"
+        },
+        {
+          "Key": "DE",
+          "Value": "Ok!"
+        }
+      ]
+    },
+    {
+      "Key": "INFORMATION_SUBSIDENCE",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "Verzakking"
+        },
+        {
+          "Key": "EN",
+          "Value": "Subsidence"
+        },
+        {
+          "Key": "DE",
+          "Value": "Ok!"
+        }
+      ]
+    },
+    {
+      "Key": "INFORMATION_8_STEP_PLAN",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "8-Stappen Plan"
+        },
+        {
+          "Key": "EN",
+          "Value": "8-Step Plan"
+        },
+        {
+          "Key": "DE",
+          "Value": "Ok!"
+        }
+      ]
     }
   ]
 }
