@@ -122,7 +122,7 @@ namespace Gameplay
 		private void LoadData()
 		{
 			GameData gameData = UserSettings.GameData;
-
+			
 			randomWeatherEventType = gameData.RandomWeatherEventType;
 			weatherEventTimer      = gameData.TimerWeatherEvent;
 			
