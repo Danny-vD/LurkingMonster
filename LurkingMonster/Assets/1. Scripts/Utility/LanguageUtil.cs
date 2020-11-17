@@ -21,9 +21,20 @@ namespace Utility
 			}
 		};  
 		
+		/// <summary>
+		/// Returns the string for a specific key for the current language
+		/// </summary>
 		public static string GetJsonString(string variableName)
 		{
 			return JsonVariables.Instance.GetVariable(variableName, LanguageSettings.Language.ToString());
+		}
+
+		/// <summary>
+		/// Returns the formatted string for a specific key for the current language  
+		/// </summary>
+		public static string GetJsonString(string variableName, params object[] args)
+		{
+			return string.Format(GetJsonString(variableName), args);
 		}
 
 		public static string GetRewardInfo(object @object)
@@ -34,8 +45,6 @@ namespace Utility
 			}
 
 			return "No reward info available";
-
-			//throw new Exception("Reward info does not exist for " + @object);
 		}
 	}
 }

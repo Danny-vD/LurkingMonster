@@ -2,6 +2,7 @@
 using System.Linq;
 using Enums;
 using Structs.Buildings;
+using Structs.Buildings.TierData;
 using UnityEngine;
 using VDFramework.Utility;
 

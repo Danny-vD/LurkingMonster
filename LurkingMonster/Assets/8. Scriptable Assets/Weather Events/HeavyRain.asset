@@ -16,3 +16,5 @@ MonoBehaviour:
   FoundationTime: 15
   BuildingTime: 0
   Timer: 30
+  JsonEventKey: HEAVY_RAIN
+  JsonContentKey: HEAVY_RAIN_CONTENT

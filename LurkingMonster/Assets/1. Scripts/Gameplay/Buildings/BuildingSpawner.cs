@@ -5,6 +5,7 @@ using Enums;
 using Events;
 using ScriptableObjects;
 using Structs.Buildings;
+using Structs.Buildings.TierData;
 using UnityEngine;
 using VDFramework;
 using VDFramework.EventSystem;

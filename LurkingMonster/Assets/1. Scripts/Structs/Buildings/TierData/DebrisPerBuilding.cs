@@ -4,7 +4,7 @@ using Enums;
 using UnityEngine;
 using VDFramework.Interfaces;
 
-namespace Structs.Buildings
+namespace Structs.Buildings.TierData
 {
 	[Serializable]
 	public struct DebrisPerBuilding : IKeyValuePair<BuildingType, List<GameObject>>

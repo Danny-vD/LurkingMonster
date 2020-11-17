@@ -16,5 +16,11 @@ namespace ScriptableObjects
 
 		[SerializeField]
 		public float Timer;
+
+		[SerializeField]
+		public string JsonEventKey;
+		
+		[SerializeField]
+		public string JsonContentKey;
 	}
 }
