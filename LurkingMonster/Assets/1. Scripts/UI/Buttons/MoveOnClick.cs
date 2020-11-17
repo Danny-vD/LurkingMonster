@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using UI.Layout;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
@@ -26,22 +28,16 @@ namespace UI.Buttons
 
 		private void MoveTransforms()
 		{
+			transforms.ForEach(hasMoved ? MoveBack : (Action<RectTransform>) Move);
+
 			hasMoved ^= true;
-
-			if (hasMoved)
-			{
-				transforms.ForEach(MoveBack);
-				return;
-			}
-
-			transforms.ForEach(Move);
 		}
 
 		private void Move(RectTransform rectTransform)
 		{
 			if (dynamicSize)
 			{
-				Vector3 translate = dynamicSize.rect.height * TranslateVector.normalized;
+				Vector3 translate = GetDynamicVector();
 				rectTransform.Translate(translate);
 			}
 			else
@@ -54,13 +50,27 @@ namespace UI.Buttons
 		{
 			if (dynamicSize)
 			{
-				Vector3 translate = dynamicSize.rect.height * TranslateVector.normalized;
+				Vector3 translate = GetDynamicVector();
 				rectTransform.Translate(-translate);
+				
+				print(translate);
 			}
 			else
 			{
 				rectTransform.Translate(-TranslateVector);
 			}
+		}
+
+		private Vector3 GetDynamicVector()
+		{
+			SizeFitter sizeFitter = dynamicSize.GetComponent<SizeFitter>();
+
+			if (sizeFitter)
+			{
+				sizeFitter.AdjustSize(true);
+			}
+
+			return dynamicSize.rect.height * TranslateVector.normalized;
 		}
 	}
 }

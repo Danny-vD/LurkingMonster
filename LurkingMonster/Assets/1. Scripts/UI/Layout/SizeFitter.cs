@@ -27,13 +27,20 @@ namespace UI.Layout
 
 		private void Update()
 		{
-			AdjustSize();
+			AdjustSize(false);
 		}
 
-		private void AdjustSize()
+		public void AdjustSize(bool ignoreDisabledChildren)
 		{
+			if (CachedTransform.childCount == 0)
+			{
+				return;
+			}
+
+			IEnumerable<RectTransform> includedChildren = ignoreDisabledChildren ? children : children.Where(child => child.gameObject.activeSelf);
+			
 			// For every child that is active, add the rect height + spacing
-			float newSize = children.Where(child => child.gameObject.activeSelf).Sum(child => child.rect.height + spacing);
+			float newSize = includedChildren.Sum(child => child.rect.height + spacing);
 			newSize -= spacing; // No spacing needed for last child
 			
 			newSize += padding;
