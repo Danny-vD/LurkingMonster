@@ -3,8 +3,13 @@
 	Properties
 	{
 		_MainTex ("Texture", 2D) = "white" {}
+
+		[Toggle]_UseAbsolute("Absolute", Int) = 0
+
 		_WaveHeight("MaximumHeight", float) = 1
 		_WaveSpeed("Speed", float) = 1
+		_WaveLength("Length", float) = 1
+
 		_Color("Tint", Color) = (1,1,1,1)
 	}
 	SubShader
@@ -21,13 +26,20 @@
             #pragma vertex vertex
             #pragma fragment fragment
 
+			//Constants
+			uniform float PI = 3.14159265358979;
+			
 			//Variables
             sampler2D _MainTex;
 			float4 _MainTex_ST; //tiling(xy) and offset(zw)
+
 			float4 _Color;
 
+			bool _UseAbsolute;
+			
 			float _WaveSpeed;
 			float _WaveHeight;
+			float _WaveLength;
             
             ///Structs
             struct VertexInput
@@ -68,9 +80,18 @@
 
 				float4 modifiedPosition = v.vertex;
 				float speed = _Time.y * _WaveSpeed;
-	        	
-	        	modifiedPosition.y += abs(sin(o.worldPosition.x + speed)) * _WaveHeight;
-	        	modifiedPosition.y += abs(sin(o.worldPosition.z + speed)) * _WaveHeight;
+				float frequency = _WaveLength;
+
+				if (_UseAbsolute)
+				{
+					modifiedPosition.y += abs(sin(frequency * o.worldPosition.x + speed)) * _WaveHeight;
+	        		modifiedPosition.y += abs(sin(frequency * o.worldPosition.z + speed)) * _WaveHeight;	
+				}
+	        	else
+	        	{
+	        		modifiedPosition.y += sin(frequency * o.worldPosition.x + speed) * _WaveHeight;
+	        		modifiedPosition.y += sin(frequency * o.worldPosition.z + speed) * _WaveHeight;
+	        	}
 	        	
 				o.clipPosition = UnityObjectToClipPos(modifiedPosition);
 	        	
