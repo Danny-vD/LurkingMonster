@@ -15,6 +15,8 @@ namespace CustomInspector
 		private bool[] foundationDataPerFoundationTypeFoldout;
 		private bool[] buildingDataPerBuildingTypeFoldout;
 
+		private bool spawnpointsFoldout;
+		
 		private bool soilDataFoldout;
 		private bool foundationDataFoldout;
 		private bool buildingDataFoldout;
@@ -23,6 +25,10 @@ namespace CustomInspector
 		private SerializedProperty soilData;
 		private SerializedProperty foundationData;
 		private SerializedProperty buildingTierData;
+		
+		private SerializedProperty soilSpawnpoint;
+		private SerializedProperty foundationSpawnpoint;
+		private SerializedProperty buildingSpawnpoint;
 
 		private void OnEnable()
 		{
@@ -32,6 +38,11 @@ namespace CustomInspector
 			soilData         = serializedObject.FindProperty("soilData");
 			foundationData   = serializedObject.FindProperty("foundationData");
 			buildingTierData = serializedObject.FindProperty("buildingTierData");
+			
+			soilSpawnpoint = serializedObject.FindProperty("soilSpawnpoint");
+			foundationSpawnpoint = serializedObject.FindProperty("foundationSpawnpoint");
+			buildingSpawnpoint = serializedObject.FindProperty("buildingSpawnpoint");
+
 
 			foundationDataPerFoundationTypeFoldout = new bool[foundationData.arraySize];
 			buildingDataPerBuildingTypeFoldout     = new bool[buildingTierData.arraySize];
@@ -42,6 +53,13 @@ namespace CustomInspector
 		{
 			serializedObject.Update();
 
+			if (IsFoldOut(ref spawnpointsFoldout, "Spawnpoints"))
+			{
+				EditorGUILayout.PropertyField(soilSpawnpoint);
+				EditorGUILayout.PropertyField(foundationSpawnpoint);
+				EditorGUILayout.PropertyField(buildingSpawnpoint);
+			}
+			
 			if (IsFoldOut(ref soilDataFoldout, "Soil Data"))
 			{
 				DrawFoldoutKeyValueArray<SoilType>(soilData, "soilType", "soilTypeData",
