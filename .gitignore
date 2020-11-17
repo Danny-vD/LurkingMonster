@@ -15,9 +15,13 @@ LurkingMonster/Logs/
 LurkingMonster/UserSettings/
 LurkingMonster/LurkingMonster.sln.DotSettings.user
 
+#The error file generated from Process.Start()
+LurkingMonster/debug.log
+
 #Fmod
 */fmod_editor.log
 Fmod Studio/Lurking_Monster/.unsaved/
 Fmod Studio/Lurking_Monster/.user/
 Fmod Studio/Lurking_Monster/.cache/
 LurkingMonster/Assets/Plugins/FMOD/Cache/
+
