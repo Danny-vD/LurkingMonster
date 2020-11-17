@@ -3,7 +3,7 @@ using Enums;
 using UnityEngine;
 using VDFramework.Interfaces;
 
-namespace Structs.Buildings
+namespace Structs.Buildings.TierData
 {
     [Serializable]
     public struct PrefabPerBuildingType : IKeyValuePair<BuildingType, GameObject>

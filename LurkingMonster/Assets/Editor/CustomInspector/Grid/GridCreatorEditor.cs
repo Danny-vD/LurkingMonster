@@ -65,7 +65,17 @@ namespace CustomInspector.Grid
 		private void DrawPrefabsPerTileTypes()
 		{
 			DrawFoldoutKeyValueArray<TileType>(prefabsPerTileTypes, "tileType", "prefabs", prefabsPerTileTypesFoldout,
-				new GUIContent("Prefabs"));
+				DrawPrefabArray);
+		}
+		
+		private static void DrawPrefabArray(int index, SerializedProperty tileType, SerializedProperty prefabs)
+		{
+			prefabs.arraySize = Mathf.Clamp(EditorGUILayout.IntField("Variations", prefabs.arraySize), 0, int.MaxValue);
+			
+			for (int i = 0; i < prefabs.arraySize; i++)
+			{
+				EditorGUILayout.PropertyField(prefabs.GetArrayElementAtIndex(i), new GUIContent($"Prefab"));
+			}
 		}
 
 		private void DrawDeleteButton()

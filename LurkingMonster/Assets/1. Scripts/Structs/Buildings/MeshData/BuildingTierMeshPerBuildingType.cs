@@ -4,16 +4,16 @@ using Enums;
 using UnityEngine;
 using VDFramework.Interfaces;
 
-namespace Structs.Buildings
+namespace Structs.Buildings.MeshData
 {
 	[Serializable]
-	public struct BuildingTierMeshPerBuildingType : IKeyValuePair<BuildingType, List<Mesh>>
+	public struct BuildingTierMeshPerBuildingType : IKeyValuePair<BuildingType, List<TierMeshData>>
 	{
 		[SerializeField]
 		private BuildingType key;
 		
 		[SerializeField]
-		private List<Mesh> value;
+		private List<TierMeshData> value;
 
 		public BuildingType Key
 		{
@@ -21,13 +21,13 @@ namespace Structs.Buildings
 			set => key = value;
 		}
 
-		public List<Mesh> Value
+		public List<TierMeshData> Value
 		{
 			get => value;
 			set => this.value = value;
 		}
 		
-		public bool Equals(IKeyValuePair<BuildingType, List<Mesh>> other)
+		public bool Equals(IKeyValuePair<BuildingType, List<TierMeshData>> other)
 		{
 			return other.Key.Equals(Key);
 		}

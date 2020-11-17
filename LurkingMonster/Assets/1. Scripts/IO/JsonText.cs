@@ -4,6 +4,7 @@ using Events;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Utility;
 using VDFramework;
 using VDFramework.EventSystem;
 
@@ -33,9 +34,9 @@ namespace IO
             text.text = GetText(textType);
         }
         
-        private static string GetText(string pType)
+        private static string GetText(string jsonKey)
         {
-            return JsonVariables.Instance.GetVariable(pType, LanguageSettings.Language.ToString());
+            return LanguageUtil.GetJsonString(jsonKey);
         }
 
 		private void OnDestroy()
