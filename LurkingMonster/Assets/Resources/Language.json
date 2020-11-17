@@ -1,6 +1,6 @@
 {
   "Variables": [
-	{
+    {
 	  "Key": "PLACEHOLDER",
 	  "Value": [
 		{
@@ -401,6 +401,210 @@
         {
           "Key": "EN",
           "Value": "Music Effects Volume"
+        },
+        {
+          "Key": "DE",
+          "Value": "Ok!"
+        }
+      ]
+    },
+    {
+      "Key": "STORM",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "Storm"
+        },
+        {
+          "Key": "EN",
+          "Value": "Storm"
+        },
+        {
+          "Key": "DE",
+          "Value": "Ok!"
+        }
+      ]
+    },
+    {
+      "Key": "STORM_CONTENT",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "BREAKING NEWS, Liv van der Sandt here to inform you that there is a heavy storm coming. This will result in soil becoming unstable and foundations might be affected as well as buildings might become damaged."
+        },
+        {
+          "Key": "EN",
+          "Value": "BREAKING NEWS, Liv van der Sandt here to inform you that there is a heavy storm coming. This will result in soil becoming unstable and foundations might be affected as well as buildings might become damaged."
+        },
+        {
+          "Key": "DE",
+          "Value": "Ok!"
+        }
+      ]
+    },
+    {
+      "Key": "DROUGHT",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "Droogte"
+        },
+        {
+          "Key": "EN",
+          "Value": "Drought"
+        },
+        {
+          "Key": "DE",
+          "Value": "Ok!"
+        }
+      ]
+    },
+    {
+      "Key": "DROUGHT_CONTENT",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "BREAKING NEWS, Liv van der Sandt here to inform you that there is a drought coming, this will have an extreme effect on your soil, it'll deteriorate quicker."
+        },
+        {
+          "Key": "EN",
+          "Value": "BREAKING NEWS, Liv van der Sandt here to inform you that there is a drought coming, this will have an extreme effect on your soil, it'll deteriorate quicker."
+        },
+        {
+          "Key": "DE",
+          "Value": "Ok!"
+        }
+      ]
+    },
+    {
+      "Key": "HEAVY_RAIN",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "Hevige Regen"
+        },
+        {
+          "Key": "EN",
+          "Value": "Heavy Rain"
+        },
+        {
+          "Key": "DE",
+          "Value": "Ok!"
+        }
+      ]
+    },
+    {
+      "Key": "HEAVY_RAIN_CONTENT",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "REAKING NEWS, Liv van der Sandt to inform you that there is heavy rainfall coming. This will result in soil becoming unstable and foundations might be affected."
+        },
+        {
+          "Key": "EN",
+          "Value": "REAKING NEWS, Liv van der Sandt here to inform you that there is heavy rainfall coming. This will result in soil becoming unstable and foundations might be affected."
+        },
+        {
+          "Key": "DE",
+          "Value": "Ok!"
+        }
+      ]
+    },
+    {
+      "Key": "EARTHQUAKE",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "Aardbeving"
+        },
+        {
+          "Key": "EN",
+          "Value": "Earthquake"
+        },
+        {
+          "Key": "DE",
+          "Value": "Ok!"
+        }
+      ]
+    },
+    {
+      "Key": "EARTHQUAKE_CONTENT",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "BREAKING NEWS, Liv van der Sandt here to inform you that there is a size earthquake coming. This will result in soil becoming unstable and foundations might be affected as well as houses might become damaged."
+        },
+        {
+          "Key": "EN",
+          "Value": "BREAKING NEWS, Liv van der Sandt here to inform you that there is a size earthquake coming. This will result in soil becoming unstable and foundations might be affected as well as houses might become damaged."
+        },
+        {
+          "Key": "DE",
+          "Value": "Ok!"
+        }
+      ]
+    },
+    {
+      "Key": "GAS_WINNING",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "Gaswinning"
+        },
+        {
+          "Key": "EN",
+          "Value": "Gas Winning"
+        },
+        {
+          "Key": "DE",
+          "Value": "Ok!"
+        }
+      ]
+    },
+    {
+      "Key": "GAS_WINNING_CONTENT",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "BREAKING NEWS, Liv van der Sandt here to inform you that Company YFUELhas been drilling for gas and because of that soil has started descending! This will have a disastrous effect on soil and buildings"
+        },
+        {
+          "Key": "EN",
+          "Value": "BREAKING NEWS, Liv van der Sandt here to inform you that Company YFUELhas been drilling for gas and because of that soil has started descending! This will have a disastrous effect on soil and buildings"
+        },
+        {
+          "Key": "DE",
+          "Value": "Ok!"
+        }
+      ]
+    },
+    {
+      "Key": "BUILDING_TUNNELS",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "Tunnels Bouwen"
+        },
+        {
+          "Key": "EN",
+          "Value": "Building Tunnels"
+        },
+        {
+          "Key": "DE",
+          "Value": "Ok!"
+        }
+      ]
+    },
+    {
+      "Key": "BUILDING_TUNNELS_CONTENT",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "BREAKING NEWS, Liv van der Sandt here to inform you that Company TUNNELO has been building tunnels underneath our city and because of that soil has started descending! This will have a disastrous effect on soil and buildings"
+        },
+        {
+          "Key": "EN",
+          "Value": "BREAKING NEWS, Liv van der Sandt here to inform you that Company TUNNELO has been building tunnels underneath our city and because of that soil has started descending! This will have a disastrous effect on soil and buildings"
         },
         {
           "Key": "DE",
