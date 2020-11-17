@@ -34,10 +34,11 @@ namespace UI.Layout
 		{
 			// For every child that is active, add the rect height + spacing
 			float newSize = children.Where(child => child.gameObject.activeSelf).Sum(child => child.rect.height + spacing);
-
+			newSize -= spacing; // No spacing needed for last child
+			
 			newSize += padding;
 
-			rectTransform.sizeDelta = new Vector2(0, newSize);
+			rectTransform.sizeDelta = new Vector2(rectTransform.sizeDelta.x, newSize);
 		}
 	}
 }
