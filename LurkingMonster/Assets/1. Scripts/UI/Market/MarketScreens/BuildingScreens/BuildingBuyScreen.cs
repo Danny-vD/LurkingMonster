@@ -7,7 +7,7 @@ namespace UI.Market.MarketScreens.BuildingScreens
 	public class BuildingBuyScreen : AbstractMarketScreen
 	{
 		[SerializeField]
-		private Button buyButton;
+		private Button buyButton = null;
 		
 		public override void SetUI(AbstractBuildingTile tile, MarketManager manager)
 		{

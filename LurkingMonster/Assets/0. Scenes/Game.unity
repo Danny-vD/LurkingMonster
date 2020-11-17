@@ -1051,7 +1051,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.7991898}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 1.7353516}
+  m_AnchoredPosition: {x: 0, y: 1.7353668}
   m_SizeDelta: {x: -0.46984863, y: -3.4732666}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &17070076
@@ -12496,7 +12496,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &211158424
 RectTransform:
   m_ObjectHideFlags: 0
@@ -28599,7 +28599,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &429772621
 RectTransform:
   m_ObjectHideFlags: 0
@@ -48675,7 +48675,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 4.2700043, y: 0.20000076}
+  m_AnchoredPosition: {x: 4.2700195, y: 0.20000076}
   m_SizeDelta: {x: -6.4231567, y: -8.0296}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &744246950
@@ -57205,7 +57205,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7caf13faff84486a295e43c46b160f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TranslateVector: {x: 0, y: 950, z: 0}
+  TranslateVector: {x: 0, y: -2404, z: 0}
+  dynamicSize: {fileID: 0}
   transforms:
   - {fileID: 1466748818}
   - {fileID: 1607833362}
@@ -57601,7 +57602,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   padding: 0
-  spacing: 10
+  spacing: 80
 --- !u!1 &894268522
 GameObject:
   m_ObjectHideFlags: 0
@@ -65110,7 +65111,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 4.2700043, y: 0.20000076}
+  m_AnchoredPosition: {x: 4.269989, y: 0.20000076}
   m_SizeDelta: {x: -6.4231567, y: -8.0296}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &1001998744
@@ -68190,7 +68191,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.6528972, y: 0.017637573}
   m_AnchorMax: {x: 0.8751177, y: 0.18454696}
-  m_AnchoredPosition: {x: -0.75305176, y: -0.79296875}
+  m_AnchoredPosition: {x: -0.75305176, y: -0.7925415}
   m_SizeDelta: {x: 0.072052, y: 0.072052}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1043588659
@@ -93873,7 +93874,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7caf13faff84486a295e43c46b160f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TranslateVector: {x: 0, y: 950, z: 0}
+  TranslateVector: {x: 0, y: -950, z: 0}
+  dynamicSize: {fileID: 0}
   transforms:
   - {fileID: 1607833362}
   - {fileID: 274588798}
@@ -99842,7 +99844,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 4.2700043, y: 0.20000076}
+  m_AnchoredPosition: {x: 4.2700195, y: 0.20000076}
   m_SizeDelta: {x: -6.4231567, y: -8.0296}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &1563527828
@@ -125879,7 +125881,7 @@ GameObject:
   - component: {fileID: 1984091603}
   - component: {fileID: 1984091602}
   m_Layer: 0
-  m_Name: WeatherEvent Manager Singleton
+  m_Name: Weather Event Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

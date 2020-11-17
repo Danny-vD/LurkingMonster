@@ -51,7 +51,7 @@ namespace UI.TextLabels
 
 		private void SetText()
 		{
-			moneyText.text =  $"{MoneyManager.Instance.CurrentMoney:N0}";
+			moneyText.text = $"{MoneyManager.Instance.CurrentMoney:N0}"; // Format to use seperator symbols and 0 decimals
 		}
 
 		private void OnMoneyChanged(MoneyChangedEvent moneyChangedEvent)
