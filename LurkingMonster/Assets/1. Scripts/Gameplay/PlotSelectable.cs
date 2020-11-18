@@ -68,6 +68,8 @@ namespace Gameplay
 
 			foreach (Renderer childRenderer in meshRenderers)
 			{
+				materials.Add(childRenderer, childRenderer.sharedMaterial);
+				childRenderer.sharedMaterial = selectMaterial;
 			}
 		}
 	}

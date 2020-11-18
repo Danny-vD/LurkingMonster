@@ -74,7 +74,7 @@ namespace Grid
 					buildingTile.SetFoundation(tileData.FoundationType);
 					buildingTile.SetBuildingType(tileData.BuildingType);
 
-					if (tileData.DebrisExists)
+					if (tileData.HasDebris)
 					{
 						buildingTile.SpawnDebris(tileData.BuildingType, tileData.BuildingTier);
 						continue;
@@ -91,10 +91,14 @@ namespace Grid
 					}
 					else
 					{
-						//TODO change later so that foundation always spawns
-						if (tileData.FoundationExists)
+						if (tileData.HasSoil)
 						{
-							buildingTile.SpawnFoundation();
+							buildingTile.SpawnSoil();
+							
+							if (tileData.HasFoundation)
+							{
+								buildingTile.SpawnFoundation();
+							}	
 						}
 
 						continue;

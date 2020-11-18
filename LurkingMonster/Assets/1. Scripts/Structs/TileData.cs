@@ -18,8 +18,9 @@ namespace Structs
 		private int buildingTier;
 		private SoilType soilType;
 		private FoundationType foundationType;
-		private bool foundationExists;
-		private bool debrisExists;
+		private bool hasSoil;
+		private bool hasFoundation;
+		private bool hasDebris;
 		
 		private float buildingHealth;
 		private float foundationHealth;
@@ -35,9 +36,10 @@ namespace Structs
 
 		public FoundationType FoundationType => foundationType;
 
-		public bool FoundationExists => foundationExists;
+		public bool HasSoil => hasSoil;
+		public bool HasFoundation => hasFoundation;
 
-		public bool DebrisExists => debrisExists;
+		public bool HasDebris => hasDebris;
 
 		public float BuildingHealth => buildingHealth;
 
@@ -56,8 +58,9 @@ namespace Structs
 			// check and cast to approriate type directly
 			if (tile is AbstractBuildingTile buildingTile)
 			{
-				foundationExists = buildingTile.HasFoundation;
-				debrisExists     = buildingTile.HasDebris;
+				hasSoil       = buildingTile.HasSoil;
+				hasFoundation = buildingTile.HasFoundation;
+				hasDebris     = buildingTile.HasDebris;
 
 				if (buildingTile.Building == null)
 				{

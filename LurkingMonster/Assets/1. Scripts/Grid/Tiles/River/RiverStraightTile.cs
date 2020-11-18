@@ -11,6 +11,11 @@ namespace Grid.Tiles.River
 		{
 			base.AddRiverNeighbor(tile);
 
+			if (RiverNeighbors.Count >= 3)
+			{
+				return;
+			}
+			
 			CachedTransform.LookAt(tile.CachedTransform, CachedTransform.up);
 
 			// Get a random boolean to randomly rotate 180°
