@@ -40,6 +40,9 @@
 			float _WaveSpeed;
 			float _WaveHeight;
 			float _WaveLength;
+
+			//Functions
+			float PingPong(float value, float length);
             
             ///Structs
             struct VertexInput
@@ -106,13 +109,41 @@
 	        {
 	            fragmentOutput o;
 
-				float2 uv = i.texCoord.xy * _MainTex_ST.xy + _MainTex_ST.zw;
-	       
+				float2 uv = i.worldPosition.xz * _MainTex_ST.xy + _MainTex_ST.zw;
+	        	
+	        	uv.x = PingPong(uv.x, 1);
+	        	uv.y = PingPong(uv.y, 1);
+	        	
 	        	o.color = tex2D(_MainTex, uv) * _Color;
 	        	
 	            return o;
 	        }
-            
+
+			float PingPong(float number, float length)
+			{
+				number = abs(number);
+	        	
+				if (number > length) //check if we are over our limit
+				{
+					float a = number % length; //grab the remainder
+					int b = number / length; //check how many times we are over our limit
+					bool c = (b & 1 == 0); //see if it's an even number
+					
+					if (c) //even
+					{
+						return a;
+					}
+					else //not even
+					{
+						return length - a;
+					}
+				}
+				else
+				{
+					return number;
+				}
+			}
+			
             ENDCG
 		}
 	}

@@ -77,6 +77,6 @@ Material:
     - _WaveSpeed: 1.78
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 0.5803922, g: 0.83137256, b: 0.9137255, a: 1}
+    - _Color: {r: 0.4761481, g: 0.8279584, b: 0.9433962, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
   m_BuildTextureStacks: []
