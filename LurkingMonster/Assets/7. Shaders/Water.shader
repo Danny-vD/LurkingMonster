@@ -110,6 +110,8 @@
 	            fragmentOutput o;
 
 				float2 uv = i.worldPosition.xz * _MainTex_ST.xy + _MainTex_ST.zw;
+
+				uv.y += _Time.y / 10;
 	        	
 	        	uv.x = PingPong(uv.x, 1);
 	        	uv.y = PingPong(uv.y, 1);
@@ -126,8 +128,8 @@
 				if (number > length) //check if we are over our limit
 				{
 					float a = number % length; //grab the remainder
-					int b = number / length; //check how many times we are over our limit
-					bool c = (b & 1 == 0); //see if it's an even number
+					uint b = number / length; //check how many times we are over our limit
+					bool c = (b % 2 == 0); //see if it's an even number
 					
 					if (c) //even
 					{
