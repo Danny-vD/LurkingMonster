@@ -43,7 +43,7 @@ namespace Gameplay.Achievements
 			buildingSavedAchievement    = new Achievement(new int[] {10, 20, 30}, "BUILDINGSAVEDACHIEVEMENT",
 				new object[] {SoilType.Peet, PowerUpType.FixProblems, SoilType.Sand}, "PLACEHOLDER");
 			buildingConsumedAchievement = new Achievement(new int[] {5, 10, 20}, "BUILDINGCONSUMEDACHIEVEMENT",
-				new object[] {RandomWeatherEventType.Earthquake, RandomWeatherEventType.Storm, RandomWeatherEventType.BuildingTunnels}, "PLACEHOLDER");
+				new object[] {WeatherEventType.Earthquake, WeatherEventType.Storm, WeatherEventType.BuildingTunnels}, "PLACEHOLDER");
 			amountOfPlotsAchievement    = new Achievement(new int[] {5, 10, 20}, "AMOUNTOFPLOTSACHIEVEMENT",
 				new object[] {8, 10, BuildingType.ApartmentBuilding}, "PLACEHOLDER");
 			destroyHousesAchievement    = new Achievement(new int[] {2, 5, 10}, "DESTROYHOUSESACHIEVEMENT",

@@ -27,10 +27,13 @@ namespace Grid.Tiles.Buildings
 
 		private MeshRenderer meshRenderer;
 
+		public GameObject Soil => soilObject;
+		public GameObject Foundation => foundationObject;
 		public Building Building { get; private set; }
 
 		public bool HasSoil => soilObject || HasFoundation;
-		public bool HasFoundation => foundationObject || Building;
+		public bool HasFoundation => foundationObject || HasBuilding;
+		public bool HasBuilding => Building;
 		public bool HasDebris => debrisObject;
 		public int DebrisRemovalCost => DestroyedBuildingData.CleanupCosts;
 
@@ -97,12 +100,12 @@ namespace Grid.Tiles.Buildings
 		{
 			return spawner.GetSoilData(GetSoilType()).BuildCost;
 		}
-		
+
 		public int GetFoundationPrice()
 		{
 			return spawner.GetFoundationData(GetFoundationType()).BuildCost;
 		}
-		
+
 		public int GetBuildingPrice()
 		{
 			return FirstTierData.Price;

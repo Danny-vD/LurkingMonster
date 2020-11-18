@@ -1,5 +1,4 @@
-﻿using System;
-using Events;
+﻿using Events;
 using Singletons;
 using TMPro;
 using VDFramework;

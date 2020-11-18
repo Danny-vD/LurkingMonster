@@ -7,20 +7,20 @@ using VDFramework.Interfaces;
 namespace Structs
 {
 	[Serializable]
-	public struct EventDataPerEventType : IKeyValuePair<RandomWeatherEventType, WeatherEventData>
+	public struct EventDataPerEventType : IKeyValuePair<WeatherEventType, WeatherEventData>
 	{
 		[SerializeField]
-		private RandomWeatherEventType key;
+		private WeatherEventType key;
 		
 		[SerializeField]
 		private WeatherEventData value;
 
-		public bool Equals(IKeyValuePair<RandomWeatherEventType, WeatherEventData> other)
+		public bool Equals(IKeyValuePair<WeatherEventType, WeatherEventData> other)
 		{
 			return Key.Equals(other.Key);
 		}
 
-		public RandomWeatherEventType Key
+		public WeatherEventType Key
 		{
 			get => key;
 			set => key = value;

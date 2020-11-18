@@ -1,6 +1,7 @@
 ﻿using System;
 using Events;
 using Grid.Tiles.Buildings;
+using Interfaces;
 using Singletons;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -9,22 +10,21 @@ using VDFramework.EventSystem;
 
 namespace Gameplay
 {
-	[RequireComponent(typeof(UnityEngine.Camera))]
+	[RequireComponent(typeof(Camera))]
 	public class PlotSelector : BetterMonoBehaviour
 	{
-		private static AbstractBuildingTile selectedTile = null;
-		private static Material originalMaterial = null;
+		private static PlotSelectable selected = null;
 
 		private static Action selectMethod;
 
 		[SerializeField]
 		private Material selectedMaterial = null;
 
-		private UnityEngine.Camera playerCamera;
+		private Camera playerCamera;
 
 		private void Awake()
 		{
-			playerCamera = GetComponent<UnityEngine.Camera>();
+			playerCamera = GetComponent<Camera>();
 
 			selectMethod = SystemInfo.deviceType == DeviceType.Handheld ? (Action) TouchSelect : MouseSelect;
 		}
@@ -37,30 +37,6 @@ namespace Gameplay
 			}
 			
 			selectMethod();
-		}
-
-		/// <summary>
-		/// Performs a raycast from the camera to the mouse
-		/// </summary>
-		/// <param name="buildingTile">The building tile that is hit by the raycast</param>
-		/// <returns>True or False depending on whether we hit a building tile</returns>
-		private bool RayCast(out AbstractBuildingTile buildingTile)
-		{
-			Ray mouseRay = playerCamera.ScreenPointToRay(Input.mousePosition);
-
-			if (Physics.Raycast(mouseRay, out RaycastHit hitinfo))
-			{
-				GameObject hitObject = hitinfo.collider.gameObject;
-				buildingTile = hitObject.GetComponent<AbstractBuildingTile>();
-
-				if (buildingTile)
-				{
-					return true;
-				}
-			}
-
-			buildingTile = null;
-			return false;
 		}
 
 		private void TouchSelect()
@@ -87,6 +63,30 @@ namespace Gameplay
 				HandleSelection();
 			}
 		}
+		
+		/// <summary>
+		/// Performs a raycast from the camera to the mouse
+		/// </summary>
+		/// <param name="selectable">The PlotSelectable that is hit by the raycast</param>
+		/// <returns>True or False depending on whether we hit a PlotSelectable</returns>
+		private bool RayCast(out PlotSelectable selectable)
+		{
+			Ray mouseRay = playerCamera.ScreenPointToRay(Input.mousePosition);
+
+			if (Physics.Raycast(mouseRay, out RaycastHit hitinfo))
+			{
+				GameObject hitObject = hitinfo.collider.gameObject;
+				selectable = hitObject.GetComponent<PlotSelectable>();
+
+				if (selectable != null)
+				{
+					return true;
+				}
+			}
+
+			selectable = null;
+			return false;
+		}
 
 		private void HandleSelection()
 		{
@@ -95,57 +95,37 @@ namespace Gameplay
 				return;	
 			}
 			
-			if (!RayCast(out AbstractBuildingTile buildingTile)) // return if raycast did not hit a building
+			if (RayCast(out PlotSelectable selectable)) // check if raycast hit a PlotSelectable
 			{
-				Deselect(selectedTile);
+				Select(selectable);
 				return;
 			}
 
-			Select(buildingTile);
+			Deselect(selected);
 		}
 
-		private void Select(AbstractBuildingTile tile)
+		private void Select(PlotSelectable selectable)
 		{
-			// Selected the selected tile, so open market
-			if (tile == selectedTile)
+			// Selected the selected object, so open market
+			if (selectable == selected)
 			{
-				EventManager.Instance.RaiseEvent(new OpenMarketEvent(tile));
-				Deselect(tile);
+				Deselect(selectable);
+				EventManager.Instance.RaiseEvent(new OpenMarketEvent(selectable.GetTile()));
 				return;
 			}
 
-			Deselect(selectedTile);
+			Deselect(selected); // Deselect the last selected object
 
-			selectedTile = tile;
-
-			ChangePlotMaterial(tile, true);
+			// select the new object
+			selected = selectable;
+			selectable.Select(selectedMaterial);
 		}
 
-		private void Deselect(AbstractBuildingTile tile)
+		private static void Deselect(ISelectable selectable)
 		{
-			selectedTile = null;
+			selectable?.Deselect();
 
-			if (tile == null) // It's not guaranteed to be non-null
-			{
-				return;
-			}
-
-			ChangePlotMaterial(tile, false);
-			originalMaterial = null;
-		}
-
-		private void ChangePlotMaterial(AbstractBuildingTile tile, bool isSelected)
-		{
-			Component objectToSelect = tile; //tile.Building ? (Component) tile.Building : tile;
-
-			Renderer meshRenderer = objectToSelect.GetComponent<Renderer>();
-
-			if (isSelected)
-			{
-				originalMaterial = meshRenderer.sharedMaterial;
-			}
-
-			meshRenderer.sharedMaterial = isSelected ? selectedMaterial : originalMaterial;
+			selected = null;
 		}
 	}
 }

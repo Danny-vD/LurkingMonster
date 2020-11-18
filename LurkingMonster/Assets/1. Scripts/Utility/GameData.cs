@@ -1,15 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using Enums;
 using Structs;
-using UnityEngine;
 
 namespace Utility
 {
 	[Serializable]
 	public class GameData
 	{
+		//TODO: split up in serializable structs
+
 		private string cityName;
 		private string userName;
 		private int money;
@@ -21,11 +21,12 @@ namespace Utility
 		private int[] powerUps;
 		private PowerUpType powerUpType;
 		private float timerPowerUp;
-		private RandomWeatherEventType randomWeatherEventType;
+		private WeatherEventType weatherEventType;
 		private float timerWeatherEvent;
 
 		private Dictionary<Vector2IntSerializable, TileData> dictionary;
 
+		// TODO: most of these parameters are unecessary I think, we only call the Ctor when we create a new game
 		public GameData(
 			string                                       cityName,
 			string                                       userName,
@@ -37,26 +38,26 @@ namespace Utility
 			Language                                     language,
 			int[]                                        powerUps,
 			AchievementData[]                            achievementData,
-			PowerUpType powerUpType,
-			float timerPowerUp,
-			RandomWeatherEventType randomWeatherEventType,
-			float timerWeatherEvent	
+			PowerUpType                                  powerUpType,
+			float                                        timerPowerUp,
+			WeatherEventType                             weatherEventType,
+			float                                        timerWeatherEvent
 		)
 		{
-			this.cityName               = cityName;
-			this.userName               = userName;
-			this.money                  = money;
-			this.vibrate                = vibrate;
-			this.musicVolume            = musicVolume;
-			this.ambientVolume          = ambientVolume;
-			this.dictionary             = dictionary;
-			this.language               = language;
-			this.powerUps               = powerUps;
-			this.achievementData        = achievementData;
-			this.powerUpType            = powerUpType;
-			this.timerPowerUp           = timerPowerUp;
-			this.randomWeatherEventType = randomWeatherEventType;
-			this.timerWeatherEvent      = timerWeatherEvent;
+			this.cityName          = cityName;
+			this.userName          = userName;
+			this.money             = money;
+			this.vibrate           = vibrate;
+			this.musicVolume       = musicVolume;
+			this.ambientVolume     = ambientVolume;
+			this.dictionary        = dictionary;
+			this.language          = language;
+			this.powerUps          = powerUps;
+			this.achievementData   = achievementData;
+			this.powerUpType       = powerUpType;
+			this.timerPowerUp      = timerPowerUp;
+			this.weatherEventType  = weatherEventType;
+			this.timerWeatherEvent = timerWeatherEvent;
 		}
 
 		public string CityName
@@ -131,10 +132,10 @@ namespace Utility
 			set => timerPowerUp = value;
 		}
 
-		public RandomWeatherEventType RandomWeatherEventType
+		public WeatherEventType WeatherEventType
 		{
-			get => randomWeatherEventType;
-			set => randomWeatherEventType = value;
+			get => weatherEventType;
+			set => weatherEventType = value;
 		}
 
 		public float TimerWeatherEvent

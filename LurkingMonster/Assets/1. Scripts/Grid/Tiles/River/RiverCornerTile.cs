@@ -21,7 +21,7 @@ namespace Grid.Tiles.River
 		{
 			base.AddRiverNeighbor(tile);
 			
-			if (RiverNeighbors.Count == 2) // Corners should only have 2 roads connected to it
+			if (RiverNeighbors.Count == 2) // Corners should only have 2 tiles connected to it
 			{
 				TileRotateUtil.RotateCorner(this, ending1, ending2, RiverNeighbors.Select(roadTile => roadTile as AbstractTile));
 			}

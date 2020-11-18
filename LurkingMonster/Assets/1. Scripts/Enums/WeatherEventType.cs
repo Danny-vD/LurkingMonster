@@ -1,6 +1,6 @@
 ﻿namespace Enums
 {
-	public enum RandomWeatherEventType : int
+	public enum WeatherEventType
 	{
 		Drought,
 		HeavyRain,
