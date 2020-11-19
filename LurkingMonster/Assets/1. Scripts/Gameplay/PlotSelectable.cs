@@ -26,13 +26,13 @@ namespace Gameplay
 
 		public void Select(Material selectMaterial)
 		{
-				// In case of no soil, a building or debris we just select the tile itself
+			// In case of no soil, a building or debris we just select the tile itself
 			if (tile.HasBuilding || tile.HasDebris || !tile.HasSoil)
 			{
 				Select(CachedGameObject, selectMaterial);
 				return;
 			}
-			
+
 			if (tile.HasFoundation)
 			{
 				// In case of foundation, select the foundation object
@@ -68,7 +68,7 @@ namespace Gameplay
 				meshRenderer.sharedMaterial = selectMaterial;
 				return;
 			}
-			
+
 			Renderer[] meshRenderers = @object.GetComponentsInChildren<Renderer>();
 
 			foreach (Renderer childRenderer in meshRenderers)

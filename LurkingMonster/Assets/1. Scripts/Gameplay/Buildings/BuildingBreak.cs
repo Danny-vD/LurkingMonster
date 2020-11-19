@@ -97,10 +97,13 @@ namespace Gameplay.Buildings
 
 		public void CrackedPopupClicked()
 		{
-			//TODO: change so that it does not immediately repair the house (has to be fixed through market)
 			crackPopup.SetActive(false);
-
-			buildingHealth.ResetHealth();
+			
+			if (!PowerUpManager.Instance.FixProblemsActive)
+			{
+				buildingHealth.ResetHealth();
+				return;
+			}
 
 			EventManager.Instance.RaiseEvent(new OpenMarketEvent(building));
 		}
