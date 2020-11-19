@@ -26,10 +26,18 @@ namespace Gameplay
 
 		public void Select(Material selectMaterial)
 		{
+				// In case of no soil, a building or debris we just select the tile itself
+			if (tile.HasBuilding || tile.HasDebris || !tile.HasSoil)
+			{
+				Select(CachedGameObject, selectMaterial);
+				return;
+			}
+			
 			if (tile.HasFoundation)
 			{
 				// In case of foundation, select the foundation object
 				Select(tile.Foundation, selectMaterial);
+				return;
 			}
 
 			if (tile.HasSoil)
@@ -37,9 +45,6 @@ namespace Gameplay
 				// In case of soil, select the soil object
 				Select(tile.Soil, selectMaterial);
 			}
-
-			// In case of no soil, a building or debris we just select the tile itself
-			Select(CachedGameObject, selectMaterial);
 		}
 
 		public void Deselect()

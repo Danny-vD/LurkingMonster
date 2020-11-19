@@ -1,4 +1,5 @@
-﻿using Grid.Tiles.Buildings;
+﻿using Gameplay;
+using Grid.Tiles.Buildings;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -15,6 +16,16 @@ namespace UI.Market.MarketScreens
 		[SerializeField]
 		private Button soilButton = null;
 
+		[Space(10), SerializeField]
+		private Bar buildingHealth;
+
+		[SerializeField]
+		private Bar foundationHealth;
+
+		[SerializeField]
+		private Bar soilHealth;
+		
+		//TODO: Split it up differently.. so that the checks are only needed once
 		public override void SetUI(AbstractBuildingTile tile, MarketManager manager)
 		{
 			SetupBuildingButton(tile, manager);
@@ -26,8 +37,8 @@ namespace UI.Market.MarketScreens
 		{
 			if (tile.HasDebris || !tile.HasFoundation || !tile.HasSoil)
 			{
-				//TODO: Block the button with something....
-				buildingButton.onClick.RemoveAllListeners();
+				BlockBuildingButton(tile, manager);
+				return;
 			}
 
 			if (tile.Building)
@@ -43,8 +54,8 @@ namespace UI.Market.MarketScreens
 		{
 			if (tile.HasDebris || !tile.HasSoil)
 			{
-				//TODO: Block the button with something....
-				foundationButton.onClick.RemoveAllListeners();
+				BlockFoundationButton(tile, manager);
+				return;
 			}
 
 			if (tile.HasFoundation)
@@ -60,8 +71,8 @@ namespace UI.Market.MarketScreens
 		{
 			if (tile.HasDebris)
 			{
-				//TODO: Block the button with something....
-				soilButton.onClick.RemoveAllListeners();
+				BlockSoilButton(tile, manager);
+				return;
 			}
 
 			if (tile.HasSoil)
@@ -71,6 +82,27 @@ namespace UI.Market.MarketScreens
 			}
 
 			SetButton(soilButton, () => manager.PutScreenInFocus(manager.Screens.SoilBuyScreen));
+		}
+		
+		private void BlockBuildingButton(AbstractBuildingTile tile, MarketManager manager)
+		{
+			//TODO: Block the button with something....
+			buildingButton.onClick.RemoveAllListeners();
+			buildingHealth.CachedGameObject.SetActive(false);
+		}
+		
+		private void BlockFoundationButton(AbstractBuildingTile tile, MarketManager manager)
+		{
+			//TODO: Block the button with something....
+			foundationButton.onClick.RemoveAllListeners();
+			foundationHealth.CachedGameObject.SetActive(false);
+		}
+		
+		private void BlockSoilButton(AbstractBuildingTile tile, MarketManager manager)
+		{
+			//TODO: Block the button with something....
+			soilButton.onClick.RemoveAllListeners();
+			soilHealth.CachedGameObject.SetActive(false);
 		}
 	}
 }
