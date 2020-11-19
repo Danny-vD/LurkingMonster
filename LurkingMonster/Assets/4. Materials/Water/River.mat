@@ -74,7 +74,7 @@ Material:
     - _UseAbsolute: 0
     - _WaveHeight: 0.1
     - _WaveLength: 0.62831855
-    - _WaveSpeed: 1.78
+    - _WaveSpeed: 0.69
     - _ZWrite: 1
     m_Colors:
     - _Color: {r: 0.4761481, g: 0.8279584, b: 0.9433962, a: 1}
