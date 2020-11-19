@@ -8,7 +8,7 @@ using VDFramework.EventSystem;
 namespace UI.Buttons
 {
 	[RequireComponent(typeof(Button))]
-	public class ClickImagineSwapper : BetterMonoBehaviour
+	public class ClickImageSwapper : BetterMonoBehaviour
 	{
 		[SerializeField]
 		private Image image = null;

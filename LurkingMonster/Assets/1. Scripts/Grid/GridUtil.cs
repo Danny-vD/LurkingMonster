@@ -85,7 +85,7 @@ namespace Grid
 					// If there's a building, the tier would be higher than 0
 					if (tileData.BuildingTier > 0)
 					{
-						buildingTile.SpawnBuilding();
+						buildingTile.SpawnBuilding(false);
 						
 						BuildingHealth buildingHealth = buildingTile.Building.GetComponent<BuildingHealth>();
 

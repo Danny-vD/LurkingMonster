@@ -21,18 +21,18 @@ namespace Grid.Tiles.Buildings
 
 		private BuildingSpawner spawner;
 
-		private GameObject soilObject;
-		private GameObject foundationObject;
 		private GameObject debrisObject;
 
 		private MeshRenderer meshRenderer;
 
-		public GameObject Soil => soilObject;
-		public GameObject Foundation => foundationObject;
+		public GameObject Soil { get; private set; }
+
+		public GameObject Foundation { get; private set; }
+
 		public Building Building { get; private set; }
 
-		public bool HasSoil => soilObject || HasFoundation;
-		public bool HasFoundation => foundationObject || HasBuilding;
+		public bool HasSoil => Soil || HasFoundation;
+		public bool HasFoundation => Foundation || HasBuilding;
 		public bool HasBuilding => Building;
 		public bool HasDebris => debrisObject;
 		public int DebrisRemovalCost => DestroyedBuildingData.CleanupCosts;
@@ -63,35 +63,40 @@ namespace Grid.Tiles.Buildings
 		{
 			meshRenderer.enabled = false;
 
-			soilObject = spawner.SpawnSoil(FirstTierData.SoilType);
+			Soil = spawner.SpawnSoil(FirstTierData.SoilType);
 		}
 
 		public virtual void SpawnFoundation()
 		{
-			RemoveFoundation(false);
-			foundationObject = spawner.SpawnFoundation(FirstTierData.Foundation);
+			RemoveFoundation();
+			Foundation = spawner.SpawnFoundation(FirstTierData.Foundation);
 		}
 
-		public virtual void SpawnBuilding()
+		public virtual void SpawnBuilding(bool raiseEvent)
 		{
-			RemoveSoil(false);
-			RemoveFoundation(false);
+			RemoveSoil();
+			RemoveFoundation();
 			Building = spawner.SpawnBuilding(buildingType, FirstTierData.Foundation, FirstTierData.SoilType);
+
+			if (raiseEvent)
+			{
+				EventManager.Instance.RaiseEvent(new BuildingBuildEvent());
+			}
 		}
 
-		public virtual void RemoveSoil(bool payForRemoval)
+		public virtual void RemoveSoil()
 		{
-			Destroy(soilObject);
+			Destroy(Soil);
 
 			meshRenderer.enabled = true;
 		}
 
-		public virtual void RemoveFoundation(bool payForRemoval)
+		public virtual void RemoveFoundation()
 		{
-			Destroy(foundationObject);
+			Destroy(Foundation);
 		}
 
-		public virtual void RemoveDebris(bool payForRemoval)
+		public virtual void RemoveDebris()
 		{
 			Destroy(debrisObject);
 		}

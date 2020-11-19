@@ -76,9 +76,6 @@ namespace Gameplay.Buildings
 			Building building = instance.GetComponent<Building>();
 			building.Initialize(buildingType, GetBuildingData(buildingType, foundationType, soilType));
 
-			//TODO: make an option to not raise event
-			EventManager.Instance.RaiseEvent(new BuildingBuildEvent());
-
 			return building;
 		}
 
