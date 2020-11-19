@@ -32,6 +32,8 @@ namespace Grid
 			{
 				LoadGameplayElements();
 			}
+
+			UserSettings.OnGameQuit += SaveDictionary;
 		}
 
 		private static void LoadData()
@@ -131,6 +133,26 @@ namespace Grid
 		private void InstantiateGrid()
 		{
 			grid = GetComponent<GridCreator>().GenerateGrid(GridData, CachedTransform);
+		}
+		
+		private static void SaveDictionary()
+		{
+			UserSettings.GameData.GridData.Clear();
+
+			AbstractTile[,] grid = GridUtil.Grid;
+
+			for (int y = 0; y < grid.GetLength(0); y++)
+			{
+				for (int x = 0; x < grid.GetLength(1); x++)
+				{
+					SaveTile(grid[y, x]);
+				}
+			}
+		}
+
+		private static void SaveTile(AbstractTile tile)
+		{
+			UserSettings.GameData.GridData.Add(tile.GridPosition, new TileData(tile));
 		}
 	}
 }

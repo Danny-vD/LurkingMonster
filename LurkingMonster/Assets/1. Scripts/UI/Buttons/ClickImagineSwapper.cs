@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
+using Events;
 using UnityEngine;
 using UnityEngine.UI;
 using VDFramework;
+using VDFramework.EventSystem;
 
 namespace UI.Buttons
 {
@@ -21,7 +23,7 @@ namespace UI.Buttons
 			GetComponent<Button>().onClick.AddListener(GoToNextSprite);
 		}
 
-		public void GoToNextSprite()
+		private void GoToNextSprite()
 		{
 			image.sprite = sprites[index++];
 

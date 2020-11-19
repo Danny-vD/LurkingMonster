@@ -121,30 +121,9 @@ namespace Singletons
 			LanguageSettings.Language = gameData.Language;
 		}
 
-		private static void SaveDictionary()
-		{
-			gameData.GridData.Clear();
-
-			AbstractTile[,] grid = GridUtil.Grid;
-
-			for (int y = 0; y < grid.GetLength(0); y++)
-			{
-				for (int x = 0; x < grid.GetLength(1); x++)
-				{
-					SaveTile(grid[y, x]);
-				}
-			}
-		}
-
-		private static void SaveTile(AbstractTile tile)
-		{
-			gameData.GridData.Add(tile.GridPosition, new TileData(tile));
-		}
-
-
 		private static void SaveFile()
 		{
-			SaveDictionary();
+			gameData.Language = LanguageSettings.Language;
 			FileStream file = File.Exists(destination) ? File.OpenWrite(destination) : File.Create(destination);
 			BinaryFormatter bf = new BinaryFormatter();
 			bf.Serialize(file, gameData);

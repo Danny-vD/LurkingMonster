@@ -15285,7 +15285,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.64400005, y: 0.020810202}
   m_AnchorMax: {x: 0.8695487, y: 0.19243062}
-  m_AnchoredPosition: {x: -0.5, y: -3.282959}
+  m_AnchoredPosition: {x: -0.5, y: -3.2829895}
   m_SizeDelta: {x: -0.927948, y: -1.927948}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &327256839
@@ -30854,7 +30854,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &650516695
 RectTransform:
   m_ObjectHideFlags: 0
@@ -40603,6 +40603,8 @@ GameObject:
   - component: {fileID: 888050600}
   - component: {fileID: 888050599}
   - component: {fileID: 888050598}
+  - component: {fileID: 888050604}
+  - component: {fileID: 888050605}
   m_Layer: 5
   m_Name: Dropdown_Achievements
   m_TagString: Untagged
@@ -40699,7 +40701,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -40774,6 +40776,33 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 888050596}
   m_CullTransparentMesh: 0
+--- !u!114 &888050604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 888050596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bacbe945057442e6befaed50fc20338d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  btnDown: {fileID: 21300000, guid: 4adfc2791560f434fbd5f82d7d4365ac, type: 3}
+  btnUp: {fileID: 21300000, guid: daef8197734ae8a43ae4be2c4a007e9f, type: 3}
+--- !u!114 &888050605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 888050596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a88a399e23e84dde9b02c864a58fbcd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  btnExit: {fileID: 721288145}
 --- !u!1 &889794053
 GameObject:
   m_ObjectHideFlags: 0
@@ -67691,6 +67720,8 @@ GameObject:
   - component: {fileID: 1466748821}
   - component: {fileID: 1466748820}
   - component: {fileID: 1466748819}
+  - component: {fileID: 1466748825}
+  - component: {fileID: 1466748826}
   m_Layer: 5
   m_Name: Dropdown_Settings
   m_TagString: Untagged
@@ -67785,7 +67816,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -67848,6 +67879,33 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1466748817}
   m_CullTransparentMesh: 0
+--- !u!114 &1466748825
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1466748817}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bacbe945057442e6befaed50fc20338d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  btnDown: {fileID: 21300000, guid: 61dd8d39b54dcc344b95a260c2d80845, type: 3}
+  btnUp: {fileID: 21300000, guid: 83d5ad7299020c8419f58c0f5666050f, type: 3}
+--- !u!114 &1466748826
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1466748817}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a88a399e23e84dde9b02c864a58fbcd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  btnExit: {fileID: 721288145}
 --- !u!1 &1467367923
 GameObject:
   m_ObjectHideFlags: 0
@@ -73198,6 +73256,7 @@ GameObject:
   - component: {fileID: 1607833365}
   - component: {fileID: 1607833364}
   - component: {fileID: 1607833363}
+  - component: {fileID: 1607833368}
   m_Layer: 5
   m_Name: Dropdown_Information
   m_TagString: Untagged
@@ -73338,6 +73397,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1607833361}
   m_CullTransparentMesh: 0
+--- !u!114 &1607833368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1607833361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a88a399e23e84dde9b02c864a58fbcd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  btnExit: {fileID: 721288145}
 --- !u!1 &1607998081
 GameObject:
   m_ObjectHideFlags: 0

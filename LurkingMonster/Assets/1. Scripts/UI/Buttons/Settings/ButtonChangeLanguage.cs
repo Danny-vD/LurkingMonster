@@ -28,6 +28,11 @@ namespace UI.Buttons.Settings
 			EventManager.Instance.AddListener<LanguageChangedEvent>(ChangeSprite);
 		}
 
+		private void Start()
+		{
+			ChangeSprite();
+		}
+
 		private void SetLanguage()
 		{
 			LanguageSettings.Language = languageToSet;
