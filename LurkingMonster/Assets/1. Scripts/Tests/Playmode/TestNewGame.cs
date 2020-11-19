@@ -17,8 +17,7 @@ namespace Tests.Playmode
 		
 		private readonly string destination = Application.persistentDataPath + "/save.dat";
 		
-		private GameData gameData = new GameData("", "", startMoney, true, 1f, 1f,
-			new Dictionary<Vector2IntSerializable, TileData>(), Language.NL, new int[3], new AchievementData[1], default, 0, default, 0);
+		private GameData gameData = new GameData(startMoney, true);
 		
 		[Test]
         public void TestCollectRent()

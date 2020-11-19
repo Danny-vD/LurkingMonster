@@ -30,17 +30,17 @@ namespace UI.Sliders
 
 		private void SetToCorrectVolume()
 		{
-			float currentVolume = 0.7f; // Not too loud
+			float currentVolume = 1f;
 			
 			switch (busType)
 			{
 				case BusType.Master:
 					//currentVolume = UserSettings.GameData.MasterVolume;
-					print("Master volume is not in the game currently");
+					//print("Master volume is not in the game currently");
 					break;
 				case BusType.SFX:
 					//currentVolume = UserSettings.GameData.SFXVolume;
-					print("SFX volume is not in the game currently");
+					//print("SFX volume is not in the game currently");
 					break;
 				case BusType.Music:
 					currentVolume = UserSettings.GameData.MusicVolume;
@@ -68,11 +68,11 @@ namespace UI.Sliders
 			{
 				case BusType.Master:
 					// UserSettings.GameData.MasterVolume = volume
-					print("Master volume is not in the game currently");
+					//print("Master volume is not in the game currently");
 					break;
 				case BusType.SFX:
 					// UserSettings.GameData.SFXVolume = volume
-					print("SFX volume is not in the game currently");
+					//print("SFX volume is not in the game currently");
 					break;
 				case BusType.Music:
 					UserSettings.GameData.MusicVolume = volume;

@@ -130,6 +130,7 @@ namespace Singletons
 		private void SavePowerUps()
 		{
 			GameData gameData = UserSettings.GameData;
+			gameData.PowerUps    = new int[powerUps.Length];
 			gameData.PowerUps[0] = AvoidMonsters;
 			gameData.PowerUps[1] = AvoidWeather;
 			gameData.PowerUps[2] = FixProblems;
