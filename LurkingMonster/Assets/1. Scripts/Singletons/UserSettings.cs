@@ -124,6 +124,7 @@ namespace Singletons
 		private static void SaveFile()
 		{
 			gameData.Language = LanguageSettings.Language;
+			
 			FileStream file = File.Exists(destination) ? File.OpenWrite(destination) : File.Create(destination);
 			BinaryFormatter bf = new BinaryFormatter();
 			bf.Serialize(file, gameData);
@@ -132,9 +133,9 @@ namespace Singletons
 
 		public void NewGame()
 		{
-			gameData = new GameData("", "", startMoney, true, 1f, 1f,
-				new Dictionary<Vector2IntSerializable, TileData>(), Language.NL, new int[3], new AchievementData[0], default, 0, default,
-				0);
+			bool vibrate = gameData == null || gameData.Vibrate;
+
+			gameData = new GameData(startMoney, vibrate);
 
 			RunTimeTests.TestStartMoney();
 		}

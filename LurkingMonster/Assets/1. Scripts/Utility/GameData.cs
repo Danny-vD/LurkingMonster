@@ -1,15 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
+using Audio;
 using Enums;
+using Enums.Audio;
+using Gameplay;
+using Singletons;
 using Structs;
+using UnityEngine;
 
 namespace Utility
 {
 	[Serializable]
 	public class GameData
 	{
-		//TODO: split up in serializable structs
-
 		private string cityName;
 		private string userName;
 		private int money;
@@ -25,39 +28,17 @@ namespace Utility
 		private float timerWeatherEvent;
 
 		private Dictionary<Vector2IntSerializable, TileData> dictionary;
-
-		// TODO: most of these parameters are unecessary I think, we only call the Ctor when we create a new game
-		public GameData(
-			string                                       cityName,
-			string                                       userName,
-			int                                          money,
-			bool                                         vibrate,
-			float                                        musicVolume,
-			float                                        ambientVolume,
-			Dictionary<Vector2IntSerializable, TileData> dictionary,
-			Language                                     language,
-			int[]                                        powerUps,
-			AchievementData[]                            achievementData,
-			PowerUpType                                  powerUpType,
-			float                                        timerPowerUp,
-			WeatherEventType                             weatherEventType,
-			float                                        timerWeatherEvent
-		)
+		
+		public GameData(int money, bool vibrate)
 		{
-			this.cityName          = cityName;
-			this.userName          = userName;
-			this.money             = money;
-			this.vibrate           = vibrate;
-			this.musicVolume       = musicVolume;
-			this.ambientVolume     = ambientVolume;
-			this.dictionary        = dictionary;
-			this.language          = language;
-			this.powerUps          = powerUps;
-			this.achievementData   = achievementData;
-			this.powerUpType       = powerUpType;
-			this.timerPowerUp      = timerPowerUp;
-			this.weatherEventType  = weatherEventType;
-			this.timerWeatherEvent = timerWeatherEvent;
+			this.money      = money;
+			dictionary      = new Dictionary<Vector2IntSerializable, TileData>();
+			achievementData = new AchievementData[0];
+			powerUps        = new int[2];
+			musicVolume     = AudioManager.Instance.GetVolume(BusType.Music);
+			ambientVolume   = AudioManager.Instance.GetVolume(BusType.Ambient);
+			language        = LanguageSettings.Language;
+			this.vibrate    = vibrate;
 		}
 
 		public string CityName

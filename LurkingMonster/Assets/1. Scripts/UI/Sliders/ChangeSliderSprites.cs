@@ -23,7 +23,9 @@ namespace UI.Buttons
 			
 			steps = new float[sprites.Length];
 			CalculateSteps();
-
+			
+			ChangeSprites(slider.value);
+			
 			slider.onValueChanged.AddListener(ChangeSprites);
 		}
 
