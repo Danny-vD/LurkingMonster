@@ -1,12 +1,13 @@
 ﻿using System;
 using Enums;
+using Gameplay.WeatherEvent;
 using UnityEngine;
 
 namespace Gameplay
 {
 	public class Earthquake : AbstractWeatherEvent
 	{
-		public override WeatherEventType type => WeatherEventType.Earthquake;
+		public override WeatherEventType WeatherType => WeatherEventType.Earthquake;
 
 		private float timer;
 
@@ -24,7 +25,7 @@ namespace Gameplay
 				return;
 			}
 
-			action?.Invoke(WeatherEventData);
+			ActivateEffects();
 			timer = WeatherEventData.interval;
 		}
 	}

@@ -23,6 +23,8 @@ namespace Gameplay.Buildings
 		/// </summary>
 		public BuildingData Data => data[CurrentTier - 1]; // tier is one-indexed
 
+		public BuildingData NextTierData => data[CurrentTier];
+
 		/// <summary>
 		/// Returns data that is the same for every building
 		/// </summary>

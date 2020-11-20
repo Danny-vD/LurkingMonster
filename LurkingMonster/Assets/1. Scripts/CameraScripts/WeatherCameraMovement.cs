@@ -3,6 +3,7 @@ using System.Collections;
 using Enums;
 using Events;
 using Gameplay;
+using Gameplay.WeatherEvent;
 using ScriptableObjects;
 using UnityEngine;
 using VDFramework;
@@ -21,7 +22,7 @@ namespace CameraScripts
 		{
 			AbstractWeatherEvent abstractWeatherEvent = randomWeatherEvent.AbstractWeatherEvent;
 			
-			switch (abstractWeatherEvent.type)
+			switch (abstractWeatherEvent.WeatherType)
 			{
 				case WeatherEventType.Drought:
 					abstractWeatherEvent.RegisterListener(EarthquakeEffects);
@@ -52,10 +53,8 @@ namespace CameraScripts
 			StartCoroutine(Shake(movement, 5f, 13f));
 		}
 
-		
 		private void EarthquakeEffects(WeatherEventData data)
 		{
-			print("Earhquake effects");
 			CameraMovement(0.05f);
 		}
 		
@@ -64,7 +63,7 @@ namespace CameraScripts
 			while (time > 0)
 			{
 				time -= Time.deltaTime;
-				Vector3 test = new Vector3(Mathf.Sin(Time.realtimeSinceStartup * frequency) * movement, Mathf.Sin(Time.realtimeSinceStartup * frequency / 4 - 0.5f) * movement / 2, 0);
+				Vector3 test = new Vector3(Mathf.Sin(Time.realtimeSinceStartup * frequency) * movement, Mathf.Sin(Time.realtimeSinceStartup * frequency / 4 - 0.5f) * movement / 4, 0);
 				CachedTransform.Translate(test, Space.Self);
 				yield return new WaitForEndOfFrame();
 			}

@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using Enums;
 using Events;
+using Gameplay.WeatherEvent;
+using IO;
 using ScriptableObjects;
 using Singletons;
 using Structs;
@@ -113,7 +115,7 @@ namespace Gameplay
 				if (eventDataPerEventType[i].Key == weatherEventType)
 				{
 					WeatherEventData data = eventDataPerEventType[i].Value;
-					abstractWeatherEvent = InstanceCreator.CreateInstance(weatherEventType, data);
+					abstractWeatherEvent = WeatherEventInstanceCreator.CreateInstance(weatherEventType, data);
 					return data;
 				}
 			}

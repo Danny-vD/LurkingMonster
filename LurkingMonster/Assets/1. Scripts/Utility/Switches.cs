@@ -14,7 +14,7 @@ namespace Utility
 					return 240.0f;
 				case SoilType.Clay:
 					return 180.0f;
-				case SoilType.Peet:
+				case SoilType.Peat:
 					return 120.0f;
 				default:
 					return 0.0f;

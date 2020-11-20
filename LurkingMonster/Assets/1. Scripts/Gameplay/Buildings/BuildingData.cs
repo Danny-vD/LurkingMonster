@@ -20,6 +20,9 @@ namespace Gameplay.Buildings
 		private int price;
 
 		[SerializeField]
+		private int repairPrice;
+
+		[SerializeField]
 		private int destructionCost;
 
 		[SerializeField, Tooltip("The cost of removing the debris")]
@@ -28,7 +31,7 @@ namespace Gameplay.Buildings
 		[SerializeField]
 		private float maxHealth;
 
-		public BuildingData(int rent, int weight, int price, int destructionCost, int cleanupCosts, SoilType soilType, FoundationType foundation, float maxHealth)
+		public BuildingData(int rent, int weight, int price, int repairPrice, int destructionCost, int cleanupCosts, SoilType soilType, FoundationType foundation, float maxHealth)
 		{
 			this.rent         = rent;
 			this.weight       = weight;
@@ -47,6 +50,8 @@ namespace Gameplay.Buildings
 		public int Weight => weight;
 		
 		public int Price => price;
+
+		public int RepairPrice => repairPrice;
 
 		public int DestructionCost => destructionCost;
 

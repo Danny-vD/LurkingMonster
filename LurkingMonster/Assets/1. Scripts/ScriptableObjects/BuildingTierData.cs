@@ -22,6 +22,9 @@ namespace ScriptableObjects
 		private int price = 10;
 		
 		[SerializeField]
+		private int repairPrice = 50;
+		
+		[SerializeField]
 		private int destructionCost = 50;
 
 		[SerializeField, Tooltip("The cost of removing the debris")]
@@ -32,7 +35,7 @@ namespace ScriptableObjects
 
 		public BuildingData GetStruct()
 		{
-			return new BuildingData(GetPricePercentage(rentPercentage), weight, price, destructionCost, cleanupCosts, default, default, maxHealth);
+			return new BuildingData(GetPricePercentage(rentPercentage), weight, price, repairPrice, destructionCost, cleanupCosts, default, default, maxHealth);
 		}
 
 		public GameObject GetPrefab()

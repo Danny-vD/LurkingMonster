@@ -15675,6 +15675,10 @@ MonoBehaviour:
   demolishText: {fileID: 1905914252}
   btnRepair: {fileID: 1049864743}
   repairText: {fileID: 799698934}
+  currentTierHealth: {fileID: 557489791}
+  currentTierRent: {fileID: 1864428976}
+  nextTierHealth: {fileID: 341184510}
+  nextTierRent: {fileID: 378157559}
 --- !u!1 &335883572
 GameObject:
   m_ObjectHideFlags: 0
@@ -20476,6 +20480,7 @@ GameObject:
   m_Component:
   - component: {fileID: 429772621}
   - component: {fileID: 429772622}
+  - component: {fileID: 429772623}
   m_Layer: 5
   m_Name: NEWS_Events
   m_TagString: Untagged
@@ -20517,6 +20522,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80413850a5ac83847abfd2cd447878ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &429772623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 429772620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb3d5c541cb17c541a488e6a28e16a84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objects:
+  - {fileID: 650516694}
 --- !u!1 &430921914
 GameObject:
   m_ObjectHideFlags: 0
@@ -29568,7 +29587,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Health
+  m_text: 'Health:'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 98f9d88831f38144faeeb549d6ff0c43, type: 2}
   m_sharedMaterial: {fileID: 7278281293703703516, guid: 98f9d88831f38144faeeb549d6ff0c43, type: 2}
@@ -34944,7 +34963,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 4.2700195, y: 0.20000076}
   m_SizeDelta: {x: -6.4231567, y: -8.0296}
   m_Pivot: {x: 0, y: 0.5}
@@ -45737,7 +45756,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 4.2700195, y: 0.20000076}
   m_SizeDelta: {x: -6.4231567, y: -8.0296}
   m_Pivot: {x: 0, y: 0.5}
@@ -53750,7 +53769,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1183828378
 RectTransform:
   m_ObjectHideFlags: 0
@@ -64400,7 +64419,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1405638702
 RectTransform:
   m_ObjectHideFlags: 0
@@ -64478,9 +64497,9 @@ MonoBehaviour:
   buildingButton: {fileID: 406548648}
   foundationButton: {fileID: 405053112}
   soilButton: {fileID: 529622659}
-  buildingHealthBar: {fileID: 0}
-  foundationHealthBar: {fileID: 0}
-  soilHealthBar: {fileID: 0}
+  buildingHealthBar: {fileID: 76060866}
+  foundationHealthBar: {fileID: 750695922}
+  soilHealthBar: {fileID: 331186763}
 --- !u!1 &1409069488
 GameObject:
   m_ObjectHideFlags: 0
@@ -71783,7 +71802,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 4.2700195, y: 0.20000076}
   m_SizeDelta: {x: -6.4231567, y: -8.0296}
   m_Pivot: {x: 0, y: 0.5}
@@ -81727,7 +81746,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Health
+  m_text: 'Health:'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 98f9d88831f38144faeeb549d6ff0c43, type: 2}
   m_sharedMaterial: {fileID: 7278281293703703516, guid: 98f9d88831f38144faeeb549d6ff0c43, type: 2}
