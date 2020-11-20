@@ -1,9 +1,7 @@
-﻿using System;
-using Enums;
-using Gameplay.WeatherEvent;
+﻿using Enums;
 using UnityEngine;
 
-namespace Gameplay
+namespace Gameplay.WeatherEvent
 {
 	public class Earthquake : AbstractWeatherEvent
 	{
