@@ -39,6 +39,8 @@ namespace Gameplay
 
 		private WeatherEventType weatherEventType;
 
+		private AbstractWeatherEvent abstractWeatherEvent;
+
 		private bool weatherEventActive;
 
 		private WeatherEventData weatherEventData;
@@ -80,9 +82,9 @@ namespace Gameplay
 			if (timer <= 0.0f && !PowerUpManager.Instance.AvoidWeatherActive)
 			{
 				// TODO: instead of taking a random event, have a list of unlocked events or something
-				weatherEventType = default(WeatherEventType).GetRandomValue();
-				weatherEventData       = GetData(weatherEventType);
-				EventManager.Instance.RaiseEvent(new RandomWeatherEvent(this));
+				weatherEventType     = default(WeatherEventType).GetRandomValue();
+				weatherEventData     = GetData(weatherEventType);
+				EventManager.Instance.RaiseEvent(new RandomWeatherEvent(abstractWeatherEvent));
 				weatherEventActive = true;
 				weatherEventTimer  = weatherEventData.Timer;
 				EnableEventScreen(true);
@@ -100,6 +102,7 @@ namespace Gameplay
 				weatherEventType = (WeatherEventType) (-1);
 				weatherEventActive     = false;
 				EnableEventScreen(false);
+				Destroy(abstractWeatherEvent.gameObject);
 			}
 		}
 
@@ -109,7 +112,9 @@ namespace Gameplay
 			{
 				if (eventDataPerEventType[i].Key == weatherEventType)
 				{
-					return eventDataPerEventType[i].Value;
+					WeatherEventData data = eventDataPerEventType[i].Value;
+					abstractWeatherEvent = InstanceCreator.CreateInstance(weatherEventType, data);
+					return data;
 				}
 			}
 
@@ -155,7 +160,7 @@ namespace Gameplay
 			weatherEventTimer  = gameData.TimerWeatherEvent;
 			weatherEventActive = true;
 
-			EventManager.Instance.RaiseEvent(new RandomWeatherEvent(this));
+			EventManager.Instance.RaiseEvent(new RandomWeatherEvent(abstractWeatherEvent));
 		}
 
 		[ContextMenu("Populate")]

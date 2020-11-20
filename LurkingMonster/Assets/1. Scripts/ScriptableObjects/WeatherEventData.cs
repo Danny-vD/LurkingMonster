@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Events;
 
 namespace ScriptableObjects
 {
@@ -22,5 +23,8 @@ namespace ScriptableObjects
 		
 		[SerializeField]
 		public string JsonContentKey;
+
+		[SerializeField]
+		public float interval;
 	}
 }

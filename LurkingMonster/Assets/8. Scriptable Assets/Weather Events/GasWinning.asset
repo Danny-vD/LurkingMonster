@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3698be63e2942d8b7c742bd386cec93, type: 3}
   m_Name: GasWinning
   m_EditorClassIdentifier: 
-  SoilTime: 10
-  FoundationTime: 0
-  BuildingTime: 10
-  Timer: 40
+  SoilTime: 5
+  FoundationTime: 20
+  BuildingTime: 150
+  Timer: 6
   JsonEventKey: GAS_WINNING
   JsonContentKey: GAS_WINNING_CONTENT
+  interval: 2

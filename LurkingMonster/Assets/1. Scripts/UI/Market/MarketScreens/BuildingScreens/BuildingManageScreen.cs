@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Gameplay.Buildings;
 using Grid.Tiles.Buildings;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,15 +9,24 @@ namespace UI.Market.MarketScreens.BuildingScreens
 {
 	public class BuildingManageScreen : AbstractMarketScreen
 	{
-		[SerializeField]
+		[Header("Upgrade"), SerializeField]
 		private List<Button> btnUpgrade = null;
-
-		[Space(20), SerializeField]
-		private Button btnDemolish = null;
-	
-		[SerializeField]
-		private Button btnRepair = null;
 		
+		[SerializeField]
+		private TextMeshProUGUI upgradeText = null;
+
+		[Header("Demolish"), SerializeField]
+		private Button btnDemolish = null;
+
+		[SerializeField]
+		private TextMeshProUGUI demolishText = null;
+
+		[Header("Repair"), SerializeField]
+		private Button btnRepair = null;
+
+		[SerializeField]
+		private TextMeshProUGUI repairText = null;
+
 		public override void SetUI(AbstractBuildingTile tile, MarketManager manager)
 		{
 			SetupUpgradeButtons(tile, manager);
@@ -40,13 +50,13 @@ namespace UI.Market.MarketScreens.BuildingScreens
 				}
 			}
 		}
-		
+
 		private void SetupRepairButton(AbstractBuildingTile tile, MarketManager manager)
 		{
 			BuildingHealth buildingHealth = tile.Building.GetComponent<BuildingHealth>();
 			SetButton(btnRepair, buildingHealth.ResetBuildingHealth, manager.CloseMarket);
 		}
-		
+
 		private void SetupDemolishButton(AbstractBuildingTile tile, MarketManager manager)
 		{
 			SetButton(btnDemolish, OnClick);
