@@ -1,5 +1,4 @@
 ﻿using Events;
-using ScriptableObjects;
 using Singletons;
 using UnityEngine;
 using Utility;
@@ -15,13 +14,8 @@ namespace Gameplay.Buildings
 		
 		public Bar bar;
 
-		private float buildingWeatherFactor;
-		private float foundationWeatherFactor;
-		private float soilWeatherFactor;
-		
 		private Building building;
 		private BuildingHealth buildingHealth;
-		private WeatherEventManager weatherEventManager;
 
 		public void Awake()
 		{
@@ -29,8 +23,6 @@ namespace Gameplay.Buildings
 			
 			building       = GetComponent<Building>();
 			buildingHealth = GetComponent<BuildingHealth>();
-			
-			//EventManager.Instance.AddListener<RandomWeatherEvent>(OnWeatherEvent);
 		}
 
 		// Start is called before the first frame update
@@ -47,14 +39,7 @@ namespace Gameplay.Buildings
 			buildingHealth.DamageSoil(damage);
 			buildingHealth.DamageFoundation(damage);
 			buildingHealth.DamageBuilding(damage);
-			
-			// else
-			// {
-			// 	buildingHealth.DamageBuilding(damage * (buildingWeatherFactor / 100 + 1));
-			// 	buildingHealth.DamageFoundation(damage * (foundationWeatherFactor / 100 + 1));
-			// 	buildingHealth.DamageSoil(damage * (soilWeatherFactor / 100 + 1));
-			// }
-			
+
 			bar.SetValue((int) buildingHealth.TotalHealth);
 
 			//TODO: make 3 seperate popups instead?
@@ -72,27 +57,6 @@ namespace Gameplay.Buildings
 			}
 		}
 
-		private bool WeatherEventActive()
-		{
-			if (weatherEventManager && weatherEventManager.WeatherEventActive)
-			{
-				return true;
-			}
-
-			return false;
-		}
-
-		// public void OnWeatherEvent(RandomWeatherEvent randomWeatherEvent)
-		// {
-		// 	WeatherEventData data = randomWeatherEvent.weatherEventManager.WeatherEventData;
-		// 	
-		// 	buildingWeatherFactor   = data.BuildingTime;
-		// 	foundationWeatherFactor = data.FoundationTime;
-		// 	soilWeatherFactor       = data.SoilTime;
-		// 	
-		// 	weatherEventManager = randomWeatherEvent.weatherEventManager;
-		// }
-
 		public void CrackedPopupClicked()
 		{
 			crackPopup.SetActive(false);
@@ -105,15 +69,5 @@ namespace Gameplay.Buildings
 
 			EventManager.Instance.RaiseEvent(new OpenMarketEvent(building));
 		}
-
-		// private void OnDestroy()
-		// {
-		// 	if (!EventManager.IsInitialized)
-		// 	{
-		// 		return;
-		// 	}
-		//
-		// 	EventManager.Instance.RemoveListener<RandomWeatherEvent>(OnWeatherEvent);
-		// }
 	}
 }

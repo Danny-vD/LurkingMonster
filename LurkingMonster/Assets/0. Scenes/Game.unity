@@ -15285,7 +15285,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.64400005, y: 0.020810202}
   m_AnchorMax: {x: 0.8695487, y: 0.19243062}
-  m_AnchoredPosition: {x: -0.5, y: -3.2831116}
+  m_AnchoredPosition: {x: -0.5, y: -3.283142}
   m_SizeDelta: {x: -0.927948, y: -1.927948}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &327256839
@@ -15670,8 +15670,11 @@ MonoBehaviour:
   btnUpgrade:
   - {fileID: 136410077}
   - {fileID: 210736166}
+  upgradeText: {fileID: 248969164}
   btnDemolish: {fileID: 1653591810}
+  demolishText: {fileID: 1905914252}
   btnRepair: {fileID: 1049864743}
+  repairText: {fileID: 799698934}
 --- !u!1 &335883572
 GameObject:
   m_ObjectHideFlags: 0
@@ -22837,8 +22840,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   perpendicular: 3
-  ending2: 0
-  ending3: 2
 --- !u!1 &483842508
 GameObject:
   m_ObjectHideFlags: 0
@@ -30867,7 +30868,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &650516695
 RectTransform:
   m_ObjectHideFlags: 0
@@ -34410,8 +34411,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   perpendicular: 3
-  ending2: 0
-  ending3: 2
 --- !u!1 &733892964
 GameObject:
   m_ObjectHideFlags: 0
@@ -34945,7 +34944,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 4.2700195, y: 0.20000076}
   m_SizeDelta: {x: -6.4231567, y: -8.0296}
   m_Pivot: {x: 0, y: 0.5}
@@ -43436,8 +43435,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   perpendicular: 3
-  ending2: 0
-  ending3: 2
 --- !u!1 &955217330
 GameObject:
   m_ObjectHideFlags: 0
@@ -45740,7 +45737,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 4.2700195, y: 0.20000076}
   m_SizeDelta: {x: -6.4231567, y: -8.0296}
   m_Pivot: {x: 0, y: 0.5}
@@ -53753,7 +53750,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1183828378
 RectTransform:
   m_ObjectHideFlags: 0
@@ -64481,9 +64478,9 @@ MonoBehaviour:
   buildingButton: {fileID: 406548648}
   foundationButton: {fileID: 405053112}
   soilButton: {fileID: 529622659}
-  buildingHealth: {fileID: 76060866}
-  foundationHealth: {fileID: 750695922}
-  soilHealth: {fileID: 331186763}
+  buildingHealthBar: {fileID: 0}
+  foundationHealthBar: {fileID: 0}
+  soilHealthBar: {fileID: 0}
 --- !u!1 &1409069488
 GameObject:
   m_ObjectHideFlags: 0
@@ -71786,7 +71783,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 4.2700195, y: 0.20000076}
   m_SizeDelta: {x: -6.4231567, y: -8.0296}
   m_Pivot: {x: 0, y: 0.5}
@@ -93612,8 +93609,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   perpendicular: 3
-  ending2: 0
-  ending3: 2
 --- !u!1 &2040994891
 GameObject:
   m_ObjectHideFlags: 0

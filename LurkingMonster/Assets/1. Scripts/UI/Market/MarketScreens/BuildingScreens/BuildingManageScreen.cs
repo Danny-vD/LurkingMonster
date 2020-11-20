@@ -26,6 +26,18 @@ namespace UI.Market.MarketScreens.BuildingScreens
 
 		[SerializeField]
 		private TextMeshProUGUI repairText = null;
+		
+		[Header("Builing Stats"), SerializeField]
+		private TextMeshProUGUI currentTierHealth = null;
+		
+		[SerializeField]
+		private TextMeshProUGUI currentTierRent = null;
+		
+		[SerializeField]
+		private TextMeshProUGUI nextTierHealth = null;
+		
+		[SerializeField]
+		private TextMeshProUGUI nextTierRent = null;
 
 		public override void SetUI(AbstractBuildingTile tile, MarketManager manager)
 		{
@@ -39,6 +51,8 @@ namespace UI.Market.MarketScreens.BuildingScreens
 			BuildingUpgrade buildingUpgrade = tile.Building.GetComponent<BuildingUpgrade>();
 			btnUpgrade.ForEach(Setup);
 
+			upgradeText.text = tile.Building.UpgradeCost.ToString();
+			
 			void Setup(Button button)
 			{
 				SetButton(button, OnClick);
@@ -54,6 +68,7 @@ namespace UI.Market.MarketScreens.BuildingScreens
 		private void SetupRepairButton(AbstractBuildingTile tile, MarketManager manager)
 		{
 			BuildingHealth buildingHealth = tile.Building.GetComponent<BuildingHealth>();
+			repairText.text = tile.Building.Data.Rent.ToString();
 			SetButton(btnRepair, buildingHealth.ResetBuildingHealth, manager.CloseMarket);
 		}
 
@@ -61,6 +76,8 @@ namespace UI.Market.MarketScreens.BuildingScreens
 		{
 			SetButton(btnDemolish, OnClick);
 
+			demolishText.text = tile.Building.Data.DestructionCost.ToString();
+			
 			void OnClick()
 			{
 				tile.Building.RemoveBuilding(true);
