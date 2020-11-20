@@ -11,7 +11,7 @@ namespace Grid.Tiles.River
 		{
 			base.AddRiverNeighbor(tile);
 
-			if (RiverNeighbors.Count >= 3)
+			if (RiverNeighbors.Count >= 3) // led to a better effect at the time
 			{
 				return;
 			}
