@@ -1,4 +1,5 @@
 ﻿using Gameplay;
+using Gameplay.Buildings;
 using Grid.Tiles.Buildings;
 using UnityEngine;
 using UnityEngine.UI;
@@ -17,92 +18,139 @@ namespace UI.Market.MarketScreens
 		private Button soilButton = null;
 
 		[Space(10), SerializeField]
-		private Bar buildingHealth;
+		private Bar buildingHealthBar;
 
 		[SerializeField]
-		private Bar foundationHealth;
+		private Bar foundationHealthBar;
 
 		[SerializeField]
-		private Bar soilHealth;
-		
-		//TODO: Split it up differently.. so that the checks are only needed once
+		private Bar soilHealthBar;
+
 		public override void SetUI(AbstractBuildingTile tile, MarketManager manager)
 		{
-			SetupBuildingButton(tile, manager);
-			SetupFoundationButton(tile, manager);
-			SetupSoilButton(tile, manager);
+			if (tile.HasDebris) // Tile has debris
+			{
+				SetBars(tile);
+				HasDebris(tile, manager);
+				return;
+			}
+
+			if (tile.HasBuilding) // Tile has building, foundation and soil
+			{
+				SetBars(tile);
+				HasBuilding(tile, manager);
+				return;
+			}
+
+			// Healthbars only matter in case of a building
+			SetBars(null);
+
+			if (tile.HasFoundation) // Tile has foundation and soil
+			{
+				HasFoundation(tile, manager);
+				return;
+			}
+
+			if (tile.HasSoil) // Tile has soil
+			{
+				HasSoil(tile, manager);
+				return;
+			}
+
+			// The tile is empty
+			HandleEmpty(tile, manager);
 		}
 
-		private void SetupBuildingButton(AbstractBuildingTile tile, MarketManager manager)
+		private void HasDebris(AbstractBuildingTile tile, MarketManager manager)
 		{
-			if (tile.HasDebris || !tile.HasFoundation || !tile.HasSoil)
-			{
-				BlockBuildingButton(tile, manager);
-				return;
-			}
+			BlockButtons(tile, manager, true, true, true);
 
-			if (tile.Building)
-			{
-				SetButton(buildingButton, () => manager.PutScreenInFocus(manager.Screens.BuildingManageScreen));
-				return;
-			}
+			//TODO: have some button to remove debris
+		}
 
+		private void HasBuilding(AbstractBuildingTile tile, MarketManager manager)
+		{
+			SetButton(buildingButton, () => manager.PutScreenInFocus(manager.Screens.BuildingManageScreen));
+			SetButton(foundationButton, () => manager.PutScreenInFocus(manager.Screens.FoundationManageScreen));
+			SetButton(soilButton, () => manager.PutScreenInFocus(manager.Screens.SoilManageScreen));
+		}
+
+		private void HasFoundation(AbstractBuildingTile tile, MarketManager manager)
+		{
 			SetButton(buildingButton, () => manager.PutScreenInFocus(manager.Screens.BuildingBuyScreen));
+			SetButton(foundationButton, () => manager.PutScreenInFocus(manager.Screens.FoundationManageScreen));
+			SetButton(soilButton, () => manager.PutScreenInFocus(manager.Screens.SoilManageScreen));
 		}
 
-		private void SetupFoundationButton(AbstractBuildingTile tile, MarketManager manager)
+		private void HasSoil(AbstractBuildingTile tile, MarketManager manager)
 		{
-			if (tile.HasDebris || !tile.HasSoil)
-			{
-				BlockFoundationButton(tile, manager);
-				return;
-			}
-
-			if (tile.HasFoundation)
-			{
-				SetButton(foundationButton, () => manager.PutScreenInFocus(manager.Screens.FoundationManageScreen));
-				return;
-			}
-
+			BlockButtons(tile, manager, true, false, false);
+			
 			SetButton(foundationButton, () => manager.PutScreenInFocus(manager.Screens.FoundationBuyScreen));
+			SetButton(soilButton, () => manager.PutScreenInFocus(manager.Screens.SoilManageScreen));
 		}
 
-		private void SetupSoilButton(AbstractBuildingTile tile, MarketManager manager)
+		private void HandleEmpty(AbstractBuildingTile tile, MarketManager manager)
 		{
-			if (tile.HasDebris)
-			{
-				BlockSoilButton(tile, manager);
-				return;
-			}
-
-			if (tile.HasSoil)
-			{
-				SetButton(soilButton, () => manager.PutScreenInFocus(manager.Screens.SoilManageScreen));
-				return;
-			}
-
+			BlockButtons(tile, manager, true, true, false);
+			
 			SetButton(soilButton, () => manager.PutScreenInFocus(manager.Screens.SoilBuyScreen));
 		}
-		
-		private void BlockBuildingButton(AbstractBuildingTile tile, MarketManager manager)
+
+		private void BlockButtons(AbstractBuildingTile tile, MarketManager manager,
+			bool                                       blockBuilding,
+			bool                                       blockFoundation,
+			bool                                       blockSoil)
+		{
+			BlockBuildingButton(tile, manager, blockBuilding);
+
+			BlockFoundationButton(tile, manager, blockFoundation);
+
+			BlockSoilButton(tile, manager, blockSoil);
+		}
+
+		private void BlockBuildingButton(AbstractBuildingTile tile, MarketManager manager, bool blocked)
 		{
 			//TODO: Block the button with something....
 			buildingButton.onClick.RemoveAllListeners();
-			buildingHealth.CachedGameObject.SetActive(false);
 		}
-		
-		private void BlockFoundationButton(AbstractBuildingTile tile, MarketManager manager)
+
+		private void BlockFoundationButton(AbstractBuildingTile tile, MarketManager manager, bool blocked)
 		{
 			//TODO: Block the button with something....
 			foundationButton.onClick.RemoveAllListeners();
-			foundationHealth.CachedGameObject.SetActive(false);
 		}
-		
-		private void BlockSoilButton(AbstractBuildingTile tile, MarketManager manager)
+
+		private void BlockSoilButton(AbstractBuildingTile tile, MarketManager manager, bool blocked)
 		{
 			//TODO: Block the button with something....
 			soilButton.onClick.RemoveAllListeners();
-			soilHealth.CachedGameObject.SetActive(false);
+		}
+
+		private void SetBars(AbstractBuildingTile tile)
+		{
+			bool active = tile != null;
+			
+			buildingHealthBar.CachedGameObject.SetActive(active);
+			foundationHealthBar.CachedGameObject.SetActive(active);
+			soilHealthBar.CachedGameObject.SetActive(active);
+
+			if (!active)
+			{
+				return;
+			}
+
+			BuildingHealth health = tile.Building.GetComponent<BuildingHealth>();
+
+			SetBar(buildingHealthBar, (int) health.CurrentBuildingHealth, (int) health.MaxBuildingHealth);
+			SetBar(foundationHealthBar, (int) health.CurrentFoundationHealth, (int) health.MaxFoundationHealth);
+			SetBar(soilHealthBar, (int) health.CurrentSoilHealth, (int) health.MaxSoilHealth);
+		}
+
+		private static void SetBar(Bar bar, int value, int maxValue)
+		{
+			bar.SetMax(maxValue);
+			bar.SetValue(value);
 		}
 	}
 }
