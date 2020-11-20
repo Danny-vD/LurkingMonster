@@ -19,6 +19,11 @@ namespace Gameplay.WeatherEvent
 			activateEffects += action;
 		}
 
+		public void RegisterListener(Action action)
+		{
+			activateEffects += delegate(WeatherEventData data) { action(); };
+		}
+
 		protected void ActivateEffects(bool ignorePause = false)
 		{
 			if (!ignorePause && TimeManager.Instance.IsPaused())
@@ -27,6 +32,11 @@ namespace Gameplay.WeatherEvent
 			}
 
 			activateEffects?.Invoke(WeatherEventData);
+		}
+
+		private void OnDestroy()
+		{
+			activateEffects = null;
 		}
 	}
 }

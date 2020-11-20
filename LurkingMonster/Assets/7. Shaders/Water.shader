@@ -6,9 +6,10 @@
 
 		[Toggle]_UseAbsolute("Absolute", Int) = 0
 
-		_WaveHeight("MaximumHeight", float) = 1
+		_WaveHeight("Amplitude", float) = 1
+		_WaveLength("Frequency", float) = 1
+		
 		_WaveSpeed("Speed", float) = 1
-		_WaveLength("Length", float) = 1
 
 		_Color("Tint", Color) = (1,1,1,1)
 	}
