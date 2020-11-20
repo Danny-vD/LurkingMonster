@@ -6,11 +6,11 @@ namespace Events
 {
 	public class RandomWeatherEvent : VDEvent
 	{
-		public readonly WeatherEventManager weatherEventManager;
+		public readonly AbstractWeatherEvent AbstractWeatherEvent;
 
-		public RandomWeatherEvent(WeatherEventManager weatherEventManager)
+		public RandomWeatherEvent(AbstractWeatherEvent abstractWeatherEvent)
 		{
-			this.weatherEventManager = weatherEventManager;
+			this.AbstractWeatherEvent = abstractWeatherEvent;
 		}
 	}
 }

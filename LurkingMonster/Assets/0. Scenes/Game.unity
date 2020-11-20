@@ -15285,7 +15285,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.64400005, y: 0.020810202}
   m_AnchorMax: {x: 0.8695487, y: 0.19243062}
-  m_AnchoredPosition: {x: -0.5, y: -3.2830505}
+  m_AnchoredPosition: {x: -0.5, y: -3.2831116}
   m_SizeDelta: {x: -0.927948, y: -1.927948}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &327256839
@@ -21944,6 +21944,7 @@ GameObject:
   - component: {fileID: 463725854}
   - component: {fileID: 463725855}
   - component: {fileID: 463725856}
+  - component: {fileID: 463725857}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -22078,6 +22079,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectedMaterial: {fileID: 2100000, guid: 8931e43075078074a824d5171d5cd525, type: 2}
+--- !u!114 &463725857
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 463725849}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb3b4816ba9a40f18daf6ae83861daf8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &466161747
 GameObject:
   m_ObjectHideFlags: 0
@@ -90295,8 +90308,8 @@ MonoBehaviour:
   - key: 5
     value: {fileID: 11400000, guid: 4e8ac87d215557c4c82a33fc4f2a1359, type: 2}
   newsEventScreen: {fileID: 429772620}
-  minTime: 30
-  maxTime: 40
+  minTime: 10
+  maxTime: 12
 --- !u!4 &1984091603
 Transform:
   m_ObjectHideFlags: 0

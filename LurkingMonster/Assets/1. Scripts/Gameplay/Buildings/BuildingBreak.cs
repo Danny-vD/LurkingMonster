@@ -30,7 +30,7 @@ namespace Gameplay.Buildings
 			building       = GetComponent<Building>();
 			buildingHealth = GetComponent<BuildingHealth>();
 			
-			EventManager.Instance.AddListener<RandomWeatherEvent>(OnWeatherEvent);
+			//EventManager.Instance.AddListener<RandomWeatherEvent>(OnWeatherEvent);
 		}
 
 		// Start is called before the first frame update
@@ -44,18 +44,16 @@ namespace Gameplay.Buildings
 		{
 			float damage = Time.deltaTime; // Use 1 external call instead of 3.
 			
-			if (PowerUpManager.Instance.AvoidWeatherActive || !WeatherEventActive())
-			{
-				buildingHealth.DamageSoil(damage);
-				buildingHealth.DamageFoundation(damage);
-				buildingHealth.DamageBuilding(damage);
-			}
-			else
-			{
-				buildingHealth.DamageBuilding(damage * (buildingWeatherFactor / 100 + 1));
-				buildingHealth.DamageFoundation(damage * (foundationWeatherFactor / 100 + 1));
-				buildingHealth.DamageSoil(damage * (soilWeatherFactor / 100 + 1));
-			}
+			buildingHealth.DamageSoil(damage);
+			buildingHealth.DamageFoundation(damage);
+			buildingHealth.DamageBuilding(damage);
+			
+			// else
+			// {
+			// 	buildingHealth.DamageBuilding(damage * (buildingWeatherFactor / 100 + 1));
+			// 	buildingHealth.DamageFoundation(damage * (foundationWeatherFactor / 100 + 1));
+			// 	buildingHealth.DamageSoil(damage * (soilWeatherFactor / 100 + 1));
+			// }
 			
 			bar.SetValue((int) buildingHealth.TotalHealth);
 
@@ -84,16 +82,16 @@ namespace Gameplay.Buildings
 			return false;
 		}
 
-		public void OnWeatherEvent(RandomWeatherEvent randomWeatherEvent)
-		{
-			WeatherEventData data = randomWeatherEvent.weatherEventManager.WeatherEventData;
-			
-			buildingWeatherFactor   = data.BuildingTime;
-			foundationWeatherFactor = data.FoundationTime;
-			soilWeatherFactor       = data.SoilTime;
-			
-			weatherEventManager = randomWeatherEvent.weatherEventManager;
-		}
+		// public void OnWeatherEvent(RandomWeatherEvent randomWeatherEvent)
+		// {
+		// 	WeatherEventData data = randomWeatherEvent.weatherEventManager.WeatherEventData;
+		// 	
+		// 	buildingWeatherFactor   = data.BuildingTime;
+		// 	foundationWeatherFactor = data.FoundationTime;
+		// 	soilWeatherFactor       = data.SoilTime;
+		// 	
+		// 	weatherEventManager = randomWeatherEvent.weatherEventManager;
+		// }
 
 		public void CrackedPopupClicked()
 		{
@@ -108,14 +106,14 @@ namespace Gameplay.Buildings
 			EventManager.Instance.RaiseEvent(new OpenMarketEvent(building));
 		}
 
-		private void OnDestroy()
-		{
-			if (!EventManager.IsInitialized)
-			{
-				return;
-			}
-
-			EventManager.Instance.RemoveListener<RandomWeatherEvent>(OnWeatherEvent);
-		}
+		// private void OnDestroy()
+		// {
+		// 	if (!EventManager.IsInitialized)
+		// 	{
+		// 		return;
+		// 	}
+		//
+		// 	EventManager.Instance.RemoveListener<RandomWeatherEvent>(OnWeatherEvent);
+		// }
 	}
 }

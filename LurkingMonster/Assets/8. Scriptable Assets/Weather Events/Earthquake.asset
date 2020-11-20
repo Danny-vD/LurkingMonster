@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3698be63e2942d8b7c742bd386cec93, type: 3}
   m_Name: Earthquake
   m_EditorClassIdentifier: 
-  SoilTime: 20
+  SoilTime: 5
   FoundationTime: 20
-  BuildingTime: 20
-  Timer: 20
+  BuildingTime: 150
+  Timer: 6
   JsonEventKey: EARTHQUAKE
   JsonContentKey: EARTHQUAKE_CONTENT
+  interval: 2
