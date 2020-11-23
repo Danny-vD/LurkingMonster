@@ -25,12 +25,11 @@ namespace Gameplay
 		private void AddListener(RandomWeatherEvent randomWeatherEvent)
 		{
 			AbstractWeatherEvent abstractWeatherEvent = randomWeatherEvent.AbstractWeatherEvent;
-			print("Switch");
 			
 			switch (abstractWeatherEvent.WeatherType)
 			{
 				case WeatherEventType.Drought:
-					abstractWeatherEvent.RegisterListener(EarthquakeEffects);
+					abstractWeatherEvent.RegisterListener(DroughtEffects);
 					break;
 				case WeatherEventType.HeavyRain:
 					abstractWeatherEvent.RegisterListener(EarthquakeEffects);
@@ -57,6 +56,15 @@ namespace Gameplay
 			health.DamageBuilding(data.BuildingTime);
 			health.DamageFoundation(data.FoundationTime);
 			health.DamageSoil(data.SoilTime);
+			print("Earthquake");
+		}
+		
+		private void DroughtEffects(WeatherEventData data)
+		{
+			health.DamageBuilding(data.BuildingTime);
+			health.DamageFoundation(data.FoundationTime);
+			health.DamageSoil(data.SoilTime);
+			print("Drought");
 		}
 	}
 }
