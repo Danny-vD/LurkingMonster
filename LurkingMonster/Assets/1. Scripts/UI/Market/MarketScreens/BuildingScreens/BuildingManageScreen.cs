@@ -91,6 +91,8 @@ namespace UI.Market.MarketScreens.BuildingScreens
 			void OnClick()
 			{
 				tile.Building.RemoveBuilding();
+				tile.SpawnSoil();
+				tile.SpawnFoundation();
 				manager.CloseMarket();
 			}
 		}

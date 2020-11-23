@@ -186,6 +186,9 @@ namespace Grid.Tiles.Buildings
 
 		public void SpawnDebris(BuildingType buildingType, int buildingTier)
 		{
+			RemoveFoundation();
+			RemoveSoil();
+
 			int tier = Mathf.Max(0, buildingTier - 1);
 
 			DestroyedBuildingData = spawner.GetBuildingData(buildingType, GetFoundationType(), GetSoilType())[tier];

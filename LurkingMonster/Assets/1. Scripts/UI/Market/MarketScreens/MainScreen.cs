@@ -142,15 +142,9 @@ namespace UI.Market.MarketScreens
 
 			BuildingHealth health = tile.Building.GetComponent<BuildingHealth>();
 
-			SetBar(buildingHealthBar, (int) health.CurrentBuildingHealth, (int) health.MaxBuildingHealth);
-			SetBar(foundationHealthBar, (int) health.CurrentFoundationHealth, (int) health.MaxFoundationHealth);
-			SetBar(soilHealthBar, (int) health.CurrentSoilHealth, (int) health.MaxSoilHealth);
-		}
-
-		private static void SetBar(Bar bar, int value, int maxValue)
-		{
-			bar.SetMax(maxValue);
-			bar.SetValue(value);
+			health.SetBuildingHealthBar(buildingHealthBar);
+			health.SetFoundationHealthBar(foundationHealthBar);
+			health.SetSoilHealthBar(soilHealthBar);
 		}
 	}
 }

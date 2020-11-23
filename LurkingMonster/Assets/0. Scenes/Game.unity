@@ -141,7 +141,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1200479
 RectTransform:
   m_ObjectHideFlags: 0
@@ -38376,7 +38376,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &650516695
 RectTransform:
   m_ObjectHideFlags: 0
@@ -69318,7 +69318,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1183828378
 RectTransform:
   m_ObjectHideFlags: 0
@@ -108509,7 +108509,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1858526610
 RectTransform:
   m_ObjectHideFlags: 0
@@ -108546,6 +108546,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   returnButton: {fileID: 531991906}
+  btnDemolish: {fileID: 1625399424}
+  demolishText: {fileID: 1277872933}
+  btnRepair: {fileID: 1561257441}
+  repairText: {fileID: 416897006}
 --- !u!114 &1858526612
 MonoBehaviour:
   m_ObjectHideFlags: 0
