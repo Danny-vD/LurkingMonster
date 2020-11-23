@@ -10,11 +10,6 @@ namespace Gameplay
 
 		private float timer;
 
-		private void Start()
-		{
-			timer = WeatherEventData.interval;
-		}
-
 		private void Update()
 		{
 			timer -= Time.deltaTime;
@@ -23,9 +18,11 @@ namespace Gameplay
 			{
 				return;
 			}
-			
-			ActivateEffects();
-			timer = WeatherEventData.interval;
+
+			if (ActivateEffects())
+			{
+				timer = WeatherEventData.interval;
+			}
 		}
 	}
 }
