@@ -1,6 +1,7 @@
 ﻿using System;
 using Enums;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Gameplay.Buildings
 {
@@ -20,7 +21,7 @@ namespace Gameplay.Buildings
 		private int price;
 
 		[SerializeField]
-		private int repairPrice;
+		private int repairCost;
 
 		[SerializeField]
 		private int destructionCost;
@@ -31,27 +32,29 @@ namespace Gameplay.Buildings
 		[SerializeField]
 		private float maxHealth;
 
-		public BuildingData(int rent, int weight, int price, int repairPrice, int destructionCost, int cleanupCosts, SoilType soilType, FoundationType foundation, float maxHealth)
+		public BuildingData(int rent,       int weight, int price, int repairCost, int destructionCost, int cleanupCosts, SoilType soilType,
+			FoundationType      foundation, float maxHealth)
 		{
-			this.rent         = rent;
-			this.weight       = weight;
-			this.price        = price;
+			this.rent   = rent;
+			this.weight = weight;
+			this.price  = price;
 
+			this.repairCost      = repairCost;
 			this.destructionCost = destructionCost;
 			this.cleanupCosts    = cleanupCosts;
 			this.maxHealth       = maxHealth;
 
-			SoilType     = soilType;
-			Foundation   = foundation;
+			SoilType   = soilType;
+			Foundation = foundation;
 		}
 
 		public int Rent => rent;
-		
+
 		public int Weight => weight;
-		
+
 		public int Price => price;
 
-		public int RepairPrice => repairPrice;
+		public int RepairCost => repairCost;
 
 		public int DestructionCost => destructionCost;
 

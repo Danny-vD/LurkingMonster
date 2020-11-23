@@ -51,7 +51,7 @@ namespace Gameplay.Buildings
 
 			if (buildingHealth.TotalHealth <= 0 && !PowerUpManager.Instance.AvoidMonsterFeedActive)
 			{
-				building.RemoveBuilding(false);
+				building.RemoveBuilding();
 				EventManager.Instance.RaiseEvent(new BuildingConsumedEvent(building));
 				VibrationUtil.Vibrate();
 			}
