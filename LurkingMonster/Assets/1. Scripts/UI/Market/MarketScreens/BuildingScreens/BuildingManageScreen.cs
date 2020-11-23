@@ -61,7 +61,7 @@ namespace UI.Market.MarketScreens.BuildingScreens
 			}
 			
 			//TODO: Change
-			upgradeText.text = "MAX UPGRADE";
+			upgradeText.text = "MAX";
 
 			void Setup(Button button)
 			{
@@ -91,6 +91,8 @@ namespace UI.Market.MarketScreens.BuildingScreens
 			void OnClick()
 			{
 				tile.Building.RemoveBuilding();
+				tile.SpawnSoil();
+				tile.SpawnFoundation();
 				manager.CloseMarket();
 			}
 		}

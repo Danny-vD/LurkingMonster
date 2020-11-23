@@ -8,7 +8,7 @@ namespace UI.Market.MarketScreens
 {
 	public abstract class AbstractMarketScreen : BetterMonoBehaviour
 	{
-		[SerializeField, Space(20)]
+		[SerializeField]
 		private Button returnButton = null;
 
 		public void Hide()

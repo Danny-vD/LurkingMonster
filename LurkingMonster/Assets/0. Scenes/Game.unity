@@ -141,7 +141,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1200479
 RectTransform:
   m_ObjectHideFlags: 0
@@ -16691,7 +16691,7 @@ GameObject:
   - component: {fileID: 283228193}
   - component: {fileID: 283228192}
   m_Layer: 0
-  m_Name: Building_Text
+  m_Name: Building_type_text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17427,7 +17427,7 @@ GameObject:
   - component: {fileID: 299369495}
   - component: {fileID: 299369494}
   m_Layer: 0
-  m_Name: Building_Text
+  m_Name: Foundation_type_text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -62777,7 +62777,7 @@ GameObject:
   - component: {fileID: 1071951598}
   - component: {fileID: 1071951597}
   m_Layer: 0
-  m_Name: soil_Text
+  m_Name: soil_type_text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -80923,7 +80923,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1405638702
 RectTransform:
   m_ObjectHideFlags: 0
@@ -81001,6 +81001,9 @@ MonoBehaviour:
   buildingButton: {fileID: 406548648}
   foundationButton: {fileID: 405053112}
   soilButton: {fileID: 529622659}
+  buildingTypeText: {fileID: 283228192}
+  foundationTypeText: {fileID: 299369494}
+  soilTypeText: {fileID: 1071951597}
   buildingHealthBar: {fileID: 76060866}
   foundationHealthBar: {fileID: 750695922}
   soilHealthBar: {fileID: 331186763}
@@ -107694,13 +107697,13 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1840817316}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: 0.0004882635, w: 0.9999999}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 405053111}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0.056}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -272.06827, y: 329.71875}
@@ -108567,6 +108570,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   returnButton: {fileID: 531991906}
+  btnDemolish: {fileID: 1625399424}
+  demolishText: {fileID: 1277872933}
+  btnRepair: {fileID: 1561257441}
+  repairText: {fileID: 416897006}
 --- !u!114 &1858526612
 MonoBehaviour:
   m_ObjectHideFlags: 0

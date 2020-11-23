@@ -22,7 +22,11 @@ namespace UI.Market.MarketScreens.FoundationScreens
 		
 		public override void SetUI(AbstractBuildingTile tile, MarketManager manager)
 		{
-			SetupRepairButton(tile, manager);
+			if (tile.HasBuilding)
+			{
+				SetupRepairButton(tile, manager);
+			}
+			
 			SetupDemolishButton(tile, manager);
 		}
 
