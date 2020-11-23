@@ -23,11 +23,15 @@ namespace CustomInspector.Grid
 		private SerializedProperty selectedPositions;
 		private SerializedProperty newType;
 
+		//////////////////////////////////////////////////
+
+		private bool hasGenerated = false;
+
 		private void OnEnable()
 		{
 			gridModifier = target as GridModifier;
 
-			selectedPositions = serializedObject.FindProperty("selectedPositions");
+			selectedPositions = serializedObject.FindProperty("SelectedPositions");
 			newType           = serializedObject.FindProperty("newType");
 		}
 
@@ -45,7 +49,7 @@ namespace CustomInspector.Grid
 
 			serializedObject.ApplyModifiedProperties();
 		}
-		
+
 		private void GetAllSelectedTiles()
 		{
 			GameObject[] selectedObjects = Selection.GetFiltered<GameObject>(SelectionMode.Unfiltered);
@@ -53,7 +57,7 @@ namespace CustomInspector.Grid
 			List<AbstractTile> selectedTiles = selectedObjects.Select(GetAbstractTile).ToList();
 			selectedTiles.RemoveAll(item => item == null);
 			selectedTiles = selectedTiles.Distinct().ToList();
-			
+
 			Vector2Int[] gridPositions = new Vector2Int[selectedTiles.Count];
 
 			for (int i = 0; i < selectedTiles.Count; i++)
@@ -62,7 +66,23 @@ namespace CustomInspector.Grid
 				gridPositions[i] = tile.GridPosition;
 			}
 
-			gridModifier.selectedPositions = gridPositions;
+			
+			// Very first time all grid posititons are (0,0), despite being distinct tiles
+			// In thise case, regenerate the grid
+			if (!hasGenerated && gridPositions.Length > 0)
+			{
+				if (gridPositions.All(position => position.Equals(Vector2Int.zero)))
+				{
+					gridModifier.GetComponent<GridCreator>().GenerateGrid();
+					hasGenerated = true;
+					GetAllSelectedTiles();
+					return;
+				}
+
+				hasGenerated = true;
+			}
+
+			gridModifier.SelectedPositions = gridPositions;
 
 			AbstractTile GetAbstractTile(GameObject gameObject)
 			{

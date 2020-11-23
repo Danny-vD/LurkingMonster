@@ -10,7 +10,7 @@ namespace Grid
 		private GridData data = null;
 		private GridCreator gridCreator = null;
 
-		public Vector2Int[] selectedPositions = new Vector2Int[0];
+		public Vector2Int[] SelectedPositions = new Vector2Int[0];
 		
 		[SerializeField]
 		private TileType newType = default;
@@ -28,7 +28,7 @@ namespace Grid
 				data = GetComponent<GridData>();
 			}
 			
-			foreach (Vector2Int position in selectedPositions)
+			foreach (Vector2Int position in SelectedPositions)
 			{
 				data.ChangeTile(position, newType);
 			}
