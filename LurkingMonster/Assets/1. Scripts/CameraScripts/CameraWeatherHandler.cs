@@ -39,7 +39,7 @@ namespace CameraScripts
 					//abstractWeatherEvent.RegisterListener(EarthquakeEffects);
 					break;
 				case WeatherEventType.BuildingTunnels:
-					abstractWeatherEvent.RegisterListener(EarthquakeEffects);
+					//abstractWeatherEvent.RegisterListener(EarthquakeEffects);
 					break;
 				default:
 					throw new ArgumentOutOfRangeException();

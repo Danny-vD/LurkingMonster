@@ -32,39 +32,60 @@ namespace Gameplay
 					abstractWeatherEvent.RegisterListener(DroughtEffects);
 					break;
 				case WeatherEventType.HeavyRain:
-					abstractWeatherEvent.RegisterListener(EarthquakeEffects);
+					abstractWeatherEvent.RegisterListener(HeavyRainEffects);
 					break;
 				case WeatherEventType.Earthquake:
 					abstractWeatherEvent.RegisterListener(EarthquakeEffects);
 					break;
 				case WeatherEventType.Storm:
-					abstractWeatherEvent.RegisterListener(EarthquakeEffects);
+					abstractWeatherEvent.RegisterListener(StormEffects);
 					break;
 				case WeatherEventType.GasWinning:
-					abstractWeatherEvent.RegisterListener(EarthquakeEffects);
+					abstractWeatherEvent.RegisterListener(GasWinningEffects);
 					break;
 				case WeatherEventType.BuildingTunnels:
-					abstractWeatherEvent.RegisterListener(EarthquakeEffects);
+					abstractWeatherEvent.RegisterListener(BuildingTunnelsEffects);
 					break;
 				default:
 					throw new ArgumentOutOfRangeException();
 			}
 		}
 
-		private void EarthquakeEffects(WeatherEventData data)
-		{
-			health.DamageBuilding(data.BuildingTime);
-			health.DamageFoundation(data.FoundationTime);
-			health.DamageSoil(data.SoilTime);
-			print("Earthquake");
-		}
-		
 		private void DroughtEffects(WeatherEventData data)
 		{
+			DecreaseHealth(data);
+		}
+
+		private void HeavyRainEffects(WeatherEventData data)
+		{
+			DecreaseHealth(data);
+		}
+		
+		private void EarthquakeEffects(WeatherEventData data)
+		{
+			DecreaseHealth(data);
+		}
+
+		private void StormEffects(WeatherEventData data)
+		{
+			DecreaseHealth(data);
+		}
+		
+		private void GasWinningEffects(WeatherEventData data)
+		{
+			DecreaseHealth(data);
+		}
+		
+		private void BuildingTunnelsEffects(WeatherEventData data)
+		{
+			DecreaseHealth(data);
+		}
+
+		private void DecreaseHealth(WeatherEventData data)
+		{
 			health.DamageBuilding(data.BuildingTime);
 			health.DamageFoundation(data.FoundationTime);
 			health.DamageSoil(data.SoilTime);
-			print("Drought");
 		}
 	}
 }
