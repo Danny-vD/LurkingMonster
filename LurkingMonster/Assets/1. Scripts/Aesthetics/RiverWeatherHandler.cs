@@ -37,10 +37,10 @@ namespace Aesthetics
 			material = GetComponent<Renderer>().sharedMaterial;
 			SetMaterialSettings(normal);
 			
-			EventManager.Instance.AddListener<RandomWeatherEvent>(AddListener);
+			RandomWeatherEvent.Listeners += ReactToWeather;
 		}
 		
-		private void AddListener(RandomWeatherEvent randomWeatherEvent)
+		private void ReactToWeather(RandomWeatherEvent randomWeatherEvent)
 		{
 			weatherEvent = randomWeatherEvent.AbstractWeatherEvent;
 

@@ -45,7 +45,7 @@ namespace Aesthetics
 		
 		private void Update()
 		{
-			if (!WeatherEventManager.WeatherEventActive && active)
+			if (active && !WeatherEventManager.WeatherEventActive)
 			{
 				Disable();
 			}
