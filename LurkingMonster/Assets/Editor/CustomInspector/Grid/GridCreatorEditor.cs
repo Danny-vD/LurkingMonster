@@ -1,4 +1,4 @@
-﻿using Enums.Grid;
+using Enums.Grid;
 using Grid;
 using UnityEditor;
 using UnityEditor.SceneManagement;
