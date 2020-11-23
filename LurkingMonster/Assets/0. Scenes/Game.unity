@@ -259,10 +259,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   returnButton: {fileID: 1378728564}
-  btnDemolish: {fileID: 0}
-  demolishText: {fileID: 0}
-  btnRepair: {fileID: 0}
-  repairText: {fileID: 0}
+  btnDemolish: {fileID: 424284889}
+  demolishText: {fileID: 1606543048}
+  btnRepair: {fileID: 2016980197}
+  repairText: {fileID: 1806294390}
 --- !u!114 &1200481
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22309,7 +22309,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &415927867
 RectTransform:
   m_ObjectHideFlags: 0
@@ -34338,7 +34338,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &650516695
 RectTransform:
   m_ObjectHideFlags: 0
@@ -40199,7 +40199,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 4.2700195, y: 0.20000076}
   m_SizeDelta: {x: -6.4231567, y: -8.0296}
   m_Pivot: {x: 0, y: 0.5}
@@ -53043,7 +53043,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 4.2700195, y: 0.20000076}
   m_SizeDelta: {x: -6.4231567, y: -8.0296}
   m_Pivot: {x: 0, y: 0.5}
@@ -63031,7 +63031,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1183828378
 RectTransform:
   m_ObjectHideFlags: 0
@@ -72137,7 +72137,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1405638702
 RectTransform:
   m_ObjectHideFlags: 0
@@ -72215,9 +72215,9 @@ MonoBehaviour:
   buildingButton: {fileID: 406548648}
   foundationButton: {fileID: 405053112}
   soilButton: {fileID: 529622659}
-  buildingTypeText: {fileID: 0}
-  foundationTypeText: {fileID: 0}
-  soilTypeText: {fileID: 0}
+  buildingTypeText: {fileID: 283228192}
+  foundationTypeText: {fileID: 299369494}
+  soilTypeText: {fileID: 1071951597}
   buildingHealthBar: {fileID: 76060866}
   foundationHealthBar: {fileID: 750695922}
   soilHealthBar: {fileID: 331186763}
@@ -81515,7 +81515,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 4.2700195, y: 0.20000076}
   m_SizeDelta: {x: -6.4231567, y: -8.0296}
   m_Pivot: {x: 0, y: 0.5}
@@ -96881,10 +96881,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   returnButton: {fileID: 531991906}
-  btnDemolish: {fileID: 0}
-  demolishText: {fileID: 0}
-  btnRepair: {fileID: 0}
-  repairText: {fileID: 0}
+  btnDemolish: {fileID: 1625399424}
+  demolishText: {fileID: 1277872933}
+  btnRepair: {fileID: 1561257441}
+  repairText: {fileID: 416897006}
 --- !u!114 &1858526612
 MonoBehaviour:
   m_ObjectHideFlags: 0
