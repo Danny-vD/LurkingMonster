@@ -91,5 +91,67 @@ namespace Gameplay.Buildings
 		{
 			CurrentBuildingHealth = MaxBuildingHealth;
 		}
+
+		public bool IsHealthBelowLimit(float percentage)
+		{
+			if (CurrentBuildingHealth <= MaxBuildingHealth / 100 * percentage)
+			{
+				return true;
+			}
+
+			if (CurrentFoundationHealth <= MaxFoundationHealth / 100 * percentage)
+			{
+				return true;
+			}
+
+			if (CurrentSoilHealth <= MaxSoilHealth / 100 * percentage)
+			{
+				return true;
+			}
+
+			return false;
+		}
+
+		public void SetBuildingHealthBar(Bar bar)
+		{
+			bar.SetMax((int) MaxBuildingHealth);
+			bar.SetValue((int) CurrentBuildingHealth);
+		}
+
+		public void SetFoundationHealthBar(Bar bar)
+		{
+			bar.SetMax((int) MaxFoundationHealth);
+			bar.SetValue((int) CurrentFoundationHealth);
+		}
+
+		public void SetSoilHealthBar(Bar bar)
+		{
+			bar.SetMax((int) MaxSoilHealth);
+			bar.SetValue((int) CurrentSoilHealth);
+		}
+
+		public void SetLowestHealthBar(Bar bar)
+		{
+			if (CurrentBuildingHealth < CurrentFoundationHealth) // Building < Foundation
+			{
+				if (CurrentBuildingHealth < CurrentSoilHealth) // Building < Soil
+				{
+					SetBuildingHealthBar(bar);
+					return;
+				}
+				
+				SetSoilHealthBar(bar); // Soil < Building && Soil < Foundation
+			}
+			else // Foundation < Building
+			{
+				if (CurrentFoundationHealth < CurrentSoilHealth) // Foundation < Soil
+				{
+					SetFoundationHealthBar(bar);
+					return;
+				}
+				
+				SetSoilHealthBar(bar); // Soil < Foundation && Soil < Building
+			}
+		}
 	}
 }

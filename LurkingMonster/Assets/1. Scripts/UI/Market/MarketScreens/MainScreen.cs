@@ -1,14 +1,16 @@
 ﻿using Gameplay;
 using Gameplay.Buildings;
 using Grid.Tiles.Buildings;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using VDFramework.Extensions;
 
 namespace UI.Market.MarketScreens
 {
 	public class MainScreen : AbstractMarketScreen
 	{
-		[SerializeField]
+		[Header("Buttons"), SerializeField]
 		private Button buildingButton = null;
 
 		[SerializeField]
@@ -17,7 +19,16 @@ namespace UI.Market.MarketScreens
 		[SerializeField]
 		private Button soilButton = null;
 
-		[Space(10), SerializeField]
+		[Space(10), Header("Text"), SerializeField]
+		private TextMeshProUGUI buildingTypeText;
+
+		[SerializeField]
+		private TextMeshProUGUI foundationTypeText;
+
+		[SerializeField]
+		private TextMeshProUGUI soilTypeText;
+
+		[Space(10), Header("HealthBars"), SerializeField]
 		private Bar buildingHealthBar;
 
 		[SerializeField]
@@ -28,13 +39,6 @@ namespace UI.Market.MarketScreens
 
 		public override void SetUI(AbstractBuildingTile tile, MarketManager manager)
 		{
-			if (tile.HasDebris) // Tile has debris
-			{
-				SetBars(tile);
-				HasDebris(tile, manager);
-				return;
-			}
-
 			if (tile.HasBuilding) // Tile has building, foundation and soil
 			{
 				SetBars(tile);
@@ -44,6 +48,13 @@ namespace UI.Market.MarketScreens
 
 			// Healthbars only matter in case of a building
 			SetBars(null);
+
+			if (tile.HasDebris) // Tile has debris
+			{
+				SetBars(null);
+				HasDebris(tile, manager);
+				return;
+			}
 
 			if (tile.HasFoundation) // Tile has foundation and soil
 			{
@@ -65,6 +76,8 @@ namespace UI.Market.MarketScreens
 		{
 			BlockButtons(tile, manager, true, true, true);
 
+			SetText("Blocked by Debris!", "Blocked by Debris!", "Blocked by Debris!");
+
 			//TODO: have some button to remove debris
 		}
 
@@ -73,6 +86,8 @@ namespace UI.Market.MarketScreens
 			SetButton(buildingButton, () => manager.PutScreenInFocus(manager.Screens.BuildingManageScreen));
 			SetButton(foundationButton, () => manager.PutScreenInFocus(manager.Screens.FoundationManageScreen));
 			SetButton(soilButton, () => manager.PutScreenInFocus(manager.Screens.SoilManageScreen));
+
+			SetText(tile.Building.BuildingType.ToString(), tile.GetFoundationType().ToString(), tile.GetSoilType().ToString());
 		}
 
 		private void HasFoundation(AbstractBuildingTile tile, MarketManager manager)
@@ -80,21 +95,27 @@ namespace UI.Market.MarketScreens
 			SetButton(buildingButton, () => manager.PutScreenInFocus(manager.Screens.BuildingBuyScreen));
 			SetButton(foundationButton, () => manager.PutScreenInFocus(manager.Screens.FoundationManageScreen));
 			SetButton(soilButton, () => manager.PutScreenInFocus(manager.Screens.SoilManageScreen));
+			
+			SetText("NoBuilding!", tile.GetFoundationType().ToString(), tile.GetSoilType().ToString());
 		}
 
 		private void HasSoil(AbstractBuildingTile tile, MarketManager manager)
 		{
 			BlockButtons(tile, manager, true, false, false);
-			
+
 			SetButton(foundationButton, () => manager.PutScreenInFocus(manager.Screens.FoundationBuyScreen));
 			SetButton(soilButton, () => manager.PutScreenInFocus(manager.Screens.SoilManageScreen));
+			
+			SetText("NoBuilding!", "NoFoundation!", tile.GetSoilType().ToString());
 		}
 
 		private void HandleEmpty(AbstractBuildingTile tile, MarketManager manager)
 		{
 			BlockButtons(tile, manager, true, true, false);
-			
+
 			SetButton(soilButton, () => manager.PutScreenInFocus(manager.Screens.SoilBuyScreen));
+			
+			SetText("NoBuilding!", "NoFoundation!", "NoSoil!");
 		}
 
 		private void BlockButtons(AbstractBuildingTile tile, MarketManager manager,
@@ -130,7 +151,7 @@ namespace UI.Market.MarketScreens
 		private void SetBars(AbstractBuildingTile tile)
 		{
 			bool active = tile != null;
-			
+
 			buildingHealthBar.CachedGameObject.SetActive(active);
 			foundationHealthBar.CachedGameObject.SetActive(active);
 			soilHealthBar.CachedGameObject.SetActive(active);
@@ -142,15 +163,17 @@ namespace UI.Market.MarketScreens
 
 			BuildingHealth health = tile.Building.GetComponent<BuildingHealth>();
 
-			SetBar(buildingHealthBar, (int) health.CurrentBuildingHealth, (int) health.MaxBuildingHealth);
-			SetBar(foundationHealthBar, (int) health.CurrentFoundationHealth, (int) health.MaxFoundationHealth);
-			SetBar(soilHealthBar, (int) health.CurrentSoilHealth, (int) health.MaxSoilHealth);
+			health.SetBuildingHealthBar(buildingHealthBar);
+			health.SetFoundationHealthBar(foundationHealthBar);
+			health.SetSoilHealthBar(soilHealthBar);
 		}
 
-		private static void SetBar(Bar bar, int value, int maxValue)
+		private void SetText(string buildingText, string foundationText, string soilText)
 		{
-			bar.SetMax(maxValue);
-			bar.SetValue(value);
+			// Use the Language file instead... perhaps use the Enum.ToString for json key?
+			buildingTypeText.text   = buildingText.ReplaceUnderscoreWithSpace();
+			foundationTypeText.text = foundationText.ReplaceUnderscoreWithSpace();
+			soilTypeText.text       = soilText.ReplaceUnderscoreWithSpace();
 		}
 	}
 }

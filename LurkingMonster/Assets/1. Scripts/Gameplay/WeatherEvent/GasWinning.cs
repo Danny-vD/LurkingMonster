@@ -1,9 +1,11 @@
 ﻿using Enums;
+using Gameplay.WeatherEvent;
+using Grid.Tiles;
 using UnityEngine;
 
-namespace Gameplay.WeatherEvent
+namespace _1._Scripts.Gameplay.WeatherEvent
 {
-	public class Earthquake : AbstractWeatherEvent
+	public class GasWinning : AbstractWeatherEvent
 	{
 		public override WeatherEventType WeatherType => WeatherEventType.Earthquake;
 

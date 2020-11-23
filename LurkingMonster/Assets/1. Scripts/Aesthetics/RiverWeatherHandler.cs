@@ -47,22 +47,22 @@ namespace Aesthetics
 			switch (weatherEvent.WeatherType)
 			{
 				case WeatherEventType.Drought:
-					weatherEvent.RegisterListener(EarthquakeEffects);
+					EarthquakeEffects();
 					break;
 				case WeatherEventType.HeavyRain:
-					weatherEvent.RegisterListener(RainFallEffect);
+					RainFallEffect();
 					break;
 				case WeatherEventType.Earthquake:
-					weatherEvent.RegisterListener(EarthquakeEffects);
+					EarthquakeEffects();
 					break;
 				case WeatherEventType.Storm:
-					weatherEvent.RegisterListener(StormEffects);
+					StormEffects();
 					break;
 				case WeatherEventType.GasWinning:
-					weatherEvent.RegisterListener(EarthquakeEffects);
+					//EarthquakeEffects();
 					break;
 				case WeatherEventType.BuildingTunnels:
-					weatherEvent.RegisterListener(EarthquakeEffects);
+					//EarthquakeEffects();
 					break;
 				default:
 					throw new ArgumentOutOfRangeException();

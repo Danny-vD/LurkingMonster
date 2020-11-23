@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Globalization;
 using Gameplay.Buildings;
 using Grid.Tiles.Buildings;
 using TMPro;
@@ -62,7 +61,7 @@ namespace UI.Market.MarketScreens.BuildingScreens
 			}
 			
 			//TODO: Change
-			upgradeText.text = "MAX UPGRADE";
+			upgradeText.text = "MAX";
 
 			void Setup(Button button)
 			{
@@ -79,7 +78,7 @@ namespace UI.Market.MarketScreens.BuildingScreens
 		private void SetupRepairButton(AbstractBuildingTile tile, MarketManager manager)
 		{
 			BuildingHealth buildingHealth = tile.Building.GetComponent<BuildingHealth>();
-			repairText.text = tile.Building.Data.RepairPrice.ToString();
+			repairText.text = tile.Building.Data.RepairCost.ToString();
 			SetButton(btnRepair, buildingHealth.ResetBuildingHealth, manager.CloseMarket);
 		}
 
@@ -91,7 +90,9 @@ namespace UI.Market.MarketScreens.BuildingScreens
 
 			void OnClick()
 			{
-				tile.Building.RemoveBuilding(true);
+				tile.Building.RemoveBuilding();
+				tile.SpawnSoil();
+				tile.SpawnFoundation();
 				manager.CloseMarket();
 			}
 		}

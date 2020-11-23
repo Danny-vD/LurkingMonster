@@ -11,7 +11,7 @@ namespace Gameplay.Buildings
 	{
 		[SerializeField]
 		private GameObject crackPopup = null;
-		
+
 		public Bar bar;
 
 		private Building building;
@@ -20,7 +20,7 @@ namespace Gameplay.Buildings
 		public void Awake()
 		{
 			crackPopup.SetActive(false);
-			
+
 			building       = GetComponent<Building>();
 			buildingHealth = GetComponent<BuildingHealth>();
 		}
@@ -35,23 +35,31 @@ namespace Gameplay.Buildings
 		private void Update()
 		{
 			float damage = Time.deltaTime; // Use 1 external call instead of 3.
-			
+
 			buildingHealth.DamageSoil(damage);
 			buildingHealth.DamageFoundation(damage);
 			buildingHealth.DamageBuilding(damage);
 
-			bar.SetValue((int) buildingHealth.TotalHealth);
+			buildingHealth.SetLowestHealthBar(bar);
 
 			//TODO: make 3 seperate popups instead?
 			//When health is less then 25% show cracks
-			if (buildingHealth.TotalHealth <= bar.MaxValue / 100 * 25 && !crackPopup.activeInHierarchy)
+			if (bar.slider.value <= bar.MaxValue / 100 * 25)
 			{
-				crackPopup.SetActive(true);
+				if (!crackPopup.activeInHierarchy)
+				{
+					crackPopup.SetActive(true);
+				}
+			}
+			else if (crackPopup.activeInHierarchy)
+			{
+				// Necessesary in case the player repairs without clicking on popup
+				crackPopup.SetActive(false);
 			}
 
-			if (buildingHealth.TotalHealth <= 0 && !PowerUpManager.Instance.AvoidMonsterFeedActive)
+			if (bar.slider.value <= 0 && !PowerUpManager.Instance.AvoidMonsterFeedActive)
 			{
-				building.RemoveBuilding(false);
+				building.RemoveBuilding();
 				EventManager.Instance.RaiseEvent(new BuildingConsumedEvent(building));
 				VibrationUtil.Vibrate();
 			}
@@ -60,8 +68,8 @@ namespace Gameplay.Buildings
 		public void CrackedPopupClicked()
 		{
 			crackPopup.SetActive(false);
-			
-			if (!PowerUpManager.Instance.FixProblemsActive)
+
+			if (PowerUpManager.Instance.FixProblemsActive)
 			{
 				buildingHealth.ResetHealth();
 				return;

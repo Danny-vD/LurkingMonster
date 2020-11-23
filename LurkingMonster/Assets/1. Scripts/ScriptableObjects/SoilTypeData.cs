@@ -9,6 +9,8 @@ namespace ScriptableObjects
 		
 		[Space]
 		public int BuildCost = 200;
+
+		public int RepairCost = 50;
 		
 		public int RemoveCost = 100;
 

@@ -12,6 +12,10 @@ namespace CameraScripts
 {
 	public class CameraWeatherHandler : BetterMonoBehaviour
 	{
+		[SerializeField]
+		private float Ehorizontal, eVertical, eFrequency;
+		[SerializeField]
+		private float sHorizontal, sVertical, sFrequency;
 		private void Start()
 		{
 			EventManager.Instance.AddListener<RandomWeatherEvent>(AddListener);
@@ -33,13 +37,13 @@ namespace CameraScripts
 					abstractWeatherEvent.RegisterListener(EarthquakeEffects);
 					break;
 				case WeatherEventType.Storm:
-					//abstractWeatherEvent.RegisterListener(EarthquakeEffects);
+					abstractWeatherEvent.RegisterListener(StormEffects);
 					break;
 				case WeatherEventType.GasWinning:
 					//abstractWeatherEvent.RegisterListener(EarthquakeEffects);
 					break;
 				case WeatherEventType.BuildingTunnels:
-					abstractWeatherEvent.RegisterListener(EarthquakeEffects);
+					//abstractWeatherEvent.RegisterListener(EarthquakeEffects);
 					break;
 				default:
 					throw new ArgumentOutOfRangeException();
@@ -48,21 +52,26 @@ namespace CameraScripts
 
 		private void EarthquakeEffects(WeatherEventData data)
 		{
-			CameraMovement(0.05f);
-		}
-		
-		private void CameraMovement(float movement)
-		{
-			StopAllCoroutines();
-			StartCoroutine(Shake(movement, 5f, 13f));
+			CameraMovement(Ehorizontal, eVertical, eFrequency, data.interval);
 		}
 
-		private IEnumerator Shake(float movement, float time, float frequency)
+		private void StormEffects(WeatherEventData data)
+		{
+			CameraMovement(sHorizontal, sVertical, sFrequency, data.interval);
+		}
+		
+		private void CameraMovement(float horizontal, float vertical, float frequency, float interval)
+		{
+			StopAllCoroutines();
+			StartCoroutine(Shake(interval, horizontal, vertical, frequency * Mathf.PI * 2));
+		}
+
+		private IEnumerator Shake(float time, float horizontal, float vertical, float frequency)
 		{
 			while (time > 0 && WeatherEventManager.WeatherEventActive)
 			{
 				time -= Time.deltaTime;
-				Vector3 test = new Vector3(Mathf.Sin(Time.realtimeSinceStartup * frequency) * movement, Mathf.Sin(Time.realtimeSinceStartup * frequency / 4 - 0.5f) * movement / 4, 0);
+				Vector3 test = new Vector3(Mathf.Sin(Time.realtimeSinceStartup * frequency) * horizontal, Mathf.Sin(Time.realtimeSinceStartup * frequency / 4 - 0.5f) * vertical / 8, 0);
 				CachedTransform.Translate(test, Space.Self);
 				yield return new WaitForEndOfFrame();
 			}

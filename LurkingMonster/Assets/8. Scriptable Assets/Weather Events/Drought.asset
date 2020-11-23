@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SoilTime: 5
   FoundationTime: 20
-  BuildingTime: 150
-  Timer: 6
+  BuildingTime: 20
+  Timer: 30
   JsonEventKey: DROUGHT
   JsonContentKey: DROUGHT_CONTENT
-  interval: 2
+  interval: 10

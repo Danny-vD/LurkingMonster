@@ -2,6 +2,7 @@
 using Enums;
 using ScriptableObjects;
 using Singletons;
+using TMPro;
 using VDFramework;
 
 namespace Gameplay.WeatherEvent
@@ -24,14 +25,15 @@ namespace Gameplay.WeatherEvent
 			activateEffects += delegate(WeatherEventData data) { action(); };
 		}
 
-		protected void ActivateEffects(bool ignorePause = false)
+		protected bool ActivateEffects(bool ignorePause = false)
 		{
 			if (!ignorePause && TimeManager.Instance.IsPaused())
 			{
-				return;
+				return false;
 			}
 
 			activateEffects?.Invoke(WeatherEventData);
+			return true;
 		}
 
 		private void OnDestroy()
