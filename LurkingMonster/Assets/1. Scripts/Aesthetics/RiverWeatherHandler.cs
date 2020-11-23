@@ -59,10 +59,10 @@ namespace Aesthetics
 					StormEffects();
 					break;
 				case WeatherEventType.GasWinning:
-					EarthquakeEffects();
+					//EarthquakeEffects();
 					break;
 				case WeatherEventType.BuildingTunnels:
-					EarthquakeEffects();
+					//EarthquakeEffects();
 					break;
 				default:
 					throw new ArgumentOutOfRangeException();

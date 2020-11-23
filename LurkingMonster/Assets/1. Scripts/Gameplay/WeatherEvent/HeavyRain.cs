@@ -24,8 +24,10 @@ namespace Gameplay
 				return;
 			}
 			
-			ActivateEffects();
-			timer = WeatherEventData.interval;
+			if (ActivateEffects())
+			{
+				timer = WeatherEventData.interval;
+			}
 		}
 	}
 }

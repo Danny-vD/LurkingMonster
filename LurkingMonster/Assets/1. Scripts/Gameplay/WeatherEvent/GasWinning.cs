@@ -25,8 +25,10 @@ namespace _1._Scripts.Gameplay.WeatherEvent
 				return;
 			}
 
-			ActivateEffects();
-			timer = WeatherEventData.interval;
+			if (ActivateEffects())
+			{
+				timer = WeatherEventData.interval;
+			}
 		}
 	}
 }
