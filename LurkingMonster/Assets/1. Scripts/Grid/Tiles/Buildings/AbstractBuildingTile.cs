@@ -116,14 +116,29 @@ namespace Grid.Tiles.Buildings
 			return FirstTierData.Price;
 		}
 
+		public SoilTypeData GetCurrentSoilData()
+		{
+			return GetSoilData(GetSoilType());
+		}
+
 		public SoilTypeData GetSoilData(SoilType soilType)
 		{
 			return spawner.GetSoilData(soilType);
 		}
 
+		public FoundationTypeData GetCurrentFoundationData()
+		{
+			return spawner.GetFoundationData(GetFoundationType());
+		}
+		
 		public FoundationTypeData GetFoundationData(FoundationType foundation)
 		{
 			return spawner.GetFoundationData(foundation);
+		}
+		
+		public BuildingData GetBuildingData(BuildingType buildingType, int tier)
+		{
+			return spawner.GetBuildingData(buildingType, GetFoundationType(), GetSoilType())[tier - 1];
 		}
 
 		public void SetBuildingType(BuildingType building)

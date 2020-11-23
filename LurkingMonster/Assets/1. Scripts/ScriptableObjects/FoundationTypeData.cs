@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace ScriptableObjects
 {
@@ -10,7 +11,9 @@ namespace ScriptableObjects
 		[Space]
 		public int BuildCost = 200;
 
-		public int DestroyCost = 500;
+		public int RepairCost = 50;
+		
+		public int DestructionCost = 500;
 
 		public float MaxHealth = 50.0f;
 	}

@@ -78,7 +78,7 @@ namespace UI.Market.MarketScreens.BuildingScreens
 		private void SetupRepairButton(AbstractBuildingTile tile, MarketManager manager)
 		{
 			BuildingHealth buildingHealth = tile.Building.GetComponent<BuildingHealth>();
-			repairText.text = tile.Building.Data.RepairPrice.ToString();
+			repairText.text = tile.Building.Data.RepairCost.ToString();
 			SetButton(btnRepair, buildingHealth.ResetBuildingHealth, manager.CloseMarket);
 		}
 
@@ -90,7 +90,7 @@ namespace UI.Market.MarketScreens.BuildingScreens
 
 			void OnClick()
 			{
-				tile.Building.RemoveBuilding(true);
+				tile.Building.RemoveBuilding();
 				manager.CloseMarket();
 			}
 		}
