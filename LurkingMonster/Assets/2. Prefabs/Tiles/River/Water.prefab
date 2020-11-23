@@ -1,5 +1,17 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &5947081614707506560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1570179922126300727}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4d78f2172ec9c846990b1da2368e5f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6712141684770019859
 GameObject:
   m_ObjectHideFlags: 0
@@ -114,22 +126,22 @@ MonoBehaviour:
     amplitude: 0.01
     frequency: 0.6
     speed: 2
-    color: {r: 0.5647059, g: 0.8862745, b: 0.94509804, a: 0}
+    color: {r: 0.4117647, g: 0.70980394, b: 0.7058824, a: 0}
   earthQuake:
-    amplitude: 0.01
-    frequency: 0.6
+    amplitude: 0.6
+    frequency: 2
     speed: 6
-    color: {r: 0.8584906, g: 0.6653567, b: 0.4729797, a: 0}
+    color: {r: 0.36078432, g: 0.2784314, b: 0.08627451, a: 0}
   rainfall:
     amplitude: 0.01
     frequency: 0.6
     speed: 3
-    color: {r: 0.294838, g: 0.55799454, b: 0.7735849, a: 0}
+    color: {r: 0.043137256, g: 0.4117647, b: 0.5686275, a: 0}
   storm:
-    amplitude: 0.2
+    amplitude: 0.4
     frequency: 2
     speed: 4
-    color: {r: 0.20338197, g: 0.2999154, b: 0.5471698, a: 0}
+    color: {r: 0.11372549, g: 0.16078432, b: 0.22745098, a: 0}
 --- !u!1001 &5103823193492159128
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -189,8 +201,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: RainSplash
       objectReference: {fileID: 0}
+    - target: {fileID: 5989236059990793391, guid: da307ea83e908654c8bbd895942f0ba6, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: da307ea83e908654c8bbd895942f0ba6, type: 3}
+--- !u!1 &1570179922126300727 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5989236059990793391, guid: da307ea83e908654c8bbd895942f0ba6, type: 3}
+  m_PrefabInstance: {fileID: 5103823193492159128}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1570179922126300724 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5989236059990793388, guid: da307ea83e908654c8bbd895942f0ba6, type: 3}
