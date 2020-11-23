@@ -2,7 +2,7 @@
 
 namespace Events
 {
-	public class LanguageChangedEvent : VDEvent
+	public class LanguageChangedEvent : VDEvent<LanguageChangedEvent>
 	{
 		
 	}

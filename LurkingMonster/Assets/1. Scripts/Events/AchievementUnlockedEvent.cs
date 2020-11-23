@@ -2,7 +2,7 @@
 
 namespace Events
 {
-	public class AchievementUnlockedEvent : VDEvent
+	public class AchievementUnlockedEvent : VDEvent<AchievementUnlockedEvent>
 	{
 		
 	}

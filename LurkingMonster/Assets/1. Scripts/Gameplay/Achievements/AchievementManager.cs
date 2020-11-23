@@ -34,19 +34,19 @@ namespace Gameplay.Achievements
 
 		private void Start()
 		{
-			achievements                = new List<Achievement>();
-			
-			buildingBuildAchievement    = new Achievement(new int[] {1, 10, 20}, "BUILDINGSBUILDACHIEVEMENT",
+			achievements = new List<Achievement>();
+
+			buildingBuildAchievement = new Achievement(new int[] {1, 10, 20}, "BUILDINGSBUILDACHIEVEMENT",
 				new object[] {PowerUpType.FixProblems, SoilType.Sandy_Clay, FoundationType.Concrete_On_Steel}, "PLACEHOLDER");
-			rentCollectedAchievement    = new Achievement(new int[] {1000, 10000, 100000}, "RENTCOLLECTEDACHIEVEMENT",
+			rentCollectedAchievement = new Achievement(new int[] {1000, 10000, 100000}, "RENTCOLLECTEDACHIEVEMENT",
 				new object[] {FoundationType.Floating_Floor_Plate, SoilType.Clay, FoundationType.Reinfored_Concrete}, "PLACEHOLDER");
-			buildingSavedAchievement    = new Achievement(new int[] {10, 20, 30}, "BUILDINGSAVEDACHIEVEMENT",
+			buildingSavedAchievement = new Achievement(new int[] {10, 20, 30}, "BUILDINGSAVEDACHIEVEMENT",
 				new object[] {SoilType.Peat, PowerUpType.FixProblems, SoilType.Sand}, "PLACEHOLDER");
 			buildingConsumedAchievement = new Achievement(new int[] {5, 10, 20}, "BUILDINGCONSUMEDACHIEVEMENT",
 				new object[] {WeatherEventType.Earthquake, WeatherEventType.Storm, WeatherEventType.BuildingTunnels}, "PLACEHOLDER");
-			amountOfPlotsAchievement    = new Achievement(new int[] {5, 10, 20}, "AMOUNTOFPLOTSACHIEVEMENT",
+			amountOfPlotsAchievement = new Achievement(new int[] {5, 10, 20}, "AMOUNTOFPLOTSACHIEVEMENT",
 				new object[] {8, 10, BuildingType.ApartmentBuilding}, "PLACEHOLDER");
-			destroyHousesAchievement    = new Achievement(new int[] {2, 5, 10}, "DESTROYHOUSESACHIEVEMENT",
+			destroyHousesAchievement = new Achievement(new int[] {2, 5, 10}, "DESTROYHOUSESACHIEVEMENT",
 				new object[] {PowerUpType.AvoidWeatherEvent, FoundationType.Wooden_Poles, BuildingType.Store}, "PLACEHOLDER");
 
 			achievements.Add(buildingBuildAchievement);
@@ -57,7 +57,7 @@ namespace Gameplay.Achievements
 			achievements.Add(destroyHousesAchievement);
 
 			AddListeners();
-			
+
 			if (UserSettings.SettingsExist)
 			{
 				LoadData();
@@ -66,12 +66,12 @@ namespace Gameplay.Achievements
 
 		private void AddListeners()
 		{
-			EventManager.Instance.AddListener<BuildingBuildEvent>(OnBuildingBuildListener);
-			EventManager.Instance.AddListener<CollectRentEvent>(OnRentCollectListener);
-			EventManager.Instance.AddListener<BuildingSavedEvent>(OnBuildingsSavedListener);
-			EventManager.Instance.AddListener<BuildingConsumedEvent>(OnBuildingsConsumedListener);
-			EventManager.Instance.AddListener<AmountOfPlotsEvent>(OnAmountOfPlotsListener);
-			EventManager.Instance.AddListener<BuildingDestroyedEvent>(OnBuildingDestroyedListener);
+			CollectRentEvent.Listeners                    += OnRentCollectListener;
+			BuildingBuildEvent.ParameterlessListeners     += OnBuildingBuildListener;
+			BuildingSavedEvent.ParameterlessListeners     += OnBuildingsSavedListener;
+			BuildingConsumedEvent.ParameterlessListeners  += OnBuildingsConsumedListener;
+			AmountOfPlotsEvent.ParameterlessListeners     += OnAmountOfPlotsListener;
+			BuildingDestroyedEvent.ParameterlessListeners += OnBuildingDestroyedListener;
 
 			UserSettings.OnGameQuit += SaveData;
 		}
@@ -79,7 +79,7 @@ namespace Gameplay.Achievements
 		public void ShowAchievementProgress()
 		{
 			achievementParent.DestroyChildren();
-			
+
 			for (int i = 0; i < achievements.Count; i++)
 			{
 				GameObject prefabAchievement = Instantiate(prefabSingleAchievement, achievementParent);
@@ -90,8 +90,8 @@ namespace Gameplay.Achievements
 
 		private void SaveData()
 		{
-			AchievementData[] achievementData = new AchievementData[achievements.Count];  
-			
+			AchievementData[] achievementData = new AchievementData[achievements.Count];
+
 			for (int i = 0; i < achievements.Count; i++)
 			{
 				achievementData[i] = achievements[i].GetData();
@@ -103,7 +103,7 @@ namespace Gameplay.Achievements
 		private void LoadData()
 		{
 			AchievementData[] achievementData = UserSettings.GameData.AchievementData;
-			
+
 			for (int i = 0; i < achievements.Count; i++)
 			{
 				achievements[i].SetData(achievementData[i]);
@@ -120,7 +120,7 @@ namespace Gameplay.Achievements
 			int rentCollected = collectEvent.Rent;
 			rentCollectedAchievement.CheckAchievement(rentCollected);
 		}
-		
+
 		private void OnBuildingsSavedListener()
 		{
 			buildingSavedAchievement.CheckAchievement(1);
@@ -140,19 +140,19 @@ namespace Gameplay.Achievements
 		{
 			destroyHousesAchievement.CheckAchievement(1);
 		}
-		
+
 		private void OnDestroy()
 		{
-			if (!EventManager.IsInitialized) return;
-			
-			EventManager.Instance.RemoveListener<BuildingBuildEvent>(OnBuildingBuildListener);
-			EventManager.Instance.RemoveListener<CollectRentEvent>(OnRentCollectListener);
-			EventManager.Instance.RemoveListener<BuildingSavedEvent>(OnBuildingsSavedListener);
-			EventManager.Instance.RemoveListener<BuildingConsumedEvent>(OnBuildingsConsumedListener);
-			EventManager.Instance.RemoveListener<AmountOfPlotsEvent>(OnAmountOfPlotsListener);
-			EventManager.Instance.RemoveListener<BuildingDestroyedEvent>(OnBuildingDestroyedListener);
-
 			UserSettings.OnGameQuit -= SaveData;
+			
+			if (!EventManager.IsInitialized) return;
+
+			CollectRentEvent.Listeners                    -= OnRentCollectListener;
+			BuildingBuildEvent.ParameterlessListeners     -= OnBuildingBuildListener;
+			BuildingSavedEvent.ParameterlessListeners     -= OnBuildingsSavedListener;
+			BuildingConsumedEvent.ParameterlessListeners  -= OnBuildingsConsumedListener;
+			AmountOfPlotsEvent.ParameterlessListeners     -= OnAmountOfPlotsListener;
+			BuildingDestroyedEvent.ParameterlessListeners -= OnBuildingDestroyedListener;
 		}
 	}
 }

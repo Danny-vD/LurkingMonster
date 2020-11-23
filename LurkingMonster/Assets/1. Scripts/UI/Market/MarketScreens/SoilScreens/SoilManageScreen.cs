@@ -1,8 +1,10 @@
-﻿using Gameplay.Buildings;
+﻿using Events;
+using Gameplay.Buildings;
 using Grid.Tiles.Buildings;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using VDFramework.EventSystem;
 
 namespace UI.Market.MarketScreens.SoilScreens
 {
@@ -45,6 +47,7 @@ namespace UI.Market.MarketScreens.SoilScreens
 
 			void OnClick()
 			{
+				EventManager.Instance.RaiseEvent(new DecreaseMoneyEvent(100));
 				tile.RemoveSoil();
 				manager.CloseMarket();
 			}

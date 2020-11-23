@@ -33,7 +33,8 @@ namespace UI.TextLabels
 
 		private void AddListeners()
 		{
-			EventManager.Instance.AddListener<MoneyChangedEvent>(OnMoneyChanged);
+			MoneyChangedEvent.Listeners    += OnMoneyChanged;
+			LanguageChangedEvent.ParameterlessListeners += SetText;
 			EventManager.Instance.AddListener<LanguageChangedEvent>(SetText);
 		}
 
@@ -44,7 +45,7 @@ namespace UI.TextLabels
 				return;
 			}
 
-			EventManager.Instance.RemoveListener<MoneyChangedEvent>(OnMoneyChanged);
+			MoneyChangedEvent.Listeners -= OnMoneyChanged;
 			EventManager.Instance.RemoveListener<LanguageChangedEvent>(SetText);
 		}
 

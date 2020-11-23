@@ -1,8 +1,9 @@
-﻿using VDFramework.EventSystem;
+﻿using System;
+using VDFramework.EventSystem;
 
 namespace Events
 {
-	public class MoneyChangedEvent : VDEvent
+	public class MoneyChangedEvent : VDEvent<MoneyChangedEvent>
 	{
 		public readonly int CurrentMoney;
 		public readonly int DeltaMoney;

@@ -66,6 +66,11 @@ namespace Gameplay.WeatherEvent
 
 		private void Update()
 		{
+			if (TimeManager.Instance.IsPaused())
+			{
+				return;
+			}
+			
 			if (weatherEventActive)
 			{
 				WeatherEventTimer();
