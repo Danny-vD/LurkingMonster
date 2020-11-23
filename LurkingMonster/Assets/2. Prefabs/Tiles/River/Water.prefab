@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7333388535303239686}
   - component: {fileID: 3273933131564525338}
   - component: {fileID: 844785512157864544}
+  - component: {fileID: 5105434240944612317}
   m_Layer: 0
   m_Name: Water
   m_TagString: Untagged
@@ -97,6 +98,38 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &5105434240944612317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6712141684770019859}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0588fd7cf6bbb894382651bf0410b20f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  normal:
+    amplitude: 0.01
+    frequency: 0.6
+    speed: 2
+    color: {r: 0.5647059, g: 0.8862745, b: 0.94509804, a: 0}
+  earthQuake:
+    amplitude: 0.01
+    frequency: 0.6
+    speed: 6
+    color: {r: 0.8584906, g: 0.6653567, b: 0.4729797, a: 0}
+  rainfall:
+    amplitude: 0.01
+    frequency: 0.6
+    speed: 3
+    color: {r: 0.294838, g: 0.55799454, b: 0.7735849, a: 0}
+  storm:
+    amplitude: 0.2
+    frequency: 2
+    speed: 4
+    color: {r: 0.20338197, g: 0.2999154, b: 0.5471698, a: 0}
 --- !u!1001 &5103823193492159128
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -73,12 +73,12 @@ Material:
     - _SrcBlend: 1
     - _UVSec: 0
     - _UseAbsolute: 0
-    - _WaveHeight: 0.09
-    - _WaveLength: 0.6283185
-    - _WaveSpeed: 1
+    - _WaveHeight: 0.2
+    - _WaveLength: 2
+    - _WaveSpeed: 4
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 0.4745098, g: 0.827451, b: 0.94509804, a: 0}
+    - _Color: {r: 0.20338197, g: 0.2999154, b: 0.5471698, a: 0}
     - _Direction: {r: -1, g: 0, b: 0, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
   m_BuildTextureStacks: []
