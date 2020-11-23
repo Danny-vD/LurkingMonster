@@ -2,7 +2,7 @@
 
 namespace Events
 {
-	public class BuildingBuildEvent : VDEvent
+	public class BuildingBuildEvent : VDEvent<BuildingBuildEvent>
 	{
 		
 	}

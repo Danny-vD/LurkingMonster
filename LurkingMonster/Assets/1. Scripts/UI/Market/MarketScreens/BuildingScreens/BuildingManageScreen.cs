@@ -11,7 +11,7 @@ namespace UI.Market.MarketScreens.BuildingScreens
 	{
 		[Header("Upgrade"), SerializeField]
 		private List<Button> btnUpgrade = null;
-		
+
 		[SerializeField]
 		private TextMeshProUGUI upgradeText = null;
 
@@ -27,6 +27,18 @@ namespace UI.Market.MarketScreens.BuildingScreens
 		[SerializeField]
 		private TextMeshProUGUI repairText = null;
 
+		[Header("Builing Stats"), SerializeField]
+		private TextMeshProUGUI currentTierHealth = null;
+
+		[SerializeField]
+		private TextMeshProUGUI currentTierRent = null;
+
+		[SerializeField]
+		private TextMeshProUGUI nextTierHealth = null;
+
+		[SerializeField]
+		private TextMeshProUGUI nextTierRent = null;
+
 		public override void SetUI(AbstractBuildingTile tile, MarketManager manager)
 		{
 			SetupUpgradeButtons(tile, manager);
@@ -37,7 +49,19 @@ namespace UI.Market.MarketScreens.BuildingScreens
 		private void SetupUpgradeButtons(AbstractBuildingTile tile, MarketManager manager)
 		{
 			BuildingUpgrade buildingUpgrade = tile.Building.GetComponent<BuildingUpgrade>();
-			btnUpgrade.ForEach(Setup);
+
+			SetTierText(tile, buildingUpgrade);
+			
+			if (buildingUpgrade.CanUpgrade())
+			{
+				btnUpgrade.ForEach(Setup);
+
+				upgradeText.text = tile.Building.UpgradeCost.ToString();
+				return;
+			}
+			
+			//TODO: Change
+			upgradeText.text = "MAX";
 
 			void Setup(Button button)
 			{
@@ -54,6 +78,7 @@ namespace UI.Market.MarketScreens.BuildingScreens
 		private void SetupRepairButton(AbstractBuildingTile tile, MarketManager manager)
 		{
 			BuildingHealth buildingHealth = tile.Building.GetComponent<BuildingHealth>();
+			repairText.text = tile.Building.Data.RepairCost.ToString();
 			SetButton(btnRepair, buildingHealth.ResetBuildingHealth, manager.CloseMarket);
 		}
 
@@ -61,11 +86,31 @@ namespace UI.Market.MarketScreens.BuildingScreens
 		{
 			SetButton(btnDemolish, OnClick);
 
+			demolishText.text = tile.Building.Data.DestructionCost.ToString();
+
 			void OnClick()
 			{
-				tile.Building.RemoveBuilding(true);
+				tile.Building.RemoveBuilding();
+				tile.SpawnSoil();
+				tile.SpawnFoundation();
 				manager.CloseMarket();
 			}
+		}
+
+		private void SetTierText(AbstractBuildingTile tile, BuildingUpgrade buildingUpgrade)
+		{
+			currentTierHealth.text = ((int) tile.Building.Data.MaxHealth).ToString();
+			currentTierRent.text   = tile.Building.Data.Rent.ToString();
+			
+			if (buildingUpgrade.CanUpgrade())
+			{
+				nextTierHealth.text = ((int) tile.Building.NextTierData.MaxHealth).ToString();
+				nextTierRent.text   = tile.Building.NextTierData.Rent.ToString();
+				return;
+			}
+
+			nextTierHealth.text = currentTierHealth.text;
+			nextTierRent.text   = currentTierRent.text;
 		}
 	}
 }

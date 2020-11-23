@@ -2,8 +2,7 @@
 
 namespace Events
 {
-	public class BuildingSavedEvent : VDEvent
+	public class BuildingSavedEvent : VDEvent<BuildingSavedEvent>
 	{
-		
 	}
 }

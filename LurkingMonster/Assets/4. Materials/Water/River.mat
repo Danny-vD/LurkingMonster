@@ -60,6 +60,7 @@ Material:
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
+    - _FlowSpeed: 0.2
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
@@ -72,11 +73,12 @@ Material:
     - _SrcBlend: 1
     - _UVSec: 0
     - _UseAbsolute: 0
-    - _WaveHeight: 0.1
-    - _WaveLength: 0.62831855
-    - _WaveSpeed: 0.69
+    - _WaveHeight: 0.09
+    - _WaveLength: 0.6283185
+    - _WaveSpeed: 1
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 0.4761481, g: 0.8279584, b: 0.9433962, a: 1}
+    - _Color: {r: 0.4745098, g: 0.827451, b: 0.94509804, a: 0}
+    - _Direction: {r: -1, g: 0, b: 0, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
   m_BuildTextureStacks: []

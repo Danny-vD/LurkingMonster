@@ -3,7 +3,7 @@ using VDFramework.EventSystem;
 
 namespace Events
 {
-	public class BuildingConsumedEvent : VDEvent
+	public class BuildingConsumedEvent : VDEvent<BuildingConsumedEvent>
 	{
 		public readonly Building Building;
 

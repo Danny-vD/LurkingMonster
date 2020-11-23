@@ -2,7 +2,7 @@
 
 namespace Events
 {
-	public class CollectRentEvent : VDEvent
+	public class CollectRentEvent : VDEvent<CollectRentEvent>
 	{
 		public readonly int Rent;
 

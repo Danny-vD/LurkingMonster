@@ -3,7 +3,7 @@ using VDFramework.EventSystem;
 
 namespace Events
 {
-	public class AchievementTappedEvent : VDEvent
+	public class AchievementTappedEvent : VDEvent<AchievementTappedEvent>
 	{
 		public readonly Achievement Achievement;
 

@@ -2,7 +2,8 @@
 
 namespace Events
 {
-	public class AmountOfPlotsEvent : VDEvent
+	//TODO: Change the name, I have no clue what this is supposed to be for
+	public class AmountOfPlotsEvent : VDEvent<AmountOfPlotsEvent>
 	{
 		
 	}

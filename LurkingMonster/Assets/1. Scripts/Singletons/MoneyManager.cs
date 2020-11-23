@@ -29,7 +29,7 @@ namespace Singletons
 		private void AddListeners()
 		{
 			UserSettings.OnGameQuit += SaveCurrentMoney;
-			
+
 			EventManager.Instance.AddListener<IncreaseMoneyEvent>(OnIncreaseMoney);
 			EventManager.Instance.AddListener<DecreaseMoneyEvent>(OnDecreaseMoney);
 			EventManager.Instance.AddListener<CollectRentEvent>(OnCollectRent);

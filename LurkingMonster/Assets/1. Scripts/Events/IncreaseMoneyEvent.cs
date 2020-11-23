@@ -2,7 +2,7 @@
 
 namespace Events
 {
-	public class IncreaseMoneyEvent : VDEvent
+	public class IncreaseMoneyEvent : VDEvent<IncreaseMoneyEvent>
 	{
 		public readonly int Amount;
 

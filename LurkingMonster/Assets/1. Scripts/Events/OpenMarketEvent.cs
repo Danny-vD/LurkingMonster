@@ -5,7 +5,7 @@ using VDFramework.EventSystem;
 
 namespace Events
 {
-	public class OpenMarketEvent : VDEvent
+	public class OpenMarketEvent : VDEvent<OpenMarketEvent>
 	{
 		public readonly AbstractBuildingTile BuildingTile;
 		public readonly Building Building;

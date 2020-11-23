@@ -6,11 +6,15 @@
 
 		[Toggle]_UseAbsolute("Absolute", Int) = 0
 
-		_WaveHeight("MaximumHeight", float) = 1
+		_WaveHeight("Amplitude", float) = 1
+		_WaveLength("Frequency", float) = 1
+		
 		_WaveSpeed("Speed", float) = 1
-		_WaveLength("Length", float) = 1
 
 		_Color("Tint", Color) = (1,1,1,1)
+		
+		_Direction("Flow Direction", vector) = (0, -1, 0, 0)
+		_FlowSpeed("Flow Speed", float) = .1
 	}
 	SubShader
 	{
@@ -40,6 +44,9 @@
 			float _WaveSpeed;
 			float _WaveHeight;
 			float _WaveLength;
+
+			float4 _Direction;
+			float _FlowSpeed;
 
 			//Functions
 			float PingPong(float value, float length);
@@ -111,7 +118,7 @@
 
 				float2 uv = i.worldPosition.xz * _MainTex_ST.xy + _MainTex_ST.zw;
 
-				uv.y += _Time.y / 10;
+				uv += normalize(_Direction) * _Time.y * _FlowSpeed;
 	        	
 	        	uv.x = PingPong(uv.x, 1);
 	        	uv.y = PingPong(uv.y, 1);

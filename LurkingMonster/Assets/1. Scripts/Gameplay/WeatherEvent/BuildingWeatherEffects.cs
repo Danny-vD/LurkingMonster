@@ -3,6 +3,7 @@ using CameraScripts;
 using Enums;
 using Events;
 using Gameplay.Buildings;
+using Gameplay.WeatherEvent;
 using ScriptableObjects;
 using UnityEngine;
 using VDFramework;
@@ -24,34 +25,63 @@ namespace Gameplay
 		private void AddListener(RandomWeatherEvent randomWeatherEvent)
 		{
 			AbstractWeatherEvent abstractWeatherEvent = randomWeatherEvent.AbstractWeatherEvent;
-			print("Switch");
 			
-			switch (abstractWeatherEvent.type)
+			switch (abstractWeatherEvent.WeatherType)
 			{
 				case WeatherEventType.Drought:
-					abstractWeatherEvent.RegisterListener(EarthquakeEffects);
+					abstractWeatherEvent.RegisterListener(DroughtEffects);
 					break;
 				case WeatherEventType.HeavyRain:
-					abstractWeatherEvent.RegisterListener(EarthquakeEffects);
+					abstractWeatherEvent.RegisterListener(HeavyRainEffects);
 					break;
 				case WeatherEventType.Earthquake:
 					abstractWeatherEvent.RegisterListener(EarthquakeEffects);
 					break;
 				case WeatherEventType.Storm:
-					abstractWeatherEvent.RegisterListener(EarthquakeEffects);
+					abstractWeatherEvent.RegisterListener(StormEffects);
 					break;
 				case WeatherEventType.GasWinning:
-					abstractWeatherEvent.RegisterListener(EarthquakeEffects);
+					abstractWeatherEvent.RegisterListener(GasWinningEffects);
 					break;
 				case WeatherEventType.BuildingTunnels:
-					abstractWeatherEvent.RegisterListener(EarthquakeEffects);
+					abstractWeatherEvent.RegisterListener(BuildingTunnelsEffects);
 					break;
 				default:
 					throw new ArgumentOutOfRangeException();
 			}
 		}
 
+		private void DroughtEffects(WeatherEventData data)
+		{
+			DecreaseHealth(data);
+		}
+
+		private void HeavyRainEffects(WeatherEventData data)
+		{
+			DecreaseHealth(data);
+		}
+		
 		private void EarthquakeEffects(WeatherEventData data)
+		{
+			DecreaseHealth(data);
+		}
+
+		private void StormEffects(WeatherEventData data)
+		{
+			DecreaseHealth(data);
+		}
+		
+		private void GasWinningEffects(WeatherEventData data)
+		{
+			DecreaseHealth(data);
+		}
+		
+		private void BuildingTunnelsEffects(WeatherEventData data)
+		{
+			DecreaseHealth(data);
+		}
+
+		private void DecreaseHealth(WeatherEventData data)
 		{
 			health.DamageBuilding(data.BuildingTime);
 			health.DamageFoundation(data.FoundationTime);

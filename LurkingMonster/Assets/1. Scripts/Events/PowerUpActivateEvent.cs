@@ -3,7 +3,8 @@ using VDFramework.EventSystem;
 
 namespace Events
 {
-	public class PowerUpActivateEvent : VDEvent
+	// TODO: Remove?
+	public class PowerUpActivateEvent : VDEvent<PowerUpActivateEvent>
 	{
 		public readonly PowerUpType Type;
 

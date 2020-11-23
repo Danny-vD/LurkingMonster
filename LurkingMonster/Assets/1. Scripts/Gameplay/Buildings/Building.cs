@@ -23,6 +23,8 @@ namespace Gameplay.Buildings
 		/// </summary>
 		public BuildingData Data => data[CurrentTier - 1]; // tier is one-indexed
 
+		public BuildingData NextTierData => data[CurrentTier];
+
 		/// <summary>
 		/// Returns data that is the same for every building
 		/// </summary>
@@ -48,18 +50,8 @@ namespace Gameplay.Buildings
 			GetComponent<BuildingHealth>().Initialize(Data.MaxHealth, Data.MaxHealth, Data.MaxHealth);
 		}
 
-		public void RemoveBuilding(bool payForRemoval)
+		public void RemoveBuilding()
 		{
-			if (payForRemoval)
-			{
-				if (!MoneyManager.Instance.PlayerHasEnoughMoney(Data.DestructionCost))
-				{
-					return;
-				}
-
-				EventManager.Instance.RaiseEvent(new DecreaseMoneyEvent(Data.DestructionCost));
-			}
-
 			Destroy(gameObject);
 			EventManager.Instance.RaiseEvent(new BuildingDestroyedEvent());
 		}

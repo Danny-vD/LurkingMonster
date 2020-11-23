@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Enums;
 using Events;
+using IO;
 using ScriptableObjects;
 using Singletons;
 using Structs;
@@ -14,10 +15,12 @@ using VDFramework.Extensions;
 using VDFramework.Utility;
 using Random = UnityEngine.Random;
 
-namespace Gameplay
+namespace Gameplay.WeatherEvent
 {
 	public class WeatherEventManager : BetterMonoBehaviour
 	{
+		private static bool weatherEventActive;
+		
 		[SerializeField]
 		private string reporterName = "Lif van der Zandt";
 
@@ -41,8 +44,6 @@ namespace Gameplay
 
 		private AbstractWeatherEvent abstractWeatherEvent;
 
-		private bool weatherEventActive;
-
 		private WeatherEventData weatherEventData;
 
 		private float weatherEventTimer;
@@ -65,6 +66,11 @@ namespace Gameplay
 
 		private void Update()
 		{
+			if (TimeManager.Instance.IsPaused())
+			{
+				return;
+			}
+			
 			if (weatherEventActive)
 			{
 				WeatherEventTimer();
@@ -82,7 +88,8 @@ namespace Gameplay
 			if (timer <= 0.0f && !PowerUpManager.Instance.AvoidWeatherActive)
 			{
 				// TODO: instead of taking a random event, have a list of unlocked events or something
-				weatherEventType     = default(WeatherEventType).GetRandomValue();
+				//weatherEventType     = default(WeatherEventType).GetRandomValue();
+				weatherEventType     = WeatherEventType.Storm;
 				weatherEventData     = GetData(weatherEventType);
 				EventManager.Instance.RaiseEvent(new RandomWeatherEvent(abstractWeatherEvent));
 				weatherEventActive = true;
@@ -113,7 +120,7 @@ namespace Gameplay
 				if (eventDataPerEventType[i].Key == weatherEventType)
 				{
 					WeatherEventData data = eventDataPerEventType[i].Value;
-					abstractWeatherEvent = InstanceCreator.CreateInstance(weatherEventType, data);
+					abstractWeatherEvent = WeatherEventInstanceCreator.CreateInstance(weatherEventType, data);
 					return data;
 				}
 			}
@@ -170,8 +177,6 @@ namespace Gameplay
 				eventDataPerEventType);
 		}
 
-		public bool WeatherEventActive => weatherEventActive;
-
-		public WeatherEventData WeatherEventData => weatherEventData;
+		public static bool WeatherEventActive => weatherEventActive;
 	}
 }
