@@ -61,7 +61,7 @@ namespace UI.Market.MarketScreens.BuildingScreens
 			}
 			
 			//TODO: Change
-			upgradeText.text = "MAX UPGRADE";
+			upgradeText.text = "MAX";
 
 			void Setup(Button button)
 			{
