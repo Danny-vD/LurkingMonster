@@ -3,6 +3,7 @@ using CameraScripts;
 using Enums;
 using Events;
 using Gameplay.Buildings;
+using Gameplay.WeatherEvent;
 using ScriptableObjects;
 using UnityEngine;
 using VDFramework;
@@ -25,7 +26,7 @@ namespace Gameplay
 		{
 			AbstractWeatherEvent abstractWeatherEvent = randomWeatherEvent.AbstractWeatherEvent;
 			
-			switch (abstractWeatherEvent.type)
+			switch (abstractWeatherEvent.WeatherType)
 			{
 				case WeatherEventType.Drought:
 					abstractWeatherEvent.RegisterListener(DroughtEffects);

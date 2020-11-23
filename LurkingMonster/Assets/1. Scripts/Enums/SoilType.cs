@@ -3,7 +3,7 @@
 	// ReSharper disable InconsistentNaming
     public enum SoilType
     {
-        Peet,
+        Peat,
         Sand,
 		Sandy_Clay,
         Clay,

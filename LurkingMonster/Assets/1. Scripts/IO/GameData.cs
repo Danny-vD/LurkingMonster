@@ -3,12 +3,9 @@ using System.Collections.Generic;
 using Audio;
 using Enums;
 using Enums.Audio;
-using Gameplay;
-using Singletons;
 using Structs;
-using UnityEngine;
 
-namespace Utility
+namespace IO
 {
 	[Serializable]
 	public class GameData

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Enums;
 using Events;
+using IO;
 using ScriptableObjects;
 using Singletons;
 using Structs;
@@ -14,10 +15,12 @@ using VDFramework.Extensions;
 using VDFramework.Utility;
 using Random = UnityEngine.Random;
 
-namespace Gameplay
+namespace Gameplay.WeatherEvent
 {
 	public class WeatherEventManager : BetterMonoBehaviour
 	{
+		private static bool weatherEventActive;
+		
 		[SerializeField]
 		private string reporterName = "Lif van der Zandt";
 
@@ -40,8 +43,6 @@ namespace Gameplay
 		private WeatherEventType weatherEventType;
 
 		private AbstractWeatherEvent abstractWeatherEvent;
-
-		private bool weatherEventActive;
 
 		private WeatherEventData weatherEventData;
 
@@ -113,7 +114,7 @@ namespace Gameplay
 				if (eventDataPerEventType[i].Key == weatherEventType)
 				{
 					WeatherEventData data = eventDataPerEventType[i].Value;
-					abstractWeatherEvent = InstanceCreator.CreateInstance(weatherEventType, data);
+					abstractWeatherEvent = WeatherEventInstanceCreator.CreateInstance(weatherEventType, data);
 					return data;
 				}
 			}
@@ -170,8 +171,6 @@ namespace Gameplay
 				eventDataPerEventType);
 		}
 
-		public bool WeatherEventActive => weatherEventActive;
-
-		public WeatherEventData WeatherEventData => weatherEventData;
+		public static bool WeatherEventActive => weatherEventActive;
 	}
 }

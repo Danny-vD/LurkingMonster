@@ -1,18 +1,28 @@
 ﻿using System;
 using Enums;
 using Gameplay;
+using Gameplay.WeatherEvent;
 using ScriptableObjects;
 using UnityEngine;
 
 namespace Utility
 {
-	public static class InstanceCreator
+	public static class WeatherEventInstanceCreator
 	{
-		public static AbstractWeatherEvent CreateInstance(WeatherEventType type, WeatherEventData weatherEventData)
+		public static AbstractWeatherEvent CreateInstance(WeatherEventType eventType, WeatherEventData weatherEventData)
 		{
-			GameObject gameObject = new GameObject(type.ToString());
-			AbstractWeatherEvent abstractWeatherEvent;
+			GameObject gameObject = new GameObject(eventType.ToString());
+
+			AbstractWeatherEvent abstractWeatherEvent = AddWeatherComponent(eventType, gameObject);
 			
+			abstractWeatherEvent.WeatherEventData = weatherEventData;
+			return abstractWeatherEvent;
+		}
+
+		private static AbstractWeatherEvent AddWeatherComponent(WeatherEventType type, GameObject gameObject)
+		{
+			AbstractWeatherEvent abstractWeatherEvent;
+
 			switch (type)
 			{
 				case WeatherEventType.Drought:
@@ -36,8 +46,7 @@ namespace Utility
 				default:
 					throw new ArgumentOutOfRangeException(nameof(type), type, null);
 			}
-			
-			abstractWeatherEvent.WeatherEventData = weatherEventData;
+
 			return abstractWeatherEvent;
 		}
 	}

@@ -3,6 +3,7 @@ using System.Linq;
 using Enums.Utility;
 using ExtentionMethods;
 using UnityEngine;
+using VDFramework.UnityExtensions;
 
 namespace Grid.Tiles.Utility
 {
@@ -32,7 +33,7 @@ namespace Grid.Tiles.Utility
 		}
 
 		public static void RotateTIntersection(AbstractTile tile,
-			Direction perpendicularDirection, Direction ending2, Direction ending3, IEnumerable<AbstractTile> connectTo)
+			Direction perpendicularDirection, IEnumerable<AbstractTile> connectTo)
 		{
 			Transform[] connections = connectTo.Select(connection => connection.CachedTransform).ToArray();
 
@@ -47,8 +48,8 @@ namespace Grid.Tiles.Utility
 				Transform neighbor2 = connections[(i + 1) % connections.Length];
 				Transform neighbor3 = connections[(i + 2) % connections.Length];
 
-				Vector3 neighbor2Delta = Abs((neighbor2.position - tile.CachedTransform.position).normalized);
-				Vector3 neighbor3Delta = Abs((neighbor3.position - tile.CachedTransform.position).normalized);
+				Vector3 neighbor2Delta = (neighbor2.position - tile.CachedTransform.position).normalized.Abs();
+				Vector3 neighbor3Delta = (neighbor3.position - tile.CachedTransform.position).normalized.Abs();
 
 				if (neighbor2Delta == neighbor3Delta)
 				{
@@ -57,11 +58,6 @@ namespace Grid.Tiles.Utility
 			}
 
 			Debug.LogError("Could not rotate intersection correctly", tile);
-		}
-
-		private static Vector3 Abs(Vector3 vector3)
-		{
-			return new Vector3(Mathf.Abs(vector3.x), Mathf.Abs(vector3.y), Mathf.Abs(vector3.z));
 		}
 	}
 }

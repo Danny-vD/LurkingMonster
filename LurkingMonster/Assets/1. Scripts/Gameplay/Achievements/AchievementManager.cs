@@ -41,7 +41,7 @@ namespace Gameplay.Achievements
 			rentCollectedAchievement    = new Achievement(new int[] {1000, 10000, 100000}, "RENTCOLLECTEDACHIEVEMENT",
 				new object[] {FoundationType.Floating_Floor_Plate, SoilType.Clay, FoundationType.Reinfored_Concrete}, "PLACEHOLDER");
 			buildingSavedAchievement    = new Achievement(new int[] {10, 20, 30}, "BUILDINGSAVEDACHIEVEMENT",
-				new object[] {SoilType.Peet, PowerUpType.FixProblems, SoilType.Sand}, "PLACEHOLDER");
+				new object[] {SoilType.Peat, PowerUpType.FixProblems, SoilType.Sand}, "PLACEHOLDER");
 			buildingConsumedAchievement = new Achievement(new int[] {5, 10, 20}, "BUILDINGCONSUMEDACHIEVEMENT",
 				new object[] {WeatherEventType.Earthquake, WeatherEventType.Storm, WeatherEventType.BuildingTunnels}, "PLACEHOLDER");
 			amountOfPlotsAchievement    = new Achievement(new int[] {5, 10, 20}, "AMOUNTOFPLOTSACHIEVEMENT",

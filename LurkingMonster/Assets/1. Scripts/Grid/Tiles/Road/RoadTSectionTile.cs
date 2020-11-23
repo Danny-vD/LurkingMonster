@@ -12,12 +12,6 @@ namespace Grid.Tiles.Road
 		[SerializeField]
 		private Direction perpendicular = Direction.Forward;
 		
-		[SerializeField]
-		private Direction ending2 = Direction.Left;
-		
-		[SerializeField]
-		private Direction ending3 = Direction.Right;
-		
 		public override TileType TileType => TileType.RoadTSection;
 
 		protected override void AddRoadNeighbor(AbstractRoadTile tile)
@@ -26,7 +20,7 @@ namespace Grid.Tiles.Road
 			
 			if (RoadNeighbors.Count == 3) // TIntersections should only have 3 roads connected to it
 			{
-				TileRotateUtil.RotateTIntersection(this, perpendicular, ending2, ending3, RoadNeighbors.Select(roadTile => roadTile as AbstractTile));
+				TileRotateUtil.RotateTIntersection(this, perpendicular, RoadNeighbors.Select(roadTile => roadTile as AbstractTile));
 			}
 		}
 	}
