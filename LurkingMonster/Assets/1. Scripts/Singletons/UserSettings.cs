@@ -135,7 +135,7 @@ namespace Singletons
 		public void NewGame()
 		{
 			bool vibrate = gameData == null || gameData.Vibrate;
-
+ 
 			gameData = new GameData(startMoney, vibrate);
 
 			RunTimeTests.TestStartMoney();

@@ -730,6 +730,40 @@
           "Value": "Ok!"
         }
       ]
+    },
+    {
+      "Key": "VIBRATE",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "Vibratie"
+        },
+        {
+          "Key": "EN",
+          "Value": "Vibrate"
+        },
+        {
+          "Key": "DE",
+          "Value": "Ok!"
+        }
+      ]
+    },
+    {
+      "Key": "MUSIC_MUTE",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "Dempen"
+        },
+        {
+          "Key": "EN",
+          "Value": "Mute"
+        },
+        {
+          "Key": "DE",
+          "Value": "Ok!"
+        }
+      ]
     }
   ]
 }

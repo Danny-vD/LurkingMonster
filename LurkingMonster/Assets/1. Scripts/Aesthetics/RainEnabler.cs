@@ -3,6 +3,7 @@ using Enums;
 using Events;
 using Gameplay.WeatherEvent;
 using VDFramework;
+using VDFramework.EventSystem;
 
 namespace Aesthetics
 {
@@ -61,6 +62,16 @@ namespace Aesthetics
 		{
 			active = false;
 			CachedGameObject.SetActive(false);
+		}
+
+		private void OnDestroy()
+		{
+			if (!EventManager.IsInitialized)
+			{
+				return;
+			}
+
+			RandomWeatherEvent.Listeners -= AddListener;
 		}
 	}
 }
