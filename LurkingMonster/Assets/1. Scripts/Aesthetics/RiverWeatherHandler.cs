@@ -77,6 +77,16 @@ namespace Aesthetics
 			}
 		}
 
+		private void OnDestroy()
+		{
+			if (!EventManager.IsInitialized)
+			{
+				return;
+			}
+			
+			RandomWeatherEvent.Listeners -= ReactToWeather;
+		}
+
 		private void EarthquakeEffects()
 		{
 			SetMaterialSettings(earthQuake);
