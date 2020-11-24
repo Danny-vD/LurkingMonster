@@ -1,6 +1,5 @@
 ﻿using Grid.Tiles.Buildings;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace UI.Market.MarketScreens.BuildingScreens
@@ -10,7 +9,7 @@ namespace UI.Market.MarketScreens.BuildingScreens
 		[SerializeField]
 		private Button btnBuy = null;
 		
-		protected override void SetScreen(AbstractBuildingTile tile, MarketManager manager)
+		protected override void SetupScreen(AbstractBuildingTile tile, MarketManager manager)
 		{
 			SetupBuyButton(tile, manager);
 		}
