@@ -1,6 +1,10 @@
-﻿using Grid.Tiles.Buildings;
+﻿using System.Collections.Generic;
+using Enums;
+using Grid.Tiles.Buildings;
+using Structs.Market;
 using UnityEngine;
 using UnityEngine.UI;
+using VDFramework.Utility;
 
 namespace UI.Market.MarketScreens.BuildingScreens
 {
@@ -8,10 +12,14 @@ namespace UI.Market.MarketScreens.BuildingScreens
 	{
 		[SerializeField]
 		private Button btnBuy = null;
+
+		[SerializeField]
+		private List<BuildingButtonPerBuildingType> buttonsPerBuildingType;
 		
 		protected override void SetupScreen(AbstractBuildingTile tile, MarketManager manager)
 		{
 			SetupBuyButton(tile, manager);
+			SetupBuildingButtons(tile, manager);
 		}
 
 		private void SetupBuyButton(AbstractBuildingTile tile, MarketManager manager)
@@ -24,6 +32,24 @@ namespace UI.Market.MarketScreens.BuildingScreens
 				tile.SpawnBuilding(false);
 				manager.CloseMarket();
 			}
+		}
+		
+		private void SetupBuildingButtons(AbstractBuildingTile tile, MarketManager manager)
+		{
+			buttonsPerBuildingType.ForEach(SetupBuildingButton);
+		}
+
+		private static void SetupBuildingButton(BuildingButtonPerBuildingType buttonPerBuildingType)
+		{
+			Button button = buttonPerBuildingType.Value;
+			
+			
+		}
+
+		[ContextMenu("Populate")]
+		public void PopulateDictionary()
+		{
+			EnumDictionaryUtil.PopulateEnumDictionary<BuildingButtonPerBuildingType, BuildingType, Button>(buttonsPerBuildingType);
 		}
 	}
 }
