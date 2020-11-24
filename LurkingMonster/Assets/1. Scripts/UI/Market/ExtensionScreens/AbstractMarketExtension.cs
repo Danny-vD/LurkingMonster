@@ -8,11 +8,16 @@ namespace UI.Market.ExtensionScreens
 	[RequireComponent(typeof(AbstractMarketScreen))]
 	public abstract class AbstractMarketExtension : BetterMonoBehaviour
 	{
+		[SerializeField, Header("Optionally: which screen to extend")]
+		private AbstractMarketScreen extension;
+
 		private void Awake()
 		{
-			GetComponent<AbstractMarketScreen>().Extensions += ActivateExtension;
+			extension = (extension != null) ? extension : GetComponent<AbstractMarketScreen>();
+
+			extension.Extensions += ActivateExtension;
 		}
-		
+
 		protected abstract void ActivateExtension(AbstractBuildingTile tile, MarketManager manager);
 	}
 }
