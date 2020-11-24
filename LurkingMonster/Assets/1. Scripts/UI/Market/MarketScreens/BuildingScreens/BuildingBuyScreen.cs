@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Enums;
 using Grid.Tiles.Buildings;
 using Structs.Market;
@@ -14,8 +15,10 @@ namespace UI.Market.MarketScreens.BuildingScreens
 		private Button btnBuy = null;
 
 		[SerializeField]
-		private List<BuildingButtonPerBuildingType> buttonsPerBuildingType;
-		
+		private List<BuildingButtonData> buildingButtonData;
+
+		private BuildingButtonData? selectedButton;
+
 		protected override void SetupScreen(AbstractBuildingTile tile, MarketManager manager)
 		{
 			SetupBuyButton(tile, manager);
@@ -33,23 +36,37 @@ namespace UI.Market.MarketScreens.BuildingScreens
 				manager.CloseMarket();
 			}
 		}
-		
+
 		private void SetupBuildingButtons(AbstractBuildingTile tile, MarketManager manager)
 		{
-			buttonsPerBuildingType.ForEach(SetupBuildingButton);
+			foreach (BuildingButtonData buildingButtonDatum in buildingButtonData)
+			{
+				// TODO: block the button if it's not unlocked yet
+				SetButton(buildingButtonDatum.Value, () => Select(tile, buildingButtonDatum));
+			}
+
+			selectedButton = buildingButtonData[0];
 		}
 
-		private static void SetupBuildingButton(BuildingButtonPerBuildingType buttonPerBuildingType)
+		private void Select(AbstractBuildingTile tile, BuildingButtonData datum)
 		{
-			Button button = buttonPerBuildingType.Value;
-			
-			
+			datum.StatsText.gameObject.SetActive(true);
+			btnBuy.transform.position = datum.Value.transform.position;
+			tile.SetBuildingType(datum.Key);
+
+			Deselect(selectedButton);
+			selectedButton = datum;
+		}
+
+		private static void Deselect(BuildingButtonData? datum)
+		{
+			datum?.StatsText.gameObject.SetActive(false);
 		}
 
 		[ContextMenu("Populate")]
 		public void PopulateDictionary()
 		{
-			EnumDictionaryUtil.PopulateEnumDictionary<BuildingButtonPerBuildingType, BuildingType, Button>(buttonsPerBuildingType);
+			EnumDictionaryUtil.PopulateEnumDictionary<BuildingButtonData, BuildingType, Button>(buildingButtonData);
 		}
 	}
 }
