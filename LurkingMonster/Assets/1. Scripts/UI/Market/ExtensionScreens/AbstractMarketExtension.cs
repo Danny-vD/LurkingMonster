@@ -10,7 +10,7 @@ namespace UI.Market.ExtensionScreens
 	{
 		private void Awake()
 		{
-			GetComponent<AbstractMarketScreen>().Activate += ActivateExtension;
+			GetComponent<AbstractMarketScreen>().Extensions += ActivateExtension;
 		}
 		
 		protected abstract void ActivateExtension(AbstractBuildingTile tile, MarketManager manager);

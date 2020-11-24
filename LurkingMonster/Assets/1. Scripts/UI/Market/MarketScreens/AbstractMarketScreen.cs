@@ -13,7 +13,7 @@ namespace UI.Market.MarketScreens
 		private Button returnButton = null;
 		
 		// Have so called 'extension classes' automatically add themselves, Abstract this logic
-		public event Action<AbstractBuildingTile, MarketManager> Activate;
+		public event Action<AbstractBuildingTile, MarketManager> Extensions;
 
 		public void Hide()
 		{
@@ -36,11 +36,17 @@ namespace UI.Market.MarketScreens
 			returnButton.onClick.AddListener(action);
 		}
 
-		public abstract void SetUI(AbstractBuildingTile tile, MarketManager manager);
-
-		protected void ActivateExtensions(AbstractBuildingTile tile, MarketManager manager)
+		public void SetUI(AbstractBuildingTile tile, MarketManager manager)
 		{
-			Activate?.Invoke(tile, manager);
+			SetScreen(tile, manager);
+			ActivateExtensions(tile, manager);
+		}
+
+		protected abstract void SetScreen(AbstractBuildingTile tile, MarketManager manager);
+		
+		private void ActivateExtensions(AbstractBuildingTile tile, MarketManager manager)
+		{
+			Extensions?.Invoke(tile, manager);
 		}
 
 		protected void SetButton(Button button, params UnityAction[] onClickListeners)
@@ -60,7 +66,7 @@ namespace UI.Market.MarketScreens
 
 		protected virtual void OnActivate(AbstractBuildingTile arg1, MarketManager arg2)
 		{
-			Activate?.Invoke(arg1, arg2);
+			Extensions?.Invoke(arg1, arg2);
 		}
 	}
 }

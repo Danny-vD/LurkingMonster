@@ -37,7 +37,7 @@ namespace UI.Market.MarketScreens
 		[SerializeField]
 		private Bar soilHealthBar;
 
-		public override void SetUI(AbstractBuildingTile tile, MarketManager manager)
+		protected override void SetScreen(AbstractBuildingTile tile, MarketManager manager)
 		{
 			if (tile.HasBuilding) // Tile has building, foundation and soil
 			{
