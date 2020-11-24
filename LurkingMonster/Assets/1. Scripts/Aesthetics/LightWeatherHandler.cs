@@ -4,6 +4,7 @@ using Events;
 using Gameplay.WeatherEvent;
 using UnityEngine;
 using VDFramework;
+using VDFramework.EventSystem;
 
 namespace Aesthetics
 {
@@ -66,6 +67,16 @@ namespace Aesthetics
 			{
 				SetLightSetting(normal);
 			}
+		}
+		
+		private void OnDestroy()
+		{
+			if (!EventManager.IsInitialized)
+			{
+				return;
+			}
+			
+			RandomWeatherEvent.Listeners -= ReactToWeather;
 		}
 
 		private void SetLightSetting(Color color)
