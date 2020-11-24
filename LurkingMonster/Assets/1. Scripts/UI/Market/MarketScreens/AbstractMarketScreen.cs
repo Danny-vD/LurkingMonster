@@ -38,11 +38,11 @@ namespace UI.Market.MarketScreens
 
 		public void SetUI(AbstractBuildingTile tile, MarketManager manager)
 		{
-			SetScreen(tile, manager);
+			SetupScreen(tile, manager);
 			ActivateExtensions(tile, manager);
 		}
 
-		protected abstract void SetScreen(AbstractBuildingTile tile, MarketManager manager);
+		protected abstract void SetupScreen(AbstractBuildingTile tile, MarketManager manager);
 		
 		private void ActivateExtensions(AbstractBuildingTile tile, MarketManager manager)
 		{

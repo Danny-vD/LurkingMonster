@@ -9,7 +9,7 @@ namespace UI.Market.MarketScreens.FoundationScreens
 		[SerializeField]
 		private Button btnBuy = null;
 		
-		protected override void SetScreen(AbstractBuildingTile tile, MarketManager manager)
+		protected override void SetupScreen(AbstractBuildingTile tile, MarketManager manager)
 		{
 			SetupBuyButton(tile, manager);
 		}

@@ -39,7 +39,7 @@ namespace UI.Market.MarketScreens.BuildingScreens
 		[SerializeField]
 		private TextMeshProUGUI nextTierRent = null;
 
-		protected override void SetScreen(AbstractBuildingTile tile, MarketManager manager)
+		protected override void SetupScreen(AbstractBuildingTile tile, MarketManager manager)
 		{
 			SetupUpgradeButtons(tile, manager);
 			SetupRepairButton(tile, manager);

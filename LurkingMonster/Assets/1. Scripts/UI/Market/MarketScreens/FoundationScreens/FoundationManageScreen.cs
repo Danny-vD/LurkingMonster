@@ -20,7 +20,7 @@ namespace UI.Market.MarketScreens.FoundationScreens
 		[SerializeField]
 		private TextMeshProUGUI repairText = null;
 		
-		protected override void SetScreen(AbstractBuildingTile tile, MarketManager manager)
+		protected override void SetupScreen(AbstractBuildingTile tile, MarketManager manager)
 		{
 			if (tile.HasBuilding)
 			{
