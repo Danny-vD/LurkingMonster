@@ -43,6 +43,7 @@ namespace CustomInspector.Grid
 
 			regenerateGrid = EditorGUILayout.Toggle("Regenerate Grid", regenerateGrid);
 			
+			
 			DrawNewType();
 
 			DrawModifyTilesButton();

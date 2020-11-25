@@ -1,22 +1,23 @@
 ﻿using System.Collections.Generic;
+using Interfaces.Tiles;
 
 namespace Grid.Tiles.Road
 {
-	public abstract class AbstractRoadTile : AbstractTile
+	public abstract class AbstractRoadTile : AbstractTile, IRoadTile
 	{
-		protected readonly List<AbstractRoadTile> RoadNeighbors = new List<AbstractRoadTile>();
+		protected readonly List<AbstractTile> RoadNeighbors = new List<AbstractTile>();
 
 		public override void AddNeighbor(AbstractTile tile)
 		{
 			base.AddNeighbor(tile);
 
-			if (tile is AbstractRoadTile roadTile)
+			if (tile is IRoadTile)
 			{
-				AddRoadNeighbor(roadTile);
+				AddRoadNeighbor(tile);
 			}
 		}
 
-		protected virtual void AddRoadNeighbor(AbstractRoadTile roadTile)
+		protected virtual void AddRoadNeighbor(AbstractTile roadTile)
 		{
 			RoadNeighbors.Add(roadTile);
 		}

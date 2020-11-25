@@ -10,7 +10,7 @@ namespace Grid.Tiles.Road
 	{
 		public override TileType TileType => TileType.RoadStraight;
 
-		protected override void AddRoadNeighbor(AbstractRoadTile tile)
+		protected override void AddRoadNeighbor(AbstractTile tile)
 		{
 			base.AddRoadNeighbor(tile);
 
