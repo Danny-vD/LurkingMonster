@@ -25,12 +25,6 @@ namespace Gameplay.Buildings
 			buildingHealth = GetComponent<BuildingHealth>();
 		}
 
-		// Start is called before the first frame update
-		private void Start()
-		{
-			bar.SetMax((int) buildingHealth.MaxTotalHealth);
-		}
-
 		// Update is called once per frame
 		private void Update()
 		{

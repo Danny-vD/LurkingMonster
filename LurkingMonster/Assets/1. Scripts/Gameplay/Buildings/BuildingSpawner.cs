@@ -46,7 +46,7 @@ namespace Gameplay.Buildings
 			GameObject instance = Instantiate(prefab, CachedTransform.position, CachedTransform.rotation);
 
 			instance.transform.Translate(soilSpawnpoint, Space.World);
-			
+
 			instance.name = soilType.ToString().ReplaceUnderscoreWithSpace();
 
 			return instance;
@@ -58,7 +58,7 @@ namespace Gameplay.Buildings
 			GameObject instance = Instantiate(prefab, CachedTransform.position, CachedTransform.rotation);
 
 			instance.transform.Translate(foundationSpawnpoint, Space.World);
-			
+
 			instance.name = foundationType.ToString().ReplaceUnderscoreWithSpace();
 
 			return instance;
@@ -70,11 +70,12 @@ namespace Gameplay.Buildings
 			GameObject instance = Instantiate(prefab, CachedTransform.position, CachedTransform.rotation, CachedTransform);
 
 			instance.transform.Translate(buildingSpawnpoint, Space.World);
-			
+
 			instance.name = buildingType.ToString().InsertSpaceBeforeCapitals();
 
 			Building building = instance.GetComponent<Building>();
-			building.Initialize(buildingType, GetBuildingData(buildingType, foundationType, soilType));
+			building.Initialize(buildingType,
+				GetBuildingData(buildingType, foundationType, soilType), GetFoundationData(foundationType), GetSoilData(soilType));
 
 			return building;
 		}

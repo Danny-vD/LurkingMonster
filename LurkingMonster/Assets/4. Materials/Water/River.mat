@@ -73,7 +73,7 @@ Material:
     - _SrcBlend: 1
     - _UVSec: 0
     - _UseAbsolute: 0
-    - _WaveHeight: 0.28
+    - _WaveHeight: 0.16
     - _WaveLength: 2
     - _WaveSpeed: 8
     - _ZWrite: 1

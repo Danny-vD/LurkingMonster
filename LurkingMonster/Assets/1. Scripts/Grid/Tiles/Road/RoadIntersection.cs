@@ -5,13 +5,13 @@ namespace Grid.Tiles.Road
 {
 	public class RoadIntersection : AbstractRoadTile
 	{
+		private const float rotationValue = 90; // Transform.Rotate uses degrees
+		
 		public override TileType TileType => TileType.RoadIntersection;
 
-		protected override void AddRoadNeighbor(AbstractTile tile)
+		private void Start()
 		{
-			base.AddRoadNeighbor(tile);
-			
-			CachedTransform.Rotate(CachedTransform.up, Random.Range(0, 4) * 90.0f);
+			CachedTransform.Rotate(CachedTransform.up, rotationValue * Random.Range(0, 4));
 		}
 	}
 }

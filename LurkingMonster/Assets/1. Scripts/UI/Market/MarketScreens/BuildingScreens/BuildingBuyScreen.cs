@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Enums;
 using Grid.Tiles.Buildings;
 using Structs.Market;
@@ -45,7 +44,7 @@ namespace UI.Market.MarketScreens.BuildingScreens
 				SetButton(buildingButtonDatum.Value, () => Select(tile, buildingButtonDatum));
 			}
 
-			selectedButton = buildingButtonData[0];
+			selectedButton = selectedButton ?? buildingButtonData[0];
 		}
 
 		private void Select(AbstractBuildingTile tile, BuildingButtonData datum)

@@ -37,14 +37,10 @@ namespace Gameplay
 			{
 				// In case of foundation, select the foundation object
 				Select(tile.Foundation, selectMaterial);
-				return;
 			}
 
-			if (tile.HasSoil)
-			{
-				// In case of soil, select the soil object
-				Select(tile.Soil, selectMaterial);
-			}
+			// In case of soil, select the soil object
+			Select(tile.Soil, selectMaterial);
 		}
 
 		public void Deselect()

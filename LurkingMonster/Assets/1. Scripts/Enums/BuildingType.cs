@@ -2,8 +2,8 @@
 {
     public enum BuildingType
     {
-        NormalHouse,
-		Store,
+        House,
         ApartmentBuilding,
+		Store,
     }
 }

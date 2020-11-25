@@ -175,10 +175,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5718644325636833785, guid: a7944c3765470d84cb974d13ec917c02, type: 3}
-      propertyPath: houses.Array.data[1].prefab
-      value: 
-      objectReference: {fileID: 919132149155446097, guid: 8cf1c8ea77bce6d4b8c212df58ff5535, type: 3}
     - target: {fileID: 5718644325636833788, guid: a7944c3765470d84cb974d13ec917c02, type: 3}
       propertyPath: m_Name
       value: BuildingSpawner
