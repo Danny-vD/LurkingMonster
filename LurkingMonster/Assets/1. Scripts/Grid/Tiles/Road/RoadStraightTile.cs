@@ -1,8 +1,6 @@
 ﻿using Enums.Grid;
 using Enums.Utility;
 using ExtentionMethods;
-using VDFramework.Extensions;
-using VDFramework.Utility;
 
 namespace Grid.Tiles.Road
 {
@@ -23,9 +21,6 @@ namespace Grid.Tiles.Road
 								CachedTransform.DirectionIsFacingTransform(Direction.Right, tile.CachedTransform);
 
 			CachedTransform.LookAt(tile.CachedTransform, CachedTransform.up);
-
-			// Get a random boolean to randomly rotate 180°
-			//bool shouldRotate = RandomUtil.RandomBool();
 
 			if ((GridPosition.x + GridPosition.y & 1) == 0)
 			{

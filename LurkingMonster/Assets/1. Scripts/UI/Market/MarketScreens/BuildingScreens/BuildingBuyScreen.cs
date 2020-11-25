@@ -18,6 +18,11 @@ namespace UI.Market.MarketScreens.BuildingScreens
 
 		private BuildingButtonData? selectedButton;
 
+		public List<BuildingButtonData> GetBuildingButtons()
+		{
+			return new List<BuildingButtonData>(buildingButtonData);
+		}
+		
 		protected override void SetupScreen(AbstractBuildingTile tile, MarketManager manager)
 		{
 			SetupBuyButton(tile, manager);
@@ -44,12 +49,12 @@ namespace UI.Market.MarketScreens.BuildingScreens
 				SetButton(buildingButtonDatum.Value, () => Select(tile, buildingButtonDatum));
 			}
 
-			selectedButton = selectedButton ?? buildingButtonData[0];
+			Select(tile, selectedButton ?? buildingButtonData[0]);
 		}
 
 		private void Select(AbstractBuildingTile tile, BuildingButtonData datum)
 		{
-			datum.StatsText.gameObject.SetActive(true);
+			SetTextActive(datum, true);
 			btnBuy.transform.position = datum.Value.transform.position;
 			tile.SetBuildingType(datum.Key);
 
@@ -59,13 +64,23 @@ namespace UI.Market.MarketScreens.BuildingScreens
 
 		private static void Deselect(BuildingButtonData? datum)
 		{
-			datum?.StatsText.gameObject.SetActive(false);
+			if (datum != null)
+			{
+				SetTextActive(datum.Value, false);
+			}
 		}
 
 		[ContextMenu("Populate")]
 		public void PopulateDictionary()
 		{
 			EnumDictionaryUtil.PopulateEnumDictionary<BuildingButtonData, BuildingType, Button>(buildingButtonData);
+		}
+
+		private static void SetTextActive(BuildingButtonData buttonData, bool active)
+		{
+			buttonData.Texts.Rent.gameObject.SetActive(active);
+			buttonData.Texts.Health.gameObject.SetActive(active);
+			buttonData.Texts.Upgrades.gameObject.SetActive(active);
 		}
 	}
 }

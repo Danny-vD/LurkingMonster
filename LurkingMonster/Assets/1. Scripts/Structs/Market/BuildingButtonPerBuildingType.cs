@@ -16,9 +16,7 @@ namespace Structs.Market
 		[SerializeField]
 		private Button button;
 
-		public TextMeshProUGUI TypeText;
-		
-		public TextMeshProUGUI StatsText;
+		public Text Texts;
 
 		public BuildingType Key
 		{
@@ -33,8 +31,18 @@ namespace Structs.Market
 		}
 
 		public bool Equals(IKeyValuePair<BuildingType, Button> other) => Key.Equals(other.Key);
-		
-		//TODO: split up in smaller structs for typeText and StatsText......
-		// Have Methods to enable or disable?
+
+		[Serializable]
+		public struct Text
+		{
+			public TextMeshProUGUI Type;
+			public TextMeshProUGUI Price;
+
+			[Space(5)]
+			public TextMeshProUGUI Rent;
+
+			public TextMeshProUGUI Health;
+			public TextMeshProUGUI Upgrades;
+		}
 	}
 }
