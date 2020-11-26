@@ -20,7 +20,7 @@ namespace Gameplay.Buildings
 		private Building building;
 		private MeshFilter meshFilter;
 		private MeshRenderer meshRenderer;
-		
+
 		private BuildingType buildingType;
 
 		private void Awake()
@@ -28,7 +28,13 @@ namespace Gameplay.Buildings
 			meshFilter   = GetComponent<MeshFilter>();
 			meshRenderer = GetComponent<MeshRenderer>();
 
-			building     = GetComponent<Building>();
+			building = GetComponent<Building>();
+
+			building.OnInitialize += Initialize;
+		}
+
+		private void Initialize(BuildingData buildingData, FoundationTypeData foundationData, SoilTypeData soilData)
+		{
 			buildingType = building.BuildingType;
 
 			if (!buildingMeshData)
@@ -36,8 +42,8 @@ namespace Gameplay.Buildings
 				Debug.LogError("Mesh Tier data is not set!", gameObject);
 			}
 
-			maxTier         = buildingMeshData.GetMaxTier(buildingType);
-			
+			maxTier = buildingMeshData.GetMaxTier(buildingType);
+
 			SetMeshToTier(building.CurrentTier);
 		}
 
@@ -53,6 +59,7 @@ namespace Gameplay.Buildings
 				return;
 			}
 
+			// TODO: move the payment to the market
 			if (payForUpgrade)
 			{
 				int upgradeCost = building.UpgradeCost;
@@ -64,13 +71,13 @@ namespace Gameplay.Buildings
 
 				EventManager.Instance.RaiseEvent(new DecreaseMoneyEvent(upgradeCost));
 			}
-			
+
 			SetMeshToTier(++building.CurrentTier);
 		}
 
 		private void SetMeshToTier(int tier)
 		{
-			TierMeshData meshData = buildingMeshData.GetMeshData(buildingType, tier); 
+			TierMeshData meshData = buildingMeshData.GetMeshData(buildingType, tier);
 			meshFilter.mesh             = meshData.Mesh;
 			meshRenderer.sharedMaterial = meshData.Material;
 		}

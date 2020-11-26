@@ -11,7 +11,7 @@ namespace UI.Market.ExtensionScreens
 		[SerializeField, Header("Optionally: which screen to extend")]
 		private AbstractMarketScreen extension;
 
-		private void Awake()
+		protected virtual void Awake()
 		{
 			extension = (extension != null) ? extension : GetComponent<AbstractMarketScreen>();
 

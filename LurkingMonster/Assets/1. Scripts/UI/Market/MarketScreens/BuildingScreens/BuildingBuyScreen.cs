@@ -14,7 +14,14 @@ namespace UI.Market.MarketScreens.BuildingScreens
 		private Button btnBuy = null;
 
 		[SerializeField]
-		private List<BuildingButtonPerBuildingType> buttonsPerBuildingType;
+		private List<BuildingButtonData> buildingButtonData;
+
+		private BuildingButtonData? selectedButton;
+
+		public List<BuildingButtonData> GetBuildingButtons()
+		{
+			return new List<BuildingButtonData>(buildingButtonData);
+		}
 		
 		protected override void SetupScreen(AbstractBuildingTile tile, MarketManager manager)
 		{
@@ -33,23 +40,47 @@ namespace UI.Market.MarketScreens.BuildingScreens
 				manager.CloseMarket();
 			}
 		}
-		
+
 		private void SetupBuildingButtons(AbstractBuildingTile tile, MarketManager manager)
 		{
-			buttonsPerBuildingType.ForEach(SetupBuildingButton);
+			foreach (BuildingButtonData buildingButtonDatum in buildingButtonData)
+			{
+				// TODO: block the button if it's not unlocked yet
+				SetButton(buildingButtonDatum.Value, () => Select(tile, buildingButtonDatum));
+			}
+
+			Select(tile, selectedButton ?? buildingButtonData[0]);
 		}
 
-		private static void SetupBuildingButton(BuildingButtonPerBuildingType buttonPerBuildingType)
+		private void Select(AbstractBuildingTile tile, BuildingButtonData datum)
 		{
-			Button button = buttonPerBuildingType.Value;
-			
-			
+			SetTextActive(datum, true);
+			btnBuy.transform.position = datum.Value.transform.position;
+			tile.SetBuildingType(datum.Key);
+
+			Deselect(selectedButton);
+			selectedButton = datum;
+		}
+
+		private static void Deselect(BuildingButtonData? datum)
+		{
+			if (datum != null)
+			{
+				SetTextActive(datum.Value, false);
+			}
 		}
 
 		[ContextMenu("Populate")]
 		public void PopulateDictionary()
 		{
-			EnumDictionaryUtil.PopulateEnumDictionary<BuildingButtonPerBuildingType, BuildingType, Button>(buttonsPerBuildingType);
+			EnumDictionaryUtil.PopulateEnumDictionary<BuildingButtonData, BuildingType, Button>(buildingButtonData);
+		}
+
+		private static void SetTextActive(BuildingButtonData buttonData, bool active)
+		{
+			buttonData.Texts.Rent.gameObject.SetActive(active);
+			buttonData.Texts.Health.gameObject.SetActive(active);
+			buttonData.Texts.Upgrades.gameObject.SetActive(active);
 		}
 	}
 }

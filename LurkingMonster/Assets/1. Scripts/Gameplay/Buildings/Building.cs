@@ -41,13 +41,14 @@ namespace Gameplay.Buildings
 
 		public BuildingType BuildingType { get; private set; }
 
-		public void Initialize(BuildingType type, BuildingData[] buildingData)
+		public event Action<BuildingData, FoundationTypeData, SoilTypeData> OnInitialize;
+
+		public void Initialize(BuildingType type, BuildingData[] buildingData, FoundationTypeData foundationData, SoilTypeData soilData)
 		{
 			BuildingType = type;
 			data         = buildingData;
 			
-			//TODO Add maxSoilHealth, MaxFoundationHealth
-			GetComponent<BuildingHealth>().Initialize(Data.MaxHealth, Data.MaxHealth, Data.MaxHealth);
+			OnInitialize?.Invoke(Data, foundationData, soilData);
 		}
 
 		public void RemoveBuilding()

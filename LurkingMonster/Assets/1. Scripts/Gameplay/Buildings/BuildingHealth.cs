@@ -1,4 +1,6 @@
-﻿using VDFramework;
+﻿using System;
+using ScriptableObjects;
+using VDFramework;
 
 namespace Gameplay.Buildings
 {
@@ -18,11 +20,16 @@ namespace Gameplay.Buildings
 		public float TotalHealth => CurrentSoilHealth + CurrentFoundationHealth + CurrentBuildingHealth;
 		public float MaxTotalHealth => MaxSoilHealth + MaxFoundationHealth + MaxBuildingHealth;
 
-		public void Initialize(float newMaxSoilHealth, float newMaxFoundationHealth, float newMaxBuildingHealth)
+		private void Awake()
 		{
-			SetMaxSoilHealth(newMaxSoilHealth);
-			SetMaxFoundationHealth(newMaxFoundationHealth);
-			SetMaxBuildingHealth(newMaxBuildingHealth);
+			GetComponent<Building>().OnInitialize += Initialize;
+		}
+
+		private void Initialize(BuildingData buildingData, FoundationTypeData foundationData, SoilTypeData soilData)
+		{
+			SetMaxSoilHealth(buildingData.MaxHealth);
+			SetMaxFoundationHealth(foundationData.MaxHealth);
+			SetMaxBuildingHealth(soilData.MaxHealth);
 
 			ResetHealth();
 		}
@@ -139,7 +146,7 @@ namespace Gameplay.Buildings
 					SetBuildingHealthBar(bar);
 					return;
 				}
-				
+
 				SetSoilHealthBar(bar); // Soil < Building && Soil < Foundation
 			}
 			else // Foundation < Building
@@ -149,7 +156,7 @@ namespace Gameplay.Buildings
 					SetFoundationHealthBar(bar);
 					return;
 				}
-				
+
 				SetSoilHealthBar(bar); // Soil < Foundation && Soil < Building
 			}
 		}

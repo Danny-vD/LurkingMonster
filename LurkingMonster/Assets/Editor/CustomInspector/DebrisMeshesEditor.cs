@@ -29,7 +29,7 @@ namespace CustomInspector
 		public override void OnInspectorGUI()
 		{
 			serializedObject.Update();
-
+			
 			DrawFoldoutKeyValueArray<BuildingType>(debrisPerBuilding, "key", "value", debrisPrefabsFoldouts, DrawPrefabArray);
 
 			serializedObject.ApplyModifiedProperties();

@@ -56,20 +56,23 @@ MonoBehaviour:
   - foundationType: 0
     foundationTypeData: {fileID: 11400000, guid: 9737f8052a98e8e489bf1bc399fc8d4e, type: 2}
   - foundationType: 1
-    foundationTypeData: {fileID: 0}
+    foundationTypeData: {fileID: 11400000, guid: 30e070c06d7496340a6c90803001cfeb, type: 2}
   - foundationType: 2
-    foundationTypeData: {fileID: 0}
+    foundationTypeData: {fileID: 11400000, guid: 5d41c1ca458b18a4daacee2e978b6c61, type: 2}
   - foundationType: 3
-    foundationTypeData: {fileID: 0}
+    foundationTypeData: {fileID: 11400000, guid: df8d44dbc08d89e4a9028fc09194eeb8, type: 2}
   buildingTierData:
   - buildingType: 0
     buildingTypeData:
     - {fileID: 11400000, guid: c8036bf4d1df6264ab54128c2b0f20d3, type: 2}
     - {fileID: 11400000, guid: 76dbabfef772162438e79a536af770f7, type: 2}
   - buildingType: 1
-    buildingTypeData: []
+    buildingTypeData:
+    - {fileID: 11400000, guid: a7fc0cf1ebc5b6b4aa361cc3c2e912da, type: 2}
+    - {fileID: 11400000, guid: 489afc91050081d48be9af72280cefe6, type: 2}
   - buildingType: 2
-    buildingTypeData: []
+    buildingTypeData:
+    - {fileID: 11400000, guid: 82dcd65724b186344a00085f664521a6, type: 2}
   soilSpawnpoint: {x: 0, y: 0, z: 0}
   foundationSpawnpoint: {x: 0, y: 0, z: 0}
   buildingSpawnpoint: {x: 0, y: 0, z: 0}
