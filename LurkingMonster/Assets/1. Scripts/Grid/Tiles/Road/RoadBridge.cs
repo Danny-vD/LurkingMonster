@@ -10,7 +10,7 @@ namespace Grid.Tiles.Road
 	{
 		[SerializeField]
 		private Direction roadDirection = Direction.Right;
-		
+
 		public override TileType TileType => TileType.RoadBridge;
 
 		protected override void AddRoadNeighbor(AbstractTile tile)
