@@ -135,9 +135,9 @@ namespace Audio
 		/// </summary>
 		public static void SetMasterMute(bool isMuted)
 		{
-			SetMasterVolume(isMuted ? 0 : masterVolume, false);
-			
 			masterMute = isMuted;
+			
+			SetMasterVolume(isMuted ? 0 : masterVolume, false);
 		}
 
 		public static float GetBusVolume(string busPath)
