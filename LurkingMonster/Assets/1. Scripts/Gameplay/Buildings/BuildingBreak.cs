@@ -16,6 +16,7 @@ namespace Gameplay.Buildings
 
 		private Building building;
 		private BuildingHealth buildingHealth;
+		private BuildingChangeTexture buildingChangeTexture;
 
 		public void Awake()
 		{
@@ -23,6 +24,7 @@ namespace Gameplay.Buildings
 
 			building       = GetComponent<Building>();
 			buildingHealth = GetComponent<BuildingHealth>();
+			buildingChangeTexture = GetComponent<BuildingChangeTexture>();
 		}
 
 		// Update is called once per frame
@@ -43,6 +45,7 @@ namespace Gameplay.Buildings
 				if (!crackPopup.activeInHierarchy)
 				{
 					crackPopup.SetActive(true);
+					buildingChangeTexture.ChangeTexture(building);
 				}
 			}
 			else if (crackPopup.activeInHierarchy)

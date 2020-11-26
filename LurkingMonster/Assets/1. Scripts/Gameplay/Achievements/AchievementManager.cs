@@ -36,7 +36,7 @@ namespace Gameplay.Achievements
 		{
 			achievements = new List<Achievement>();
 
-			buildingBuildAchievement = new Achievement(new int[] {1, 10, 20}, "BUILDINGSBUILDACHIEVEMENT",
+			buildingBuildAchievement = new Achievement(new int[] {5, 10, 20}, "BUILDINGSBUILDACHIEVEMENT",
 				new object[] {PowerUpType.FixProblems, SoilType.Sandy_Clay, FoundationType.Concrete_On_Steel}, "PLACEHOLDER");
 			rentCollectedAchievement = new Achievement(new int[] {1000, 10000, 100000}, "RENTCOLLECTEDACHIEVEMENT",
 				new object[] {FoundationType.Floating_Floor_Plate, SoilType.Clay, FoundationType.Reinfored_Concrete}, "PLACEHOLDER");
