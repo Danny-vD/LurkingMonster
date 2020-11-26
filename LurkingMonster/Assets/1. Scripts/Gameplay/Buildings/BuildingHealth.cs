@@ -16,10 +16,14 @@ namespace Gameplay.Buildings
 		public float CurrentSoilHealth { get; private set; }
 		public float CurrentFoundationHealth { get; private set; }
 		public float CurrentBuildingHealth { get; private set; }
-
+		
 		public float TotalHealth => CurrentSoilHealth + CurrentFoundationHealth + CurrentBuildingHealth;
 		public float MaxTotalHealth => MaxSoilHealth + MaxFoundationHealth + MaxBuildingHealth;
 
+		public event Action OnBuildingRepair;
+		public event Action OnFoundationRepair;
+		public event Action OnSoilRepair;
+		
 		private void Awake()
 		{
 			GetComponent<Building>().OnInitialize += Initialize;
@@ -87,16 +91,19 @@ namespace Gameplay.Buildings
 		public void ResetSoilHealth()
 		{
 			CurrentSoilHealth = MaxSoilHealth;
+			OnSoilRepair?.Invoke();
 		}
 
 		public void ResetFoundationHealth()
 		{
 			CurrentFoundationHealth = MaxFoundationHealth;
+			OnFoundationRepair?.Invoke();
 		}
 
 		public void ResetBuildingHealth()
 		{
 			CurrentBuildingHealth = MaxBuildingHealth;
+			OnBuildingRepair?.Invoke();
 		}
 
 		public bool IsHealthBelowLimit(float percentage)
