@@ -23,13 +23,13 @@ namespace UI.Buttons.Settings
 		private void Start()
 		{
 			button = GetComponent<Button>();
-			button.onClick.AddListener(ChangeMasterVolume);
+			button.onClick.AddListener(ToggleVibrate);
 			onOff = GetComponent<Image>();
 
 			ChangeSprites();
 		}
 
-		private void ChangeMasterVolume()
+		private void ToggleVibrate()
 		{
 			UserSettings.GameData.Vibrate ^= true;
 			ChangeSprites();
