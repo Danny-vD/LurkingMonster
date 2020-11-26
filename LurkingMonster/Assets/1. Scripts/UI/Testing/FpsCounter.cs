@@ -18,7 +18,7 @@ namespace UI.Testing
 
 		private void Update()
 		{
-			fps.text = ((int) (1.0f / Time.deltaTime)).ToString(CultureInfo.CurrentCulture);
+			fps.text = ((int) (1.0f / Time.unscaledTime)).ToString(CultureInfo.CurrentCulture);
 		}
 	}
 }
