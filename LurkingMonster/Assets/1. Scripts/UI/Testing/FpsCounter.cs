@@ -1,6 +1,4 @@
-﻿using System;
-using System.Globalization;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 using VDFramework;
 
@@ -18,7 +16,8 @@ namespace UI.Testing
 
 		private void Update()
 		{
-			fps.text = ((int) (1.0f / Time.unscaledTime)).ToString(CultureInfo.CurrentCulture);
+			float currentFps = 1.0f / Time.unscaledDeltaTime;
+			fps.text = $"{currentFps:F1}";
 		}
 	}
 }
