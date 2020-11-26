@@ -743,6 +743,7 @@ GameObject:
   - component: {fileID: 8740718846376473894}
   - component: {fileID: 4707960237150791921}
   - component: {fileID: 1433012217895166633}
+  - component: {fileID: -7775324001159059781}
   m_Layer: 0
   m_Name: Building
   m_TagString: Untagged
@@ -867,7 +868,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6e1d700793d431db1c8e2d2975381ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waitTimeUntilRent: 60
+  waitTimeUntilRent: 40
 --- !u!114 &4707960237150791921
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -893,6 +894,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da512370e470422cb6c40e701a210dac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-7775324001159059781
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6758913166034969596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7d1ded27caa42279c271f63cc86d1b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  houseTextures:
+  - albedo: {fileID: 2800000, guid: 2b64b3e8335882648a2062d6411232f0, type: 3}
+    metalic: {fileID: 2800000, guid: 1364f68a897725b4fac3e6f0009efa1c, type: 3}
+    normal: {fileID: 2800000, guid: c897e0cd70f290c48abce9e057bad4fd, type: 3}
+  - albedo: {fileID: 0}
+    metalic: {fileID: 0}
+    normal: {fileID: 0}
+  - albedo: {fileID: 0}
+    metalic: {fileID: 0}
+    normal: {fileID: 0}
 --- !u!1 &7029731273974737261
 GameObject:
   m_ObjectHideFlags: 0

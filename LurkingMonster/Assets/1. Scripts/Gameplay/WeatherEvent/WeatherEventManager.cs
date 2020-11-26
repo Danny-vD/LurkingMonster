@@ -88,8 +88,7 @@ namespace Gameplay.WeatherEvent
 			if (timer <= 0.0f && !PowerUpManager.Instance.AvoidWeatherActive)
 			{
 				// TODO: instead of taking a random event, have a list of unlocked events or something
-				//weatherEventType     = default(WeatherEventType).GetRandomValue();
-				weatherEventType     = WeatherEventType.Storm;
+				weatherEventType     = default(WeatherEventType).GetRandomValue();
 				weatherEventData     = GetData(weatherEventType);
 				EventManager.Instance.RaiseEvent(new RandomWeatherEvent(abstractWeatherEvent));
 				weatherEventActive = true;

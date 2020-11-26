@@ -1,3 +1,4 @@
+using System;
 using Enums;
 using Events;
 using ScriptableObjects;
@@ -22,6 +23,8 @@ namespace Gameplay.Buildings
 		private MeshRenderer meshRenderer;
 
 		private BuildingType buildingType;
+
+		public event Action OnUpgrade;
 
 		private void Awake()
 		{
@@ -73,6 +76,7 @@ namespace Gameplay.Buildings
 			}
 
 			SetMeshToTier(++building.CurrentTier);
+			OnUpgrade?.Invoke();
 		}
 
 		private void SetMeshToTier(int tier)
