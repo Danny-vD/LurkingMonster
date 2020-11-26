@@ -1,4 +1,5 @@
-﻿using Enums;
+﻿using System.Collections.Generic;
+using Enums;
 using Events;
 using Gameplay.Buildings;
 using UnityEngine;
@@ -136,9 +137,9 @@ namespace Grid.Tiles.Buildings
 			return spawner.GetFoundationData(foundation);
 		}
 		
-		public BuildingData GetBuildingData(BuildingType buildingType, int tier)
+		public BuildingData[] GetBuildingData(BuildingType buildingType)
 		{
-			return spawner.GetBuildingData(buildingType, GetFoundationType(), GetSoilType())[tier - 1];
+			return spawner.GetBuildingData(buildingType, GetFoundationType(), GetSoilType());
 		}
 
 		public void SetBuildingType(BuildingType building)

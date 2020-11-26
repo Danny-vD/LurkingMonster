@@ -17,7 +17,7 @@ namespace Grid.Tiles.Road
 		
 		public override TileType TileType => TileType.RoadCorner;
 
-		protected override void AddRoadNeighbor(AbstractRoadTile tile)
+		protected override void AddRoadNeighbor(AbstractTile tile)
 		{
 			base.AddRoadNeighbor(tile);
 			

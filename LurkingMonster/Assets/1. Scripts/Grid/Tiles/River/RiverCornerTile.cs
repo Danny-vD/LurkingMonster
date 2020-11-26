@@ -17,7 +17,7 @@ namespace Grid.Tiles.River
 		
 		public override TileType TileType => TileType.RiverCorner;
 
-		protected override void AddRiverNeighbor(AbstractRiverTile tile)
+		protected override void AddRiverNeighbor(AbstractTile tile)
 		{
 			base.AddRiverNeighbor(tile);
 			

@@ -41,6 +41,9 @@ namespace CustomInspector.Grid
 
 			GetAllSelectedTiles();
 
+			regenerateGrid = EditorGUILayout.Toggle("Regenerate Grid", regenerateGrid);
+			
+			
 			DrawNewType();
 
 			DrawModifyTilesButton();
@@ -105,8 +108,6 @@ namespace CustomInspector.Grid
 
 		private void DrawModifyTilesButton()
 		{
-			regenerateGrid = EditorGUILayout.Toggle("Regenerate Grid", regenerateGrid);
-
 			if (!GUILayout.Button("Modify tiles", EditorStyles.miniButtonMid)) return;
 
 			gridModifier.ModifyTiles(regenerateGrid);

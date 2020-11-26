@@ -452,7 +452,7 @@ namespace Utility
 			float oldLabelWidth = EditorGUIUtility.labelWidth;
 
 			EditorGUIUtility.labelWidth = GetLabelWidth(label);
-			value = EditorGUILayout.FloatField(label, value, GUILayout.Width(GetNumberWidth(value)));
+			value                       = EditorGUILayout.FloatField(label, value, GUILayout.Width(GetNumberWidth(value)));
 
 			EditorGUIUtility.labelWidth = oldLabelWidth;
 			return value;
@@ -466,7 +466,7 @@ namespace Utility
 			float oldLabelWidth = EditorGUIUtility.labelWidth;
 
 			EditorGUIUtility.labelWidth = GetLabelWidth(label);
-			value = EditorGUILayout.IntField(label, value, GUILayout.Width(GetNumberWidth(value)));
+			value                       = EditorGUILayout.IntField(label, value, GUILayout.Width(GetNumberWidth(value)));
 
 			EditorGUIUtility.labelWidth = oldLabelWidth;
 			return value;

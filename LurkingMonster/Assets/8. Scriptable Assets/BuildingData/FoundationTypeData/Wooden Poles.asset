@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Wooden Poles
   m_EditorClassIdentifier: 
   Prefabs:
-  - {fileID: 5383898165352170578, guid: bfeb45db77b94b24f9464182238b4050, type: 3}
+  - {fileID: 9045959777039205947, guid: 02afd98357ae3164cb422deae9a1d405, type: 3}
   BuildCost: 100
-  DestroyCost: 50
+  RepairCost: 50
+  DestructionCost: 500
+  MaxHealth: 50

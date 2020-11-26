@@ -14,6 +14,7 @@
 		RoadCorner,
 		RoadTSection,
 		RoadIntersection,
+		RoadBridge,
 		RiverStraight,
 		RiverCorner,
 	}

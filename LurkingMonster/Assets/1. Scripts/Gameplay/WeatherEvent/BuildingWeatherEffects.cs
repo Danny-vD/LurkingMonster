@@ -1,15 +1,13 @@
 ﻿using System;
-using CameraScripts;
 using Enums;
 using Events;
 using Gameplay.Buildings;
-using Gameplay.WeatherEvent;
 using ScriptableObjects;
 using UnityEngine;
 using VDFramework;
 using VDFramework.EventSystem;
 
-namespace Gameplay
+namespace Gameplay.WeatherEvent
 {
 	[RequireComponent(typeof(BuildingHealth))]
 	public class BuildingWeatherEffects : BetterMonoBehaviour

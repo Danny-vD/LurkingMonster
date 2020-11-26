@@ -1,5 +1,6 @@
 ﻿using Enums.Grid;
-using VDFramework.Utility;
+using Enums.Utility;
+using ExtentionMethods;
 
 namespace Grid.Tiles.Road
 {
@@ -7,14 +8,24 @@ namespace Grid.Tiles.Road
 	{
 		public override TileType TileType => TileType.RoadStraight;
 
-		protected override void AddRoadNeighbor(AbstractRoadTile tile)
+		protected override void AddRoadNeighbor(AbstractTile tile)
 		{
 			base.AddRoadNeighbor(tile);
 
+			if (RoadNeighbors.Count > 1)
+			{
+				return;
+			}
+
+			bool shouldRotate = CachedTransform.DirectionIsFacingTransform(Direction.Forward, tile.CachedTransform) ||
+								CachedTransform.DirectionIsFacingTransform(Direction.Right, tile.CachedTransform);
+
 			CachedTransform.LookAt(tile.CachedTransform, CachedTransform.up);
 
-			// Get a random boolean to randomly rotate 180°
-			bool shouldRotate = RandomUtil.RandomBool();
+			if ((GridPosition.x + GridPosition.y & 1) == 0)
+			{
+				shouldRotate ^= true;
+			}
 
 			if (shouldRotate)
 			{
