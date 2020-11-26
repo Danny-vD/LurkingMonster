@@ -906,6 +906,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7d1ded27caa42279c271f63cc86d1b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  houseTextures:
+  - albedo: {fileID: 2800000, guid: 2b64b3e8335882648a2062d6411232f0, type: 3}
+    metalic: {fileID: 2800000, guid: 1364f68a897725b4fac3e6f0009efa1c, type: 3}
+    normal: {fileID: 2800000, guid: c897e0cd70f290c48abce9e057bad4fd, type: 3}
+  - albedo: {fileID: 0}
+    metalic: {fileID: 0}
+    normal: {fileID: 0}
+  - albedo: {fileID: 0}
+    metalic: {fileID: 0}
+    normal: {fileID: 0}
 --- !u!1 &7029731273974737261
 GameObject:
   m_ObjectHideFlags: 0
