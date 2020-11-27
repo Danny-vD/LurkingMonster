@@ -16,7 +16,8 @@ namespace IO
 		private bool vibrate;
 		private float musicVolume;
 		private float ambientVolume;
-		private bool masterVolume;
+		private float sfxVolume;
+		private bool masterMute;
 		private Language language;
 		private AchievementData[] achievementData;
 		private int[] powerUps;
@@ -35,7 +36,8 @@ namespace IO
 			powerUps        = new int[2];
 			musicVolume     = AudioManager.Instance.GetVolume(BusType.Music);
 			ambientVolume   = AudioManager.Instance.GetVolume(BusType.Ambient);
-			masterVolume    = AudioManager.Instance.GetVolume(BusType.Master) != 0;
+			sfxVolume       = AudioManager.Instance.GetVolume(BusType.SFX);
+			masterMute    = AudioManager.Instance.GetVolume(BusType.Master) == 0;
 			language        = LanguageSettings.Language;
 			this.vibrate    = vibrate;
 		}
@@ -74,6 +76,12 @@ namespace IO
 		{
 			get => ambientVolume;
 			set => ambientVolume = value;
+		}
+
+		public float SFXVolume
+		{
+			get => sfxVolume;
+			set => sfxVolume = value;
 		}
 
 		public Dictionary<Vector2IntSerializable, TileData> GridData
@@ -124,10 +132,10 @@ namespace IO
 			set => timerWeatherEvent = value;
 		}
 
-		public bool MasterVolume
+		public bool MasterMute
 		{
-			get => masterVolume;
-			set => masterVolume = value;
+			get => masterMute;
+			set => masterMute = value;
 		}
 	}
 }

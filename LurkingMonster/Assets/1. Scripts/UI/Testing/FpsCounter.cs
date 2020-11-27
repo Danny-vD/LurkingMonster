@@ -17,7 +17,7 @@ namespace UI.Testing
 		private void Update()
 		{
 			float currentFps = 1.0f / Time.unscaledDeltaTime;
-			fps.text = $"{currentFps:F1}";
+			fps.text = $"FPS: {currentFps:F1}";
 		}
 	}
 }
