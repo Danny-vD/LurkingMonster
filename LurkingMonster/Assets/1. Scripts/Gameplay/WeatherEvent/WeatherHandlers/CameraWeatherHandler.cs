@@ -43,8 +43,10 @@ namespace Gameplay.WeatherEvent.WeatherHandlers
 			while (time > 0)
 			{
 				time -= Time.deltaTime;
-				Vector3 test = new Vector3(Mathf.Sin(Time.realtimeSinceStartup * frequency) * horizontal,
-					Mathf.Sin(Time.realtimeSinceStartup * frequency / 4 - 0.5f) * vertical / 8, 0);
+				Vector3 test = new Vector3(
+					Mathf.Sin(Time.realtimeSinceStartup * frequency) * horizontal,
+					Mathf.Sin(Time.realtimeSinceStartup * frequency / 4 - 0.5f) * vertical / 8,
+					0);
 				CachedTransform.Translate(test, Space.Self);
 				yield return new WaitForEndOfFrame();
 			}
