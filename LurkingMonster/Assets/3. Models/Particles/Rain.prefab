@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 84394863113056484}
   - component: {fileID: 84394863113056487}
   - component: {fileID: 1594446393}
+  - component: {fileID: 502535663}
   m_Layer: 0
   m_Name: Rain
   m_TagString: Untagged
@@ -668,7 +669,7 @@ ParticleSystem:
     donutRadius: 0.2
     m_Position: {x: 0, y: 0, z: 0}
     m_Rotation: {x: 0, y: 0, z: 0}
-    m_Scale: {x: 50, y: 1, z: 50}
+    m_Scale: {x: 75, y: 1, z: 50}
     placementMode: 0
     m_MeshMaterialIndex: 0
     m_MeshNormalOffset: 0
@@ -4823,5 +4824,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b4d78f2172ec9c846990b1da2368e5f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enableOnEvent: 0100000003000000
+--- !u!114 &502535663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 84394863113056486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9deedc19a9e04c0fa9aa84050018ac7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

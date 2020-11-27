@@ -4,6 +4,7 @@ using Structs.Audio;
 using Enums.Audio;
 using IO;
 using Singletons;
+using UnityEngine.Serialization;
 using Utility;
 using VDFramework.Singleton;
 using EventType = Enums.Audio.EventType;
@@ -37,7 +38,7 @@ namespace Audio
 			if (UserSettings.SettingsExist)
 			{
 				LoadVolumes();
-				AudioParameterManager.SetMasterMute(UserSettings.GameData.MasterVolume);
+				AudioParameterManager.SetMasterMute(UserSettings.GameData.MasterMute);
 			}
 		}
 
@@ -47,6 +48,7 @@ namespace Audio
 			
 			Instance.SetVolume(BusType.Music, gameData.MusicVolume);
 			Instance.SetVolume(BusType.Ambient, gameData.AmbientVolume);
+			Instance.SetVolume(BusType.SFX, gameData.SFXVolume);
 		}
 
 		private void SetInitialVolumes()
