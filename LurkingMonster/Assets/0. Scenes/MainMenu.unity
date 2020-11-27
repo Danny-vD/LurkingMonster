@@ -1114,7 +1114,6 @@ GameObject:
   - component: {fileID: 627251524}
   - component: {fileID: 627251527}
   - component: {fileID: 627251526}
-  - component: {fileID: 627251525}
   - component: {fileID: 627251528}
   m_Layer: 5
   m_Name: Txt_vibrate
@@ -1142,19 +1141,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0.1000061, y: 0}
   m_SizeDelta: {x: -0.31280518, y: 0}
   m_Pivot: {x: 0, y: 0.5}
---- !u!114 &627251525
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 627251523}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0fc85271e0a2c984fb816402ca19931c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  textType: MUSIC_VOLUME
 --- !u!114 &627251526
 MonoBehaviour:
   m_ObjectHideFlags: 0
