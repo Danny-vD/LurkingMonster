@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using Enums;
-using Events;
+﻿using Enums;
 using Events.BuildingEvents;
 using Gameplay.Buildings;
 using UnityEngine;
@@ -14,6 +12,9 @@ namespace Grid.Tiles.Buildings
 	{
 		[SerializeField]
 		protected BuildingType buildingType = default;
+
+		[SerializeField]
+		private Renderer[] removeOnBuild;
 
 		[SerializeField]
 		private DebrisPrefabs debrisMeshes = null;
@@ -64,6 +65,7 @@ namespace Grid.Tiles.Buildings
 		public virtual void SpawnSoil()
 		{
 			meshRenderer.enabled = false;
+			ToggleProps(false);
 
 			Soil = spawner.SpawnSoil(FirstTierData.SoilType);
 		}
@@ -78,6 +80,8 @@ namespace Grid.Tiles.Buildings
 		{
 			RemoveSoil();
 			RemoveFoundation();
+			
+			ToggleProps(false);
 			Building = spawner.SpawnBuilding(buildingType, FirstTierData.Foundation, FirstTierData.SoilType);
 
 			if (raiseEvent)
@@ -89,6 +93,7 @@ namespace Grid.Tiles.Buildings
 		public virtual void RemoveSoil()
 		{
 			Destroy(Soil);
+			ToggleProps(true);
 
 			meshRenderer.enabled = true;
 		}
@@ -100,6 +105,7 @@ namespace Grid.Tiles.Buildings
 
 		public virtual void RemoveDebris()
 		{
+			ToggleProps(true);
 			Destroy(debrisObject);
 		}
 
@@ -186,11 +192,19 @@ namespace Grid.Tiles.Buildings
 			SpawnDebris(buildingType, building.CurrentTier);
 		}
 
+		private void ToggleProps(bool active)
+		{
+			foreach (Renderer propRenderer in removeOnBuild)
+			{
+				propRenderer.enabled = active;
+			}
+		}
+
 		public void SpawnDebris(BuildingType buildingType, int buildingTier)
 		{
 			RemoveFoundation();
 			RemoveSoil();
-
+			
 			int tier = Mathf.Max(0, buildingTier - 1);
 
 			DestroyedBuildingData = spawner.GetBuildingData(buildingType, GetFoundationType(), GetSoilType())[tier];

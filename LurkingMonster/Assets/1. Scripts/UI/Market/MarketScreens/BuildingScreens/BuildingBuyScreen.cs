@@ -36,7 +36,7 @@ namespace UI.Market.MarketScreens.BuildingScreens
 
 			void OnClick()
 			{
-				tile.SpawnBuilding(false);
+				tile.SpawnBuilding(true);
 				manager.CloseMarket();
 			}
 		}
