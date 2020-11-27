@@ -17,4 +17,4 @@ MonoBehaviour:
   BuildCost: 100
   RepairCost: 50
   DestructionCost: 500
-  MaxHealth: 50
+  MaxHealth: 150

@@ -15,5 +15,6 @@ MonoBehaviour:
   Prefabs:
   - {fileID: 6379112786290133786, guid: f277441722a807d4e83d7991fffd24c9, type: 3}
   BuildCost: 200
+  RepairCost: 50
   RemoveCost: 100
-  MaxHealth: 50
+  MaxHealth: 150

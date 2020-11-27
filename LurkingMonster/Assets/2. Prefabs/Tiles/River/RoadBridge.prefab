@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 6730056051566802547}
   - component: {fileID: 5981062112866881370}
   - component: {fileID: 1130348930233422180}
+  - component: {fileID: 6781453973017044686}
   m_Layer: 0
   m_Name: Spot Light
   m_TagString: Untagged
@@ -141,6 +142,18 @@ MonoBehaviour:
   rainfall: {r: 1, g: 0.98039216, b: 0.68235296, a: 1}
   storm: {r: 1, g: 0.98039216, b: 0.68235296, a: 1}
   drought: {r: 0, g: 0, b: 0, a: 0}
+--- !u!114 &6781453973017044686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2942494600425820614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4d78f2172ec9c846990b1da2368e5f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3850040116610484282
 GameObject:
   m_ObjectHideFlags: 0
@@ -294,7 +307,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4961210253438110048}
   m_LocalRotation: {x: -0, y: -1, z: -0, w: 0.00000058114523}
-  m_LocalPosition: {x: -2.6300004, y: 0, z: 0.00000023841858}
+  m_LocalPosition: {x: -2.3800004, y: 0, z: -0.00000008940697}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6730056051566802547}

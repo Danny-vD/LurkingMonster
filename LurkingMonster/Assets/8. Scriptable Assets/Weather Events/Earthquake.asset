@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SoilTime: 5
   FoundationTime: 20
-  BuildingTime: 150
+  BuildingTime: 20
   Timer: 6
   JsonEventKey: EARTHQUAKE
   JsonContentKey: EARTHQUAKE_CONTENT

@@ -108,14 +108,14 @@ namespace Audio
 		/// </summary>
 		/// <param name="volume"></param>
 		/// <param name="updateCached">Update the cached value as well (the cached value is used to get the old volume when you unmute)</param>
-		public static void SetMasterVolume(float volume, bool updateCached = true)
+		public static void SetMasterVolume(float volume, bool updateCached = true, bool ignoreMute = false)
 		{
 			if (updateCached)
 			{
 				masterVolume = volume;
 			}
 
-			if (masterMute)
+			if (masterMute && !ignoreMute)
 			{
 				return;
 			}
@@ -135,9 +135,9 @@ namespace Audio
 		/// </summary>
 		public static void SetMasterMute(bool isMuted)
 		{
-			SetMasterVolume(isMuted ? 0 : masterVolume, false);
-			
 			masterMute = isMuted;
+			
+			SetMasterVolume(isMuted ? 0 : masterVolume, false, true);
 		}
 
 		public static float GetBusVolume(string busPath)

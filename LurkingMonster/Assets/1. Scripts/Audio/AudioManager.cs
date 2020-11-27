@@ -37,6 +37,7 @@ namespace Audio
 			if (UserSettings.SettingsExist)
 			{
 				LoadVolumes();
+				AudioParameterManager.SetMasterMute(UserSettings.GameData.MasterVolume);
 			}
 		}
 

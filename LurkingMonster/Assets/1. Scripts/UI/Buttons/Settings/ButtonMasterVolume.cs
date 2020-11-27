@@ -1,4 +1,4 @@
-﻿using System;
+﻿using Audio;
 using Singletons;
 using UnityEngine;
 using UnityEngine.UI;
@@ -33,6 +33,7 @@ namespace UI.Buttons.Settings
 		private void ChangeMasterVolume()
 		{
 			UserSettings.GameData.MasterVolume ^= true;
+			AudioParameterManager.SetMasterMute(UserSettings.GameData.MasterVolume);
 			ChangeSprites();
 		}
 
