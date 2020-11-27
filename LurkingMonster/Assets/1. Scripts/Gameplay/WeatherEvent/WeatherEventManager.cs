@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using Enums;
-using Events;
 using Events.WeatherEvents;
 using IO;
 using ScriptableObjects;
@@ -84,12 +83,17 @@ namespace Gameplay.WeatherEvent
 
 		private void TimerToNextWeatherEvent()
 		{
-			timer -= Time.deltaTime;
+			timer -= Time.unscaledDeltaTime;
 
 			if (timer <= 0.0f && !PowerUpManager.Instance.AvoidWeatherActive)
 			{
+				if (TimeManager.Instance.IsPaused())
+				{
+					return;
+				}
+				
 				// TODO: instead of taking a random event, have a list of unlocked events or something
-				weatherEventType = WeatherEventType.Storm; //default(WeatherEventType).GetRandomValue();
+				weatherEventType = default(WeatherEventType).GetRandomValue();
 				weatherEventData = GetData(weatherEventType);
 				EventManager.Instance.RaiseEvent(new StartWeatherEvent(abstractWeatherEvent));
 				weatherEventActive = true;
