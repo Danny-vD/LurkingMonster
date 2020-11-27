@@ -868,7 +868,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6e1d700793d431db1c8e2d2975381ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waitTimeUntilRent: 40
+  waitTimeUntilRent: 20
 --- !u!114 &4707960237150791921
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -894,6 +894,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da512370e470422cb6c40e701a210dac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AddWeatherListener: 0
 --- !u!114 &-7775324001159059781
 MonoBehaviour:
   m_ObjectHideFlags: 0

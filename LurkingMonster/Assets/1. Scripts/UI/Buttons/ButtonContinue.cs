@@ -1,6 +1,4 @@
-﻿using System.IO;
-using UnityEngine;
-using UnityEngine.UI;
+﻿using Singletons;
 using VDFramework;
 
 namespace UI.Buttons
@@ -12,17 +10,12 @@ namespace UI.Buttons
 			DisableContinueButton();
 		}
 
-		public void DisableContinueButton()
+		private void DisableContinueButton()
 		{
-			Button buttonContinue = GetComponent<Button>();
-			string destination = Application.persistentDataPath + "/save.dat";
-
-			if (File.Exists(destination))
+			if (!UserSettings.SettingsExist)
 			{
-				return;
+				CachedGameObject.SetActive(false);
 			}
-
-			buttonContinue.interactable = false;
 		}
 	}
 }
