@@ -108,6 +108,7 @@ namespace Audio
 		/// </summary>
 		/// <param name="volume"></param>
 		/// <param name="updateCached">Update the cached value as well (the cached value is used to get the old volume when you unmute)</param>
+		/// <param name="ignoreMute">Should ignore the current mute state and set the volume anyway (can cancel mute)</param>
 		public static void SetMasterVolume(float volume, bool updateCached = true, bool ignoreMute = false)
 		{
 			if (updateCached)
@@ -115,7 +116,7 @@ namespace Audio
 				masterVolume = volume;
 			}
 
-			if (masterMute && !ignoreMute)
+			if (!ignoreMute && masterMute)
 			{
 				return;
 			}

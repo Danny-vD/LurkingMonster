@@ -50,7 +50,7 @@ namespace CustomInspector
 		{
 			// AudioManager
 
-			audioManager = target as AudioManager;
+			audioManager = (AudioManager) target;
 			audioManager.EventPaths.UpdateDictionaries();
 			EnumDictionaryUtil.PopulateEnumDictionary<InitialValuePerBus, BusType, float>(audioManager.initialVolumes);
 

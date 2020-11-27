@@ -32,15 +32,15 @@ namespace UI.Buttons.Settings
 
 		private void ChangeMasterVolume()
 		{
-			UserSettings.GameData.MasterVolume ^= true;
-			AudioParameterManager.SetMasterMute(UserSettings.GameData.MasterVolume);
+			UserSettings.GameData.MasterMute ^= true;
+			AudioParameterManager.SetMasterMute(UserSettings.GameData.MasterMute);
 			ChangeSprites();
 		}
 
 		private void ChangeSprites()
 		{
-			image.sprite = UserSettings.GameData.MasterVolume ? spritesVolume[0] : spritesVolume[1];
-			onOff.sprite = UserSettings.GameData.MasterVolume ? onOffButtons[1] : onOffButtons[0];
+			image.sprite = UserSettings.GameData.MasterMute ? spritesVolume[0] : spritesVolume[1];
+			onOff.sprite = UserSettings.GameData.MasterMute ? onOffButtons[1] : onOffButtons[0];
 		}
 	}
 }

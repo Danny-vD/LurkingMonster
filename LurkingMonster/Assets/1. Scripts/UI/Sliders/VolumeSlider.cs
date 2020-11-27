@@ -36,11 +36,10 @@ namespace UI.Sliders
 			{
 				case BusType.Master:
 					//currentVolume = UserSettings.GameData.MasterVolume;
-					//print("Master volume is not in the game currently");
+					print("Master volume is handled by the device itself");
 					break;
 				case BusType.SFX:
-					//currentVolume = UserSettings.GameData.SFXVolume;
-					//print("SFX volume is not in the game currently");
+					currentVolume = UserSettings.GameData.SFXVolume;
 					break;
 				case BusType.Music:
 					currentVolume = UserSettings.GameData.MusicVolume;
@@ -67,18 +66,15 @@ namespace UI.Sliders
 			switch (busType)
 			{
 				case BusType.Master:
-					// UserSettings.GameData.MasterVolume = volume
-					//print("Master volume is not in the game currently");
+					//UserSettings.GameData.MasterVolume = volume;
+					print("Master volume is handled by the device itself");
 					break;
 				case BusType.SFX:
-					// UserSettings.GameData.SFXVolume = volume
-					//print("SFX volume is not in the game currently");
 					break;
 				case BusType.Music:
-					UserSettings.GameData.MusicVolume = volume;
-					break;
 				case BusType.Ambient:
 					UserSettings.GameData.AmbientVolume = volume;
+					UserSettings.GameData.MusicVolume   = volume;
 					break;
 				default:
 					throw new ArgumentOutOfRangeException();

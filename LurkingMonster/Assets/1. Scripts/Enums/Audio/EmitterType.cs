@@ -3,5 +3,7 @@
 	public enum EmitterType
 	{
 		BackgroundMusic,
+		RainWind,
+		Thunder,
 	}
 }

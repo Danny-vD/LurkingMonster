@@ -1,5 +1,6 @@
 ﻿using System;
 using Events;
+using Events.Achievements;
 using Gameplay.Achievements;
 using UnityEngine;
 using UnityEngine.UI;

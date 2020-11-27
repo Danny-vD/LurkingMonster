@@ -2,6 +2,7 @@
 using System.IO;
 using Enums;
 using Events;
+using Events.MoneyManagement;
 using IO;
 using NUnit.Framework;
 using Singletons;

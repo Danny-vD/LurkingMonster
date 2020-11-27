@@ -2,7 +2,7 @@
 
 namespace Structs.Audio
 {
-	public struct EventParameters
+	public readonly struct EventParameters
 	{
 		public readonly Dictionary<string, float> ParameterValues;
 

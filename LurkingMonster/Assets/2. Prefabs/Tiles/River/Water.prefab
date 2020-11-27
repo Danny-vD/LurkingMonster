@@ -1,17 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &5947081614707506560
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1570179922126300727}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b4d78f2172ec9c846990b1da2368e5f4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &6712141684770019859
 GameObject:
   m_ObjectHideFlags: 0
@@ -24,7 +12,6 @@ GameObject:
   - component: {fileID: 7333388535303239686}
   - component: {fileID: 3273933131564525338}
   - component: {fileID: 844785512157864544}
-  - component: {fileID: 5105434240944612317}
   m_Layer: 0
   m_Name: Water
   m_TagString: Untagged
@@ -110,38 +97,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &5105434240944612317
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6712141684770019859}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0588fd7cf6bbb894382651bf0410b20f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  normal:
-    amplitude: 0.02
-    frequency: 0.6
-    speed: 2
-    color: {r: 0.4117647, g: 0.70980394, b: 0.7058824, a: 0}
-  earthQuake:
-    amplitude: 0.28
-    frequency: 2
-    speed: 6
-    color: {r: 0.36078432, g: 0.2784314, b: 0.08627451, a: 0}
-  rainfall:
-    amplitude: 0.01
-    frequency: 0.6
-    speed: 3
-    color: {r: 0.043137256, g: 0.4117647, b: 0.5686275, a: 0}
-  storm:
-    amplitude: 0.16
-    frequency: 2
-    speed: 8
-    color: {r: 0.11372549, g: 0.16078432, b: 0.22745098, a: 0}
 --- !u!1001 &5103823193492159128
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -201,17 +156,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: RainSplash
       objectReference: {fileID: 0}
-    - target: {fileID: 5989236059990793391, guid: da307ea83e908654c8bbd895942f0ba6, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: da307ea83e908654c8bbd895942f0ba6, type: 3}
---- !u!1 &1570179922126300727 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5989236059990793391, guid: da307ea83e908654c8bbd895942f0ba6, type: 3}
-  m_PrefabInstance: {fileID: 5103823193492159128}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1570179922126300724 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5989236059990793388, guid: da307ea83e908654c8bbd895942f0ba6, type: 3}

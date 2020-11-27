@@ -2,7 +2,6 @@
 using Enums;
 using ScriptableObjects;
 using Singletons;
-using TMPro;
 using VDFramework;
 
 namespace Gameplay.WeatherEvent
@@ -14,17 +13,31 @@ namespace Gameplay.WeatherEvent
 		public WeatherEventData WeatherEventData { get; set; }
 
 		private Action<WeatherEventData> activateEffects;
+		private Action stopEvent;
 
-		public void RegisterListener(Action<WeatherEventData> action)
+		public void AddListener(Action<WeatherEventData> action)
 		{
 			activateEffects += action;
 		}
 
-		public void RegisterListener(Action action)
+		public void AddEndListener(Action action)
 		{
-			activateEffects += delegate(WeatherEventData data) { action(); };
+			stopEvent += action;
+		}
+		
+		// ReSharper disable DelegateSubtraction
+		// Reason: The warning is not applicable for single subtraction from delegates
+		public void RemoveListener(Action<WeatherEventData> action)
+		{
+			activateEffects -= action;
 		}
 
+		public void RemoveEndListener(Action action)
+		{
+			stopEvent -= action;
+		}
+
+		
 		protected bool ActivateEffects(bool ignorePause = false)
 		{
 			if (!ignorePause && TimeManager.Instance.IsPaused())
@@ -36,8 +49,14 @@ namespace Gameplay.WeatherEvent
 			return true;
 		}
 
+		private void EndEvent()
+		{
+			stopEvent?.Invoke();
+		}
+		
 		private void OnDestroy()
 		{
+			EndEvent();
 			activateEffects = null;
 		}
 	}

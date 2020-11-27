@@ -490,6 +490,10 @@ MonoBehaviour:
       value: event:/Music/MenuMusic
     - key: 1
       value: event:/Ambient/CityAmbience
+    - key: 2
+      value: event:/Ambient/Rain&WindBlowing
+    - key: 3
+      value: event:/SFX/Thunder
     buses:
     - key: 0
       value: Bus:/
@@ -502,18 +506,22 @@ MonoBehaviour:
     emitterEvents:
     - key: 0
       value: 0
+    - key: 1
+      value: 2
+    - key: 2
+      value: 3
   initialVolumes:
   - key: 0
-    value: 0.7
+    value: 1
     isMuted: 0
   - key: 1
-    value: 1
+    value: 0.7
     isMuted: 0
   - key: 2
-    value: 0.2
+    value: 0.7
     isMuted: 0
   - key: 3
-    value: 1
+    value: 0.7
     isMuted: 0
 --- !u!1 &350520107
 GameObject:
