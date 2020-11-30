@@ -54,6 +54,11 @@ namespace UI.Market.MarketScreens.BuildingScreens
 
 		private void Select(AbstractBuildingTile tile, BuildingButtonData datum)
 		{
+			if (selectedButton != null && selectedButton.Value.Equals(datum))
+			{
+				return;
+			}
+			
 			SetTextActive(datum, true);
 			btnBuy.transform.position = datum.Value.transform.position;
 			tile.SetBuildingType(datum.Key);
