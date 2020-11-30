@@ -551,7 +551,7 @@ ParticleSystem:
     startRotation:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 62.831852
+      scalar: 6.283185
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -602,7 +602,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     randomizeRotationDirection: 0
-    maxNumParticles: 10000
+    maxNumParticles: 400
     size3D: 0
     rotation3D: 0
     gravityModifier:
@@ -4826,6 +4826,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4d78f2172ec9c846990b1da2368e5f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AddWeatherListener: 0
   enableOnEvent: 0100000003000000
 --- !u!114 &502535663
 MonoBehaviour:
@@ -4839,3 +4840,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9deedc19a9e04c0fa9aa84050018ac7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AddWeatherListener: 0

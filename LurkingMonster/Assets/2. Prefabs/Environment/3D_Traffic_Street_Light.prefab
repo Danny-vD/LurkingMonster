@@ -16,7 +16,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &4941453015983248379
 Transform:
@@ -99,7 +99,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &4349261733436056286
 Transform:
@@ -188,6 +188,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06c582fe056945b8a6e4a0005fa1871d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AddWeatherListener: 0
   normal: {r: 0, g: 0, b: 0, a: 0}
   rainfall: {r: 1, g: 0.98039216, b: 0.68235296, a: 1}
   storm: {r: 1, g: 0.98039216, b: 0.68235296, a: 1}
@@ -204,3 +205,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4d78f2172ec9c846990b1da2368e5f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AddWeatherListener: 0
+  enableOnEvent: 0100000003000000
