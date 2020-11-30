@@ -59,7 +59,9 @@ namespace UI.Market.MarketScreens.BuildingScreens
 				upgradeText.text = tile.Building.UpgradeCost.ToString();
 				return;
 			}
-			
+
+			btnUpgrade.ForEach(RemoveListeners);
+
 			//TODO: Change
 			upgradeText.text = "MAX";
 
@@ -72,6 +74,11 @@ namespace UI.Market.MarketScreens.BuildingScreens
 					buildingUpgrade.Upgrade(true);
 					manager.CloseMarket();
 				}
+			}
+
+			void RemoveListeners(Button button)
+			{
+				button.onClick.RemoveAllListeners();
 			}
 		}
 
