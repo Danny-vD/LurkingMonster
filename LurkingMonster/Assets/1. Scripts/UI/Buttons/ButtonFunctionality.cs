@@ -18,12 +18,12 @@ namespace UI.Buttons
 
 		public void LoadScene(string scene)
 		{
-			SceneManager.LoadScene(scene);
+			LoadingScreen.LoadScene(scene);
 		}
 
 		public void LoadScene(int buildIndex)
 		{
-			SceneManager.LoadScene(buildIndex);
+			LoadingScreen.LoadScene(buildIndex);
 		}
 	}
 }

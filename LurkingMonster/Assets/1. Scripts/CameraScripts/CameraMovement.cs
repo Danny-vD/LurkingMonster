@@ -96,7 +96,7 @@ namespace CameraScripts
 
 			if (moveDirection.magnitude > deadZone)
 			{
-				CachedTransform.Translate(speedFactor * (1 + speed) * moveDirection.normalized, Space.Self);
+				CachedTransform.Translate(speedFactor * speed * moveDirection.normalized, Space.Self);
 			}
 
 			lastPosition = touch.position;
