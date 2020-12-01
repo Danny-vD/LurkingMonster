@@ -1,7 +1,7 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 using VDFramework;
 
@@ -9,62 +9,83 @@ namespace UI.Buttons
 {
 	public class LoadingScreen : BetterMonoBehaviour
 	{
+		private static AsyncOperation progress;
 		private static LoadingScreen instance;
-		
+
+		[SerializeField]
+		private float loadingSeconds = 2.0f;
+
 		[SerializeField]
 		private Slider progressSlider;
-		
-		private static AsyncOperation progress;
 
-		private Transform loadingScreen;
-		
+		private GameObject loadingScreen;
+
+		private float loadingTime = 0.0f;
+
 		private void Awake()
 		{
-			loadingScreen  = CachedTransform.GetChild(0);
-			instance       = this;
-			DontDestroyOnLoad(gameObject);
-			loadingScreen.gameObject.SetActive(false);
+			DontDestroyOnLoad(CachedGameObject);
+
+			loadingScreen = CachedTransform.GetChild(0).gameObject;
+			instance      = this;
+
+			HideLoadingScreen();
+		}
+
+		public static void LoadScene(int buildIndex)
+		{
+			instance.ShowLoadingScreen();
+
+			progress = SceneManager.LoadSceneAsync(buildIndex);
+			instance.StartCoroutine(instance.Load());
+		}
+
+		public static void LoadScene(string sceneName)
+		{
+			instance.ShowLoadingScreen();
+
+			progress = SceneManager.LoadSceneAsync(sceneName);
+			instance.StartCoroutine(instance.Load());
 		}
 
 		private IEnumerator Load()
 		{
+			progress.allowSceneActivation = false;
+
+			// Give Unity time to enable the loading screen first
+			yield return null;
+
 			while (!progress.isDone)
 			{
 				progressSlider.value = progress.progress;
-				print(progress.progress);
+
+				EnforceMinimumLoadingTime();
 
 				yield return null;
 			}
-			
+
 			HideLoadingScreen();
 		}
 
-		// private static void AllowScene(bool allow)
-		// {
-		// 	progress.allowSceneActivation = allow;
-		// }
+		private void EnforceMinimumLoadingTime()
+		{
+			loadingTime += Time.unscaledDeltaTime;
+
+			if (loadingTime >= loadingSeconds)
+			{
+				progress.allowSceneActivation = true;
+			}
+		}
 
 		private void ShowLoadingScreen()
 		{
-			loadingScreen.gameObject.SetActive(true);
-			StartCoroutine(Load());
+			loadingScreen.SetActive(true);
+			loadingTime = 0.0f;
 		}
 
 		private void HideLoadingScreen()
 		{
-			CachedGameObject.SetActive(false);
-		}
-		
-		public static void LoadScene(int index)
-		{
-			progress = SceneManager.LoadSceneAsync(index);
-			instance.ShowLoadingScreen();
-		}
-		
-		public static void LoadScene(string scene)
-		{
-			progress = SceneManager.LoadSceneAsync(scene);
-			instance.ShowLoadingScreen();
+			loadingScreen.SetActive(false);
 		}
 	}
 }
