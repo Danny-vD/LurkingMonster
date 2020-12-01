@@ -3,27 +3,27 @@ using Events;
 using Gameplay.Buildings;
 using Grid.Tiles.Buildings;
 using UnityEngine;
+using UnityEngine.UI;
 using VDFramework.EventSystem;
 
 namespace _1._Scripts.Tutorial
 {
-	public class RepairBuildingTutorial : Tutorial
+	public class RepairTutorial : Tutorial
 	{
 		[SerializeField]
 		private Material material;
 		
 		[SerializeField]
-		private string[] jsonKeys;
-		
-		private int index;
-		
+		private Button manageScreen;
+
 		private Building building;
 
 		private AbstractBuildingTile abstractBuildingTile;
 		
-		private bool repairSoil;
-		private bool repairFoundation;
-		private bool repairBuilding;
+		private bool repairSoil, repairFoundation, repairBuilding;
+
+		[SerializeField]
+		private bool checkSoil, checkFoundation, checkBuilding;
 		
 		public override void StartTutorial(GameObject narrator)
 		{
@@ -36,25 +36,8 @@ namespace _1._Scripts.Tutorial
 			building.GetComponent<BuildingHealth>().OnSoilRepair       += CheckSoilRepair;
 			building.GetComponent<BuildingHealth>().OnFoundationRepair += CheckFoundationRepair;
 			building.GetComponent<BuildingHealth>().OnBuildingRepair   += CheckBuildingRepair;
-			
-			OpenMarketEvent.ParameterlessListeners += ShowText;
 		}
 
-		private void ShowText()
-		{
-			EnableNarrator();
-
-			if (index == jsonKeys.Length)
-			{
-				DisableNarrator();
-				TutorialManager.Instance.CompletedTutorial();
-				return;
-			}
-			
-			SetText(jsonKeys[index]);
-			index++;
-		}
-		
 		private void CheckAllRepairs()
 		{
 			if (repairSoil && repairFoundation && repairBuilding)
@@ -82,16 +65,6 @@ namespace _1._Scripts.Tutorial
 			repairBuilding = true;
 			
 			CheckAllRepairs();
-		}
-
-		private void OnDestroy()
-		{
-			if (!EventManager.IsInitialized)
-			{
-				return;
-			}
-			
-			OpenMarketEvent.ParameterlessListeners -= ShowText;
 		}
 	}
 }

@@ -2,7 +2,7 @@
 
 namespace _1._Scripts.Tutorial
 {
-	public class NarratorTutorial : Tutorial
+	public class HighlightTutorial : Tutorial
 	{
 		[SerializeField]
 		private GameObject[] highlights;
@@ -28,6 +28,7 @@ namespace _1._Scripts.Tutorial
 			if (index >= highlights.Length)
 			{
 				TutorialManager.Instance.CompletedTutorial();
+				return;
 			}
 			
 			Highlight(highlights[index]);

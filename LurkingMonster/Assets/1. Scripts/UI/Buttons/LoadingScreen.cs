@@ -31,7 +31,6 @@ namespace UI.Buttons
 			while (!progress.isDone)
 			{
 				progressSlider.value = progress.progress;
-				print(progress.progress);
 
 				yield return null;
 			}

@@ -2,7 +2,7 @@
 
 namespace _1._Scripts.Tutorial
 {
-	public class HighlightTutorial : Tutorial
+	public class NarratorTutorial : Tutorial
 	{
 		public override void StartTutorial(GameObject narrator)
 		{
