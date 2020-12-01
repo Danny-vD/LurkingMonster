@@ -1,23 +1,27 @@
-﻿using Grid.Tiles.Buildings;
+﻿using Enums;
+using Grid.Tiles.Buildings;
+using Structs.Market;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace UI.Market.MarketScreens.SoilScreens
 {
-	public class SoilBuyScreen : AbstractMarketScreen
+	public class SoilBuyScreen : AbstractMarketBuyScreen<SoilType, SoilButtonData>
 	{
-		[SerializeField]
-		private Button btnBuy = null;
-		
-		protected override void SetupScreen(AbstractBuildingTile tile, MarketManager manager)
+		protected override void OnSelectBuyButton(AbstractBuildingTile tile, SoilButtonData data)
 		{
-			SetupBuyButton(tile, manager);
+			tile.SetSoilType(data.Key);
 		}
-		
-		private void SetupBuyButton(AbstractBuildingTile tile, MarketManager manager)
+
+		protected override void BuyButtonClick(AbstractBuildingTile tile, MarketManager manager)
 		{
-			//TODO: block the button if we can't affort it
-			SetButton(btnBuy, tile.SpawnSoil, manager.CloseMarket);
+			tile.SpawnSoil();
+			base.BuyButtonClick(tile, manager);
+		}
+
+		[ContextMenu("Populate")]
+		private void Populate()
+		{
+			PopulateDictionary();
 		}
 	}
 }

@@ -73,7 +73,7 @@ namespace Grid
 					TileData tileData = UserSettings.GameData.GridData[new Vector2IntSerializable(x, y)];
 
 					buildingTile.SetSoilType(tileData.SoilType);
-					buildingTile.SetFoundation(tileData.FoundationType);
+					buildingTile.SetFoundationType(tileData.FoundationType);
 					buildingTile.SetBuildingType(tileData.BuildingType);
 
 					if (tileData.HasDebris)

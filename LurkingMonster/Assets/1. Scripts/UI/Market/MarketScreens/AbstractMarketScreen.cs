@@ -12,7 +12,6 @@ namespace UI.Market.MarketScreens
 		[SerializeField]
 		private Button returnButton = null;
 		
-		// Have so called 'extension classes' automatically add themselves, Abstract this logic
 		public event Action<AbstractBuildingTile, MarketManager> Extensions;
 
 		public void Hide()
