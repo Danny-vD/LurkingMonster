@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using UnityEngine;
 using VDFramework;
@@ -9,6 +8,8 @@ namespace IO
 {
     public class JsonParser : BetterMonoBehaviour
     {
+        //TODO: make a folder in resources that has all the language files
+        // Give JsonParser a dictionary 
         [Tooltip("The name of the .json file")]
         public string FileName = "Language";
 
