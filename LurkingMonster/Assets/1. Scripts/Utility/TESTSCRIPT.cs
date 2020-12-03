@@ -10,7 +10,7 @@ namespace Utility
 	public class TESTSCRIPT : BetterMonoBehaviour
 	{
 		[SerializeField]
-		private SerializableDictionary<SoilType, string> dictionary;
+		private SerializableDictionary<int, string> dictionary;
 
 		[SerializeField]
 		private SerializableEnumDictionary<SoilType, string> enumDictionary;

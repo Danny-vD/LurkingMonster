@@ -2,49 +2,38 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using VDFramework;
+using VDFramework.Singleton;
 
 namespace IO
 {
-	public class JsonParser : BetterMonoBehaviour
+	public class JsonParser : Singleton<JsonParser>
 	{
-		// TODO: make a folder in resources that has all the language files
-		// Give JsonParser a dictionary<string, JsonVariables> // key == language file name (make key optional)
-		// Make json parser read every language file and perform the FromJson for every file
-		// Any user can then request a JsonVariables from JsonParser (using file name) and from there get the required string
+		private JsonVariables variables;
 
-		[Tooltip("The name of the .json file")]
-		public string FileName = "Language";
-
-		public static string FileContent { get; private set; }
-
-		private void Awake()
+		protected override void Awake()
 		{
-			TextAsset file = (TextAsset) Resources.Load(FileName);
-			FileContent = file.ToString();
+			variables = new JsonVariables();
+			
+			foreach (TextAsset file in Resources.LoadAll<TextAsset>("Language"))
+			{
+				variables.AddVariables(JsonUtility.FromJson<JsonVariables>(file.ToString()));
+			}
+		}
+
+		public string GetVariable(string variableName, string keyName)
+		{
+			return variables.GetVariable(variableName, keyName);
 		}
 	}
 
 	[Serializable]
 	public class JsonVariables
 	{
-		private static JsonVariables instance = null;
+		public List<Variable> Variables = new List<Variable>();
 
-		public Variable[] Variables;
-
-		private Dictionary<string, Dictionary<string, string>> entryPerVariable = null;
-
-		public static JsonVariables Instance
+		public void AddVariables(JsonVariables jsonVariables)
 		{
-			get
-			{
-				if (JsonParser.FileContent == null)
-				{
-					throw new NullReferenceException("No Json parser present in the scene");
-				}
-
-				return instance = instance ?? JsonUtility.FromJson<JsonVariables>(JsonParser.FileContent);
-			}
+			Variables.AddRange(jsonVariables.Variables);
 		}
 
 		public string GetVariable(string variableName, string keyName)
@@ -58,6 +47,8 @@ namespace IO
 				return "UNDEFINED";
 			}
 		}
+		
+		private Dictionary<string, Dictionary<string, string>> entryPerVariable = null;
 
 		private Dictionary<string, Dictionary<string, string>> GetEntry()
 		{

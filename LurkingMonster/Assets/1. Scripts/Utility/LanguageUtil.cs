@@ -26,7 +26,7 @@ namespace Utility
 		/// </summary>
 		public static string GetJsonString(string variableName)
 		{
-			return JsonVariables.Instance.GetVariable(variableName, LanguageSettings.Language.ToString());
+			return JsonParser.Instance.GetVariable(variableName, LanguageSettings.Language.ToString());
 		}
 
 		/// <summary>
