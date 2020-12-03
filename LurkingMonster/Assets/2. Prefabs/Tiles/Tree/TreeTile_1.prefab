@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8960745232867538984}
   - component: {fileID: 6163009007971856902}
   m_Layer: 0
-  m_Name: TreeTile
+  m_Name: TreeTile_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -113,15 +113,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6393902029569336854, guid: 71d1d3382c93a5841ac3500cb20c24e5, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.4455418
+      value: 0.39357826
       objectReference: {fileID: 0}
     - target: {fileID: 6393902029569336854, guid: 71d1d3382c93a5841ac3500cb20c24e5, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.4455418
+      value: 0.39357826
       objectReference: {fileID: 0}
     - target: {fileID: 6393902029569336854, guid: 71d1d3382c93a5841ac3500cb20c24e5, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.4455418
+      value: 0.39357826
       objectReference: {fileID: 0}
     - target: {fileID: 6393902029569336854, guid: 71d1d3382c93a5841ac3500cb20c24e5, type: 3}
       propertyPath: m_LocalPosition.x
@@ -187,15 +187,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6393902029569336854, guid: 71d1d3382c93a5841ac3500cb20c24e5, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.85929
+      value: 0.72928804
       objectReference: {fileID: 0}
     - target: {fileID: 6393902029569336854, guid: 71d1d3382c93a5841ac3500cb20c24e5, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.85929
+      value: 0.72928804
       objectReference: {fileID: 0}
     - target: {fileID: 6393902029569336854, guid: 71d1d3382c93a5841ac3500cb20c24e5, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.85929
+      value: 0.72928804
       objectReference: {fileID: 0}
     - target: {fileID: 6393902029569336854, guid: 71d1d3382c93a5841ac3500cb20c24e5, type: 3}
       propertyPath: m_LocalPosition.x
