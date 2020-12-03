@@ -12,9 +12,13 @@ namespace _1._Scripts.Tutorial
 {
 	public class Tutorial : BetterMonoBehaviour
 	{
+		public int Order;
+		
 		private TextMeshProUGUI explainText;
 
 		private GameObject narrator;
+
+		protected GameObject arrow;
 
 		private Button next;
 
@@ -22,12 +26,11 @@ namespace _1._Scripts.Tutorial
 		private string[] jsonKeys;
 		
 		private int index;
-		
-		public int Order;
 
-		public virtual void StartTutorial(GameObject narrator)
+		public virtual void StartTutorial(GameObject narrator, GameObject arrow)
 		{
 			this.narrator = narrator;
+			this.arrow    = arrow;
 			explainText   = narrator.GetComponentInChildren<TextMeshProUGUI>();
 			next          = narrator.GetComponentInChildren<Button>();
 			index         = 0;

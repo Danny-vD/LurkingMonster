@@ -1298,7 +1298,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ec438bf7adb8424982a2982ead4ea08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FileName: Language
 --- !u!114 &635546119
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3387,6 +3386,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38aa43f718b04b8e8442af598e4574ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loadingSeconds: 2
   progressSlider: {fileID: 1705753700}
 --- !u!1 &1430593155
 GameObject:

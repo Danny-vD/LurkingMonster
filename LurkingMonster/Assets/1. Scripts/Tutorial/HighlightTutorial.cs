@@ -1,45 +1,47 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 namespace _1._Scripts.Tutorial
 {
 	public class HighlightTutorial : Tutorial
 	{
 		[SerializeField]
-		private GameObject[] highlights;
+		private GameObject highlight;
 
-		private int index;
+		[SerializeField]
+		private Button button;
+
+		[SerializeField]
+		private float scale;
+
+		[SerializeField]
+		private float offsetDistance = 250f;
 		
-		public override void StartTutorial(GameObject narrator)
+		private GameObject prefabInstance;
+
+		public override void StartTutorial(GameObject narrator, GameObject arrow)
 		{
-			base.StartTutorial(narrator);
-			index = 0;
+			base.StartTutorial(narrator, arrow);
 			ShowNextText();
-			Highlight(highlights[index]);
-			SetNextButton(NextHighlight);
+
+			SetNextButton(Highlight);
+			button.onClick.AddListener(CompleteTutorial);
 		}
 
-		private void NextHighlight()
+		private void Highlight()
 		{
-			ShowNextText(); 
-			
-			UnHighlight(highlights[index]);
-			index++;
-			
-			if (index >= highlights.Length)
-			{
-				TutorialManager.Instance.CompletedTutorial();
-				return;
-			}
-			
-			Highlight(highlights[index]);
+			ShowNextText();
+			prefabInstance = Instantiate(arrow, highlight.transform, true);
+
+			prefabInstance.transform.localPosition = Vector3.zero;
+			prefabInstance.transform.localScale = new Vector3(scale, scale, scale);
+			prefabInstance.transform.Translate(Vector3.up * offsetDistance);
 		}
 
-		private void Highlight(GameObject gameObject)
+		private void CompleteTutorial()
 		{
-		}
-
-		private void UnHighlight(GameObject gameObject)
-		{
+			Destroy(prefabInstance);
+			TutorialManager.Instance.CompletedTutorial();
 		}
 	}
 }

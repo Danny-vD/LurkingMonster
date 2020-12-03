@@ -78,7 +78,7 @@ namespace Grid
 					TileData tileData = UserSettings.GameData.GridData[new Vector2IntSerializable(x, y)];
 
 					buildingTile.SetSoilType(tileData.SoilType);
-					buildingTile.SetFoundation(tileData.FoundationType);
+					buildingTile.SetFoundationType(tileData.FoundationType);
 					buildingTile.SetBuildingType(tileData.BuildingType);
 
 					if (tileData.HasDebris)
@@ -128,7 +128,7 @@ namespace Grid
 				if (tile is AbstractBuildingTile buildingTile)
 				{
 					buildingTile.SetSoilType(SoilType.Sand);
-					buildingTile.SetFoundation(FoundationType.Wooden_Poles);
+					buildingTile.SetFoundationType(FoundationType.Wooden_Poles);
 					buildingTile.SetBuildingType(BuildingType.House);
 					
 					buildingTile.SpawnBuilding(false);

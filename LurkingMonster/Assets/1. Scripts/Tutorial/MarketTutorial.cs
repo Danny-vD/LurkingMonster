@@ -11,42 +11,56 @@ namespace _1._Scripts.Tutorial
 	{
 		[SerializeField]
 		private Material material;
-		
-		[SerializeField]
-		private Button manageScreen;
 
-		private AbstractBuildingTile abstractBuildingTile;
+		[SerializeField]
+		private float scale;
 		
-		public override void StartTutorial(GameObject narrator)
+		private Material oldMaterial;
+
+		private Renderer meshRenderer;
+
+		private GameObject prefabInstance;
+		
+		public override void StartTutorial(GameObject narrator, GameObject arrow)
 		{
-			base.StartTutorial(narrator);
-			
+			base.StartTutorial(narrator, arrow);
+
 			Building building = FindObjectOfType<Building>();
-			abstractBuildingTile = building.GetComponentInParent<AbstractBuildingTile>();
-			abstractBuildingTile.GetComponent<Renderer>().sharedMaterial = material;
+			AbstractBuildingTile abstractBuildingTile = building.GetComponentInParent<AbstractBuildingTile>();
+			meshRenderer = abstractBuildingTile.GetComponent<Renderer>();
+
+			Canvas buildingCanvas = building.GetComponentInChildren<Canvas>();
+			
+			oldMaterial = meshRenderer.sharedMaterial;
+
+			prefabInstance              = Instantiate(arrow, buildingCanvas.transform);
+			prefabInstance.transform.localScale = new Vector3(scale, scale, scale);
+			prefabInstance.transform.Translate(Vector3.up * 1.5f, Space.Self);
+			meshRenderer.sharedMaterial = material;
 
 			OpenMarketEvent.ParameterlessListeners += OnMarketScreen;
-			manageScreen.onClick.AddListener(CompletedTutorial);
 		}
 
-		private static void CompletedTutorial()
+		private void CompletedTutorial()
 		{
+			meshRenderer.sharedMaterial = oldMaterial;
+			Destroy(prefabInstance);
 			TutorialManager.Instance.CompletedTutorial();
 		}
 
 		private void OnMarketScreen()
 		{
 			OpenMarketEvent.ParameterlessListeners -= OnMarketScreen;
-			ShowNextText();
+			CompletedTutorial();
 		}
-		
+
 		private void OnDestroy()
 		{
 			if (!EventManager.IsInitialized)
 			{
 				return;
 			}
-			
+
 			OpenMarketEvent.ParameterlessListeners -= ShowNextText;
 		}
 	}

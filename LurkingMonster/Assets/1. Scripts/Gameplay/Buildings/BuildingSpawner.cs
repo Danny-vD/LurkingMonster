@@ -1,14 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using Enums;
-using Events;
 using ScriptableObjects;
 using Structs.Buildings;
 using Structs.Buildings.TierData;
 using UnityEngine;
+using Utility;
 using VDFramework;
-using VDFramework.EventSystem;
 using VDFramework.Extensions;
 using VDFramework.Utility;
 

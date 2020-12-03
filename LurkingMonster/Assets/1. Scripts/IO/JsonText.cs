@@ -1,9 +1,6 @@
-﻿using System;
-using Enums;
-using Events;
+﻿using Events;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 using Utility;
 using VDFramework;
 using VDFramework.EventSystem;
