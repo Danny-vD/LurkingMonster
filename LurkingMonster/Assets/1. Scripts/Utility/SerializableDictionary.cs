@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Linq;
 using Structs.Utility;
 using UnityEngine;
-using VDFramework.Utility;
 
 namespace Utility
 {
@@ -12,10 +11,16 @@ namespace Utility
 	/// A 'fake' dictionary that can be serialized
 	/// </summary>
 	[Serializable]
-	public class SerializableDictionary<TKey, TValue> : IEnumerable<SerializableKeyValuePair<TKey, TValue>>
+	public class SerializableDictionary<TKey, TValue> : IEnumerable<SerializableKeyValuePair<TKey, TValue>>, IDictionary<TKey, TValue>
 	{
+		#region Fields
+
 		[SerializeField]
 		protected List<SerializableKeyValuePair<TKey, TValue>> internalList = new List<SerializableKeyValuePair<TKey, TValue>>();
+
+		#endregion
+
+		#region Operators
 
 		public static implicit operator SerializableDictionary<TKey, TValue>(List<SerializableKeyValuePair<TKey, TValue>> list)
 		{
@@ -27,11 +32,19 @@ namespace Utility
 			return new SerializableDictionary<TKey, TValue>(dictionary);
 		}
 
+		#endregion
+
+		#region Properties
+
 		public TValue this[TKey key]
 		{
 			get => GetValue(key);
-			set => SetValue(key, value);
+			set => Add(key, value);
 		}
+
+		#endregion
+
+		#region Constructors
 
 		public SerializableDictionary()
 		{
@@ -50,13 +63,17 @@ namespace Utility
 		{
 			foreach (KeyValuePair<TKey, TValue> pair in dictionary)
 			{
-				AddValue(pair.Key, pair.Value);
+				Add(pair.Key, pair.Value);
 			}
 		}
 
-		public void SetValue(TKey key, TValue value)
+		#endregion
+
+		#region IDictionary<>
+
+		public void Add(TKey key, TValue value)
 		{
-			int index = internalList.FindIndex(listItem => listItem.Key.Equals(key));
+			int index = GetIndex(key);
 
 			// FindIndex returns -1 if it's not present
 			if (index < 0)
@@ -71,15 +88,48 @@ namespace Utility
 			internalList[index] = pair;
 		}
 
-		public TValue GetValue(TKey key)
+		public bool Remove(TKey key)
 		{
-			return GetKeyValuePair(key).Value;
+			int index = GetIndex(key);
+
+			if (index < 0)
+			{
+				return false;
+			}
+
+			internalList.RemoveAt(index);
+			return true;
 		}
 
-		public void AddValue(TKey key, TValue value)
+		#endregion
+
+		#region ICollection
+		
+		public void Add(KeyValuePair<TKey, TValue> item)
 		{
-			// Enforce distinct keys by only adding if it's not in the list yet
-			SetValue(key, value);
+			if (!internalList.Contains(item))
+			{
+				internalList.Add(item);
+			}
+		}
+
+		public bool Remove(KeyValuePair<TKey, TValue> item)
+		{
+			return internalList.Remove(item);
+		}
+		
+		public void Clear()
+		{
+			internalList.Clear();
+		}
+
+		public bool Contains(KeyValuePair<TKey, TValue> item) => internalList.Contains(item);
+
+		#endregion
+
+		public TValue GetValue(TKey key)
+		{
+			return GetPair(key).Value;
 		}
 
 		public bool ContainsKey(TKey key)
@@ -91,6 +141,19 @@ namespace Utility
 		{
 			return internalList.Any(pair => pair.Value.Equals(value));
 		}
+
+		#region IEnumerable
+
+		IEnumerator<KeyValuePair<TKey, TValue>> IEnumerable<KeyValuePair<TKey, TValue>>.GetEnumerator() =>
+			ToKeyValuePair().GetEnumerator();
+
+		public IEnumerator<SerializableKeyValuePair<TKey, TValue>> GetEnumerator() => internalList.GetEnumerator();
+
+		IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
+
+		#endregion
+
+		#region Private
 
 		private static void VerifyKey(object key)
 		{
@@ -118,48 +181,22 @@ namespace Utility
 			}
 		}
 
-		private SerializableKeyValuePair<TKey, TValue> GetKeyValuePair(TKey key)
+		private IEnumerable<KeyValuePair<TKey, TValue>> ToKeyValuePair()
+		{
+			return internalList.Select(pair => (KeyValuePair<TKey, TValue>) pair);
+		}
+
+		private SerializableKeyValuePair<TKey, TValue> GetPair(TKey key)
 		{
 			return internalList.First(pair => pair.Key.Equals(key));
 		}
 
-		public IEnumerator<SerializableKeyValuePair<TKey, TValue>> GetEnumerator() => internalList.GetEnumerator();
-
-		IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
-	}
-
-	[Serializable]
-	public class SerializableEnumDictionary<TKey, TValue> : SerializableDictionary<TKey, TValue>
-		where TKey : struct, Enum
-	{
-		public static implicit operator SerializableEnumDictionary<TKey, TValue>(List<SerializableKeyValuePair<TKey, TValue>> list)
+		private int GetIndex(TKey key)
 		{
-			return new SerializableEnumDictionary<TKey, TValue>(list);
+			int index = internalList.FindIndex(pair => pair.Key.Equals(key));
+			return index;
 		}
 
-		public static implicit operator SerializableEnumDictionary<TKey, TValue>(Dictionary<TKey, TValue> dictionary)
-		{
-			return new SerializableEnumDictionary<TKey, TValue>(dictionary);
-		}
-
-		public SerializableEnumDictionary(IEnumerable<SerializableKeyValuePair<TKey, TValue>> list) : base(list)
-		{
-		}
-
-		public SerializableEnumDictionary(params SerializableKeyValuePair<TKey, TValue>[] keyValuePairs) : base(keyValuePairs.Distinct())
-		{
-		}
-
-		public SerializableEnumDictionary(Dictionary<TKey, TValue> dictionary) : base(dictionary)
-		{
-		}
-
-		/// <summary>
-		/// Automatically fills the dictionary with an entry for every enum value
-		/// </summary>
-		public void Populate()
-		{
-			EnumDictionaryUtil.PopulateEnumDictionary<SerializableKeyValuePair<TKey, TValue>, TKey, TValue>(internalList);
-		}
+		#endregion
 	}
 }
