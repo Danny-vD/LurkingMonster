@@ -12,20 +12,21 @@ namespace UI.Buttons.Settings
 	{
 		[SerializeField]
 		private Sprite selected;
-		
+
 		[SerializeField]
 		private Sprite notSelected;
-		
+
 		[SerializeField]
 		private Language languageToSet = Language.NL;
 
 		private Image image;
-		
+
 		private void Awake()
 		{
 			GetComponent<Button>().onClick.AddListener(SetLanguage);
 			image = GetComponent<Image>();
-			EventManager.Instance.AddListener<LanguageChangedEvent>(ChangeSprite);
+
+			LanguageChangedEvent.ParameterlessListeners += ChangeSprite;
 		}
 
 		private void Start()
@@ -45,7 +46,12 @@ namespace UI.Buttons.Settings
 
 		private void OnDestroy()
 		{
-			EventManager.Instance.RemoveListener<LanguageChangedEvent>(ChangeSprite);
+			if (!EventManager.IsInitialized)
+			{
+				return;
+			}
+
+			LanguageChangedEvent.ParameterlessListeners -= ChangeSprite;
 		}
 	}
 }
