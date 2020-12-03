@@ -10,7 +10,7 @@ using static Utility.EditorUtils;
 
 namespace PropertyDrawers
 {
-	[CustomPropertyDrawer(typeof(SerializableDictionary), true)]
+	[CustomPropertyDrawer(typeof(SerializableDictionary<,>), false)]
 	public class SerializableDictionaryDrawer : PropertyDrawer
 	{
 		// Constants, for consistent layout

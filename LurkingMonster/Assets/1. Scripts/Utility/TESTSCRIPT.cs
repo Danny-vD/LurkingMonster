@@ -1,5 +1,7 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using Enums;
+using Structs.Utility;
 using UnityEngine;
 using VDFramework;
 
@@ -10,10 +12,15 @@ namespace Utility
 		[SerializeField]
 		private SerializableDictionary<SoilType, string> dictionary;
 
+		[SerializeField]
+		private SerializableEnumDictionary<SoilType, string> enumDictionary;
+
 		[ContextMenu("Test")]
 		private void Test()
 		{
-			dictionary = dictionary.Distinct().ToList();
+			Dictionary<SoilType, string> dict;
+			
+			enumDictionary.Populate();
 		}
 	}
 }

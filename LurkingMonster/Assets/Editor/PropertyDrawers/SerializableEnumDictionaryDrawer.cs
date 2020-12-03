@@ -5,7 +5,7 @@ using static Utility.EditorUtils;
 
 namespace PropertyDrawers
 {
-	[CustomPropertyDrawer(typeof(SerializableEnumDictionary), true)]
+	[CustomPropertyDrawer(typeof(SerializableEnumDictionary<,>), true)]
 	public class SerializableEnumDictionaryDrawer : PropertyDrawer
 	{
 		// Constants, for consistent layout
@@ -15,7 +15,7 @@ namespace PropertyDrawers
 		private const float spacingBetweenPairs = 0.0f;
 		private const float paddingAtEndOfProperty = 0.0f;
 
-		private const float foldoutHeight = 15.0f;
+		private const float foldoutHeight = 20.0f;
 
 		// Instance variables, to allow variable size between properties
 		private Vector2 origin;
