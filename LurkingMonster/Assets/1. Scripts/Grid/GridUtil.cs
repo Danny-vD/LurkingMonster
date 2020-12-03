@@ -128,7 +128,7 @@ namespace Grid
 				if (tile is AbstractBuildingTile buildingTile)
 				{
 					buildingTile.SetSoilType(SoilType.Sand);
-					buildingTile.SetFoundation(FoundationType.Wooden_Poles);
+					buildingTile.SetFoundationType(FoundationType.Wooden_Poles);
 					buildingTile.SetBuildingType(BuildingType.House);
 					
 					buildingTile.SpawnBuilding(false);
