@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1078685751227008294}
   - component: {fileID: 602087946100992018}
   m_Layer: 0
-  m_Name: Stone_02
+  m_Name: 3D_Environment_Stone_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

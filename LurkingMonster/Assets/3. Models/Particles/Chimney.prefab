@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3848355593189218568}
   - component: {fileID: 3848355593189218569}
   m_Layer: 0
-  m_Name: Chimney 1
+  m_Name: Chimney
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -600,7 +600,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     randomizeRotationDirection: 0
-    maxNumParticles: 500
+    maxNumParticles: 10
     size3D: 0
     rotation3D: 0
     gravityModifier:

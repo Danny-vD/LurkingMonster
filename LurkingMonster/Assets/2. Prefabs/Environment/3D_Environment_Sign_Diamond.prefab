@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6425456107885132609}
   - component: {fileID: 887942652847636808}
   m_Layer: 0
-  m_Name: Sign_Diamond1
+  m_Name: 3D_Environment_Sign_Diamond
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

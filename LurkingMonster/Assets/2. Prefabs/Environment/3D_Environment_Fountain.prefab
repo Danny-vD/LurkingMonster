@@ -206,6 +206,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fountain
       objectReference: {fileID: 0}
+    - target: {fileID: 3214895037121844043, guid: 42db960b4b779db47930e860c428c2e1, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3214895037121844045, guid: 42db960b4b779db47930e860c428c2e1, type: 3}
       propertyPath: CollisionModule.plane0
       value: 

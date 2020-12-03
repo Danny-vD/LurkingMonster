@@ -5,6 +5,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using VDFramework;
+
 // ReSharper disable MissingLinebreak
 
 namespace UI.Buttons
@@ -14,12 +15,16 @@ namespace UI.Buttons
 		[SerializeField] private Transform popupMonster;
 		[SerializeField] private Transform popupTime;
 		[SerializeField] private Transform popupKcaf;
+		
 		[SerializeField] private Button inventory;
+		
 		[SerializeField] private Image background;
 		[SerializeField] private Image boxImage;
+		
 		[SerializeField] private Button meat;
 		[SerializeField] private Button time;
 		[SerializeField] private Button kcaf;
+		
 		[SerializeField, Header("0: Disabled, 1: Enabled")] private Sprite[] inventorySprite = new Sprite[0];
 		[SerializeField] private Sprite[] meatSprite = new Sprite[0];
 		[SerializeField] private Sprite[] timeSprite = new Sprite[0];
@@ -42,7 +47,6 @@ namespace UI.Buttons
 
 		private void OpenMeatPopUp()
 		{
-			//TODO: serialize the transforms of the popups, this won't work anymore
 			OpenPopup(popupMonster, PowerUpManager.Instance.AvoidMonsters, PowerUpType.AvoidMonster);
 		}
 

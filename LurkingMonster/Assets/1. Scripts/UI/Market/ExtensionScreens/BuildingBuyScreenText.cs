@@ -29,7 +29,7 @@ namespace UI.Market.ExtensionScreens
 
 			hasSetText = true;
 
-			List<BuildingButtonData> buildingButtons = GetComponent<BuildingBuyScreen>().GetBuildingButtons();
+			List<BuildingButtonData> buildingButtons = GetComponent<BuildingBuyScreen>().GetbuyButtonData();
 			
 			foreach (BuildingButtonData buttonData in buildingButtons)
 			{
@@ -44,42 +44,42 @@ namespace UI.Market.ExtensionScreens
 			// Type
 			if (typeTextWriter == null)
 			{
-				typeTextWriter = new StringVariableWriter(buttonData.Texts.Type.text);
+				typeTextWriter = new StringVariableWriter(buttonData.Text.Type.text);
 			}
 
-			buttonData.Texts.Type.text = typeTextWriter.UpdateText(buttonData.Key.ToString().InsertSpaceBeforeCapitals());
+			buttonData.Text.Type.text = typeTextWriter.UpdateText(buttonData.Key.ToString().InsertSpaceBeforeCapitals());
 			
 			// Price
 			if (priceTextWriter == null)
 			{
-				priceTextWriter = new StringVariableWriter(buttonData.Texts.Price.text);
+				priceTextWriter = new StringVariableWriter(buttonData.Text.Price.text);
 			}
 
-			buttonData.Texts.Price.text = priceTextWriter.UpdateText(data[0].Price);
+			buttonData.Text.Price.text = priceTextWriter.UpdateText(data[0].Price);
 			
 			// Health
 			if (healthTextWriter == null)
 			{
-				healthTextWriter = new StringVariableWriter(buttonData.Texts.Health.text);
+				healthTextWriter = new StringVariableWriter(buttonData.Text.Health.text);
 			}
 
-			buttonData.Texts.Health.text = healthTextWriter.UpdateText(data[0].MaxHealth);
+			buttonData.Text.Health.text = healthTextWriter.UpdateText(data[0].MaxHealth);
 			
 			// Rent
 			if (rentTextWriter == null)
 			{
-				rentTextWriter = new StringVariableWriter(buttonData.Texts.Rent.text);
+				rentTextWriter = new StringVariableWriter(buttonData.Text.Rent.text);
 			}
 
-			buttonData.Texts.Rent.text = rentTextWriter.UpdateText(data[0].Rent);
+			buttonData.Text.Rent.text = rentTextWriter.UpdateText(data[0].Rent);
 			
 			// Upgrades
 			if (upgradeTextWriter == null)
 			{
-				upgradeTextWriter = new StringVariableWriter(buttonData.Texts.Upgrades.text);
+				upgradeTextWriter = new StringVariableWriter(buttonData.Text.Upgrades.text);
 			}
 
-			buttonData.Texts.Upgrades.text = upgradeTextWriter.UpdateText(data.Length);
+			buttonData.Text.Upgrades.text = upgradeTextWriter.UpdateText(data.Length);
 		}
 	}
 }
