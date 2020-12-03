@@ -138,7 +138,7 @@ namespace Singletons
  
 			gameData = new GameData(startMoney, vibrate);
 
-			RunTimeTests.TestStartMoney();
+			//RunTimeTests.TestStartMoney();
 		}
 	}
 }

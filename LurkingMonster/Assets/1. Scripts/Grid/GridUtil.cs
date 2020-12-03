@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Enums;
 using Gameplay.Buildings;
 using Grid.Tiles;
 using Grid.Tiles.Buildings;
@@ -31,6 +32,10 @@ namespace Grid
 			if (UserSettings.SettingsExist && UserSettings.GameData.GridData.Count != 0)
 			{
 				LoadGameplayElements();
+			}
+			else
+			{
+				FirstTimeSetup();
 			}
 
 			UserSettings.OnGameQuit += SaveDictionary;
@@ -112,6 +117,23 @@ namespace Grid
 					{
 						buildingUpgrade.Upgrade(false);
 					}
+				}
+			}
+		}
+
+		private void FirstTimeSetup()
+		{
+			foreach (AbstractTile tile in grid)
+			{
+				if (tile is AbstractBuildingTile buildingTile)
+				{
+					buildingTile.SetSoilType(SoilType.Sand);
+					buildingTile.SetFoundation(FoundationType.Wooden_Poles);
+					buildingTile.SetBuildingType(BuildingType.House);
+					
+					buildingTile.SpawnBuilding(false);
+
+					return;
 				}
 			}
 		}
