@@ -149,17 +149,6 @@ namespace Grid.Tiles.Buildings
 			return spawner.GetBuildingData(buildingType, GetFoundationType(), GetSoilType());
 		}
 
-		public void SetBuildingType(BuildingType building)
-		{
-			buildingType  = building;
-			FirstTierData = spawner.GetBuildingData(buildingType, default, FirstTierData.SoilType)[0];
-		}
-
-		public BuildingType GetBuildingType()
-		{
-			return buildingType;
-		}
-
 		public void SetSoilType(SoilType soil)
 		{
 			FirstTierData.SoilType = soil;
@@ -170,7 +159,7 @@ namespace Grid.Tiles.Buildings
 			return FirstTierData.SoilType;
 		}
 
-		public void SetFoundation(FoundationType foundation)
+		public void SetFoundationType(FoundationType foundation)
 		{
 			FirstTierData.Foundation = foundation;
 		}
@@ -178,6 +167,17 @@ namespace Grid.Tiles.Buildings
 		public FoundationType GetFoundationType()
 		{
 			return FirstTierData.Foundation;
+		}
+		
+		public void SetBuildingType(BuildingType building)
+		{
+			buildingType  = building;
+			FirstTierData = spawner.GetBuildingData(buildingType, default, FirstTierData.SoilType)[0];
+		}
+
+		public BuildingType GetBuildingType()
+		{
+			return buildingType;
 		}
 
 		private void SpawnBrokenHouseAsset(BuildingConsumedEvent buildingConsumedEvent)

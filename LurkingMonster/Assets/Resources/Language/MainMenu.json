@@ -1,0 +1,752 @@
+{
+  "Variables": [
+	{
+	  "Key": "NEWGAME",
+	  "Value": [
+		{
+		  "Key": "NL",
+		  "Value": "Nieuw Spel"
+		},
+		{
+		  "Key": "EN",
+		  "Value": "New Game"
+		},
+		{
+		  "Key": "DE",
+		  "Value": "Neues Spiel"
+		}
+	  ]
+	},
+    {
+      "Key": "SETTINGS",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "Opties"
+        },
+        {
+          "Key": "EN",
+          "Value": "Settings"
+        },
+        {
+          "Key": "DE",
+          "Value": "Neues Spiel"
+        }
+      ]
+    },
+    {
+      "Key": "QUIT_GAME",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "Afsluiten"
+        },
+        {
+          "Key": "EN",
+          "Value": "Quit"
+        },
+        {
+          "Key": "DE",
+          "Value": "Neues Spiel"
+        }
+      ]
+    },
+	{
+	  "Key": "SCORE",
+	  "Value": [
+		{
+		  "Key": "NL",
+		  "Value": "Score"
+		},
+		{
+		  "Key": "EN",
+		  "Value": "Score"
+		},
+		{
+		  "Key": "DE",
+		  "Value": "Punkte"
+		}
+	  ]
+	},
+	{
+	  "Key": "LOADINGTEXT",
+	  "Value": [
+		{
+		  "Key": "NL",
+		  "Value": "Laden..."
+		},
+		{
+		  "Key": "EN",
+		  "Value": "Loading..."
+		},
+		{
+		  "Key": "DE",
+		  "Value": "Laden..."
+		}
+	  ]
+	},
+	{
+	  "Key": "LOADINGINPUTTEXT",
+	  "Value": [
+		{
+		  "Key": "NL",
+		  "Value": "Tik om verder to gaan"
+		},
+		{
+		  "Key": "EN",
+		  "Value": "Tap to continue"
+		},
+		{
+		  "Key": "DE",
+		  "Value": "Warten auf ihre Input..."
+		}
+	  ]
+	},
+	{
+	  "Key": "SKIP",
+	  "Value": [
+		{
+		  "Key": "NL",
+		  "Value": "Overslaan"
+		},
+		{
+		  "Key": "EN",
+		  "Value": "Skip"
+		},
+		{
+		  "Key": "DE",
+		  "Value": "Überspringen"
+		}
+	  ]
+	},
+	{
+	  "Key": "OK",
+	  "Value": [
+		{
+		  "Key": "NL",
+		  "Value": "Ok!"
+		},
+		{
+		  "Key": "EN",
+		  "Value": "Ok!"
+		},
+		{
+		  "Key": "DE",
+		  "Value": "Ok!"
+		}
+	  ]
+	},
+	{
+	  "Key": "BUILDINGSBUILDACHIEVEMENT",
+	  "Value": [
+		{
+		  "Key": "NL",
+		  "Value": "Bouw Gebouwen :"
+		},
+		{
+		  "Key": "EN",
+		  "Value": "Build Buildings :"
+		},
+		{
+		  "Key": "DE",
+		  "Value": "Ok!"
+		}
+	  ]
+	},
+	{
+	  "Key": "RENTCOLLECTEDACHIEVEMENT",
+	  "Value": [
+		{
+		  "Key": "NL",
+		  "Value": "Incasseer Huur :"
+		},
+		{
+		  "Key": "EN",
+		  "Value": "Collect Rent :"
+		},
+		{
+		  "Key": "DE",
+		  "Value": "Ok!"
+		}
+	  ]
+	},
+	{
+	  "Key": "BUILDINGSAVEDACHIEVEMENT",
+	  "Value": [
+		{
+		  "Key": "NL",
+		  "Value": "Gebouwen Gered :"
+		},
+		{
+		  "Key": "EN",
+		  "Value": "Save Buildings :"
+		},
+		{
+		  "Key": "DE",
+		  "Value": "Ok!"
+		}
+	  ]
+	},
+	{
+	  "Key": "BUILDINGCONSUMEDACHIEVEMENT",
+	  "Value": [
+		{
+		  "Key": "NL",
+		  "Value": "Kapotte Gebouwen :"
+		},
+		{
+		  "Key": "EN",
+		  "Value": "Consume Buildings :"
+		},
+		{
+		  "Key": "DE",
+		  "Value": "Ok!"
+		}
+	  ]
+	},
+	{
+	  "Key": "AMOUNTOFPLOTSACHIEVEMENT",
+	  "Value": [
+		{
+		  "Key": "NL",
+		  "Value": "Koop Grond :"
+		},
+		{
+		  "Key": "EN",
+		  "Value": "Buy Plots :"
+		},
+		{
+		  "Key": "DE",
+		  "Value": "Ok!"
+		}
+	  ]
+	},
+  {
+    "Key": "DESTROYHOUSESACHIEVEMENT",
+    "Value": [
+      {
+        "Key": "NL",
+        "Value": "Huizen Afgebroken :"
+      },
+      {
+        "Key": "EN",
+        "Value": "Houses Destroyed :"
+      },
+      {
+        "Key": "DE",
+        "Value": "Ok!"
+      }
+    ]
+  },
+  {
+    "Key": "REPAIRHOUSESACHIEVEMENT",
+    "Value": [
+      {
+        "Key": "NL",
+        "Value": "Huizen Afgebroken :"
+      },
+      {
+        "Key": "EN",
+        "Value": "Houses Destroyed :"
+      },
+      {
+        "Key": "DE",
+        "Value": "Ok!"
+      }
+    ]
+  },
+	{
+	  "Key": "ACHIEVEMENT_UNLOCKED",
+	  "Value": [
+		{
+		  "Key": "NL",
+		  "Value": "Achievement Vrijgespeeld"
+		},
+		{
+		  "Key": "EN",
+		  "Value": "Achievement Unlocked"
+		},
+		{
+		  "Key": "DE",
+		  "Value": "Ok!"
+		}
+	  ]
+	},
+	{
+	  "Key": "ALL_ACHIEVEMENTS_UNLOCKED",
+	  "Value": [
+		{
+		  "Key": "NL",
+		  "Value": "Alle Achievements Vrijgespeeld"
+		},
+		{
+		  "Key": "EN",
+		  "Value": "All Achievements Unlocked"
+		},
+		{
+		  "Key": "DE",
+		  "Value": "Ok!"
+		}
+	  ]
+	},
+	{
+	  "Key": "MONEY",
+	  "Value": [
+		{
+		  "Key": "NL",
+		  "Value": "Geld : "
+		},
+		{
+		  "Key": "EN",
+		  "Value": "Money : "
+		},
+		{
+		  "Key": "DE",
+		  "Value": "Ok!"
+		}
+	  ]
+	},
+    {
+      "Key": "CONTINUE_GAME",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "Verder Spelen"
+        },
+        {
+          "Key": "EN",
+          "Value": "Continue"
+        },
+        {
+          "Key": "DE",
+          "Value": "Ok!"
+        }
+      ]
+    },
+    {
+      "Key": "DUTCH_FLAG",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "Nederlands"
+        },
+        {
+          "Key": "EN",
+          "Value": "Dutch"
+        },
+        {
+          "Key": "DE",
+          "Value": "Ok!"
+        }
+      ]
+    },
+    {
+      "Key": "ENGLISH_FLAG",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "Engels"
+        },
+        {
+          "Key": "EN",
+          "Value": "English"
+        },
+        {
+          "Key": "DE",
+          "Value": "Ok!"
+        }
+      ]
+    },
+    {
+      "Key": "MUSIC_VOLUME",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "Muziek Volume"
+        },
+        {
+          "Key": "EN",
+          "Value": "Music Volume"
+        },
+        {
+          "Key": "DE",
+          "Value": "Ok!"
+        }
+      ]
+    },
+    {
+      "Key": "SOUND_EFFECTS_VOLUME",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "GeluidsEffecten Volume"
+        },
+        {
+          "Key": "EN",
+          "Value": "Music Effects Volume"
+        },
+        {
+          "Key": "DE",
+          "Value": "Ok!"
+        }
+      ]
+    },
+    {
+      "Key": "STORM",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "Storm"
+        },
+        {
+          "Key": "EN",
+          "Value": "Storm"
+        },
+        {
+          "Key": "DE",
+          "Value": "Ok!"
+        }
+      ]
+    },
+    {
+      "Key": "STORM_CONTENT",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "BREAKING NEWS, {0} here to inform you that there is a <b>heavy storm</b> coming. This will result in soil becoming unstable and foundations might be affected as well as buildings might become damaged."
+        },
+        {
+          "Key": "EN",
+          "Value": "BREAKING NEWS, {0} here to inform you that there is a <b>heavy storm</b> coming. This will result in soil becoming unstable and foundations might be affected as well as buildings might become damaged."
+        },
+        {
+          "Key": "DE",
+          "Value": "Ok!"
+        }
+      ]
+    },
+    {
+      "Key": "DROUGHT",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "Droogte"
+        },
+        {
+          "Key": "EN",
+          "Value": "Drought"
+        },
+        {
+          "Key": "DE",
+          "Value": "Ok!"
+        }
+      ]
+    },
+    {
+      "Key": "DROUGHT_CONTENT",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "BREAKING NEWS, {0} here to inform you that there is a <b>drought coming</b>, this will have an extreme effect on your soil, it'll deteriorate quicker."
+        },
+        {
+          "Key": "EN",
+          "Value": "BREAKING NEWS, {0} here to inform you that there is a <b>drought coming</b>, this will have an extreme effect on your soil, it'll deteriorate quicker."
+        },
+        {
+          "Key": "DE",
+          "Value": "Ok!"
+        }
+      ]
+    },
+    {
+      "Key": "HEAVY_RAIN",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "Hevige Regen"
+        },
+        {
+          "Key": "EN",
+          "Value": "Heavy Rain"
+        },
+        {
+          "Key": "DE",
+          "Value": "Ok!"
+        }
+      ]
+    },  
+    {
+      "Key": "HEAVY_RAIN_CONTENT",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "BREAKING NEWS, {0} to inform you that there is <b>heavy rainfall</b> coming. This will result in soil becoming unstable and foundations might be affected."
+        },
+        {
+          "Key": "EN",
+          "Value": "BREAKING NEWS, {0} here to inform you that there is <b>heavy rainfall</b> coming. This will result in soil becoming unstable and foundations might be affected."
+        },
+        {
+          "Key": "DE",
+          "Value": "Ok!"
+        }
+      ]
+    },
+    {
+      "Key": "EARTHQUAKE",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "Aardbeving"
+        },
+        {
+          "Key": "EN",
+          "Value": "Earthquake"
+        },
+        {
+          "Key": "DE",
+          "Value": "Ok!"
+        }
+      ]
+    },
+    {
+      "Key": "EARTHQUAKE_CONTENT",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "BREAKING NEWS, {0} here to inform you that there is a size earthquake coming. This will result in soil becoming unstable and foundations might be affected as well as houses might become damaged."
+        },
+        {
+          "Key": "EN",
+          "Value": "BREAKING NEWS, {0} here to inform you that there is a size earthquake coming. This will result in soil becoming unstable and foundations might be affected as well as houses might become damaged."
+        },
+        {
+          "Key": "DE",
+          "Value": "Ok!"
+        }
+      ]
+    },
+    {
+      "Key": "GAS_WINNING",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "Gaswinning"
+        },
+        {
+          "Key": "EN",
+          "Value": "Gas Winning"
+        },
+        {
+          "Key": "DE",
+          "Value": "Ok!"
+        }
+      ]
+    },
+    {
+      "Key": "GAS_WINNING_CONTENT",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "BREAKING NEWS, {0} here to inform you that Company YFUELhas been drilling for gas and because of that soil has started descending! This will have a disastrous effect on soil and buildings"
+        },
+        {
+          "Key": "EN",
+          "Value": "BREAKING NEWS, {0} here to inform you that Company YFUELhas been drilling for gas and because of that soil has started descending! This will have a disastrous effect on soil and buildings"
+        },
+        {
+          "Key": "DE",
+          "Value": "Ok!"
+        }
+      ]
+    },
+    {
+      "Key": "BUILDING_TUNNELS",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "Tunnels Bouwen"
+        },
+        {
+          "Key": "EN",
+          "Value": "Building Tunnels"
+        },
+        {
+          "Key": "DE",
+          "Value": "Ok!"
+        }
+      ]
+    },
+    {
+      "Key": "BUILDING_TUNNELS_CONTENT",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "BREAKING NEWS, {0} here to inform you that Company TUNNELO has been building tunnels underneath our city and because of that soil has started descending! This will have a disastrous effect on soil and buildings"
+        },
+        {
+          "Key": "EN",
+          "Value": "BREAKING NEWS, {0} here to inform you that Company TUNNELO has been building tunnels underneath our city and because of that soil has started descending! This will have a disastrous effect on soil and buildings"
+        },
+        {
+          "Key": "DE",
+          "Value": "Ok!"
+        }
+      ]
+    },
+    {
+      "Key": "KCAF_CONTENT",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "Lost alles problemen op voor 20 minuten"
+        },
+        {
+          "Key": "EN",
+          "Value": "Fixes everything for 20 minutes"
+        },
+        {
+          "Key": "DE",
+          "Value": "Ok!"
+        }
+      ]
+    },
+    {
+      "Key": "TIME_CONTENT",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "Voorkomt dat er nieuwsgebeurtenissen plaatsvinden gedurende 10 minuten"
+        },
+        {
+          "Key": "EN",
+          "Value": "Stops breaking news events from happening for 10 minutes"
+        },
+        {
+          "Key": "DE",
+          "Value": "Ok!"
+        }
+      ]
+    },
+    {
+      "Key": "MEAT_CONTENT",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "Voorkomt dat het monster je huis vernietigd voor 5 minuten"
+        },
+        {
+          "Key": "EN",
+          "Value": "Stops monster from destroying your house for 5 minutes"
+        },
+        {
+          "Key": "DE",
+          "Value": "Ok!"
+        }
+      ]
+    },
+    {
+      "Key": "ACHIEVEMENTS",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "Prestaties"
+        },
+        {
+          "Key": "EN",
+          "Value": "Achievements"
+        },
+        {
+          "Key": "DE",
+          "Value": "Ok!"
+        }
+      ]
+    },
+    {
+      "Key": "INFORMATION",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "Informatie"
+        },
+        {
+          "Key": "EN",
+          "Value": "Information"
+        },
+        {
+          "Key": "DE",
+          "Value": "Ok!"
+        }
+      ]
+    },
+    {
+      "Key": "INFORMATION_SUBSIDENCE",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "Verzakking"
+        },
+        {
+          "Key": "EN",
+          "Value": "Subsidence"
+        },
+        {
+          "Key": "DE",
+          "Value": "Ok!"
+        }
+      ]
+    },
+    {
+      "Key": "INFORMATION_8_STEP_PLAN",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "8-Stappen Plan"
+        },
+        {
+          "Key": "EN",
+          "Value": "8-Step Plan"
+        },
+        {
+          "Key": "DE",
+          "Value": "Ok!"
+        }
+      ]
+    },
+    {
+      "Key": "VIBRATE",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "Vibratie"
+        },
+        {
+          "Key": "EN",
+          "Value": "Vibrate"
+        },
+        {
+          "Key": "DE",
+          "Value": "Ok!"
+        }
+      ]
+    },
+    {
+      "Key": "MUSIC_MUTE",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "Dempen"
+        },
+        {
+          "Key": "EN",
+          "Value": "Mute"
+        },
+        {
+          "Key": "DE",
+          "Value": "Ok!"
+        }
+      ]
+    }
+  ]
+}
