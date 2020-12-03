@@ -13,6 +13,9 @@ namespace _1._Scripts.Tutorial
 		[SerializeField]
 		private GameObject narrator;
 
+		[SerializeField]
+		private GameObject arrow;
+		
 		private Tutorial[] tutorials;
 		
 		private Tutorial currentTutorial;
@@ -38,7 +41,7 @@ namespace _1._Scripts.Tutorial
 				return;
 			}
 
-			currentTutorial.StartTutorial(narrator);
+			currentTutorial.StartTutorial(narrator, arrow);
 			//explainText.text = currentTutorial.Explanation;
 		}
 

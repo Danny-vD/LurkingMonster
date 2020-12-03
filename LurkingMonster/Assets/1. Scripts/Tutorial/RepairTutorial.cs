@@ -25,46 +25,58 @@ namespace _1._Scripts.Tutorial
 		[SerializeField]
 		private bool checkSoil, checkFoundation, checkBuilding;
 		
-		public override void StartTutorial(GameObject narrator)
+		public override void StartTutorial(GameObject narrator, GameObject arrow)
 		{
-			base.StartTutorial(narrator);
+			base.StartTutorial(narrator, arrow);
 			
 			building                                                     = FindObjectOfType<Building>();
 			abstractBuildingTile                                         = building.GetComponentInParent<AbstractBuildingTile>();
-			abstractBuildingTile.GetComponent<Renderer>().sharedMaterial = material;
+			//abstractBuildingTile.GetComponent<Renderer>().sharedMaterial = material;
 
 			building.GetComponent<BuildingHealth>().OnSoilRepair       += CheckSoilRepair;
 			building.GetComponent<BuildingHealth>().OnFoundationRepair += CheckFoundationRepair;
 			building.GetComponent<BuildingHealth>().OnBuildingRepair   += CheckBuildingRepair;
 		}
 
-		private void CheckAllRepairs()
+		private void CheckIfRepairs()
 		{
-			if (repairSoil && repairFoundation && repairBuilding)
+			if (!repairSoil && checkSoil)
 			{
-				TutorialManager.Instance.CompletedTutorial();
+				return;
 			}
+			
+			if (!repairFoundation && checkFoundation)
+			{
+				return;
+			}
+			
+			if (!repairBuilding && checkBuilding)
+			{
+				return;
+			}
+			
+			TutorialManager.Instance.CompletedTutorial();
 		}
 		
 		private void CheckSoilRepair()
 		{
 			repairSoil = true;
 			
-			CheckAllRepairs();
+			CheckIfRepairs();
 		}
 
 		private void CheckFoundationRepair()
 		{
 			repairFoundation = true;
 			
-			CheckAllRepairs();
+			CheckIfRepairs();
 		}
 
 		private void CheckBuildingRepair()
 		{
 			repairBuilding = true;
 			
-			CheckAllRepairs();
+			CheckIfRepairs();
 		}
 	}
 }
