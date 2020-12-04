@@ -2,13 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using Structs.Utility;
-using UnityEngine;
 using VDFramework.Utility;
 
 namespace Utility
 {
 	[Serializable]
-	public class SerializableEnumDictionary<TKey, TValue> : SerializableDictionary<TKey, TValue>, ISerializationCallbackReceiver
+	public class SerializableEnumDictionary<TKey, TValue> : SerializableDictionary<TKey, TValue>
 		where TKey : struct, Enum
 	{
 		public static implicit operator SerializableEnumDictionary<TKey, TValue>(List<SerializableKeyValuePair<TKey, TValue>> list)
@@ -19,6 +18,11 @@ namespace Utility
 		public static implicit operator SerializableEnumDictionary<TKey, TValue>(Dictionary<TKey, TValue> dictionary)
 		{
 			return new SerializableEnumDictionary<TKey, TValue>(dictionary);
+		}
+		
+		public static implicit operator Dictionary<TKey, TValue>(SerializableEnumDictionary<TKey, TValue> serializableDictionary)
+		{
+			return serializableDictionary.InternalList.ToDictionary(pair => pair.Key, keyValuePair => keyValuePair.Value);
 		}
 
 		public SerializableEnumDictionary(IEnumerable<SerializableKeyValuePair<TKey, TValue>> list) : base(list)
@@ -35,13 +39,10 @@ namespace Utility
 
 		#region ISerializationCallbackReceiver
 
-		void ISerializationCallbackReceiver.OnBeforeSerialize()
+		public override void OnBeforeSerialize()
 		{
+			base.OnBeforeSerialize();
 			Populate();
-		}
-
-		void ISerializationCallbackReceiver.OnAfterDeserialize()
-		{
 		}
 
 		#endregion
