@@ -14,6 +14,7 @@ namespace PropertyDrawers
 	public class SerializableDictionaryDrawer : PropertyDrawer
 	{
 		// Constants, for consistent layout
+		private const float spacingWarningToDictionary = 5.0f;
 		private const float spacingDictionaryToPairs = 5.0f;
 		private const float spacingLabelToPair = 0.0f;
 		private const float pairIndent = 10.0f;
@@ -22,6 +23,7 @@ namespace PropertyDrawers
 		private const float paddingAtEndOfProperty = 0.0f;
 
 		private const float foldoutHeight = 20.0f;
+		private const float warningHeight = 30.0f;
 
 		// Instance variables, to allow variable size between properties
 		private Vector2 origin;
@@ -45,37 +47,25 @@ namespace PropertyDrawers
 			ypos     = origin.y;
 			maxWidth = position.width;
 
-			SerializedProperty list = property.FindPropertyRelative("internalList");
-			
-			bool conflicts = property.FindPropertyRelative("distinctKeys").boolValue;
-
-			DrawDictionary(list, property.name);
+			DrawDictionary(property, property.name);
 
 			propertySize += paddingAtEndOfProperty;
 
 			EditorGUI.EndProperty();
 		}
 
-		private void ResizeFoldouts(SerializedProperty list)
-		{
-			if (foldouts == null)
-			{
-				foldouts = new bool[list.arraySize];
-				return;
-			}
-			
-			if (foldouts.Length != list.arraySize)
-			{
-				List<bool> temp = foldouts.ToList();
-				temp.ResizeList(list.arraySize);
-				foldouts = temp.ToArray();
-			}
-		}
-
-		private void DrawDictionary(SerializedProperty list, string dictionaryName)
+		private void DrawDictionary(SerializedProperty property, string dictionaryName)
 		{
 			if (IsFoldOut(ref foldoutDictionary, $"{dictionaryName}"))
 			{
+				SerializedProperty list = property.FindPropertyRelative("serializedList");
+				bool conflicts = !property.FindPropertyRelative("distinctKeys").boolValue;
+				
+				if (conflicts)
+				{
+					DrawWarning(property);
+				}
+				
 				DrawSizeField(list);
 				ResizeFoldouts(list);
 
@@ -85,6 +75,41 @@ namespace PropertyDrawers
 
 				// Size = Y pos of end - Y pos of beginning - spacing at end of last pair
 				propertySize = ypos - origin.y - spacingBetweenPairs;
+			}
+		}
+		
+		private void DrawWarning(SerializedProperty property)
+		{
+			Rect rect = new Rect(xpos, ypos, maxWidth - xpos, warningHeight);
+			EditorGUI.HelpBox(rect, "Duplicate keys found! These will be removed after serialization.", MessageType.Warning);
+
+			ypos += warningHeight;
+			
+			rect.y      = ypos;
+			rect.height = 20.0f;
+			
+			SerializedProperty internalList = property.FindPropertyRelative("InternalList");
+			int actualSize = internalList.arraySize;
+			
+			EditorGUI.LabelField(rect, $"Actual Size: {actualSize}");
+			
+			ypos += 20.0f;
+			ypos += spacingWarningToDictionary;
+		}
+
+		private void ResizeFoldouts(SerializedProperty list)
+		{
+			if (foldouts == null)
+			{
+				foldouts = new bool[list.arraySize];
+				return;
+			}
+
+			if (foldouts.Length != list.arraySize)
+			{
+				List<bool> temp = foldouts.ToList();
+				temp.ResizeList(list.arraySize);
+				foldouts = temp.ToArray();
 			}
 		}
 
@@ -102,7 +127,7 @@ namespace PropertyDrawers
 			{
 				ypos += spacingLabelToPair;
 				DrawVariable(key, new GUIContent($"Key [{key.type}]"));
-				
+
 				ypos += spacingBetweenPairValues;
 				DrawVariable(value, new GUIContent($"Value [{value.type}]"));
 			}

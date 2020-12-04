@@ -39,7 +39,7 @@ namespace PropertyDrawers
 			ypos     = origin.y;
 			maxWidth = position.width;
 
-			SerializedProperty list = property.FindPropertyRelative("internalList");
+			SerializedProperty list = property.FindPropertyRelative("serializedList");
 
 			DrawDictionary(list, property.name);
 

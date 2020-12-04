@@ -34,13 +34,13 @@ namespace Utility
 		}
 
 		#region ISerializationCallbackReceiver
-		
-		public void OnBeforeSerialize()
+
+		void ISerializationCallbackReceiver.OnBeforeSerialize()
 		{
 			Populate();
 		}
 
-		public void OnAfterDeserialize()
+		void ISerializationCallbackReceiver.OnAfterDeserialize()
 		{
 		}
 
@@ -51,7 +51,7 @@ namespace Utility
 		/// </summary>
 		private void Populate()
 		{
-			EnumDictionaryUtil.PopulateEnumDictionary<SerializableKeyValuePair<TKey, TValue>, TKey, TValue>(internalList);
+			EnumDictionaryUtil.PopulateEnumDictionary<SerializableKeyValuePair<TKey, TValue>, TKey, TValue>(InternalList);
 		}
 	}
 }
