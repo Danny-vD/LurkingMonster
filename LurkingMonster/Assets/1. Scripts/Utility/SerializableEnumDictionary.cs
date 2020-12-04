@@ -51,7 +51,7 @@ namespace Utility
 		/// </summary>
 		private void Populate()
 		{
-			EnumDictionaryUtil.PopulateEnumDictionary<SerializableKeyValuePair<TKey, TValue>, TKey, TValue>(InternalList);
+			EnumDictionaryUtil.PopulateEnumDictionary<SerializableKeyValuePair<TKey, TValue>, TKey, TValue>(serializedList);
 		}
 	}
 }

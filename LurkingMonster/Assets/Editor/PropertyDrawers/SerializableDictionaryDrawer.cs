@@ -88,7 +88,7 @@ namespace PropertyDrawers
 			rect.y      = ypos;
 			rect.height = 20.0f;
 			
-			SerializedProperty internalList = property.FindPropertyRelative("InternalList");
+			SerializedProperty internalList = property.FindPropertyRelative("internalList");
 			int actualSize = internalList.arraySize;
 			
 			EditorGUI.LabelField(rect, $"Actual Size: {actualSize}");
