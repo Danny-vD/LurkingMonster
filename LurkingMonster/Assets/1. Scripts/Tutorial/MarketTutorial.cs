@@ -15,6 +15,9 @@ namespace _1._Scripts.Tutorial
 		[SerializeField]
 		private float scale;
 		
+		[SerializeField]
+		private float offsetDistance = 1.5f;
+		
 		private Material oldMaterial;
 
 		private Renderer meshRenderer;
@@ -35,7 +38,7 @@ namespace _1._Scripts.Tutorial
 
 			prefabInstance              = Instantiate(arrow, buildingCanvas.transform);
 			prefabInstance.transform.localScale = new Vector3(scale, scale, scale);
-			prefabInstance.transform.Translate(Vector3.up * 1.5f, Space.Self);
+			prefabInstance.transform.Translate(Vector3.up * offsetDistance, Space.Self);
 			meshRenderer.sharedMaterial = material;
 
 			OpenMarketEvent.ParameterlessListeners += OnMarketScreen;

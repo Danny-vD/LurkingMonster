@@ -1,4 +1,5 @@
 ﻿using System;
+using _1._Scripts.Tutorial;
 using Events;
 using Interfaces;
 using Singletons;
@@ -89,7 +90,7 @@ namespace Gameplay
 
 		private void HandleSelection()
 		{
-			if (EventSystem.current.IsPointerOverGameObject())
+			if (EventSystem.current.IsPointerOverGameObject() || TutorialManager.Instance.IsActive)
 			{
 				return;	
 			}

@@ -23,11 +23,28 @@ namespace _1._Scripts.Tutorial
 		{
 			base.StartTutorial(narrator, arrow);
 			ShowNextText();
-
+			
+			DisableButtons();
+			
 			SetNextButton(Highlight);
 			button.onClick.AddListener(CompleteTutorial);
 		}
 
+		private void DisableButtons()
+		{
+			Button[] buttons = FindObjectsOfType<Button>();
+
+			foreach (Button disableButton in buttons)
+			{
+				if (button == disableButton)
+				{
+					continue;
+				}
+				
+				disableButton.onClick.RemoveAllListeners();
+			}
+		}
+		
 		private void Highlight()
 		{
 			ShowNextText();

@@ -12,6 +12,19 @@ namespace _1._Scripts.Tutorial
 {
 	public class Tutorial : BetterMonoBehaviour
 	{
+		private string[] jsonKeys;
+
+		[SerializeField]
+		private bool moveCamera;
+
+		[SerializeField]
+		private Vector3 position;
+
+		[SerializeField]
+		private int jsonCount;
+
+		private static int beginIndex = 1;
+		
 		public int Order;
 		
 		private TextMeshProUGUI explainText;
@@ -22,19 +35,32 @@ namespace _1._Scripts.Tutorial
 
 		private Button next;
 
-		[SerializeField]
-		private string[] jsonKeys;
-		
 		private int index;
+
+		private Camera playerCamera;
+
+		private void Awake()
+		{
+			playerCamera = Camera.main;
+		}
 
 		public virtual void StartTutorial(GameObject narrator, GameObject arrow)
 		{
+			FillJsonKey();
+
+			if (moveCamera)
+			{
+				playerCamera.transform.position = position;
+			}
+			
 			this.narrator = narrator;
 			this.arrow    = arrow;
 			explainText   = narrator.GetComponentInChildren<TextMeshProUGUI>();
 			next          = narrator.GetComponentInChildren<Button>();
 			index         = 0;
 		}
+
+	
 
 		protected virtual void ReachEndOfText()
 		{
@@ -54,18 +80,18 @@ namespace _1._Scripts.Tutorial
 			SetText(jsonKeys[index]);
 			index++;
 		}
-		
-		protected void EnableNarrator()
+
+		private void EnableNarrator()
 		{
 			narrator.SetActive(true);
 		}
 
-		protected void DisableNarrator()
+		private void DisableNarrator()
 		{
 			narrator.SetActive(false);
 		}
 
-		protected void SetText(string jsonKey)
+		private void SetText(string jsonKey)
 		{
 			explainText.text = LanguageUtil.GetJsonString(jsonKey);
 		}
@@ -74,6 +100,22 @@ namespace _1._Scripts.Tutorial
 		{
 			next.onClick.RemoveAllListeners();
 			next.onClick.AddListener(onclick);
+		}
+		
+		[ContextMenu("Json")]
+		private void FillJsonKey()
+		{
+			if (jsonCount == 0)
+			{
+				return;
+			}
+			
+			jsonKeys = new string[jsonCount];
+
+			for (int i = 0; i < jsonCount; i++, beginIndex++)
+			{
+				jsonKeys[i] = $"TUTORIAL_{beginIndex}";
+			}
 		}
 	}
 }

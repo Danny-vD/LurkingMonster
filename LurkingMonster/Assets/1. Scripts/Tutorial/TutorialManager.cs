@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Singletons;
 using VDFramework;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -20,12 +21,23 @@ namespace _1._Scripts.Tutorial
 		
 		private Tutorial currentTutorial;
 
+		public bool IsActive { get; private set; }
+
 		private void Start()
 		{
+			IsActive  = true;
 			tutorials = GetComponents<Tutorial>();
 			SetNextTutorial(0);
 		}
-		
+
+		private void Update()
+		{
+			if (!TimeManager.Instance.IsPaused())
+			{
+				TimeManager.Instance.Pause();
+			}
+		}
+
 		public void CompletedTutorial()
 		{
 			SetNextTutorial(currentTutorial.Order + 1);
@@ -48,6 +60,9 @@ namespace _1._Scripts.Tutorial
 		private void CompletedAllTutorials()
 		{
 			//explainText.text = "You completed all the tutorials!";
+			IsActive = false;
+			TimeManager.Instance.UnPause();
+			Destroy(gameObject);
 		}
 
 		private Tutorial GetTutorialByOrder(int order)

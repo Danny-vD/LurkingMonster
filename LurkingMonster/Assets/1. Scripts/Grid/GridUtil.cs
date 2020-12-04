@@ -131,8 +131,14 @@ namespace Grid
 					buildingTile.SetFoundationType(FoundationType.Wooden_Poles);
 					buildingTile.SetBuildingType(BuildingType.House);
 					
+					
 					buildingTile.SpawnBuilding(false);
 
+					BuildingHealth buildingHealth = buildingTile.Building.GetComponent<BuildingHealth>();
+
+					buildingHealth.DamageFoundation(buildingHealth.CurrentFoundationHealth * 0.80f);
+					buildingHealth.DamageSoil(buildingHealth.CurrentSoilHealth * 0.75f);
+					
 					return;
 				}
 			}

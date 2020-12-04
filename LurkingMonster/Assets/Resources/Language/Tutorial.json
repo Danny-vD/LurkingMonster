@@ -2,21 +2,242 @@
   "Variables": 
   [
 	{
-	  "Key": "PLACEHOLDER",
+	  "Key": "TUTORIAL_1",
 	  "Value": [
 		{
 		  "Key": "NL",
-		  "Value": "Tijdelijke tekst"
+		  "Value": "Vertaald worden!"
 		},
 		{
 		  "Key": "EN",
-		  "Value": "Lorem Ipsum Dolor Sit Amet"
+		  "Value": "Hi there! I am -Peter- the contractor for the KCAF, I will be guiding you through the steps Erik needs to take to solve his problem"
 		},
 		{
 		  "Key": "DE",
-		  "Value": "Einigkeit und Recht und Freiheid für das Deutsche Vaterland!"
+		  "Value": ""
 		}
 	  ]
-	}
+	},
+    {
+      "Key": "TUTORIAL_2",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "Vertaald worden!"
+        },
+        {
+          "Key": "EN",
+          "Value": "The problem with this house is that the long vacancy has affected its foundation. During the vacancy, the soil dried out and it exposed the wooden poles to oxygen."
+        },
+        {
+          "Key": "DE",
+          "Value": ""
+        }
+      ]
+    },
+    {
+      "Key": "TUTORIAL_3",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "Vertaald worden!"
+        },
+        {
+          "Key": "EN",
+          "Value": "That caused the wood to start rotting and the house is now slightly sinking into the soil because of the sheer weight of the building."
+        },
+        {
+          "Key": "DE",
+          "Value": ""
+        }
+      ]
+    },
+    {
+      "Key": "TUTORIAL_4",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "Vertaald worden!"
+        },
+        {
+          "Key": "EN",
+          "Value": "just double tap on the house with the icon above it. Those icons indicate what the problem is."
+        },
+        {
+          "Key": "DE",
+          "Value": ""
+        }
+      ]
+    },
+    {
+      "Key": "TUTORIAL_5",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "Vertaald worden!"
+        },
+        {
+          "Key": "EN",
+          "Value": "Because of the icon you are led to the main overview, here you can see the state of the house, foundation and soil. Then you can select what you need to repair."
+        },
+        {
+          "Key": "DE",
+          "Value": ""
+        }
+      ]
+    },
+    {
+      "Key": "TUTORIAL_6",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "Vertaald worden!"
+        },
+        {
+          "Key": "EN",
+          "Value": "Now you selected the repair factor, you can read here why it needs to be repaired."
+        },
+        {
+          "Key": "DE",
+          "Value": ""
+        }
+      ]
+    },
+    {
+      "Key": "TUTORIAL_7",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "Vertaald worden!"
+        },
+        {
+          "Key": "EN",
+          "Value": "The KCAF has constructed a guide which helps you to solve this problem in 8 simple steps."
+        },
+        {
+          "Key": "DE",
+          "Value": ""
+        }
+      ]
+    },
+    {
+      "Key": "TUTORIAL_8",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "Vertaald worden!"
+        },
+        {
+          "Key": "EN",
+          "Value": "1. Research your own house\n\n2. Ask the previous house owners and people that have similar problems"
+        },
+        {
+          "Key": "DE",
+          "Value": ""
+        }
+      ]
+    },
+    {
+      "Key": "TUTORIAL_9",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "Vertaald worden!"
+        },
+        {
+          "Key": "EN",
+          "Value": "3. Hire a professional to look at the state of your house.\n\n4. Possibly hire a professional who will research your soil & foundation."
+        },
+        {
+          "Key": "DE",
+          "Value": ""
+        }
+      ]
+    },
+    {
+      "Key": "TUTORIAL_10",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "Vertaald worden!"
+        },
+        {
+          "Key": "EN",
+          "Value": "5. If it turns out that the soil is the issue, then rehydrate the soil.\n\n6. If the foundation is the problem, you might want to hire a foundation company to improve the foundation."
+        },
+        {
+          "Key": "DE",
+          "Value": ""
+        }
+      ]
+    },
+    {
+      "Key": "TUTORIAL_11",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "Vertaald worden!"
+        },
+        {
+          "Key": "EN",
+          "Value": "7. Executing the solution found based on the research done.\n\n8. Pay for the solution."
+        },
+        {
+          "Key": "DE",
+          "Value": ""
+        }
+      ]
+    },
+    {
+      "Key": "TUTORIAL_12",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "Vertaald worden!"
+        },
+        {
+          "Key": "EN",
+          "Value": "Now that we have conducted research on your case and ensured that the problem lies within the foundation, let's talk about how you can repair it."
+        },
+        {
+          "Key": "DE",
+          "Value": ""
+        }
+      ]
+    },
+    {
+      "Key": "TUTORIAL_13",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "Vertaald worden!"
+        },
+        {
+          "Key": "EN",
+          "Value": "In order to take some weight off the original and rotten poles, we're going to add some more wooden ones. Next step will be the rehydration of the soil, so that you have both a repaired foundation and soil."
+        },
+        {
+          "Key": "DE",
+          "Value": ""
+        }
+      ]
+    },
+    {
+      "Key": "TUTORIAL_14",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "Vertaald worden!"
+        },
+        {
+          "Key": "EN",
+          "Value": "Great! Now the soil needs to be hydrated. You know what to do! Double-tap on the pop-up"
+        },
+        {
+          "Key": "DE",
+          "Value": ""
+        }
+      ]
+    }
   ]
 }
