@@ -6,7 +6,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using Utility;
 using VDFramework.Interfaces;
-using VDFramework.Utility;
 
 namespace UI.Market.MarketScreens
 {
@@ -17,12 +16,11 @@ namespace UI.Market.MarketScreens
 		[SerializeField]
 		private Button btnBuy = null;
 
-#pragma warning disable 649 // is generic, therefore not recognised as serialized, but it does work
 		[SerializeField]
-		private SerializableEnumDictionary<TBuyType, TBuyButtonData> test;
+		private SerializableEnumDictionary<TBuyType, TBuyButtonData> buyButtonData1; 
 		
+		[SerializeField]
 		private List<TBuyButtonData> buyButtonData;
-#pragma warning restore 649
 
 		private TBuyButtonData? selectedButton;
 
@@ -88,11 +86,6 @@ namespace UI.Market.MarketScreens
 			{
 				SetTextActive(datum.Value, false);
 			}
-		}
-
-		protected void PopulateDictionary()
-		{
-			EnumDictionaryUtil.PopulateEnumDictionary<TBuyButtonData, TBuyType, Button>(buyButtonData);
 		}
 
 		private static void SetTextActive(TBuyButtonData buttonData, bool active)

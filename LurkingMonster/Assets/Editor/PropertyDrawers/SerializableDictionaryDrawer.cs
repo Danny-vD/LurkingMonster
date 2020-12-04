@@ -46,6 +46,8 @@ namespace PropertyDrawers
 			maxWidth = position.width;
 
 			SerializedProperty list = property.FindPropertyRelative("internalList");
+			
+			bool conflicts = property.FindPropertyRelative("distinctKeys").boolValue;
 
 			DrawDictionary(list, property.name);
 
@@ -96,12 +98,12 @@ namespace PropertyDrawers
 
 		private void DrawPair(int index, SerializedProperty key, SerializedProperty value)
 		{
-			if (IsFoldOut(ref foldouts[index], GetPairLabel(key, index)))
+			if (IsFoldOut(ref foldouts[index], GetPairLabel(key, index).ReplaceUnderscoreWithSpace()))
 			{
 				ypos += spacingLabelToPair;
 				DrawVariable(key, new GUIContent($"Key [{key.type}]"));
+				
 				ypos += spacingBetweenPairValues;
-
 				DrawVariable(value, new GUIContent($"Value [{value.type}]"));
 			}
 

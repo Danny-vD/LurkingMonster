@@ -1,6 +1,7 @@
 ﻿using UnityEditor;
 using UnityEngine;
 using Utility;
+using VDFramework.Extensions;
 using static Utility.EditorUtils;
 
 namespace PropertyDrawers
@@ -78,7 +79,7 @@ namespace PropertyDrawers
 				return;
 			}
 			
-			if (IsFoldOut(ref foldouts[index], enumNames[enumIndex]))
+			if (IsFoldOut(ref foldouts[index], enumNames[enumIndex].ReplaceUnderscoreWithSpace()))
 			{
 				ypos += spacingKeyToValue;
 

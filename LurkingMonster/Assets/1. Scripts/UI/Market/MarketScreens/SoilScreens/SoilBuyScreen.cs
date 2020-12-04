@@ -17,11 +17,5 @@ namespace UI.Market.MarketScreens.SoilScreens
 			tile.SpawnSoil();
 			base.BuyButtonClick(tile, manager);
 		}
-
-		[ContextMenu("Populate")]
-		private void Populate()
-		{
-			PopulateDictionary();
-		}
 	}
 }

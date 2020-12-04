@@ -11,16 +11,17 @@ namespace Utility
 	/// A 'fake' dictionary that can be serialized
 	/// </summary>
 	[Serializable]
-	public class SerializableDictionary<TKey, TValue> : IDictionary<TKey, TValue>, /*ICollection<SerializableKeyValuePair<TKey, TValue>>,*/ IEnumerable<SerializableKeyValuePair<TKey, TValue>>
+	public class SerializableDictionary<TKey, TValue> : IDictionary<TKey, TValue>, /*ICollection<SerializableKeyValuePair<TKey, TValue>>,*/
+		IEnumerable<SerializableKeyValuePair<TKey, TValue>>, ISerializationCallbackReceiver
 	{
 		#region Fields
 
 		[SerializeField]
+		private bool distinctKeys;
+		
+		[SerializeField]
 		protected List<SerializableKeyValuePair<TKey, TValue>> internalList = new List<SerializableKeyValuePair<TKey, TValue>>();
 
-		public ICollection<TKey> Keys => internalList.Select(pair => pair.Key).ToArray();
-		public ICollection<TValue> Values => internalList.Select(pair => pair.Value).ToArray();
-		
 		#endregion
 
 		#region Operators
@@ -51,6 +52,9 @@ namespace Utility
 
 		public int Count => internalList.Count;
 		public bool IsReadOnly => false;
+		
+		public ICollection<TKey> Keys => internalList.Select(pair => pair.Key).ToArray();
+		public ICollection<TValue> Values => internalList.Select(pair => pair.Value).ToArray();
 
 		#endregion
 
@@ -110,7 +114,7 @@ namespace Utility
 			internalList.RemoveAt(index);
 			return true;
 		}
-		
+
 		public bool TryGetValue(TKey key, out TValue value)
 		{
 			int index = FindPair(key);
@@ -128,7 +132,7 @@ namespace Utility
 		#endregion
 
 		#region ICollection
-		
+
 		public void Add(SerializableKeyValuePair<TKey, TValue> item)
 		{
 			if (!internalList.Contains(item))
@@ -136,7 +140,7 @@ namespace Utility
 				internalList.Add(item);
 			}
 		}
-		
+
 		public void Add(KeyValuePair<TKey, TValue> item)
 		{
 			Add((SerializableKeyValuePair<TKey, TValue>) item);
@@ -153,10 +157,24 @@ namespace Utility
 		}
 
 		public bool Contains(KeyValuePair<TKey, TValue> item) => internalList.Contains(item);
-		
+
 		public void CopyTo(KeyValuePair<TKey, TValue>[] array, int arrayIndex)
 		{
 			ToKeyValuePair().ToList().CopyTo(array, arrayIndex);
+		}
+
+		#endregion
+
+		#region ISerializationCallbackReceiver
+
+		public void OnBeforeSerialize()
+		{
+			HashSet<TKey> distinctBytes = new HashSet<TKey>(Keys);
+			distinctKeys = distinctBytes.Count == internalList.Count;
+		}
+
+		public void OnAfterDeserialize()
+		{
 		}
 
 		#endregion
