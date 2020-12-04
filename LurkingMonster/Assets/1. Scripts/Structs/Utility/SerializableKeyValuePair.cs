@@ -9,6 +9,16 @@ namespace Structs.Utility
 	[Serializable]
 	public struct SerializableKeyValuePair<TKey, TValue> : IKeyValuePair<TKey, TValue>, IEquatable<SerializableKeyValuePair<TKey, TValue>>
 	{
+		public static implicit operator KeyValuePair<TKey, TValue>(SerializableKeyValuePair<TKey, TValue> pair)
+		{
+			return new KeyValuePair<TKey, TValue>(pair.key, pair.value);
+		}
+
+		public static implicit operator SerializableKeyValuePair<TKey, TValue>(KeyValuePair<TKey, TValue> pair)
+		{
+			return new SerializableKeyValuePair<TKey, TValue>(pair.Key, pair.Value);
+		}
+		
 		[SerializeField]
 		private TKey key;
 
@@ -31,16 +41,6 @@ namespace Structs.Utility
 		{
 			key   = pairKey;
 			value = pairValue;
-		}
-
-		public static implicit operator KeyValuePair<TKey, TValue>(SerializableKeyValuePair<TKey, TValue> pair)
-		{
-			return new KeyValuePair<TKey, TValue>(pair.key, pair.value);
-		}
-
-		public static implicit operator SerializableKeyValuePair<TKey, TValue>(KeyValuePair<TKey, TValue> pair)
-		{
-			return new SerializableKeyValuePair<TKey, TValue>(pair.Key, pair.Value);
 		}
 
 		public bool Equals(IKeyValuePair<TKey, TValue> other) => other != null && Key.Equals(other.Key);
