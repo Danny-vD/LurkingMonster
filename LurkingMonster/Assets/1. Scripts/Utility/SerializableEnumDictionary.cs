@@ -19,6 +19,11 @@ namespace Utility
 		{
 			return new SerializableEnumDictionary<TKey, TValue>(dictionary);
 		}
+		
+		public static implicit operator Dictionary<TKey, TValue>(SerializableEnumDictionary<TKey, TValue> serializableDictionary)
+		{
+			return serializableDictionary.InternalList.ToDictionary(pair => pair.Key, keyValuePair => keyValuePair.Value);
+		}
 
 		public SerializableEnumDictionary(IEnumerable<SerializableKeyValuePair<TKey, TValue>> list) : base(list)
 		{
@@ -32,12 +37,22 @@ namespace Utility
 		{
 		}
 
+		#region ISerializationCallbackReceiver
+
+		public override void OnBeforeSerialize()
+		{
+			base.OnBeforeSerialize();
+			Populate();
+		}
+
+		#endregion
+		
 		/// <summary>
 		/// Automatically fills the dictionary with an entry for every enum value
 		/// </summary>
-		public void Populate()
+		private void Populate()
 		{
-			EnumDictionaryUtil.PopulateEnumDictionary<SerializableKeyValuePair<TKey, TValue>, TKey, TValue>(internalList);
+			EnumDictionaryUtil.PopulateEnumDictionary<SerializableKeyValuePair<TKey, TValue>, TKey, TValue>(serializedList);
 		}
 	}
 }

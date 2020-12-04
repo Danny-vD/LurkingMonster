@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
+using JetBrains.Annotations;
 using Structs.Utility;
 using UnityEngine;
 
@@ -10,22 +12,28 @@ namespace Utility
 	/// <summary>
 	/// A 'fake' dictionary that can be serialized
 	/// </summary>
-	[Serializable]
-	public class SerializableDictionary<TKey, TValue> : IDictionary<TKey, TValue>, /*ICollection<SerializableKeyValuePair<TKey, TValue>>,*/ IEnumerable<SerializableKeyValuePair<TKey, TValue>>
+	[Serializable, DebuggerDisplay("Count = {Count}")]
+	public class SerializableDictionary<TKey, TValue> : IDictionary<TKey, TValue>, IDictionary, ISerializationCallbackReceiver
 	{
 		#region Fields
 
-		[SerializeField]
-		protected List<SerializableKeyValuePair<TKey, TValue>> internalList = new List<SerializableKeyValuePair<TKey, TValue>>();
+		// Used implicitly to draw the warning
+		[SerializeField, UsedImplicitly]
+		private bool distinctKeys;
 
-		public ICollection<TKey> Keys => internalList.Select(pair => pair.Key).ToArray();
-		public ICollection<TValue> Values => internalList.Select(pair => pair.Value).ToArray();
-		
+		[SerializeField, UsedImplicitly]
+		private int actualCount;
+
+		[SerializeField]
+		protected List<SerializableKeyValuePair<TKey, TValue>> serializedList = new List<SerializableKeyValuePair<TKey, TValue>>();
+
+		protected List<SerializableKeyValuePair<TKey, TValue>> InternalList = new List<SerializableKeyValuePair<TKey, TValue>>();
+
 		#endregion
 
 		#region Operators
 
-		public static implicit operator SerializableDictionary<TKey, TValue>(List<SerializableKeyValuePair<TKey, TValue>> list)
+		public static explicit operator SerializableDictionary<TKey, TValue>(List<SerializableKeyValuePair<TKey, TValue>> list)
 		{
 			return new SerializableDictionary<TKey, TValue>(list);
 		}
@@ -33,6 +41,11 @@ namespace Utility
 		public static implicit operator SerializableDictionary<TKey, TValue>(Dictionary<TKey, TValue> dictionary)
 		{
 			return new SerializableDictionary<TKey, TValue>(dictionary);
+		}
+
+		public static implicit operator Dictionary<TKey, TValue>(SerializableDictionary<TKey, TValue> serializableDictionary)
+		{
+			return serializableDictionary.InternalList.ToDictionary(pair => pair.Key, keyValuePair => keyValuePair.Value);
 		}
 
 		#endregion
@@ -49,8 +62,31 @@ namespace Utility
 			set => Add(key, value);
 		}
 
-		public int Count => internalList.Count;
+		public object this[object key]
+		{
+			get
+			{
+				TryGetValue(key, out TValue value);
+				return value;
+			}
+			set => ((IDictionary) this).Add(key, value);
+		}
+
+		public int Count => InternalList.Count;
+		
+		public object SyncRoot => ((ICollection) InternalList).SyncRoot;
+		
+		public bool IsFixedSize => false;
+		public bool IsSynchronized => false;
 		public bool IsReadOnly => false;
+
+		public ICollection<TKey> Keys => InternalList.Select(pair => pair.Key).ToArray();
+
+		public ICollection<TValue> Values => InternalList.Select(pair => pair.Value).ToArray();
+
+		ICollection IDictionary.Values => (ICollection) Keys;
+
+		ICollection IDictionary.Keys => (ICollection) Values;
 
 		#endregion
 
@@ -62,14 +98,22 @@ namespace Utility
 
 		public SerializableDictionary(IEnumerable<SerializableKeyValuePair<TKey, TValue>> list)
 		{
-			internalList = list.Distinct().ToList();
+			InternalList = list.Distinct().ToList();
 		}
 
 		public SerializableDictionary(params SerializableKeyValuePair<TKey, TValue>[] keyValuePairs) : this(keyValuePairs.Distinct())
 		{
 		}
 
-		public SerializableDictionary(Dictionary<TKey, TValue> dictionary) : this()
+		public SerializableDictionary(Dictionary<TKey, TValue> dictionary)
+		{
+			foreach (KeyValuePair<TKey, TValue> pair in dictionary)
+			{
+				Add(pair.Key, pair.Value);
+			}
+		}
+		
+		public SerializableDictionary(SerializableDictionary<TKey, TValue> dictionary)
 		{
 			foreach (KeyValuePair<TKey, TValue> pair in dictionary)
 			{
@@ -79,45 +123,45 @@ namespace Utility
 
 		#endregion
 
-		#region IDictionary<>
+		#region IDictionary
 
 		public void Add(TKey key, TValue value)
 		{
-			int index = FindPair(key);
+			int index = FindEntry(key);
 
 			// FindIndex returns -1 if it's not present
 			if (index < 0)
 			{
-				internalList.Add(new SerializableKeyValuePair<TKey, TValue>(key, value));
+				InternalList.Add(new SerializableKeyValuePair<TKey, TValue>(key, value));
 				return;
 			}
 
-			SerializableKeyValuePair<TKey, TValue> pair = internalList[index];
+			SerializableKeyValuePair<TKey, TValue> pair = InternalList[index];
 			pair.Value = value;
 
-			internalList[index] = pair;
+			InternalList[index] = pair;
 		}
 
 		public bool Remove(TKey key)
 		{
-			int index = FindPair(key);
+			int index = FindEntry(key);
 
 			if (index < 0)
 			{
 				return false;
 			}
 
-			internalList.RemoveAt(index);
+			InternalList.RemoveAt(index);
 			return true;
 		}
-		
+
 		public bool TryGetValue(TKey key, out TValue value)
 		{
-			int index = FindPair(key);
+			int index = FindEntry(key);
 
 			if (index >= 0)
 			{
-				value = internalList[index].Value;
+				value = InternalList[index].Value;
 				return true;
 			}
 
@@ -125,84 +169,141 @@ namespace Utility
 			return false;
 		}
 
+		void IDictionary.Add(object key, object value)
+		{
+			VerifyKey(key);
+			
+			VerifyValue(value);
+
+			Add((TKey) key, (TValue) value);
+		}
+
+		void IDictionary.Remove(object key)
+		{
+			VerifyKey(key);
+
+			Remove((TKey) key);
+		}
+
+		bool IDictionary.Contains(object key)
+		{
+			return VerifyKey(key) && ContainsKey((TKey) key);
+		}
+
 		#endregion
 
 		#region ICollection
-		
-		public void Add(SerializableKeyValuePair<TKey, TValue> item)
-		{
-			if (!internalList.Contains(item))
-			{
-				internalList.Add(item);
-			}
-		}
-		
+
 		public void Add(KeyValuePair<TKey, TValue> item)
 		{
-			Add((SerializableKeyValuePair<TKey, TValue>) item);
+			if (!InternalList.Contains(item))
+			{
+				InternalList.Add(item);
+			}
 		}
 
 		public bool Remove(KeyValuePair<TKey, TValue> item)
 		{
-			return internalList.Remove(item);
+			return InternalList.Remove(item);
 		}
 
 		public void Clear()
 		{
-			internalList.Clear();
+			InternalList.Clear();
 		}
 
-		public bool Contains(KeyValuePair<TKey, TValue> item) => internalList.Contains(item);
-		
+		public bool Contains(KeyValuePair<TKey, TValue> item) => InternalList.Contains(item);
+
 		public void CopyTo(KeyValuePair<TKey, TValue>[] array, int arrayIndex)
 		{
 			ToKeyValuePair().ToList().CopyTo(array, arrayIndex);
 		}
 
+		public void CopyTo(Array array, int index)
+		{
+			((ICollection) InternalList).CopyTo(array, index);
+		}
+
 		#endregion
+
+		#region ISerializationCallbackReceiver
+
+		public virtual void OnBeforeSerialize()
+		{
+		}
+
+		public virtual void OnAfterDeserialize()
+		{
+			InternalList = serializedList.Distinct().ToList();
+			actualCount  = InternalList.Count;
+
+			distinctKeys = actualCount == serializedList.Count;
+		}
+
+		#endregion
+
+		#region IEnumerable
+
+		public IEnumerator<KeyValuePair<TKey, TValue>> GetEnumerator() =>
+			ToKeyValuePair().GetEnumerator();
+
+		IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
+
+		IDictionaryEnumerator IDictionary.GetEnumerator() => ((Dictionary<TKey, TValue>) this).GetEnumerator();
+
+		#endregion
+		
+		#region Public
+
+		public bool TryGetValue(object key, out TValue value)
+		{
+			VerifyKey(key);
+
+			int index = FindEntry((TKey) key);
+
+			if (index >= 0)
+			{
+				value = InternalList[index].Value;
+				return true;
+			}
+
+			value = default;
+			return false;
+		}
 
 		public bool ContainsKey(TKey key)
 		{
-			return internalList.Any(pair => pair.Key.Equals(key));
+			return FindEntry(key) >= 0;
 		}
 
 		public bool ContainsValue(TValue value)
 		{
-			return internalList.Any(pair => pair.Value.Equals(value));
+			return InternalList.Any(pair => pair.Value.Equals(value));
 		}
-
-		#region IEnumerable
-
-		IEnumerator<KeyValuePair<TKey, TValue>> IEnumerable<KeyValuePair<TKey, TValue>>.GetEnumerator() =>
-			ToKeyValuePair().GetEnumerator();
-
-		public IEnumerator<SerializableKeyValuePair<TKey, TValue>> GetEnumerator() => internalList.GetEnumerator();
-
-		IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
 
 		#endregion
 
 		#region Private
 
-		private static void VerifyKey(object key)
+		private static bool VerifyKey(object key)
 		{
 			switch (key)
 			{
+				case TKey _:
+					return true;
 				case null:
 					throw new ArgumentNullException(nameof(key), "null is not allowed for a key");
-				case TKey _:
-					return;
 				default:
 					throw new ArgumentException($"{key} is not of type {typeof(TKey).Name}", nameof(key));
 			}
 		}
 
-		private static void VerifyValue(object value)
+		private static bool VerifyValue(object value)
 		{
 			switch (value)
 			{
 				case TValue _:
-					return;
+					return true;
 				case null when typeof(TValue).IsValueType:
 					throw new ArgumentNullException(nameof(value), $"null while {typeof(TValue).Name} cannot be null");
 				default:
@@ -212,17 +313,20 @@ namespace Utility
 
 		private IEnumerable<KeyValuePair<TKey, TValue>> ToKeyValuePair()
 		{
-			return internalList.Select(pair => (KeyValuePair<TKey, TValue>) pair);
+			return InternalList.Select(pair => (KeyValuePair<TKey, TValue>) pair);
 		}
 
 		private SerializableKeyValuePair<TKey, TValue> GetPair(TKey key)
 		{
-			return internalList.First(pair => pair.Key.Equals(key));
+			return InternalList.First(pair => pair.Key.Equals(key));
 		}
 
-		private int FindPair(TKey key)
+		/// <summary>
+		/// Returns the index of the dictionaryEntry of a given key
+		/// </summary>
+		private int FindEntry(TKey key)
 		{
-			int index = internalList.FindIndex(pair => pair.Key.Equals(key));
+			int index = InternalList.FindIndex(pair => pair.Key.Equals(key));
 			return index;
 		}
 
