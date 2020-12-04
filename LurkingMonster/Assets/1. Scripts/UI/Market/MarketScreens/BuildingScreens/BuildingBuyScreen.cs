@@ -5,11 +5,11 @@ using UnityEngine;
 
 namespace UI.Market.MarketScreens.BuildingScreens
 {
-	public class BuildingBuyScreen : AbstractMarketBuyScreen<BuildingType, BuildingButtonData>
+	public class BuildingBuyScreen : AbstractMarketBuyScreen<BuildingType>
 	{
-		protected override void OnSelectBuyButton(AbstractBuildingTile tile, BuildingButtonData data)
+		protected override void OnSelectBuyButton(AbstractBuildingTile tile, BuildingType buyType)
 		{
-			tile.SetBuildingType(data.Key);
+			tile.SetBuildingType(buyType);
 		}
 
 		protected override void BuyButtonClick(AbstractBuildingTile tile, MarketManager manager)

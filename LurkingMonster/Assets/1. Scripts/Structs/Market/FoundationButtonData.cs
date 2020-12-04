@@ -1,32 +1,19 @@
 ﻿using System;
-using Enums;
-using Interfaces;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
-using VDFramework.Interfaces;
 
 namespace Structs.Market
 {
 	[Serializable]
-	public struct FoundationButtonData : IKeyValuePair<FoundationType, Button>, IBuyButtonData
+	public struct BuyButtonData : IEquatable<BuyButtonData>
 	{
-		[SerializeField]
-		private FoundationType foundationType;
-
 		[SerializeField]
 		private Button button;
 
 		[SerializeField]
 		private BuyButtonText text;
 
-		public FoundationType Key
-		{
-			get => foundationType;
-			set => foundationType = value;
-		}
-
-		public Button Value
+		public Button Button
 		{
 			get => button;
 			set => button = value;
@@ -34,6 +21,6 @@ namespace Structs.Market
 
 		public BuyButtonText Text => text;
 
-		public bool Equals(IKeyValuePair<FoundationType, Button> other) => Key.Equals(other.Key);
+		public bool Equals(BuyButtonData other) => button.Equals(other.button);
 	}
 }

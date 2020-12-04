@@ -60,6 +60,14 @@ namespace ExtentionMethods
 			
 			transformToRotate.Rotate(transformToRotate.up, stepsToRotate * rotateStepDegrees);
 		}
+		
+		/// <summary>
+		/// Rotates the transform so that a certain direction will be facing another direction
+		/// </summary>
+		public static void DirectionLookAtDirection(this Transform transformToRotate, Direction directionToRotate, Vector3 lookAtDirection)
+		{
+			transformToRotate.DirectionLookAtPoint(directionToRotate, transformToRotate.position + lookAtDirection);
+		}
 
 		/// <summary>
 		/// Rotates the transform so that the forward looks in a certain direction
