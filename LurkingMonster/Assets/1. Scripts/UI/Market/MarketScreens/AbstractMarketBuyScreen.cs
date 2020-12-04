@@ -4,6 +4,7 @@ using Grid.Tiles.Buildings;
 using Interfaces;
 using UnityEngine;
 using UnityEngine.UI;
+using Utility;
 using VDFramework.Interfaces;
 using VDFramework.Utility;
 
@@ -18,6 +19,8 @@ namespace UI.Market.MarketScreens
 
 #pragma warning disable 649 // is generic, therefore not recognised as serialized, but it does work
 		[SerializeField]
+		private SerializableEnumDictionary<TBuyType, TBuyButtonData> test;
+		
 		private List<TBuyButtonData> buyButtonData;
 #pragma warning restore 649
 

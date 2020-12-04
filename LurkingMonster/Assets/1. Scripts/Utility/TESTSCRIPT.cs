@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using Enums;
+﻿using Enums;
 using UnityEngine;
 using VDFramework;
 
@@ -16,8 +15,6 @@ namespace Utility
 		[ContextMenu("Test")]
 		private void Test()
 		{
-			Dictionary<SoilType, string> dict;
-			
 			enumDictionary.Populate();
 		}
 	}
