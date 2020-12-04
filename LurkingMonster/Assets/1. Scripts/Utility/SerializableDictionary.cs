@@ -11,13 +11,16 @@ namespace Utility
 	/// A 'fake' dictionary that can be serialized
 	/// </summary>
 	[Serializable]
-	public class SerializableDictionary<TKey, TValue> : IEnumerable<SerializableKeyValuePair<TKey, TValue>>, IDictionary<TKey, TValue>
+	public class SerializableDictionary<TKey, TValue> : IDictionary<TKey, TValue>, /*ICollection<SerializableKeyValuePair<TKey, TValue>>,*/ IEnumerable<SerializableKeyValuePair<TKey, TValue>>
 	{
 		#region Fields
 
 		[SerializeField]
 		protected List<SerializableKeyValuePair<TKey, TValue>> internalList = new List<SerializableKeyValuePair<TKey, TValue>>();
 
+		public ICollection<TKey> Keys => internalList.Select(pair => pair.Key).ToArray();
+		public ICollection<TValue> Values => internalList.Select(pair => pair.Value).ToArray();
+		
 		#endregion
 
 		#region Operators
@@ -38,9 +41,16 @@ namespace Utility
 
 		public TValue this[TKey key]
 		{
-			get => GetValue(key);
+			get
+			{
+				TryGetValue(key, out TValue value);
+				return value;
+			}
 			set => Add(key, value);
 		}
+
+		public int Count => internalList.Count;
+		public bool IsReadOnly => false;
 
 		#endregion
 
@@ -73,7 +83,7 @@ namespace Utility
 
 		public void Add(TKey key, TValue value)
 		{
-			int index = GetIndex(key);
+			int index = FindPair(key);
 
 			// FindIndex returns -1 if it's not present
 			if (index < 0)
@@ -90,7 +100,7 @@ namespace Utility
 
 		public bool Remove(TKey key)
 		{
-			int index = GetIndex(key);
+			int index = FindPair(key);
 
 			if (index < 0)
 			{
@@ -100,37 +110,56 @@ namespace Utility
 			internalList.RemoveAt(index);
 			return true;
 		}
+		
+		public bool TryGetValue(TKey key, out TValue value)
+		{
+			int index = FindPair(key);
+
+			if (index >= 0)
+			{
+				value = internalList[index].Value;
+				return true;
+			}
+
+			value = default;
+			return false;
+		}
 
 		#endregion
 
 		#region ICollection
 		
-		public void Add(KeyValuePair<TKey, TValue> item)
+		public void Add(SerializableKeyValuePair<TKey, TValue> item)
 		{
 			if (!internalList.Contains(item))
 			{
 				internalList.Add(item);
 			}
 		}
+		
+		public void Add(KeyValuePair<TKey, TValue> item)
+		{
+			Add((SerializableKeyValuePair<TKey, TValue>) item);
+		}
 
 		public bool Remove(KeyValuePair<TKey, TValue> item)
 		{
 			return internalList.Remove(item);
 		}
-		
+
 		public void Clear()
 		{
 			internalList.Clear();
 		}
 
 		public bool Contains(KeyValuePair<TKey, TValue> item) => internalList.Contains(item);
+		
+		public void CopyTo(KeyValuePair<TKey, TValue>[] array, int arrayIndex)
+		{
+			ToKeyValuePair().ToList().CopyTo(array, arrayIndex);
+		}
 
 		#endregion
-
-		public TValue GetValue(TKey key)
-		{
-			return GetPair(key).Value;
-		}
 
 		public bool ContainsKey(TKey key)
 		{
@@ -191,7 +220,7 @@ namespace Utility
 			return internalList.First(pair => pair.Key.Equals(key));
 		}
 
-		private int GetIndex(TKey key)
+		private int FindPair(TKey key)
 		{
 			int index = internalList.FindIndex(pair => pair.Key.Equals(key));
 			return index;
