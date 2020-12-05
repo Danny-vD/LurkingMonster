@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using UnityEditor;
@@ -58,12 +57,15 @@ namespace PropertyDrawers
 		{
 			if (IsFoldOut(ref foldoutDictionary, $"{dictionaryName}"))
 			{
-				SerializedProperty list = property.FindPropertyRelative("serializedList");
-				bool conflicts = !property.FindPropertyRelative("distinctKeys").boolValue;
+				SerializedProperty list = property.FindPropertyRelative("serializedDictionary");
+				
+				List<string> pairLabels = GetLabels(list, "key");
+				int actualCount = pairLabels.Distinct().Count(); 
+				bool conflicts = actualCount != pairLabels.Count;
 				
 				if (conflicts)
 				{
-					DrawWarning(property);
+					DrawWarning(actualCount);
 				}
 				
 				DrawSizeField(list);
@@ -78,7 +80,7 @@ namespace PropertyDrawers
 			}
 		}
 		
-		private void DrawWarning(SerializedProperty property)
+		private void DrawWarning(int actualCount)
 		{
 			Rect rect = new Rect(xpos, ypos, maxWidth - xpos, warningHeight);
 			EditorGUI.HelpBox(rect, "Duplicate keys found! These will be removed after serialization.", MessageType.Warning);
@@ -87,10 +89,8 @@ namespace PropertyDrawers
 			
 			rect.y      = ypos;
 			rect.height = 20.0f;
-			
-			int actualSize = property.FindPropertyRelative("actualCount").intValue;
 
-			EditorGUI.LabelField(rect, $"Actual Size: {actualSize}");
+			EditorGUI.LabelField(rect, $"Actual Size: {actualCount}");
 			
 			ypos += 20.0f;
 			ypos += spacingWarningToDictionary;
@@ -158,6 +158,21 @@ namespace PropertyDrawers
 			return foldout;
 		}
 
+		private static List<string> GetLabels(SerializedProperty list, string keyName)
+		{
+			List<string> labels = new List<string>();
+			
+			for (int i = 0; i < list.arraySize; i++)
+			{
+				SerializedProperty @struct = list.GetArrayElementAtIndex(i);
+				SerializedProperty key = @struct.FindPropertyRelative(keyName);
+				
+				labels.Add(GetPairLabel(key, i));
+			}
+
+			return labels;
+		}
+
 		private static string GetPairLabel(SerializedProperty key, int index)
 		{
 			string defaultText = $"Pair {index}";
@@ -173,7 +188,9 @@ namespace PropertyDrawers
 				case SerializedPropertyType.Float:
 					return key.floatValue.ToString(CultureInfo.InvariantCulture);
 				case SerializedPropertyType.String:
-					return key.stringValue;
+					string stringValue = key.stringValue;
+					
+					return string.IsNullOrEmpty(stringValue) ? nameof(string.Empty) : key.stringValue;
 				case SerializedPropertyType.Color:
 					return key.colorValue.ToString();
 				case SerializedPropertyType.ObjectReference:
