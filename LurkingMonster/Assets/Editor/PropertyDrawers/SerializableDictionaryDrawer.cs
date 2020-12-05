@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using UnityEditor;
@@ -14,6 +13,7 @@ namespace PropertyDrawers
 	public class SerializableDictionaryDrawer : PropertyDrawer
 	{
 		// Constants, for consistent layout
+		private const float spacingWarningToDictionary = 5.0f;
 		private const float spacingDictionaryToPairs = 5.0f;
 		private const float spacingLabelToPair = 0.0f;
 		private const float pairIndent = 10.0f;
@@ -22,6 +22,7 @@ namespace PropertyDrawers
 		private const float paddingAtEndOfProperty = 0.0f;
 
 		private const float foldoutHeight = 20.0f;
+		private const float warningHeight = 30.0f;
 
 		// Instance variables, to allow variable size between properties
 		private Vector2 origin;
@@ -45,35 +46,28 @@ namespace PropertyDrawers
 			ypos     = origin.y;
 			maxWidth = position.width;
 
-			SerializedProperty list = property.FindPropertyRelative("internalList");
-
-			DrawDictionary(list, property.name);
+			DrawDictionary(property, property.name);
 
 			propertySize += paddingAtEndOfProperty;
 
 			EditorGUI.EndProperty();
 		}
 
-		private void ResizeFoldouts(SerializedProperty list)
-		{
-			if (foldouts == null)
-			{
-				foldouts = new bool[list.arraySize];
-				return;
-			}
-			
-			if (foldouts.Length != list.arraySize)
-			{
-				List<bool> temp = foldouts.ToList();
-				temp.ResizeList(list.arraySize);
-				foldouts = temp.ToArray();
-			}
-		}
-
-		private void DrawDictionary(SerializedProperty list, string dictionaryName)
+		private void DrawDictionary(SerializedProperty property, string dictionaryName)
 		{
 			if (IsFoldOut(ref foldoutDictionary, $"{dictionaryName}"))
 			{
+				SerializedProperty list = property.FindPropertyRelative("serializedDictionary");
+				
+				List<string> pairLabels = GetLabels(list, "key");
+				int actualCount = pairLabels.Distinct().Count(); 
+				bool conflicts = actualCount != pairLabels.Count;
+				
+				if (conflicts)
+				{
+					DrawWarning(actualCount);
+				}
+				
 				DrawSizeField(list);
 				ResizeFoldouts(list);
 
@@ -83,6 +77,38 @@ namespace PropertyDrawers
 
 				// Size = Y pos of end - Y pos of beginning - spacing at end of last pair
 				propertySize = ypos - origin.y - spacingBetweenPairs;
+			}
+		}
+		
+		private void DrawWarning(int actualCount)
+		{
+			Rect rect = new Rect(xpos, ypos, maxWidth - xpos, warningHeight);
+			EditorGUI.HelpBox(rect, "Duplicate keys found! These will be removed after serialization.", MessageType.Warning);
+
+			ypos += warningHeight;
+			
+			rect.y      = ypos;
+			rect.height = 20.0f;
+
+			EditorGUI.LabelField(rect, $"Actual Size: {actualCount}");
+			
+			ypos += 20.0f;
+			ypos += spacingWarningToDictionary;
+		}
+
+		private void ResizeFoldouts(SerializedProperty list)
+		{
+			if (foldouts == null)
+			{
+				foldouts = new bool[list.arraySize];
+				return;
+			}
+
+			if (foldouts.Length != list.arraySize)
+			{
+				List<bool> temp = foldouts.ToList();
+				temp.ResizeList(list.arraySize);
+				foldouts = temp.ToArray();
 			}
 		}
 
@@ -96,12 +122,12 @@ namespace PropertyDrawers
 
 		private void DrawPair(int index, SerializedProperty key, SerializedProperty value)
 		{
-			if (IsFoldOut(ref foldouts[index], GetPairLabel(key, index)))
+			if (IsFoldOut(ref foldouts[index], GetPairLabel(key, index).ReplaceUnderscoreWithSpace()))
 			{
 				ypos += spacingLabelToPair;
 				DrawVariable(key, new GUIContent($"Key [{key.type}]"));
-				ypos += spacingBetweenPairValues;
 
+				ypos += spacingBetweenPairValues;
 				DrawVariable(value, new GUIContent($"Value [{value.type}]"));
 			}
 
@@ -132,6 +158,21 @@ namespace PropertyDrawers
 			return foldout;
 		}
 
+		private static List<string> GetLabels(SerializedProperty list, string keyName)
+		{
+			List<string> labels = new List<string>();
+			
+			for (int i = 0; i < list.arraySize; i++)
+			{
+				SerializedProperty @struct = list.GetArrayElementAtIndex(i);
+				SerializedProperty key = @struct.FindPropertyRelative(keyName);
+				
+				labels.Add(GetPairLabel(key, i));
+			}
+
+			return labels;
+		}
+
 		private static string GetPairLabel(SerializedProperty key, int index)
 		{
 			string defaultText = $"Pair {index}";
@@ -147,7 +188,9 @@ namespace PropertyDrawers
 				case SerializedPropertyType.Float:
 					return key.floatValue.ToString(CultureInfo.InvariantCulture);
 				case SerializedPropertyType.String:
-					return key.stringValue;
+					string stringValue = key.stringValue;
+					
+					return string.IsNullOrEmpty(stringValue) ? nameof(string.Empty) : key.stringValue;
 				case SerializedPropertyType.Color:
 					return key.colorValue.ToString();
 				case SerializedPropertyType.ObjectReference:

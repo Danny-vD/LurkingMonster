@@ -37,22 +37,18 @@ namespace Utility
 		{
 		}
 
-		#region ISerializationCallbackReceiver
-
 		public override void OnBeforeSerialize()
 		{
 			base.OnBeforeSerialize();
 			Populate();
 		}
-
-		#endregion
 		
 		/// <summary>
 		/// Automatically fills the dictionary with an entry for every enum value
 		/// </summary>
 		private void Populate()
 		{
-			EnumDictionaryUtil.PopulateEnumDictionary<SerializableKeyValuePair<TKey, TValue>, TKey, TValue>(serializedList);
+			EnumDictionaryUtil.PopulateEnumDictionary<SerializableKeyValuePair<TKey, TValue>, TKey, TValue>(serializedDictionary);
 		}
 	}
 }
