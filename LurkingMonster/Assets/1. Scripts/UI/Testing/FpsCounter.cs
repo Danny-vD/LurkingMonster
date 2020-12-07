@@ -7,11 +7,10 @@ namespace UI.Testing
 	public class FpsCounter : BetterMonoBehaviour
 	{
 		private Text fps;
-		
+
 		private void Start()
 		{
-			fps                         = GetComponent<Text>();
-			Application.targetFrameRate = 60;
+			fps = GetComponent<Text>();
 		}
 
 		private void Update()

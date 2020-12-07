@@ -1,6 +1,7 @@
 ﻿using UnityEditor;
 using UnityEngine;
 using Utility;
+using VDFramework.Extensions;
 using static Utility.EditorUtils;
 
 namespace PropertyDrawers
@@ -38,7 +39,7 @@ namespace PropertyDrawers
 			ypos     = origin.y;
 			maxWidth = position.width;
 
-			SerializedProperty list = property.FindPropertyRelative("internalList");
+			SerializedProperty list = property.FindPropertyRelative("serializedDictionary");
 
 			DrawDictionary(list, property.name);
 
@@ -78,7 +79,7 @@ namespace PropertyDrawers
 				return;
 			}
 			
-			if (IsFoldOut(ref foldouts[index], enumNames[enumIndex]))
+			if (IsFoldOut(ref foldouts[index], enumNames[enumIndex].ReplaceUnderscoreWithSpace()))
 			{
 				ypos += spacingKeyToValue;
 

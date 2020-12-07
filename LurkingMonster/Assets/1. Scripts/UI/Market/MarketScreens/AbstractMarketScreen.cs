@@ -53,6 +53,7 @@ namespace UI.Market.MarketScreens
 			if (!button)
 			{
 				Debug.LogWarning("A button is not set in the inspector!", this);
+				return;
 			}
 
 			button.onClick.RemoveAllListeners();

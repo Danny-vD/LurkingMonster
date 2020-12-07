@@ -5,23 +5,17 @@ using UnityEngine;
 
 namespace UI.Market.MarketScreens.FoundationScreens
 {
-	public class FoundationBuyScreen : AbstractMarketBuyScreen<FoundationType, FoundationButtonData>
+	public class FoundationBuyScreen : AbstractMarketBuyScreen<FoundationType>
 	{
-		protected override void OnSelectBuyButton(AbstractBuildingTile tile, FoundationButtonData data)
+		protected override void OnSelectBuyButton(AbstractBuildingTile tile, FoundationType buyType)
 		{
-			tile.SetFoundationType(data.Key);
+			tile.SetFoundationType(buyType);
 		}
 
 		protected override void BuyButtonClick(AbstractBuildingTile tile, MarketManager manager)
 		{
 			tile.SpawnFoundation();
 			base.BuyButtonClick(tile, manager);
-		}
-		
-		[ContextMenu("Populate")]
-		private void Populate()
-		{
-			PopulateDictionary();
 		}
 	}
 }
