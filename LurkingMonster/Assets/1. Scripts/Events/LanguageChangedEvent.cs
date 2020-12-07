@@ -4,6 +4,5 @@ namespace Events
 {
 	public class LanguageChangedEvent : VDEvent<LanguageChangedEvent>
 	{
-		
 	}
 }

@@ -38,8 +38,7 @@ namespace _1._Scripts.Tutorial
 		{
 			if (!paused && !TimeManager.Instance.IsPaused())
 			{
-				paused = true;
-				Invoke(nameof(PauseGame), 1.0f);
+				PauseGame();
 			}
 		}
 		

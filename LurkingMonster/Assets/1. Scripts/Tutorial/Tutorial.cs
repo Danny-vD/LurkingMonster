@@ -1,4 +1,5 @@
-﻿using TMPro;
+﻿using Singletons;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -9,6 +10,8 @@ namespace Tutorial
 {
 	public class Tutorial : BetterMonoBehaviour
 	{
+		public int Order;
+		
 		private string[] jsonKeys;
 
 		[SerializeField]
@@ -21,9 +24,7 @@ namespace Tutorial
 		private int jsonCount;
 
 		private static int beginIndex = 1;
-		
-		public int Order;
-		
+
 		private TextMeshProUGUI explainText;
 
 		private GameObject narrator;
@@ -57,8 +58,6 @@ namespace Tutorial
 			index         = 0;
 		}
 
-	
-
 		protected virtual void ReachEndOfText()
 		{
 		}
@@ -90,7 +89,7 @@ namespace Tutorial
 
 		private void SetText(string jsonKey)
 		{
-			explainText.text = LanguageUtil.GetJsonString(jsonKey);
+			explainText.text = LanguageUtil.GetJsonString(jsonKey, UserSettings.GameData.UserName, UserSettings.GameData.CityName);
 		}
 
 		protected void SetNextButton(UnityAction onclick)
