@@ -41,7 +41,7 @@ namespace PropertyDrawers
 
 			SerializedProperty list = property.FindPropertyRelative("serializedDictionary");
 
-			DrawDictionary(list, property.name);
+			DrawDictionary(list, property.displayName);
 
 			propertySize += paddingAtEndOfProperty;
 		}

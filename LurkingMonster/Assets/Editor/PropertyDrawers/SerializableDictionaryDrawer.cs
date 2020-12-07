@@ -46,7 +46,7 @@ namespace PropertyDrawers
 			ypos     = origin.y;
 			maxWidth = position.width;
 
-			DrawDictionary(property, property.name);
+			DrawDictionary(property, property.displayName);
 
 			propertySize += paddingAtEndOfProperty;
 
