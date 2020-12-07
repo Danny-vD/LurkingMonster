@@ -231,7 +231,109 @@
         },
         {
           "Key": "EN",
-          "Value": "Great! Now the soil needs to be hydrated. You know what to do! Double-tap on the pop-up"
+          "Value": "Dominique will add text here (click soil button)"
+        },
+        {
+          "Key": "DE",
+          "Value": ""
+        }
+      ]
+    },
+    {
+      "Key": "TUTORIAL_15",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "Vertaald worden!"
+        },
+        {
+          "Key": "EN",
+          "Value": "Great! Now the soil needs to be hydrated. You know what to do! Click the repair button"
+        },
+        {
+          "Key": "DE",
+          "Value": ""
+        }
+      ]
+    },
+    {
+      "Key": "TUTORIAL_16",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "Vertaald worden!"
+        },
+        {
+          "Key": "EN",
+          "Value": "Good job, now the house will be liveable again and you can collect rent.\n\nOh, I’m sorry, I completely missed your name! What was it again?"
+        },
+        {
+          "Key": "DE",
+          "Value": ""
+        }
+      ]
+    },
+    {
+      "Key": "TUTORIAL_17",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "Vertaald worden!"
+        },
+        {
+          "Key": "EN",
+          "Value": "Nice to meet you {0}, this city still needs a name. could you give it one?"
+        },
+        {
+          "Key": "DE",
+          "Value": ""
+        }
+      ]
+    },
+    {
+      "Key": "TUTORIAL_18",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "Vertaald worden!"
+        },
+        {
+          "Key": "EN",
+          "Value": "That’s a great name! You can find it on the city name sign"
+        },
+        {
+          "Key": "DE",
+          "Value": ""
+        }
+      ]
+    },
+    {
+      "Key": "TUTORIAL_19",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "Vertaald worden!"
+        },
+        {
+          "Key": "EN",
+          "Value": "Now that your city has a name, you should build some more houses to accommodate the people.\n\nJust double tap on an empty plot and you can start building from scratch."
+        },
+        {
+          "Key": "DE",
+          "Value": ""
+        }
+      ]
+    },
+    {
+      "Key": "TUTORIAL_20",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "Vertaald worden!"
+        },
+        {
+          "Key": "EN",
+          "Value": "Here is some money to get started!\n\nBut be careful!\n\nYou don't want to get more calls about foundation problems in the future... make wise choices during the building process."
         },
         {
           "Key": "DE",

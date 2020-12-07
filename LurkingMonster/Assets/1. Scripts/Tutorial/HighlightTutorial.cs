@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 namespace _1._Scripts.Tutorial
 {
-	public class HighlightTutorial : Tutorial
+	public class HighlightTutorial : global::Tutorial.Tutorial
 	{
 		[SerializeField]
 		private GameObject highlight;

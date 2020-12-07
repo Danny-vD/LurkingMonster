@@ -8,7 +8,7 @@ using VDFramework.EventSystem;
 
 namespace _1._Scripts.Tutorial
 {
-	public class RepairTutorial : Tutorial
+	public class RepairTutorial : global::Tutorial.Tutorial
 	{
 		[SerializeField]
 		private Material material;

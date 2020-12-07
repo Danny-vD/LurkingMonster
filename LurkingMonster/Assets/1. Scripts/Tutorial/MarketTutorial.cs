@@ -7,7 +7,7 @@ using VDFramework.EventSystem;
 
 namespace _1._Scripts.Tutorial
 {
-	public class MarketTutorial : Tutorial
+	public class MarketTutorial : global::Tutorial.Tutorial
 	{
 		[SerializeField]
 		private Material material;

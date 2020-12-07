@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using Singletons;
-using VDFramework;
 using UnityEngine;
-using UnityEngine.Serialization;
-using UnityEngine.UI;
 using VDFramework.Singleton;
 
 namespace _1._Scripts.Tutorial
@@ -17,29 +13,39 @@ namespace _1._Scripts.Tutorial
 		[SerializeField]
 		private GameObject arrow;
 		
-		private Tutorial[] tutorials;
+		private global::Tutorial.Tutorial[] tutorials;
 		
-		private Tutorial currentTutorial;
+		private global::Tutorial.Tutorial currentTutorial;
 
 		public bool IsActive { get; private set; }
 
+		private bool paused;
+
 		private void Start()
 		{
+			if (UserSettings.SettingsExist)
+			{
+				Destroy(CachedGameObject);
+				return;
+			}
+			
 			IsActive  = true;
-			tutorials = GetComponents<Tutorial>();
+			tutorials = GetComponents<global::Tutorial.Tutorial>();
 			SetNextTutorial(0);
 		}
 
 		private void Update()
 		{
-			if (!TimeManager.Instance.IsPaused())
+			if (!paused && !TimeManager.Instance.IsPaused())
 			{
-				TimeManager.Instance.Pause();
+				paused = true;
+				Invoke(nameof(PauseGame), 1.0f);
 			}
 		}
-
+		
 		public void CompletedTutorial()
 		{
+			paused = false;
 			SetNextTutorial(currentTutorial.Order + 1);
 		}
 
@@ -65,7 +71,7 @@ namespace _1._Scripts.Tutorial
 			Destroy(gameObject);
 		}
 
-		private Tutorial GetTutorialByOrder(int order)
+		private global::Tutorial.Tutorial GetTutorialByOrder(int order)
 		{
 			for (int i = 0; i < tutorials.Length; i++)
 			{
@@ -76,6 +82,11 @@ namespace _1._Scripts.Tutorial
 			}
 
 			return null;
+		}
+
+		private void PauseGame()
+		{
+			TimeManager.Instance.Pause();
 		}
 	}
 }

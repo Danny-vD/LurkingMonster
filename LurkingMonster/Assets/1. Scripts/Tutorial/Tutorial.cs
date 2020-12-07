@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using TMPro;
-using Unity.Collections;
+﻿using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 using Utility;
 using VDFramework;
 
-namespace _1._Scripts.Tutorial
+namespace Tutorial
 {
 	public class Tutorial : BetterMonoBehaviour
 	{
@@ -105,12 +102,12 @@ namespace _1._Scripts.Tutorial
 		[ContextMenu("Json")]
 		private void FillJsonKey()
 		{
+			jsonKeys = new string[jsonCount];
+			
 			if (jsonCount == 0)
 			{
 				return;
 			}
-			
-			jsonKeys = new string[jsonCount];
 
 			for (int i = 0; i < jsonCount; i++, beginIndex++)
 			{

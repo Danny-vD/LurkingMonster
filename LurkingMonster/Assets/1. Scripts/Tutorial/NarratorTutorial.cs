@@ -2,7 +2,7 @@
 
 namespace _1._Scripts.Tutorial
 {
-	public class NarratorTutorial : Tutorial
+	public class NarratorTutorial : global::Tutorial.Tutorial
 	{
 		public override void StartTutorial(GameObject narrator, GameObject arrow)
 		{

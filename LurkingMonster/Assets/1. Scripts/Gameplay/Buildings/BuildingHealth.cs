@@ -146,9 +146,13 @@ namespace Gameplay.Buildings
 
 		public void SetLowestHealthBar(Bar bar)
 		{
-			if (CurrentBuildingHealth < CurrentFoundationHealth) // Building < Foundation
+			float buildingPercentage = CurrentBuildingHealth / MaxBuildingHealth;
+			float foundationPercentage = CurrentFoundationHealth / MaxFoundationHealth;
+			float soilPercentage = CurrentSoilHealth / MaxSoilHealth;
+			
+			if (buildingPercentage < foundationPercentage) // Building < Foundation
 			{
-				if (CurrentBuildingHealth < CurrentSoilHealth) // Building < Soil
+				if (buildingPercentage < soilPercentage) // Building < Soil
 				{
 					SetBuildingHealthBar(bar);
 					return;
@@ -158,7 +162,7 @@ namespace Gameplay.Buildings
 			}
 			else // Foundation < Building
 			{
-				if (CurrentFoundationHealth < CurrentSoilHealth) // Foundation < Soil
+				if (foundationPercentage < soilPercentage) // Foundation < Soil
 				{
 					SetFoundationHealthBar(bar);
 					return;

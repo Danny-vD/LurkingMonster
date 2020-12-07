@@ -38,7 +38,7 @@ namespace Gameplay.Buildings
 			buildingHealth.DamageBuilding(damage);
 
 			buildingHealth.SetLowestHealthBar(bar);
-
+			
 			//TODO: make 3 seperate popups instead?
 			//When health is less then 25% show cracks
 			if (bar.slider.value <= bar.MaxValue / 100 * 25)
