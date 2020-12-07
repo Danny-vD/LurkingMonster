@@ -15,5 +15,9 @@ namespace UI.Market.MarketScreens.SoilScreens
 			tile.SpawnSoil();
 			base.BuyButtonClick(tile, manager);
 		}
+		
+		protected override SoilType[] GetUnlockedTypes() => new SoilType[0];
+
+		protected override int GetPrice(AbstractBuildingTile tile) => tile.GetCurrentSoilData().BuildCost;
 	}
 }

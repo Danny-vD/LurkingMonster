@@ -17,5 +17,9 @@ namespace UI.Market.MarketScreens.BuildingScreens
 			tile.SpawnBuilding(true);
 			base.BuyButtonClick(tile, manager);
 		}
+		
+		protected override BuildingType[] GetUnlockedTypes() => new BuildingType[0];
+
+		protected override int GetPrice(AbstractBuildingTile tile) => tile.GetCurrentFirstTierData().Price;
 	}
 }

@@ -1,7 +1,5 @@
 ﻿using Enums;
 using Grid.Tiles.Buildings;
-using Structs.Market;
-using UnityEngine;
 
 namespace UI.Market.MarketScreens.FoundationScreens
 {
@@ -17,5 +15,9 @@ namespace UI.Market.MarketScreens.FoundationScreens
 			tile.SpawnFoundation();
 			base.BuyButtonClick(tile, manager);
 		}
+		
+		protected override FoundationType[] GetUnlockedTypes() => new FoundationType[0];
+		
+		protected override int GetPrice(AbstractBuildingTile tile) => tile.GetCurrentFoundationData().BuildCost;
 	}
 }

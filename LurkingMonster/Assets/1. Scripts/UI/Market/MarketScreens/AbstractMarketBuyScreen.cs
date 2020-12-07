@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Linq;
+using Events.MoneyManagement;
 using Grid.Tiles.Buildings;
+using Singletons;
 using Structs.Market;
 using Structs.Utility;
 using UnityEngine;
 using UnityEngine.UI;
 using Utility;
+using VDFramework.EventSystem;
 
 namespace UI.Market.MarketScreens
 {
@@ -28,11 +31,14 @@ namespace UI.Market.MarketScreens
 
 		protected override void SetupScreen(AbstractBuildingTile tile, MarketManager manager)
 		{
-			SetupBuyButton(tile, manager);
 			SetupTypeButtons(tile, manager);
 		}
 
 		protected abstract void OnSelectBuyButton(AbstractBuildingTile tile, TBuyType buyType);
+
+		protected abstract TBuyType[] GetUnlockedTypes();
+
+		protected abstract int GetPrice(AbstractBuildingTile tile);
 
 		protected virtual void BuyButtonClick(AbstractBuildingTile tile, MarketManager manager)
 		{
@@ -41,11 +47,20 @@ namespace UI.Market.MarketScreens
 
 		private void SetupBuyButton(AbstractBuildingTile tile, MarketManager manager)
 		{
+			int price = GetPrice(tile);
+			
+			if (!CanAffort(price))
+			{
+				//Block the button
+				return;
+			}
+			
 			//TODO: block the button if we can't affort it
 			SetButton(btnBuy, OnClick);
 
 			void OnClick()
 			{
+				ReduceMoney(price);
 				BuyButtonClick(tile, manager);
 			}
 		}
@@ -55,13 +70,13 @@ namespace UI.Market.MarketScreens
 			foreach (SerializableKeyValuePair<TBuyType, BuyButtonData> pair in buttonDataPerBuyType)
 			{
 				// TODO: block the button if it's not unlocked yet
-				SetButton(pair.Value.Button, () => Select(tile, pair));
+				SetButton(pair.Value.Button, () => Select(tile, pair, manager));
 			}
 
-			Select(tile, selectedButtonDatum ?? buttonDataPerBuyType.First());
+			Select(tile, selectedButtonDatum ?? buttonDataPerBuyType.First(), manager);
 		}
 
-		private void Select(AbstractBuildingTile tile, SerializableKeyValuePair<TBuyType, BuyButtonData> pair)
+		private void Select(AbstractBuildingTile tile, SerializableKeyValuePair<TBuyType, BuyButtonData> pair, MarketManager manager)
 		{
 			// if we select the selected button, don't do anything
 			if (selectedButtonDatum != null && selectedButtonDatum.Value.Equals(pair))
@@ -77,6 +92,8 @@ namespace UI.Market.MarketScreens
 
 			Deselect(selectedButtonDatum);
 			selectedButtonDatum = pair;
+			
+			SetupBuyButton(tile, manager);
 		}
 
 		private static void Deselect(SerializableKeyValuePair<TBuyType, BuyButtonData>? datum)
@@ -103,6 +120,16 @@ namespace UI.Market.MarketScreens
 			{
 				buttonData.Text.Upgrades.gameObject.SetActive(active);
 			}
+		}
+
+		private static bool CanAffort(int price)
+		{
+			return MoneyManager.Instance.PlayerHasEnoughMoney(price);
+		}
+		
+		private static void ReduceMoney(int price)
+		{
+			EventManager.Instance.RaiseEvent(new DecreaseMoneyEvent(price));
 		}
 	}
 }

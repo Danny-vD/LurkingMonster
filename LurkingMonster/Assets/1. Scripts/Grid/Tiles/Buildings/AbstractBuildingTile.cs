@@ -143,6 +143,11 @@ namespace Grid.Tiles.Buildings
 		{
 			return spawner.GetFoundationData(foundation);
 		}
+
+		public BuildingData GetCurrentFirstTierData()
+		{
+			return FirstTierData;
+		}
 		
 		public BuildingData[] GetBuildingData(BuildingType buildingType)
 		{
