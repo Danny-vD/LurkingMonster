@@ -340,6 +340,40 @@
           "Value": ""
         }
       ]
+    },
+    {
+      "Key": "INPUT_NAME",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "Naam"
+        },
+        {
+          "Key": "EN",
+          "Value": "Name"
+        },
+        {
+          "Key": "DE",
+          "Value": ""
+        }
+      ]
+    },
+    {
+      "Key": "INPUT_CITY",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "Stad"
+        },
+        {
+          "Key": "EN",
+          "Value": "City"
+        },
+        {
+          "Key": "DE",
+          "Value": ""
+        }
+      ]
     }
   ]
 }
