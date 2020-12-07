@@ -1,6 +1,4 @@
-﻿using System;
-using Events;
-using Events.MoneyManagement;
+﻿using Events.MoneyManagement;
 using VDFramework.EventSystem;
 using VDFramework.Singleton;
 
