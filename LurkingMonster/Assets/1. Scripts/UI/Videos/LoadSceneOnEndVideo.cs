@@ -6,6 +6,7 @@ using UnityEngine;
 using UnityEngine.Video;
 using Utility;
 using VDFramework;
+using VDFramework.EventSystem;
 
 namespace UI.Videos
 {
@@ -30,6 +31,16 @@ namespace UI.Videos
 		private void Start()
 		{
 			LanguageChangedEvent.ParameterlessListeners += ChangedLanguage;
+		}
+
+		private void OnDestroy()
+		{
+			if (!EventManager.IsInitialized)
+			{
+				return;
+			}
+			
+			LanguageChangedEvent.ParameterlessListeners -= ChangedLanguage;
 		}
 
 		private void ChangedLanguage()
