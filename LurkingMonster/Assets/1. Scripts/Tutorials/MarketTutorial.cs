@@ -24,9 +24,9 @@ namespace Tutorials
 
 		private GameObject prefabInstance;
 		
-		public override void StartTutorial(GameObject narrator, GameObject arrow)
+		public override void StartTutorial(GameObject arrow)
 		{
-			base.StartTutorial(narrator, arrow);
+			base.StartTutorial(arrow);
 
 			Building building = FindObjectOfType<Building>();
 			AbstractBuildingTile abstractBuildingTile = building.GetComponentInParent<AbstractBuildingTile>();

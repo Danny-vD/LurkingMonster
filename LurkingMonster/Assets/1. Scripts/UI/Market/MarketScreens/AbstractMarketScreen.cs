@@ -1,9 +1,12 @@
 ﻿using System;
+using Events.MoneyManagement;
 using Grid.Tiles.Buildings;
+using Singletons;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 using VDFramework;
+using VDFramework.EventSystem;
 
 namespace UI.Market.MarketScreens
 {
@@ -63,10 +66,15 @@ namespace UI.Market.MarketScreens
 				button.onClick.AddListener(listener);
 			}
 		}
-
-		protected virtual void OnActivate(AbstractBuildingTile arg1, MarketManager arg2)
+		
+		protected static bool CanAffort(int price)
 		{
-			Extensions?.Invoke(arg1, arg2);
+			return MoneyManager.Instance.PlayerHasEnoughMoney(price);
+		}
+		
+		protected static void ReduceMoney(int price)
+		{
+			EventManager.Instance.RaiseEvent(new DecreaseMoneyEvent(price));
 		}
 	}
 }

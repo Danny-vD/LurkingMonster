@@ -25,9 +25,9 @@ namespace Tutorials
 		[SerializeField]
 		private bool checkSoil, checkFoundation, checkBuilding;
 		
-		public override void StartTutorial(GameObject narrator, GameObject arrow)
+		public override void StartTutorial(GameObject arrow)
 		{
-			base.StartTutorial(narrator, arrow);
+			base.StartTutorial(arrow);
 			
 			building                                                     = FindObjectOfType<Building>();
 			abstractBuildingTile                                         = building.GetComponentInParent<AbstractBuildingTile>();

@@ -27,9 +27,7 @@ namespace Tutorials
 
 		private TextMeshProUGUI explainText;
 
-		private GameObject narrator;
-
-		protected GameObject arrow;
+		protected GameObject Arrow;
 
 		private Button next;
 
@@ -42,7 +40,7 @@ namespace Tutorials
 			playerCamera = Camera.main;
 		}
 
-		public virtual void StartTutorial(GameObject narrator, GameObject arrow)
+		public virtual void StartTutorial(GameObject arrow)
 		{
 			FillJsonKey();
 			
@@ -51,9 +49,9 @@ namespace Tutorials
 				playerCamera.transform.position = position;
 			}
 			
-			this.narrator = narrator;
-			this.arrow    = arrow;
-			
+			Arrow   = arrow;
+
+			GameObject narrator = TutorialManager.Instance.Narrator;
 			explainText = narrator.GetComponentInChildren<TextMeshProUGUI>();
 			next        = narrator.GetComponentInChildren<Button>();
 			index       = 0;
@@ -78,14 +76,14 @@ namespace Tutorials
 			index++;
 		}
 
-		private void EnableNarrator()
+		private static void EnableNarrator()
 		{
-			narrator.SetActive(true);
+			TutorialManager.Instance.EnableNarrator();
 		}
 
-		private void DisableNarrator()
+		private static void DisableNarrator()
 		{
-			narrator.SetActive(false);
+			TutorialManager.Instance.DisableNarrator();
 		}
 
 		private void SetText(string jsonKey)

@@ -1,6 +1,7 @@
 ﻿using System;
 using Singletons;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 using VDFramework.Singleton;
 
@@ -15,15 +16,19 @@ namespace Tutorials
 		private GameObject arrow;
 
 		[SerializeField]
-		private Button exit;
-		
+		private Button btn_stopTutorial;
+
 		private Tutorial[] tutorials;
-		
+
 		private Tutorial currentTutorial;
 
 		public bool IsActive { get; private set; }
 
 		private bool paused;
+
+		public GameObject Narrator => narrator;
+
+		public Button StopTutorialButton => btn_stopTutorial;
 
 		private void Start()
 		{
@@ -32,11 +37,11 @@ namespace Tutorials
 				Destroy(CachedGameObject);
 				return;
 			}
-			
+
 			IsActive  = true;
 			tutorials = GetComponents<Tutorial>();
 			SetNextTutorial(0);
-			exit.onClick.AddListener(CompletedAllTutorials);
+			btn_stopTutorial.onClick.AddListener(CompletedAllTutorials);
 		}
 
 		private void Update()
@@ -46,14 +51,23 @@ namespace Tutorials
 				PauseGame();
 			}
 		}
-		
+
 		public void CompletedTutorial()
 		{
 			paused = false;
 			SetNextTutorial(currentTutorial.Order + 1);
 		}
-		
-		
+
+		public void EnableNarrator()
+		{
+			narrator.gameObject.SetActive(true);
+		}
+
+		public void DisableNarrator()
+		{
+			narrator.gameObject.SetActive(false);
+		}
+
 		private void CompletedAllTutorials()
 		{
 			IsActive = false;
@@ -72,7 +86,7 @@ namespace Tutorials
 				return;
 			}
 
-			currentTutorial.StartTutorial(narrator, arrow);
+			currentTutorial.StartTutorial(arrow);
 		}
 
 		private Tutorial GetTutorialByOrder(int order)
@@ -88,7 +102,7 @@ namespace Tutorials
 			return null;
 		}
 
-		private void PauseGame()
+		private static void PauseGame()
 		{
 			TimeManager.Instance.Pause();
 		}

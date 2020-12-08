@@ -17,9 +17,9 @@ namespace UI.Market
 		[SerializeField]
 		private Structs.Market.MarketScreens screens;
 
-		private AbstractBuildingTile tile;
-
 		public Structs.Market.MarketScreens Screens => screens;
+
+		private AbstractBuildingTile tile;
 
 		private void Start()
 		{
@@ -28,19 +28,25 @@ namespace UI.Market
 
 		public void AddListeners()
 		{
-			EventManager.Instance.AddListener<OpenMarketEvent>(OpenMarket);
+			EventManager.Instance.AddListener<OpenMarketEvent>(OpenMarket, 1);
 		}
 
 		public void PutScreenInFocus(AbstractMarketScreen screen)
 		{
 			screens.Screens.ForEach(Hide);
 			Show(screen);
+			SetExitButtonInteractable(true);
 			screen.SetUI(tile, this);
 		}
 
 		public void CloseMarket()
 		{
 			btnExit.onClick.Invoke();
+		}
+
+		public void SetExitButtonInteractable(bool interactable)
+		{
+			btnExit.interactable = interactable;
 		}
 		
 		private void SetupReturnButtons()

@@ -4,9 +4,9 @@ namespace Tutorials
 {
 	public class NarratorTutorial : Tutorial
 	{
-		public override void StartTutorial(GameObject narrator, GameObject arrow)
+		public override void StartTutorial(GameObject arrow)
 		{
-			base.StartTutorial(narrator, arrow);
+			base.StartTutorial(arrow);
 			ShowNextText();
 			SetNextButton(ShowNextText);
 		}

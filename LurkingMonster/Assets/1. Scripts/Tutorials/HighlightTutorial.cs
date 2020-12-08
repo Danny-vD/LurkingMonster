@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace Tutorials
@@ -9,7 +10,7 @@ namespace Tutorials
 		private GameObject highlight;
 
 		[SerializeField]
-		private Button button;
+		private Button continueButton;
 
 		[SerializeField]
 		private float scale;
@@ -19,15 +20,15 @@ namespace Tutorials
 		
 		private GameObject prefabInstance;
 
-		public override void StartTutorial(GameObject narrator, GameObject arrow)
+		public override void StartTutorial(GameObject arrow)
 		{
-			base.StartTutorial(narrator, arrow);
+			base.StartTutorial(arrow);
 			ShowNextText();
 			
 			DisableButtons();
 			
 			SetNextButton(Highlight);
-			button.onClick.AddListener(CompleteTutorial);
+			continueButton.onClick.AddListener(CompleteTutorial);
 		}
 
 		private void DisableButtons()
@@ -36,7 +37,7 @@ namespace Tutorials
 
 			foreach (Button disableButton in buttons)
 			{
-				if (button == disableButton)
+				if (continueButton == disableButton || disableButton == TutorialManager.Instance.StopTutorialButton)
 				{
 					continue;
 				}
@@ -48,7 +49,7 @@ namespace Tutorials
 		private void Highlight()
 		{
 			ShowNextText();
-			prefabInstance = Instantiate(arrow, highlight.transform, true);
+			prefabInstance = Instantiate(Arrow, highlight.transform, true);
 
 			prefabInstance.transform.localPosition = Vector3.zero;
 			prefabInstance.transform.localScale = new Vector3(scale, scale, scale);

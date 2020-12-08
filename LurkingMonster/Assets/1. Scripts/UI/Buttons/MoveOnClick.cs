@@ -52,8 +52,6 @@ namespace UI.Buttons
 			{
 				Vector3 translate = GetDynamicVector();
 				rectTransform.Translate(-translate);
-				
-				print(translate);
 			}
 			else
 			{

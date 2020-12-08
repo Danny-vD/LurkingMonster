@@ -51,12 +51,19 @@ namespace UI.Market.MarketScreens.BuildingScreens
 			BuildingUpgrade buildingUpgrade = tile.Building.GetComponent<BuildingUpgrade>();
 
 			SetTierText(tile, buildingUpgrade);
+
+			int price = tile.Building.UpgradeCost;
+
+			if (!CanAffort(price))
+			{
+				//Block button	
+			}
 			
 			if (buildingUpgrade.CanUpgrade())
 			{
 				btnUpgrade.ForEach(Setup);
 
-				upgradeText.text = tile.Building.UpgradeCost.ToString();
+				upgradeText.text = price.ToString();
 				return;
 			}
 

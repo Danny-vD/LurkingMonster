@@ -30,7 +30,7 @@ namespace Tutorials
 	
 		private TMP_InputField inputText;
 
-		public override void StartTutorial(GameObject narrator, GameObject arrow)
+		public override void StartTutorial(GameObject arrow)
 		{
 			inputPopup.SetActive(true);
 			SetHeader();

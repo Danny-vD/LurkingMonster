@@ -2,6 +2,7 @@
 using Enums;
 using Singletons;
 using TMPro;
+using Tutorials;
 using UnityEngine;
 using UnityEngine.UI;
 using VDFramework;
@@ -99,6 +100,11 @@ namespace UI.Buttons
 		
 		private void ToggleInventory()
 		{
+			if (TutorialManager.IsInitialized && TutorialManager.Instance.IsActive)
+			{
+				return;
+			}
+			
 			if (isActive)
 			{
 				boxImage.sprite = inventorySprite[0];

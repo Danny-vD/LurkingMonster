@@ -1,14 +1,11 @@
 ﻿using System;
 using System.Linq;
-using Events.MoneyManagement;
 using Grid.Tiles.Buildings;
-using Singletons;
 using Structs.Market;
 using Structs.Utility;
 using UnityEngine;
 using UnityEngine.UI;
 using Utility;
-using VDFramework.EventSystem;
 
 namespace UI.Market.MarketScreens
 {
@@ -52,6 +49,7 @@ namespace UI.Market.MarketScreens
 			if (!CanAffort(price))
 			{
 				//Block the button
+				btnBuy.onClick.RemoveAllListeners();
 				return;
 			}
 			
@@ -120,16 +118,6 @@ namespace UI.Market.MarketScreens
 			{
 				buttonData.Text.Upgrades.gameObject.SetActive(active);
 			}
-		}
-
-		private static bool CanAffort(int price)
-		{
-			return MoneyManager.Instance.PlayerHasEnoughMoney(price);
-		}
-		
-		private static void ReduceMoney(int price)
-		{
-			EventManager.Instance.RaiseEvent(new DecreaseMoneyEvent(price));
 		}
 	}
 }
