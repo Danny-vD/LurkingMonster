@@ -1,8 +1,8 @@
 ﻿using System;
-using _1._Scripts.Tutorial;
 using Events;
 using Interfaces;
 using Singletons;
+using Tutorials;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using VDFramework;

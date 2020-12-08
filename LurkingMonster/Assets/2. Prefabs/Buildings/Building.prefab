@@ -491,7 +491,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &8837847040222704695
 RectTransform:
   m_ObjectHideFlags: 0
@@ -609,7 +609,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 4.2700043, y: 0.19999981}
   m_SizeDelta: {x: -6.4231567, y: -8.0296}
   m_Pivot: {x: 0, y: 0.5}
@@ -854,7 +854,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 092639f48eb45f34a9c437d6727611f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crackPopup: {fileID: 7029731273974737261}
+  popups:
+    serializedDictionary:
+    - key: 0
+      value: {fileID: 7029731273974737261}
+    - key: 1
+      value: {fileID: 7029731273974737261}
+    - key: 2
+      value: {fileID: 7029731273974737261}
   bar: {fileID: 2375193678091250356}
 --- !u!114 &8740718846376473894
 MonoBehaviour:
@@ -907,16 +914,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7d1ded27caa42279c271f63cc86d1b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  houseTextures:
-  - albedo: {fileID: 2800000, guid: 2b64b3e8335882648a2062d6411232f0, type: 3}
-    metalic: {fileID: 2800000, guid: 1364f68a897725b4fac3e6f0009efa1c, type: 3}
-    normal: {fileID: 2800000, guid: c897e0cd70f290c48abce9e057bad4fd, type: 3}
-  - albedo: {fileID: 0}
-    metalic: {fileID: 0}
-    normal: {fileID: 0}
-  - albedo: {fileID: 0}
-    metalic: {fileID: 0}
-    normal: {fileID: 0}
+  material: {fileID: 2100000, guid: 694b3c68a15c032418d331a6808764cc, type: 2}
 --- !u!1 &7029731273974737261
 GameObject:
   m_ObjectHideFlags: 0

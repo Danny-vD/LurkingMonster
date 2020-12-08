@@ -1,4 +1,5 @@
-﻿using Events;
+﻿using Enums;
+using Events;
 using Events.BuildingEvents;
 using Singletons;
 using UnityEngine;
@@ -11,7 +12,7 @@ namespace Gameplay.Buildings
 	public class BuildingBreak : BetterMonoBehaviour
 	{
 		[SerializeField]
-		private GameObject crackPopup = null;
+		private SerializableEnumDictionary<BreakType, GameObject> popups = null;
 
 		public Bar bar;
 
@@ -21,7 +22,8 @@ namespace Gameplay.Buildings
 
 		public void Awake()
 		{
-			crackPopup.SetActive(false);
+			//todo
+			//popups.SetActive(false);
 
 			building       = GetComponent<Building>();
 			buildingHealth = GetComponent<BuildingHealth>();
@@ -37,9 +39,22 @@ namespace Gameplay.Buildings
 			buildingHealth.DamageFoundation(damage);
 			buildingHealth.DamageBuilding(damage);
 
-			buildingHealth.SetLowestHealthBar(bar);
+			BreakType breakType = buildingHealth.SetLowestHealthBar(bar);
 			
-			//TODO: make 3 seperate popups instead?
+			ShowPopup(breakType);
+			
+			if (bar.slider.value <= 0 && !PowerUpManager.Instance.AvoidMonsterFeedActive)
+			{
+				building.RemoveBuilding();
+				EventManager.Instance.RaiseEvent(new BuildingConsumedEvent(building));
+				VibrationUtil.Vibrate();
+			}
+		}
+
+		private void ShowPopup(BreakType breakType)
+		{
+			GameObject crackPopup = popups[breakType];
+			
 			//When health is less then 25% show cracks
 			if (bar.slider.value <= bar.MaxValue / 100 * 25)
 			{
@@ -54,19 +69,10 @@ namespace Gameplay.Buildings
 				// Necessesary in case the player repairs without clicking on popup
 				crackPopup.SetActive(false);
 			}
-
-			if (bar.slider.value <= 0 && !PowerUpManager.Instance.AvoidMonsterFeedActive)
-			{
-				building.RemoveBuilding();
-				EventManager.Instance.RaiseEvent(new BuildingConsumedEvent(building));
-				VibrationUtil.Vibrate();
-			}
 		}
 
 		public void CrackedPopupClicked()
 		{
-			crackPopup.SetActive(false);
-
 			if (PowerUpManager.Instance.FixProblemsActive)
 			{
 				buildingHealth.ResetHealth();

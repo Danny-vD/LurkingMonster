@@ -9,15 +9,11 @@ namespace Gameplay.Buildings
 	public class BuildingChangeTexture : BetterMonoBehaviour
 	{
 		[SerializeField]
-		private BuildingTexture[] houseTextures;
-
+		private Material material;
+		
 		private Material defaultMaterial;
 
 		private Renderer meshRenderer;
-		
-		private static readonly int mainTex = Shader.PropertyToID("_MainTex");
-		private static readonly int bumpMap = Shader.PropertyToID("_BumpMap");
-		private static readonly int metallicGlossMap = Shader.PropertyToID("_MetallicGlossMap");
 
 		private void Awake()
 		{
@@ -33,7 +29,7 @@ namespace Gameplay.Buildings
 			switch (building.BuildingType)
 			{
 				case BuildingType.House: 
-					SetTextures(houseTextures[building.CurrentTier - 1]);
+					SetTextures();
 					break;
 				case BuildingType.ApartmentBuilding:
 					break;
@@ -44,11 +40,9 @@ namespace Gameplay.Buildings
 			}
 		}
 		
-		private void SetTextures(BuildingTexture buildingTexture)
+		private void SetTextures()
 		{
-			meshRenderer.material.SetTexture(mainTex, buildingTexture.Albedo);
-			meshRenderer.material.SetTexture(bumpMap, buildingTexture.Normal);
-			meshRenderer.material.SetTexture(metallicGlossMap, buildingTexture.Metalic);
+			meshRenderer.sharedMaterial = material;
 		}
 		
 		private void ResetTextureBuilding()

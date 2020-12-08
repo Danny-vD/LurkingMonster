@@ -1,4 +1,5 @@
 ﻿using System;
+using Enums;
 using ScriptableObjects;
 using VDFramework;
 
@@ -144,32 +145,33 @@ namespace Gameplay.Buildings
 			bar.SetValue((int) CurrentSoilHealth);
 		}
 
-		public void SetLowestHealthBar(Bar bar)
+		public BreakType SetLowestHealthBar(Bar bar)
 		{
 			float buildingPercentage = CurrentBuildingHealth / MaxBuildingHealth;
 			float foundationPercentage = CurrentFoundationHealth / MaxFoundationHealth;
 			float soilPercentage = CurrentSoilHealth / MaxSoilHealth;
-			
+
 			if (buildingPercentage < foundationPercentage) // Building < Foundation
 			{
 				if (buildingPercentage < soilPercentage) // Building < Soil
 				{
 					SetBuildingHealthBar(bar);
-					return;
+					return BreakType.Building;
 				}
-
-				SetSoilHealthBar(bar); // Soil < Building && Soil < Foundation
+				
+				// Soil < Building && Soil < Foundation
+				SetSoilHealthBar(bar);
+				return BreakType.Soil;
 			}
-			else // Foundation < Building
+
+			if (foundationPercentage < soilPercentage) // Foundation < Soil
 			{
-				if (foundationPercentage < soilPercentage) // Foundation < Soil
-				{
-					SetFoundationHealthBar(bar);
-					return;
-				}
-
-				SetSoilHealthBar(bar); // Soil < Foundation && Soil < Building
+				SetFoundationHealthBar(bar);
+				return BreakType.Foundation;
 			}
+
+			SetSoilHealthBar(bar); // Soil < Foundation && Soil < Building
+			return BreakType.Soil;
 		}
 	}
 }
