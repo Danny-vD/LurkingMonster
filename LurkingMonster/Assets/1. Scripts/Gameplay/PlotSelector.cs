@@ -90,7 +90,7 @@ namespace Gameplay
 
 		private void HandleSelection()
 		{
-			if (EventSystem.current.IsPointerOverGameObject() || TutorialManager.Instance.IsActive)
+			if (EventSystem.current.IsPointerOverGameObject() || TutorialManager.IsInitialized && TutorialManager.Instance.IsActive)
 			{
 				return;	
 			}

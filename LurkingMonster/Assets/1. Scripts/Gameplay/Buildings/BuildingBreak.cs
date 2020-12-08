@@ -1,4 +1,5 @@
-﻿using Enums;
+﻿using Animations;
+using Enums;
 using Events;
 using Events.BuildingEvents;
 using Singletons;
@@ -11,8 +12,7 @@ namespace Gameplay.Buildings
 {
 	public class BuildingBreak : BetterMonoBehaviour
 	{
-		[SerializeField]
-		private SerializableEnumDictionary<BreakType, GameObject> popups = null;
+		private AnimateCrackPopup animateCrackPopup;
 
 		public Bar bar;
 
@@ -24,10 +24,10 @@ namespace Gameplay.Buildings
 		{
 			//todo
 			//popups.SetActive(false);
-
-			building       = GetComponent<Building>();
-			buildingHealth = GetComponent<BuildingHealth>();
+			building              = GetComponent<Building>();
+			buildingHealth        = GetComponent<BuildingHealth>();
 			buildingChangeTexture = GetComponent<BuildingChangeTexture>();
+			animateCrackPopup     = GetComponentInChildren<AnimateCrackPopup>();
 		}
 
 		// Update is called once per frame
@@ -53,21 +53,19 @@ namespace Gameplay.Buildings
 
 		private void ShowPopup(BreakType breakType)
 		{
-			GameObject crackPopup = popups[breakType];
-			
 			//When health is less then 25% show cracks
 			if (bar.slider.value <= bar.MaxValue / 100 * 25)
 			{
-				if (!crackPopup.activeInHierarchy)
+				if (!animateCrackPopup.gameObject.activeInHierarchy)
 				{
-					crackPopup.SetActive(true);
+					animateCrackPopup.SetTrigger(breakType);
 					buildingChangeTexture.ChangeTexture(building);
 				}
 			}
-			else if (crackPopup.activeInHierarchy)
+			else if (animateCrackPopup.gameObject.activeInHierarchy)
 			{
 				// Necessesary in case the player repairs without clicking on popup
-				crackPopup.SetActive(false);
+				animateCrackPopup.gameObject.SetActive(false);
 			}
 		}
 

@@ -20,7 +20,11 @@ namespace Gameplay.Buildings
 			meshRenderer                                    =  GetComponent<Renderer>();
 
 			CacheMaterial();
+			
+			//TODO Change reset textures for soil and foundation
 			GetComponent<BuildingHealth>().OnBuildingRepair += ResetTextureBuilding;
+			GetComponent<BuildingHealth>().OnFoundationRepair += ResetTextureBuilding;
+			GetComponent<BuildingHealth>().OnSoilRepair += ResetTextureBuilding;
 			GetComponent<BuildingUpgrade>().OnUpgrade       += CacheMaterial;
 		}
 

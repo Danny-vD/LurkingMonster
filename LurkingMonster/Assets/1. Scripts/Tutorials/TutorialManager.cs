@@ -56,10 +56,8 @@ namespace Tutorials
 		
 		private void CompletedAllTutorials()
 		{
-			//explainText.text = "You completed all the tutorials!";
 			IsActive = false;
 			TimeManager.Instance.UnPause();
-			print("Nke");
 			narrator.SetActive(false);
 			Destroy(gameObject);
 		}
@@ -75,7 +73,6 @@ namespace Tutorials
 			}
 
 			currentTutorial.StartTutorial(narrator, arrow);
-			//explainText.text = currentTutorial.Explanation;
 		}
 
 		private Tutorial GetTutorialByOrder(int order)
