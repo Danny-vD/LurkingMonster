@@ -30,7 +30,6 @@ namespace UI.Buttons
 		[SerializeField] private Sprite[] meatSprite = new Sprite[0];
 		[SerializeField] private Sprite[] timeSprite = new Sprite[0];
 		[SerializeField] private Sprite[] kcafSprite = new Sprite[0];
-	
 
 		private Transform lastPopup;
 		

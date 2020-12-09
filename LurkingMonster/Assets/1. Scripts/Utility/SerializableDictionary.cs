@@ -125,8 +125,9 @@ namespace Utility
 			// FindIndex returns -1 if it's not present
 			if (index < 0)
 			{
-				InternalList.Add(new SerializableKeyValuePair<TKey, TValue>(key, value));
-				serializedDictionary.Add(new SerializableKeyValuePair<TKey, TValue>(key, value));
+				SerializableKeyValuePair<TKey, TValue> newPair = new SerializableKeyValuePair<TKey, TValue>(key, value);
+				InternalList.Add(newPair);
+				serializedDictionary.Add(newPair);
 				return;
 			}
 
@@ -285,10 +286,11 @@ namespace Utility
 		{
 			switch (key)
 			{
+				case null when typeof(TKey).IsValueType:
+					throw new ArgumentNullException(nameof(key), $"null while {typeof(TKey).Name} cannot be null");
+				case null:
 				case TKey _:
 					return true;
-				case null:
-					throw new ArgumentNullException(nameof(key), "null is not allowed for a key");
 				default:
 					throw new ArgumentException($"{key} is not of type {typeof(TKey).Name}", nameof(key));
 			}
@@ -298,10 +300,11 @@ namespace Utility
 		{
 			switch (value)
 			{
-				case TValue _:
-					return true;
 				case null when typeof(TValue).IsValueType:
 					throw new ArgumentNullException(nameof(value), $"null while {typeof(TValue).Name} cannot be null");
+				case null:
+				case TValue _:
+					return true;
 				default:
 					throw new ArgumentException($"{value} is not of type {typeof(TValue).Name}", nameof(value));
 			}

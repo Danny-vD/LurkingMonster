@@ -125,10 +125,10 @@ namespace PropertyDrawers
 			if (IsFoldOut(ref foldouts[index], GetPairLabel(key, index).ReplaceUnderscoreWithSpace()))
 			{
 				ypos += spacingLabelToPair;
-				DrawVariable(key, new GUIContent($"Key [{key.type}]"));
+				DrawVariable(key, new GUIContent($"Key [{GetTypeString(key)}]"));
 
 				ypos += spacingBetweenPairValues;
-				DrawVariable(value, new GUIContent($"Value [{value.type}]"));
+				DrawVariable(value, new GUIContent($"Value [{GetTypeString(value)}]"));
 			}
 
 			ypos += spacingBetweenPairs;
@@ -181,22 +181,32 @@ namespace PropertyDrawers
 			{
 				case SerializedPropertyType.Generic:
 					return defaultText;
+					
 				case SerializedPropertyType.Integer:
 					return key.intValue.ToString();
+					
 				case SerializedPropertyType.Boolean:
 					return key.boolValue.ToString();
+					
 				case SerializedPropertyType.Float:
 					return key.floatValue.ToString(CultureInfo.InvariantCulture);
+					
 				case SerializedPropertyType.String:
 					string stringValue = key.stringValue;
 					
 					return string.IsNullOrEmpty(stringValue) ? nameof(string.Empty) : key.stringValue;
+					
 				case SerializedPropertyType.Color:
 					return key.colorValue.ToString();
+					
 				case SerializedPropertyType.ObjectReference:
-					return key.objectReferenceValue.name;
+					Object @object = key.objectReferenceValue;
+					
+					return @object == null ? "Null" : @object.name;
+					
 				case SerializedPropertyType.LayerMask:
 					return defaultText;
+					
 				case SerializedPropertyType.Enum:
 					string[] enumNames = key.enumNames;
 
@@ -206,40 +216,60 @@ namespace PropertyDrawers
 					}
 
 					return key.enumNames[key.enumValueIndex];
+					
 				case SerializedPropertyType.Vector2:
 					return key.vector2Value.ToString();
+					
 				case SerializedPropertyType.Vector3:
 					return key.vector3Value.ToString();
+					
 				case SerializedPropertyType.Vector4:
 					return key.vector4Value.ToString();
+					
 				case SerializedPropertyType.Rect:
 					return key.rectValue.ToString();
+					
 				case SerializedPropertyType.ArraySize:
 					return key.intValue.ToString();
+					
 				case SerializedPropertyType.Character:
-					return key.stringValue; //TODO: TEST
+					char value = (char) key.intValue;
+
+					return value == ' ' ? "Space" : value.ToString();
+
 				case SerializedPropertyType.AnimationCurve:
 					return key.animationCurveValue.ToString();
+					
 				case SerializedPropertyType.Bounds:
 					return key.boundsValue.ToString();
+					
 				case SerializedPropertyType.Gradient:
-					return key.colorValue.ToString(); //TODO: TEST
+					return defaultText;
+					
 				case SerializedPropertyType.Quaternion:
 					return key.quaternionValue.ToString();
+					
 				case SerializedPropertyType.ExposedReference:
 					return key.exposedReferenceValue.name;
+					
 				case SerializedPropertyType.FixedBufferSize:
 					return key.fixedBufferSize.ToString();
+					
 				case SerializedPropertyType.Vector2Int:
 					return key.vector2IntValue.ToString();
+					
 				case SerializedPropertyType.Vector3Int:
 					return key.vector3IntValue.ToString();
+					
 				case SerializedPropertyType.RectInt:
 					return key.rectIntValue.ToString();
+					
 				case SerializedPropertyType.BoundsInt:
 					return key.boundsIntValue.ToString();
+					
 				case SerializedPropertyType.ManagedReference:
 					return key.managedReferenceFullTypename;
+					
 				default:
 					return defaultText;
 			}

@@ -58,15 +58,35 @@ namespace PropertyDrawers
 		{
 			if (IsFoldOut(ref foldoutDictionary, $"{dictionaryName} (Size: {list.arraySize})"))
 			{
+				if (list.arraySize == 0)
+				{
+					DrawFillButton(list);
+					propertySize = ypos - origin.y - spacingBetweenPairs + paddingAtEndOfProperty;
+					return;
+				}
+
 				ResizeFoldouts(list);
-				
+
 				ypos += spacingDictionaryToPairs;
 
 				DrawKeyValueArray(list, "key", "value", DrawPair);
-
-				// Size = Y pos of end - Y pos of beginning - spacing at end of last pair + any padding
-				propertySize = ypos - origin.y - spacingBetweenPairs;
+				
+				// Size = Y pos of end - Y pos of beginning - spacing at end of last pair
+				propertySize = ypos - origin.y - spacingBetweenPairs + paddingAtEndOfProperty;
 			}
+		}
+
+		private void DrawFillButton(SerializedProperty list)
+		{
+			Rect rect = new Rect(xpos, ypos, maxWidth - xpos, foldoutHeight);
+
+			if (GUI.Button(rect, "Fill Dictionary", EditorStyles.miniButtonMid))
+			{
+				// Modify the list to force a reserialize which will fill the dictionary
+				list.arraySize = 1;
+			}
+
+			ypos += foldoutHeight;
 		}
 
 		private void DrawPair(int index, SerializedProperty key, SerializedProperty value)
@@ -78,15 +98,15 @@ namespace PropertyDrawers
 			{
 				return;
 			}
-			
+
 			if (IsFoldOut(ref foldouts[index], enumNames[enumIndex].ReplaceUnderscoreWithSpace()))
 			{
 				ypos += spacingKeyToValue;
 
 				float xPosition = xpos + valueIndent;
 				float height = EditorGUI.GetPropertyHeight(value, true);
-
-				GUIContent label = new GUIContent(value.type);
+				
+				GUIContent label = new GUIContent(GetTypeString(value));
 				Rect rect = new Rect(xPosition, ypos, maxWidth - xPosition, height);
 
 				EditorGUI.PropertyField(rect, value, label, true);
