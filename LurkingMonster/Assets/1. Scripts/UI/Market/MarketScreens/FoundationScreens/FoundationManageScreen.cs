@@ -19,7 +19,7 @@ namespace UI.Market.MarketScreens.FoundationScreens
 
 		[SerializeField]
 		private TextMeshProUGUI repairText = null;
-		
+
 		protected override void SetupScreen(AbstractBuildingTile tile, MarketManager manager)
 		{
 			if (tile.HasBuilding)
@@ -31,7 +31,7 @@ namespace UI.Market.MarketScreens.FoundationScreens
 			{
 				BlockButton(btnRepair, true);
 			}
-			
+
 			SetupDemolishButton(tile, manager);
 		}
 
@@ -39,13 +39,13 @@ namespace UI.Market.MarketScreens.FoundationScreens
 		{
 			int price = tile.GetCurrentFoundationData().RepairCost;
 			repairText.text = price.ToString();
-			
+
 			if (!CanAffort(price))
 			{
 				BlockButton(btnRepair, true);
 				return;
 			}
-			
+
 			BlockButton(btnRepair, false);
 
 			SetButton(btnRepair, OnClick);
@@ -63,22 +63,21 @@ namespace UI.Market.MarketScreens.FoundationScreens
 		{
 			int price = tile.GetCurrentFoundationData().DestructionCost;
 			demolishText.text = price.ToString();
-		
-			if (!CanAffort(price))
+
+			if (!CanAffort(price) || tile.HasBuilding)
 			{
 				BlockButton(btnDemolish, true);
 				return;
 			}
-			
-			BlockButton(btnDemolish, false);
-			
-			SetButton(btnDemolish, OnClick);
 
+			BlockButton(btnDemolish, false);
+
+			SetButton(btnDemolish, OnClick);
 
 			void OnClick()
 			{
 				ReduceMoney(price);
-				
+
 				tile.RemoveFoundation();
 				manager.CloseMarket();
 			}

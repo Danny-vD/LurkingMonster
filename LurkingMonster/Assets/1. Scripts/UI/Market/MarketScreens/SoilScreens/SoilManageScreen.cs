@@ -66,7 +66,7 @@ namespace UI.Market.MarketScreens.SoilScreens
 			int price = tile.GetCurrentSoilData().RemoveCost;
 			demolishText.text = price.ToString();
 
-			if (!CanAffort(price))
+			if (!CanAffort(price) || tile.HasFoundation)
 			{
 				BlockButton(btnDemolish, true);
 				return;

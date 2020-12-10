@@ -6,7 +6,6 @@ using Structs.Market;
 using UI.Market.MarketScreens.BuildingScreens;
 using UnityEngine;
 using Utility;
-using VDFramework.Extensions;
 using VDFramework.Utility;
 
 namespace UI.Market.ExtensionScreens
@@ -44,27 +43,42 @@ namespace UI.Market.ExtensionScreens
 			BuildingData[] data = tile.GetBuildingData(buttonData.Key);
 
 			// Type
-			typeTextWriter = new StringVariableWriter(buttonData.Value.Text.Type.text);
+			if (typeTextWriter == null)
+			{
+				typeTextWriter = new StringVariableWriter(buttonData.Value.Text.Type.text);
+			}
 
-			buttonData.Value.Text.Type.text = typeTextWriter.UpdateText(buttonData.Key.ToString().InsertSpaceBeforeCapitals());
+			buttonData.Value.Text.Type.text = typeTextWriter.UpdateText(buttonData.Key.ToString());
 
 			// Price
-			priceTextWriter = new StringVariableWriter(buttonData.Value.Text.Price.text);
+			if (priceTextWriter == null)
+			{
+				priceTextWriter = new StringVariableWriter(buttonData.Value.Text.Price.text);
+			}
 
 			buttonData.Value.Text.Price.text = priceTextWriter.UpdateText(data[0].Price);
 
 			// Health
-			healthTextWriter = new StringVariableWriter(buttonData.Value.Text.Health.text);
+			if (healthTextWriter == null)
+			{
+				healthTextWriter = new StringVariableWriter(buttonData.Value.Text.Health.text);
+			}
 
 			buttonData.Value.Text.Health.text = healthTextWriter.UpdateText(data[0].MaxHealth);
 
 			// Rent
-			rentTextWriter = new StringVariableWriter(buttonData.Value.Text.Rent.text);
+			if (rentTextWriter == null)
+			{
+				rentTextWriter = new StringVariableWriter(buttonData.Value.Text.Rent.text);
+			}
 
 			buttonData.Value.Text.Rent.text = rentTextWriter.UpdateText(data[0].Rent);
 
 			// Upgrades
-			upgradeTextWriter = new StringVariableWriter(buttonData.Value.Text.Upgrades.text);
+			if (upgradeTextWriter == null)
+			{
+				upgradeTextWriter = new StringVariableWriter(buttonData.Value.Text.Upgrades.text);
+			}
 
 			buttonData.Value.Text.Upgrades.text = upgradeTextWriter.UpdateText(data.Length);
 		}

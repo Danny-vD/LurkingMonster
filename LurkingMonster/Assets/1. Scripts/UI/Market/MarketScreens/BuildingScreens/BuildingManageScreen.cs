@@ -52,28 +52,27 @@ namespace UI.Market.MarketScreens.BuildingScreens
 
 			SetTierText(tile, buildingUpgrade);
 
+			if (!buildingUpgrade.CanUpgrade())
+			{
+				btnUpgrade.ForEach(RemoveListeners);
+
+				//TODO: Change to use a JSON key for max upgrade
+				upgradeText.text = "MAX";
+
+				return;
+			}
+
 			int price = tile.Building.UpgradeCost;
+			upgradeText.text = price.ToString();
 
 			if (!CanAffort(price))
 			{
 				btnUpgrade.ForEach(BlockButton);
 				return;
 			}
-			
+
 			btnUpgrade.ForEach(UnblockButton);
-			
-			if (buildingUpgrade.CanUpgrade())
-			{
-				btnUpgrade.ForEach(Setup);
-
-				upgradeText.text = price.ToString();
-				return;
-			}
-
-			btnUpgrade.ForEach(RemoveListeners);
-
-			//TODO: Change to use a JSON key for max upgrade
-			upgradeText.text = "MAX";
+			btnUpgrade.ForEach(Setup);
 
 			void Setup(Button button)
 			{

@@ -33,7 +33,7 @@ namespace Gameplay
 				return;
 			}
 
-			// In case of soil, select the soil object
+			// In case of soil or foundation, select the soil object
 			Select(tile.Soil, selectMaterial);
 		}
 

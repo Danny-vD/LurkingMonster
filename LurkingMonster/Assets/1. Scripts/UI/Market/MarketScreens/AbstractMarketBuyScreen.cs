@@ -74,6 +74,11 @@ namespace UI.Market.MarketScreens
 
 				if (unlocked.Contains(pair.Key))
 				{
+					if (selectedButtonDatum == null)
+					{
+						Select(tile, pair, manager);
+					}
+					
 					BlockButton(button, false);
 					SetButton(button, () => Select(tile, pair, manager));
 					continue;
@@ -81,8 +86,6 @@ namespace UI.Market.MarketScreens
 				
 				BlockButton(button, true);
 			}
-
-			Select(tile, selectedButtonDatum ?? buttonDataPerBuyType.First(), manager);
 		}
 
 		private void Select(AbstractBuildingTile tile, SerializableKeyValuePair<TBuyType, BuyButtonData> pair, MarketManager manager)

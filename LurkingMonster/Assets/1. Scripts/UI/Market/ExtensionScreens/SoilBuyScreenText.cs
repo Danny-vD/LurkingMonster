@@ -43,17 +43,26 @@ namespace UI.Market.ExtensionScreens
 			SoilTypeData data = tile.GetSoilData(buttonData.Key);
 
 			// Type
-			typeTextWriter = new StringVariableWriter(buttonData.Value.Text.Type.text);
+			if (typeTextWriter == null)
+			{
+				typeTextWriter = new StringVariableWriter(buttonData.Value.Text.Type.text);
+			}
 
 			buttonData.Value.Text.Type.text = typeTextWriter.UpdateText(buttonData.Key.ToString().InsertSpaceBeforeCapitals());
 
 			// Price
-			priceTextWriter = new StringVariableWriter(buttonData.Value.Text.Price.text);
+			if (priceTextWriter == null)
+			{
+				priceTextWriter = new StringVariableWriter(buttonData.Value.Text.Price.text);
+			}
 
 			buttonData.Value.Text.Price.text = priceTextWriter.UpdateText(data.BuildCost);
 
 			// Health
-			healthTextWriter = new StringVariableWriter(buttonData.Value.Text.Health.text);
+			if (healthTextWriter == null)
+			{
+				healthTextWriter = new StringVariableWriter(buttonData.Value.Text.Health.text);
+			}
 
 			buttonData.Value.Text.Health.text = healthTextWriter.UpdateText(data.MaxHealth);
 		}

@@ -33,11 +33,6 @@ namespace Gameplay.Buildings
 		[SerializeField]
 		private Vector3 buildingSpawnpoint;
 
-		private void Awake()
-		{
-			Vector3 position = CachedTransform.TransformPoint(CachedTransform.position);
-		}
-
 		public GameObject SpawnSoil(SoilType soilType)
 		{
 			GameObject prefab = soilData.First(pair => pair.Key.Equals(soilType)).Value.Prefabs.GetRandomItem();

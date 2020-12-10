@@ -112,6 +112,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buildingType: 0
+  removeOnBuild:
+  - {fileID: 7426132881306939081}
   debrisMeshes: {fileID: 11400000, guid: 5b9391d2f14bb86419d4f7d4b9b518bd, type: 2}
 --- !u!114 &5273063985585854279
 MonoBehaviour:
@@ -247,5 +249,10 @@ PrefabInstance:
 --- !u!4 &1254416445712338695 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8868095676501411021, guid: 3f8195b45ecf842429b489246506dd38, type: 3}
+  m_PrefabInstance: {fileID: 7672263582450240458}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &7426132881306939081 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 970446102584698115, guid: 3f8195b45ecf842429b489246506dd38, type: 3}
   m_PrefabInstance: {fileID: 7672263582450240458}
   m_PrefabAsset: {fileID: 0}

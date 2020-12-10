@@ -30,6 +30,7 @@ namespace UI.Market.MarketScreens
 
 		public void SetReturnButton(UnityAction action)
 		{
+			// Not using SetButton because in this case it's perfectly valid to not have a return button
 			if (!returnButton)
 			{
 				return;
@@ -52,7 +53,7 @@ namespace UI.Market.MarketScreens
 			Extensions?.Invoke(tile, manager);
 		}
 
-		protected void SetButton(Button button, params UnityAction[] onClickListeners)
+		protected void SetButton(Button button, UnityAction onClickListener)
 		{
 			if (!button)
 			{
@@ -61,11 +62,7 @@ namespace UI.Market.MarketScreens
 			}
 
 			button.onClick.RemoveAllListeners();
-
-			foreach (UnityAction listener in onClickListeners)
-			{
-				button.onClick.AddListener(listener);
-			}
+			button.onClick.AddListener(onClickListener);
 		}
 
 		protected static void BlockButton(Button button, bool block)

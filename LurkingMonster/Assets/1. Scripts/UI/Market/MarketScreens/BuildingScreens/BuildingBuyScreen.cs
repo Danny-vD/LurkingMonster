@@ -20,6 +20,6 @@ namespace UI.Market.MarketScreens.BuildingScreens
 
 		protected override BuildingType[] GetUnlockedTypes() => default(BuildingType).GetValues().ToArray();
 
-		protected override int GetPrice(AbstractBuildingTile tile) => tile.GetCurrentFirstTierData().Price;
+		protected override int GetPrice(AbstractBuildingTile tile) => tile.GetBuildingPrice();
 	}
 }

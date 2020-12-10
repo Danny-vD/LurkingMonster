@@ -20,6 +20,6 @@ namespace UI.Market.MarketScreens.SoilScreens
 		
 		protected override SoilType[] GetUnlockedTypes() => default(SoilType).GetValues().ToArray();
 
-		protected override int GetPrice(AbstractBuildingTile tile) => tile.GetCurrentSoilData().BuildCost;
+		protected override int GetPrice(AbstractBuildingTile tile) => tile.GetSoilPrice();
 	}
 }

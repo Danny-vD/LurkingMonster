@@ -19,7 +19,7 @@ namespace UI.Market.MarketScreens.FoundationScreens
 		}
 
 		protected override FoundationType[] GetUnlockedTypes() => default(FoundationType).GetValues().ToArray();
-		
-		protected override int GetPrice(AbstractBuildingTile tile) => tile.GetCurrentFoundationData().BuildCost;
+
+		protected override int GetPrice(AbstractBuildingTile tile) => tile.GetFoundationPrice();
 	}
 }

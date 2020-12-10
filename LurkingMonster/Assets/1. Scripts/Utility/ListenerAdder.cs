@@ -4,6 +4,7 @@ using Interfaces;
 using UI.Market;
 using UnityEngine;
 using VDFramework;
+using VDFramework.EventSystem;
 
 namespace Utility
 {
@@ -15,6 +16,14 @@ namespace Utility
 		private void Start()
 		{
 			listener.AddListeners();
+		}
+
+		private void OnDestroy()
+		{
+			if (EventManager.IsInitialized)
+			{
+				listener.RemoveListeners();
+			}
 		}
 
 		#region IntendedCode
@@ -30,6 +39,14 @@ namespace Utility
 			foreach (IListener eventListener in eventListeners)
 			{
 				eventListener.AddListeners();
+			}
+		}
+		
+		private void OnDestroy()
+		{
+			foreach (IListener eventListener in eventListeners)
+			{
+				eventListener.RemoveListeners();
 			}
 		}
 		*/

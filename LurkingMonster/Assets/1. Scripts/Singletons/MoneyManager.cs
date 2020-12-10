@@ -1,4 +1,5 @@
 ﻿using Events.MoneyManagement;
+using UnityEngine;
 using VDFramework.EventSystem;
 using VDFramework.Singleton;
 
@@ -37,7 +38,7 @@ namespace Singletons
 		private void RemoveListeners()
 		{
 			UserSettings.OnGameQuit -= SaveCurrentMoney;
-			
+
 			if (!EventManager.IsInitialized)
 			{
 				return;
@@ -79,5 +80,28 @@ namespace Singletons
 		{
 			ChangeMoney(collectRentEvent.Rent);
 		}
+
+#if UNITY_EDITOR
+		/// <summary>
+		/// Debug method to add money to the player
+		/// </summary>
+		[ContextMenu("Add 10.000")]
+		private void Add10()
+		{
+			ChangeMoney(10000);
+		}
+		
+		[ContextMenu("Add 100.000")]
+		private void Add100()
+		{
+			ChangeMoney(100000);
+		}
+		
+		[ContextMenu("Add 1.000.000")]
+		private void Add1000()
+		{
+			ChangeMoney(1000000);
+		}
+#endif
 	}
 }

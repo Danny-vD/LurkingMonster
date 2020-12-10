@@ -9,6 +9,7 @@ using Grid.Tiles;
 using IO;
 using Structs;
 using Tests;
+using Tutorials;
 using UnityEngine;
 using Utility;
 using VDFramework.Singleton;
@@ -137,8 +138,6 @@ namespace Singletons
 			bool vibrate = gameData == null || gameData.Vibrate;
  
 			gameData = new GameData(startMoney, vibrate);
-
-			//RunTimeTests.TestStartMoney();
 		}
 	}
 }
