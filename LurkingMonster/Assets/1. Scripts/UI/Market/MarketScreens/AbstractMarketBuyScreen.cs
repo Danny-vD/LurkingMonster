@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Grid.Tiles.Buildings;
 using Structs.Market;
@@ -9,7 +10,6 @@ using Utility;
 
 namespace UI.Market.MarketScreens
 {
-	//TODO: Hook it up with the reward manager to figure out which ones are unlocked
 	public abstract class AbstractMarketBuyScreen<TBuyType> : AbstractMarketScreen
 		where TBuyType : struct, Enum
 	{
@@ -33,6 +33,7 @@ namespace UI.Market.MarketScreens
 
 		protected abstract void OnSelectBuyButton(AbstractBuildingTile tile, TBuyType buyType);
 
+		//TODO: use the reward manager for the overrides
 		protected abstract TBuyType[] GetUnlockedTypes();
 
 		protected abstract int GetPrice(AbstractBuildingTile tile);
@@ -65,10 +66,20 @@ namespace UI.Market.MarketScreens
 
 		private void SetupTypeButtons(AbstractBuildingTile tile, MarketManager manager)
 		{
-			foreach (SerializableKeyValuePair<TBuyType, BuyButtonData> pair in buttonDataPerBuyType)
+			TBuyType[] unlocked = GetUnlockedTypes();
+
+			foreach (KeyValuePair<TBuyType, BuyButtonData> pair in buttonDataPerBuyType)
 			{
-				// TODO: block the button if it's not unlocked yet
-				SetButton(pair.Value.Button, () => Select(tile, pair, manager));
+				Button button = pair.Value.Button;
+
+				if (unlocked.Contains(pair.Key))
+				{
+					BlockButton(button, false);
+					SetButton(button, () => Select(tile, pair, manager));
+					continue;
+				}
+				
+				BlockButton(button, true);
 			}
 
 			Select(tile, selectedButtonDatum ?? buttonDataPerBuyType.First(), manager);

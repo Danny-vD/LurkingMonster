@@ -1,5 +1,7 @@
-﻿using Enums;
+﻿using System.Linq;
+using Enums;
 using Grid.Tiles.Buildings;
+using VDFramework.Extensions;
 
 namespace UI.Market.MarketScreens.FoundationScreens
 {
@@ -15,8 +17,8 @@ namespace UI.Market.MarketScreens.FoundationScreens
 			tile.SpawnFoundation();
 			base.BuyButtonClick(tile, manager);
 		}
-		
-		protected override FoundationType[] GetUnlockedTypes() => new FoundationType[0];
+
+		protected override FoundationType[] GetUnlockedTypes() => default(FoundationType).GetValues().ToArray();
 		
 		protected override int GetPrice(AbstractBuildingTile tile) => tile.GetCurrentFoundationData().BuildCost;
 	}

@@ -84,6 +84,8 @@ namespace UI.Market.MarketScreens
 
 		private void HasBuilding(AbstractBuildingTile tile, MarketManager manager)
 		{
+			BlockButtons(false, false, false);
+
 			SetButton(buildingButton, () => manager.PutScreenInFocus(manager.Screens.BuildingManageScreen));
 			SetButton(foundationButton, () => manager.PutScreenInFocus(manager.Screens.FoundationManageScreen));
 			SetButton(soilButton, () => manager.PutScreenInFocus(manager.Screens.SoilManageScreen));
@@ -93,6 +95,8 @@ namespace UI.Market.MarketScreens
 
 		private void HasFoundation(AbstractBuildingTile tile, MarketManager manager)
 		{
+			BlockButtons(false, false, false);
+
 			SetButton(buildingButton, () => manager.PutScreenInFocus(manager.Screens.BuildingBuyScreen));
 			SetButton(foundationButton, () => manager.PutScreenInFocus(manager.Screens.FoundationManageScreen));
 			SetButton(soilButton, () => manager.PutScreenInFocus(manager.Screens.SoilManageScreen));

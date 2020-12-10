@@ -1,5 +1,7 @@
-﻿using Enums;
+﻿using System.Linq;
+using Enums;
 using Grid.Tiles.Buildings;
+using VDFramework.Extensions;
 
 namespace UI.Market.MarketScreens.SoilScreens
 {
@@ -16,7 +18,7 @@ namespace UI.Market.MarketScreens.SoilScreens
 			base.BuyButtonClick(tile, manager);
 		}
 		
-		protected override SoilType[] GetUnlockedTypes() => new SoilType[0];
+		protected override SoilType[] GetUnlockedTypes() => default(SoilType).GetValues().ToArray();
 
 		protected override int GetPrice(AbstractBuildingTile tile) => tile.GetCurrentSoilData().BuildCost;
 	}
