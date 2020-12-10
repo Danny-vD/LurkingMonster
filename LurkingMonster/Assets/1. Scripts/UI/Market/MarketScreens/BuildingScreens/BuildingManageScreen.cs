@@ -56,8 +56,11 @@ namespace UI.Market.MarketScreens.BuildingScreens
 
 			if (!CanAffort(price))
 			{
-				//Block button	
+				btnUpgrade.ForEach(BlockButton);
+				return;
 			}
+			
+			btnUpgrade.ForEach(UnblockButton);
 			
 			if (buildingUpgrade.CanUpgrade())
 			{
@@ -69,7 +72,7 @@ namespace UI.Market.MarketScreens.BuildingScreens
 
 			btnUpgrade.ForEach(RemoveListeners);
 
-			//TODO: Change
+			//TODO: Change to use a JSON key for max upgrade
 			upgradeText.text = "MAX";
 
 			void Setup(Button button)
@@ -78,29 +81,51 @@ namespace UI.Market.MarketScreens.BuildingScreens
 
 				void OnClick()
 				{
+					ReduceMoney(price);
 					buildingUpgrade.Upgrade(true);
 					manager.CloseMarket();
 				}
-			}
-
-			void RemoveListeners(Button button)
-			{
-				button.onClick.RemoveAllListeners();
 			}
 		}
 
 		private void SetupRepairButton(AbstractBuildingTile tile, MarketManager manager)
 		{
-			BuildingHealth buildingHealth = tile.Building.GetComponent<BuildingHealth>();
-			repairText.text = tile.Building.Data.RepairCost.ToString();
-			SetButton(btnRepair, buildingHealth.ResetBuildingHealth, manager.CloseMarket);
+			int price = tile.Building.Data.RepairCost;
+			repairText.text = price.ToString();
+
+			if (!CanAffort(price))
+			{
+				BlockButton(btnRepair);
+				return;
+			}
+			
+			UnblockButton(btnRepair);
+			
+			SetButton(btnRepair, OnClick);
+
+			void OnClick()
+			{
+				ReduceMoney(price);
+				BuildingHealth buildingHealth = tile.Building.GetComponent<BuildingHealth>();
+				buildingHealth.ResetBuildingHealth();
+				manager.CloseMarket();
+			}
 		}
 
 		private void SetupDemolishButton(AbstractBuildingTile tile, MarketManager manager)
 		{
-			SetButton(btnDemolish, OnClick);
+			int price = tile.Building.Data.DestructionCost;
+			demolishText.text = price.ToString();
 
-			demolishText.text = tile.Building.Data.DestructionCost.ToString();
+			if (!CanAffort(price))
+			{
+				BlockButton(btnDemolish);
+				return;
+			}
+			
+			UnblockButton(btnDemolish);
+			
+			SetButton(btnDemolish, OnClick);
 
 			void OnClick()
 			{
@@ -125,6 +150,21 @@ namespace UI.Market.MarketScreens.BuildingScreens
 
 			nextTierHealth.text = currentTierHealth.text;
 			nextTierRent.text   = currentTierRent.text;
+		}
+		
+		private static void RemoveListeners(Button button)
+		{
+			button.onClick.RemoveAllListeners();
+		}
+
+		private static void BlockButton(Button button)
+		{
+			BlockButton(button, true);
+		}
+
+		private static void UnblockButton(Button button)
+		{
+			BlockButton(button, false);
 		}
 	}
 }

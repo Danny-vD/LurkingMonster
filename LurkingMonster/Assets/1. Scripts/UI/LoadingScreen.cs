@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using VDFramework;
 
-namespace UI.Buttons
+namespace UI
 {
 	public class LoadingScreen : BetterMonoBehaviour
 	{

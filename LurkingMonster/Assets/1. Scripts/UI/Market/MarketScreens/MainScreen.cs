@@ -77,11 +77,9 @@ namespace UI.Market.MarketScreens
 
 		private void HasDebris(AbstractBuildingTile tile, MarketManager manager)
 		{
-			BlockButtons(tile, manager, true, true, true);
+			BlockButtons(true, true, true);
 
 			SetText("Blocked by Debris!", "Blocked by Debris!", "Blocked by Debris!");
-
-			//TODO: have some button to remove debris
 		}
 
 		private void HasBuilding(AbstractBuildingTile tile, MarketManager manager)
@@ -98,57 +96,34 @@ namespace UI.Market.MarketScreens
 			SetButton(buildingButton, () => manager.PutScreenInFocus(manager.Screens.BuildingBuyScreen));
 			SetButton(foundationButton, () => manager.PutScreenInFocus(manager.Screens.FoundationManageScreen));
 			SetButton(soilButton, () => manager.PutScreenInFocus(manager.Screens.SoilManageScreen));
-			
+
 			SetText("NoBuilding!", tile.GetFoundationType().ToString(), tile.GetSoilType().ToString());
 		}
 
 		private void HasSoil(AbstractBuildingTile tile, MarketManager manager)
 		{
-			BlockButtons(tile, manager, true, false, false);
+			BlockButtons(true, false, false);
 
 			SetButton(foundationButton, () => manager.PutScreenInFocus(manager.Screens.FoundationBuyScreen));
 			SetButton(soilButton, () => manager.PutScreenInFocus(manager.Screens.SoilManageScreen));
-			
+
 			SetText("NoBuilding!", "NoFoundation!", tile.GetSoilType().ToString());
 		}
 
 		private void HandleEmpty(AbstractBuildingTile tile, MarketManager manager)
 		{
-			BlockButtons(tile, manager, true, true, false);
+			BlockButtons(true, true, false);
 
 			SetButton(soilButton, () => manager.PutScreenInFocus(manager.Screens.SoilBuyScreen));
-			
+
 			SetText("NoBuilding!", "NoFoundation!", "NoSoil!");
 		}
 
-		private void BlockButtons(AbstractBuildingTile tile, MarketManager manager,
-			bool                                       blockBuilding,
-			bool                                       blockFoundation,
-			bool                                       blockSoil)
+		private void BlockButtons(bool blockBuilding, bool blockFoundation, bool blockSoil)
 		{
-			BlockBuildingButton(tile, manager, blockBuilding);
-
-			BlockFoundationButton(tile, manager, blockFoundation);
-
-			BlockSoilButton(tile, manager, blockSoil);
-		}
-
-		private void BlockBuildingButton(AbstractBuildingTile tile, MarketManager manager, bool blocked)
-		{
-			//TODO: Block the button with something....
-			buildingButton.onClick.RemoveAllListeners();
-		}
-
-		private void BlockFoundationButton(AbstractBuildingTile tile, MarketManager manager, bool blocked)
-		{
-			//TODO: Block the button with something....
-			foundationButton.onClick.RemoveAllListeners();
-		}
-
-		private void BlockSoilButton(AbstractBuildingTile tile, MarketManager manager, bool blocked)
-		{
-			//TODO: Block the button with something....
-			soilButton.onClick.RemoveAllListeners();
+			BlockButton(buildingButton, blockBuilding);
+			BlockButton(foundationButton, blockFoundation);
+			BlockButton(soilButton, blockSoil);
 		}
 
 		private void SetBars(AbstractBuildingTile tile)
@@ -173,7 +148,7 @@ namespace UI.Market.MarketScreens
 
 		private void SetText(string buildingText, string foundationText, string soilText)
 		{
-			// Use the Language file instead... perhaps use the Enum.ToString for json key?
+			// Use the Language file instead... perhaps use the Enum.ToString for json key (for the buytypes)?
 			buildingTypeText.text   = buildingText.ReplaceUnderscoreWithSpace();
 			foundationTypeText.text = foundationText.ReplaceUnderscoreWithSpace();
 			soilTypeText.text       = soilText.ReplaceUnderscoreWithSpace();

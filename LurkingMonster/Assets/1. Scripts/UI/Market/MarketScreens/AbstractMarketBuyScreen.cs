@@ -45,15 +45,15 @@ namespace UI.Market.MarketScreens
 		private void SetupBuyButton(AbstractBuildingTile tile, MarketManager manager)
 		{
 			int price = GetPrice(tile);
-			
+
 			if (!CanAffort(price))
 			{
-				//Block the button
-				btnBuy.onClick.RemoveAllListeners();
+				BlockButton(btnBuy, true);
 				return;
 			}
-			
-			//TODO: block the button if we can't affort it
+
+			BlockButton(btnBuy, false);
+
 			SetButton(btnBuy, OnClick);
 
 			void OnClick()
@@ -85,12 +85,12 @@ namespace UI.Market.MarketScreens
 			BuyButtonData buyButtondatum = pair.Value;
 			SetTextActive(buyButtondatum, true);
 			btnBuy.transform.position = buyButtondatum.Button.transform.position;
-			
+
 			OnSelectBuyButton(tile, pair.Key);
 
 			Deselect(selectedButtonDatum);
 			selectedButtonDatum = pair;
-			
+
 			SetupBuyButton(tile, manager);
 		}
 
@@ -108,12 +108,12 @@ namespace UI.Market.MarketScreens
 			{
 				buttonData.Text.Rent.gameObject.SetActive(active);
 			}
-			
+
 			if (buttonData.Text.Health)
 			{
 				buttonData.Text.Health.gameObject.SetActive(active);
 			}
-			
+
 			if (buttonData.Text.Upgrades)
 			{
 				buttonData.Text.Upgrades.gameObject.SetActive(active);

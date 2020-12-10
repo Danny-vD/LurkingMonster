@@ -24,7 +24,12 @@ namespace UI.Market.MarketScreens.FoundationScreens
 		{
 			if (tile.HasBuilding)
 			{
+				BlockButton(btnRepair, false);
 				SetupRepairButton(tile, manager);
+			}
+			else
+			{
+				BlockButton(btnRepair, true);
 			}
 			
 			SetupDemolishButton(tile, manager);
@@ -32,19 +37,48 @@ namespace UI.Market.MarketScreens.FoundationScreens
 
 		private void SetupRepairButton(AbstractBuildingTile tile, MarketManager manager)
 		{
-			BuildingHealth buildingHealth = tile.Building.GetComponent<BuildingHealth>();
-			repairText.text = tile.GetCurrentFoundationData().RepairCost.ToString();
-			SetButton(btnRepair, buildingHealth.ResetFoundationHealth, manager.CloseMarket);
+			int price = tile.GetCurrentFoundationData().RepairCost;
+			repairText.text = price.ToString();
+			
+			if (!CanAffort(price))
+			{
+				BlockButton(btnRepair, true);
+				return;
+			}
+			
+			BlockButton(btnRepair, false);
+
+			SetButton(btnRepair, OnClick);
+
+			void OnClick()
+			{
+				ReduceMoney(price);
+				BuildingHealth buildingHealth = tile.Building.GetComponent<BuildingHealth>();
+				buildingHealth.ResetFoundationHealth();
+				manager.CloseMarket();
+			}
 		}
 
 		private void SetupDemolishButton(AbstractBuildingTile tile, MarketManager manager)
 		{
+			int price = tile.GetCurrentFoundationData().DestructionCost;
+			demolishText.text = price.ToString();
+		
+			if (!CanAffort(price))
+			{
+				BlockButton(btnDemolish, true);
+				return;
+			}
+			
+			BlockButton(btnDemolish, false);
+			
 			SetButton(btnDemolish, OnClick);
 
-			demolishText.text = tile.GetCurrentFoundationData().DestructionCost.ToString();
 
 			void OnClick()
 			{
+				ReduceMoney(price);
+				
 				tile.RemoveFoundation();
 				manager.CloseMarket();
 			}

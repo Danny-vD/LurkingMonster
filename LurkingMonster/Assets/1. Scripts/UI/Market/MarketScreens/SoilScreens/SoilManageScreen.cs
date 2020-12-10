@@ -26,7 +26,12 @@ namespace UI.Market.MarketScreens.SoilScreens
 		{
 			if (tile.HasBuilding)
 			{
+				BlockButton(btnRepair, false);
 				SetupRepairButton(tile, manager);
+			}
+			else
+			{
+				BlockButton(btnRepair, true);
 			}
 
 			SetupDemolishButton(tile, manager);
@@ -34,20 +39,46 @@ namespace UI.Market.MarketScreens.SoilScreens
 
 		private void SetupRepairButton(AbstractBuildingTile tile, MarketManager manager)
 		{
-			BuildingHealth buildingHealth = tile.Building.GetComponent<BuildingHealth>();
-			repairText.text = tile.GetCurrentSoilData().RepairCost.ToString();
-			SetButton(btnRepair, buildingHealth.ResetSoilHealth, manager.CloseMarket);
+			int price = tile.GetCurrentSoilData().RepairCost;
+			repairText.text = price.ToString();
+
+			if (!CanAffort(price))
+			{
+				BlockButton(btnRepair, true);
+				return;
+			}
+
+			BlockButton(btnRepair, false);
+
+			SetButton(btnRepair, OnClick);
+
+			void OnClick()
+			{
+				ReduceMoney(price);
+				BuildingHealth buildingHealth = tile.Building.GetComponent<BuildingHealth>();
+				buildingHealth.ResetSoilHealth();
+				manager.CloseMarket();
+			}
 		}
 
 		private void SetupDemolishButton(AbstractBuildingTile tile, MarketManager manager)
 		{
-			SetButton(btnDemolish, OnClick);
+			int price = tile.GetCurrentSoilData().RemoveCost;
+			demolishText.text = price.ToString();
 
-			demolishText.text = tile.GetCurrentSoilData().RemoveCost.ToString();
+			if (!CanAffort(price))
+			{
+				BlockButton(btnDemolish, true);
+				return;
+			}
+
+			BlockButton(btnDemolish, false);
+
+			SetButton(btnDemolish, OnClick);
 
 			void OnClick()
 			{
-				EventManager.Instance.RaiseEvent(new DecreaseMoneyEvent(100));
+				ReduceMoney(price);
 				tile.RemoveSoil();
 				manager.CloseMarket();
 			}

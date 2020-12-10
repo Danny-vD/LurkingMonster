@@ -7,6 +7,7 @@ using UnityEngine.Events;
 using UnityEngine.UI;
 using VDFramework;
 using VDFramework.EventSystem;
+using VDFramework.UnityExtensions;
 
 namespace UI.Market.MarketScreens
 {
@@ -14,7 +15,7 @@ namespace UI.Market.MarketScreens
 	{
 		[SerializeField]
 		private Button returnButton = null;
-		
+
 		public event Action<AbstractBuildingTile, MarketManager> Extensions;
 
 		public void Hide()
@@ -45,7 +46,7 @@ namespace UI.Market.MarketScreens
 		}
 
 		protected abstract void SetupScreen(AbstractBuildingTile tile, MarketManager manager);
-		
+
 		private void ActivateExtensions(AbstractBuildingTile tile, MarketManager manager)
 		{
 			Extensions?.Invoke(tile, manager);
@@ -66,12 +67,22 @@ namespace UI.Market.MarketScreens
 				button.onClick.AddListener(listener);
 			}
 		}
-		
+
+		protected static void BlockButton(Button button, bool block)
+		{
+			if (block)
+			{
+				button.onClick.RemoveAllListeners();
+			}
+
+			button.EnsureComponent<LockEnabler>().SetLocked(block);
+		}
+
 		protected static bool CanAffort(int price)
 		{
 			return MoneyManager.Instance.PlayerHasEnoughMoney(price);
 		}
-		
+
 		protected static void ReduceMoney(int price)
 		{
 			EventManager.Instance.RaiseEvent(new DecreaseMoneyEvent(price));
