@@ -17,16 +17,16 @@ namespace Tutorials
 
 		[SerializeField]
 		private float offsetDistance = 250f;
-		
+
 		private GameObject prefabInstance;
 
 		public override void StartTutorial(GameObject arrow)
 		{
 			base.StartTutorial(arrow);
 			ShowNextText();
-			
+
 			DisableButtons();
-			
+
 			SetNextButton(Highlight);
 			continueButton.onClick.AddListener(CompleteTutorial);
 		}
@@ -41,18 +41,20 @@ namespace Tutorials
 				{
 					continue;
 				}
-				
+
 				disableButton.onClick.RemoveAllListeners();
 			}
 		}
-		
+
 		private void Highlight()
 		{
 			ShowNextText();
 			prefabInstance = Instantiate(Arrow, highlight.transform, true);
 
 			prefabInstance.transform.localPosition = Vector3.zero;
+
 			prefabInstance.transform.localScale = new Vector3(scale, scale, scale);
+
 			prefabInstance.transform.Translate(Vector3.up * offsetDistance);
 		}
 

@@ -14,16 +14,16 @@ namespace Tutorials
 
 		[SerializeField]
 		private float scale;
-		
+
 		[SerializeField]
 		private float offsetDistance = 1.5f;
-		
+
 		private Material oldMaterial;
 
 		private Renderer meshRenderer;
 
 		private GameObject prefabInstance;
-		
+
 		public override void StartTutorial(GameObject arrow)
 		{
 			base.StartTutorial(arrow);
@@ -33,10 +33,11 @@ namespace Tutorials
 			meshRenderer = abstractBuildingTile.GetComponent<Renderer>();
 
 			Canvas buildingCanvas = building.GetComponentInChildren<Canvas>();
-			
+
 			oldMaterial = meshRenderer.sharedMaterial;
 
-			prefabInstance              = Instantiate(arrow, buildingCanvas.transform);
+			prefabInstance = Instantiate(arrow, buildingCanvas.transform);
+
 			prefabInstance.transform.localScale = new Vector3(scale, scale, scale);
 			prefabInstance.transform.Translate(Vector3.up * offsetDistance, Space.Self);
 			meshRenderer.sharedMaterial = material;
