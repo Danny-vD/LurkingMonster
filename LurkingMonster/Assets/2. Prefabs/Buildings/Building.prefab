@@ -1225,6 +1225,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Chimney
       objectReference: {fileID: 0}
+    - target: {fileID: 3848355593189218570, guid: c7866caef7188004dac1a0f6d94e4f5b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3848355593189218575, guid: c7866caef7188004dac1a0f6d94e4f5b, type: 3}
       propertyPath: m_RootOrder
       value: 2
