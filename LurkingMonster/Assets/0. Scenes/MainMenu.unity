@@ -964,7 +964,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.18046656, y: 0.47125697}
   m_AnchorMax: {x: 0.961, y: 0.93674314}
-  m_AnchoredPosition: {x: -0.4920044, y: 0.5}
+  m_AnchoredPosition: {x: -0.49201965, y: 0.5}
   m_SizeDelta: {x: -0.11444092, y: -1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &487502408
@@ -1771,7 +1771,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.14422221, y: 0.7641229}
   m_AnchorMax: {x: 0.8518519, y: 0.85331583}
-  m_AnchoredPosition: {x: 0.06738281, y: -16.222656}
+  m_AnchoredPosition: {x: 0.06738281, y: -6}
   m_SizeDelta: {x: -2.2556152, y: -3.1922607}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &763004811
@@ -1829,7 +1829,7 @@ MonoBehaviour:
   m_fontSizeMax: 150
   m_fontStyle: 0
   m_HorizontalAlignment: 2
-  m_VerticalAlignment: 512
+  m_VerticalAlignment: 1024
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -3048,7 +3048,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: -1}
+  m_AnchoredPosition: {x: 0, y: 881}
   m_SizeDelta: {x: 1000, y: 1000}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &1087330791
@@ -4185,7 +4185,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38aa43f718b04b8e8442af598e4574ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  loadingSeconds: 2
+  loadingSeconds: 20
   progressSlider: {fileID: 1705753700}
 --- !u!1 &1443691024
 GameObject:
@@ -5013,7 +5013,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -0.11999512, y: 229.7219}
+  m_AnchoredPosition: {x: -0.11999512, y: -195}
   m_SizeDelta: {x: -320.76013, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1705753699
