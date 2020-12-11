@@ -21,16 +21,17 @@ namespace UI.Market.MarketScreens
 
 		private SerializableKeyValuePair<TBuyType, BuyButtonData>? selectedButtonDatum;
 
+		protected override void SetupScreen(AbstractBuildingTile tile, MarketManager manager)
+		{
+			selectedButtonDatum = null;
+			SetupTypeButtons(tile, manager);
+		}
+
 		public SerializableEnumDictionary<TBuyType, BuyButtonData> GetbuyButtonData()
 		{
 			return buttonDataPerBuyType;
 		}
-
-		protected override void SetupScreen(AbstractBuildingTile tile, MarketManager manager)
-		{
-			SetupTypeButtons(tile, manager);
-		}
-
+		
 		protected abstract void OnSelectBuyButton(AbstractBuildingTile tile, TBuyType buyType);
 
 		//TODO: use the reward manager for the overrides
@@ -72,19 +73,19 @@ namespace UI.Market.MarketScreens
 			{
 				Button button = pair.Value.Button;
 
-				if (unlocked.Contains(pair.Key))
+				if (!unlocked.Contains(pair.Key))
 				{
-					if (selectedButtonDatum == null)
-					{
-						Select(tile, pair, manager);
-					}
-					
-					BlockButton(button, false);
-					SetButton(button, () => Select(tile, pair, manager));
+					BlockButton(button, true);
 					continue;
 				}
-				
-				BlockButton(button, true);
+
+				if (selectedButtonDatum == null)
+				{
+					Select(tile, pair, manager);
+				}
+
+				BlockButton(button, false);
+				SetButton(button, () => Select(tile, pair, manager));
 			}
 		}
 

@@ -54,7 +54,7 @@ namespace UI.Market.MarketScreens.BuildingScreens
 
 			if (!buildingUpgrade.CanUpgrade())
 			{
-				btnUpgrade.ForEach(RemoveListeners);
+				btnUpgrade.ForEach(BlockButton);
 
 				//TODO: Change to use a JSON key for max upgrade
 				upgradeText.text = "MAX";
@@ -149,11 +149,6 @@ namespace UI.Market.MarketScreens.BuildingScreens
 
 			nextTierHealth.text = currentTierHealth.text;
 			nextTierRent.text   = currentTierRent.text;
-		}
-		
-		private static void RemoveListeners(Button button)
-		{
-			button.onClick.RemoveAllListeners();
 		}
 
 		private static void BlockButton(Button button)
