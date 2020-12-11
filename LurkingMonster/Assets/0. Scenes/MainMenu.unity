@@ -4185,7 +4185,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38aa43f718b04b8e8442af598e4574ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  loadingSeconds: 20
+  loadingSeconds: 10
   progressSlider: {fileID: 1705753700}
 --- !u!1 &1443691024
 GameObject:
