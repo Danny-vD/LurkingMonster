@@ -1,6 +1,8 @@
 ﻿using Gameplay;
 using Gameplay.Buildings;
+using Grid.Tiles;
 using Grid.Tiles.Buildings;
+using Structs.Market;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -37,11 +39,17 @@ namespace UI.Market.MarketScreens
 		[SerializeField]
 		private Bar soilHealthBar;
 
-		[SerializeField, TextArea(5, 10)]
-		private string text;
+		private MainScreenData screenData;
 
 		protected override void SetupScreen(AbstractBuildingTile tile, MarketManager manager)
 		{
+			if (tile.HasDebris) // Tile has debris
+			{
+				SetBars(null);
+				HasDebris(tile, manager);
+				return;
+			}
+
 			if (tile.HasBuilding) // Tile has building, foundation and soil
 			{
 				SetBars(tile);
@@ -51,13 +59,6 @@ namespace UI.Market.MarketScreens
 
 			// Healthbars only matter in case of a building
 			SetBars(null);
-
-			if (tile.HasDebris) // Tile has debris
-			{
-				SetBars(null);
-				HasDebris(tile, manager);
-				return;
-			}
 
 			if (tile.HasFoundation) // Tile has foundation and soil
 			{
@@ -75,9 +76,18 @@ namespace UI.Market.MarketScreens
 			HandleEmpty(tile, manager);
 		}
 
+		public MainScreenData GetScreenData(AbstractBuildingTile tile)
+		{
+			screenData.SetBuildingFoundationSoil(tile.GetBuildingType(), tile.GetFoundationType(), tile.GetSoilType());
+
+			return screenData;
+		}
+
 		private void HasDebris(AbstractBuildingTile tile, MarketManager manager)
 		{
 			BlockButtons(true, true, true);
+
+			screenData.HasDebris = true;
 
 			SetText("Blocked by Debris!", "Blocked by Debris!", "Blocked by Debris!");
 		}
@@ -90,6 +100,8 @@ namespace UI.Market.MarketScreens
 			SetButton(foundationButton, () => manager.PutScreenInFocus(manager.Screens.FoundationManageScreen));
 			SetButton(soilButton, () => manager.PutScreenInFocus(manager.Screens.SoilManageScreen));
 
+			screenData.SetBuildingFoundationSoil(true, true, true);
+
 			SetText(tile.Building.BuildingType.ToString(), tile.GetFoundationType().ToString(), tile.GetSoilType().ToString());
 		}
 
@@ -101,6 +113,8 @@ namespace UI.Market.MarketScreens
 			SetButton(foundationButton, () => manager.PutScreenInFocus(manager.Screens.FoundationManageScreen));
 			SetButton(soilButton, () => manager.PutScreenInFocus(manager.Screens.SoilManageScreen));
 
+			screenData.SetBuildingFoundationSoil(false, true, true);
+
 			SetText("NoBuilding!", tile.GetFoundationType().ToString(), tile.GetSoilType().ToString());
 		}
 
@@ -111,6 +125,8 @@ namespace UI.Market.MarketScreens
 			SetButton(foundationButton, () => manager.PutScreenInFocus(manager.Screens.FoundationBuyScreen));
 			SetButton(soilButton, () => manager.PutScreenInFocus(manager.Screens.SoilManageScreen));
 
+			screenData.SetBuildingFoundationSoil(false, false, true);
+
 			SetText("NoBuilding!", "NoFoundation!", tile.GetSoilType().ToString());
 		}
 
@@ -119,6 +135,8 @@ namespace UI.Market.MarketScreens
 			BlockButtons(true, true, false);
 
 			SetButton(soilButton, () => manager.PutScreenInFocus(manager.Screens.SoilBuyScreen));
+
+			screenData.SetBuildingFoundationSoil(false, false, false);
 
 			SetText("NoBuilding!", "NoFoundation!", "NoSoil!");
 		}

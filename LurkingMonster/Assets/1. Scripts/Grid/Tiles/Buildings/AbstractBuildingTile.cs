@@ -39,6 +39,8 @@ namespace Grid.Tiles.Buildings
 		public bool HasBuilding => Building;
 		public bool HasDebris => debrisObject;
 		public int DebrisRemovalCost => DestroyedBuildingData.CleanupCosts;
+		
+		public int DestroyedBuildingTier { get; private set; }
 
 		protected virtual void Awake()
 		{
@@ -209,7 +211,9 @@ namespace Grid.Tiles.Buildings
 				return;
 			}
 
-			SpawnDebris(buildingType, building.CurrentTier);
+			DestroyedBuildingTier = building.CurrentTier;
+			
+			SpawnDebris(buildingType, DestroyedBuildingTier);
 		}
 
 		private void ToggleProps(bool active)
