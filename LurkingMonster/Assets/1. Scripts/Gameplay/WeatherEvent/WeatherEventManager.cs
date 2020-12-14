@@ -164,7 +164,7 @@ namespace Gameplay.WeatherEvent
 			}
 
 			weatherEventData = GetData(weatherEventType);
-
+			weatherEventTimer.StartTimer(weatherEventData.Timer, EndWeatherEvent, weatherEventType);
 			weatherEventTimer.Timer  = gameData.TimerWeatherEvent;
 			weatherEventActive = true;
 
