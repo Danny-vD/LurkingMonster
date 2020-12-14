@@ -12,6 +12,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Utility;
 using VDFramework.EventSystem;
+using Object = System.Object;
 
 namespace Gameplay.Achievements
 {
@@ -69,6 +70,16 @@ namespace Gameplay.Achievements
 			return new AchievementData(counter, unlocked, rewardsCollected);
 		}
 
+		public string GetTitleString()
+		{
+			return LanguageUtil.GetJsonString(keyMessage);
+		}
+
+		public bool CheckIfRewardReady()
+		{
+			return unlocked[counter];
+		}
+
 		public void SetData(AchievementData data)
 		{
 			counter          = data.counter;
@@ -81,6 +92,11 @@ namespace Gameplay.Achievements
 			int i = GetIndexFirstNotCollectedReward();
 			rewardsCollected[i] = true;
 			RewardManager.Instance.Unlock(objects[i]);
+		}
+
+		public object GetNextReward()
+		{
+			return objects[GetIndexFirstNotCollectedReward()];
 		}
 		
 		public string GetAchievementInfo()
