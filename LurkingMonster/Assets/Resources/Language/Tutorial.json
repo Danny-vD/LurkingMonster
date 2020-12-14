@@ -6,11 +6,11 @@
 	  "Value": [
 		{
 		  "Key": "NL",
-		  "Value": "Vertaald worden!"
+		  "Value": "Hallo, mijn naam is -Peter-, ik werk voor de KCAF als adviseur. Ik zal je door het process begeleiden om Erik's probleem op te lossen."
 		},
 		{
 		  "Key": "EN",
-		  "Value": "Hi there! I am -Peter- the contractor for the KCAF, I will be guiding you through the steps Erik needs to take to solve his problem"
+		  "Value": "Hi there! I am -Peter- the consultant for the KCAF, I will be guiding you through the steps Erik needs to take to solve his problem"
 		},
 		{
 		  "Key": "DE",
@@ -23,11 +23,11 @@
       "Value": [
         {
           "Key": "NL",
-          "Value": "Vertaald worden!"
+          "Value": "Het probleem met dit huis is dat de lange leegstand de fundering heeft aangetast.\n\nTijdens de leegstand droogde de grond op waardoor de houten palen werden blootgesteld aan zuurstof."
         },
         {
           "Key": "EN",
-          "Value": "The problem with this house is that the long vacancy has affected its foundation. During the vacancy, the soil dried out and it exposed the wooden poles to oxygen."
+          "Value": "The problem with this house is that the long vacancy has affected its foundation.\n\nDuring the vacancy, the soil dried out and it exposed the wooden poles to oxygen."
         },
         {
           "Key": "DE",
@@ -40,7 +40,7 @@
       "Value": [
         {
           "Key": "NL",
-          "Value": "Vertaald worden!"
+          "Value": "Daardoor begon het hout te rotten en zakt het huis nu puur door het gewicht van het gebouw een beetje in de grond."
         },
         {
           "Key": "EN",
@@ -57,11 +57,11 @@
       "Value": [
         {
           "Key": "NL",
-          "Value": "Vertaald worden!"
+          "Value": "Nu zullen we proberen het te repareren.\n\nTik op het icoontje boven het huis.\n\nDie icoontjes geven aan wat het probleem is."
         },
         {
           "Key": "EN",
-          "Value": "just double tap on the house with the icon above it. Those icons indicate what the problem is."
+          "Value": "Just tap on the icon above the house.\n\nThose icons indicate what the problem is."
         },
         {
           "Key": "DE",
@@ -74,11 +74,11 @@
       "Value": [
         {
           "Key": "NL",
-          "Value": "Vertaald worden!"
+          "Value": "Door het icoon word je naar het marktoverzicht geleid, hier zie je de huidige staat van de woning, fundering en bodem.\n\nDat wordt aangegeven door hun levensbalk.\n\nDan weet je wat je moet selecteren om te repareren."
         },
         {
           "Key": "EN",
-          "Value": "Because of the icon you are led to the main overview, here you can see the state of the house, foundation and soil. Then you can select what you need to repair."
+          "Value": "Because of the icon you are led to the main overview, here you can see the current state of the house, foundation and soil.\n\nAs is shown by their healthbar.\n\nThen you can select what you need to repair."
         },
         {
           "Key": "DE",
@@ -91,11 +91,11 @@
       "Value": [
         {
           "Key": "NL",
-          "Value": "Vertaald worden!"
+          "Value": "Nu dat je het reparatie scherm hebt geopend, kun hier lezen waarom het gerepareerd moet worden en waardoor dit probleem ontstaat."
         },
         {
           "Key": "EN",
-          "Value": "Now you selected the repair factor, you can read here why it needs to be repaired."
+          "Value": "Now you selected the repair factor, you can read here why it needs to be repaired and what caused the problem."
         },
         {
           "Key": "DE",
@@ -108,7 +108,7 @@
       "Value": [
         {
           "Key": "NL",
-          "Value": "Vertaald worden!"
+          "Value": "Het KCAF heeft een gids opgesteld die je helpt dit probleem in 8 eenvoudige stappen op te lossen."
         },
         {
           "Key": "EN",
@@ -125,7 +125,7 @@
       "Value": [
         {
           "Key": "NL",
-          "Value": "Vertaald worden!"
+          "Value": "1. Onderzoek je huis.\n\n2. Vraag de vorige bewoners of zij problemen hadden"
         },
         {
           "Key": "EN",
@@ -142,11 +142,11 @@
       "Value": [
         {
           "Key": "NL",
-          "Value": "Vertaald worden!"
+          "Value": "3. Huur een deskundige in om naar de staat van het huis te kijken en te adviseren.\n\n4. Huur een deskundige in om je huis, fundering en grond te onderzoeken."
         },
         {
           "Key": "EN",
-          "Value": "3. Hire a professional to look at the state of your house.\n\n4. Possibly hire a professional who will research your soil & foundation."
+          "Value": "3. Hire a professional to look at the state of your house and provide advice.\n\n4. Hire a professional who will research your house, soil & foundation."
         },
         {
           "Key": "DE",
@@ -159,11 +159,11 @@
       "Value": [
         {
           "Key": "NL",
-          "Value": "Vertaald worden!"
+          "Value": "5. Als de grond het probleem is, vindt een manier om het te hydrateren.\n\n6. Als de fundering het probleem is, contacteer dan een bedrijf die in fundering restauratie is gespecialiseerd."
         },
         {
           "Key": "EN",
-          "Value": "5. If it turns out that the soil is the issue, then rehydrate the soil.\n\n6. If the foundation is the problem, you might want to hire a foundation company to improve the foundation."
+          "Value": "5. If it turns out that the soil is the issue, then rehydrate the soil.\n\n6. If the foundation is the problem, you want to hire a foundation company to improve the foundation."
         },
         {
           "Key": "DE",
@@ -176,7 +176,7 @@
       "Value": [
         {
           "Key": "NL",
-          "Value": "Vertaald worden!"
+          "Value": "7. Gevonden oplossing gebaseerd op de research uitvoeren.\n\n8. De rekening betalen."
         },
         {
           "Key": "EN",
@@ -193,11 +193,11 @@
       "Value": [
         {
           "Key": "NL",
-          "Value": "Vertaald worden!"
+          "Value": "Nu hebben we al onderzoek gedaan naar uw zaak en geconcludeerd dat het probleem bij de fundering ligt, laten we eens kijken hoe u het kunt repareren."
         },
         {
           "Key": "EN",
-          "Value": "Now that we have conducted research on your case and ensured that the problem lies within the foundation, let's talk about how you can repair it."
+          "Value": "We have already conducted research on your case and concluded that the problem lies within the foundation, let's talk about how you can repair it."
         },
         {
           "Key": "DE",
@@ -210,11 +210,11 @@
       "Value": [
         {
           "Key": "NL",
-          "Value": "Vertaald worden!"
+          "Value": "Om wat gewicht van de originele, rottende palen te halen, gaan we nog wat metalen pinnen toevoegen in de palen.\n\nDe volgende stap is het opnieuw hydrateren van de grond, zodat je zowel de fundering als de grond hebt hersteld."
         },
         {
           "Key": "EN",
-          "Value": "In order to take some weight off the original and rotten poles, we're going to add some more wooden ones. Next step will be the rehydration of the soil, so that you have both a repaired foundation and soil."
+          "Value": "In order to take some weight off the original and rotten poles, we're going to add some metal pins into the poles.\n\nThe next step will be the rehydration of the soil, so that you have both a repaired foundation and soil."
         },
         {
           "Key": "DE",
@@ -227,11 +227,11 @@
       "Value": [
         {
           "Key": "NL",
-          "Value": "Vertaald worden!"
+          "Value": "Goed bezig! Nu moet de grond worden gehydrateerd. Je weet wat je moet doen!"
         },
         {
           "Key": "EN",
-          "Value": "Dominique will add text here (click soil button)"
+          "Value": "Great! Now the soil needs to be hydrated. You know what to do!"
         },
         {
           "Key": "DE",
@@ -244,24 +244,7 @@
       "Value": [
         {
           "Key": "NL",
-          "Value": "Vertaald worden!"
-        },
-        {
-          "Key": "EN",
-          "Value": "Great! Now the soil needs to be hydrated. You know what to do! Click the repair button"
-        },
-        {
-          "Key": "DE",
-          "Value": ""
-        }
-      ]
-    },
-    {
-      "Key": "TUTORIAL_16",
-      "Value": [
-        {
-          "Key": "NL",
-          "Value": "Vertaald worden!"
+          "Value": "Goed gedaan, nu is het huis weer leefbaar en kun je de huur innen.\n\nOh ja, sorry, wat is uw naam ook alweer?"
         },
         {
           "Key": "EN",
@@ -274,15 +257,15 @@
       ]
     },
     {
-      "Key": "TUTORIAL_17",
+      "Key": "TUTORIAL_16",
       "Value": [
         {
           "Key": "NL",
-          "Value": "Vertaald worden!"
+          "Value": "Aangenaam kennis te maken {0}, deze stad heeft nog een naam nodig. Heeft u een idee?"
         },
         {
           "Key": "EN",
-          "Value": "Nice to meet you {0}, this city still needs a name. could you give it one?"
+          "Value": "Nice to meet you {0}, this city still needs a name. Could you give it one?"
         },
         {
           "Key": "DE",
@@ -291,11 +274,11 @@
       ]
     },
     {
-      "Key": "TUTORIAL_18",
+      "Key": "TUTORIAL_17",
       "Value": [
         {
           "Key": "NL",
-          "Value": "Vertaald worden!"
+          "Value": "Dat is een geweldige naam! Je kunt het vinden op het welkomstbord van de stad."
         },
         {
           "Key": "EN",
@@ -308,11 +291,11 @@
       ]
     },
     {
-      "Key": "TUTORIAL_19",
+      "Key": "TUTORIAL_18",
       "Value": [
         {
           "Key": "NL",
-          "Value": "Vertaald worden!"
+          "Value": "Nu dat je stad een naam heeft, zou je wat meer huizen moeten bouwen om de mensen te huisvesten.\n\nDubbeltik gewoon op een lege kavel en dan kan je beginnen met bouwen."
         },
         {
           "Key": "EN",
@@ -325,11 +308,11 @@
       ]
     },
     {
-      "Key": "TUTORIAL_20",
+      "Key": "TUTORIAL_19",
       "Value": [
         {
           "Key": "NL",
-          "Value": "Vertaald worden!"
+          "Value": "Hier is wat geld om te beginnen!\n\nMaar pas op!\n\nJe wilt in de toekomst niet meer gebeld worden over verzakkingsproblemen... maak verstandige keuzes tijdens het bouwproces."
         },
         {
           "Key": "EN",
