@@ -1,0 +1,100 @@
+﻿{
+  "Variables": [
+    {
+      "Key": "ACHIEVEMENT_1",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "Nieuw Spel"
+        },
+        {
+          "Key": "EN",
+          "Value": "New Game"
+        },
+        {
+          "Key": "DE",
+          "Value": "Neues Spiel"
+        }
+      ]
+    },{
+      "Key": "ACHIEVEMENT_2",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "Nieuw Spel"
+        },
+        {
+          "Key": "EN",
+          "Value": "New Game"
+        },
+        {
+          "Key": "DE",
+          "Value": "Neues Spiel"
+        }
+      ]
+    },{
+      "Key": "ACHIEVEMENT_3",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "Nieuw Spel"
+        },
+        {
+          "Key": "EN",
+          "Value": "New Game"
+        },
+        {
+          "Key": "DE",
+          "Value": "Neues Spiel"
+        }
+      ]
+    },{
+      "Key": "ACHIEVEMENT_4",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "Nieuw Spel"
+        },
+        {
+          "Key": "EN",
+          "Value": "New Game"
+        },
+        {
+          "Key": "DE",
+          "Value": "Neues Spiel"
+        }
+      ]
+    },{
+      "Key": "ACHIEVEMENT_5",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "Nieuw Spel"
+        },
+        {
+          "Key": "EN",
+          "Value": "New Game"
+        },
+        {
+          "Key": "DE",
+          "Value": "Neues Spiel"
+        }
+      ]
+    },{
+      "Key": "ACHIEVEMENT_6",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "Nieuw Spel"
+        },
+        {
+          "Key": "EN",
+          "Value": "New Game"
+        },
+        {
+          "Key": "DE",
+          "Value": "Neues Spiel"
+        }
+      ]
+    }]
+}

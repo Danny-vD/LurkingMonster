@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using _1._Scripts.Gameplay.WeatherEvent;
 using Enums;
 using Events.WeatherEvents;
 using IO;
@@ -29,30 +30,31 @@ namespace Gameplay.WeatherEvent
 
 		[SerializeField]
 		private GameObject newsEventScreen;
-
+		
 		[SerializeField]
 		private float minTime = 900.0f;
 
 		[SerializeField]
 		private float maxTime = 3000.0f;
 
+		[SerializeField]
+		private WeatherEventTimer weatherEventTimer;
+
 		private TextMeshProUGUI popupText;
 
-		private float timer;
+		private float timerTillNextEvent;
 
 		private WeatherEventType weatherEventType;
 
 		private AbstractWeatherEvent abstractWeatherEvent;
 
 		private WeatherEventData weatherEventData;
-
-		private float weatherEventTimer;
-
+		
 		private void Start()
 		{
 			popupText = newsEventScreen.GetComponentInChildren<TextMeshProUGUI>();
 			
-			timer = Random.Range(minTime, maxTime);
+			timerTillNextEvent = Random.Range(minTime, maxTime);
 
 			weatherEventActive = false;
 
@@ -71,11 +73,7 @@ namespace Gameplay.WeatherEvent
 				return;
 			}
 			
-			if (weatherEventActive)
-			{
-				WeatherEventTimer();
-			}
-			else
+			if (!weatherEventActive)
 			{
 				TimerToNextWeatherEvent();
 			}
@@ -83,9 +81,9 @@ namespace Gameplay.WeatherEvent
 
 		private void TimerToNextWeatherEvent()
 		{
-			timer -= Time.unscaledDeltaTime;
+			timerTillNextEvent -= Time.unscaledDeltaTime;
 
-			if (timer <= 0.0f && !PowerUpManager.Instance.AvoidWeatherActive)
+			if (timerTillNextEvent <= 0.0f && !PowerUpManager.Instance.AvoidWeatherActive)
 			{
 				if (TimeManager.Instance.IsPaused())
 				{
@@ -95,28 +93,27 @@ namespace Gameplay.WeatherEvent
 				// TODO: instead of taking a random event, have a list of unlocked events or something
 				weatherEventType = default(WeatherEventType).GetRandomValue();
 				weatherEventData = GetData(weatherEventType);
-				EventManager.Instance.RaiseEvent(new StartWeatherEvent(abstractWeatherEvent));
-				weatherEventActive = true;
-				weatherEventTimer  = weatherEventData.Timer;
-				EnableEventScreen(true);
 				
-				timer = Random.Range(minTime, maxTime);
+				EventManager.Instance.RaiseEvent(new StartWeatherEvent(abstractWeatherEvent));
+				weatherEventTimer.StartTimer(weatherEventData.Timer, EndWeatherEvent, weatherEventType);
+				
+				EnableEventScreen(true);
+				weatherEventActive = true;
+				
+				timerTillNextEvent = Random.Range(minTime, maxTime);
 			}
 		}
 
-		private void WeatherEventTimer()
+		private void EndWeatherEvent()
 		{
-			weatherEventTimer -= Time.deltaTime;
-
-			if (weatherEventTimer <= 0)
-			{
-				weatherEventType = (WeatherEventType) (-1);
-				weatherEventActive     = false;
-				EnableEventScreen(false);
-				Destroy(abstractWeatherEvent.gameObject);
-			}
+			weatherEventType   = (WeatherEventType) (-1);
+			weatherEventActive = false;
+			EnableEventScreen(false);
+			Destroy(abstractWeatherEvent.gameObject);
 		}
 
+		
+		
 		private WeatherEventData GetData(WeatherEventType weatherEventType)
 		{
 			for (int i = 0; i < eventDataPerEventType.Count; i++)
@@ -152,7 +149,7 @@ namespace Gameplay.WeatherEvent
 			}
 
 			gameData.WeatherEventType = weatherEventType;
-			gameData.TimerWeatherEvent      = weatherEventTimer;
+			gameData.TimerWeatherEvent      = weatherEventTimer.Timer;
 		}
 
 		private void LoadData()
@@ -167,8 +164,8 @@ namespace Gameplay.WeatherEvent
 			}
 
 			weatherEventData = GetData(weatherEventType);
-
-			weatherEventTimer  = gameData.TimerWeatherEvent;
+			weatherEventTimer.StartTimer(weatherEventData.Timer, EndWeatherEvent, weatherEventType);
+			weatherEventTimer.Timer  = gameData.TimerWeatherEvent;
 			weatherEventActive = true;
 
 			EventManager.Instance.RaiseEvent(new StartWeatherEvent(abstractWeatherEvent));

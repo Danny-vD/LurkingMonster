@@ -39,17 +39,17 @@ namespace Gameplay.Achievements
 			achievements = new List<Achievement>();
 
 			buildingBuildAchievement = new Achievement(new int[] {5, 10, 20}, "BUILDINGSBUILDACHIEVEMENT",
-				new object[] {PowerUpType.FixProblems, SoilType.Sandy_Clay, FoundationType.Concrete_On_Steel}, "PLACEHOLDER");
+				new object[] {SoilType.Sandy_Clay, SoilType.Sandy_Clay, FoundationType.Concrete_On_Steel}, "ACHIEVEMENT_1");
 			rentCollectedAchievement = new Achievement(new int[] {1000, 10000, 100000}, "RENTCOLLECTEDACHIEVEMENT",
-				new object[] {FoundationType.Floating_Floor_Plate, SoilType.Clay, FoundationType.Reinfored_Concrete}, "PLACEHOLDER");
+				new object[] {FoundationType.Floating_Floor_Plate, SoilType.Clay, FoundationType.Reinfored_Concrete}, "ACHIEVEMENT_2");
 			buildingSavedAchievement = new Achievement(new int[] {10, 20, 30}, "BUILDINGSAVEDACHIEVEMENT",
-				new object[] {SoilType.Peat, PowerUpType.FixProblems, SoilType.Sand}, "PLACEHOLDER");
+				new object[] {SoilType.Peat, PowerUpType.FixProblems, SoilType.Sand}, "ACHIEVEMENT_3");
 			buildingConsumedAchievement = new Achievement(new int[] {5, 10, 20}, "BUILDINGCONSUMEDACHIEVEMENT",
-				new object[] {WeatherEventType.Earthquake, WeatherEventType.Storm, WeatherEventType.BuildingTunnels}, "PLACEHOLDER");
+				new object[] {BuildingType.Store, PowerUpType.AvoidMonster, PowerUpType.AvoidWeatherEvent}, "ACHIEVEMENT_4");
 			amountOfPlotsAchievement = new Achievement(new int[] {5, 10, 20}, "AMOUNTOFPLOTSACHIEVEMENT",
-				new object[] {8, 10, BuildingType.ApartmentBuilding}, "PLACEHOLDER");
+				new object[] {PowerUpType.AvoidMonster, PowerUpType.AvoidMonster, BuildingType.ApartmentBuilding}, "ACHIEVEMENT_5");
 			destroyHousesAchievement = new Achievement(new int[] {2, 5, 10}, "DESTROYHOUSESACHIEVEMENT",
-				new object[] {PowerUpType.AvoidWeatherEvent, FoundationType.Wooden_Poles, BuildingType.Store}, "PLACEHOLDER");
+				new object[] {PowerUpType.AvoidWeatherEvent, FoundationType.Wooden_Poles, BuildingType.Store}, "ACHIEVEMENT_6");
 
 			achievements.Add(buildingBuildAchievement);
 			achievements.Add(rentCollectedAchievement);

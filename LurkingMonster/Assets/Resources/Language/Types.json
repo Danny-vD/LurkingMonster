@@ -1,0 +1,228 @@
+﻿{
+  "Variables": [
+    {
+      "Key": "SAND",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "Zand"
+        },
+        {
+          "Key": "EN",
+          "Value": "Sand"
+        },
+        {
+          "Key": "DE",
+          "Value": "Neues Spiel"
+        }
+      ]
+    },{
+      "Key": "LOAM",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "Leem"
+        },
+        {
+          "Key": "EN",
+          "Value": "Loam"
+        },
+        {
+          "Key": "DE",
+          "Value": "Neues Spiel"
+        }
+      ]
+    },{
+      "Key": "CLAY",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "Klei"
+        },
+        {
+          "Key": "EN",
+          "Value": "Clay"
+        },
+        {
+          "Key": "DE",
+          "Value": "Neues Spiel"
+        }
+      ]
+    },{
+      "Key": "PEAT",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "Veen"
+        },
+        {
+          "Key": "EN",
+          "Value": "Peat"
+        },
+        {
+          "Key": "DE",
+          "Value": "Neues Spiel"
+        }
+      ]
+    },{
+      "Key": "HOUSE",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "Huis"
+        },
+        {
+          "Key": "EN",
+          "Value": "Building"
+        },
+        {
+          "Key": "DE",
+          "Value": "Neues Spiel"
+        }
+      ]
+    },{
+      "Key": "STORE",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "Winkel"
+        },
+        {
+          "Key": "EN",
+          "Value": "Store"
+        },
+        {
+          "Key": "DE",
+          "Value": "Neues Spiel"
+        }
+      ]
+    },{
+      "Key": "APARTMENT",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "Appartement"
+        },
+        {
+          "Key": "EN",
+          "Value": "Apartment"
+        },
+        {
+          "Key": "DE",
+          "Value": "Neues Spiel"
+        }
+      ]
+    },{
+      "Key": "WOODEN_POLES",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "Houten Palen"
+        },
+        {
+          "Key": "EN",
+          "Value": "Wodden Poles"
+        },
+        {
+          "Key": "DE",
+          "Value": "Neues Spiel"
+        }
+      ]
+    },{
+      "Key": "REINFORCED_CONCRETE",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "Gewapend Beton"
+        },
+        {
+          "Key": "EN",
+          "Value": "Reinforced Concrete"
+        },
+        {
+          "Key": "DE",
+          "Value": "Neues Spiel"
+        }
+      ]
+    },{
+      "Key": "SHALLOW_FOUNDATION",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "Beton Op Staal"
+        },
+        {
+          "Key": "EN",
+          "Value": "Shallow Foundation"
+        },
+        {
+          "Key": "DE",
+          "Value": "Neues Spiel"
+        }
+      ]
+    },{
+      "Key": "FLOATING_FLOOR_PLATE",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "Zwevende Vloerplaat"
+        },
+        {
+          "Key": "EN",
+          "Value": "Floating Floor Plate"
+        },
+        {
+          "Key": "DE",
+          "Value": "Neues Spiel"
+        }
+      ]
+    },{
+      "Key": "POWERUP_MEAT",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "Vlees"
+        },
+        {
+          "Key": "EN",
+          "Value": "Meat"
+        },
+        {
+          "Key": "DE",
+          "Value": "Neues Spiel"
+        }
+      ]
+    },{
+      "Key": "POWERUP_FIX_PROBLEMS",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "Kcaf"
+        },
+        {
+          "Key": "EN",
+          "Value": "Kcaf"
+        },
+        {
+          "Key": "DE",
+          "Value": "Neues Spiel"
+        }
+      ]
+    },{
+      "Key": "POWERUP_WEATHER",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "Weer"
+        },
+        {
+          "Key": "EN",
+          "Value": "Weather"
+        },
+        {
+          "Key": "DE",
+          "Value": "Neues Spiel"
+        }
+      ]
+    }]
+}
