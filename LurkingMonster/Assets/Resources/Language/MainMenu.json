@@ -375,40 +375,6 @@
       ]
     },
     {
-      "Key": "STORM",
-      "Value": [
-        {
-          "Key": "NL",
-          "Value": "Storm"
-        },
-        {
-          "Key": "EN",
-          "Value": "Storm"
-        },
-        {
-          "Key": "DE",
-          "Value": "Ok!"
-        }
-      ]
-    },
-    {
-      "Key": "STORM_CONTENT",
-      "Value": [
-        {
-          "Key": "NL",
-          "Value": "BREAKING NEWS, {0} hier om u te informeren dat er een <b>hevige storm</b> aan komt. Hierdoor wordt de bodem instabiel, kunnen funderingen worden aangetast en kunnen huizen beschadigd raken."
-        },
-        {
-          "Key": "EN",
-          "Value": "BREAKING NEWS, {0} here to inform you that there is a <b>heavy storm</b> coming. This will result in soil becoming unstable and foundations might be affected as well as houses."
-        },
-        {
-          "Key": "DE",
-          "Value": "Ok!"
-        }
-      ]
-    },
-    {
       "Key": "DROUGHT",
       "Value": [
         {
