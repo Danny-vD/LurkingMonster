@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86a62c3d0c2d4d03854b5375ed7d03e9, type: 3}
   m_Name: Sand
   m_EditorClassIdentifier: 
-  buildCost: 200
-  removeCost: 100
-  maxHealth: 300
-  materials: []
+  Prefabs:
+  - {fileID: 6996015468651280539, guid: 7b05ff906b7cc6f4a8d696f739138896, type: 3}
+  BuildCost: 200
+  RepairCost: 50
+  RemoveCost: 100
+  MaxHealth: 50
