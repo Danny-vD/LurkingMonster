@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Reinforced Steel
   m_EditorClassIdentifier: 
   Prefabs:
-  - {fileID: 6448619695878815470, guid: bc27b629626068742b4230c8264e7d43, type: 3}
+  - {fileID: 1481292023678209867, guid: 09e1c98aa1462214f9da140707b789fe, type: 3}
   BuildCost: 100
   RepairCost: 50
   DestructionCost: 500
