@@ -193,6 +193,8 @@ namespace Grid.Tiles.Buildings
 			RemoveFoundation();
 			RemoveSoil();
 			
+			ToggleProps(false);
+			
 			int tier = Mathf.Max(0, buildingTier - 1);
 
 			DestroyedBuildingData = spawner.GetBuildingData(buildingType, GetFoundationType(), GetSoilType())[tier];
