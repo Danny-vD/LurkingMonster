@@ -49,6 +49,9 @@ namespace Gameplay.WeatherEvent
 		private AbstractWeatherEvent abstractWeatherEvent;
 
 		private WeatherEventData weatherEventData;
+
+		private WeatherEventType[] availableWeather = new[]
+			{WeatherEventType.Earthquake, WeatherEventType.Storm, WeatherEventType.HeavyRain};
 		
 		private void Start()
 		{
@@ -91,7 +94,7 @@ namespace Gameplay.WeatherEvent
 				}
 				
 				// TODO: instead of taking a random event, have a list of unlocked events or something
-				weatherEventType = default(WeatherEventType).GetRandomValue();
+				weatherEventType = availableWeather.GetRandomItem(); //default(WeatherEventType).GetRandomValue();
 				weatherEventData = GetData(weatherEventType);
 				
 				EventManager.Instance.RaiseEvent(new StartWeatherEvent(abstractWeatherEvent));

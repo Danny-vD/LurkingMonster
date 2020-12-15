@@ -22,6 +22,7 @@ namespace UI.TextLabels
 		private void ChangeText()
 		{
 			text.text = RewardManager.Instance.Counter.ToString();
+			print("Change int");
 		}
 	}
 }
