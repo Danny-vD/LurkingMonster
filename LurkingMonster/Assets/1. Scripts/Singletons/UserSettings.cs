@@ -47,7 +47,9 @@ namespace Singletons
 			}
 		}
 
-		public static bool SettingsExist
+		public static bool SettingsExist => File.Exists(SavePath);
+
+		public static string SavePath
 		{
 			get
 			{
@@ -57,7 +59,7 @@ namespace Singletons
 					destination = Application.persistentDataPath + "/save.dat";
 				}
 
-				return File.Exists(destination);
+				return destination;
 			}
 		}
 
