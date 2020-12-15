@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Enums;
 using Events;
+using Events.Achievements;
 using VDFramework.EventSystem;
 using VDFramework.Extensions;
 using VDFramework.Singleton;
@@ -61,8 +62,9 @@ namespace Singletons
 					EventManager.Instance.RaiseEvent(new PowerUpIncreaseEvent(type4));
 					break;
 			}
-
+			
 			counter--;
+			EventManager.Instance.RaiseEvent(new AchievementUnlockedEvent());
 		}
 
 		public void IncreaseCounter()
