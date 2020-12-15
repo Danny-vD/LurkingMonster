@@ -1,22 +1,22 @@
 {
   "Variables": [
-	{
-	  "Key": "NEWGAME",
-	  "Value": [
-		{
-		  "Key": "NL",
-		  "Value": "Nieuw Spel"
-		},
-		{
-		  "Key": "EN",
-		  "Value": "New Game"
-		},
-		{
-		  "Key": "DE",
-		  "Value": "Neues Spiel"
-		}
-	  ]
-	},
+    {
+      "Key": "NEWGAME",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "Nieuw Spel"
+        },
+        {
+          "Key": "EN",
+          "Value": "New Game"
+        },
+        {
+          "Key": "DE",
+          "Value": "Neues Spiel"
+        }
+      ]
+    },
     {
       "Key": "SETTINGS",
       "Value": [
@@ -51,244 +51,244 @@
         }
       ]
     },
-	{
-	  "Key": "SCORE",
-	  "Value": [
-		{
-		  "Key": "NL",
-		  "Value": "Score"
-		},
-		{
-		  "Key": "EN",
-		  "Value": "Score"
-		},
-		{
-		  "Key": "DE",
-		  "Value": "Punkte"
-		}
-	  ]
-	},
-	{
-	  "Key": "LOADINGTEXT",
-	  "Value": [
-		{
-		  "Key": "NL",
-		  "Value": "Laden..."
-		},
-		{
-		  "Key": "EN",
-		  "Value": "Loading..."
-		},
-		{
-		  "Key": "DE",
-		  "Value": "Laden..."
-		}
-	  ]
-	},
-	{
-	  "Key": "LOADINGINPUTTEXT",
-	  "Value": [
-		{
-		  "Key": "NL",
-		  "Value": "Tik om verder to gaan"
-		},
-		{
-		  "Key": "EN",
-		  "Value": "Tap to continue"
-		},
-		{
-		  "Key": "DE",
-		  "Value": "Warten auf ihre Input..."
-		}
-	  ]
-	},
-	{
-	  "Key": "SKIP",
-	  "Value": [
-		{
-		  "Key": "NL",
-		  "Value": "Overslaan"
-		},
-		{
-		  "Key": "EN",
-		  "Value": "Skip"
-		},
-		{
-		  "Key": "DE",
-		  "Value": "Überspringen"
-		}
-	  ]
-	},
-	{
-	  "Key": "OK",
-	  "Value": [
-		{
-		  "Key": "NL",
-		  "Value": "Ok!"
-		},
-		{
-		  "Key": "EN",
-		  "Value": "Ok!"
-		},
-		{
-		  "Key": "DE",
-		  "Value": "Ok!"
-		}
-	  ]
-	},
-	{
-	  "Key": "BUILDINGSBUILDACHIEVEMENT",
-	  "Value": [
-		{
-		  "Key": "NL",
-		  "Value": "Bouw Gebouwen: "
-		},
-		{
-		  "Key": "EN",
-		  "Value": "Build Buildings: "
-		},
-		{
-		  "Key": "DE",
-		  "Value": "Ok!"
-		}
-	  ]
-	},
-	{
-	  "Key": "RENTCOLLECTEDACHIEVEMENT",
-	  "Value": [
-		{
-		  "Key": "NL",
-		  "Value": "Incasseer Huur: "
-		},
-		{
-		  "Key": "EN",
-		  "Value": "Collect Rent: "
-		},
-		{
-		  "Key": "DE",
-		  "Value": "Ok!"
-		}
-	  ]
-	},
-	{
-	  "Key": "BUILDINGSAVEDACHIEVEMENT",
-	  "Value": [
-		{
-		  "Key": "NL",
-		  "Value": "Gebouwen Gered: "
-		},
-		{
-		  "Key": "EN",
-		  "Value": "Save Buildings: "
-		},
-		{
-		  "Key": "DE",
-		  "Value": "Ok!"
-		}
-	  ]
-	},
-	{
-	  "Key": "BUILDINGCONSUMEDACHIEVEMENT",
-	  "Value": [
-		{
-		  "Key": "NL",
-		  "Value": "Kapotte Gebouwen: "
-		},
-		{
-		  "Key": "EN",
-		  "Value": "Consume Buildings: "
-		},
-		{
-		  "Key": "DE",
-		  "Value": "Ok!"
-		}
-	  ]
-	},
-	{
-	  "Key": "BUYPLOTACHIEVEMENT",
-	  "Value": [
-		{
-		  "Key": "NL",
-		  "Value": "Koop Grond: "
-		},
-		{
-		  "Key": "EN",
-		  "Value": "Buy Plots: "
-		},
-		{
-		  "Key": "DE",
-		  "Value": "Ok!"
-		}
-	  ]
-	},
-  {
-    "Key": "DESTROYHOUSESACHIEVEMENT",
-    "Value": [
-      {
-        "Key": "NL",
-        "Value": "Upgrade gebouw: "
-      },
-      {
-        "Key": "EN",
-        "Value": "Upgrade building: "
-      },
-      {
-        "Key": "DE",
-        "Value": "Ok!"
-      }
-    ]
-  },
-	{
-	  "Key": "ACHIEVEMENT_UNLOCKED",
-	  "Value": [
-		{
-		  "Key": "NL",
-		  "Value": "Achievement Vrijgespeeld"
-		},
-		{
-		  "Key": "EN",
-		  "Value": "Achievement Unlocked"
-		},
-		{
-		  "Key": "DE",
-		  "Value": "Ok!"
-		}
-	  ]
-	},
-	{
-	  "Key": "ALL_ACHIEVEMENTS_UNLOCKED",
-	  "Value": [
-		{
-		  "Key": "NL",
-		  "Value": "Alle Achievements Vrijgespeeld"
-		},
-		{
-		  "Key": "EN",
-		  "Value": "All Achievements Unlocked"
-		},
-		{
-		  "Key": "DE",
-		  "Value": "Ok!"
-		}
-	  ]
-	},
-	{
-	  "Key": "MONEY",
-	  "Value": [
-		{
-		  "Key": "NL",
-		  "Value": "Geld : "
-		},
-		{
-		  "Key": "EN",
-		  "Value": "Money : "
-		},
-		{
-		  "Key": "DE",
-		  "Value": "Ok!"
-		}
-	  ]
-	},
+    {
+      "Key": "SCORE",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "Score"
+        },
+        {
+          "Key": "EN",
+          "Value": "Score"
+        },
+        {
+          "Key": "DE",
+          "Value": "Punkte"
+        }
+      ]
+    },
+    {
+      "Key": "LOADINGTEXT",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "Laden..."
+        },
+        {
+          "Key": "EN",
+          "Value": "Loading..."
+        },
+        {
+          "Key": "DE",
+          "Value": "Laden..."
+        }
+      ]
+    },
+    {
+      "Key": "LOADINGINPUTTEXT",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "Tik om verder to gaan"
+        },
+        {
+          "Key": "EN",
+          "Value": "Tap to continue"
+        },
+        {
+          "Key": "DE",
+          "Value": "Warten auf ihre Input..."
+        }
+      ]
+    },
+    {
+      "Key": "SKIP",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "Overslaan"
+        },
+        {
+          "Key": "EN",
+          "Value": "Skip"
+        },
+        {
+          "Key": "DE",
+          "Value": "Überspringen"
+        }
+      ]
+    },
+    {
+      "Key": "OK",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "Ok!"
+        },
+        {
+          "Key": "EN",
+          "Value": "Ok!"
+        },
+        {
+          "Key": "DE",
+          "Value": "Ok!"
+        }
+      ]
+    },
+    {
+      "Key": "BUILDINGSBUILDACHIEVEMENT",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "Bouw Gebouwen: "
+        },
+        {
+          "Key": "EN",
+          "Value": "Build Buildings: "
+        },
+        {
+          "Key": "DE",
+          "Value": "Ok!"
+        }
+      ]
+    },
+    {
+      "Key": "RENTCOLLECTEDACHIEVEMENT",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "Incasseer Huur: "
+        },
+        {
+          "Key": "EN",
+          "Value": "Collect Rent: "
+        },
+        {
+          "Key": "DE",
+          "Value": "Ok!"
+        }
+      ]
+    },
+    {
+      "Key": "BUILDINGSAVEDACHIEVEMENT",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "Gebouwen Gered: "
+        },
+        {
+          "Key": "EN",
+          "Value": "Save Buildings: "
+        },
+        {
+          "Key": "DE",
+          "Value": "Ok!"
+        }
+      ]
+    },
+    {
+      "Key": "BUILDINGCONSUMEDACHIEVEMENT",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "Kapotte Gebouwen: "
+        },
+        {
+          "Key": "EN",
+          "Value": "Consume Buildings: "
+        },
+        {
+          "Key": "DE",
+          "Value": "Ok!"
+        }
+      ]
+    },
+    {
+      "Key": "BUYPLOTACHIEVEMENT",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "Koop Grond: "
+        },
+        {
+          "Key": "EN",
+          "Value": "Buy Plots: "
+        },
+        {
+          "Key": "DE",
+          "Value": "Ok!"
+        }
+      ]
+    },
+    {
+      "Key": "DESTROYHOUSESACHIEVEMENT",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "Upgrade gebouw: "
+        },
+        {
+          "Key": "EN",
+          "Value": "Upgrade building: "
+        },
+        {
+          "Key": "DE",
+          "Value": "Ok!"
+        }
+      ]
+    },
+    {
+      "Key": "ACHIEVEMENT_UNLOCKED",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "Achievement Vrijgespeeld"
+        },
+        {
+          "Key": "EN",
+          "Value": "Achievement Unlocked"
+        },
+        {
+          "Key": "DE",
+          "Value": "Ok!"
+        }
+      ]
+    },
+    {
+      "Key": "ALL_ACHIEVEMENTS_UNLOCKED",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "Alle Achievements Vrijgespeeld"
+        },
+        {
+          "Key": "EN",
+          "Value": "All Achievements Unlocked"
+        },
+        {
+          "Key": "DE",
+          "Value": "Ok!"
+        }
+      ]
+    },
+    {
+      "Key": "MONEY",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "Geld : "
+        },
+        {
+          "Key": "EN",
+          "Value": "Money : "
+        },
+        {
+          "Key": "DE",
+          "Value": "Ok!"
+        }
+      ]
+    },
     {
       "Key": "CONTINUE_GAME",
       "Value": [
@@ -375,15 +375,15 @@
       ]
     },
     {
-      "Key": "DROUGHT",
+      "Key": "VIBRATE",
       "Value": [
         {
           "Key": "NL",
-          "Value": "Droogte"
+          "Value": "Vibratie"
         },
         {
           "Key": "EN",
-          "Value": "Drought"
+          "Value": "Vibrate"
         },
         {
           "Key": "DE",
@@ -392,151 +392,15 @@
       ]
     },
     {
-      "Key": "DROUGHT_CONTENT",
+      "Key": "MUSIC_MUTE",
       "Value": [
         {
           "Key": "NL",
-          "Value": "BREAKING NEWS, {0} hier om u te informeren dat er een <b>droogte</b> op komst is, dit zal een extreem effect hebben op de bodem."
+          "Value": "Dempen"
         },
         {
           "Key": "EN",
-          "Value": "BREAKING NEWS, {0} here to inform you that there is a <b>drought coming</b>, this will have an extreme effect on your soil."
-        },
-        {
-          "Key": "DE",
-          "Value": "Ok!"
-        }
-      ]
-    },
-    {
-      "Key": "HEAVY_RAIN",
-      "Value": [
-        {
-          "Key": "NL",
-          "Value": "Hevige Regen"
-        },
-        {
-          "Key": "EN",
-          "Value": "Heavy Rain"
-        },
-        {
-          "Key": "DE",
-          "Value": "Ok!"
-        }
-      ]
-    },  
-    {
-      "Key": "HEAVY_RAIN_CONTENT",
-      "Value": [
-        {
-          "Key": "NL",
-          "Value": "BREAKING NEWS, {0} hier om u te informeren dat er <b>zware regenval</b> aankomt. Hierdoor wordt de bodem onstabiel en kunnen funderingen worden aangetast."
-        },
-        {
-          "Key": "EN",
-          "Value": "BREAKING NEWS, {0} here to inform you that there is <b>heavy rainfall</b> coming. This will result in soil becoming unstable and foundations might be affected."
-        },
-        {
-          "Key": "DE",
-          "Value": "Ok!"
-        }
-      ]
-    },
-    {
-      "Key": "EARTHQUAKE",
-      "Value": [
-        {
-          "Key": "NL",
-          "Value": "Aardbeving"
-        },
-        {
-          "Key": "EN",
-          "Value": "Earthquake"
-        },
-        {
-          "Key": "DE",
-          "Value": "Ok!"
-        }
-      ]
-    },
-    {
-      "Key": "EARTHQUAKE_CONTENT",
-      "Value": [
-        {
-          "Key": "NL",
-          "Value": "BREAKING NEWS, {0} hier om u te informeren dat er een <b>aardbeving</b> aan komt. Hierdoor wordt de bodem instabiel, kunnen funderingen worden aangetast en kunnen huizen beschadigd raken."
-        },
-        {
-          "Key": "EN",
-          "Value": "BREAKING NEWS, {0} here to inform you that there is an <b>earthquake</b> coming. This will result in soil becoming unstable and foundations might be affected as well as houses."
-        },
-        {
-          "Key": "DE",
-          "Value": "Ok!"
-        }
-      ]
-    },
-    {
-      "Key": "GAS_WINNING",
-      "Value": [
-        {
-          "Key": "NL",
-          "Value": "Gaswinst"
-        },
-        {
-          "Key": "EN",
-          "Value": "Gas Winning"
-        },
-        {
-          "Key": "DE",
-          "Value": "Ok!"
-        }
-      ]
-    },
-    {
-      "Key": "GAS_WINNING_CONTENT",
-      "Value": [
-        {
-          "Key": "NL",
-          "Value": "BREAKING NEWS, {0} hier om u te informeren dat het bedrijf YFUEL is begonnen met het <b>boren van gas</b> in het gebied en daardoor kunnen er beschadigingen ontstaan aan gebouwen."
-        },
-        {
-          "Key": "EN",
-          "Value": "BREAKING NEWS, {0} here to inform you that Company YFUEL has been <b>drilling for gas</b> and because of that the minor damages to buildings may occur."
-        },
-        {
-          "Key": "DE",
-          "Value": "Ok!"
-        }
-      ]
-    },
-    {
-      "Key": "BUILDING_TUNNELS",
-      "Value": [
-        {
-          "Key": "NL",
-          "Value": "Tunnels Bouwen"
-        },
-        {
-          "Key": "EN",
-          "Value": "Building Tunnels"
-        },
-        {
-          "Key": "DE",
-          "Value": "Ok!"
-        }
-      ]
-    },
-    {
-      "Key": "BUILDING_TUNNELS_CONTENT",
-      "Value": [
-        {
-          "Key": "NL",
-          "Value": "BREAKING NEWS, {0} hier om u te informeren dat het bedrijf TUNNELO <b>tunnels is gaan bouwen</b> onder deze stad. Dit zal een effect hebben op de grond, fundering en gebouwen."
-        },
-        {
-          "Key": "EN",
-          "Value": "BREAKING NEWS, {0} here to inform you that Company TUNNELO has been <b>building tunnels</b> underneath our city and that will affect the buildings foundation and soil."
+          "Value": "Mute"
         },
         {
           "Key": "DE",
@@ -628,74 +492,7 @@
           "Value": "Ok!"
         }
       ]
-    },
-    {
-      "Key": "INFORMATION_SUBSIDENCE",
-      "Value": [
-        {
-          "Key": "NL",
-          "Value": "Grondverzakking"
-        },
-        {
-          "Key": "EN",
-          "Value": "Subsidence"
-        },
-        {
-          "Key": "DE",
-          "Value": "Ok!"
-        }
-      ]
-    },
-    {
-      "Key": "INFORMATION_8_STEP_PLAN",
-      "Value": [
-        {
-          "Key": "NL",
-          "Value": "8-Stappen Plan"
-        },
-        {
-          "Key": "EN",
-          "Value": "8-Step Plan"
-        },
-        {
-          "Key": "DE",
-          "Value": "Ok!"
-        }
-      ]
-    },
-    {
-      "Key": "VIBRATE",
-      "Value": [
-        {
-          "Key": "NL",
-          "Value": "Vibratie"
-        },
-        {
-          "Key": "EN",
-          "Value": "Vibrate"
-        },
-        {
-          "Key": "DE",
-          "Value": "Ok!"
-        }
-      ]
-    },
-    {
-      "Key": "MUSIC_MUTE",
-      "Value": [
-        {
-          "Key": "NL",
-          "Value": "Dempen"
-        },
-        {
-          "Key": "EN",
-          "Value": "Mute"
-        },
-        {
-          "Key": "DE",
-          "Value": "Ok!"
-        }
-      ]
     }
+
   ]
 }
