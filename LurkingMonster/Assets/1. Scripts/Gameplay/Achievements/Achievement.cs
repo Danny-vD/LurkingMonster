@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Linq;
 using Enums;
 using Events;
 using Events.Achievements;
@@ -77,7 +78,15 @@ namespace Gameplay.Achievements
 
 		public bool CheckIfRewardReady()
 		{
-			return unlocked[counter];
+			for (int i = 0; i < unlocked.Length; i++)
+			{
+				if (unlocked[i] && !rewardsCollected[i])
+				{
+					return true;
+				}
+			}
+
+			return false;
 		}
 
 		public void SetData(AchievementData data)
