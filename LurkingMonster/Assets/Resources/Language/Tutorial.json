@@ -61,7 +61,7 @@
         },
         {
           "Key": "EN",
-          "Value": "Just tap on the icon above the house.\n\nThose icons indicate what the problem is."
+          "Value": "Now we will try to repair it.\n\nJust tap on the house with the icon above it.\n\nThose icons indicate what the problem is."
         },
         {
           "Key": "DE",
@@ -78,7 +78,7 @@
         },
         {
           "Key": "EN",
-          "Value": "Because of the icon you are led to the main overview, here you can see the current state of the house, foundation and soil.\n\nAs is shown by their healthbar.\n\nThen you can select what you need to repair."
+          "Value": "Because of the icon you are led to the main overview, here you can see the current state of the house, foundation and soil.\n\nThat is indicated by their health bars.\n\nThis way you know what to select and repair."
         },
         {
           "Key": "DE",
@@ -91,11 +91,11 @@
       "Value": [
         {
           "Key": "NL",
-          "Value": "Nu dat je het reparatie scherm hebt geopend, kun hier lezen waarom het gerepareerd moet worden en waardoor dit probleem ontstaat."
+          "Value": "Hier zie je de reparatie-informatie, je kunt hier lezen waarom het gerepareerd moet worden en waardoor dit probleem ontstaat."
         },
         {
           "Key": "EN",
-          "Value": "Now you selected the repair factor, you can read here why it needs to be repaired and what caused the problem."
+          "Value": "Here you see the repair information, you can read here why it needs to be repaired and what caused the problem."
         },
         {
           "Key": "DE",
@@ -214,7 +214,7 @@
         },
         {
           "Key": "EN",
-          "Value": "In order to take some weight off the original and rotten poles, we're going to add some metal pins into the poles.\n\nThe next step will be the rehydration of the soil, so that you have both a repaired foundation and soil."
+          "Value": "In order to take some weight off the original and rotten poles, we're going to add some more metal pins into the poles.\n\nThe next step will be the rehydration of the soil, so that you have both repaired the foundation and the soil."
         },
         {
           "Key": "DE",
