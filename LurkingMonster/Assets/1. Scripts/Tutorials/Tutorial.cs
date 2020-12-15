@@ -12,7 +12,8 @@ namespace Tutorials
 	{
 		public int Order;
 		
-		private string[] jsonKeys;
+		[SerializeField]
+		private int jsonCount;
 
 		[SerializeField]
 		private bool moveCamera;
@@ -20,10 +21,9 @@ namespace Tutorials
 		[SerializeField]
 		private Vector3 position;
 
-		[SerializeField]
-		private int jsonCount;
-
 		private static int beginIndex = 1;
+
+		private string[] jsonKeys;
 
 		private TextMeshProUGUI explainText;
 
@@ -35,6 +35,8 @@ namespace Tutorials
 
 		private Camera playerCamera;
 
+		protected int keyCount => jsonCount;
+		
 		private void Awake()
 		{
 			playerCamera = Camera.main;
