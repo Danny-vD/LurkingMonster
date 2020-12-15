@@ -1,5 +1,7 @@
 ﻿using System;
 using Events;
+using Events.BuildingEvents;
+using Grid.Tiles.Buildings;
 using Interfaces;
 using Singletons;
 using Tutorials;
@@ -106,12 +108,26 @@ namespace Gameplay
 
 		private void Select(PlotSelectable selectable)
 		{
+			AbstractBuildingTile abstractBuildingTile = selectable.GetTile();
+			
 			// Selected the selected object, so open market
 			if (selectable == selected)
 			{
 				Deselect(selectable);
-				EventManager.Instance.RaiseEvent(new OpenMarketEvent(selectable.GetTile()));
+				
+				if (abstractBuildingTile.HasDebris)
+				{
+					EventManager.Instance.RaiseEvent(new SelectedBuildingEvent(abstractBuildingTile));
+					return;
+				}
+				
+				EventManager.Instance.RaiseEvent(new OpenMarketEvent(abstractBuildingTile));
 				return;
+			}
+			
+			if (abstractBuildingTile.HasBuilding)
+			{
+				EventManager.Instance.RaiseEvent(new SelectedBuildingEvent(abstractBuildingTile));
 			}
 
 			Deselect(selected); // Deselect the last selected object

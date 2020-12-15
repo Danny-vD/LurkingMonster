@@ -1,6 +1,8 @@
 ﻿using System.Linq;
 using Enums;
+using Events;
 using Grid.Tiles.Buildings;
+using VDFramework.EventSystem;
 using VDFramework.Extensions;
 
 namespace UI.Market.MarketScreens.SoilScreens
@@ -14,6 +16,7 @@ namespace UI.Market.MarketScreens.SoilScreens
 
 		protected override void BuyButtonClick(AbstractBuildingTile tile, MarketManager manager)
 		{
+			EventManager.Instance.RaiseEvent(new BuyPlotEvent());
 			tile.SpawnSoil();
 			base.BuyButtonClick(tile, manager);
 		}
