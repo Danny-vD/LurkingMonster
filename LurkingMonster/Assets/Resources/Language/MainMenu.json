@@ -120,6 +120,23 @@
       ]
     },
     {
+      "Key": "NEXT",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "Volgende"
+        },
+        {
+          "Key": "EN",
+          "Value": "Next"
+        },
+        {
+          "Key": "DE",
+          "Value": "Folgenden"
+        }
+      ]
+    },
+    {
       "Key": "OK",
       "Value": [
         {

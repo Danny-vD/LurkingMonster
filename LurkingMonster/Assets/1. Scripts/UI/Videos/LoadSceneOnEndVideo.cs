@@ -1,6 +1,7 @@
 ﻿using Enums;
 using Events;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.Video;
 using Utility;
 using VDFramework;
@@ -16,7 +17,7 @@ namespace UI.Videos
 
 		[SerializeField]
 		private SerializableEnumDictionary<Language, VideoClip> videoClips;
-		
+
 		private bool playingVideo;
 
 		private VideoPlayer videoPlayer;
@@ -52,6 +53,12 @@ namespace UI.Videos
 			videoPlayer.Play();
 		}
 
+		public void EndVideo()
+		{
+			LoadingScreen.LoadScene(sceneIndex);
+			Destroy(CachedGameObject);
+		}
+
 		private void Update()
 		{
 			if (!playingVideo)
@@ -59,10 +66,9 @@ namespace UI.Videos
 				return;
 			}
 			
-			if (ReachedEnd() || Input.anyKey)
+			if (ReachedEnd())
 			{
-				LoadingScreen.LoadScene(sceneIndex);
-				Destroy(CachedGameObject);
+				EndVideo();
 			}
 		}
 
