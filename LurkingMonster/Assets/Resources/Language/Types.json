@@ -1,4 +1,4 @@
-﻿{
+{
   "Variables": [
     {
       "Key": "SAND",
@@ -73,7 +73,7 @@
         },
         {
           "Key": "EN",
-          "Value": "Building"
+          "Value": "House"
         },
         {
           "Key": "DE",
@@ -117,11 +117,11 @@
       "Value": [
         {
           "Key": "NL",
-          "Value": "Houten Palen"
+          "Value": "Houten palen"
         },
         {
           "Key": "EN",
-          "Value": "Wodden Poles"
+          "Value": "Wooden poles"
         },
         {
           "Key": "DE",
@@ -133,11 +133,11 @@
       "Value": [
         {
           "Key": "NL",
-          "Value": "Gewapend Beton"
+          "Value": "Gewapend beton"
         },
         {
           "Key": "EN",
-          "Value": "Reinforced Concrete"
+          "Value": "Reinforced concrete"
         },
         {
           "Key": "DE",
@@ -149,11 +149,11 @@
       "Value": [
         {
           "Key": "NL",
-          "Value": "Beton Op Staal"
+          "Value": "Beton op staal"
         },
         {
           "Key": "EN",
-          "Value": "Shallow Foundation"
+          "Value": "Shallow foundation"
         },
         {
           "Key": "DE",
@@ -165,11 +165,11 @@
       "Value": [
         {
           "Key": "NL",
-          "Value": "Zwevende Vloerplaat"
+          "Value": "Zwevende vloerplaat"
         },
         {
           "Key": "EN",
-          "Value": "Floating Floor Plate"
+          "Value": "Floating floor plate"
         },
         {
           "Key": "DE",
@@ -181,11 +181,11 @@
       "Value": [
         {
           "Key": "NL",
-          "Value": "Vlees"
+          "Value": "Monster voedsel"
         },
         {
           "Key": "EN",
-          "Value": "Meat"
+          "Value": "Monster Food"
         },
         {
           "Key": "DE",
@@ -197,11 +197,11 @@
       "Value": [
         {
           "Key": "NL",
-          "Value": "Kcaf"
+          "Value": "KCAF adviseur"
         },
         {
           "Key": "EN",
-          "Value": "Kcaf"
+          "Value": "KCAF consultant"
         },
         {
           "Key": "DE",
@@ -213,11 +213,11 @@
       "Value": [
         {
           "Key": "NL",
-          "Value": "Weer"
+          "Value": "Klok staat stil"
         },
         {
           "Key": "EN",
-          "Value": "Weather"
+          "Value": "Time Freeze"
         },
         {
           "Key": "DE",

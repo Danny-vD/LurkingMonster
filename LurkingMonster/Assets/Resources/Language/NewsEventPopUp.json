@@ -1,0 +1,206 @@
+{
+  "Variables": {
+    "Key": "STORM",
+    "Value": [
+      {
+        "Key": "NL",
+        "Value": "Storm"
+      },
+      {
+        "Key": "EN",
+        "Value": "Storm"
+      },
+      {
+        "Key": "DE",
+        "Value": "Ok!"
+      }
+    ]
+  },
+  {
+    "Key": "STORM_CONTENT_INFO",
+    "Value": [
+      {
+        "Key": "NL",
+        "Value": "Deze storm heeft gevolgen voor de natuur, vallende bomen, zware regenval en stijgende getijden waardoor de rivier overstroomt. Dit heeft invloed op de bodem en dus op de fundering."
+      },
+      {
+        "Key": "EN",
+        "Value": "This storm will have an affect on nature, falling trees, heavy rainfall, and rising tides that will make the river overflow. This will affect the soil and therefore foundation."
+      },
+      {
+        "Key": "DE",
+        "Value": "Ok!"
+      }
+    ]
+  },
+  {
+    "Key": "DROUGHT",
+    "Value": [
+      {
+        "Key": "NL",
+        "Value": "Droogte"
+      },
+      {
+        "Key": "EN",
+        "Value": "Drought"
+      },
+      {
+        "Key": "DE",
+        "Value": "Ok!"
+      }
+    ]
+  },
+  {
+    "Key": "DROUGHT_CONTENT_INFO",
+    "Value": [
+      {
+        "Key": "NL",
+        "Value": "Door de droogte wordt de bodem aangetast en naarmate de grondwaterstanden door de hitte worden verlaagd, wordt ook de fundering aangetast."
+      },
+      {
+        "Key": "EN",
+        "Value": "The drought will result in soil drying out quickly and as the groundwater levels get reduced by the heat, foundations will be affected too."
+      },
+      {
+        "Key": "DE",
+        "Value": "Ok!"
+      }
+    ]
+  },
+  {
+    "Key": "HEAVY_RAIN",
+    "Value": [
+      {
+        "Key": "NL",
+        "Value": "Hevige Regen"
+      },
+      {
+        "Key": "EN",
+        "Value": "Heavy Rain"
+      },
+      {
+        "Key": "DE",
+        "Value": "Ok!"
+      }
+    ]
+  },
+  {
+    "Key": "HEAVY_RAIN_CONTENT_INFO",
+    "Value": [
+      {
+        "Key": "NL",
+        "Value": "Door de hevige regenval zal de bodem overspoeld worden met water, waardoor de bodem zijn structuur en sterkte verliest."
+      },
+      {
+        "Key": "EN",
+        "Value": "The heavy rainfall will result in soil becoming overrun with water and this makes the soil lose its structure and strength."
+      },
+      {
+        "Key": "DE",
+        "Value": "Ok!"
+      }
+    ]
+  },
+  {
+    "Key": "EARTHQUAKE",
+    "Value": [
+      {
+        "Key": "NL",
+        "Value": "Aardbeving"
+      },
+      {
+        "Key": "EN",
+        "Value": "Earthquake"
+      },
+      {
+        "Key": "DE",
+        "Value": "Ok!"
+      }
+    ]
+  },
+  {
+    "Key": "EARTHQUAKE_CONTENT_INFO",
+    "Value": [
+      {
+        "Key": "NL",
+        "Value": "De aardbeving zal zowel de grond, fundering en het gebouw treffen. De grond trilt waardoor grond verschuift, funderingen scheuren en gebouwen beschadigen."
+      },
+      {
+        "Key": "EN",
+        "Value": "The earthquake will affect affect the soil, foundation and building itself. Their core is literally shaking which causes soil to shift, foundations to crack and buildings to get damaged."
+      },
+      {
+        "Key": "DE",
+        "Value": "Ok!"
+      }
+    ]
+  },
+  {
+    "Key": "GAS_WINNING",
+    "Value": [
+      {
+        "Key": "NL",
+        "Value": "Gaswinst"
+      },
+      {
+        "Key": "EN",
+        "Value": "Gas Winning"
+      },
+      {
+        "Key": "DE",
+        "Value": "Ok!"
+      }
+    ]
+  },
+  {
+    "Key": "GAS_WINNING_CONTENT_INFO",
+    "Value": [
+      {
+        "Key": "NL",
+        "Value": "Het boren veroorzaakt trillingen die de omringende grond en fundering kunnen aantasten die op hun beurt weer invloed hebben op het gebouw."
+      },
+      {
+        "Key": "EN",
+        "Value": "The drilling causes vibrations that can affect the surrounding soil and foundation which in return affects the building."
+      },
+      {
+        "Key": "DE",
+        "Value": "Ok!"
+      }
+    ]
+  },
+  {
+    "Key": "BUILDING_TUNNELS",
+    "Value": [
+      {
+        "Key": "NL",
+        "Value": "Tunnels Bouwen"
+      },
+      {
+        "Key": "EN",
+        "Value": "Building Tunnels"
+      },
+      {
+        "Key": "DE",
+        "Value": "Ok!"
+      }
+    ]
+  },
+  {
+    "Key": "BUILDING_TUNNELS_CONTENT_INFO",
+    "Value": [
+      {
+        "Key": "NL",
+        "Value": "Het bouwen van tunnels met grote machines zal trillingen veroorzaken die de bodem en fundering op een laag niveau zullen aantasten, maar uiteindelijk een groot effect zullen hebben op het gebouw."
+      },
+      {
+        "Key": "EN",
+        "Value": "Building tunnels with big machines will make vibrations that will affect the soil and foundation on a low level but will have a big effect on the building in the end."
+      },
+      {
+        "Key": "DE",
+        "Value": "Ok!"
+      }
+    ]
+  }
+}

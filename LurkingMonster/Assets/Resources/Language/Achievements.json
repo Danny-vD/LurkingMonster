@@ -1,15 +1,15 @@
-﻿{
+{
   "Variables": [
     {
       "Key": "ACHIEVEMENT_1",
       "Value": [
         {
           "Key": "NL",
-          "Value": "Nieuw Spel"
+          "Value": "Het aantal gebouwen dat je hebt gebouwd"
         },
         {
           "Key": "EN",
-          "Value": "New Game"
+          "Value": "The amount of buildings you’ve build."
         },
         {
           "Key": "DE",
@@ -21,11 +21,11 @@
       "Value": [
         {
           "Key": "NL",
-          "Value": "Nieuw Spel"
+          "Value": "Het bedrag aan huur dat je hebt verzameld"
         },
         {
           "Key": "EN",
-          "Value": "New Game"
+          "Value": "The amount of rent you’ve collected"
         },
         {
           "Key": "DE",
@@ -37,11 +37,11 @@
       "Value": [
         {
           "Key": "NL",
-          "Value": "Nieuw Spel"
+          "Value": "Het aantal reparaties dat je hebt uitgevoerd."
         },
         {
           "Key": "EN",
-          "Value": "New Game"
+          "Value": "The amount of repairs you’ve done"
         },
         {
           "Key": "DE",
@@ -53,11 +53,11 @@
       "Value": [
         {
           "Key": "NL",
-          "Value": "Nieuw Spel"
+          "Value": "Het aantal percelen dat je hebt gekocht."
         },
         {
           "Key": "EN",
-          "Value": "New Game"
+          "Value": "The amount of plots you’ve bought."
         },
         {
           "Key": "DE",
@@ -69,27 +69,11 @@
       "Value": [
         {
           "Key": "NL",
-          "Value": "Nieuw Spel"
+          "Value": "Het aantal upgrades dat je aan een gebouw hebt aangebracht."
         },
         {
           "Key": "EN",
-          "Value": "New Game"
-        },
-        {
-          "Key": "DE",
-          "Value": "Neues Spiel"
-        }
-      ]
-    },{
-      "Key": "ACHIEVEMENT_6",
-      "Value": [
-        {
-          "Key": "NL",
-          "Value": "Nieuw Spel"
-        },
-        {
-          "Key": "EN",
-          "Value": "New Game"
+          "Value": "The amount of upgrades you’ve made to a building."
         },
         {
           "Key": "DE",
