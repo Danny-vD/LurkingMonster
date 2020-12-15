@@ -1,22 +1,5 @@
 {
-  "Variables": { 
-    {
-      "Key": "INFORMATION_SUBSIDENCE",
-      "Value": [
-        {
-          "Key": "NL",
-          "Value": "Grondverzakking"
-        },
-        {
-          "Key": "EN",
-          "Value": "Subsidence"
-        },
-        {
-          "Key": "DE",
-          "Value": "Ok!"
-        }
-      ]
-    },
+  "Variables": [
     {
       "Key": "INFORMATION_SUBSIDENCE_TEXT",
       "Value": [
@@ -35,23 +18,6 @@
       ]
     },
     {
-      "Key": "INFORMATION_8_STEP_PLAN",
-      "Value": [
-        {
-          "Key": "NL",
-          "Value": "8-Stappen Plan"
-        },
-        {
-          "Key": "EN",
-          "Value": "8-Step Plan"
-        },
-        {
-          "Key": "DE",
-          "Value": "Ok!"
-        }
-      ]
-    },
-    {
       "Key": "INFORMATION_8_STEP_PLAN_TEXT",
       "Value": [
         {
@@ -60,8 +26,7 @@
         },
         {
           "Key": "EN",
-          "Value": "<b> From signalling to tackling foundation problems </b> These are the 8 steps, the KCAF follows to get to the root of the problem and help anyone struggling with this problem. It explains step by step what should be done and what to expect. If you suspect these problems might affect your living accommodation, we would advise you to follow this guide and take action. \n <b>1. Research local archives</b>\n The first step is going to the town hall to research your location and building and get the necessary data on additional changes that could have been made over the years.\n <b> 2. Consultation of co-owners of the building</b> \n If there is no information to be found in the town hall archives, the next step would be to get into contact with previous owners and discuss options with other people that share the building (semi detached houses, or terraced houses). \n ",
-          "\""
+          "Value": "<b> From signalling to tackling foundation problems </b> These are the 8 steps, the KCAF follows to get to the root of the problem and help anyone struggling with this problem. It explains step by step what should be done and what to expect. If you suspect these problems might affect your living accommodation, we would advise you to follow this guide and take action. \n <b>1. Research local archives</b>\n The first step is going to the town hall to research your location and building and get the necessary data on additional changes that could have been made over the years.\n <b> 2. Consultation of co-owners of the building</b> \n If there is no information to be found in the town hall archives, the next step would be to get into contact with previous owners and discuss options with other people that share the building (semi detached houses, or terraced houses). \n "
         },
         {
           "Key": "DE",
@@ -69,73 +34,73 @@
         }
       ]
     },
-    "Key": "INFORMATION_KCAF_TEXT",
-    "Value": [
-      {
-        "Key": "NL",
-        "Value": "Storm"
-      },
-      {
-        "Key": "EN",
-        "Value": "Storm"
-      },
-      {
-        "Key": "DE",
-        "Value": "Ok!"
-      }
-    ]
-  },
-  {
-    "Key": "INFORMATION_SOILMATESSTUDIOS_TEXT",
-    "Value": [
-      {
-        "Key": "NL",
-        "Value": "Deze storm heeft gevolgen voor de natuur, vallende bomen, zware regenval en stijgende getijden waardoor de rivier overstroomt. Dit heeft invloed op de bodem en dus op de fundering."
-      },
-      {
-        "Key": "EN",
-        "Value": "This storm will have an affect on nature, falling trees, heavy rainfall, and rising tides that will make the river overflow. This will affect the soil and therefore foundation."
-      },
-      {
-        "Key": "DE",
-        "Value": "Ok!"
-      }
-    ]
-  },
-  {
-    "Key": "INFORMATION_FAQ_TEXT",
-    "Value": [
-      {
-        "Key": "NL",
-        "Value": "Droogte"
-      },
-      {
-        "Key": "EN",
-        "Value": "Drought"
-      },
-      {
-        "Key": "DE",
-        "Value": "Ok!"
-      }
-    ]
-  },
-  {
-    "Key": "INFORMATION_CONTACT_TEXT",
-    "Value": [
-      {
-        "Key": "NL",
-        "Value": "Door de droogte wordt de bodem aangetast en naarmate de grondwaterstanden door de hitte worden verlaagd, wordt ook de fundering aangetast."
-      },
-      {
-        "Key": "EN",
-        "Value": "The drought will result in soil drying out quickly and as the groundwater levels get reduced by the heat, foundations will be affected too."
-      },
-      {
-        "Key": "DE",
-        "Value": "Ok!"
-      }
-    ]
-  }
-
-  }
+    {
+      "Key": "INFORMATION_KCAF_TEXT",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "Storm"
+        },
+        {
+          "Key": "EN",
+          "Value": "Storm"
+        },
+        {
+          "Key": "DE",
+          "Value": "Ok!"
+        }
+      ]
+    },
+    {
+      "Key": "INFORMATION_SOILMATESSTUDIOS_TEXT",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "Deze storm heeft gevolgen voor de natuur, vallende bomen, zware regenval en stijgende getijden waardoor de rivier overstroomt. Dit heeft invloed op de bodem en dus op de fundering."
+        },
+        {
+          "Key": "EN",
+          "Value": "This storm will have an affect on nature, falling trees, heavy rainfall, and rising tides that will make the river overflow. This will affect the soil and therefore foundation."
+        },
+        {
+          "Key": "DE",
+          "Value": "Ok!"
+        }
+      ]
+    },
+    {
+      "Key": "INFORMATION_FAQ_TEXT",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "Droogte"
+        },
+        {
+          "Key": "EN",
+          "Value": "Drought"
+        },
+        {
+          "Key": "DE",
+          "Value": "Ok!"
+        }
+      ]
+    },
+    {
+      "Key": "INFORMATION_CONTACT_TEXT",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "Door de droogte wordt de bodem aangetast en naarmate de grondwaterstanden door de hitte worden verlaagd, wordt ook de fundering aangetast."
+        },
+        {
+          "Key": "EN",
+          "Value": "The drought will result in soil drying out quickly and as the groundwater levels get reduced by the heat, foundations will be affected too."
+        },
+        {
+          "Key": "DE",
+          "Value": "Ok!"
+        }
+      ]
+    }
+  ]
 }
