@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 1200479}
   - component: {fileID: 1200482}
   - component: {fileID: 1200480}
+  - component: {fileID: 1200481}
   m_Layer: 0
   m_Name: Foundation Manage
   m_TagString: Untagged
@@ -182,6 +183,30 @@ MonoBehaviour:
   demolishText: {fileID: 1296036992}
   btnRepair: {fileID: 1428262864}
   repairText: {fileID: 1981251807}
+--- !u!114 &1200481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1200478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22b2a24f09ce4637b50f25c3225e1f54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  extension: {fileID: 0}
+  informationText: {fileID: 215259674}
+  jsonKeys:
+    serializedDictionary:
+    - key: 0
+      value: 
+    - key: 1
+      value: 
+    - key: 2
+      value: 
+    - key: 3
+      value: 
 --- !u!222 &1200482
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -21266,7 +21291,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.84248143, y: 0.814}
   m_AnchorMax: {x: 0.9333644, y: 0.92200005}
-  m_AnchoredPosition: {x: -0.3999939, y: -0.2999878}
+  m_AnchoredPosition: {x: -0.4000244, y: -0.2999878}
   m_SizeDelta: {x: 0.0073242188, y: 0.24195862}
   m_Pivot: {x: 1, y: 0}
 --- !u!114 &590931750
@@ -26475,7 +26500,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 4.2700195, y: 0.20000076}
   m_SizeDelta: {x: -6.4231567, y: -8.0296}
   m_Pivot: {x: 0, y: 0.5}
@@ -36283,7 +36308,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 4.2700195, y: 0.20000076}
   m_SizeDelta: {x: -6.4231567, y: -8.0296}
   m_Pivot: {x: 0, y: 0.5}
@@ -43444,7 +43469,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.014, y: 0.82755333}
   m_AnchorMax: {x: 0.43114287, y: 0.9001924}
-  m_AnchoredPosition: {x: 0.29992676, y: -0.099975586}
+  m_AnchoredPosition: {x: 0.30004883, y: -0.099975586}
   m_SizeDelta: {x: -2.680664, y: -0.2019043}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1071951597
@@ -47448,7 +47473,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1183828378
 RectTransform:
   m_ObjectHideFlags: 0
@@ -57538,7 +57563,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.84248143, y: 0.814}
   m_AnchorMax: {x: 0.9333644, y: 0.92200005}
-  m_AnchoredPosition: {x: 0.3000183, y: -0.08001709}
+  m_AnchoredPosition: {x: 0.2999878, y: -0.08001709}
   m_SizeDelta: {x: 0.032104492, y: 0.19752502}
   m_Pivot: {x: 1, y: 0}
 --- !u!114 &1490875873
@@ -61075,7 +61100,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 4.2700195, y: 0.19999695}
   m_SizeDelta: {x: -6.4231567, y: -8.0296}
   m_Pivot: {x: 0, y: 0.5}
@@ -71769,6 +71794,7 @@ GameObject:
   - component: {fileID: 1858526610}
   - component: {fileID: 1858526613}
   - component: {fileID: 1858526611}
+  - component: {fileID: 1858526612}
   m_Layer: 0
   m_Name: Soil Manage
   m_TagString: Untagged
@@ -71817,6 +71843,30 @@ MonoBehaviour:
   demolishText: {fileID: 1487803211}
   btnRepair: {fileID: 219215424}
   repairText: {fileID: 415290506}
+--- !u!114 &1858526612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1858526609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34bd42cf526146bb8dfe1c704f5b6306, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  extension: {fileID: 0}
+  informationText: {fileID: 867378436}
+  jsonKeys:
+    serializedDictionary:
+    - key: 0
+      value: 
+    - key: 1
+      value: 
+    - key: 2
+      value: 
+    - key: 3
+      value: 
 --- !u!222 &1858526613
 CanvasRenderer:
   m_ObjectHideFlags: 0
