@@ -9,6 +9,8 @@ namespace Gameplay.WeatherEvent.WeatherHandlers
 	{
 		private BuildingHealth health;
 
+		protected override bool AddWeatherListener => true;
+		
 		private void Awake()
 		{
 			health = GetComponent<BuildingHealth>();

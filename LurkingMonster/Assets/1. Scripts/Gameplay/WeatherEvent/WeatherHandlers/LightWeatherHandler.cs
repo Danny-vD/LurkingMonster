@@ -20,6 +20,8 @@ namespace Gameplay.WeatherEvent.WeatherHandlers
 
 		private Light lightSource;
 
+		protected override bool AddWeatherListener => false;
+
 		private void Awake()
 		{
 			lightSource = GetComponent<Light>();

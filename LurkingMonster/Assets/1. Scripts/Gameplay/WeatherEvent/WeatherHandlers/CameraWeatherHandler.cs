@@ -17,6 +17,8 @@ namespace Gameplay.WeatherEvent.WeatherHandlers
 		[SerializeField]
 		private float sHorizontal, sVertical, sFrequency;
 
+		protected override bool AddWeatherListener => true;
+
 		protected override void OnEarthQuake(WeatherEventData data)
 		{
 			CameraMovement(Ehorizontal, eVertical, eFrequency, data.interval);

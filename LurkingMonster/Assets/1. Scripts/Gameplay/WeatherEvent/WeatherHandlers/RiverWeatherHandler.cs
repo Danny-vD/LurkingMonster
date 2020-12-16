@@ -26,6 +26,8 @@ namespace Gameplay.WeatherEvent.WeatherHandlers
 		[SerializeField]
 		private MaterialSettings storm;
 
+		protected override bool AddWeatherListener => false;
+
 		protected override void OnEarthQuakeStart(WeatherEventData weatherData)
 		{
 			SetMaterialSettings(earthQuake);
