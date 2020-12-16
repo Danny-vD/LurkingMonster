@@ -39,11 +39,11 @@
 	  "Value": [
 		{
 		  "Key": "NL",
-		  "Value": "Daardoor begon het hout te rotten en zakt het huis nu puur door het gewicht van het gebouw een beetje in de grond."
+		  "Value": "Daardoor begon het hout te rotten en zakt het huis nu door het gewicht van het gebouw in de grond."
 		},
 		{
 		  "Key": "EN",
-		  "Value": "That caused the wood to start rotting and the house is now slightly sinking into the soil because of the sheer weight of the building."
+		  "Value": "That caused the wood to start rotting and the house is now sinking into the soil because of the weight of the building."
 		},
 		{
 		  "Key": "DE",
@@ -56,7 +56,7 @@
 	  "Value": [
 		{
 		  "Key": "NL",
-		  "Value": "Nu zullen we proberen het te repareren.\n\nTik op het icoontje boven het huis.\n\nDie icoontjes geven aan wat het probleem is."
+		  "Value": "Nu zullen we proberen het te repareren.\n\nTik op het icoont boven het huis.\n\nDie icoonen geven aan wat het probleem is."
 		},
 		{
 		  "Key": "EN",
@@ -90,7 +90,7 @@
 	  "Value": [
 		{
 		  "Key": "NL",
-		  "Value": "Hier zie je de reparatie-informatie, je kunt hier lezen waarom het gerepareerd moet worden en waardoor dit probleem ontstaat."
+		  "Value": "Hier zie je de reparatie-informatie, je kunt hier lezen waarom het gerepareerd moet worden en waardoor dit  probleem is ontstaan."
 		},
 		{
 		  "Key": "EN",
