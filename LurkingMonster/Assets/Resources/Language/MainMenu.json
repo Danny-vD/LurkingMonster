@@ -430,11 +430,11 @@
 	  "Value": [
 		{
 		  "Key": "NL",
-		  "Value": "Lost alle problemen op gedurende 20 minuten"
+		  "Value": "Lost alle problemen op gedurende 2 minuten"
 		},
 		{
 		  "Key": "EN",
-		  "Value": "Instantly solves all problems for 20 min."
+		  "Value": "Instantly solves all problems for 2 min."
 		},
 		{
 		  "Key": "DE",
@@ -447,11 +447,11 @@
 	  "Value": [
 		{
 		  "Key": "NL",
-		  "Value": "Voorkomt dat er nieuwsgebeurtenissen plaatsvinden gedurende 10 minuten"
+		  "Value": "Voorkomt dat er nieuwsgebeurtenissen plaatsvinden gedurende 5 minuten"
 		},
 		{
 		  "Key": "EN",
-		  "Value": "Stops breaking news events from happening for 10 minutes"
+		  "Value": "Stops breaking news events from happening for 5 minutes"
 		},
 		{
 		  "Key": "DE",
@@ -464,11 +464,11 @@
 	  "Value": [
 		{
 		  "Key": "NL",
-		  "Value": "Voorkomt dat het monster je huis verwoest voor 5 minuten langer"
+		  "Value": "Voorkomt dat het monster je huis verwoest voor 2 minuten langer"
 		},
 		{
 		  "Key": "EN",
-		  "Value": "Stops monster from destroying your house for 5 more minutes"
+		  "Value": "Stops monster from destroying your house for 2 more minutes"
 		},
 		{
 		  "Key": "DE",
@@ -503,6 +503,23 @@
 		{
 		  "Key": "EN",
 		  "Value": "Information"
+		},
+		{
+		  "Key": "DE",
+		  "Value": "Ok!"
+		}
+	  ]
+	},
+	{
+	  "Key": "CLEANUP_TEXT",
+	  "Value": [
+		{
+		  "Key": "NL",
+		  "Value": "Ruim de rommel op die het monster heeft achtergelaten"
+		},
+		{
+		  "Key": "EN",
+		  "Value": "Clean up the debris that the monster left behind"
 		},
 		{
 		  "Key": "DE",

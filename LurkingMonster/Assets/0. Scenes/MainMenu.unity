@@ -201,7 +201,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.06166785, y: 0.2536995}
   m_AnchorMax: {x: 0.94067466, y: 0.25857893}
-  m_AnchoredPosition: {x: 8.021362, y: -5.9959717}
+  m_AnchoredPosition: {x: 8.021423, y: -5.9959717}
   m_SizeDelta: {x: 15.940796, y: -1.6864014}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &131959014
@@ -1378,7 +1378,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca94e754e77448cf8c7f8b268ca466df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startMoney: 1000
+  startMoney: 100
 --- !u!114 &635546120
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4413,7 +4413,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38aa43f718b04b8e8442af598e4574ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  loadingSeconds: 4.4
+  loadingSeconds: 5
   progressSlider: {fileID: 1705753700}
 --- !u!1 &1443691024
 GameObject:
@@ -5923,7 +5923,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.06166785, y: 0.75522864}
   m_AnchorMax: {x: 0.94067466, y: 0.762}
-  m_AnchoredPosition: {x: 8.021362, y: -1.8342285}
+  m_AnchoredPosition: {x: 8.021423, y: -1.8342285}
   m_SizeDelta: {x: 15.940796, y: 0.048095703}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1859100008

@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Enums;
-using Events;
 using Events.Achievements;
 using Gameplay.Achievements;
-using Structs;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -46,13 +42,12 @@ namespace UI
 		
 		private void Start()
 		{
-			gameObject.SetActive(false);
 			EventManager.Instance.AddListener<AchievementTappedEvent>(SpawnPopup);
 		}
 
 		private void SpawnPopup(AchievementTappedEvent achievementTappedEvent)
 		{
-			gameObject.SetActive(true);
+			CachedTransform.GetChild(0).gameObject.SetActive(true);
 			
 			Achievement achievement = achievementTappedEvent.Achievement;
 
@@ -71,7 +66,7 @@ namespace UI
 			collectReward.interactable = true;
 			collectReward.onClick.AddListener(achievement.CollectReward);
 			
-			collectReward.onClick.AddListener(() => gameObject.SetActive(false));
+			collectReward.onClick.AddListener(() => CachedTransform.GetChild(0).gameObject.SetActive(false));
 		}
 
 		private Sprite CheckType(object obj)

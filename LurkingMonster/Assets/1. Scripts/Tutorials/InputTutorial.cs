@@ -26,8 +26,7 @@ namespace Tutorials
 		
 		[SerializeField]
 		private InputData inputData;
-		
-	
+
 		private TMP_InputField inputText;
 
 		public override void StartTutorial(GameObject arrow)
@@ -38,6 +37,8 @@ namespace Tutorials
 			
 			submit.onClick.RemoveAllListeners();
 			submit.onClick.AddListener(CompleteTutorial);
+
+			inputText.text = string.Empty;
 		}
 
 		private void CompleteTutorial()

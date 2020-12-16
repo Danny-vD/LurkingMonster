@@ -22,7 +22,6 @@ namespace _1._Scripts.Gameplay.WeatherEvent
 
 		private Action timerEnd;
 
-		
 		private void Awake()
 		{
 			circleTimer = GetComponent<Image>();
