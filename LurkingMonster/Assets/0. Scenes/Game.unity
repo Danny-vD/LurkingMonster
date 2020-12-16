@@ -16701,7 +16701,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zoomSpeed: 0.04
-  MinimumZoom: 30
+  MinimumZoom: 17
   MaximumZoom: 2
 --- !u!114 &463725854
 MonoBehaviour:
