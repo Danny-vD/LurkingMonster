@@ -32,9 +32,9 @@ namespace Gameplay.Buildings
 
 		private void Initialize(BuildingData buildingData, FoundationTypeData foundationData, SoilTypeData soilData)
 		{
-			SetMaxSoilHealth(buildingData.MaxHealth);
+			SetMaxSoilHealth(soilData.MaxHealth);
 			SetMaxFoundationHealth(foundationData.MaxHealth);
-			SetMaxBuildingHealth(soilData.MaxHealth);
+			SetMaxBuildingHealth(buildingData.MaxHealth);
 
 			ResetHealth();
 		}
