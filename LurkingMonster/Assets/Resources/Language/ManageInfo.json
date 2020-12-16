@@ -1,231 +1,225 @@
 {
-    "Variables": [
-        {
-            "Key": "INFORMATION_SOIL_SAND",
-            "Value": [
-                {
-                    "Key": "NL",
-                    "Value": ""
-                },
-                {
-                    "Key": "EN",
-                    "Value": "<b>Reason</b> \n Water level has been low for a while and the sand is shifting between the foundation.\n <b>Solution</b> \n Do your research and hire someone to investigate the soil. Afterwards, replenish the soil with water by building a dam under the surface near the affected buildings."
-
-                },
-                {
-                    "Key": "DE",
-                    "Value": "Ok!"
-                }
-            ]
-        },
-        {
-            "Key": "INFORMATION_SOIL_LOAM",
-            "Value": [
-                {
-                    "Key": "NL",
-                    "Value": ""
-                },
-                {
-                    "Key": "EN",
-                    "Value": "<b>Reason</b> \n Erosion can occur in this type of soil, this causes the foundation to collapse underneath the weight of the house.\n <b>Solution</b> \n Research the underlying soil and make sure the foundation is still okay, if it's not. hire a company that will stabilize the foundation."
-                },
-                {
-                    "Key": "DE",
-                    "Value": "Ok!"
-                }
-            ]
-        },
-        {
-            "Key": "INFORMATION_SOIL_CLAY",
-            "Value": [
-                {
-                    "Key": "NL",
-                    "Value": ""
-                },
-                {
-                    "Key": "EN",
-                    "Value": "<b>Reason</b> \n Clay shrinks during the summer and expands during the winter due to moisture. Trees might also affect this phenomena. \n <b>Solution</b> \n Do your research and hire someone to investigate the soil. Afterwards, replenish the soil with water by building a dam under the surface near the affected buildings."
-                },
-                {
-                    "Key": "DE",
-                    "Value": "Ok!"
-                }
-            ]
-        },
-        {
-            "Key": "INFORMATION_SOIL_PEAT",
-            "Value": [
-                {
-                    "Key": "NL",
-                    "Value": ""
-                },
-                {
-                    "Key": "EN",
-                    "Value": "<b>Reason</b> \n This kind of soil is also known as soft soil and is now more often used to farm on, but older houses have the chance of having peat under their houses. Peat is very unstable and foundations often get destabilized on this kind of soil because it holds a lot of moisture all throughout the year. \n <b>Solution</b> \n Using lime and cement this is you can stabilize peat up till a certain degree. Of course, first always consult a professional before you do anything."
-                },
-                {
-                    "Key": "DE",
-                    "Value": "Ok!"
-                }
-            ]
-        },
-        {
-            "Key": "INFORMATION_FOUNDATION_WOODEN_POLES",
-            "Value": [
-                {
-                    "Key": "NL",
-                    "Value": ""
-                },
-                {
-                    "Key": "EN",
-                    "Value": "<b>Reason</b> \n The soil is dried out hence exposing the poles to oxygen creating wood rot.\n <b>Solution</b> \n After doing the research on your soil and foundation, contact a professional and let them place extra support or come with a different solution."
-                },
-                {
-                    "Key": "DE",
-                    "Value": "Ok!"
-                }
-            ]
-        },
-        {
-            "Key": "INFORMATION_FOUNDATION_SHALLOW_FOUNDATION",
-            "Value": [
-                {
-                    "Key": "NL",
-                    "Value": ""
-                },
-                {
-                    "Key": "EN",
-                    "Value": "<b>Reason</b> \n The building has become to heavy for this type of foundation. \n <b>Solution</b> \n Support the foundation by adding extra poles near the issue area."
-                },
-                {
-                    "Key": "DE",
-                    "Value": "Ok!"
-                }
-            ]
-        },
-        {
-            "Key": "INFORMATION_FOUNDATION_REINFORCED_CONCRETE",
-            "Value": [
-                {
-                    "Key": "NL",
-                    "Value": ""
-                },
-                {
-                    "Key": "EN",
-                    "Value": "<b>Reason</b> \n Corrosion of reinforcing steel and other embedded metals is the leading cause of deterioration in concrete. When steel corrodes, the resulting rust occupies a greater volume than the steel. This expan- sion creates tensile stresses in the concrete, which can eventually cause cracking, delamination, and spalling. \n <b>Solution</b> \n If it is only on the surface, you can easily maintain it with water and extra cement to fill the cracks and gaps. If the problem is deeper, the foundation will need to be reinforced, often done with steel pins(screw pins)."
-                },
-                {
-                    "Key": "DE",
-                    "Value": "Ok!"
-                }
-            ]
-        },
-        {
-            "Key": "INFORMATION_FOUNDATION_FLOATING_PLATE",
-            "Value": [
-                {
-                    "Key": "NL",
-                    "Value": ""
-                },
-                {
-                    "Key": "EN",
-                    "Value": "<b>Reason</b> \n The plate shifted and is sinking often to one side this will often cause the house to tilt to a side. \n <b>Solution</b> \n Lift the plate on the affected side with steel pins to level and evenly distribute the weight over the floating plate again."
-                },
-                {
-                    "Key": "DE",
-                    "Value": "Ok!"
-                }
-            ]
-        },
-        {
-            "Key": "INFORMATION_BUILDING_HOUSE1",
-            "Value": [
-                {
-                    "Key": "NL",
-                    "Value": ""
-                },
-                {
-                    "Key": "EN",
-                    "Value": "<b>Reason</b> \n The foundation is shifting because of weather circumstances affecting the soil.\n <b>Solution</b> \n Ask the previous owners if they had this problem and then go to the town hall to research your house."
-
-                },
-                {
-                    "Key": "DE",
-                    "Value": "Ok!"
-                }
-            ]
-        },
-        {
-            "Key": "INFORMATION_BUILDING_HOUSE2",
-            "Value": [
-                {
-                    "Key": "NL",
-                    "Value": ""
-                },
-                {
-                    "Key": "EN",
-                    "Value": "<b>Reason</b> \n The foundation is shifting because of age and exposure to the weather.\n <b>Solution</b> \n Research the foundation and let an expert come to figure out what the best course of action is."
-
-                },
-                {
-                    "Key": "DE",
-                    "Value": "Ok!"
-                }
-            ]
-        },
-        {
-            "Key": "INFORMATION_BUILDING_HOUSE3",
-            "Value": [
-                {
-                    "Key": "NL",
-                    "Value": ""
-                },
-                {
-                    "Key": "EN",
-                    "Value": "<b>Reason</b> \n The annex is not built on a good foundation so it is sinking in the soil because of its weight.\n <b>Solution</b> \n  Add more support to strengthen the foundation and then repair the visible damage."
-
-                },
-                {
-                    "Key": "DE",
-                    "Value": "Ok!"
-                }
-            ]
-        },
-        {
-            "Key": "INFORMATION_BUILDING_BAKERY",
-            "Value": [
-                {
-                    "Key": "NL",
-                    "Value": ""
-                },
-                {
-                    "Key": "EN",
-                    "Value": "<b>Reason</b> \n The surrounding area is sinking around the building,creating a big height difference.\n <b>Solution</b> \n This is an issue that only the townhall can solve by actually opening up the streets and applying more soil."
-
-                },
-                {
-                    "Key": "DE",
-                    "Value": "Ok!"
-                }
-            ]
-        },
-        {
-            "Key": "INFORMATION_BUILDING_APPARTMENT",
-            "Value": [
-                {
-                    "Key": "NL",
-                    "Value": ""
-                },
-                {
-                    "Key": "EN",
-                    "Value": "<b>Reason</b> \n The weight of the building has become too heavy for the soil and foundation.\n <b>Solution</b> \n Add extra support to the foundation."
-
-                },
-                {
-                    "Key": "DE",
-                    "Value": "Ok!"
-                }
-            ]
-        }
-    ]
+  "Variables": [
+	{
+	  "Key": "INFORMATION_SOIL_SAND",
+	  "Value": [
+		{
+		  "Key": "NL",
+		  "Value": ""
+		},
+		{
+		  "Key": "EN",
+		  "Value": "<b>Reason</b> \n Water level has been low for a while and the sand is shifting between the foundation.\n <b>Solution</b> \n Do your research and hire someone to investigate the soil. Afterwards, replenish the soil with water by building a dam under the surface near the affected buildings."
+		},
+		{
+		  "Key": "DE",
+		  "Value": "Ok!"
+		}
+	  ]
+	},
+	{
+	  "Key": "INFORMATION_SOIL_LOAM",
+	  "Value": [
+		{
+		  "Key": "NL",
+		  "Value": ""
+		},
+		{
+		  "Key": "EN",
+		  "Value": "<b>Reason</b> \n Erosion can occur in this type of soil, this causes the foundation to collapse underneath the weight of the house.\n <b>Solution</b> \n Research the underlying soil and make sure the foundation is still okay, if it's not. hire a company that will stabilize the foundation."
+		},
+		{
+		  "Key": "DE",
+		  "Value": "Ok!"
+		}
+	  ]
+	},
+	{
+	  "Key": "INFORMATION_SOIL_CLAY",
+	  "Value": [
+		{
+		  "Key": "NL",
+		  "Value": ""
+		},
+		{
+		  "Key": "EN",
+		  "Value": "<b>Reason</b> \n Clay shrinks during the summer and expands during the winter due to moisture. Trees might also affect this phenomena. \n <b>Solution</b> \n Do your research and hire someone to investigate the soil. Afterwards, replenish the soil with water by building a dam under the surface near the affected buildings."
+		},
+		{
+		  "Key": "DE",
+		  "Value": "Ok!"
+		}
+	  ]
+	},
+	{
+	  "Key": "INFORMATION_SOIL_PEAT",
+	  "Value": [
+		{
+		  "Key": "NL",
+		  "Value": ""
+		},
+		{
+		  "Key": "EN",
+		  "Value": "<b>Reason</b> \n This kind of soil is also known as soft soil and is now more often used to farm on, but older houses have the chance of having peat under their houses. Peat is very unstable and foundations often get destabilized on this kind of soil because it holds a lot of moisture all throughout the year. \n <b>Solution</b> \n Using lime and cement this is you can stabilize peat up till a certain degree. Of course, first always consult a professional before you do anything."
+		},
+		{
+		  "Key": "DE",
+		  "Value": "Ok!"
+		}
+	  ]
+	},
+	{
+	  "Key": "INFORMATION_FOUNDATION_WOODEN_POLES",
+	  "Value": [
+		{
+		  "Key": "NL",
+		  "Value": ""
+		},
+		{
+		  "Key": "EN",
+		  "Value": "<b>Reason</b> \n The soil is dried out hence exposing the poles to oxygen creating wood rot.\n <b>Solution</b> \n After doing the research on your soil and foundation, contact a professional and let them place extra support or come with a different solution."
+		},
+		{
+		  "Key": "DE",
+		  "Value": "Ok!"
+		}
+	  ]
+	},
+	{
+	  "Key": "INFORMATION_FOUNDATION_SHALLOW_FOUNDATION",
+	  "Value": [
+		{
+		  "Key": "NL",
+		  "Value": ""
+		},
+		{
+		  "Key": "EN",
+		  "Value": "<b>Reason</b> \n The building has become to heavy for this type of foundation. \n <b>Solution</b> \n Support the foundation by adding extra poles near the issue area."
+		},
+		{
+		  "Key": "DE",
+		  "Value": "Ok!"
+		}
+	  ]
+	},
+	{
+	  "Key": "INFORMATION_FOUNDATION_REINFORCED_CONCRETE",
+	  "Value": [
+		{
+		  "Key": "NL",
+		  "Value": ""
+		},
+		{
+		  "Key": "EN",
+		  "Value": "<b>Reason</b> \n Corrosion of reinforcing steel and other embedded metals is the leading cause of deterioration in concrete. When steel corrodes, the resulting rust occupies a greater volume than the steel. This expan- sion creates tensile stresses in the concrete, which can eventually cause cracking, delamination, and spalling. \n <b>Solution</b> \n If it is only on the surface, you can easily maintain it with water and extra cement to fill the cracks and gaps. If the problem is deeper, the foundation will need to be reinforced, often done with steel pins(screw pins)."
+		},
+		{
+		  "Key": "DE",
+		  "Value": "Ok!"
+		}
+	  ]
+	},
+	{
+	  "Key": "INFORMATION_FOUNDATION_FLOATING_PLATE",
+	  "Value": [
+		{
+		  "Key": "NL",
+		  "Value": ""
+		},
+		{
+		  "Key": "EN",
+		  "Value": "<b>Reason</b> \n The plate shifted and is sinking often to one side this will often cause the house to tilt to a side. \n <b>Solution</b> \n Lift the plate on the affected side with steel pins to level and evenly distribute the weight over the floating plate again."
+		},
+		{
+		  "Key": "DE",
+		  "Value": "Ok!"
+		}
+	  ]
+	},
+	{
+	  "Key": "INFORMATION_BUILDING_HOUSE1",
+	  "Value": [
+		{
+		  "Key": "NL",
+		  "Value": ""
+		},
+		{
+		  "Key": "EN",
+		  "Value": "<b>Reason</b> \n The foundation is shifting because of weather circumstances affecting the soil.\n <b>Solution</b> \n Ask the previous owners if they had this problem and then go to the town hall to research your house."
+		},
+		{
+		  "Key": "DE",
+		  "Value": "Ok!"
+		}
+	  ]
+	},
+	{
+	  "Key": "INFORMATION_BUILDING_HOUSE2",
+	  "Value": [
+		{
+		  "Key": "NL",
+		  "Value": ""
+		},
+		{
+		  "Key": "EN",
+		  "Value": "<b>Reason</b> \n The foundation is shifting because of age and exposure to the weather.\n <b>Solution</b> \n Research the foundation and let an expert come to figure out what the best course of action is."
+		},
+		{
+		  "Key": "DE",
+		  "Value": "Ok!"
+		}
+	  ]
+	},
+	{
+	  "Key": "INFORMATION_BUILDING_HOUSE3",
+	  "Value": [
+		{
+		  "Key": "NL",
+		  "Value": ""
+		},
+		{
+		  "Key": "EN",
+		  "Value": "<b>Reason</b> \n The annex is not built on a good foundation so it is sinking in the soil because of its weight.\n <b>Solution</b> \n  Add more support to strengthen the foundation and then repair the visible damage."
+		},
+		{
+		  "Key": "DE",
+		  "Value": "Ok!"
+		}
+	  ]
+	},
+	{
+	  "Key": "INFORMATION_BUILDING_BAKERY",
+	  "Value": [
+		{
+		  "Key": "NL",
+		  "Value": ""
+		},
+		{
+		  "Key": "EN",
+		  "Value": "<b>Reason</b> \n The surrounding area is sinking around the building,creating a big height difference.\n <b>Solution</b> \n This is an issue that only the townhall can solve by actually opening up the streets and applying more soil."
+		},
+		{
+		  "Key": "DE",
+		  "Value": "Ok!"
+		}
+	  ]
+	},
+	{
+	  "Key": "INFORMATION_BUILDING_APPARTMENT",
+	  "Value": [
+		{
+		  "Key": "NL",
+		  "Value": ""
+		},
+		{
+		  "Key": "EN",
+		  "Value": "<b>Reason</b> \n The weight of the building has become too heavy for the soil and foundation.\n <b>Solution</b> \n Add extra support to the foundation."
+		},
+		{
+		  "Key": "DE",
+		  "Value": "Ok!"
+		}
+	  ]
+	}
+  ]
 }

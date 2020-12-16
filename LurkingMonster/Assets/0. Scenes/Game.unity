@@ -200,13 +200,13 @@ MonoBehaviour:
   jsonKeys:
     serializedDictionary:
     - key: 0
-      value: 
+      value: INFORMATION_FOUNDATION_WOODEN_POLES
     - key: 1
-      value: 
+      value: INFORMATION_FOUNDATION_SHALLOW_FOUNDATION
     - key: 2
-      value: 
+      value: INFORMATION_FOUNDATION_REINFORCED_CONCRETE
     - key: 3
-      value: 
+      value: INFORMATION_FOUNDATION_FLOATING_PLATE
 --- !u!222 &1200482
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1199,7 +1199,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.7991898}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 1.7353668}
+  m_AnchoredPosition: {x: 0, y: 1.7353516}
   m_SizeDelta: {x: -0.46984863, y: -3.4732666}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &17070076
@@ -43469,7 +43469,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.014, y: 0.82755333}
   m_AnchorMax: {x: 0.43114287, y: 0.9001924}
-  m_AnchoredPosition: {x: 0.30010986, y: -0.099975586}
+  m_AnchoredPosition: {x: 0.3001709, y: -0.099975586}
   m_SizeDelta: {x: -2.680664, y: -0.2019043}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1071951597
@@ -71860,13 +71860,13 @@ MonoBehaviour:
   jsonKeys:
     serializedDictionary:
     - key: 0
-      value: 
+      value: INFORMATION_SOIL_PEAT
     - key: 1
-      value: 
+      value: INFORMATION_SOIL_SAND
     - key: 2
-      value: 
+      value: INFORMATION_SOIL_LOAM
     - key: 3
-      value: 
+      value: INFORMATION_SOIL_CLAY
 --- !u!222 &1858526613
 CanvasRenderer:
   m_ObjectHideFlags: 0
