@@ -16701,7 +16701,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zoomSpeed: 0.04
-  MinimumZoom: 17
+  MinimumZoom: 18
   MaximumZoom: 2
 --- !u!114 &463725854
 MonoBehaviour:
@@ -58701,7 +58701,7 @@ MonoBehaviour:
   position: {x: 0, y: 0, z: 0}
   material: {fileID: 2100000, guid: 8931e43075078074a824d5171d5cd525, type: 2}
   scale: 0.03
-  offsetDistance: 4
+  offsetDistance: 5
 --- !u!114 &1512279062
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -58770,7 +58770,7 @@ MonoBehaviour:
   position: {x: 0, y: 0, z: 0}
   material: {fileID: 2100000, guid: 8931e43075078074a824d5171d5cd525, type: 2}
   scale: 0.03
-  offsetDistance: 4
+  offsetDistance: 5
 --- !u!114 &1512279066
 MonoBehaviour:
   m_ObjectHideFlags: 0
