@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Prefabs:
   - {fileID: 6448619695878815470, guid: bc27b629626068742b4230c8264e7d43, type: 3}
-  BuildCost: 50
+  BuildCost: 75
   RepairCost: 50
   DestructionCost: 50
-  MaxHealth: 180
+  MaxHealth: 240
