@@ -115,7 +115,7 @@ namespace Grid
 
 					while (buildingTile.Building.CurrentTier != tileData.BuildingTier)
 					{
-						buildingUpgrade.Upgrade(false);
+						buildingUpgrade.Upgrade();
 					}
 				}
 			}

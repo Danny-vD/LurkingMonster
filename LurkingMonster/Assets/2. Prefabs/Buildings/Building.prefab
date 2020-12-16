@@ -795,7 +795,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 23653c0c49c93a045a7d239e70381237, type: 2}
+  - {fileID: 2100000, guid: 8c7375b13b43ec445804169b9aed6b5a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -907,6 +907,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   material: {fileID: 2100000, guid: 694b3c68a15c032418d331a6808764cc, type: 2}
+  crackedMaterials:
+    serializedDictionary:
+    - key: 0
+      value:
+        serializedDictionary:
+        - key: 1
+          value: {fileID: 2100000, guid: 694b3c68a15c032418d331a6808764cc, type: 2}
+        - key: 2
+          value: {fileID: 2100000, guid: cf0532fe0f2f29644a8e70525875c173, type: 2}
+        - key: 3
+          value: {fileID: 2100000, guid: fefdb94caebb9714195872e4ac8f66b2, type: 2}
+    - key: 1
+      value:
+        serializedDictionary:
+        - key: 1
+          value: {fileID: 2100000, guid: 694b3c68a15c032418d331a6808764cc, type: 2}
+    - key: 2
+      value:
+        serializedDictionary:
+        - key: 1
+          value: {fileID: 2100000, guid: 694b3c68a15c032418d331a6808764cc, type: 2}
 --- !u!1 &7029731273974737261
 GameObject:
   m_ObjectHideFlags: 0

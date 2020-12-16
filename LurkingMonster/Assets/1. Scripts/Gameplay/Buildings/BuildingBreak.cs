@@ -22,8 +22,6 @@ namespace Gameplay.Buildings
 
 		public void Awake()
 		{
-			//todo
-			//popups.SetActive(false);
 			building              = GetComponent<Building>();
 			buildingHealth        = GetComponent<BuildingHealth>();
 			buildingChangeTexture = GetComponent<BuildingChangeTexture>();
