@@ -17,14 +17,16 @@ MonoBehaviour:
     value:
     - Mesh: {fileID: -869085112349392085, guid: 59c26864533fdf047ad9265f71223cc8, type: 3}
       Material: {fileID: 2100000, guid: 23653c0c49c93a045a7d239e70381237, type: 2}
-    - Mesh: {fileID: -4948366212873048268, guid: 1cb7d498151db9040b5832bf3c9f2b29, type: 3}
-      Material: {fileID: 1200918526215187638, guid: 1cb7d498151db9040b5832bf3c9f2b29, type: 3}
+    - Mesh: {fileID: -4948366212873048268, guid: 47304f4622d2b2f4f952c1a8002bef15, type: 3}
+      Material: {fileID: 2100000, guid: 8c7375b13b43ec445804169b9aed6b5a, type: 2}
+    - Mesh: {fileID: 3582156739779773822, guid: 6cb8d37ad78342648a73d5d110479a75, type: 3}
+      Material: {fileID: 2100000, guid: 2b73583fb7db85f4e9a653e19fcbb293, type: 2}
   - key: 1
     value:
     - Mesh: {fileID: -869085112349392085, guid: 59c26864533fdf047ad9265f71223cc8, type: 3}
       Material: {fileID: 2100000, guid: 23653c0c49c93a045a7d239e70381237, type: 2}
     - Mesh: {fileID: -4948366212873048268, guid: 1cb7d498151db9040b5832bf3c9f2b29, type: 3}
-      Material: {fileID: 1200918526215187638, guid: 1cb7d498151db9040b5832bf3c9f2b29, type: 3}
+      Material: {fileID: 2100000, guid: 8c7375b13b43ec445804169b9aed6b5a, type: 2}
   - key: 2
     value:
     - Mesh: {fileID: -869085112349392085, guid: 59c26864533fdf047ad9265f71223cc8, type: 3}

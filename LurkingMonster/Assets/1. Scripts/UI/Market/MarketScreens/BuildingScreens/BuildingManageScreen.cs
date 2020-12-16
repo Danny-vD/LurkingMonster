@@ -82,7 +82,7 @@ namespace UI.Market.MarketScreens.BuildingScreens
 				void OnClick()
 				{
 					ReduceMoney(price);
-					buildingUpgrade.Upgrade(true);
+					buildingUpgrade.Upgrade();
 					manager.CloseMarket();
 				}
 			}

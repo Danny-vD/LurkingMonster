@@ -115,7 +115,7 @@ namespace Grid
 
 					while (buildingTile.Building.CurrentTier != tileData.BuildingTier)
 					{
-						buildingUpgrade.Upgrade(false);
+						buildingUpgrade.Upgrade();
 					}
 				}
 			}
@@ -130,8 +130,7 @@ namespace Grid
 					buildingTile.SetSoilType(SoilType.Sand);
 					buildingTile.SetFoundationType(FoundationType.Wooden_Poles);
 					buildingTile.SetBuildingType(BuildingType.House);
-					
-					
+
 					buildingTile.SpawnBuilding(false);
 
 					BuildingHealth buildingHealth = buildingTile.Building.GetComponent<BuildingHealth>();

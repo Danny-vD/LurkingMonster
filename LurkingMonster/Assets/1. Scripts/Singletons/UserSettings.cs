@@ -90,12 +90,12 @@ namespace Singletons
 		{
 			if (pauseStatus)
 			{
+				OnGameQuit?.Invoke();
+				
 				if (gameData == null)
 				{
 					return;
 				}
-
-				OnGameQuit?.Invoke();
 
 				SaveFile();
 			}
