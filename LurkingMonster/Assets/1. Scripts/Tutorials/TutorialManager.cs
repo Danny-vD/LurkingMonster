@@ -1,8 +1,10 @@
 ﻿using System;
+using Events.MoneyManagement;
 using Singletons;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
+using VDFramework.EventSystem;
 using VDFramework.Singleton;
 
 namespace Tutorials
@@ -73,6 +75,9 @@ namespace Tutorials
 			IsActive = false;
 			TimeManager.Instance.UnPause();
 			narrator.SetActive(false);
+			
+			//TODO: make it adjustable
+			EventManager.Instance.RaiseEvent(new IncreaseMoneyEvent(1000));
 			Destroy(gameObject);
 		}
 

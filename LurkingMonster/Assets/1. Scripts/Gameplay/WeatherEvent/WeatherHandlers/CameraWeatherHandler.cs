@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using ScriptableObjects;
 using UnityEngine;
+using Utility;
 
 namespace Gameplay.WeatherEvent.WeatherHandlers
 {
@@ -22,6 +23,8 @@ namespace Gameplay.WeatherEvent.WeatherHandlers
 		protected override void OnEarthQuake(WeatherEventData data)
 		{
 			CameraMovement(Ehorizontal, eVertical, eFrequency, data.interval);
+			
+			VibrationUtil.Vibrate();
 		}
 
 		protected override void OnStorm(WeatherEventData data)
