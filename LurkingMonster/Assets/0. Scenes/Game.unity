@@ -16677,7 +16677,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ff345642ec59074fabc0019c8cb656c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zoomSpeed: 0.08
+  zoomSpeed: 0.06
   MinimumZoom: 30
   MaximumZoom: 2
 --- !u!114 &463725854
@@ -16692,7 +16692,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3359a95f6fa34f948616e499cf494fcc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.6
+  speed: 0.5
   deadZone: 5
   zoomSlowDown: 0.95
   zoomSpeedUp: 0.6
@@ -16708,7 +16708,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b076665397d9834386a7fea3ab56812, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RelativeLimits: {x: 48, y: 34, z: 34, w: 23.5}
+  RelativeLimits: {x: 28, y: 17, z: 32, w: 23.5}
 --- !u!114 &463725856
 MonoBehaviour:
   m_ObjectHideFlags: 0
