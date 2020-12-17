@@ -72,7 +72,10 @@ namespace UI.Market.ExtensionScreens
 				rentTextWriter = new StringVariableWriter(buttonData.Value.Text.Rent.text);
 			}
 
-			buttonData.Value.Text.Rent.text = rentTextWriter.UpdateText(data[0].Rent);
+			//TODO: hook up with buildingRent somehow?
+			const float rentcollectionsPerHour = (60.0f / 18.0f) * 60.0f;
+			
+			buttonData.Value.Text.Rent.text = rentTextWriter.UpdateText(data[0].Rent * rentcollectionsPerHour);
 
 			// Upgrades
 			if (upgradeTextWriter == null)

@@ -13,7 +13,7 @@ namespace Gameplay.Buildings
 		
 		private float timer = 0.0f;
 		private GameObject rentPopup;
-
+		
 		public void Start()
 		{
 			ButtonCollectRent buttonCollectRent = GetComponentInChildren<ButtonCollectRent>(true);
