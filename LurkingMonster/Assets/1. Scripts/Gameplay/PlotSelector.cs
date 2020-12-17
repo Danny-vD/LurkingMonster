@@ -37,7 +37,7 @@ namespace Gameplay
 			{
 				return;
 			}
-			
+
 			selectMethod();
 		}
 
@@ -65,7 +65,7 @@ namespace Gameplay
 				HandleSelection();
 			}
 		}
-		
+
 		/// <summary>
 		/// Performs a raycast from the camera to the mouse
 		/// </summary>
@@ -94,41 +94,40 @@ namespace Gameplay
 		{
 			if (EventSystem.current.IsPointerOverGameObject() || TutorialManager.IsInitialized && TutorialManager.Instance.IsActive)
 			{
-				return;	
+				return;
 			}
-			
+
 			if (RayCast(out PlotSelectable selectable)) // check if raycast hit a PlotSelectable
 			{
 				Select(selectable);
 				return;
 			}
 
+			EventManager.Instance.RaiseEvent(new SelectedBuildingEvent(null));
 			Deselect(selected);
 		}
 
 		private void Select(PlotSelectable selectable)
 		{
 			AbstractBuildingTile abstractBuildingTile = selectable.GetTile();
-			
+
 			// Selected the selected object, so open market
 			if (selectable == selected)
 			{
 				Deselect(selectable);
-				
+
 				if (abstractBuildingTile.HasDebris)
 				{
 					EventManager.Instance.RaiseEvent(new SelectedBuildingEvent(abstractBuildingTile));
 					return;
 				}
-				
+
 				EventManager.Instance.RaiseEvent(new OpenMarketEvent(abstractBuildingTile));
 				return;
 			}
-			
-			if (abstractBuildingTile.HasBuilding)
-			{
-				EventManager.Instance.RaiseEvent(new SelectedBuildingEvent(abstractBuildingTile));
-			}
+
+			// Send the tile if it has a building, else send null so that the listeners know you selected something that's has no building
+			EventManager.Instance.RaiseEvent(new SelectedBuildingEvent(abstractBuildingTile.HasBuilding ? abstractBuildingTile : null));
 
 			Deselect(selected); // Deselect the last selected object
 
