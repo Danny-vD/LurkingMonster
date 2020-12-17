@@ -56,24 +56,11 @@ namespace Gameplay.Buildings
 			return building.CurrentTier < maxTier;
 		}
 
-		public void Upgrade(bool payForUpgrade)
+		public void Upgrade()
 		{
 			if (!CanUpgrade())
 			{
 				return;
-			}
-
-			// TODO: move the payment to the market
-			if (payForUpgrade)
-			{
-				int upgradeCost = building.UpgradeCost;
-
-				if (!MoneyManager.Instance.PlayerHasEnoughMoney(upgradeCost))
-				{
-					return;
-				}
-
-				EventManager.Instance.RaiseEvent(new DecreaseMoneyEvent(upgradeCost));
 			}
 
 			SetMeshToTier(++building.CurrentTier);

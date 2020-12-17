@@ -296,7 +296,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dc8b2ef763cd3748841e8fe4d258cdb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MinMaxZoom: {x: 0.1, y: 1.25}
+  MinMaxZoom: {x: 0.1, y: 0.7}
 --- !u!1 &1220154156152069820
 GameObject:
   m_ObjectHideFlags: 0
@@ -867,7 +867,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6e1d700793d431db1c8e2d2975381ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waitTimeUntilRent: 20
+  waitTimeUntilRent: 18
 --- !u!114 &4707960237150791921
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -893,7 +893,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da512370e470422cb6c40e701a210dac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AddWeatherListener: 0
 --- !u!114 &-7775324001159059781
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -906,7 +905,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7d1ded27caa42279c271f63cc86d1b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 694b3c68a15c032418d331a6808764cc, type: 2}
+  crackedMaterials:
+    serializedDictionary:
+    - key: 0
+      value:
+        serializedDictionary:
+        - key: 1
+          value: {fileID: 2100000, guid: 694b3c68a15c032418d331a6808764cc, type: 2}
+        - key: 2
+          value: {fileID: 2100000, guid: cf0532fe0f2f29644a8e70525875c173, type: 2}
+        - key: 3
+          value: {fileID: 2100000, guid: fefdb94caebb9714195872e4ac8f66b2, type: 2}
+    - key: 1
+      value:
+        serializedDictionary:
+        - key: 1
+          value: {fileID: 2100000, guid: 694b3c68a15c032418d331a6808764cc, type: 2}
+    - key: 2
+      value:
+        serializedDictionary:
+        - key: 1
+          value: {fileID: 2100000, guid: 694b3c68a15c032418d331a6808764cc, type: 2}
 --- !u!1 &7029731273974737261
 GameObject:
   m_ObjectHideFlags: 0

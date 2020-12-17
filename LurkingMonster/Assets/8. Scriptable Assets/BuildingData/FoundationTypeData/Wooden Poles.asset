@@ -16,5 +16,5 @@ MonoBehaviour:
   - {fileID: 9045959777039205947, guid: 02afd98357ae3164cb422deae9a1d405, type: 3}
   BuildCost: 100
   RepairCost: 50
-  DestructionCost: 500
-  MaxHealth: 150
+  DestructionCost: 50
+  MaxHealth: 300

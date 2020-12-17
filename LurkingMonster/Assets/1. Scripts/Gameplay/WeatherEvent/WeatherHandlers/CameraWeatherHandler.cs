@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using ScriptableObjects;
 using UnityEngine;
+using Utility;
 
 namespace Gameplay.WeatherEvent.WeatherHandlers
 {
@@ -17,9 +18,13 @@ namespace Gameplay.WeatherEvent.WeatherHandlers
 		[SerializeField]
 		private float sHorizontal, sVertical, sFrequency;
 
+		protected override bool AddWeatherListener => true;
+
 		protected override void OnEarthQuake(WeatherEventData data)
 		{
 			CameraMovement(Ehorizontal, eVertical, eFrequency, data.interval);
+			
+			VibrationUtil.Vibrate();
 		}
 
 		protected override void OnStorm(WeatherEventData data)

@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Peet
   m_EditorClassIdentifier: 
   Prefabs:
-  - {fileID: 6379112786290133786, guid: f277441722a807d4e83d7991fffd24c9, type: 3}
-  BuildCost: 200
+  - {fileID: 6996015468651280539, guid: 7f2251c11ffc84f48b72147f0f9b5931, type: 3}
+  BuildCost: 25
   RepairCost: 50
-  RemoveCost: 100
-  MaxHealth: 150
+  RemoveCost: 50
+  MaxHealth: 120

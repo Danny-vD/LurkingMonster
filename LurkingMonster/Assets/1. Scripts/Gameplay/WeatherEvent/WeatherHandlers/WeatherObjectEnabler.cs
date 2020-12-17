@@ -10,6 +10,8 @@ namespace Gameplay.WeatherEvent.WeatherHandlers
 		[SerializeField]
 		private List<WeatherEventType> enableOnEvent = new List<WeatherEventType>() {WeatherEventType.HeavyRain, WeatherEventType.Storm};
 
+		protected override bool AddWeatherListener => false;
+
 		protected override void StartWeather(WeatherEventType type, WeatherEventData data)
 		{
 			if (enableOnEvent.Contains(type))

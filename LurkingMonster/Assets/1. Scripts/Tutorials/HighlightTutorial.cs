@@ -23,7 +23,15 @@ namespace Tutorials
 		public override void StartTutorial(GameObject arrow)
 		{
 			base.StartTutorial(arrow);
-			ShowNextText();
+
+			if (keyCount == 0)
+			{
+				Highlight();
+			}
+			else
+			{
+				ShowNextText();
+			}
 
 			DisableButtons();
 

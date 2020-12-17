@@ -42,8 +42,7 @@ namespace CustomInspector.Grid
 			GetAllSelectedTiles();
 
 			regenerateGrid = EditorGUILayout.Toggle("Regenerate Grid", regenerateGrid);
-			
-			
+
 			DrawNewType();
 
 			DrawModifyTilesButton();
@@ -68,10 +67,9 @@ namespace CustomInspector.Grid
 				AbstractTile tile = selectedTiles[i];
 				gridPositions[i] = tile.GridPosition;
 			}
-
 			
 			// Very first time all grid posititons are (0,0), despite being distinct tiles
-			// In thise case, regenerate the grid
+			// In this case, regenerate the grid
 			if (!hasGenerated && gridPositions.Length > 0)
 			{
 				if (gridPositions.All(position => position.Equals(Vector2Int.zero)))

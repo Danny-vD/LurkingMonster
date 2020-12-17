@@ -18,7 +18,7 @@ namespace UI.Market.MarketScreens.BuildingScreens
 			base.BuyButtonClick(tile, manager);
 		}
 
-		protected override BuildingType[] GetUnlockedTypes() => default(BuildingType).GetValues().ToArray();
+		protected override BuildingType[] GetUnlockedTypes() => new[] {BuildingType.House}; //default(BuildingType).GetValues().ToArray();
 
 		protected override int GetPrice(AbstractBuildingTile tile) => tile.GetBuildingPrice();
 	}
