@@ -1,5 +1,4 @@
-﻿using System;
-using Events.BuildingEvents;
+﻿using Events.BuildingEvents;
 using Events.MoneyManagement;
 using Grid.Tiles.Buildings;
 using Singletons;
@@ -26,13 +25,15 @@ namespace Gameplay.Buildings
 
 		private void OnSelectedBuilding(SelectedBuildingEvent selectedBuildingEvent)
 		{
-			if (!selectedBuildingEvent.tile.HasDebris)
+			AbstractBuildingTile tile = selectedBuildingEvent.tile;
+
+			if (tile == null || !tile.HasDebris)
 			{
 				return;
 			}
 
 			transform.GetChild(0).gameObject.SetActive(true);
-			SetButton(selectedBuildingEvent.tile);
+			SetButton(tile);
 		}
 
 		private void SetButton(AbstractBuildingTile tile)
