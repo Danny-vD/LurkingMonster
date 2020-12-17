@@ -46,7 +46,6 @@ namespace UI.Market
 		private void Start()
 		{
 			EventManager.Instance.AddListener<SelectedBuildingEvent>(OnSelectedBuilding);
-			EventManager.Instance.AddListener<OpenMarketEvent>(OnOpenMarket);
 
 			child = CachedTransform.GetChild(0).gameObject;
 		}
@@ -63,6 +62,7 @@ namespace UI.Market
 				selectedTile   = null;
 				buildingHealth = null;
 				SetActive(false);
+				return;
 			}
 
 			SetBars();
@@ -241,11 +241,6 @@ namespace UI.Market
 		private static void ReduceMoney(int price)
 		{
 			EventManager.Instance.RaiseEvent(new DecreaseMoneyEvent(price));
-		}
-
-		private void OnOpenMarket()
-		{
-			SetActive(false);
 		}
 
 		private void OnDestroy()
