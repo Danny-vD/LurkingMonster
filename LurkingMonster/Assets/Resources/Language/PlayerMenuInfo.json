@@ -68,6 +68,23 @@
 		}
 	  ]
 	},
+    {
+      "Key": "KCAF",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "KCAF"
+        },
+        {
+          "Key": "EN",
+          "Value": "KCAF"
+        },
+        {
+          "Key": "DE",
+          "Value": "Ok!"
+        }
+      ]
+    },
 	{
 	  "Key": "INFORMATION_KCAF_TEXT",
 	  "Value": [
@@ -85,6 +102,23 @@
 		}
 	  ]
 	},
+    {
+      "Key": "SOILMATESSTUDIOS",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "SoilMateStudios"
+        },
+        {
+          "Key": "EN",
+          "Value": "SoilMateStudios"
+        },
+        {
+          "Key": "DE",
+          "Value": "Ok!"
+        }
+      ]
+    },
 	{
 	  "Key": "INFORMATION_SOILMATESSTUDIOS_TEXT",
 	  "Value": [
@@ -102,6 +136,23 @@
 		}
 	  ]
 	},
+    {
+      "Key": "FAQ",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "FAQ"
+        },
+        {
+          "Key": "EN",
+          "Value": "FAQ"
+        },
+        {
+          "Key": "DE",
+          "Value": "Ok!"
+        }
+      ]
+    },
 	{
 	  "Key": "INFORMATION_FAQ_TEXT",
 	  "Value": [
@@ -119,6 +170,23 @@
 		}
 	  ]
 	},
+    {
+      "Key": "CONTACT",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "Contact"
+        },
+        {
+          "Key": "EN",
+          "Value": "Contact"
+        },
+        {
+          "Key": "DE",
+          "Value": "Ok!"
+        }
+      ]
+    },
 	{
 	  "Key": "INFORMATION_CONTACT_TEXT",
 	  "Value": [
