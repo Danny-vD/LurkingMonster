@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Tier One Cracked
+  m_Name: Bakery Regular
   m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: _EMISSION _METALLICGLOSSMAP _NORMALMAP
   m_LightmapFlags: 2
@@ -20,7 +20,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BumpMap:
-        m_Texture: {fileID: 2800000, guid: ca6ed1e78f73ca24a8dc3ab15d3dbf87, type: 3}
+        m_Texture: {fileID: 2800000, guid: 90be7fbc32dd7d34ba5e216a32c1380e, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
@@ -36,15 +36,15 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _EmissionMap:
-        m_Texture: {fileID: 2800000, guid: 742873f13d730494e8af772d50840c0b, type: 3}
+        m_Texture: {fileID: 2800000, guid: b815406411704394a912db7443c22357, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: a5c28a81fdfb3f34baeb4e7dd07a0c37, type: 3}
+        m_Texture: {fileID: 2800000, guid: b262c93cb10286b44a3092d37ba345a9, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
-        m_Texture: {fileID: 2800000, guid: a1fa18a57a1a46e44b300203261115a6, type: 3}
+        m_Texture: {fileID: 2800000, guid: ad917b33456762d41b26d27780e60e61, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:

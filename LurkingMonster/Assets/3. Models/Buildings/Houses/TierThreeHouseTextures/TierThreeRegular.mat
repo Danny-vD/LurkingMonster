@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Tier One Cracked
+  m_Name: TierThreeRegular
   m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: _EMISSION _METALLICGLOSSMAP _NORMALMAP
   m_LightmapFlags: 2
@@ -20,7 +20,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BumpMap:
-        m_Texture: {fileID: 2800000, guid: ca6ed1e78f73ca24a8dc3ab15d3dbf87, type: 3}
+        m_Texture: {fileID: 2800000, guid: c24295486fe885e49abc28ff9f0d07e7, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
@@ -36,15 +36,15 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _EmissionMap:
-        m_Texture: {fileID: 2800000, guid: 742873f13d730494e8af772d50840c0b, type: 3}
+        m_Texture: {fileID: 2800000, guid: a0ce898b47ad4be47ab153e765a44759, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: a5c28a81fdfb3f34baeb4e7dd07a0c37, type: 3}
+        m_Texture: {fileID: 2800000, guid: 11a29a94d80be33428596fe3470f8108, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
-        m_Texture: {fileID: 2800000, guid: a1fa18a57a1a46e44b300203261115a6, type: 3}
+        m_Texture: {fileID: 2800000, guid: aa3d04b4f38fe844f9320527fb59e1c8, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
