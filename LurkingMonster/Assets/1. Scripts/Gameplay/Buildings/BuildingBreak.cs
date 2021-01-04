@@ -54,6 +54,7 @@ namespace Gameplay.Buildings
 			//When health is less then 25% show cracks
 			if (bar.slider.value <= bar.MaxValue / 100 * 25)
 			{
+				
 				if (!animateCrackPopup.gameObject.activeInHierarchy)
 				{
 					animateCrackPopup.SetTrigger(breakType);
