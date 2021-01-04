@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using Enums;
 using Events;
 using Events.BuildingEvents;
@@ -34,19 +34,19 @@ namespace Gameplay.Achievements
 		{
 			achievements = new List<Achievement>();
 
-			buildingBuildAchievement = new Achievement(new[] {5, 10, 20}, "BUILDINGSBUILDACHIEVEMENT",
+			buildingBuildAchievement = new Achievement(new[] {3, 7, 10}, "BUILDINGSBUILDACHIEVEMENT",
 				new object[] {SoilType.Sandy_Clay, PowerUpType.AvoidMonster, FoundationType.Concrete_On_Steel}, "ACHIEVEMENT_1");
 				
-			rentCollectedAchievement = new Achievement(new[] {1000, 10000, 100000}, "RENTCOLLECTEDACHIEVEMENT",
+			rentCollectedAchievement = new Achievement(new[] {500, 2000, 5000}, "RENTCOLLECTEDACHIEVEMENT",
 				new object[] {FoundationType.Floating_Floor_Plate, SoilType.Clay, FoundationType.Reinfored_Concrete}, "ACHIEVEMENT_2");
 				
 			buildingSavedAchievement = new Achievement(new[] {10, 20, 30}, "BUILDINGSAVEDACHIEVEMENT",
 				new object[] {SoilType.Peat, PowerUpType.FixProblems, SoilType.Sand}, "ACHIEVEMENT_3");
 			
-			buyPlotsAchievement = new Achievement(new[] {5, 10, 20}, "BUYPLOTACHIEVEMENT",
+			buyPlotsAchievement = new Achievement(new[] {5, 10, 15}, "BUYPLOTACHIEVEMENT",
 				new object[] {PowerUpType.AvoidMonster, PowerUpType.AvoidMonster, BuildingType.ApartmentBuilding}, "ACHIEVEMENT_4");
 				
-			destroyHousesAchievement = new Achievement(new[] {2, 5, 10}, "DESTROYHOUSESACHIEVEMENT",
+			destroyHousesAchievement = new Achievement(new[] {1, 3, 6}, "DESTROYHOUSESACHIEVEMENT",
 				new object[] {PowerUpType.AvoidWeatherEvent, FoundationType.Wooden_Poles, BuildingType.Store}, "ACHIEVEMENT_5");
 			
 			//buildingConsumedAchievement = new Achievement(new[] {5, 10, 20}, "BUILDINGCONSUMEDACHIEVEMENT",
