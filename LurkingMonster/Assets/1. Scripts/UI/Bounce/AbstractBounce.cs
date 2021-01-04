@@ -19,7 +19,7 @@ namespace UI.Bounce
 		private float time;
 		protected bool isRunning;
 
-		private void Start()
+		protected virtual void Start()
 		{
 			EventManager.Instance.AddListener<T>(StartBounce);
 		}
@@ -32,15 +32,13 @@ namespace UI.Bounce
 				transform.position = oldPosition;
 			}
 			
-	
-
 			if (gameObject.activeInHierarchy)
 			{
 				StartCoroutine(Bounce());
 			}
 		}
 
-		protected IEnumerator Bounce()
+		private IEnumerator Bounce()
 		{
 			print("Danny");
 			isRunning      = true;
