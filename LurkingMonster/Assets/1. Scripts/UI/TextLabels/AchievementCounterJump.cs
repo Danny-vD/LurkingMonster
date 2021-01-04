@@ -1,13 +1,6 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using Events.Achievements;
-using Events.MoneyManagement;
+﻿using Events.Achievements;
 using Singletons;
 using UI.Bounce;
-using UnityEngine;
-using VDFramework;
-using VDFramework.EventSystem;
 
 namespace UI.TextLabels
 {
@@ -19,10 +12,9 @@ namespace UI.TextLabels
 
 		private void Update()
 		{
-			if (RewardManager.Instance.Counter > 0 && gameObject.activeInHierarchy && !isRunning)
+			if (RewardManager.Instance.Counter > 0 && gameObject.activeInHierarchy && !IsRunning)
 			{
 				StartBounce();
-				print("Test");
 			}
 		}
 	}
