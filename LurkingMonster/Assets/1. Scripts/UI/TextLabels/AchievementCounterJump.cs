@@ -22,7 +22,6 @@ namespace UI.TextLabels
 			if (RewardManager.Instance.Counter > 0 && gameObject.activeInHierarchy && !isRunning)
 			{
 				StartBounce();
-				print("Test");
 			}
 		}
 	}

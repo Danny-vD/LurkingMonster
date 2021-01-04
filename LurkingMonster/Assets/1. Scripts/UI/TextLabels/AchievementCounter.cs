@@ -14,6 +14,11 @@ namespace UI.TextLabels
 		{
 			text = GetComponent<TextMeshProUGUI>();
 			EventManager.Instance.AddListener<AchievementUnlockedEvent>(ChangeText);
+			
+			if (UserSettings.SettingsExist)
+			{
+				ChangeText();
+			}
 		}
 
 		private void ChangeText()

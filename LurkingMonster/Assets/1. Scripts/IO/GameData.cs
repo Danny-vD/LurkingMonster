@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using Audio;
 using Enums;
 using Enums.Audio;
+using Singletons;
 using Structs;
+using UnityEngine;
 
 namespace IO
 {
@@ -25,21 +27,22 @@ namespace IO
 		private float timerPowerUp;
 		private WeatherEventType weatherEventType;
 		private float timerWeatherEvent;
+		private int achievementCounter;
 		
 		private Dictionary<Vector2IntSerializable, TileData> dictionary;
 		
 		public GameData(int money, bool vibrate)
 		{
-			this.money      = money;
-			dictionary      = new Dictionary<Vector2IntSerializable, TileData>();
-			achievementData = new AchievementData[0];
-			powerUps        = new int[2];
-			musicVolume     = AudioManager.Instance.GetVolume(BusType.Music);
-			ambientVolume   = AudioManager.Instance.GetVolume(BusType.Ambient);
-			sfxVolume       = AudioManager.Instance.GetVolume(BusType.SFX);
-			masterMute    = AudioManager.Instance.GetVolume(BusType.Master) == 0;
-			language        = LanguageSettings.Language;
-			this.vibrate    = vibrate;
+			this.money         = money;
+			dictionary         = new Dictionary<Vector2IntSerializable, TileData>();
+			achievementData    = new AchievementData[0];
+			powerUps           = new int[2];
+			musicVolume        = AudioManager.Instance.GetVolume(BusType.Music);
+			ambientVolume      = AudioManager.Instance.GetVolume(BusType.Ambient);
+			sfxVolume          = AudioManager.Instance.GetVolume(BusType.SFX);
+			masterMute         = AudioManager.Instance.GetVolume(BusType.Master) == 0;
+			language           = LanguageSettings.Language;
+			this.vibrate       = vibrate;
 		}
 
 		public string CityName
@@ -136,6 +139,12 @@ namespace IO
 		{
 			get => masterMute;
 			set => masterMute = value;
+		}
+
+		public int AchievementCounter
+		{
+			get => achievementCounter;
+			set => achievementCounter = value;
 		}
 	}
 }

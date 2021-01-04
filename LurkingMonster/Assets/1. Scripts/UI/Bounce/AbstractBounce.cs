@@ -40,7 +40,6 @@ namespace UI.Bounce
 
 		private IEnumerator Bounce()
 		{
-			print("Danny");
 			isRunning      = true;
 			oldPosition    = transform.position;
 			targetPosition = transform.position + Vector3.up * 5;
