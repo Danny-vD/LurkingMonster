@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using Enums;
-using Events;
 using Events.Achievements;
-using IO;
 using Singletons;
 using Structs;
 using TMPro;
@@ -13,7 +7,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using Utility;
 using VDFramework.EventSystem;
-using Object = System.Object;
 
 namespace Gameplay.Achievements
 {
