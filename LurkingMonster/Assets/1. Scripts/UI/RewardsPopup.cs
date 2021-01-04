@@ -86,7 +86,7 @@ namespace UI
 			}
 		}
 
-		private Sprite GetSprite<TKey>(Dictionary<TKey, Sprite> dictionary, object obj)
+		private static Sprite GetSprite<TKey>(Dictionary<TKey, Sprite> dictionary, object obj)
 		{
 			return dictionary.TryGetValue((TKey) obj, out Sprite sprite) ? sprite : null;
 		}
