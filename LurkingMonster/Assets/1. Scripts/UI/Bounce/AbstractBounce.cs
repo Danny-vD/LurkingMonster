@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections;
-using Events.MoneyManagement;
+﻿using System.Collections;
 using UnityEngine;
 using VDFramework;
 using VDFramework.EventSystem;
@@ -17,7 +15,7 @@ namespace UI.Bounce
 		private Vector3 oldPosition;
 
 		private float time;
-		protected bool isRunning;
+		protected bool IsRunning;
 
 		protected virtual void Start()
 		{
@@ -26,7 +24,7 @@ namespace UI.Bounce
 
 		protected void StartBounce()
 		{
-			if (isRunning)
+			if (IsRunning)
 			{
 				StopAllCoroutines();
 				transform.position = oldPosition;
@@ -40,7 +38,7 @@ namespace UI.Bounce
 
 		private IEnumerator Bounce()
 		{
-			isRunning      = true;
+			IsRunning      = true;
 			oldPosition    = transform.position;
 			targetPosition = transform.position + Vector3.up * 5;
 			
@@ -60,7 +58,7 @@ namespace UI.Bounce
 				yield return null;
 			}
 
-			isRunning = false;
+			IsRunning = false;
 		}
 	}
 }
