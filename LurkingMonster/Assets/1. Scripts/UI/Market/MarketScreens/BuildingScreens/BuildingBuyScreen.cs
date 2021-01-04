@@ -1,7 +1,5 @@
-﻿using System.Linq;
-using Enums;
+﻿using Enums;
 using Grid.Tiles.Buildings;
-using VDFramework.Extensions;
 
 namespace UI.Market.MarketScreens.BuildingScreens
 {
@@ -18,7 +16,7 @@ namespace UI.Market.MarketScreens.BuildingScreens
 			base.BuyButtonClick(tile, manager);
 		}
 
-		protected override BuildingType[] GetUnlockedTypes() => default(BuildingType).GetValues().ToArray();
+		protected override BuildingType[] GetUnlockedTypes() => new[] {BuildingType.House, BuildingType.Store};
 
 		protected override int GetPrice(AbstractBuildingTile tile) => tile.GetBuildingPrice();
 	}
