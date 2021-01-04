@@ -1,7 +1,5 @@
-﻿using System.Linq;
-using Enums;
+﻿using Enums;
 using Grid.Tiles.Buildings;
-using VDFramework.Extensions;
 
 namespace UI.Market.MarketScreens.BuildingScreens
 {
