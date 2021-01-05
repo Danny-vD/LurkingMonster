@@ -30,11 +30,21 @@ namespace IO
         {
             text.text = GetText(textType);
         }
+
+		public void ReloadText(params object[] variables)
+		{
+			text.text = GetText(textType, variables);
+		}
         
         private static string GetText(string jsonKey)
         {
             return LanguageUtil.GetJsonString(jsonKey);
         }
+
+		private static string GetText(string jsonKey, params object[] variables)
+		{
+			return LanguageUtil.GetJsonString(jsonKey, variables);
+		}
 
 		private void OnDestroy()
 		{

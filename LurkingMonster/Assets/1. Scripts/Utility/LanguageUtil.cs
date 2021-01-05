@@ -18,7 +18,7 @@ namespace Utility
 				BuildingType.Store, "STORE"
 			},
 			{
-				BuildingType.ApartmentBuilding, "APARTMENT"
+				BuildingType.Apartment, "APARTMENT"
 			},
 			
 			//Foundation types
@@ -29,7 +29,7 @@ namespace Utility
 				FoundationType.Reinfored_Concrete, "REINFORCED_CONCRETE"
 			},
 			{
-				FoundationType.Concrete_On_Steel, "SHALLOW_FOUNDATION"
+				FoundationType.Shallow_Foundation, "SHALLOW_FOUNDATION"
 			},
 			{
 				FoundationType.Floating_Floor_Plate, "FLOATING_FLOOR_PLATE"

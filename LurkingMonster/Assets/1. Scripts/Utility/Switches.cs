@@ -27,7 +27,7 @@ namespace Utility
 			{
 				case FoundationType.Wooden_Poles:
 					return 300.0f;
-				case FoundationType.Concrete_On_Steel:
+				case FoundationType.Shallow_Foundation:
 					return 240.0f;
 				case FoundationType.Reinfored_Concrete:
 					return 180.0f;

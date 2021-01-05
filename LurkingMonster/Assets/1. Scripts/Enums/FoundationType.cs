@@ -6,7 +6,7 @@ namespace Enums
 	public enum FoundationType
 	{
 		Wooden_Poles,
-		Concrete_On_Steel,
+		Shallow_Foundation,
 		Reinfored_Concrete,
 		Floating_Floor_Plate
 	}
