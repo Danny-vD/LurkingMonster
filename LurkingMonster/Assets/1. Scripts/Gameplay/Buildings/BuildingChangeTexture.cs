@@ -1,6 +1,4 @@
-﻿using System;
-using Enums;
-using Structs.Buildings;
+﻿using Enums;
 using UnityEngine;
 using Utility;
 using VDFramework;
@@ -22,7 +20,7 @@ namespace Gameplay.Buildings
 
 			CacheMaterial();
 
-			//TODO: do something else for foundation and soil?
+			//TODO: do something else than change texture for foundation and soil?
 			GetComponent<BuildingHealth>().OnBuildingRepair   += ResetTextureBuilding;
 			GetComponent<BuildingHealth>().OnFoundationRepair += ResetTextureBuilding;
 			GetComponent<BuildingHealth>().OnSoilRepair       += ResetTextureBuilding;

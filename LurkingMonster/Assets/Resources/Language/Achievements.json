@@ -5,15 +5,11 @@
 	  "Value": [
 		{
 		  "Key": "NL",
-		  "Value": "Het aantal gebouwen dat je hebt gebouwd"
+		  "Value": "Het aantal gebouwen dat je hebt gebouwd."
 		},
 		{
 		  "Key": "EN",
-		  "Value": "The amount of buildings you’ve build."
-		},
-		{
-		  "Key": "DE",
-		  "Value": "Neues Spiel"
+		  "Value": "The amount of buildings that you have built."
 		}
 	  ]
 	},
@@ -22,15 +18,11 @@
 	  "Value": [
 		{
 		  "Key": "NL",
-		  "Value": "Het bedrag aan huur dat je hebt verzameld"
+		  "Value": "Het bedrag aan huur dat je hebt verzameld."
 		},
 		{
 		  "Key": "EN",
-		  "Value": "The amount of rent you’ve collected"
-		},
-		{
-		  "Key": "DE",
-		  "Value": "Neues Spiel"
+		  "Value": "The amount of rent that you have collected."
 		}
 	  ]
 	},
@@ -43,11 +35,7 @@
 		},
 		{
 		  "Key": "EN",
-		  "Value": "The amount of repairs you’ve done"
-		},
-		{
-		  "Key": "DE",
-		  "Value": "Neues Spiel"
+		  "Value": "The amount of repairs that you have done."
 		}
 	  ]
 	},
@@ -60,11 +48,7 @@
 		},
 		{
 		  "Key": "EN",
-		  "Value": "The amount of plots you’ve bought."
-		},
-		{
-		  "Key": "DE",
-		  "Value": "Neues Spiel"
+		  "Value": "The amount of plots that you have bought."
 		}
 	  ]
 	},
@@ -77,11 +61,7 @@
 		},
 		{
 		  "Key": "EN",
-		  "Value": "The amount of upgrades you’ve made to a building."
-		},
-		{
-		  "Key": "DE",
-		  "Value": "Neues Spiel"
+		  "Value": "The amount of upgrades that you have made to a building."
 		}
 	  ]
 	}
