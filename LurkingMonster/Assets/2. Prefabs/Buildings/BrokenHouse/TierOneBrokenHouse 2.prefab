@@ -39,7 +39,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1632051471479943236}
-  m_Mesh: {fileID: 509419000755691581, guid: 638e9c0b9b8dc484694d173a97beb2f4, type: 3}
+  m_Mesh: {fileID: 509419000755691581, guid: 78816251c0ff0b145a27d3143ff6a736, type: 3}
 --- !u!23 &6625956280074872592
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -91,7 +91,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3476513508924779019}
   m_Layer: 0
-  m_Name: TierTwoBrokenHouse 2
+  m_Name: TierOneBrokenHouse 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
