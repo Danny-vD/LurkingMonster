@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using Enums;
 using Events;
 using Events.BuildingEvents;
@@ -34,7 +34,7 @@ namespace Gameplay.Achievements
 		{
 			achievements = new List<Achievement>();
 
-			buildingBuildAchievement = new Achievement(new[] {5, 10, 20}, "BUILDINGSBUILDACHIEVEMENT",
+			buildingBuildAchievement = new Achievement(new[] {3, 7, 10}, "BUILDINGSBUILDACHIEVEMENT",
 				new object[] {SoilType.Sandy_Clay, PowerUpType.AvoidMonster, FoundationType.Shallow_Foundation}, "ACHIEVEMENT_1");
 
 			rentCollectedAchievement = new Achievement(new[] {1000, 10000, 100000}, "RENTCOLLECTEDACHIEVEMENT",
@@ -43,10 +43,10 @@ namespace Gameplay.Achievements
 			buildingSavedAchievement = new Achievement(new[] {10, 20, 30}, "BUILDINGSAVEDACHIEVEMENT",
 				new object[] {SoilType.Peat, PowerUpType.FixProblems, SoilType.Sand}, "ACHIEVEMENT_3");
 
-			buyPlotsAchievement = new Achievement(new[] {5, 10, 20}, "BUYPLOTACHIEVEMENT",
+			buyPlotsAchievement = new Achievement(new[] {5, 10, 15}, "BUYPLOTACHIEVEMENT",
 				new object[] {PowerUpType.AvoidMonster, PowerUpType.AvoidMonster, BuildingType.Apartment}, "ACHIEVEMENT_4");
 
-			upgradeBuildingAchievement = new Achievement(new[] {2, 5, 10}, "UPGRADEBUILDINGSACHIEVEMENT",
+			upgradeBuildingAchievement = new Achievement(new[] {1, 3, 6}, "UPGRADEBUILDINGSACHIEVEMENT",
 				new object[] {PowerUpType.AvoidWeatherEvent, FoundationType.Wooden_Poles, BuildingType.Store}, "ACHIEVEMENT_5");
 
 			//TODO: make seperate system where it activates a weatherEvent when conditions are met?
