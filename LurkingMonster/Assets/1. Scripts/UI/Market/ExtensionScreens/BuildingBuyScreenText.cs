@@ -16,10 +16,6 @@ namespace UI.Market.ExtensionScreens
 		private bool hasSetText;
 
 		private StringVariableWriter typeTextWriter;
-		private StringVariableWriter priceTextWriter;
-		private StringVariableWriter healthTextWriter;
-		private StringVariableWriter rentTextWriter;
-		private StringVariableWriter upgradeTextWriter;
 
 		protected override void ActivateExtension(AbstractBuildingTile tile, MarketManager manager)
 		{
@@ -48,42 +44,22 @@ namespace UI.Market.ExtensionScreens
 				typeTextWriter = new StringVariableWriter(buttonData.Value.Text.Type.text);
 			}
 
-			buttonData.Value.Text.Type.text = typeTextWriter.UpdateText(buttonData.Key.ToString());
+			string type = LanguageUtil.GetJsonString(buttonData.Key.ToString().ToUpper());
+			buttonData.Value.Text.Type.text = typeTextWriter.UpdateText(type);
 
 			// Price
-			if (priceTextWriter == null)
-			{
-				priceTextWriter = new StringVariableWriter(buttonData.Value.Text.Price.text);
-			}
-
-			buttonData.Value.Text.Price.text = priceTextWriter.UpdateText(data[0].Price);
+			buttonData.Value.Text.Price.text = string.Format(buttonData.Value.Text.Price.text, data[0].Price);
 
 			// Health
-			if (healthTextWriter == null)
-			{
-				healthTextWriter = new StringVariableWriter(buttonData.Value.Text.Health.text);
-			}
-
-			buttonData.Value.Text.Health.text = healthTextWriter.UpdateText(data[0].MaxHealth);
+			buttonData.Value.Text.Health.text = string.Format(buttonData.Value.Text.Health.text, data[0].MaxHealth);
 
 			// Rent
-			if (rentTextWriter == null)
-			{
-				rentTextWriter = new StringVariableWriter(buttonData.Value.Text.Rent.text);
-			}
-
 			//TODO: hook up with buildingRent somehow?
 			const float rentcollectionsPerHour = (60.0f / 18.0f) * 60.0f;
-			
-			buttonData.Value.Text.Rent.text = rentTextWriter.UpdateText(data[0].Rent * rentcollectionsPerHour);
+			buttonData.Value.Text.Rent.text = string.Format(buttonData.Value.Text.Rent.text, data[0].Rent * rentcollectionsPerHour);
 
 			// Upgrades
-			if (upgradeTextWriter == null)
-			{
-				upgradeTextWriter = new StringVariableWriter(buttonData.Value.Text.Upgrades.text);
-			}
-
-			buttonData.Value.Text.Upgrades.text = upgradeTextWriter.UpdateText(data.Length);
+			buttonData.Value.Text.Upgrades.text = string.Format(buttonData.Value.Text.Upgrades.text, data.Length);
 		}
 	}
 }

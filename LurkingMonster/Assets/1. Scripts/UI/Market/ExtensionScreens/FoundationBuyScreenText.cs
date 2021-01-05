@@ -17,8 +17,6 @@ namespace UI.Market.ExtensionScreens
 		private bool hasSetText;
 
 		private StringVariableWriter typeTextWriter;
-		private StringVariableWriter priceTextWriter;
-		private StringVariableWriter healthTextWriter;
 
 		protected override void ActivateExtension(AbstractBuildingTile tile, MarketManager manager)
 		{
@@ -48,23 +46,14 @@ namespace UI.Market.ExtensionScreens
 				typeTextWriter = new StringVariableWriter(buttonData.Value.Text.Type.text);
 			}
 
-			buttonData.Value.Text.Type.text = typeTextWriter.UpdateText(buttonData.Key.ToString().InsertSpaceBeforeCapitals());
+			string type = LanguageUtil.GetJsonString(buttonData.Key.ToString().ToUpper());
+			buttonData.Value.Text.Type.text = typeTextWriter.UpdateText(type);
 
 			// Price
-			if (priceTextWriter == null)
-			{
-				priceTextWriter = new StringVariableWriter(buttonData.Value.Text.Price.text);
-			}
-
-			buttonData.Value.Text.Price.text = priceTextWriter.UpdateText(data.BuildCost);
+			buttonData.Value.Text.Price.text = string.Format(buttonData.Value.Text.Price.text, data.BuildCost);
 
 			// Health
-			if (healthTextWriter == null)
-			{
-				healthTextWriter = new StringVariableWriter(buttonData.Value.Text.Health.text);
-			}
-
-			buttonData.Value.Text.Health.text = healthTextWriter.UpdateText(data.MaxHealth);
+			buttonData.Value.Text.Health.text = string.Format(buttonData.Value.Text.Health.text, data.MaxHealth);
 		}
 	}
 }

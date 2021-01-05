@@ -6,6 +6,7 @@ using Structs.Market;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Utility;
 using VDFramework.Extensions;
 
 namespace UI.Market.MarketScreens
@@ -170,10 +171,9 @@ namespace UI.Market.MarketScreens
 
 		private void SetText(string buildingText, string foundationText, string soilText)
 		{
-			// Use the Language file instead... perhaps use the Enum.ToString for json key (for the buytypes)?
-			buildingTypeText.text   = buildingText.ReplaceUnderscoreWithSpace();
-			foundationTypeText.text = foundationText.ReplaceUnderscoreWithSpace();
-			soilTypeText.text       = soilText.ReplaceUnderscoreWithSpace();
+			buildingTypeText.text   = LanguageUtil.GetJsonString(buildingText.ToUpper());
+			foundationTypeText.text = LanguageUtil.GetJsonString(foundationText.ToUpper());
+			soilTypeText.text       = LanguageUtil.GetJsonString(soilText.ToUpper());
 		}
 	}
 }
