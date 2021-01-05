@@ -1,5 +1,4 @@
-﻿// ReSharper disable IdentifierTypo
-// ReSharper disable InconsistentNaming
+﻿// ReSharper disable InconsistentNaming
 
 namespace Enums
 {
@@ -7,7 +6,7 @@ namespace Enums
 	{
 		Wooden_Poles,
 		Shallow_Foundation,
-		Reinfored_Concrete,
+		Reinforced_Concrete,
 		Floating_Floor_Plate
 	}
 }

@@ -26,7 +26,7 @@ namespace Utility
 				FoundationType.Wooden_Poles, "WOODEN_POLES"
 			},
 			{
-				FoundationType.Reinfored_Concrete, "REINFORCED_CONCRETE"
+				FoundationType.Reinforced_Concrete, "REINFORCED_CONCRETE"
 			},
 			{
 				FoundationType.Shallow_Foundation, "SHALLOW_FOUNDATION"
@@ -37,7 +37,7 @@ namespace Utility
 			
 			//Soil types
 			{
-				SoilType.Sandy_Clay, "LOAM"
+				SoilType.Loam, "LOAM"
 			},
 			{
 				SoilType.Peat, "PEAT"

@@ -35,10 +35,10 @@ namespace Gameplay.Achievements
 			achievements = new List<Achievement>();
 
 			buildingBuildAchievement = new Achievement(new[] {3, 7, 10}, "BUILDINGSBUILDACHIEVEMENT",
-				new object[] {SoilType.Sandy_Clay, PowerUpType.AvoidMonster, FoundationType.Shallow_Foundation}, "ACHIEVEMENT_1");
+				new object[] {SoilType.Loam, PowerUpType.AvoidMonster, FoundationType.Shallow_Foundation}, "ACHIEVEMENT_1");
 
 			rentCollectedAchievement = new Achievement(new[] {1000, 10000, 100000}, "RENTCOLLECTEDACHIEVEMENT",
-				new object[] {FoundationType.Floating_Floor_Plate, SoilType.Clay, FoundationType.Reinfored_Concrete}, "ACHIEVEMENT_2");
+				new object[] {FoundationType.Floating_Floor_Plate, SoilType.Clay, FoundationType.Reinforced_Concrete}, "ACHIEVEMENT_2");
 
 			buildingSavedAchievement = new Achievement(new[] {10, 20, 30}, "BUILDINGSAVEDACHIEVEMENT",
 				new object[] {SoilType.Peat, PowerUpType.FixProblems, SoilType.Sand}, "ACHIEVEMENT_3");
