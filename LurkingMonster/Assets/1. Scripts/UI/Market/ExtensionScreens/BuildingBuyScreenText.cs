@@ -13,19 +13,15 @@ namespace UI.Market.ExtensionScreens
 	[RequireComponent(typeof(BuildingBuyScreen))]
 	public class BuildingBuyScreenText : AbstractMarketExtension
 	{
-		private bool hasSetText;
-
+		private const string priceKey = "PRICE_DYNAMIC";
+		private const string healthKey = "HEALTH_DYNAMIC";
+		private const string rentKey = "RENT_DYNAMIC";
+		private const string upgradeKey = "UPGRADES_DYNAMIC";
+		
 		private StringVariableWriter typeTextWriter;
 
 		protected override void ActivateExtension(AbstractBuildingTile tile, MarketManager manager)
 		{
-			if (hasSetText)
-			{
-				return;
-			}
-
-			hasSetText = true;
-
 			SerializableEnumDictionary<BuildingType, BuyButtonData> buildingButtons = GetComponent<BuildingBuyScreen>().GetbuyButtonData();
 
 			foreach (KeyValuePair<BuildingType, BuyButtonData> buttonData in buildingButtons)
@@ -48,18 +44,23 @@ namespace UI.Market.ExtensionScreens
 			buttonData.Value.Text.Type.text = typeTextWriter.UpdateText(type);
 
 			// Price
-			buttonData.Value.Text.Price.text = string.Format(buttonData.Value.Text.Price.text, data[0].Price);
+			buttonData.Value.Text.Price.text = string.Format(GetString(priceKey), data[0].Price);
 
 			// Health
-			buttonData.Value.Text.Health.text = string.Format(buttonData.Value.Text.Health.text, data[0].MaxHealth);
+			buttonData.Value.Text.Health.text = string.Format(GetString(healthKey), data[0].MaxHealth);
 
 			// Rent
 			//TODO: hook up with buildingRent somehow?
 			const float rentcollectionsPerHour = (60.0f / 18.0f) * 60.0f;
-			buttonData.Value.Text.Rent.text = string.Format(buttonData.Value.Text.Rent.text, data[0].Rent * rentcollectionsPerHour);
+			buttonData.Value.Text.Rent.text = string.Format(GetString(rentKey), data[0].Rent * rentcollectionsPerHour);
 
 			// Upgrades
-			buttonData.Value.Text.Upgrades.text = string.Format(buttonData.Value.Text.Upgrades.text, data.Length);
+			buttonData.Value.Text.Upgrades.text = string.Format(GetString(upgradeKey), data.Length);
+		}
+
+		private static string GetString(string key)
+		{
+			return LanguageUtil.GetJsonString(key);
 		}
 	}
 }

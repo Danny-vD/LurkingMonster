@@ -14,19 +14,13 @@ namespace UI.Market.ExtensionScreens
 	[RequireComponent(typeof(FoundationBuyScreen))]
 	public class FoundationBuyScreenText : AbstractMarketExtension
 	{
-		private bool hasSetText;
-
+		private const string priceKey = "PRICE_DYNAMIC";
+		private const string healthKey = "HEALTH_DYNAMIC";
+		
 		private StringVariableWriter typeTextWriter;
 
 		protected override void ActivateExtension(AbstractBuildingTile tile, MarketManager manager)
 		{
-			if (hasSetText)
-			{
-				return;
-			}
-
-			hasSetText = true;
-
 			SerializableEnumDictionary<FoundationType, BuyButtonData> buildingButtons =
 				GetComponent<FoundationBuyScreen>().GetbuyButtonData();
 
@@ -50,10 +44,15 @@ namespace UI.Market.ExtensionScreens
 			buttonData.Value.Text.Type.text = typeTextWriter.UpdateText(type);
 
 			// Price
-			buttonData.Value.Text.Price.text = string.Format(buttonData.Value.Text.Price.text, data.BuildCost);
+			buttonData.Value.Text.Price.text = string.Format(GetString(priceKey), data.BuildCost);
 
 			// Health
-			buttonData.Value.Text.Health.text = string.Format(buttonData.Value.Text.Health.text, data.MaxHealth);
+			buttonData.Value.Text.Health.text = string.Format(GetString(healthKey), data.MaxHealth);
+		}
+
+		private static string GetString(string key)
+		{
+			return LanguageUtil.GetJsonString(key);
 		}
 	}
 }
