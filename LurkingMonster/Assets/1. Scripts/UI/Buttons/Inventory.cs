@@ -1,11 +1,13 @@
 ﻿using System.Collections.Generic;
 using Enums;
+using Events;
 using Singletons;
 using TMPro;
 using Tutorials;
 using UnityEngine;
 using UnityEngine.UI;
 using VDFramework;
+using VDFramework.EventSystem;
 
 // ReSharper disable MissingLinebreak
 
@@ -31,6 +33,8 @@ namespace UI.Buttons
 		[SerializeField] private Sprite[] timeSprite = new Sprite[0];
 		[SerializeField] private Sprite[] kcafSprite = new Sprite[0];
 
+		[SerializeField] private Image lockImage;
+
 		private Transform lastPopup;
 		
 		private bool isActive;
@@ -43,6 +47,8 @@ namespace UI.Buttons
 			meat.onClick.AddListener(OpenMeatPopUp);
 			time.onClick.AddListener(OpenTimePopUp);
 			kcaf.onClick.AddListener(OpenKcafPopUp);
+			
+			EventManager.Instance.AddListener<PowerUpDisableEvent>(DisableLock);
 		}
 
 		private void OpenMeatPopUp()
@@ -59,7 +65,12 @@ namespace UI.Buttons
 		{
 			OpenPopup(popupKcaf, PowerUpManager.Instance.FixProblems, PowerUpType.FixProblems);
 		}
-		
+
+		private void DisableLock()
+		{
+			lockImage.gameObject.SetActive(false);
+		}
+
 		private void OpenPopup(Transform transform, int counter, PowerUpType type)
 		{
 			if (lastPopup)
@@ -76,8 +87,6 @@ namespace UI.Buttons
 			
 			transform.gameObject.SetActive(true);
 			Button activate = transform.GetComponentInChildren<Button>();
-			TextMeshProUGUI textCounter = transform.Find("Text_counter").GetComponent<TextMeshProUGUI>();
-			textCounter.text = counter.ToString();
 
 			activate.onClick.AddListener(Activate);
 
@@ -91,14 +100,20 @@ namespace UI.Buttons
 		private void ActivatePowerUp(Transform btn, PowerUpType type)
 		{
 			btn.GetChild(0).gameObject.SetActive(false);
-
-			PowerUpManager.Instance.ActivatePowerUp(type);
+			
 			ToggleInventory();
 			EnablePowerUps();
+			PowerUpManager.Instance.ActivatePowerUp(type);
+			lockImage.gameObject.SetActive(true);
 		}
 		
 		private void ToggleInventory()
 		{
+			if (PowerUpManager.Instance.CheckIfAnPowerUpIsActive())
+			{
+				return;
+			}
+			
 			if (TutorialManager.IsInitialized && TutorialManager.Instance.IsActive)
 			{
 				return;
