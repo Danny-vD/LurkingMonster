@@ -15,9 +15,9 @@ MonoBehaviour:
   debrisPerBuilding:
   - key: 0
     value:
-    - {fileID: 8467567504626264719, guid: e0438c9ee62ffc54eb3d70ee770619ec, type: 3}
-    - {fileID: 8467567504626264719, guid: e0438c9ee62ffc54eb3d70ee770619ec, type: 3}
-    - {fileID: 8467567504626264719, guid: e0438c9ee62ffc54eb3d70ee770619ec, type: 3}
+    - {fileID: 4284293449433133233, guid: f9174b3ab9420e0498a85323a737f5d1, type: 3}
+    - {fileID: 4284293449433133233, guid: 7adacd5b3df79984486f7f6f23666be2, type: 3}
+    - {fileID: 4284293449433133233, guid: de38d7ec41bf48147a35461579314059, type: 3}
   - key: 1
     value:
     - {fileID: 8467567504626264719, guid: e0438c9ee62ffc54eb3d70ee770619ec, type: 3}
