@@ -12,6 +12,8 @@ namespace Gameplay.Buildings
 		
 		private float timer = 0.0f;
 		private GameObject rentPopup;
+
+		public float TimeUntilRent => waitTimeUntilRent;
 		
 		public void Start()
 		{

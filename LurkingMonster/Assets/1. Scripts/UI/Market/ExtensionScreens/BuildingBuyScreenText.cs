@@ -50,8 +50,10 @@ namespace UI.Market.ExtensionScreens
 			buttonData.Value.Text.Health.text = string.Format(GetString(healthKey), data[0].MaxHealth);
 
 			// Rent
-			//TODO: hook up with buildingRent somehow?
-			const float rentcollectionsPerHour = (60.0f / 18.0f) * 60.0f;
+			float secondsUntilRent = tile.Building.GetComponent<BuildingRent>().TimeUntilRent;
+			float rentPerMinute = 60.0f / secondsUntilRent;
+			float rentcollectionsPerHour = rentPerMinute * 60.0f;
+			
 			buttonData.Value.Text.Rent.text = string.Format(GetString(rentKey), data[0].Rent * rentcollectionsPerHour);
 
 			// Upgrades
