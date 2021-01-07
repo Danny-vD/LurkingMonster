@@ -1,14 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using Enums.Grid;
-using Grid;
+﻿using System.IO;
 using Singletons;
-using Structs.Grid;
 using UnityEditor;
 using UnityEngine;
-using static Utility.EditorUtils;
 
 namespace CustomWindow
 {

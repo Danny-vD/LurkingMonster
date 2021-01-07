@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections;
-using Events.MoneyManagement;
-using TMPro;
+﻿using Events.MoneyManagement;
 using UI.Bounce;
-using UnityEngine;
-using VDFramework;
-using VDFramework.EventSystem;
 
 namespace UI.TextLabels
 {

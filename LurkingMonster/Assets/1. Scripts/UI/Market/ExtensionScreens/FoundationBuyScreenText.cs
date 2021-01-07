@@ -6,7 +6,6 @@ using Structs.Market;
 using UI.Market.MarketScreens.FoundationScreens;
 using UnityEngine;
 using Utility;
-using VDFramework.Extensions;
 using VDFramework.Utility;
 
 namespace UI.Market.ExtensionScreens

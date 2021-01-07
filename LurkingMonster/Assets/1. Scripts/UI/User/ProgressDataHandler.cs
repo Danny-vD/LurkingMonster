@@ -1,10 +1,5 @@
-﻿using System.Data;
-using System.IO;
-using System.Runtime.Serialization.Formatters.Binary;
-using Singletons;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
-using Utility;
 using VDFramework;
 
 namespace UI.User
