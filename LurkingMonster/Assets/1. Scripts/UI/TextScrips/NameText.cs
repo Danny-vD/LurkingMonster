@@ -1,6 +1,8 @@
 ﻿using System;
+using Events;
 using Singletons;
 using TMPro;
+using Utility;
 using VDFramework;
 
 namespace UI.TextScrips
@@ -14,6 +16,9 @@ namespace UI.TextScrips
 		private void Awake()
 		{
 			text = GetComponent<TextMeshProUGUI>();
+
+			SetDefaultName();
+			AddListener();
 		}
 
 		private void Update()
@@ -25,6 +30,26 @@ namespace UI.TextScrips
 
 			text.text = UserSettings.GameData.UserName;
 			Destroy(this);
+		}
+		
+		private void AddListener()
+		{
+			LanguageChangedEvent.ParameterlessListeners += SetDefaultName;
+		}
+
+		private void RemoveListener()
+		{
+			LanguageChangedEvent.ParameterlessListeners -= SetDefaultName;
+		}
+
+		private void SetDefaultName()
+		{
+			text.text = LanguageUtil.GetJsonString("DEFAULT_NAME");
+		}
+		
+		private void OnDestroy()
+		{
+			RemoveListener();
 		}
 	}
 }
