@@ -1,5 +1,4 @@
-﻿using Events;
-using Events.MoneyManagement;
+﻿using Events.MoneyManagement;
 using Gameplay.Buildings;
 using VDFramework;
 using VDFramework.EventSystem;
