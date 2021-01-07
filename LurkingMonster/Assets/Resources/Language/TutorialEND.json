@@ -1,7 +1,7 @@
 {
     "Variables": [
         {
-            "Key": "TUTORIAL_1",
+            "Key": "TUTORIAL_END_1",
             "Value": [
                 {
                     "Key": "NL",
@@ -14,7 +14,7 @@
             ]
         },
         {
-            "Key": "TUTORIAL_2",
+            "Key": "TUTORIAL_END_2",
             "Value": [
                 {
                     "Key": "NL",
@@ -27,7 +27,7 @@
             ]
         },
         {
-            "Key": "TUTORIAL_3",
+            "Key": "TUTORIAL_END_3",
             "Value": [
                 {
                     "Key": "NL",
@@ -40,7 +40,7 @@
             ]
         },
         {
-            "Key": "TUTORIAL_4",
+            "Key": "TUTORIAL_END_4",
             "Value": [
                 {
                     "Key": "NL",
@@ -53,7 +53,7 @@
             ]
         },
         {
-            "Key": "TUTORIAL_5",
+            "Key": "TUTORIAL_END_5",
             "Value": [
                 {
                     "Key": "NL",
