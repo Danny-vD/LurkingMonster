@@ -1,5 +1,4 @@
-﻿using Grid.Tiles;
-using Grid.Tiles.Buildings;
+﻿using Grid.Tiles.Buildings;
 using VDFramework.EventSystem;
 
 namespace Events.BuildingEvents

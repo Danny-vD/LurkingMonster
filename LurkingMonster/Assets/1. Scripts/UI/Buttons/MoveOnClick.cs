@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UI.Layout;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 using VDFramework;
 

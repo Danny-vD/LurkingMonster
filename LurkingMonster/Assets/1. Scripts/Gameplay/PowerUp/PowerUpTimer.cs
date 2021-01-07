@@ -1,11 +1,8 @@
 ﻿using System;
 using Enums;
-using Events;
-using Singletons;
 using UnityEngine;
 using UnityEngine.UI;
 using VDFramework;
-using VDFramework.EventSystem;
 
 namespace Gameplay
 {

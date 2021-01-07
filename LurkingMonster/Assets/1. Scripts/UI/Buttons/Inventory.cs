@@ -2,7 +2,6 @@
 using Enums;
 using Events;
 using Singletons;
-using TMPro;
 using Tutorials;
 using UnityEngine;
 using UnityEngine.UI;

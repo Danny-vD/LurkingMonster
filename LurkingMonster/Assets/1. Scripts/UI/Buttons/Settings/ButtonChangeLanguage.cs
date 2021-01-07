@@ -1,5 +1,4 @@
-﻿using System;
-using Enums;
+﻿using Enums;
 using Events;
 using UnityEngine;
 using UnityEngine.UI;
