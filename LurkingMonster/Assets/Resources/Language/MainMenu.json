@@ -402,6 +402,19 @@
 		  "Value": "Clean up the debris that the monster left behind"
 		}
 	  ]
+	},
+	{
+	  "Key": "DEFAULT_NAME",
+	  "Value": [
+		{
+		  "Key": "NL",
+		  "Value": "Spelernaam"
+		},
+		{
+		  "Key": "EN",
+		  "Value": "Playername"
+		}
+	  ]
 	}
   ]
 }
