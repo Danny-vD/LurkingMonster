@@ -3,274 +3,66 @@
 	{
 	  "Key": "TUTORIAL_1",
 	  "Value": [
-		{
-		  "Key": "NL",
-		  "Value": "Hallo, mijn naam is -Peter-, ik werk voor de KCAF als adviseur. Ik zal je door het process begeleiden om Erik's probleem op te lossen."
-		},
-		{
-		  "Key": "EN",
-		  "Value": "Hi there! I am -Peter- the consultant for the KCAF, I will be guiding you through the steps Erik needs to take to solve his problem"
-		}
+        {
+            "Key": "NL",
+            "Value": "Welkom bij de onderzoeksfaciliteit! Ik ben de operator van dit bedrijf, Kendra."
+        },
+        {
+            "Key": "EN",
+            "Value": "Welcome to the Research Facility! I am the operator of this business, Kendra."
+        }
 	  ]
 	},
 	{
 	  "Key": "TUTORIAL_2",
 	  "Value": [
-		{
-		  "Key": "NL",
-		  "Value": "Het probleem met dit huis is dat de lange leegstand de fundering heeft aangetast.\n\nTijdens de leegstand droogde de grond op waardoor de houten palen werden blootgesteld aan zuurstof."
-		},
-		{
-		  "Key": "EN",
-		  "Value": "The problem with this house is that the long vacancy has affected its foundation.\n\nDuring the vacancy, the soil dried out and it exposed the wooden poles to oxygen."
-		}
+        {
+            "Key": "NL",
+            "Value": "Wij ruilen uw grondmonsters in voor artikelen. Om monsters te behalen, moet je speciale prestaties in deze stad behalen."
+        },
+        {
+            "Key": "EN",
+            "Value": "We trade your soil samples into items. To retrieve samples you have to complete special achievements in this city."
+        }
 	  ]
 	},
 	{
 	  "Key": "TUTORIAL_3",
 	  "Value": [
-		{
-		  "Key": "NL",
-		  "Value": "Daardoor begon het hout te rotten en zakt het huis nu door het gewicht van het gebouw in de grond."
-		},
-		{
-		  "Key": "EN",
-		  "Value": "That caused the wood to start rotting and the house is now sinking into the soil because of the weight of the building."
-		}
+        {
+            "Key": "NL",
+            "Value": "Met die monsters onderzoeken we het probleem van de lokale bodemdaling. Je vraagt ​​je misschien af ​​waarom je van deze handel kunt profiteren, ik ben blij dat je dat vraagt."
+        },
+        {
+            "Key": "EN",
+            "Value": "We use those samples to research into the problem of local land subsidence. You may wonder why you could profit from this trade, I’m glad that you asked."
+        }
 	  ]
 	},
 	{
 	  "Key": "TUTORIAL_4",
 	  "Value": [
-		{
-		  "Key": "NL",
-		  "Value": "Nu zullen we proberen het te repareren.\n\nTik op het icoont boven het huis.\n\nDie icoonen geven aan wat het probleem is."
-		},
-		{
-		  "Key": "EN",
-		  "Value": "Now we will try to repair it.\n\nJust tap on the house with the icon above it.\n\nThose icons indicate what the problem is."
-		}
+        {
+            "Key": "NL",
+            "Value": "Hier kan je de grondmonsters gebruiken om speciale items te verhandelen die tijdelijk kunnen helpen bij het bodemdaling probleem in je stad. Elk item heeft zijn eigen voordelen, die kun je lezen in de beschrijving van het item."
+        },
+        {
+            "Key": "EN",
+            "Value": "Here you can use the soil samples to trade special items that can temporarily help out with the land subsidence problem in your city. Each item comes with its own perks, you can read about those perks in the description of the item."
+        }
 	  ]
 	},
 	{
 	  "Key": "TUTORIAL_5",
 	  "Value": [
-		{
-		  "Key": "NL",
-		  "Value": "Door het icoon word je naar het marktoverzicht geleid, hier zie je de huidige staat van de woning, fundering en bodem.\n\nDat wordt aangegeven door hun levensbalk.\n\nDan weet je wat je moet selecteren om te repareren."
-		},
-		{
-		  "Key": "EN",
-		  "Value": "Because of the icon you are led to the main overview, here you can see the current state of the house, foundation and soil.\n\nThat is indicated by their health bars.\n\nThis way you know what to select and repair."
-		}
-	  ]
-	},
-	{
-	  "Key": "TUTORIAL_6",
-	  "Value": [
-		{
-		  "Key": "NL",
-		  "Value": "Hier zie je de reparatie-informatie, je kunt hier lezen waarom het gerepareerd moet worden en waardoor dit  probleem is ontstaan."
-		},
-		{
-		  "Key": "EN",
-		  "Value": "Here you see the repair information, you can read here why it needs to be repaired and what caused the problem."
-		}
-	  ]
-	},
-	{
-	  "Key": "TUTORIAL_7",
-	  "Value": [
-		{
-		  "Key": "NL",
-		  "Value": "Het KCAF heeft een gids opgesteld die je helpt dit probleem in 8 eenvoudige stappen op te lossen."
-		},
-		{
-		  "Key": "EN",
-		  "Value": "The KCAF has constructed a guide which helps you to solve this problem in 8 simple steps."
-		}
-	  ]
-	},
-	{
-	  "Key": "TUTORIAL_8",
-	  "Value": [
-		{
-		  "Key": "NL",
-		  "Value": "1. Onderzoek je huis.\n\n2. Vraag de vorige bewoners of zij problemen hadden"
-		},
-		{
-		  "Key": "EN",
-		  "Value": "1. Research your own house\n\n2. Ask the previous house owners and people that have similar problems"
-		}
-	  ]
-	},
-	{
-	  "Key": "TUTORIAL_9",
-	  "Value": [
-		{
-		  "Key": "NL",
-		  "Value": "3. Huur een deskundige in om naar de staat van het huis te kijken en te adviseren.\n\n4. Huur een deskundige in om je huis, fundering en grond te onderzoeken."
-		},
-		{
-		  "Key": "EN",
-		  "Value": "3. Hire a professional to look at the state of your house and provide advice.\n\n4. Hire a professional who will research your house, soil & foundation."
-		}
-	  ]
-	},
-	{
-	  "Key": "TUTORIAL_10",
-	  "Value": [
-		{
-		  "Key": "NL",
-		  "Value": "5. Als de grond het probleem is, vindt een manier om het te hydrateren.\n\n6. Als de fundering het probleem is, contacteer dan een bedrijf die in fundering restauratie is gespecialiseerd."
-		},
-		{
-		  "Key": "EN",
-		  "Value": "5. If it turns out that the soil is the issue, then rehydrate the soil.\n\n6. If the foundation is the problem, you want to hire a foundation company to improve the foundation."
-		}
-	  ]
-	},
-	{
-	  "Key": "TUTORIAL_11",
-	  "Value": [
-		{
-		  "Key": "NL",
-		  "Value": "7. Gevonden oplossing gebaseerd op de research uitvoeren.\n\n8. De rekening betalen."
-		},
-		{
-		  "Key": "EN",
-		  "Value": "7. Executing the solution found based on the research done.\n\n8. Pay for the solution."
-		}
-	  ]
-	},
-	{
-	  "Key": "TUTORIAL_12",
-	  "Value": [
-		{
-		  "Key": "NL",
-		  "Value": "Nu hebben we al onderzoek gedaan naar uw zaak en geconcludeerd dat het probleem bij de fundering ligt, laten we eens kijken hoe u het kunt repareren."
-		},
-		{
-		  "Key": "EN",
-		  "Value": "We have already conducted research on your case and concluded that the problem lies within the foundation, let's talk about how you can repair it."
-		}
-	  ]
-	},
-	{
-	  "Key": "TUTORIAL_13",
-	  "Value": [
-		{
-		  "Key": "NL",
-		  "Value": "Om wat gewicht van de originele, rottende palen te halen, gaan we nog wat metalen pinnen toevoegen in de palen.\n\nDe volgende stap is het opnieuw hydrateren van de grond, zodat je zowel de fundering als de grond hebt hersteld."
-		},
-		{
-		  "Key": "EN",
-		  "Value": "In order to take some weight off the original and rotten poles, we're going to add some more metal pins into the poles.\n\nThe next step will be the rehydration of the soil, so that you have both repaired the foundation and the soil."
-		}
-	  ]
-	},
-	{
-	  "Key": "TUTORIAL_14",
-	  "Value": [
-		{
-		  "Key": "NL",
-		  "Value": "Goed bezig! Nu moet de grond worden gehydrateerd. Je weet wat je moet doen!"
-		},
-		{
-		  "Key": "EN",
-		  "Value": "Great! Now the soil needs to be hydrated. You know what to do!"
-		}
-	  ]
-	},
-	{
-	  "Key": "TUTORIAL_15",
-	  "Value": [
-		{
-		  "Key": "NL",
-		  "Value": "Goed gedaan, nu is het huis weer leefbaar en kun je de huur innen.\n\nOh ja, sorry, wat is uw naam ook alweer?"
-		},
-		{
-		  "Key": "EN",
-		  "Value": "Good job, now the house will be liveable again and you can collect rent.\n\nOh, I’m sorry, I completely missed your name! What was it again?"
-		}
-	  ]
-	},
-	{
-	  "Key": "TUTORIAL_16",
-	  "Value": [
-		{
-		  "Key": "NL",
-		  "Value": "Aangenaam kennis te maken {0}, deze stad heeft nog een naam nodig. Heeft u een idee?"
-		},
-		{
-		  "Key": "EN",
-		  "Value": "Nice to meet you {0}, this city still needs a name. Could you give it one?"
-		}
-	  ]
-	},
-	{
-	  "Key": "TUTORIAL_17",
-	  "Value": [
-		{
-		  "Key": "NL",
-		  "Value": "Dat is een geweldige naam! Je kunt het vinden op het welkomstbord van de stad."
-		},
-		{
-		  "Key": "EN",
-		  "Value": "That’s a great name! You can find it on the city name sign"
-		}
-	  ]
-	},
-	{
-	  "Key": "TUTORIAL_18",
-	  "Value": [
-		{
-		  "Key": "NL",
-		  "Value": "Nu dat je stad een naam heeft, zou je wat meer huizen moeten bouwen om de mensen te huisvesten.\n\nDubbeltik gewoon op een lege kavel en dan kan je beginnen met bouwen."
-		},
-		{
-		  "Key": "EN",
-		  "Value": "Now that your city has a name, you should build some more houses to accommodate the people.\n\nJust double tap on an empty plot and you can start building from scratch."
-		}
-	  ]
-	},
-	{
-	  "Key": "TUTORIAL_19",
-	  "Value": [
-		{
-		  "Key": "NL",
-		  "Value": "Hier is wat geld om te beginnen!\n\nMaar pas op!\n\nJe wilt in de toekomst niet meer gebeld worden over verzakkingsproblemen... maak verstandige keuzes tijdens het bouwproces."
-		},
-		{
-		  "Key": "EN",
-		  "Value": "Here is some money to get started!\n\nBut be careful!\n\nYou don't want to get more calls about foundation problems in the future... make wise choices during the building process."
-		}
-	  ]
-	},
-	{
-	  "Key": "INPUT_NAME",
-	  "Value": [
-		{
-		  "Key": "NL",
-		  "Value": "Naam"
-		},
-		{
-		  "Key": "EN",
-		  "Value": "Name"
-		}
-	  ]
-	},
-	{
-	  "Key": "INPUT_CITY",
-	  "Value": [
-		{
-		  "Key": "NL",
-		  "Value": "Stad"
-		},
-		{
-		  "Key": "EN",
-		  "Value": "City"
-		}
+        {
+            "Key": "NL",
+            "Value": "Om te zien hoever je bent gevorderd met je prestaties, kun je dat controleren in het Profiel menu. Bedankt voor het steunen van ons onderzoek, veel succes!"
+        },
+        {
+            "Key": "EN",
+            "Value": "To see how far you have progressed with your Achievements, you can check that in the ProfileMenu. Thank you for supporting our research, good luck!"
+        }
 	  ]
 	}
   ]
