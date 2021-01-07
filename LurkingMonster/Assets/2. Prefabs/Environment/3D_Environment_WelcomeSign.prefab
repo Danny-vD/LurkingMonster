@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2870190838975179525}
   - component: {fileID: 7136634937528723618}
   - component: {fileID: 532780492058867938}
+  - component: {fileID: 5031395498398200894}
   m_Layer: 0
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -100,8 +101,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Die Grenze
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 98f9d88831f38144faeeb549d6ff0c43, type: 2}
-  m_sharedMaterial: {fileID: 7278281293703703516, guid: 98f9d88831f38144faeeb549d6ff0c43, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 3f6bddcb0c3e2564fa2860cff1c9f60d, type: 2}
+  m_sharedMaterial: {fileID: 7278281293703703516, guid: 3f6bddcb0c3e2564fa2860cff1c9f60d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -170,6 +171,18 @@ MonoBehaviour:
   _SortingLayer: 0
   _SortingLayerID: 0
   _SortingOrder: 0
+--- !u!114 &5031395498398200894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1806250346150542274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f13618e51988445daa2b015fdfbd8a02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4411561721174636065
 GameObject:
   m_ObjectHideFlags: 0

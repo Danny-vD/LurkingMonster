@@ -1,9 +1,11 @@
 ﻿using System;
+using Events;
 using Singletons;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using Utility;
+using VDFramework.EventSystem;
 
 namespace Tutorials
 {
@@ -76,6 +78,8 @@ namespace Tutorials
 				default:
 					throw new ArgumentOutOfRangeException();
 			}
+			
+			EventManager.Instance.RaiseEvent(new InputChangedEvent());
 		}
 	}
 }
