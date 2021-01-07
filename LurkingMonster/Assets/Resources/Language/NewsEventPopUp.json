@@ -10,10 +10,6 @@
 		{
 		  "Key": "EN",
 		  "Value": "Storm"
-		},
-		{
-		  "Key": "DE",
-		  "Value": "Ok!"
 		}
 	  ]
 	},
@@ -27,10 +23,6 @@
 		{
 		  "Key": "EN",
 		  "Value": "BREAKING NEWS, {0} here to inform you that there is a <b>heavy storm</b> coming. This will result in soil becoming unstable and foundations might be affected as well as houses."
-		},
-		{
-		  "Key": "DE",
-		  "Value": "Ok!"
 		}
 	  ]
 	},
@@ -39,15 +31,11 @@
 	  "Value": [
 		{
 		  "Key": "NL",
-		  "Value": "Deze storm heeft gevolgen voor de natuur, vallende bomen, zware regenval en stijgende getijden waardoor de rivier overstroomt. Dit heeft invloed op de bodem en dus op de fundering."
+		  "Value": "Deze storm heeft gevolgen voor de natuur doormiddel van vallende bomen, zware regenval en stijgende getijden waardoor de rivier overstroomt. Dit heeft invloed op de bodem en dus op de fundering."
 		},
 		{
 		  "Key": "EN",
-		  "Value": "This storm will have an affect on nature, falling trees, heavy rainfall, and rising tides that will make the river overflow. This will affect the soil and therefore foundation."
-		},
-		{
-		  "Key": "DE",
-		  "Value": "Ok!"
+		  "Value": "This storm will have an affect on nature namely by falling trees, heavy rainfall, and rising tides that will make the river overflow. This will affect the soil and therefore the foundation."
 		}
 	  ]
 	},
@@ -61,10 +49,6 @@
 		{
 		  "Key": "EN",
 		  "Value": "Drought"
-		},
-		{
-		  "Key": "DE",
-		  "Value": "Ok!"
 		}
 	  ]
 	},
@@ -78,10 +62,6 @@
 		{
 		  "Key": "EN",
 		  "Value": "BREAKING NEWS, {0} here to inform you that there is a <b>drought coming</b>, this will have an extreme effect on your soil."
-		},
-		{
-		  "Key": "DE",
-		  "Value": "Ok!"
 		}
 	  ]
 	},
@@ -95,10 +75,6 @@
 		{
 		  "Key": "EN",
 		  "Value": "The drought will result in soil drying out quickly and as the groundwater levels get reduced by the heat, foundations will be affected too."
-		},
-		{
-		  "Key": "DE",
-		  "Value": "Ok!"
 		}
 	  ]
 	},
@@ -112,10 +88,6 @@
 		{
 		  "Key": "EN",
 		  "Value": "Heavy Rain"
-		},
-		{
-		  "Key": "DE",
-		  "Value": "Ok!"
 		}
 	  ]
 	},
@@ -129,10 +101,6 @@
 		{
 		  "Key": "EN",
 		  "Value": "BREAKING NEWS, {0} here to inform you that there is <b>heavy rainfall</b> coming. This will result in soil becoming unstable and foundations might be affected."
-		},
-		{
-		  "Key": "DE",
-		  "Value": "Ok!"
 		}
 	  ]
 	},
@@ -146,10 +114,6 @@
 		{
 		  "Key": "EN",
 		  "Value": "The heavy rainfall will result in soil becoming overrun with water and this makes the soil lose its structure and strength."
-		},
-		{
-		  "Key": "DE",
-		  "Value": "Ok!"
 		}
 	  ]
 	},
@@ -163,10 +127,6 @@
 		{
 		  "Key": "EN",
 		  "Value": "Earthquake"
-		},
-		{
-		  "Key": "DE",
-		  "Value": "Ok!"
 		}
 	  ]
 	},
@@ -179,11 +139,7 @@
 		},
 		{
 		  "Key": "EN",
-		  "Value": "BREAKING NEWS, {0} here to inform you that there is an <b>earthquake</b> coming. This will result in soil becoming unstable and foundations might be affected as well as houses."
-		},
-		{
-		  "Key": "DE",
-		  "Value": "Ok!"
+		  "Value": "BREAKING NEWS, {0} here to inform you that there is an <b>earthquake</b> coming. This will result in soil becoming unstable and foundations and houses might be affected as well."
 		}
 	  ]
 	},
@@ -196,11 +152,7 @@
 		},
 		{
 		  "Key": "EN",
-		  "Value": "The earthquake will affect affect the soil, foundation and building itself. Their core is literally shaking which causes soil to shift, foundations to crack and buildings to get damaged."
-		},
-		{
-		  "Key": "DE",
-		  "Value": "Ok!"
+		  "Value": "The earthquake will affect the soil, foundation and building itself. Their core is literally shaking which causes soil to shift, foundations to crack and buildings to get damaged."
 		}
 	  ]
 	},
@@ -214,10 +166,6 @@
 		{
 		  "Key": "EN",
 		  "Value": "Gas Winning"
-		},
-		{
-		  "Key": "DE",
-		  "Value": "Ok!"
 		}
 	  ]
 	},
@@ -230,11 +178,7 @@
 		},
 		{
 		  "Key": "EN",
-		  "Value": "BREAKING NEWS, {0} here to inform you that Company YFUEL has been <b>drilling for gas</b> and because of that the minor damages to buildings may occur."
-		},
-		{
-		  "Key": "DE",
-		  "Value": "Ok!"
+		  "Value": "BREAKING NEWS, {0} here to inform you that Company YFUEL has been <b>drilling for gas</b> and because of that minor damages to buildings may occur."
 		}
 	  ]
 	},
@@ -248,10 +192,6 @@
 		{
 		  "Key": "EN",
 		  "Value": "The drilling causes vibrations that can affect the surrounding soil and foundation which in return affects the building."
-		},
-		{
-		  "Key": "DE",
-		  "Value": "Ok!"
 		}
 	  ]
 	},
@@ -265,10 +205,6 @@
 		{
 		  "Key": "EN",
 		  "Value": "Building Tunnels"
-		},
-		{
-		  "Key": "DE",
-		  "Value": "Ok!"
 		}
 	  ]
 	},
@@ -281,11 +217,7 @@
 		},
 		{
 		  "Key": "EN",
-		  "Value": "BREAKING NEWS, {0} here to inform you that Company TUNNELO has been <b>building tunnels</b> underneath our city and that will affect the buildings foundation and soil."
-		},
-		{
-		  "Key": "DE",
-		  "Value": "Ok!"
+		  "Value": "BREAKING NEWS, {0} here to inform you that company TUNNELO has been <b>building tunnels</b> underneath our city and that will affect the buildings foundation and soil."
 		}
 	  ]
 	},
@@ -299,10 +231,6 @@
 		{
 		  "Key": "EN",
 		  "Value": "Building tunnels with big machines will make vibrations that will affect the soil and foundation on a low level but will have a big effect on the building in the end."
-		},
-		{
-		  "Key": "DE",
-		  "Value": "Ok!"
 		}
 	  ]
 	}

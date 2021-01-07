@@ -5,7 +5,7 @@
     {
         Peat,
         Sand,
-		Sandy_Clay,
+		Loam,
         Clay,
 	}
 }

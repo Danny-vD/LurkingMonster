@@ -14,21 +14,13 @@ namespace UI.Market.ExtensionScreens
 	[RequireComponent(typeof(FoundationBuyScreen))]
 	public class FoundationBuyScreenText : AbstractMarketExtension
 	{
-		private bool hasSetText;
-
+		private const string priceKey = "PRICE_DYNAMIC";
+		private const string healthKey = "HEALTH_DYNAMIC";
+		
 		private StringVariableWriter typeTextWriter;
-		private StringVariableWriter priceTextWriter;
-		private StringVariableWriter healthTextWriter;
 
 		protected override void ActivateExtension(AbstractBuildingTile tile, MarketManager manager)
 		{
-			if (hasSetText)
-			{
-				return;
-			}
-
-			hasSetText = true;
-
 			SerializableEnumDictionary<FoundationType, BuyButtonData> buildingButtons =
 				GetComponent<FoundationBuyScreen>().GetbuyButtonData();
 
@@ -48,23 +40,19 @@ namespace UI.Market.ExtensionScreens
 				typeTextWriter = new StringVariableWriter(buttonData.Value.Text.Type.text);
 			}
 
-			buttonData.Value.Text.Type.text = typeTextWriter.UpdateText(buttonData.Key.ToString().InsertSpaceBeforeCapitals());
+			string type = LanguageUtil.GetJsonString(buttonData.Key.ToString().ToUpper());
+			buttonData.Value.Text.Type.text = typeTextWriter.UpdateText(type);
 
 			// Price
-			if (priceTextWriter == null)
-			{
-				priceTextWriter = new StringVariableWriter(buttonData.Value.Text.Price.text);
-			}
-
-			buttonData.Value.Text.Price.text = priceTextWriter.UpdateText(data.BuildCost);
+			buttonData.Value.Text.Price.text = string.Format(GetString(priceKey), data.BuildCost);
 
 			// Health
-			if (healthTextWriter == null)
-			{
-				healthTextWriter = new StringVariableWriter(buttonData.Value.Text.Health.text);
-			}
+			buttonData.Value.Text.Health.text = string.Format(GetString(healthKey), data.MaxHealth);
+		}
 
-			buttonData.Value.Text.Health.text = healthTextWriter.UpdateText(data.MaxHealth);
+		private static string GetString(string key)
+		{
+			return LanguageUtil.GetJsonString(key);
 		}
 	}
 }

@@ -68,6 +68,8 @@ namespace Singletons
 			powerUpTimer.StartTimer(powerUp.Timer, () => DeactivatePowerUp(powerUpType), powerUpType);
 			
 			ChangePowerUpAmount(powerUpType, -1);
+			
+			EventManager.Instance.RaiseEvent(new PowerUpActivateEvent(powerUpType));
 		}
 
 		private void ActivatePowerUpOnLoad(float time, PowerUpType powerUpType)
@@ -81,12 +83,16 @@ namespace Singletons
 			powerUp.IsActive = true;
 			powerUpTimer.StartTimer(powerUp.Timer, () => DeactivatePowerUp(powerUpType), powerUpType);
 			powerUpTimer.Timer = time;
+			
+			EventManager.Instance.RaiseEvent(new PowerUpActivateEvent(powerUpType));
 		}
 
 		private void DeactivatePowerUp(PowerUpType powerUpType)
 		{
 			PowerUp powerUp = powerUps.First(item => item.PowerUpType == powerUpType);
 			powerUp.IsActive = false;
+			
+			EventManager.Instance.RaiseEvent(new PowerUpDisableEvent(powerUpType));
 		}
 
 		private void AddPowerUp(PowerUpIncreaseEvent powerType)

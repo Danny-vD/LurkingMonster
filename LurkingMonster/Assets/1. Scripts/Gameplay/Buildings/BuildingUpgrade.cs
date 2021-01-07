@@ -1,9 +1,7 @@
 using System;
 using Enums;
-using Events;
-using Events.MoneyManagement;
+using Events.BuildingEvents;
 using ScriptableObjects;
-using Singletons;
 using Structs.Buildings.MeshData;
 using UnityEngine;
 using VDFramework;
@@ -16,6 +14,8 @@ namespace Gameplay.Buildings
 	{
 		[SerializeField]
 		private BuildingMeshData buildingMeshData = null;
+		
+		public event Action OnUpgrade;
 
 		private int maxTier;
 
@@ -25,8 +25,6 @@ namespace Gameplay.Buildings
 
 		private BuildingType buildingType;
 
-		public event Action OnUpgrade;
-
 		private void Awake()
 		{
 			meshFilter   = GetComponent<MeshFilter>();
@@ -35,6 +33,13 @@ namespace Gameplay.Buildings
 			building = GetComponent<Building>();
 
 			building.OnInitialize += Initialize;
+			OnUpgrade             += RaiseUpgradeEvent;
+		}
+
+		private void OnDestroy()
+		{
+			building.OnInitialize -= Initialize;
+			OnUpgrade             -= RaiseUpgradeEvent;
 		}
 
 		private void Initialize(BuildingData buildingData, FoundationTypeData foundationData, SoilTypeData soilData)
@@ -72,6 +77,11 @@ namespace Gameplay.Buildings
 			TierMeshData meshData = buildingMeshData.GetMeshData(buildingType, tier);
 			meshFilter.mesh             = meshData.Mesh;
 			meshRenderer.sharedMaterial = meshData.Material;
+		}
+
+		private void RaiseUpgradeEvent()
+		{
+			EventManager.Instance.RaiseEvent(new BuildingUpgradeEvent());
 		}
 	}
 }

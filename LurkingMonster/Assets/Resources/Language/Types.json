@@ -10,10 +10,6 @@
 		{
 		  "Key": "EN",
 		  "Value": "Sand"
-		},
-		{
-		  "Key": "DE",
-		  "Value": "Neues Spiel"
 		}
 	  ]
 	},
@@ -27,10 +23,6 @@
 		{
 		  "Key": "EN",
 		  "Value": "Loam"
-		},
-		{
-		  "Key": "DE",
-		  "Value": "Neues Spiel"
 		}
 	  ]
 	},
@@ -44,10 +36,6 @@
 		{
 		  "Key": "EN",
 		  "Value": "Clay"
-		},
-		{
-		  "Key": "DE",
-		  "Value": "Neues Spiel"
 		}
 	  ]
 	},
@@ -61,10 +49,45 @@
 		{
 		  "Key": "EN",
 		  "Value": "Peat"
+		}
+	  ]
+	},
+	{
+	  "Key": "NOBUILDING!",
+	  "Value": [
+		{
+		  "Key": "NL",
+		  "Value": "Geen Gebouw!"
 		},
 		{
-		  "Key": "DE",
-		  "Value": "Neues Spiel"
+		  "Key": "EN",
+		  "Value": "No Building!"
+		}
+	  ]
+	},
+	{
+	  "Key": "NOFOUNDATION!",
+	  "Value": [
+		{
+		  "Key": "NL",
+		  "Value": "Geen Fundering!"
+		},
+		{
+		  "Key": "EN",
+		  "Value": "No Foundation!"
+		}
+	  ]
+	},
+	{
+	  "Key": "NOSOIL!",
+	  "Value": [
+		{
+		  "Key": "NL",
+		  "Value": "Geen Grond!"
+		},
+		{
+		  "Key": "EN",
+		  "Value": "No Soil!"
 		}
 	  ]
 	},
@@ -78,10 +101,6 @@
 		{
 		  "Key": "EN",
 		  "Value": "House"
-		},
-		{
-		  "Key": "DE",
-		  "Value": "Neues Spiel"
 		}
 	  ]
 	},
@@ -95,10 +114,6 @@
 		{
 		  "Key": "EN",
 		  "Value": "Store"
-		},
-		{
-		  "Key": "DE",
-		  "Value": "Neues Spiel"
 		}
 	  ]
 	},
@@ -112,10 +127,6 @@
 		{
 		  "Key": "EN",
 		  "Value": "Apartment"
-		},
-		{
-		  "Key": "DE",
-		  "Value": "Neues Spiel"
 		}
 	  ]
 	},
@@ -129,10 +140,6 @@
 		{
 		  "Key": "EN",
 		  "Value": "Wooden poles"
-		},
-		{
-		  "Key": "DE",
-		  "Value": "Neues Spiel"
 		}
 	  ]
 	},
@@ -146,10 +153,6 @@
 		{
 		  "Key": "EN",
 		  "Value": "Reinforced concrete"
-		},
-		{
-		  "Key": "DE",
-		  "Value": "Neues Spiel"
 		}
 	  ]
 	},
@@ -163,10 +166,6 @@
 		{
 		  "Key": "EN",
 		  "Value": "Shallow foundation"
-		},
-		{
-		  "Key": "DE",
-		  "Value": "Neues Spiel"
 		}
 	  ]
 	},
@@ -180,10 +179,6 @@
 		{
 		  "Key": "EN",
 		  "Value": "Floating floor plate"
-		},
-		{
-		  "Key": "DE",
-		  "Value": "Neues Spiel"
 		}
 	  ]
 	},
@@ -197,10 +192,6 @@
 		{
 		  "Key": "EN",
 		  "Value": "Monster Food"
-		},
-		{
-		  "Key": "DE",
-		  "Value": "Neues Spiel"
 		}
 	  ]
 	},
@@ -214,10 +205,6 @@
 		{
 		  "Key": "EN",
 		  "Value": "KCAF consultant"
-		},
-		{
-		  "Key": "DE",
-		  "Value": "Neues Spiel"
 		}
 	  ]
 	},
@@ -231,10 +218,6 @@
 		{
 		  "Key": "EN",
 		  "Value": "Time Freeze"
-		},
-		{
-		  "Key": "DE",
-		  "Value": "Neues Spiel"
 		}
 	  ]
 	}

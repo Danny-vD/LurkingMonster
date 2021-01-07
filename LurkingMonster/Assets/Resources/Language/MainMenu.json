@@ -10,10 +10,6 @@
 		{
 		  "Key": "EN",
 		  "Value": "New Game"
-		},
-		{
-		  "Key": "DE",
-		  "Value": "Neues Spiel"
 		}
 	  ]
 	},
@@ -27,10 +23,6 @@
 		{
 		  "Key": "EN",
 		  "Value": "Settings"
-		},
-		{
-		  "Key": "DE",
-		  "Value": "Neues Spiel"
 		}
 	  ]
 	},
@@ -44,10 +36,6 @@
 		{
 		  "Key": "EN",
 		  "Value": "Quit"
-		},
-		{
-		  "Key": "DE",
-		  "Value": "Neues Spiel"
 		}
 	  ]
 	},
@@ -61,10 +49,6 @@
 		{
 		  "Key": "EN",
 		  "Value": "Score"
-		},
-		{
-		  "Key": "DE",
-		  "Value": "Punkte"
 		}
 	  ]
 	},
@@ -78,10 +62,6 @@
 		{
 		  "Key": "EN",
 		  "Value": "Loading..."
-		},
-		{
-		  "Key": "DE",
-		  "Value": "Laden..."
 		}
 	  ]
 	},
@@ -95,10 +75,6 @@
 		{
 		  "Key": "EN",
 		  "Value": "Tap to continue"
-		},
-		{
-		  "Key": "DE",
-		  "Value": "Warten auf ihre Input..."
 		}
 	  ]
 	},
@@ -112,10 +88,6 @@
 		{
 		  "Key": "EN",
 		  "Value": "Skip"
-		},
-		{
-		  "Key": "DE",
-		  "Value": "Überspringen"
 		}
 	  ]
 	},
@@ -129,10 +101,6 @@
 		{
 		  "Key": "EN",
 		  "Value": "Next"
-		},
-		{
-		  "Key": "DE",
-		  "Value": "Folgenden"
 		}
 	  ]
 	},
@@ -145,10 +113,6 @@
 		},
 		{
 		  "Key": "EN",
-		  "Value": "Ok!"
-		},
-		{
-		  "Key": "DE",
 		  "Value": "Ok!"
 		}
 	  ]
@@ -163,10 +127,6 @@
 		{
 		  "Key": "EN",
 		  "Value": "Build Buildings: "
-		},
-		{
-		  "Key": "DE",
-		  "Value": "Ok!"
 		}
 	  ]
 	},
@@ -180,10 +140,6 @@
 		{
 		  "Key": "EN",
 		  "Value": "Collect Rent: "
-		},
-		{
-		  "Key": "DE",
-		  "Value": "Ok!"
 		}
 	  ]
 	},
@@ -197,10 +153,6 @@
 		{
 		  "Key": "EN",
 		  "Value": "Save Buildings: "
-		},
-		{
-		  "Key": "DE",
-		  "Value": "Ok!"
 		}
 	  ]
 	},
@@ -209,15 +161,11 @@
 	  "Value": [
 		{
 		  "Key": "NL",
-		  "Value": "Kapotte Gebouwen: "
+		  "Value": "Opgegeten Gebouwen: "
 		},
 		{
 		  "Key": "EN",
-		  "Value": "Consume Buildings: "
-		},
-		{
-		  "Key": "DE",
-		  "Value": "Ok!"
+		  "Value": "Consumed Buildings: "
 		}
 	  ]
 	},
@@ -226,20 +174,16 @@
 	  "Value": [
 		{
 		  "Key": "NL",
-		  "Value": "Koop Grond: "
+		  "Value": "Koop Parcelen: "
 		},
 		{
 		  "Key": "EN",
 		  "Value": "Buy Plots: "
-		},
-		{
-		  "Key": "DE",
-		  "Value": "Ok!"
 		}
 	  ]
 	},
 	{
-	  "Key": "DESTROYHOUSESACHIEVEMENT",
+	  "Key": "UPGRADEBUILDINGSACHIEVEMENT",
 	  "Value": [
 		{
 		  "Key": "NL",
@@ -248,10 +192,6 @@
 		{
 		  "Key": "EN",
 		  "Value": "Upgrade building: "
-		},
-		{
-		  "Key": "DE",
-		  "Value": "Ok!"
 		}
 	  ]
 	},
@@ -260,15 +200,11 @@
 	  "Value": [
 		{
 		  "Key": "NL",
-		  "Value": "Achievement Vrijgespeeld"
+		  "Value": "Prestatie Vrijgespeeld"
 		},
 		{
 		  "Key": "EN",
 		  "Value": "Achievement Unlocked"
-		},
-		{
-		  "Key": "DE",
-		  "Value": "Ok!"
 		}
 	  ]
 	},
@@ -282,10 +218,6 @@
 		{
 		  "Key": "EN",
 		  "Value": "All Achievements Unlocked"
-		},
-		{
-		  "Key": "DE",
-		  "Value": "Ok!"
 		}
 	  ]
 	},
@@ -299,10 +231,6 @@
 		{
 		  "Key": "EN",
 		  "Value": "Money : "
-		},
-		{
-		  "Key": "DE",
-		  "Value": "Ok!"
 		}
 	  ]
 	},
@@ -316,10 +244,6 @@
 		{
 		  "Key": "EN",
 		  "Value": "Continue"
-		},
-		{
-		  "Key": "DE",
-		  "Value": "Ok!"
 		}
 	  ]
 	},
@@ -333,10 +257,6 @@
 		{
 		  "Key": "EN",
 		  "Value": "Dutch"
-		},
-		{
-		  "Key": "DE",
-		  "Value": "Ok!"
 		}
 	  ]
 	},
@@ -350,10 +270,6 @@
 		{
 		  "Key": "EN",
 		  "Value": "English"
-		},
-		{
-		  "Key": "DE",
-		  "Value": "Ok!"
 		}
 	  ]
 	},
@@ -367,10 +283,6 @@
 		{
 		  "Key": "EN",
 		  "Value": "Music Volume"
-		},
-		{
-		  "Key": "DE",
-		  "Value": "Ok!"
 		}
 	  ]
 	},
@@ -379,15 +291,11 @@
 	  "Value": [
 		{
 		  "Key": "NL",
-		  "Value": "GeluidsEffecten Volume"
+		  "Value": "Geluidseffecten"
 		},
 		{
 		  "Key": "EN",
-		  "Value": "Music Effects Volume"
-		},
-		{
-		  "Key": "DE",
-		  "Value": "Ok!"
+		  "Value": "Sound Effects"
 		}
 	  ]
 	},
@@ -401,10 +309,6 @@
 		{
 		  "Key": "EN",
 		  "Value": "Vibrate"
-		},
-		{
-		  "Key": "DE",
-		  "Value": "Ok!"
 		}
 	  ]
 	},
@@ -418,10 +322,6 @@
 		{
 		  "Key": "EN",
 		  "Value": "Mute"
-		},
-		{
-		  "Key": "DE",
-		  "Value": "Ok!"
 		}
 	  ]
 	},
@@ -435,10 +335,6 @@
 		{
 		  "Key": "EN",
 		  "Value": "Instantly solves all problems for 2 min."
-		},
-		{
-		  "Key": "DE",
-		  "Value": "Ok!"
 		}
 	  ]
 	},
@@ -452,10 +348,6 @@
 		{
 		  "Key": "EN",
 		  "Value": "Stops breaking news events from happening for 5 minutes"
-		},
-		{
-		  "Key": "DE",
-		  "Value": "Ok!"
 		}
 	  ]
 	},
@@ -464,15 +356,11 @@
 	  "Value": [
 		{
 		  "Key": "NL",
-		  "Value": "Voorkomt dat het monster je huis verwoest voor 2 minuten langer"
+		  "Value": "Voorkomt dat het monster je huis verwoest voor 2 minuten"
 		},
 		{
 		  "Key": "EN",
-		  "Value": "Stops monster from destroying your house for 2 more minutes"
-		},
-		{
-		  "Key": "DE",
-		  "Value": "Ok!"
+		  "Value": "Stops monster from destroying your house for 2 minutes"
 		}
 	  ]
 	},
@@ -486,10 +374,6 @@
 		{
 		  "Key": "EN",
 		  "Value": "Achievements"
-		},
-		{
-		  "Key": "DE",
-		  "Value": "Ok!"
 		}
 	  ]
 	},
@@ -503,10 +387,6 @@
 		{
 		  "Key": "EN",
 		  "Value": "Information"
-		},
-		{
-		  "Key": "DE",
-		  "Value": "Ok!"
 		}
 	  ]
 	},
@@ -520,10 +400,19 @@
 		{
 		  "Key": "EN",
 		  "Value": "Clean up the debris that the monster left behind"
+		}
+	  ]
+	},
+	{
+	  "Key": "DEFAULT_NAME",
+	  "Value": [
+		{
+		  "Key": "NL",
+		  "Value": "Spelernaam"
 		},
 		{
-		  "Key": "DE",
-		  "Value": "Ok!"
+		  "Key": "EN",
+		  "Value": "Playername"
 		}
 	  ]
 	}

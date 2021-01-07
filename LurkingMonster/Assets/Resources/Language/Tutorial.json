@@ -10,10 +10,6 @@
 		{
 		  "Key": "EN",
 		  "Value": "Hi there! I am -Peter- the consultant for the KCAF, I will be guiding you through the steps Erik needs to take to solve his problem"
-		},
-		{
-		  "Key": "DE",
-		  "Value": ""
 		}
 	  ]
 	},
@@ -27,10 +23,6 @@
 		{
 		  "Key": "EN",
 		  "Value": "The problem with this house is that the long vacancy has affected its foundation.\n\nDuring the vacancy, the soil dried out and it exposed the wooden poles to oxygen."
-		},
-		{
-		  "Key": "DE",
-		  "Value": ""
 		}
 	  ]
 	},
@@ -44,10 +36,6 @@
 		{
 		  "Key": "EN",
 		  "Value": "That caused the wood to start rotting and the house is now sinking into the soil because of the weight of the building."
-		},
-		{
-		  "Key": "DE",
-		  "Value": ""
 		}
 	  ]
 	},
@@ -61,10 +49,6 @@
 		{
 		  "Key": "EN",
 		  "Value": "Now we will try to repair it.\n\nJust tap on the house with the icon above it.\n\nThose icons indicate what the problem is."
-		},
-		{
-		  "Key": "DE",
-		  "Value": ""
 		}
 	  ]
 	},
@@ -78,10 +62,6 @@
 		{
 		  "Key": "EN",
 		  "Value": "Because of the icon you are led to the main overview, here you can see the current state of the house, foundation and soil.\n\nThat is indicated by their health bars.\n\nThis way you know what to select and repair."
-		},
-		{
-		  "Key": "DE",
-		  "Value": ""
 		}
 	  ]
 	},
@@ -95,10 +75,6 @@
 		{
 		  "Key": "EN",
 		  "Value": "Here you see the repair information, you can read here why it needs to be repaired and what caused the problem."
-		},
-		{
-		  "Key": "DE",
-		  "Value": ""
 		}
 	  ]
 	},
@@ -112,10 +88,6 @@
 		{
 		  "Key": "EN",
 		  "Value": "The KCAF has constructed a guide which helps you to solve this problem in 8 simple steps."
-		},
-		{
-		  "Key": "DE",
-		  "Value": ""
 		}
 	  ]
 	},
@@ -129,10 +101,6 @@
 		{
 		  "Key": "EN",
 		  "Value": "1. Research your own house\n\n2. Ask the previous house owners and people that have similar problems"
-		},
-		{
-		  "Key": "DE",
-		  "Value": ""
 		}
 	  ]
 	},
@@ -146,10 +114,6 @@
 		{
 		  "Key": "EN",
 		  "Value": "3. Hire a professional to look at the state of your house and provide advice.\n\n4. Hire a professional who will research your house, soil & foundation."
-		},
-		{
-		  "Key": "DE",
-		  "Value": ""
 		}
 	  ]
 	},
@@ -163,10 +127,6 @@
 		{
 		  "Key": "EN",
 		  "Value": "5. If it turns out that the soil is the issue, then rehydrate the soil.\n\n6. If the foundation is the problem, you want to hire a foundation company to improve the foundation."
-		},
-		{
-		  "Key": "DE",
-		  "Value": ""
 		}
 	  ]
 	},
@@ -180,10 +140,6 @@
 		{
 		  "Key": "EN",
 		  "Value": "7. Executing the solution found based on the research done.\n\n8. Pay for the solution."
-		},
-		{
-		  "Key": "DE",
-		  "Value": ""
 		}
 	  ]
 	},
@@ -197,10 +153,6 @@
 		{
 		  "Key": "EN",
 		  "Value": "We have already conducted research on your case and concluded that the problem lies within the foundation, let's talk about how you can repair it."
-		},
-		{
-		  "Key": "DE",
-		  "Value": ""
 		}
 	  ]
 	},
@@ -214,10 +166,6 @@
 		{
 		  "Key": "EN",
 		  "Value": "In order to take some weight off the original and rotten poles, we're going to add some more metal pins into the poles.\n\nThe next step will be the rehydration of the soil, so that you have both repaired the foundation and the soil."
-		},
-		{
-		  "Key": "DE",
-		  "Value": ""
 		}
 	  ]
 	},
@@ -231,10 +179,6 @@
 		{
 		  "Key": "EN",
 		  "Value": "Great! Now the soil needs to be hydrated. You know what to do!"
-		},
-		{
-		  "Key": "DE",
-		  "Value": ""
 		}
 	  ]
 	},
@@ -248,10 +192,6 @@
 		{
 		  "Key": "EN",
 		  "Value": "Good job, now the house will be liveable again and you can collect rent.\n\nOh, I’m sorry, I completely missed your name! What was it again?"
-		},
-		{
-		  "Key": "DE",
-		  "Value": ""
 		}
 	  ]
 	},
@@ -265,10 +205,6 @@
 		{
 		  "Key": "EN",
 		  "Value": "Nice to meet you {0}, this city still needs a name. Could you give it one?"
-		},
-		{
-		  "Key": "DE",
-		  "Value": ""
 		}
 	  ]
 	},
@@ -282,10 +218,6 @@
 		{
 		  "Key": "EN",
 		  "Value": "That’s a great name! You can find it on the city name sign"
-		},
-		{
-		  "Key": "DE",
-		  "Value": ""
 		}
 	  ]
 	},
@@ -299,10 +231,6 @@
 		{
 		  "Key": "EN",
 		  "Value": "Now that your city has a name, you should build some more houses to accommodate the people.\n\nJust double tap on an empty plot and you can start building from scratch."
-		},
-		{
-		  "Key": "DE",
-		  "Value": ""
 		}
 	  ]
 	},
@@ -316,10 +244,6 @@
 		{
 		  "Key": "EN",
 		  "Value": "Here is some money to get started!\n\nBut be careful!\n\nYou don't want to get more calls about foundation problems in the future... make wise choices during the building process."
-		},
-		{
-		  "Key": "DE",
-		  "Value": ""
 		}
 	  ]
 	},
@@ -333,10 +257,6 @@
 		{
 		  "Key": "EN",
 		  "Value": "Name"
-		},
-		{
-		  "Key": "DE",
-		  "Value": ""
 		}
 	  ]
 	},
@@ -350,10 +270,6 @@
 		{
 		  "Key": "EN",
 		  "Value": "City"
-		},
-		{
-		  "Key": "DE",
-		  "Value": ""
 		}
 	  ]
 	}

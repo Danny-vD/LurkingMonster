@@ -32,7 +32,6 @@ namespace Singletons
 			if (UserSettings.SettingsExist)
 			{
 				counter = UserSettings.GameData.AchievementCounter;
-				print(counter);
 			}
 			
 			UserSettings.OnGameQuit += SaveData;

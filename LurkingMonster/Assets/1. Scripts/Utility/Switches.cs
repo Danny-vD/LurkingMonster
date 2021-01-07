@@ -10,7 +10,7 @@ namespace Utility
 			{
 				case SoilType.Sand:
 					return 300.0f;
-				case SoilType.Sandy_Clay:
+				case SoilType.Loam:
 					return 240.0f;
 				case SoilType.Clay:
 					return 180.0f;
@@ -27,9 +27,9 @@ namespace Utility
 			{
 				case FoundationType.Wooden_Poles:
 					return 300.0f;
-				case FoundationType.Concrete_On_Steel:
+				case FoundationType.Shallow_Foundation:
 					return 240.0f;
-				case FoundationType.Reinfored_Concrete:
+				case FoundationType.Reinforced_Concrete:
 					return 180.0f;
 				case FoundationType.Floating_Floor_Plate:
 					return 120.0f;
