@@ -5,11 +5,14 @@ using Grid.Tiles.Buildings;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Utility;
 
 namespace UI.Market.MarketScreens.BuildingScreens
 {
 	public class BuildingManageScreen : AbstractMarketScreen
 	{
+		private const string maxUpgradeKey = "MAX_UPGRADED";
+		
 		[Header("Upgrade"), SerializeField]
 		private List<Button> btnUpgrade = null;
 
@@ -57,8 +60,7 @@ namespace UI.Market.MarketScreens.BuildingScreens
 			{
 				btnUpgrade.ForEach(BlockButton);
 
-				//TODO: Change to use a JSON key for max upgrade
-				upgradeText.text = "MAX";
+				upgradeText.text = LanguageUtil.GetJsonString(maxUpgradeKey);
 
 				return;
 			}

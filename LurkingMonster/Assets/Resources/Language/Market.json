@@ -207,6 +207,19 @@
           "Value": "Repair Information"
         }
       ]
+    },
+    {
+      "Key": "MAX_UPGRADED",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "MAX"
+        },
+        {
+          "Key": "EN",
+          "Value": "MAX"
+        }
+      ]
     }
   ]
 }
