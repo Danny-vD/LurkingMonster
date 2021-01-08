@@ -744,6 +744,7 @@ GameObject:
   - component: {fileID: 4707960237150791921}
   - component: {fileID: 1433012217895166633}
   - component: {fileID: -7775324001159059781}
+  - component: {fileID: 2273247338261421539}
   m_Layer: 0
   m_Name: Building
   m_TagString: Untagged
@@ -926,6 +927,45 @@ MonoBehaviour:
         serializedDictionary:
         - key: 1
           value: {fileID: 2100000, guid: 694b3c68a15c032418d331a6808764cc, type: 2}
+--- !u!114 &2273247338261421539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6758913166034969596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c63aa9b59a738845baf7ea4d2d66482, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  positionsPerTier:
+    serializedDictionary:
+    - key: 0
+      value:
+        serializedDictionary:
+        - key: 1
+          value:
+            serializedDictionary:
+            - key: {fileID: 265130012}
+              value: {x: -0.67414, y: 5.13, z: -0.52172}
+            - key: {fileID: 362989756019003262}
+              value: {x: 0.698, y: 3.45, z: -0.603}
+        - key: 2
+          value:
+            serializedDictionary: []
+        - key: 3
+          value:
+            serializedDictionary: []
+    - key: 1
+      value:
+        serializedDictionary: []
+    - key: 2
+      value:
+        serializedDictionary:
+        - key: 1
+          value:
+            serializedDictionary: []
 --- !u!1 &7029731273974737261
 GameObject:
   m_ObjectHideFlags: 0
