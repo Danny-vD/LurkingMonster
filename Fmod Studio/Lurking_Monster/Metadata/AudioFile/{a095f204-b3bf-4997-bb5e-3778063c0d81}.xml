@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="AudioFile" id="{a095f204-b3bf-4997-bb5e-3778063c0d81}">
+		<property name="assetPath">
+			<value>Earthquake/ShortEarthquake.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>11.937505668934241</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{1358fc95-f107-4962-83f0-4d24c4b25416}</destination>
+		</relationship>
+	</object>
+</objects>
