@@ -5747,6 +5747,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2049239493830306342, guid: f27f7791eacf8fb4ca3b8c38ced951cb, type: 3}
+      propertyPath: m_Name
+      value: CarSmoke
+      objectReference: {fileID: 0}
     - target: {fileID: 3584181518495506859, guid: f27f7791eacf8fb4ca3b8c38ced951cb, type: 3}
       propertyPath: m_RootOrder
       value: 1
