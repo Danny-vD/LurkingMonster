@@ -26,6 +26,7 @@ namespace IO
 		private WeatherEventType weatherEventType;
 		private float timerWeatherEvent;
 		private int achievementCounter;
+		private int characterIndex;
 		
 		private Dictionary<Vector2IntSerializable, TileData> dictionary;
 		
@@ -143,6 +144,12 @@ namespace IO
 		{
 			get => achievementCounter;
 			set => achievementCounter = value;
+		}
+
+		public int CharacterIndex
+		{
+			get => characterIndex;
+			set => characterIndex = value;
 		}
 	}
 }

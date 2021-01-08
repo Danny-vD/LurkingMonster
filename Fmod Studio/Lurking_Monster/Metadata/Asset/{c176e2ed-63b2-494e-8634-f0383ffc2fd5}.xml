@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="EncodableAsset" id="{c176e2ed-63b2-494e-8634-f0383ffc2fd5}">
+		<property name="assetPath">
+			<value>PopUps/</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{1358fc95-f107-4962-83f0-4d24c4b25416}</destination>
+		</relationship>
+	</object>
+</objects>
