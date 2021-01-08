@@ -88,14 +88,14 @@
 	{
 	  "Key": "INFORMATION_KCAF_TEXT",
 	  "Value": [
-		{
-		  "Key": "NL",
-		  "Value": "<b>KCAF (Kennis Centrum Aanpak Funderingsproblematiek)</b> is gevestigd in Utrecht en Nieuwegein en is een onafhankelijke kennis- en netwerkorganisatie zonder winst die zorgt voor het verzamelen, ontwikkelen en verstrekken van kennis over het aanpakken en voorkomen van funderingsproblemen. Het doel is om bewustwording voor funderingsproblemen te creëren en door middel van onderzoek en de bovengenoemde informatie uit te breiden. Bovendien brengt KCAF in kaart welke huizen nu gevaar lopen en welke in de toekomst dat mogelijk ook zouden zijn. Om dit te bereiken werkt de organisatie nauw samen met andere kenniscentra, scholen, commerciële partijen en wetenschappelijke instituten om meer inzicht te krijgen in de problematiek. \n \n  Klik hier voor de KCAF-hoofdpagina"
-		},
-		{
-		  "Key": "EN",
-		  "Value": "<b>KCAF (Knowledge Center Approach Foundation Problems)</b> is located in Utrecht and Nieuwegein and is an independent knowledge and network non-profit organization which takes care of collecting, developing and providing knowledge about the approach and prevention of foundation problems. Its aim is to raise awareness of foundation problems and to expand the aforementioned information by conducting research. \n Furthermore, KCAF maps out which houses are at risk now and which ones might be in the future. To achieve these, the organization works closely with other knowledge centres, schools, commercial parties and scientific institutes, in order to gain more insights on the problem. \n \n Press here for the KCAF mainpage"
-		},
+      {
+        "Key": "NL",
+        "Value": "<size=53><b>KCAF (Kennis Centrum Aanpak Funderingsproblematiek)</b></size> is gevestigd in Utrecht en Nieuwegein en is een onafhankelijke kennis- en netwerkorganisatie zonder winst die zorgt voor het verzamelen, ontwikkelen en verstrekken van kennis over het aanpakken en voorkomen van funderingsproblemen. Het doel is om bewustwording voor funderingsproblemen te creëren en door middel van onderzoek en de bovengenoemde informatie uit te breiden. Bovendien brengt KCAF in kaart welke huizen nu gevaar lopen en welke in de toekomst dat mogelijk ook zouden zijn. Om dit te bereiken werkt de organisatie nauw samen met andere kenniscentra, scholen, commerciële partijen en wetenschappelijke instituten om meer inzicht te krijgen in de problematiek. \n \n  Klik hier voor de KCAF-hoofdpagina"
+      },
+      {
+        "Key": "EN",
+        "Value": "<size=53><b>KCAF (Knowledge Center Approach Foundation Problems)</b></size> is located in Utrecht and Nieuwegein and is an independent knowledge and network non-profit organization which takes care of collecting, developing and providing knowledge about the approach and prevention of foundation problems. Its aim is to raise awareness of foundation problems and to expand the aforementioned information by conducting research. \n Furthermore, KCAF maps out which houses are at risk now and which ones might be in the future. To achieve these, the organization works closely with other knowledge centres, schools, commercial parties and scientific institutes, in order to gain more insights on the problem. \n \n Press here for the KCAF mainpage"
+      },
 		{
 		  "Key": "DE",
 		  "Value": "Ok!"
@@ -107,11 +107,11 @@
       "Value": [
         {
           "Key": "NL",
-          "Value": "SoilMateStudios"
+          "Value": "SoilMatesStudios"
         },
         {
           "Key": "EN",
-          "Value": "SoilMateStudios"
+          "Value": "SoilMatesStudios"
         },
         {
           "Key": "DE",
@@ -122,14 +122,14 @@
 	{
 	  "Key": "INFORMATION_SOILMATESSTUDIOS_TEXT",
 	  "Value": [
-		{
-		  "Key": "NL",
-		  "Value": "Soilmates Studios is een groep van 7 studenten van Saxion University of Applied Sciences. Lena Van, Dominique de Graaff, Rania Zouganeli, Julien Trübiger, Els Krajenbrink, Danny van Duist en Niek Tempert zijn ontwerpers, artiesten en ontwikkelaars, die samen werkten om het idee van KCAF tot leven te brengen."
-		},
-		{
-		  "Key": "EN",
-		  "Value": "Soilmates studios is a group of 7 students from Saxion University of Applied Sciences. Lena Van, Dominique de Graaff, Rania Zouganeli, Julien Trübiger, Els Krajenbrink, Danny van Duist and Niek Tempert are designers, artists and engineers, who worked together to bring KCAF’s idea to life. "
-		},
+      {
+        "Key": "NL",
+        "Value": "/n<size=50>Soilmates Studios is een groep van 7 studenten van Saxion University of Applied Sciences. Lena Van, Dominique de Graaff, Rania Zouganeli, Julien Trübiger, Els Krajenbrink, Danny van Duist en Niek Tempert zijn ontwerpers, artiesten en ontwikkelaars, die samen werkten om het idee van KCAF tot leven te brengen.</size>"
+      },
+      {
+        "Key": "EN",
+        "Value": "/n<size=50>Soilmates studios is a group of 7 students from Saxion University of Applied Sciences. Lena Van, Dominique de Graaff, Rania Zouganeli, Julien Trübiger, Els Krajenbrink, Danny van Duist and Niek Tempert are designers, artists and engineers, who worked together to bring KCAF’s idea to life. </size>"
+      },
 		{
 		  "Key": "DE",
 		  "Value": "Ok!"
@@ -156,14 +156,14 @@
 	{
 	  "Key": "INFORMATION_FAQ_TEXT",
 	  "Value": [
-		{
-		  "Key": "NL",
-		  "Value": "Hier vindt je de algemene vragen die de KCAF veel krijgt. Voor extra informatie kun je hier klikken.\n <b>Welke types funderingen zijn er?</b> \n • Fundering op staal. \n • Fundering op houten palen. \n <b>Welk bureau kan funderingsonderzoek goed uitvoeren en hoe gaat dat in z’n werk?</b> \n • Wat belangrijk is dat u bureaus benadert die werken volgens de zogenaamde F3O–richtlijn. \n • Het is aan te raden om bij meerdere bureaus een offerte op te vragen. \n • Heeft u de offertes ontvangen en daarna nog onbeantwoorde vragen, dan geven wij u graag onafhankelijk advies. \n <b>Wat moet ik doen als ik vermoed dat ik een funderingsprobleem heb?</b> \n In eerste instantie kunt u bij KCAF en uw gemeente vragen of er iets in het archief bekend is over mogelijke funderingsproblemen in uw gemeente en uw buurt.Om zeker te weten of er iets met uw fundering aan de hand is, is funderingsonderzoek nodig. Dit laat u door een gespecialiseerd onderzoeksbureau verrichten. Is uw woning onderdeel van een bouwblok? Dan is het beter om funderingsonderzoek aan het hele blok te laten uitvoeren. Dit is ook goedkoper per eigenaar. \n <b> Kan KCAF mij helpen bij funderingsonderzoek en eventuele verdere aanpak?</b> \n  KCAF kan en mag niet zelf funderingsonderzoek uitvoeren, herstelplannen maken en hierbij begeleiden. Dit is voorbehouden aan adviesbureaus en funderings aannemers. KCAF kan wel helpen met algemene advisering, voorlichting en informatie. In overleg verzorgt een consulent van KCAF dit voor groepen eigenaren (van een bouwblok of van een buurt). Ook kan KCAF helpen met het zoeken naar oplossingen in overleg met gemeente, banken, etc."
-		},
-		{
-		  "Key": "EN",
-		  "Value": "Here you will find the general questions that the KCAF often receives. Click here for additional information. \n <b>What types of foundations are there?</b> \n • Foundation on steel. \n • Foundation on wooden poles. \n <b>Which agency can perform foundation research well and how does this work?</b> \n • It is important that you approach agencies that work according to the so-called F3O guideline. \n • It is advised to request an appraisal from multiple agencies. \n • If you have received the appraisals and then have unanswered questions, we will be happy to provide you with independent advice. \n <b>What do I do if I think I have a foundation problem?</b> \n First, you can ask KCAF and your townshall whether anything is known in the archive about possible foundation problems in your municipality and your neighborhood. Foundation research is required to be sure whether there is something wrong with your foundation. You have this done by a specialized research agency. Is your home part of a building block? Then it is better to have foundation research carried out on the entire block. This is also cheaper per owner. \n <b> Can KCAF help me with foundation research and any further approach?</b> \n  KCAF cannot and may not carry out foundation research itself, draw up recovery plans and provide guidance in this. This is reserved for consultancies and foundation contractors. KCAF can help with general advice, education and information. In consultation, a KCAF consultant takes care of this for groups of owners (of a building block or of a neighborhood). KCAF can also help with the search for solutions in consultation with the municipality, banks, etc."
-		},
+      {
+        "Key": "NL",
+        "Value": "Hier vindt je de algemene vragen die de KCAF veel krijgt. Voor extra informatie kun je hier klikken.\n\n <size=53><b>Welke types funderingen zijn er?</b></size> \n • Fundering op staal. \n • Fundering op houten palen. \n\n <size=53><b>Welk bureau kan funderingsonderzoek goed uitvoeren en hoe gaat dat in z’n werk?</b></size> \n • Wat belangrijk is dat u bureaus benadert die werken volgens de zogenaamde F3O–richtlijn. \n • Het is aan te raden om bij meerdere bureaus een offerte op te vragen. \n • Heeft u de offertes ontvangen en daarna nog onbeantwoorde vragen, dan geven wij u graag onafhankelijk advies. \n\n <size=53><b>Wat moet ik doen als ik vermoed dat ik een funderingsprobleem heb?</b></size> \n In eerste instantie kunt u bij KCAF en uw gemeente vragen of er iets in het archief bekend is over mogelijke funderingsproblemen in uw gemeente en uw buurt.Om zeker te weten of er iets met uw fundering aan de hand is, is funderingsonderzoek nodig. Dit laat u door een gespecialiseerd onderzoeksbureau verrichten. Is uw woning onderdeel van een bouwblok? Dan is het beter om funderingsonderzoek aan het hele blok te laten uitvoeren. Dit is ook goedkoper per eigenaar. \n\n <size=53><b> Kan KCAF mij helpen bij funderingsonderzoek en eventuele verdere aanpak?</b></size> \n KCAF kan en mag niet zelf funderingsonderzoek uitvoeren, herstelplannen maken en hierbij begeleiden. Dit is voorbehouden aan adviesbureaus en funderings aannemers. KCAF kan wel helpen met algemene advisering, voorlichting en informatie. In overleg verzorgt een consulent van KCAF dit voor groepen eigenaren (van een bouwblok of van een buurt). Ook kan KCAF helpen met het zoeken naar oplossingen in overleg met gemeente, banken, etc."
+      },
+      {
+        "Key": "EN",
+        "Value": "Here you will find the general questions that the KCAF often receives. Click here for additional information. \n\n <size=53><b>What types of foundations are there?</b></size> \n • Foundation on steel. \n • Foundation on wooden poles. \n\n <size=53><b>Which agency can perform foundation research well and how does this work?</b></size> \n • It is important that you approach agencies that work according to the so-called F3O guideline. \n • It is advised to request an appraisal from multiple agencies. \n • If you have received the appraisals and then have unanswered questions, we will be happy to provide you with independent advice. \n\n <size=53><b>What do I do if I think I have a foundation problem?</b></size> \n First, you can ask KCAF and your townshall whether anything is known in the archive about possible foundation problems in your municipality and your neighborhood. Foundation research is required to be sure whether there is something wrong with your foundation. You have this done by a specialized research agency. Is your home part of a building block? Then it is better to have foundation research carried out on the entire block. This is also cheaper per owner. \n\n <size=53><b> Can KCAF help me with foundation research and any further approach?</b></size> \n KCAF cannot and may not carry out foundation research itself, draw up recovery plans and provide guidance in this. This is reserved for consultancies and foundation contractors. KCAF can help with general advice, education and information. In consultation, a KCAF consultant takes care of this for groups of owners (of a building block or of a neighborhood). KCAF can also help with the search for solutions in consultation with the municipality, banks, etc."
+      },
 		{
 		  "Key": "DE",
 		  "Value": "Ok!"
@@ -190,14 +190,14 @@
 	{
 	  "Key": "INFORMATION_CONTACT_TEXT",
 	  "Value": [
-		{
-		  "Key": "NL",
-		  "Value": "<b> Contact informatie KCAF</b>\n Email: info@kcad.nl \n Contactinformatie directeur: d.dejong@kcaf.nl \n Webpagina: https://www.kcaf.nl/contact-kcaf/ \n Telefoon: 030 608 1001 \n <b> Contact informatie SoilMatesStudios</b>\n Email: soilmatesstudio@gmail.com \n WebPagina: https://soilmatesblog.wordpress.com/"
-		},
-		{
-		  "Key": "EN",
-		  "Value": "<b> Contact information KCAF</b>\n Email: info@kcad.nl \n Contact the CEO directly: d.dejong@kcaf.nl \n Webpage: https://www.kcaf.nl/contact-kcaf/ \n Phone: 030 608 1001 \n <b> Contact information SoilMatesStudios</b>\n Email: soilmatesstudio@gmail.com \n WebPage: https://soilmatesblog.wordpress.com/"
-		},
+      {
+        "Key": "NL",
+        "Value": "<size=53><b> Contact informatie KCAF</b></size>\n Email: info@kcad.nl \n\n Contactinformatie directeur: d.dejong@kcaf.nl \n\n Webpagina: https://www.kcaf.nl/contact-kcaf/ \n Telefoon: 030 608 1001 \n\n\n <size=53><b> Contact informatie SoilMatesStudios</b></size>\n Email: soilmatesstudio@gmail.com \n\n WebPagina: https://soilmatesblog.wordpress.com/"
+      },
+      {
+        "Key": "EN",
+        "Value": "<size=53><b> Contact information KCAF</b></size>\n Email: info@kcad.nl \n\n Contact the CEO directly: d.dejong@kcaf.nl \n\n Webpage: https://www.kcaf.nl/contact-kcaf/ \n Phone: 030 608 1001 \n\n\n <size=53><b> Contact information SoilMatesStudios</b></size>\n Email: soilmatesstudio@gmail.com \n\n WebPage: https://soilmatesblog.wordpress.com/"
+      },
 		{
 		  "Key": "DE",
 		  "Value": "Ok!"
