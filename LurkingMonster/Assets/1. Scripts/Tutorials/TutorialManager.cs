@@ -1,8 +1,6 @@
-﻿using System;
-using Events.MoneyManagement;
+﻿using Events.MoneyManagement;
 using Singletons;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 using VDFramework.EventSystem;
 using VDFramework.Singleton;

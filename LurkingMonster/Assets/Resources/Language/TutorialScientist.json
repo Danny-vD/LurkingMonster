@@ -1,0 +1,69 @@
+{
+  "Variables": [
+	{
+	  "Key": "TUTORIAL_S_1",
+	  "Value": [
+        {
+            "Key": "NL",
+            "Value": "Welkom bij de onderzoeksfaciliteit! Ik ben de operator van dit bedrijf, Kendra."
+        },
+        {
+            "Key": "EN",
+            "Value": "Welcome to the Research Facility! I am the operator of this business, Kendra."
+        }
+	  ]
+	},
+	{
+	  "Key": "TUTORIAL_S_2",
+	  "Value": [
+        {
+            "Key": "NL",
+            "Value": "Wij ruilen uw grondmonsters in voor artikelen. Om monsters te behalen, moet je speciale prestaties in deze stad behalen."
+        },
+        {
+            "Key": "EN",
+            "Value": "We trade your soil samples into items. To retrieve samples you have to complete special achievements in this city."
+        }
+	  ]
+	},
+	{
+	  "Key": "TUTORIAL_S_3",
+	  "Value": [
+        {
+            "Key": "NL",
+            "Value": "Met die monsters onderzoeken we het probleem van de lokale bodemdaling. Je vraagt ​​je misschien af ​​waarom je van deze handel kunt profiteren, ik ben blij dat je dat vraagt."
+        },
+        {
+            "Key": "EN",
+            "Value": "We use those samples to research into the problem of local land subsidence. You may wonder why you could profit from this trade, I’m glad that you asked."
+        }
+	  ]
+	},
+	{
+	  "Key": "TUTORIAL_S_4",
+	  "Value": [
+        {
+            "Key": "NL",
+            "Value": "Hier kan je de grondmonsters gebruiken om speciale items te verhandelen die tijdelijk kunnen helpen bij het bodemdaling probleem in je stad. Elk item heeft zijn eigen voordelen, die kun je lezen in de beschrijving van het item."
+        },
+        {
+            "Key": "EN",
+            "Value": "Here you can use the soil samples to trade special items that can temporarily help out with the land subsidence problem in your city. Each item comes with its own perks, you can read about those perks in the description of the item."
+        }
+	  ]
+	},
+	{
+	  "Key": "TUTORIAL_S_5",
+	  "Value": [
+        {
+            "Key": "NL",
+            "Value": "Om te zien hoever je bent gevorderd met je prestaties, kun je dat controleren in het Profiel menu. Bedankt voor het steunen van ons onderzoek, veel succes!"
+        },
+        {
+            "Key": "EN",
+            "Value": "To see how far you have progressed with your Achievements, you can check that in the ProfileMenu. Thank you for supporting our research, good luck!"
+        }
+	  ]
+	}
+  ]
+}

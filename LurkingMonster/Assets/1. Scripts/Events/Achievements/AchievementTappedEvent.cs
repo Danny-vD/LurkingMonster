@@ -1,7 +1,5 @@
-﻿using FMOD;
-using Gameplay.Achievements;
+﻿using Gameplay.Achievements;
 using VDFramework.EventSystem;
-using Debug = UnityEngine.Debug;
 
 namespace Events.Achievements
 {

@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using Interfaces;
-using UI.Market;
+﻿using UI.Market;
 using UnityEngine;
 using VDFramework;
 using VDFramework.EventSystem;

@@ -4,15 +4,14 @@ using Singletons;
 using TMPro;
 using Utility;
 using VDFramework;
+using VDFramework.EventSystem;
 
 namespace UI.TextScrips
 {
 	public class NameText : BetterMonoBehaviour
 	{
 		private TextMeshProUGUI text;
-
-		private Action setName;
-
+		
 		private void Awake()
 		{
 			text = GetComponent<TextMeshProUGUI>();
@@ -21,25 +20,21 @@ namespace UI.TextScrips
 			AddListener();
 		}
 
-		private void Update()
-		{
-			if (string.IsNullOrEmpty(UserSettings.GameData.UserName))
-			{
-				return;
-			}
-
-			text.text = UserSettings.GameData.UserName;
-			Destroy(this);
-		}
-		
 		private void AddListener()
 		{
 			LanguageChangedEvent.ParameterlessListeners += SetDefaultName;
+			EventManager.Instance.AddListener<InputChangedEvent>(SetName); 
 		}
 
+		private void SetName()
+		{
+			text.text = UserSettings.GameData.UserName;
+		}
+		
 		private void RemoveListener()
 		{
 			LanguageChangedEvent.ParameterlessListeners -= SetDefaultName;
+			EventManager.Instance.RemoveListener<InputChangedEvent>(SetName);
 		}
 
 		private void SetDefaultName()
@@ -49,6 +44,11 @@ namespace UI.TextScrips
 		
 		private void OnDestroy()
 		{
+			if (!EventManager.IsInitialized)
+			{
+				return;
+			}
+			
 			RemoveListener();
 		}
 	}

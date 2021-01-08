@@ -1,10 +1,8 @@
-﻿using Events.MoneyManagement;
-using Gameplay.Buildings;
+﻿using Gameplay.Buildings;
 using Grid.Tiles.Buildings;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using VDFramework.EventSystem;
 
 namespace UI.Market.MarketScreens.SoilScreens
 {

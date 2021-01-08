@@ -2,7 +2,6 @@
 using Gameplay.Buildings;
 using Grid.Tiles.Buildings;
 using UnityEngine;
-using UnityEngine.UI;
 using VDFramework.EventSystem;
 
 namespace Tutorials

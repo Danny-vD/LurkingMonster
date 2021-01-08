@@ -1,9 +1,7 @@
 ﻿using System;
 using Enums;
-using Events;
 using Events.BuildingEvents;
 using ScriptableObjects;
-using Singletons;
 using UnityEngine;
 using VDFramework;
 using VDFramework.EventSystem;

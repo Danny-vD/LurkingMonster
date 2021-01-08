@@ -1,7 +1,6 @@
 ﻿using Enums;
 using Events;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.Video;
 using Utility;
 using VDFramework;

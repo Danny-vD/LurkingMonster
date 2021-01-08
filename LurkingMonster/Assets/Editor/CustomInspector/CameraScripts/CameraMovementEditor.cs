@@ -1,5 +1,4 @@
-﻿using System;
-using CameraScripts;
+﻿using CameraScripts;
 using UnityEditor;
 using UnityEngine;
 
@@ -8,7 +7,7 @@ namespace CustomInspector.CameraScripts
 	[CustomEditor(typeof(CameraMovement)), CanEditMultipleObjects]
 	public class CameraMovementEditor : Editor
 	{
-		CameraZoom zoom;
+		private CameraZoom zoom;
 
 		private void OnEnable()
 		{

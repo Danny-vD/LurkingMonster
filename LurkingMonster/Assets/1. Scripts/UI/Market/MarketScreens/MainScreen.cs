@@ -1,13 +1,11 @@
 ﻿using Gameplay;
 using Gameplay.Buildings;
-using Grid.Tiles;
 using Grid.Tiles.Buildings;
 using Structs.Market;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using Utility;
-using VDFramework.Extensions;
 
 namespace UI.Market.MarketScreens
 {

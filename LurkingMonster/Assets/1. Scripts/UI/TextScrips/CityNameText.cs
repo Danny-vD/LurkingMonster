@@ -1,30 +1,36 @@
 ﻿using System;
+using Events;
 using Singletons;
+using TMPro;
 using UnityEngine;
 using VDFramework;
+using VDFramework.EventSystem;
 
 namespace UI.TextScrips
 {
 	public class CityNameText : BetterMonoBehaviour
 	{
-		private TextMesh text;
-
-		private Action setName;
-
+		private TextMeshPro text;
+		
 		private void Awake()
 		{
-			text = GetComponent<TextMesh>();
+			text = GetComponent<TextMeshPro>();
+			EventManager.Instance.AddListener<InputChangedEvent>(ChangeCityName);
 		}
 
-		private void Update()
+		private void ChangeCityName()
 		{
-			if (string.IsNullOrEmpty(UserSettings.GameData.CityName))
+			text.text = UserSettings.GameData.CityName;
+		}
+
+		private void OnDestroy()
+		{
+			if (!EventManager.IsInitialized)
 			{
 				return;
 			}
-
-			text.text = UserSettings.GameData.CityName;
-			Destroy(this);
+			
+			EventManager.Instance.RemoveListener<InputChangedEvent>(ChangeCityName);
 		}
 	}
 }

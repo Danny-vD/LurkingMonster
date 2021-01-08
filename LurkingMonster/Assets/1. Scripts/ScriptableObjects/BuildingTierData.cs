@@ -1,5 +1,4 @@
 ﻿using Gameplay.Buildings;
-using Structs.Buildings;
 using UnityEngine;
 using VDFramework.Extensions;
 
