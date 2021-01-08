@@ -1,9 +1,7 @@
 ﻿using System.Collections.Generic;
-using Events;
 using UnityEngine;
 using UnityEngine.UI;
 using VDFramework;
-using VDFramework.EventSystem;
 
 namespace UI.Buttons
 {

@@ -1,6 +1,5 @@
 ﻿using Enums;
 using Gameplay.WeatherEvent;
-using Grid.Tiles;
 using UnityEngine;
 
 namespace _1._Scripts.Gameplay.WeatherEvent

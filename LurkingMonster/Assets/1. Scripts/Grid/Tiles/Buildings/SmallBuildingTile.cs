@@ -1,7 +1,4 @@
-﻿using System;
-using Enums.Grid;
-using Events;
-using VDFramework.EventSystem;
+﻿using Enums.Grid;
 
 namespace Grid.Tiles.Buildings
 {

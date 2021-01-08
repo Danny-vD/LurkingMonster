@@ -499,6 +499,29 @@ namespace Utility
 		}
 
 		/// <summary>
+		/// Returns a string that specifies the type
+		/// </summary>
+		public static string GetTypeString(SerializedProperty property)
+		{
+			if (property == null)
+			{
+				throw new ArgumentNullException(nameof(property), "SerializedProperty is null, check if the type has serializable fields");
+			}
+			
+			string type = property.type;
+
+			// Pattern: PPtr<$TYPE>
+			if (type.Contains("$"))
+			{
+				int startIndex = type.IndexOf('$') + 1;
+				type = type.Substring(startIndex);
+				type = type.TrimEnd('>');
+			}
+
+			return type;
+		}
+
+		/// <summary>
 		/// 15 pixels per indent + 11 pixels per letter
 		/// </summary>
 		private static float GetLabelWidth(string label)

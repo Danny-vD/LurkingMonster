@@ -1,7 +1,6 @@
-﻿using System;
-using Enums;
-using Structs.Buildings;
+﻿using Enums;
 using UnityEngine;
+using Utility;
 using VDFramework;
 
 namespace Gameplay.Buildings
@@ -9,48 +8,35 @@ namespace Gameplay.Buildings
 	public class BuildingChangeTexture : BetterMonoBehaviour
 	{
 		[SerializeField]
-		private BuildingTexture[] houseTextures;
+		private SerializableEnumDictionary<BuildingType, SerializableDictionary<int, Material>> crackedMaterials;
 
 		private Material defaultMaterial;
 
 		private Renderer meshRenderer;
-		
-		private static readonly int mainTex = Shader.PropertyToID("_MainTex");
-		private static readonly int bumpMap = Shader.PropertyToID("_BumpMap");
-		private static readonly int metallicGlossMap = Shader.PropertyToID("_MetallicGlossMap");
 
-		private void Awake()
+		private void Start()
 		{
-			meshRenderer                                    =  GetComponent<Renderer>();
+			meshRenderer = GetComponent<Renderer>();
 
 			CacheMaterial();
-			GetComponent<BuildingHealth>().OnBuildingRepair += ResetTextureBuilding;
-			GetComponent<BuildingUpgrade>().OnUpgrade       += CacheMaterial;
+
+			//TODO: do something else than change texture for foundation and soil?
+			GetComponent<BuildingHealth>().OnBuildingRepair   += ResetTextureBuilding;
+			GetComponent<BuildingHealth>().OnFoundationRepair += ResetTextureBuilding;
+			GetComponent<BuildingHealth>().OnSoilRepair       += ResetTextureBuilding;
+			GetComponent<BuildingUpgrade>().OnUpgrade         += CacheMaterial;
 		}
 
 		public void ChangeTexture(Building building)
 		{
-			switch (building.BuildingType)
-			{
-				case BuildingType.House: 
-					SetTextures(houseTextures[building.CurrentTier - 1]);
-					break;
-				case BuildingType.ApartmentBuilding:
-					break;
-				case BuildingType.Store:
-					break;
-				default:
-					throw new ArgumentOutOfRangeException();
-			}
+			SetTextures(building.BuildingType, building.CurrentTier);
 		}
-		
-		private void SetTextures(BuildingTexture buildingTexture)
+
+		private void SetTextures(BuildingType buildingType, int tier)
 		{
-			meshRenderer.material.SetTexture(mainTex, buildingTexture.Albedo);
-			meshRenderer.material.SetTexture(bumpMap, buildingTexture.Normal);
-			meshRenderer.material.SetTexture(metallicGlossMap, buildingTexture.Metalic);
+			meshRenderer.sharedMaterial = crackedMaterials[buildingType][tier];
 		}
-		
+
 		private void ResetTextureBuilding()
 		{
 			meshRenderer.material = defaultMaterial;

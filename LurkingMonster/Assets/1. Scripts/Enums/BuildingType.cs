@@ -3,7 +3,7 @@
     public enum BuildingType
     {
         House,
-        ApartmentBuilding,
+        Apartment,
 		Store,
     }
 }

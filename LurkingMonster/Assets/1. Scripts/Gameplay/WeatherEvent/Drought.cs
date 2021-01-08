@@ -1,5 +1,4 @@
-﻿using System;
-using Enums;
+﻿using Enums;
 using Gameplay.WeatherEvent;
 using UnityEngine;
 

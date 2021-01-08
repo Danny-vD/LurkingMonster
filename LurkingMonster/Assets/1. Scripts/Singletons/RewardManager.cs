@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Enums;
 using Events;
+using Events.Achievements;
 using VDFramework.EventSystem;
 using VDFramework.Extensions;
 using VDFramework.Singleton;
@@ -16,7 +17,7 @@ namespace Singletons
 		private Dictionary<BuildingType, bool> buildingReward;
 
 		private int counter = 0;
-		
+
 		protected override void Awake()
 		{
 			soilReward = new Dictionary<SoilType, bool>();
@@ -26,6 +27,18 @@ namespace Singletons
 			AddSoilTypes();
 			AddFoundationTypes();
 			AddBuildingTypes();
+			
+			if (UserSettings.SettingsExist)
+			{
+				counter = UserSettings.GameData.AchievementCounter;
+			}
+			
+			UserSettings.OnGameQuit += SaveData;
+		}
+
+		private void SaveData()
+		{
+			UserSettings.GameData.AchievementCounter = counter;
 		}
 
 		public bool IsUnlocked(object obj)
@@ -57,12 +70,12 @@ namespace Singletons
 					buildingReward[type3] = true;
 					break;
 				case PowerUpType type4:
-					print("Raise increased event");
 					EventManager.Instance.RaiseEvent(new PowerUpIncreaseEvent(type4));
 					break;
 			}
-
+			
 			counter--;
+			EventManager.Instance.RaiseEvent(new AchievementUnlockedEvent());
 		}
 
 		public void IncreaseCounter()

@@ -1,5 +1,4 @@
-﻿using System;
-using Enums.Grid;
+﻿using Enums.Grid;
 using Random = UnityEngine.Random;
 
 namespace Grid.Tiles

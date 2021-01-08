@@ -1,0 +1,69 @@
+{
+  "Variables": [
+	{
+	  "Key": "ACHIEVEMENT_1",
+	  "Value": [
+		{
+		  "Key": "NL",
+		  "Value": "Het aantal gebouwen dat je hebt gebouwd."
+		},
+		{
+		  "Key": "EN",
+		  "Value": "The amount of buildings that you have built."
+		}
+	  ]
+	},
+	{
+	  "Key": "ACHIEVEMENT_2",
+	  "Value": [
+		{
+		  "Key": "NL",
+		  "Value": "Het bedrag aan huur dat je hebt verzameld."
+		},
+		{
+		  "Key": "EN",
+		  "Value": "The amount of rent that you have collected."
+		}
+	  ]
+	},
+	{
+	  "Key": "ACHIEVEMENT_3",
+	  "Value": [
+		{
+		  "Key": "NL",
+		  "Value": "Het aantal reparaties dat je hebt uitgevoerd."
+		},
+		{
+		  "Key": "EN",
+		  "Value": "The amount of repairs that you have done."
+		}
+	  ]
+	},
+	{
+	  "Key": "ACHIEVEMENT_4",
+	  "Value": [
+		{
+		  "Key": "NL",
+		  "Value": "Het aantal percelen dat je hebt gekocht."
+		},
+		{
+		  "Key": "EN",
+		  "Value": "The amount of plots that you have bought."
+		}
+	  ]
+	},
+	{
+	  "Key": "ACHIEVEMENT_5",
+	  "Value": [
+		{
+		  "Key": "NL",
+		  "Value": "Het aantal upgrades dat je aan een gebouw hebt aangebracht."
+		},
+		{
+		  "Key": "EN",
+		  "Value": "The amount of upgrades that you have made to a building."
+		}
+	  ]
+	}
+  ]
+}

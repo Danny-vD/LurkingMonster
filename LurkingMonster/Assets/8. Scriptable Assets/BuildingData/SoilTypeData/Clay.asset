@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86a62c3d0c2d4d03854b5375ed7d03e9, type: 3}
   m_Name: Clay
   m_EditorClassIdentifier: 
-  buildCost: 200
-  removeCost: 100
-  maxHealth: 180
-  materials: []
+  Prefabs:
+  - {fileID: 6676891312975356400, guid: 8f05eaef4fee60e468424ed95a322985, type: 3}
+  BuildCost: 50
+  RepairCost: 50
+  RemoveCost: 50
+  MaxHealth: 180

@@ -1,10 +1,11 @@
 ﻿using System.Collections.Generic;
+using Enums;
 using Gameplay.Buildings;
 using Grid.Tiles.Buildings;
 using Structs.Market;
 using UI.Market.MarketScreens.BuildingScreens;
 using UnityEngine;
-using VDFramework.Extensions;
+using Utility;
 using VDFramework.Utility;
 
 namespace UI.Market.ExtensionScreens
@@ -12,74 +13,56 @@ namespace UI.Market.ExtensionScreens
 	[RequireComponent(typeof(BuildingBuyScreen))]
 	public class BuildingBuyScreenText : AbstractMarketExtension
 	{
-		private bool hasSetText;
-
-		private StringVariableWriter typeTextWriter;
-		private StringVariableWriter priceTextWriter;
-		private StringVariableWriter healthTextWriter;
-		private StringVariableWriter rentTextWriter;
-		private StringVariableWriter upgradeTextWriter;
+		private const string priceKey = "PRICE_DYNAMIC";
+		private const string healthKey = "HEALTH_DYNAMIC";
+		private const string rentKey = "RENT_DYNAMIC";
+		private const string upgradeKey = "UPGRADES_DYNAMIC";
 		
+		private StringVariableWriter typeTextWriter;
+
 		protected override void ActivateExtension(AbstractBuildingTile tile, MarketManager manager)
 		{
-			if (hasSetText)
-			{
-				return;
-			}
+			SerializableEnumDictionary<BuildingType, BuyButtonData> buildingButtons = GetComponent<BuildingBuyScreen>().GetbuyButtonData();
 
-			hasSetText = true;
-
-			List<BuildingButtonData> buildingButtons = GetComponent<BuildingBuyScreen>().GetbuyButtonData();
-			
-			foreach (BuildingButtonData buttonData in buildingButtons)
+			foreach (KeyValuePair<BuildingType, BuyButtonData> buttonData in buildingButtons)
 			{
 				SetText(buttonData, tile);
 			}
 		}
 
-		private void SetText(BuildingButtonData buttonData, AbstractBuildingTile tile)
+		private void SetText(KeyValuePair<BuildingType, BuyButtonData> buttonData, AbstractBuildingTile tile)
 		{
 			BuildingData[] data = tile.GetBuildingData(buttonData.Key);
-			
+
 			// Type
 			if (typeTextWriter == null)
 			{
-				typeTextWriter = new StringVariableWriter(buttonData.Text.Type.text);
+				typeTextWriter = new StringVariableWriter(buttonData.Value.Text.Type.text);
 			}
 
-			buttonData.Text.Type.text = typeTextWriter.UpdateText(buttonData.Key.ToString().InsertSpaceBeforeCapitals());
-			
+			string type = LanguageUtil.GetJsonString(buttonData.Key.ToString().ToUpper());
+			buttonData.Value.Text.Type.text = typeTextWriter.UpdateText(type);
+
 			// Price
-			if (priceTextWriter == null)
-			{
-				priceTextWriter = new StringVariableWriter(buttonData.Text.Price.text);
-			}
+			buttonData.Value.Text.Price.text = string.Format(GetString(priceKey), data[0].Price);
 
-			buttonData.Text.Price.text = priceTextWriter.UpdateText(data[0].Price);
-			
 			// Health
-			if (healthTextWriter == null)
-			{
-				healthTextWriter = new StringVariableWriter(buttonData.Text.Health.text);
-			}
+			buttonData.Value.Text.Health.text = string.Format(GetString(healthKey), data[0].MaxHealth);
 
-			buttonData.Text.Health.text = healthTextWriter.UpdateText(data[0].MaxHealth);
-			
 			// Rent
-			if (rentTextWriter == null)
-			{
-				rentTextWriter = new StringVariableWriter(buttonData.Text.Rent.text);
-			}
-
-			buttonData.Text.Rent.text = rentTextWriter.UpdateText(data[0].Rent);
+			float secondsUntilRent = tile.Building.GetComponent<BuildingRent>().TimeUntilRent;
+			float rentPerMinute = 60.0f / secondsUntilRent;
+			float rentcollectionsPerHour = rentPerMinute * 60.0f;
 			
-			// Upgrades
-			if (upgradeTextWriter == null)
-			{
-				upgradeTextWriter = new StringVariableWriter(buttonData.Text.Upgrades.text);
-			}
+			buttonData.Value.Text.Rent.text = string.Format(GetString(rentKey), data[0].Rent * rentcollectionsPerHour);
 
-			buttonData.Text.Upgrades.text = upgradeTextWriter.UpdateText(data.Length);
+			// Upgrades
+			buttonData.Value.Text.Upgrades.text = string.Format(GetString(upgradeKey), data.Length);
+		}
+
+		private static string GetString(string key)
+		{
+			return LanguageUtil.GetJsonString(key);
 		}
 	}
 }

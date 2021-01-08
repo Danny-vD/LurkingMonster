@@ -5,7 +5,6 @@ using Events;
 using Gameplay;
 using IO;
 using UnityEngine;
-using Utility;
 using VDFramework.EventSystem;
 using VDFramework.Singleton;
 using VDFramework.Extensions;
@@ -35,12 +34,13 @@ namespace Singletons
 		{
 			powerUps = new[]
 			{
-				new PowerUp(false, 150f, "Monster Feed", PowerUpType.AvoidMonster),
-				new PowerUp(false, 100f, "KCAF Manager", PowerUpType.FixProblems),
+				//TODO: use a formatted json string to print the actual time
+				new PowerUp(false, 120f, "Monster Feed", PowerUpType.AvoidMonster),
+				new PowerUp(false, 120f, "KCAF Manager", PowerUpType.FixProblems),
 				new PowerUp(false, 300f, "Time Stop", PowerUpType.AvoidWeatherEvent)
 			};
 			
-			//TODO change
+			//TODO change: don't start with powerups
 			if (!UserSettings.SettingsExist)
 			{
 				avoidMonsters = 1;
@@ -67,6 +67,8 @@ namespace Singletons
 			powerUpTimer.StartTimer(powerUp.Timer, () => DeactivatePowerUp(powerUpType), powerUpType);
 			
 			ChangePowerUpAmount(powerUpType, -1);
+			
+			EventManager.Instance.RaiseEvent(new PowerUpActivateEvent(powerUpType));
 		}
 
 		private void ActivatePowerUpOnLoad(float time, PowerUpType powerUpType)
@@ -80,12 +82,16 @@ namespace Singletons
 			powerUp.IsActive = true;
 			powerUpTimer.StartTimer(powerUp.Timer, () => DeactivatePowerUp(powerUpType), powerUpType);
 			powerUpTimer.Timer = time;
+			
+			EventManager.Instance.RaiseEvent(new PowerUpActivateEvent(powerUpType));
 		}
 
 		private void DeactivatePowerUp(PowerUpType powerUpType)
 		{
 			PowerUp powerUp = powerUps.First(item => item.PowerUpType == powerUpType);
 			powerUp.IsActive = false;
+			
+			EventManager.Instance.RaiseEvent(new PowerUpDisableEvent(powerUpType));
 		}
 
 		private void AddPowerUp(PowerUpIncreaseEvent powerType)

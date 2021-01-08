@@ -39,6 +39,8 @@ namespace Grid.Tiles.Buildings
 		public bool HasBuilding => Building;
 		public bool HasDebris => debrisObject;
 		public int DebrisRemovalCost => DestroyedBuildingData.CleanupCosts;
+		
+		public int DestroyedBuildingTier { get; private set; }
 
 		protected virtual void Awake()
 		{
@@ -78,8 +80,8 @@ namespace Grid.Tiles.Buildings
 
 		public virtual void SpawnBuilding(bool raiseEvent)
 		{
-			RemoveSoil();
 			RemoveFoundation();
+			RemoveSoil();
 			
 			ToggleProps(false);
 			Building = spawner.SpawnBuilding(buildingType, FirstTierData.Foundation, FirstTierData.SoilType);
@@ -93,6 +95,7 @@ namespace Grid.Tiles.Buildings
 		public virtual void RemoveSoil()
 		{
 			Destroy(Soil);
+			
 			ToggleProps(true);
 
 			meshRenderer.enabled = true;
@@ -111,17 +114,17 @@ namespace Grid.Tiles.Buildings
 
 		public int GetSoilPrice()
 		{
-			return spawner.GetSoilData(GetSoilType()).BuildCost;
+			return GetCurrentSoilData().BuildCost;
 		}
 
 		public int GetFoundationPrice()
 		{
-			return spawner.GetFoundationData(GetFoundationType()).BuildCost;
+			return GetCurrentFoundationData().BuildCost;
 		}
 
 		public int GetBuildingPrice()
 		{
-			return FirstTierData.Price;
+			return GetCurrentFirstTierData().Price;
 		}
 
 		public SoilTypeData GetCurrentSoilData()
@@ -142,6 +145,11 @@ namespace Grid.Tiles.Buildings
 		public FoundationTypeData GetFoundationData(FoundationType foundation)
 		{
 			return spawner.GetFoundationData(foundation);
+		}
+
+		public BuildingData GetCurrentFirstTierData()
+		{
+			return FirstTierData;
 		}
 		
 		public BuildingData[] GetBuildingData(BuildingType buildingType)
@@ -180,6 +188,22 @@ namespace Grid.Tiles.Buildings
 			return buildingType;
 		}
 
+		public void SpawnDebris(BuildingType buildingType, int buildingTier)
+		{
+			RemoveFoundation();
+			RemoveSoil();
+			
+			ToggleProps(false);
+			
+			int tier = Mathf.Max(0, buildingTier - 1);
+
+			DestroyedBuildingData = spawner.GetBuildingData(buildingType, GetFoundationType(), GetSoilType())[tier];
+
+			GameObject prefab = debrisMeshes.GetPrefab(buildingType, tier);
+
+			debrisObject = Instantiate(prefab, spawner.CachedTransform.position, spawner.CachedTransform.rotation);
+		}
+		
 		private void SpawnBrokenHouseAsset(BuildingConsumedEvent buildingConsumedEvent)
 		{
 			Building building = buildingConsumedEvent.Building;
@@ -189,7 +213,9 @@ namespace Grid.Tiles.Buildings
 				return;
 			}
 
-			SpawnDebris(buildingType, building.CurrentTier);
+			DestroyedBuildingTier = building.CurrentTier;
+			
+			SpawnDebris(buildingType, DestroyedBuildingTier);
 		}
 
 		private void ToggleProps(bool active)
@@ -198,20 +224,6 @@ namespace Grid.Tiles.Buildings
 			{
 				propRenderer.enabled = active;
 			}
-		}
-
-		public void SpawnDebris(BuildingType buildingType, int buildingTier)
-		{
-			RemoveFoundation();
-			RemoveSoil();
-			
-			int tier = Mathf.Max(0, buildingTier - 1);
-
-			DestroyedBuildingData = spawner.GetBuildingData(buildingType, GetFoundationType(), GetSoilType())[tier];
-
-			GameObject prefab = debrisMeshes.GetPrefab(buildingType, tier);
-
-			debrisObject = Instantiate(prefab, spawner.CachedTransform.position, spawner.CachedTransform.rotation);
 		}
 	}
 }

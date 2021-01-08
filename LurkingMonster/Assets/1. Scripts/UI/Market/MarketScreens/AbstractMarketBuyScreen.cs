@@ -1,40 +1,43 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Grid.Tiles.Buildings;
-using Interfaces;
+using Structs.Market;
+using Structs.Utility;
 using UnityEngine;
 using UnityEngine.UI;
-using VDFramework.Interfaces;
-using VDFramework.Utility;
+using Utility;
 
 namespace UI.Market.MarketScreens
 {
-	public abstract class AbstractMarketBuyScreen<TBuyType, TBuyButtonData> : AbstractMarketScreen
+	public abstract class AbstractMarketBuyScreen<TBuyType> : AbstractMarketScreen
 		where TBuyType : struct, Enum
-		where TBuyButtonData : struct, IBuyButtonData, IKeyValuePair<TBuyType, Button>
 	{
 		[SerializeField]
 		private Button btnBuy = null;
 
-#pragma warning disable 649 // is generic, therefore not recognised as serialized, but it does work
 		[SerializeField]
-		private List<TBuyButtonData> buyButtonData;
-#pragma warning restore 649
+		private SerializableEnumDictionary<TBuyType, BuyButtonData> buttonDataPerBuyType;
 
-		private TBuyButtonData? selectedButton;
-
-		public List<TBuyButtonData> GetbuyButtonData()
-		{
-			return new List<TBuyButtonData>(buyButtonData);
-		}
+		private SerializableKeyValuePair<TBuyType, BuyButtonData>? selectedButtonDatum;
 
 		protected override void SetupScreen(AbstractBuildingTile tile, MarketManager manager)
 		{
-			SetupBuyButton(tile, manager);
+			selectedButtonDatum = null;
 			SetupTypeButtons(tile, manager);
 		}
 
-		protected abstract void OnSelectBuyButton(AbstractBuildingTile tile, TBuyButtonData data);
+		public SerializableEnumDictionary<TBuyType, BuyButtonData> GetbuyButtonData()
+		{
+			return buttonDataPerBuyType;
+		}
+		
+		protected abstract void OnSelectBuyButton(AbstractBuildingTile tile, TBuyType buyType);
+
+		//TODO: use the reward manager for the overrides
+		protected abstract TBuyType[] GetUnlockedTypes();
+
+		protected abstract int GetPrice(AbstractBuildingTile tile);
 
 		protected virtual void BuyButtonClick(AbstractBuildingTile tile, MarketManager manager)
 		{
@@ -43,60 +46,93 @@ namespace UI.Market.MarketScreens
 
 		private void SetupBuyButton(AbstractBuildingTile tile, MarketManager manager)
 		{
-			//TODO: block the button if we can't affort it
+			int price = GetPrice(tile);
+
+			if (!CanAffort(price))
+			{
+				BlockButton(btnBuy, true);
+				return;
+			}
+
+			BlockButton(btnBuy, false);
+
 			SetButton(btnBuy, OnClick);
 
 			void OnClick()
 			{
+				ReduceMoney(price);
 				BuyButtonClick(tile, manager);
 			}
 		}
 
 		private void SetupTypeButtons(AbstractBuildingTile tile, MarketManager manager)
 		{
-			foreach (TBuyButtonData buildingButtonDatum in buyButtonData)
-			{
-				// TODO: block the button if it's not unlocked yet
-				SetButton(buildingButtonDatum.Value, () => Select(tile, buildingButtonDatum));
-			}
+			TBuyType[] unlocked = GetUnlockedTypes();
 
-			Select(tile, selectedButton ?? buyButtonData[0]);
+			foreach (KeyValuePair<TBuyType, BuyButtonData> pair in buttonDataPerBuyType)
+			{
+				Button button = pair.Value.Button;
+
+				if (!unlocked.Contains(pair.Key))
+				{
+					BlockButton(button, true);
+					continue;
+				}
+
+				if (selectedButtonDatum == null)
+				{
+					Select(tile, pair, manager);
+				}
+
+				BlockButton(button, false);
+				SetButton(button, () => Select(tile, pair, manager));
+			}
 		}
 
-		private void Select(AbstractBuildingTile tile, TBuyButtonData datum)
+		private void Select(AbstractBuildingTile tile, SerializableKeyValuePair<TBuyType, BuyButtonData> pair, MarketManager manager)
 		{
-			if (selectedButton != null && selectedButton.Value.Equals(datum))
+			// if we select the selected button, don't do anything
+			if (selectedButtonDatum != null && selectedButtonDatum.Value.Equals(pair))
 			{
 				return;
 			}
 
-			SetTextActive(datum, true);
-			btnBuy.transform.position = datum.Value.transform.position;
-			
-			OnSelectBuyButton(tile, datum);
+			BuyButtonData buyButtondatum = pair.Value;
+			SetTextActive(buyButtondatum, true);
+			btnBuy.transform.position = buyButtondatum.Button.transform.position;
 
-			Deselect(selectedButton);
-			selectedButton = datum;
+			OnSelectBuyButton(tile, pair.Key);
+
+			Deselect(selectedButtonDatum);
+			selectedButtonDatum = pair;
+
+			SetupBuyButton(tile, manager);
 		}
 
-		private static void Deselect(TBuyButtonData? datum)
+		private static void Deselect(SerializableKeyValuePair<TBuyType, BuyButtonData>? datum)
 		{
 			if (datum != null)
 			{
-				SetTextActive(datum.Value, false);
+				SetTextActive(datum.Value.Value, false);
 			}
 		}
 
-		protected void PopulateDictionary()
+		private static void SetTextActive(BuyButtonData buttonData, bool active)
 		{
-			EnumDictionaryUtil.PopulateEnumDictionary<TBuyButtonData, TBuyType, Button>(buyButtonData);
-		}
+			if (buttonData.Text.Rent)
+			{
+				buttonData.Text.Rent.gameObject.SetActive(active);
+			}
 
-		private static void SetTextActive(TBuyButtonData buttonData, bool active)
-		{
-			buttonData.Text.Rent.gameObject.SetActive(active);
-			buttonData.Text.Health.gameObject.SetActive(active);
-			buttonData.Text.Upgrades.gameObject.SetActive(active);
+			if (buttonData.Text.Health)
+			{
+				buttonData.Text.Health.gameObject.SetActive(active);
+			}
+
+			if (buttonData.Text.Upgrades)
+			{
+				buttonData.Text.Upgrades.gameObject.SetActive(active);
+			}
 		}
 	}
 }

@@ -5,8 +5,6 @@ using VDFramework;
 
 namespace CameraScripts
 {
-	using UnityEngine.Serialization;
-
 	public class CameraZoom : BetterMonoBehaviour
 	{
 		[SerializeField]

@@ -1,16 +1,8 @@
-﻿using System.Collections.Generic;
-using System.IO;
+﻿using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
-using Audio;
 using Enums;
-using Enums.Audio;
-using Grid;
-using Grid.Tiles;
 using IO;
-using Structs;
-using Tests;
 using UnityEngine;
-using Utility;
 using VDFramework.Singleton;
 
 namespace Singletons
@@ -46,7 +38,9 @@ namespace Singletons
 			}
 		}
 
-		public static bool SettingsExist
+		public static bool SettingsExist => File.Exists(SavePath);
+
+		public static string SavePath
 		{
 			get
 			{
@@ -56,7 +50,7 @@ namespace Singletons
 					destination = Application.persistentDataPath + "/save.dat";
 				}
 
-				return File.Exists(destination);
+				return destination;
 			}
 		}
 
@@ -87,12 +81,12 @@ namespace Singletons
 		{
 			if (pauseStatus)
 			{
+				OnGameQuit?.Invoke();
+				
 				if (gameData == null)
 				{
 					return;
 				}
-
-				OnGameQuit?.Invoke();
 
 				SaveFile();
 			}
@@ -137,8 +131,6 @@ namespace Singletons
 			bool vibrate = gameData == null || gameData.Vibrate;
  
 			gameData = new GameData(startMoney, vibrate);
-
-			//RunTimeTests.TestStartMoney();
 		}
 	}
 }

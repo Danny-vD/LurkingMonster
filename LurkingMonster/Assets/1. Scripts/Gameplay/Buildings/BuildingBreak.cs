@@ -1,4 +1,6 @@
-﻿using Events;
+﻿using Animations;
+using Enums;
+using Events;
 using Events.BuildingEvents;
 using Singletons;
 using UnityEngine;
@@ -10,8 +12,7 @@ namespace Gameplay.Buildings
 {
 	public class BuildingBreak : BetterMonoBehaviour
 	{
-		[SerializeField]
-		private GameObject crackPopup = null;
+		private AnimateCrackPopup animateCrackPopup;
 
 		public Bar bar;
 
@@ -21,11 +22,10 @@ namespace Gameplay.Buildings
 
 		public void Awake()
 		{
-			crackPopup.SetActive(false);
-
-			building       = GetComponent<Building>();
-			buildingHealth = GetComponent<BuildingHealth>();
+			building              = GetComponent<Building>();
+			buildingHealth        = GetComponent<BuildingHealth>();
 			buildingChangeTexture = GetComponent<BuildingChangeTexture>();
+			animateCrackPopup     = GetComponentInChildren<AnimateCrackPopup>();
 		}
 
 		// Update is called once per frame
@@ -37,24 +37,10 @@ namespace Gameplay.Buildings
 			buildingHealth.DamageFoundation(damage);
 			buildingHealth.DamageBuilding(damage);
 
-			buildingHealth.SetLowestHealthBar(bar);
-
-			//TODO: make 3 seperate popups instead?
-			//When health is less then 25% show cracks
-			if (bar.slider.value <= bar.MaxValue / 100 * 25)
-			{
-				if (!crackPopup.activeInHierarchy)
-				{
-					crackPopup.SetActive(true);
-					buildingChangeTexture.ChangeTexture(building);
-				}
-			}
-			else if (crackPopup.activeInHierarchy)
-			{
-				// Necessesary in case the player repairs without clicking on popup
-				crackPopup.SetActive(false);
-			}
-
+			BreakType breakType = buildingHealth.SetLowestHealthBar(bar);
+			
+			ShowPopup(breakType);
+			
 			if (bar.slider.value <= 0 && !PowerUpManager.Instance.AvoidMonsterFeedActive)
 			{
 				building.RemoveBuilding();
@@ -63,10 +49,27 @@ namespace Gameplay.Buildings
 			}
 		}
 
+		private void ShowPopup(BreakType breakType)
+		{
+			//When health is less then 25% show cracks
+			if (bar.slider.value <= bar.MaxValue / 100 * 25)
+			{
+				
+				if (!animateCrackPopup.gameObject.activeInHierarchy)
+				{
+					animateCrackPopup.SetTrigger(breakType);
+					buildingChangeTexture.ChangeTexture(building);
+				}
+			}
+			else if (animateCrackPopup.gameObject.activeInHierarchy)
+			{
+				// Necessesary in case the player repairs without clicking on popup
+				animateCrackPopup.gameObject.SetActive(false);
+			}
+		}
+
 		public void CrackedPopupClicked()
 		{
-			crackPopup.SetActive(false);
-
 			if (PowerUpManager.Instance.FixProblemsActive)
 			{
 				buildingHealth.ResetHealth();

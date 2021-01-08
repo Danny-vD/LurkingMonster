@@ -12,12 +12,16 @@ namespace IO
 
 		protected override void Awake()
 		{
+			base.Awake();
+			
 			variables = new JsonVariables();
 			
 			foreach (TextAsset file in Resources.LoadAll<TextAsset>("Language"))
 			{
 				variables.AddVariables(JsonUtility.FromJson<JsonVariables>(file.ToString()));
 			}
+			
+			DontDestroyOnLoad(true);
 		}
 
 		public string GetVariable(string variableName, string keyName)

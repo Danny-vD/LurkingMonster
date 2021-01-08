@@ -1,7 +1,6 @@
 ﻿using System;
 using Enums;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Gameplay.Buildings
 {

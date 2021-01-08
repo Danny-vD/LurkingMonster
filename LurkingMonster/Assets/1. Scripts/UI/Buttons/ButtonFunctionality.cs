@@ -1,7 +1,4 @@
-﻿using UnityEngine;
-using UnityEngine.SceneManagement;
-using UnityEngine.UI;
-using VDFramework;
+﻿using VDFramework;
 
 namespace UI.Buttons
 {

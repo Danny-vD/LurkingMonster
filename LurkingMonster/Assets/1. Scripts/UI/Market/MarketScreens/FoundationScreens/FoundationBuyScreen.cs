@@ -1,15 +1,15 @@
-﻿using Enums;
+﻿using System.Linq;
+using Enums;
 using Grid.Tiles.Buildings;
-using Structs.Market;
-using UnityEngine;
+using VDFramework.Extensions;
 
 namespace UI.Market.MarketScreens.FoundationScreens
 {
-	public class FoundationBuyScreen : AbstractMarketBuyScreen<FoundationType, FoundationButtonData>
+	public class FoundationBuyScreen : AbstractMarketBuyScreen<FoundationType>
 	{
-		protected override void OnSelectBuyButton(AbstractBuildingTile tile, FoundationButtonData data)
+		protected override void OnSelectBuyButton(AbstractBuildingTile tile, FoundationType buyType)
 		{
-			tile.SetFoundationType(data.Key);
+			tile.SetFoundationType(buyType);
 		}
 
 		protected override void BuyButtonClick(AbstractBuildingTile tile, MarketManager manager)
@@ -17,11 +17,9 @@ namespace UI.Market.MarketScreens.FoundationScreens
 			tile.SpawnFoundation();
 			base.BuyButtonClick(tile, manager);
 		}
-		
-		[ContextMenu("Populate")]
-		private void Populate()
-		{
-			PopulateDictionary();
-		}
+
+		protected override FoundationType[] GetUnlockedTypes() => default(FoundationType).GetValues().ToArray();
+
+		protected override int GetPrice(AbstractBuildingTile tile) => tile.GetFoundationPrice();
 	}
 }

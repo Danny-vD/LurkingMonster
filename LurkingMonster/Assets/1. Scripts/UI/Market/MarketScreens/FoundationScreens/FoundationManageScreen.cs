@@ -19,32 +19,65 @@ namespace UI.Market.MarketScreens.FoundationScreens
 
 		[SerializeField]
 		private TextMeshProUGUI repairText = null;
-		
+
 		protected override void SetupScreen(AbstractBuildingTile tile, MarketManager manager)
 		{
 			if (tile.HasBuilding)
 			{
+				BlockButton(btnRepair, false);
 				SetupRepairButton(tile, manager);
 			}
-			
+			else
+			{
+				BlockButton(btnRepair, true);
+			}
+
 			SetupDemolishButton(tile, manager);
 		}
 
 		private void SetupRepairButton(AbstractBuildingTile tile, MarketManager manager)
 		{
-			BuildingHealth buildingHealth = tile.Building.GetComponent<BuildingHealth>();
-			repairText.text = tile.GetCurrentFoundationData().RepairCost.ToString();
-			SetButton(btnRepair, buildingHealth.ResetFoundationHealth, manager.CloseMarket);
+			int price = tile.GetCurrentFoundationData().RepairCost;
+			repairText.text = price.ToString();
+
+			if (!CanAffort(price))
+			{
+				BlockButton(btnRepair, true);
+				return;
+			}
+
+			BlockButton(btnRepair, false);
+
+			SetButton(btnRepair, OnClick);
+
+			void OnClick()
+			{
+				ReduceMoney(price);
+				BuildingHealth buildingHealth = tile.Building.GetComponent<BuildingHealth>();
+				buildingHealth.ResetFoundationHealth();
+				manager.CloseMarket();
+			}
 		}
 
 		private void SetupDemolishButton(AbstractBuildingTile tile, MarketManager manager)
 		{
-			SetButton(btnDemolish, OnClick);
+			int price = tile.GetCurrentFoundationData().DestructionCost;
+			demolishText.text = price.ToString();
 
-			demolishText.text = tile.GetCurrentFoundationData().DestructionCost.ToString();
+			if (!CanAffort(price) || tile.HasBuilding)
+			{
+				BlockButton(btnDemolish, true);
+				return;
+			}
+
+			BlockButton(btnDemolish, false);
+
+			SetButton(btnDemolish, OnClick);
 
 			void OnClick()
 			{
+				ReduceMoney(price);
+
 				tile.RemoveFoundation();
 				manager.CloseMarket();
 			}

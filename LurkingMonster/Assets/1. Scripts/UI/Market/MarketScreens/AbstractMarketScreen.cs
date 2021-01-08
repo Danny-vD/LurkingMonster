@@ -1,9 +1,13 @@
 ﻿using System;
+using Events.MoneyManagement;
 using Grid.Tiles.Buildings;
+using Singletons;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 using VDFramework;
+using VDFramework.EventSystem;
+using VDFramework.UnityExtensions;
 
 namespace UI.Market.MarketScreens
 {
@@ -11,7 +15,7 @@ namespace UI.Market.MarketScreens
 	{
 		[SerializeField]
 		private Button returnButton = null;
-		
+
 		public event Action<AbstractBuildingTile, MarketManager> Extensions;
 
 		public void Hide()
@@ -26,6 +30,7 @@ namespace UI.Market.MarketScreens
 
 		public void SetReturnButton(UnityAction action)
 		{
+			// Not using SetButton because in this case it's perfectly valid to not have a return button
 			if (!returnButton)
 			{
 				return;
@@ -42,30 +47,42 @@ namespace UI.Market.MarketScreens
 		}
 
 		protected abstract void SetupScreen(AbstractBuildingTile tile, MarketManager manager);
-		
+
 		private void ActivateExtensions(AbstractBuildingTile tile, MarketManager manager)
 		{
 			Extensions?.Invoke(tile, manager);
 		}
 
-		protected void SetButton(Button button, params UnityAction[] onClickListeners)
+		protected void SetButton(Button button, UnityAction onClickListener)
 		{
 			if (!button)
 			{
 				Debug.LogWarning("A button is not set in the inspector!", this);
+				return;
 			}
 
 			button.onClick.RemoveAllListeners();
-
-			foreach (UnityAction listener in onClickListeners)
-			{
-				button.onClick.AddListener(listener);
-			}
+			button.onClick.AddListener(onClickListener);
 		}
 
-		protected virtual void OnActivate(AbstractBuildingTile arg1, MarketManager arg2)
+		protected static void BlockButton(Button button, bool block)
 		{
-			Extensions?.Invoke(arg1, arg2);
+			if (block)
+			{
+				button.onClick.RemoveAllListeners();
+			}
+
+			button.EnsureComponent<LockEnabler>().SetLocked(block);
+		}
+
+		protected static bool CanAffort(int price)
+		{
+			return MoneyManager.Instance.PlayerHasEnoughMoney(price);
+		}
+
+		protected static void ReduceMoney(int price)
+		{
+			EventManager.Instance.RaiseEvent(new DecreaseMoneyEvent(price));
 		}
 	}
 }

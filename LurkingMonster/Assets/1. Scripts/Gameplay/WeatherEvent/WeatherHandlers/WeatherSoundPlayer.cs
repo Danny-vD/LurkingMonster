@@ -10,8 +10,15 @@ namespace Gameplay.WeatherEvent.WeatherHandlers
 		private EventInstance rainWind; 
 		private EventInstance thunder;
 
+		protected override bool AddWeatherListener => false;
+
 		protected override void Start()
 		{
+			if (!AudioManager.IsInitialized)
+			{
+				return;
+			}
+			
 			rainWind = AudioPlayer.GetEventInstance(EventType.RainWind);
 			thunder  = AudioPlayer.GetEventInstance(EventType.Thunder);
 			

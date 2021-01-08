@@ -2,7 +2,6 @@
 using Enums;
 using Events.WeatherEvents;
 using ScriptableObjects;
-using UnityEngine;
 using VDFramework;
 using VDFramework.EventSystem;
 
@@ -10,8 +9,7 @@ namespace Gameplay.WeatherEvent.WeatherHandlers
 {
 	public abstract class AbstractWeatherHandler : BetterMonoBehaviour
 	{
-		[SerializeField, Tooltip("Should the instance act once or continuously on the event?")]
-		protected bool AddWeatherListener = false;
+		protected abstract bool AddWeatherListener { get; }
 
 		private AbstractWeatherEvent abstractWeatherEvent;
 

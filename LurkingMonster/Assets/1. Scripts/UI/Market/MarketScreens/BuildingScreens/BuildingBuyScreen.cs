@@ -1,15 +1,13 @@
 ﻿using Enums;
 using Grid.Tiles.Buildings;
-using Structs.Market;
-using UnityEngine;
 
 namespace UI.Market.MarketScreens.BuildingScreens
 {
-	public class BuildingBuyScreen : AbstractMarketBuyScreen<BuildingType, BuildingButtonData>
+	public class BuildingBuyScreen : AbstractMarketBuyScreen<BuildingType>
 	{
-		protected override void OnSelectBuyButton(AbstractBuildingTile tile, BuildingButtonData data)
+		protected override void OnSelectBuyButton(AbstractBuildingTile tile, BuildingType buyType)
 		{
-			tile.SetBuildingType(data.Key);
+			tile.SetBuildingType(buyType);
 		}
 
 		protected override void BuyButtonClick(AbstractBuildingTile tile, MarketManager manager)
@@ -17,11 +15,9 @@ namespace UI.Market.MarketScreens.BuildingScreens
 			tile.SpawnBuilding(true);
 			base.BuyButtonClick(tile, manager);
 		}
-		
-		[ContextMenu("Populate")]
-		private void Populate()
-		{
-			PopulateDictionary();
-		}
+
+		protected override BuildingType[] GetUnlockedTypes() => new[] {BuildingType.House, BuildingType.Store};
+
+		protected override int GetPrice(AbstractBuildingTile tile) => tile.GetBuildingPrice();
 	}
 }

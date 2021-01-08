@@ -5,7 +5,6 @@ using ScriptableObjects;
 using Structs.Buildings;
 using Structs.Buildings.TierData;
 using UnityEngine;
-using Utility;
 using VDFramework;
 using VDFramework.Extensions;
 using VDFramework.Utility;
@@ -32,11 +31,6 @@ namespace Gameplay.Buildings
 
 		[SerializeField]
 		private Vector3 buildingSpawnpoint;
-
-		private void Awake()
-		{
-			Vector3 position = CachedTransform.TransformPoint(CachedTransform.position);
-		}
 
 		public GameObject SpawnSoil(SoilType soilType)
 		{

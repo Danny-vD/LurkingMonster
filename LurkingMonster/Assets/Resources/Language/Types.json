@@ -1,0 +1,225 @@
+{
+  "Variables": [
+	{
+	  "Key": "SAND",
+	  "Value": [
+		{
+		  "Key": "NL",
+		  "Value": "Zand"
+		},
+		{
+		  "Key": "EN",
+		  "Value": "Sand"
+		}
+	  ]
+	},
+	{
+	  "Key": "LOAM",
+	  "Value": [
+		{
+		  "Key": "NL",
+		  "Value": "Leem"
+		},
+		{
+		  "Key": "EN",
+		  "Value": "Loam"
+		}
+	  ]
+	},
+	{
+	  "Key": "CLAY",
+	  "Value": [
+		{
+		  "Key": "NL",
+		  "Value": "Klei"
+		},
+		{
+		  "Key": "EN",
+		  "Value": "Clay"
+		}
+	  ]
+	},
+	{
+	  "Key": "PEAT",
+	  "Value": [
+		{
+		  "Key": "NL",
+		  "Value": "Veen"
+		},
+		{
+		  "Key": "EN",
+		  "Value": "Peat"
+		}
+	  ]
+	},
+	{
+	  "Key": "NOBUILDING!",
+	  "Value": [
+		{
+		  "Key": "NL",
+		  "Value": "Geen Gebouw!"
+		},
+		{
+		  "Key": "EN",
+		  "Value": "No Building!"
+		}
+	  ]
+	},
+	{
+	  "Key": "NOFOUNDATION!",
+	  "Value": [
+		{
+		  "Key": "NL",
+		  "Value": "Geen Fundering!"
+		},
+		{
+		  "Key": "EN",
+		  "Value": "No Foundation!"
+		}
+	  ]
+	},
+	{
+	  "Key": "NOSOIL!",
+	  "Value": [
+		{
+		  "Key": "NL",
+		  "Value": "Geen Grond!"
+		},
+		{
+		  "Key": "EN",
+		  "Value": "No Soil!"
+		}
+	  ]
+	},
+	{
+	  "Key": "HOUSE",
+	  "Value": [
+		{
+		  "Key": "NL",
+		  "Value": "Huis"
+		},
+		{
+		  "Key": "EN",
+		  "Value": "House"
+		}
+	  ]
+	},
+	{
+	  "Key": "STORE",
+	  "Value": [
+		{
+		  "Key": "NL",
+		  "Value": "Winkel"
+		},
+		{
+		  "Key": "EN",
+		  "Value": "Store"
+		}
+	  ]
+	},
+	{
+	  "Key": "APARTMENT",
+	  "Value": [
+		{
+		  "Key": "NL",
+		  "Value": "Appartement"
+		},
+		{
+		  "Key": "EN",
+		  "Value": "Apartment"
+		}
+	  ]
+	},
+	{
+	  "Key": "WOODEN_POLES",
+	  "Value": [
+		{
+		  "Key": "NL",
+		  "Value": "Houten palen"
+		},
+		{
+		  "Key": "EN",
+		  "Value": "Wooden poles"
+		}
+	  ]
+	},
+	{
+	  "Key": "REINFORCED_CONCRETE",
+	  "Value": [
+		{
+		  "Key": "NL",
+		  "Value": "Gewapend beton"
+		},
+		{
+		  "Key": "EN",
+		  "Value": "Reinforced concrete"
+		}
+	  ]
+	},
+	{
+	  "Key": "SHALLOW_FOUNDATION",
+	  "Value": [
+		{
+		  "Key": "NL",
+		  "Value": "Beton op staal"
+		},
+		{
+		  "Key": "EN",
+		  "Value": "Shallow foundation"
+		}
+	  ]
+	},
+	{
+	  "Key": "FLOATING_FLOOR_PLATE",
+	  "Value": [
+		{
+		  "Key": "NL",
+		  "Value": "Zwevende vloerplaat"
+		},
+		{
+		  "Key": "EN",
+		  "Value": "Floating floor plate"
+		}
+	  ]
+	},
+	{
+	  "Key": "POWERUP_MEAT",
+	  "Value": [
+		{
+		  "Key": "NL",
+		  "Value": "Monster voedsel"
+		},
+		{
+		  "Key": "EN",
+		  "Value": "Monster Food"
+		}
+	  ]
+	},
+	{
+	  "Key": "POWERUP_FIX_PROBLEMS",
+	  "Value": [
+		{
+		  "Key": "NL",
+		  "Value": "KCAF adviseur"
+		},
+		{
+		  "Key": "EN",
+		  "Value": "KCAF consultant"
+		}
+	  ]
+	},
+	{
+	  "Key": "POWERUP_WEATHER",
+	  "Value": [
+		{
+		  "Key": "NL",
+		  "Value": "Klok staat stil"
+		},
+		{
+		  "Key": "EN",
+		  "Value": "Time Freeze"
+		}
+	  ]
+	}
+  ]
+}

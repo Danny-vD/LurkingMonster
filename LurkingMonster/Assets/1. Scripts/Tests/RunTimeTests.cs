@@ -1,7 +1,4 @@
-﻿using Singletons;
-using UnityEngine.Assertions;
-
-namespace Tests
+﻿namespace Tests
 {
 	public static class RunTimeTests
 	{

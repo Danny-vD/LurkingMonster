@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using Enums;
+﻿using Enums;
 using Gameplay.Buildings;
 using Grid.Tiles;
 using Grid.Tiles.Buildings;
@@ -17,11 +14,10 @@ namespace Grid
 	public class GridUtil : BetterMonoBehaviour
 	{
 		private static AbstractTile[,] grid;
-		private static GridData gridData;
 
 		public static AbstractTile[,] Grid => grid ?? new AbstractTile[0, 0];
 
-		public static GridData GridData => gridData;
+		public static GridData GridData { get; private set; }
 
 		private void Start()
 		{
@@ -43,12 +39,12 @@ namespace Grid
 
 		private static void LoadData()
 		{
-			for (int index = 0; index < gridData.TileData.Count; index++)
+			for (int index = 0; index < GridData.TileData.Count; index++)
 			{
-				TileTypePerPosition tileTypePerPosition = gridData.TileData[index];
+				TileTypePerPosition tileTypePerPosition = GridData.TileData[index];
 				tileTypePerPosition.Value = UserSettings.GameData.GridData[tileTypePerPosition.Key].TileType;
 
-				gridData.TileData[index] = tileTypePerPosition;
+				GridData.TileData[index] = tileTypePerPosition;
 			}
 		}
 
@@ -115,13 +111,13 @@ namespace Grid
 
 					while (buildingTile.Building.CurrentTier != tileData.BuildingTier)
 					{
-						buildingUpgrade.Upgrade(false);
+						buildingUpgrade.Upgrade();
 					}
 				}
 			}
 		}
 
-		private void FirstTimeSetup()
+		private static void FirstTimeSetup()
 		{
 			foreach (AbstractTile tile in grid)
 			{
@@ -130,9 +126,14 @@ namespace Grid
 					buildingTile.SetSoilType(SoilType.Sand);
 					buildingTile.SetFoundationType(FoundationType.Wooden_Poles);
 					buildingTile.SetBuildingType(BuildingType.House);
-					
+
 					buildingTile.SpawnBuilding(false);
 
+					BuildingHealth buildingHealth = buildingTile.Building.GetComponent<BuildingHealth>();
+
+					buildingHealth.DamageFoundation(buildingHealth.CurrentFoundationHealth * 0.80f);
+					buildingHealth.DamageSoil(buildingHealth.CurrentSoilHealth * 0.75f);
+					
 					return;
 				}
 			}
@@ -140,7 +141,7 @@ namespace Grid
 		
 		private void GetGridData()
 		{
-			gridData = GetComponent<GridData>();
+			GridData = GetComponent<GridData>();
 
 			if (UserSettings.SettingsExist && UserSettings.GameData.GridData.Count != 0)
 			{
@@ -161,7 +162,7 @@ namespace Grid
 		{
 			UserSettings.GameData.GridData.Clear();
 
-			AbstractTile[,] grid = GridUtil.Grid;
+			AbstractTile[,] grid = Grid;
 
 			for (int y = 0; y < grid.GetLength(0); y++)
 			{

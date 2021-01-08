@@ -1,16 +1,12 @@
-﻿using System;
 using System.Collections.Generic;
 using Enums;
 using Events;
 using Events.BuildingEvents;
 using Events.MoneyManagement;
-using IO;
 using Singletons;
 using Structs;
 using UI;
 using UnityEngine;
-using UnityEngine.Serialization;
-using Utility;
 using VDFramework;
 using VDFramework.EventSystem;
 using VDFramework.UnityExtensions;
@@ -29,8 +25,8 @@ namespace Gameplay.Achievements
 		private Achievement rentCollectedAchievement;
 		private Achievement buildingSavedAchievement;
 		private Achievement buildingConsumedAchievement;
-		private Achievement amountOfPlotsAchievement;
-		private Achievement destroyHousesAchievement;
+		private Achievement buyPlotsAchievement;
+		private Achievement upgradeBuildingAchievement;
 
 		private List<Achievement> achievements;
 
@@ -38,25 +34,32 @@ namespace Gameplay.Achievements
 		{
 			achievements = new List<Achievement>();
 
-			buildingBuildAchievement = new Achievement(new int[] {5, 10, 20}, "BUILDINGSBUILDACHIEVEMENT",
-				new object[] {PowerUpType.FixProblems, SoilType.Sandy_Clay, FoundationType.Concrete_On_Steel}, "PLACEHOLDER");
-			rentCollectedAchievement = new Achievement(new int[] {1000, 10000, 100000}, "RENTCOLLECTEDACHIEVEMENT",
-				new object[] {FoundationType.Floating_Floor_Plate, SoilType.Clay, FoundationType.Reinfored_Concrete}, "PLACEHOLDER");
-			buildingSavedAchievement = new Achievement(new int[] {10, 20, 30}, "BUILDINGSAVEDACHIEVEMENT",
-				new object[] {SoilType.Peat, PowerUpType.FixProblems, SoilType.Sand}, "PLACEHOLDER");
-			buildingConsumedAchievement = new Achievement(new int[] {5, 10, 20}, "BUILDINGCONSUMEDACHIEVEMENT",
-				new object[] {WeatherEventType.Earthquake, WeatherEventType.Storm, WeatherEventType.BuildingTunnels}, "PLACEHOLDER");
-			amountOfPlotsAchievement = new Achievement(new int[] {5, 10, 20}, "AMOUNTOFPLOTSACHIEVEMENT",
-				new object[] {8, 10, BuildingType.ApartmentBuilding}, "PLACEHOLDER");
-			destroyHousesAchievement = new Achievement(new int[] {2, 5, 10}, "DESTROYHOUSESACHIEVEMENT",
-				new object[] {PowerUpType.AvoidWeatherEvent, FoundationType.Wooden_Poles, BuildingType.Store}, "PLACEHOLDER");
+			buildingBuildAchievement = new Achievement(new[] {3, 7, 10}, "BUILDINGSBUILDACHIEVEMENT",
+				new object[] {SoilType.Loam, PowerUpType.AvoidMonster, FoundationType.Shallow_Foundation}, "ACHIEVEMENT_1");
+
+			rentCollectedAchievement = new Achievement(new[] {1000, 10000, 100000}, "RENTCOLLECTEDACHIEVEMENT",
+				new object[] {FoundationType.Floating_Floor_Plate, SoilType.Clay, FoundationType.Reinforced_Concrete}, "ACHIEVEMENT_2");
+
+			buildingSavedAchievement = new Achievement(new[] {10, 20, 30}, "BUILDINGSAVEDACHIEVEMENT",
+				new object[] {SoilType.Peat, PowerUpType.FixProblems, SoilType.Sand}, "ACHIEVEMENT_3");
+
+			buyPlotsAchievement = new Achievement(new[] {5, 10, 15}, "BUYPLOTACHIEVEMENT",
+				new object[] {PowerUpType.AvoidMonster, PowerUpType.AvoidMonster, BuildingType.Apartment}, "ACHIEVEMENT_4");
+
+			upgradeBuildingAchievement = new Achievement(new[] {1, 3, 6}, "UPGRADEBUILDINGSACHIEVEMENT",
+				new object[] {PowerUpType.AvoidWeatherEvent, FoundationType.Wooden_Poles, BuildingType.Store}, "ACHIEVEMENT_5");
+
+			//TODO: make seperate system where it activates a weatherEvent when conditions are met?
+			//buildingConsumedAchievement = new Achievement(new[] {5, 10, 20}, "BUILDINGCONSUMEDACHIEVEMENT",
+			//	new object[] {BuildingType.Store, PowerUpType.AvoidMonster, PowerUpType.AvoidWeatherEvent}, "ACHIEVEMENT_6");
 
 			achievements.Add(buildingBuildAchievement);
 			achievements.Add(rentCollectedAchievement);
 			achievements.Add(buildingSavedAchievement);
-			achievements.Add(buildingConsumedAchievement);
-			achievements.Add(amountOfPlotsAchievement);
-			achievements.Add(destroyHousesAchievement);
+			achievements.Add(buyPlotsAchievement);
+			achievements.Add(upgradeBuildingAchievement);
+
+			//achievements.Add(buildingConsumedAchievement);
 
 			AddListeners();
 
@@ -68,12 +71,12 @@ namespace Gameplay.Achievements
 
 		private void AddListeners()
 		{
-			CollectRentEvent.Listeners                    += OnRentCollectListener;
-			BuildingBuildEvent.ParameterlessListeners     += OnBuildingBuildListener;
-			BuildingSavedEvent.ParameterlessListeners     += OnBuildingsSavedListener;
-			BuildingConsumedEvent.ParameterlessListeners  += OnBuildingsConsumedListener;
-			AmountOfPlotsEvent.ParameterlessListeners     += OnAmountOfPlotsListener;
-			BuildingDestroyedEvent.ParameterlessListeners += OnBuildingDestroyedListener;
+			CollectRentEvent.Listeners                   += OnRentCollectListener;
+			BuildingBuildEvent.ParameterlessListeners    += OnBuildingBuildListener;
+			BuildingSavedEvent.ParameterlessListeners    += OnBuildingsSavedListener;
+			BuildingConsumedEvent.ParameterlessListeners += OnBuildingsConsumedListener;
+			BuyPlotEvent.ParameterlessListeners          += OnAmountOfPlotsListener;
+			BuildingUpgradeEvent.ParameterlessListeners  += OnBuildingDestroyedListener;
 
 			UserSettings.OnGameQuit += SaveData;
 		}
@@ -130,31 +133,31 @@ namespace Gameplay.Achievements
 
 		private void OnBuildingsConsumedListener()
 		{
-			buildingConsumedAchievement.CheckAchievement(1);
+			//buildingConsumedAchievement.CheckAchievement(1);
 		}
 
 		private void OnAmountOfPlotsListener()
 		{
-			amountOfPlotsAchievement.CheckAchievement(1);
+			buyPlotsAchievement.CheckAchievement(1);
 		}
 
 		private void OnBuildingDestroyedListener()
 		{
-			destroyHousesAchievement.CheckAchievement(1);
+			upgradeBuildingAchievement.CheckAchievement(1);
 		}
 
 		private void OnDestroy()
 		{
 			UserSettings.OnGameQuit -= SaveData;
-			
+
 			if (!EventManager.IsInitialized) return;
 
-			CollectRentEvent.Listeners                    -= OnRentCollectListener;
-			BuildingBuildEvent.ParameterlessListeners     -= OnBuildingBuildListener;
-			BuildingSavedEvent.ParameterlessListeners     -= OnBuildingsSavedListener;
-			BuildingConsumedEvent.ParameterlessListeners  -= OnBuildingsConsumedListener;
-			AmountOfPlotsEvent.ParameterlessListeners     -= OnAmountOfPlotsListener;
-			BuildingDestroyedEvent.ParameterlessListeners -= OnBuildingDestroyedListener;
+			CollectRentEvent.Listeners                   -= OnRentCollectListener;
+			BuildingBuildEvent.ParameterlessListeners    -= OnBuildingBuildListener;
+			BuildingSavedEvent.ParameterlessListeners    -= OnBuildingsSavedListener;
+			BuildingConsumedEvent.ParameterlessListeners -= OnBuildingsConsumedListener;
+			BuyPlotEvent.ParameterlessListeners          -= OnAmountOfPlotsListener;
+			BuildingUpgradeEvent.ParameterlessListeners  -= OnBuildingDestroyedListener;
 		}
 	}
 }

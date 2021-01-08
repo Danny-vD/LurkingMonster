@@ -296,7 +296,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dc8b2ef763cd3748841e8fe4d258cdb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MinMaxZoom: {x: 0.1, y: 1.25}
+  MinMaxZoom: {x: 0.1, y: 0.7}
 --- !u!1 &1220154156152069820
 GameObject:
   m_ObjectHideFlags: 0
@@ -491,7 +491,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &8837847040222704695
 RectTransform:
   m_ObjectHideFlags: 0
@@ -609,7 +609,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 4.2700043, y: 0.19999981}
   m_SizeDelta: {x: -6.4231567, y: -8.0296}
   m_Pivot: {x: 0, y: 0.5}
@@ -775,7 +775,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6758913166034969596}
-  m_Mesh: {fileID: -869085112349392085, guid: 59c26864533fdf047ad9265f71223cc8, type: 3}
+  m_Mesh: {fileID: -869085112349392085, guid: 035318c17533ff34c88d86a395e2e3fb, type: 3}
 --- !u!23 &6758913166034969598
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -854,7 +854,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 092639f48eb45f34a9c437d6727611f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crackPopup: {fileID: 7029731273974737261}
   bar: {fileID: 2375193678091250356}
 --- !u!114 &8740718846376473894
 MonoBehaviour:
@@ -868,7 +867,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6e1d700793d431db1c8e2d2975381ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waitTimeUntilRent: 20
+  waitTimeUntilRent: 18
 --- !u!114 &4707960237150791921
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -894,7 +893,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da512370e470422cb6c40e701a210dac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AddWeatherListener: 0
 --- !u!114 &-7775324001159059781
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -907,16 +905,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7d1ded27caa42279c271f63cc86d1b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  houseTextures:
-  - albedo: {fileID: 2800000, guid: 2b64b3e8335882648a2062d6411232f0, type: 3}
-    metalic: {fileID: 2800000, guid: 1364f68a897725b4fac3e6f0009efa1c, type: 3}
-    normal: {fileID: 2800000, guid: c897e0cd70f290c48abce9e057bad4fd, type: 3}
-  - albedo: {fileID: 0}
-    metalic: {fileID: 0}
-    normal: {fileID: 0}
-  - albedo: {fileID: 0}
-    metalic: {fileID: 0}
-    normal: {fileID: 0}
+  crackedMaterials:
+    serializedDictionary:
+    - key: 0
+      value:
+        serializedDictionary:
+        - key: 1
+          value: {fileID: 2100000, guid: 694b3c68a15c032418d331a6808764cc, type: 2}
+        - key: 2
+          value: {fileID: 2100000, guid: cf0532fe0f2f29644a8e70525875c173, type: 2}
+        - key: 3
+          value: {fileID: 2100000, guid: fefdb94caebb9714195872e4ac8f66b2, type: 2}
+    - key: 1
+      value:
+        serializedDictionary:
+        - key: 1
+          value: {fileID: 2100000, guid: 694b3c68a15c032418d331a6808764cc, type: 2}
+    - key: 2
+      value:
+        serializedDictionary:
+        - key: 1
+          value: {fileID: 2100000, guid: 694b3c68a15c032418d331a6808764cc, type: 2}
 --- !u!1 &7029731273974737261
 GameObject:
   m_ObjectHideFlags: 0
@@ -929,6 +938,8 @@ GameObject:
   - component: {fileID: 948279848698153782}
   - component: {fileID: 2074128603572616719}
   - component: {fileID: 51152796584614185}
+  - component: {fileID: 8444608800687576919}
+  - component: {fileID: 6523130057064287436}
   m_Layer: 5
   m_Name: btnCrackHouse
   m_TagString: Untagged
@@ -953,7 +964,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 3.495861, y: 4.551504}
+  m_SizeDelta: {x: 6.1913347, y: 5.4745398}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &948279848698153782
 CanvasRenderer:
@@ -983,7 +994,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: ef2ff8e79fc54274e859547da2bc88c9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f081504610fbd6f4baab65b7d70f4512, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1048,6 +1059,37 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!95 &8444608800687576919
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7029731273974737261}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 86b28bf46292c2f47b8be69e41018a00, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 2
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &6523130057064287436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7029731273974737261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f62fc226805b4ef7855671f12be9b621, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7917235099917437442
 GameObject:
   m_ObjectHideFlags: 0
@@ -1201,6 +1243,10 @@ PrefabInstance:
     - target: {fileID: 3848355593189218570, guid: c7866caef7188004dac1a0f6d94e4f5b, type: 3}
       propertyPath: m_Name
       value: Chimney
+      objectReference: {fileID: 0}
+    - target: {fileID: 3848355593189218570, guid: c7866caef7188004dac1a0f6d94e4f5b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3848355593189218575, guid: c7866caef7188004dac1a0f6d94e4f5b, type: 3}
       propertyPath: m_RootOrder

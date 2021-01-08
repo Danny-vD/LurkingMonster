@@ -1,0 +1,226 @@
+﻿{
+  "Variables": [
+    {
+      "Key": "MARKET",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "Markt"
+        },
+        {
+          "Key": "EN",
+          "Value": "Market"
+        }
+      ]
+    },
+    {
+      "Key": "SOIL",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "Grond"
+        },
+        {
+          "Key": "EN",
+          "Value": "Soil"
+        }
+      ]
+    },
+    {
+      "Key": "FOUNDATION",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "Fundering"
+        },
+        {
+          "Key": "EN",
+          "Value": "Foundation"
+        }
+      ]
+    },
+    {
+      "Key": "BUILDING",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "Gebouw"
+        },
+        {
+          "Key": "EN",
+          "Value": "Building"
+        }
+      ]
+    },
+    {
+      "Key": "BUY",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "Koop"
+        },
+        {
+          "Key": "EN",
+          "Value": "Buy"
+        }
+      ]
+    },
+    {
+      "Key": "PRICE",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "Prijs"
+        },
+        {
+          "Key": "EN",
+          "Value": "Price"
+        }
+      ]
+    },
+    {
+      "Key": "PRICE_DYNAMIC",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "Prijs - {0}"
+        },
+        {
+          "Key": "EN",
+          "Value": "Price - {0}"
+        }
+      ]
+    },
+    {
+      "Key": "RENT",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "Huur"
+        },
+        {
+          "Key": "EN",
+          "Value": "Rent"
+        }
+      ]
+    },
+    {
+      "Key": "RENT_DYNAMIC",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "Huur {0} Munt/Uur"
+        },
+        {
+          "Key": "EN",
+          "Value": "Rent"
+        }
+      ]
+    },
+    {
+      "Key": "HEALTH",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "Leven"
+        },
+        {
+          "Key": "EN",
+          "Value": "Health"
+        }
+      ]
+    },
+    {
+      "Key": "HEALTH_DYNAMIC",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "Leven {0}"
+        },
+        {
+          "Key": "EN",
+          "Value": "Health {0}"
+        }
+      ]
+    },
+    {
+      "Key": "UPGRADES",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "Upgrade"
+        },
+        {
+          "Key": "EN",
+          "Value": "Upgrade"
+        }
+      ]
+    },
+    {
+      "Key": "UPGRADES_DYNAMIC",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "Upgrade {0} Tiers"
+        },
+        {
+          "Key": "EN",
+          "Value": "Upgrade {0} Tiers"
+        }
+      ]
+    },
+    {
+      "Key": "DEMOLISH",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "Afbreken"
+        },
+        {
+          "Key": "EN",
+          "Value": "Demolish"
+        }
+      ]
+    },
+    {
+      "Key": "REPAIR",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "Repareren"
+        },
+        {
+          "Key": "EN",
+          "Value": "Repair"
+        }
+      ]
+    },
+    {
+      "Key": "REPAIR_TITLE",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "Repareer Informatie"
+        },
+        {
+          "Key": "EN",
+          "Value": "Repair Information"
+        }
+      ]
+    },
+    {
+      "Key": "MAX_UPGRADED",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "MAX"
+        },
+        {
+          "Key": "EN",
+          "Value": "MAX"
+        }
+      ]
+    }
+  ]
+}
+    

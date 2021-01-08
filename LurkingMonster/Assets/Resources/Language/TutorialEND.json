@@ -1,0 +1,69 @@
+{
+    "Variables": [
+        {
+            "Key": "TUTORIAL_END_1",
+            "Value": [
+                {
+                    "Key": "NL",
+                    "Value": "Wauw, je bent ver gekomen met [plaatsnaam]! Weet je nog dat er maar één huis was?"
+                },
+                {
+                    "Key": "EN",
+                    "Value": "Wow, you have come far with [Cityname]! Remember when there was just one house?"
+                }
+            ]
+        },
+        {
+            "Key": "TUTORIAL_END_2",
+            "Value": [
+                {
+                    "Key": "NL",
+                    "Value": "Je hebt [Cityname] tot zijn maximale potentieel gebracht, goed gedaan!"
+                },
+                {
+                    "Key": "EN",
+                    "Value": "You have brought [Cityname] to its maximal potential, good job!"
+                }
+            ]
+        },
+        {
+            "Key": "TUTORIAL_END_3",
+            "Value": [
+                {
+                    "Key": "NL",
+                    "Value": "Het is je misschien opgevallen dat het monster alleen boos is als de grond, fundering of het huis verzwakt. Om dit te voorkomen moet je je huis goed onderhouden. Niet alleen hier, maar ook in het echt!"
+                },
+                {
+                    "Key": "EN",
+                    "Value": "You might have noticed that the monster is only angry when your soil, foundation or house are becoming weak. To avoid this you have to maintain your property. Not only here, but also in real life!"
+                }
+            ]
+        },
+        {
+            "Key": "TUTORIAL_END_4",
+            "Value": [
+                {
+                    "Key": "NL",
+                    "Value": "Kijk af en toe of er tekenen zijn van verzakking in uw huis (en) om er zeker van te zijn dat er geen monster uw huis beschadigd"
+                },
+                {
+                    "Key": "EN",
+                    "Value": "Examine once in a while if there are any signs of Subsidence in your house(s) to make sure there will be no monster damaging your house."
+                }
+            ]
+        },
+        {
+            "Key": "TUTORIAL_END_5",
+            "Value": [
+                {
+                    "Key": "NL",
+                    "Value": "Ben je vergeten wat de tekens waren? Bekijk de handige links in het profiel menu! /n/n Nu je werk met [Stadsnaam] gedaan is, heb je de mogelijkheid om hier te blijven en je eigendommen te onderhouden of opnieuw te beginnen."
+                },
+                {
+                    "Key": "EN",
+                    "Value": "You forgot what the signs were? Check out the useful links in the Profile Menu! /n/n Now that your job with [Cityname] is done, you have the option to stay here and maintain your properties or start over."
+                }
+            ]
+        }
+    ]
+}

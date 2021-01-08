@@ -1,5 +1,4 @@
-﻿using UI.Buttons;
-using UI.Buttons.Gameplay;
+﻿using UI.Buttons.Gameplay;
 using UnityEngine;
 using VDFramework;
 
@@ -14,6 +13,8 @@ namespace Gameplay.Buildings
 		private float timer = 0.0f;
 		private GameObject rentPopup;
 
+		public float TimeUntilRent => waitTimeUntilRent;
+		
 		public void Start()
 		{
 			ButtonCollectRent buttonCollectRent = GetComponentInChildren<ButtonCollectRent>(true);

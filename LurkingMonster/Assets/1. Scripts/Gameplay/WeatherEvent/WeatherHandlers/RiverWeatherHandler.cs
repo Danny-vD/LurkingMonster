@@ -1,6 +1,8 @@
 ﻿using System;
+using Enums;
 using ScriptableObjects;
 using UnityEngine;
+using Utility;
 
 namespace Gameplay.WeatherEvent.WeatherHandlers
 {
@@ -18,27 +20,13 @@ namespace Gameplay.WeatherEvent.WeatherHandlers
 		private MaterialSettings normal;
 
 		[SerializeField]
-		private MaterialSettings earthQuake;
+		private SerializableEnumDictionary<WeatherEventType, MaterialSettings> weatherSettings;
 
-		[SerializeField]
-		private MaterialSettings rainfall;
+		protected override bool AddWeatherListener => false;
 
-		[SerializeField]
-		private MaterialSettings storm;
-
-		protected override void OnEarthQuakeStart(WeatherEventData weatherData)
+		protected override void StartWeather(WeatherEventType type, WeatherEventData data)
 		{
-			SetMaterialSettings(earthQuake);
-		}
-
-		protected override void OnHeavyRainStart(WeatherEventData weatherData)
-		{
-			SetMaterialSettings(rainfall);
-		}
-
-		protected override void OnStormStart(WeatherEventData weatherData)
-		{
-			SetMaterialSettings(storm);
+			SetMaterialSettings(weatherSettings[type]);
 		}
 
 		[ContextMenu("Set Normal")]

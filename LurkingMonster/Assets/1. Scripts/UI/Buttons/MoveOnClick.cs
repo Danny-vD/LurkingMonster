@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UI.Layout;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 using VDFramework;
 
@@ -52,8 +51,6 @@ namespace UI.Buttons
 			{
 				Vector3 translate = GetDynamicVector();
 				rectTransform.Translate(-translate);
-				
-				print(translate);
 			}
 			else
 			{

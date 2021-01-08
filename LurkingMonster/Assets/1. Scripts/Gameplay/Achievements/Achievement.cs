@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using Enums;
-using Events;
 using Events.Achievements;
-using IO;
 using Singletons;
 using Structs;
 using TMPro;
@@ -69,6 +64,24 @@ namespace Gameplay.Achievements
 			return new AchievementData(counter, unlocked, rewardsCollected);
 		}
 
+		public string GetTitleString()
+		{
+			return LanguageUtil.GetJsonString(keyMessage);
+		}
+
+		public bool CheckIfRewardReady()
+		{
+			for (int i = 0; i < unlocked.Length; i++)
+			{
+				if (unlocked[i] && !rewardsCollected[i])
+				{
+					return true;
+				}
+			}
+
+			return false;
+		}
+
 		public void SetData(AchievementData data)
 		{
 			counter          = data.counter;
@@ -81,6 +94,11 @@ namespace Gameplay.Achievements
 			int i = GetIndexFirstNotCollectedReward();
 			rewardsCollected[i] = true;
 			RewardManager.Instance.Unlock(objects[i]);
+		}
+
+		public object GetNextReward()
+		{
+			return objects[GetIndexFirstNotCollectedReward()];
 		}
 		
 		public string GetAchievementInfo()

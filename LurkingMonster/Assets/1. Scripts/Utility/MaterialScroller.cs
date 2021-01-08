@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.UI;
 using VDFramework;
 
@@ -14,24 +15,61 @@ namespace Utility
 		[SerializeField, Tooltip("Is the material that we scroll on an UI element or is it on an object in the game?")]
 		private bool IsUITexture = true;
 
+		[SerializeField]
+		private bool unscaledTime;
+
 		private Material currentMaterial;
 		private Vector2 currentOffset;
 
+		private RawImage rawImage;
+
+		private Action scrollMethod = null;
+
 		private void Awake()
 		{
-			currentMaterial = IsUITexture ? GetComponent<Image>().materialForRendering : GetComponent<Renderer>().sharedMaterial;
+			if (IsUITexture)
+			{
+				rawImage = GetComponent<RawImage>();
+
+				if (rawImage)
+				{
+					scrollMethod = ScrollRawImage;
+					return;
+				}
+
+				currentMaterial = GetComponent<Image>().materialForRendering;
+			}
+			else
+			{
+				currentMaterial = GetComponent<Renderer>().sharedMaterial;
+			}
+
+			scrollMethod = ScrollMaterial;
 		}
 
 		private void Update()
 		{
-			MoveOffset();
+			scrollMethod();
 		}
 
-		private void MoveOffset()
+		private void ScrollMaterial()
 		{
-			currentOffset += speed * Time.deltaTime;
+			float deltaTime = unscaledTime ? Time.unscaledDeltaTime : Time.deltaTime;
+
+			currentOffset += speed * deltaTime;
 
 			currentMaterial.SetTextureOffset(mainTex, currentOffset);
+		}
+
+		private void ScrollRawImage()
+		{
+			float deltaTime = unscaledTime ? Time.unscaledDeltaTime : Time.deltaTime;
+
+			Rect uvRect = rawImage.uvRect;
+			Vector2 scroll = new Vector2(uvRect.x, uvRect.y) + speed * deltaTime;
+			uvRect.Set(scroll.x, scroll.y, uvRect.width, uvRect.height);
+
+			rawImage.uvRect = uvRect;
 		}
 	}
 }
