@@ -4228,7 +4228,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2125211573
 Transform:
   m_ObjectHideFlags: 0
@@ -5747,6 +5747,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2049239493830306342, guid: f27f7791eacf8fb4ca3b8c38ced951cb, type: 3}
+      propertyPath: m_Name
+      value: CarSmoke
+      objectReference: {fileID: 0}
     - target: {fileID: 3584181518495506859, guid: f27f7791eacf8fb4ca3b8c38ced951cb, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -6325,6 +6329,10 @@ PrefabInstance:
     - target: {fileID: 1564811306706184105, guid: 781f09bec03556843bf92c4233b94c64, type: 3}
       propertyPath: m_Name
       value: 3D_Characters
+      objectReference: {fileID: 0}
+    - target: {fileID: 1564811306706184105, guid: 781f09bec03556843bf92c4233b94c64, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7851225052463835139, guid: 781f09bec03556843bf92c4233b94c64, type: 3}
       propertyPath: m_RootOrder
@@ -7063,6 +7071,10 @@ PrefabInstance:
     - target: {fileID: 3474870713794258305, guid: c3029e161570a574b851c33d806979d1, type: 3}
       propertyPath: m_Name
       value: 3D_Environment_Plank
+      objectReference: {fileID: 0}
+    - target: {fileID: 3474870713794258305, guid: c3029e161570a574b851c33d806979d1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5966878203337366098, guid: c3029e161570a574b851c33d806979d1, type: 3}
       propertyPath: m_RootOrder
