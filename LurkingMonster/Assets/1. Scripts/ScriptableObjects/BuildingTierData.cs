@@ -1,6 +1,5 @@
 ﻿using Gameplay.Buildings;
 using UnityEngine;
-using UnityEngine.Serialization;
 using VDFramework.Extensions;
 
 namespace ScriptableObjects

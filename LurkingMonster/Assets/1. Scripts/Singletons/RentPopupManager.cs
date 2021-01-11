@@ -1,5 +1,4 @@
-﻿using System;
-using Events.MoneyManagement;
+﻿using Events.MoneyManagement;
 using UI.TextLabels;
 using UnityEngine;
 using VDFramework;

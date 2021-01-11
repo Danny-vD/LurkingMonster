@@ -1,9 +1,6 @@
-﻿using Events.MoneyManagement;
-using FMOD;
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
 using VDFramework;
-using VDFramework.EventSystem;
 
 namespace UI.TextLabels
 {
