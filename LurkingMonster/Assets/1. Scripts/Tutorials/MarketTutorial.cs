@@ -23,9 +23,9 @@ namespace Tutorials
 
 		private GameObject prefabInstance;
 
-		public override void StartTutorial(GameObject arrow)
+		public override void StartTutorial(GameObject arrow, TutorialManager manager)
 		{
-			base.StartTutorial(arrow);
+			base.StartTutorial(arrow, manager);
 
 			Building building = FindObjectOfType<Building>();
 			AbstractBuildingTile abstractBuildingTile = building.GetComponentInParent<AbstractBuildingTile>();
@@ -48,7 +48,7 @@ namespace Tutorials
 		{
 			meshRenderer.sharedMaterial = oldMaterial;
 			Destroy(prefabInstance);
-			TutorialManager.Instance.CompletedTutorial();
+			manager.CompletedTutorial();
 		}
 
 		private void OnMarketScreen()

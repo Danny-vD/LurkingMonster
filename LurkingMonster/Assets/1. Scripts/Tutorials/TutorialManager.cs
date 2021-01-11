@@ -1,13 +1,15 @@
-﻿using Events.MoneyManagement;
+﻿using Enums;
+using Events.MoneyManagement;
 using Singletons;
 using UnityEngine;
 using UnityEngine.UI;
+using VDFramework;
 using VDFramework.EventSystem;
 using VDFramework.Singleton;
 
 namespace Tutorials
 {
-	public class TutorialManager : Singleton<TutorialManager>
+	public abstract class TutorialManager : BetterMonoBehaviour
 	{
 		[SerializeField]
 		private GameObject narrator;
@@ -16,36 +18,46 @@ namespace Tutorials
 		private GameObject arrow;
 
 		[SerializeField]
-		private Button btn_stopTutorial;
+		protected Button btn_stopTutorial;
+		
+		[SerializeField]
+		private string suffix;
 
-		private Tutorial[] tutorials;
+		[SerializeField]
+		private int money;
+
+		protected Tutorial[] tutorials;
 
 		private Tutorial currentTutorial;
 
-		public bool IsActive { get; private set; }
+		public static bool IsActive { get; protected set; }
+
+		public string Suffix => suffix;
 
 		private bool paused;
-
+		
 		public GameObject Narrator => narrator;
 
 		public Button StopTutorialButton => btn_stopTutorial;
 
-		private void Start()
+		protected virtual void Start()
 		{
 			if (UserSettings.SettingsExist)
 			{
 				Destroy(CachedGameObject);
 				return;
 			}
-
-			IsActive  = true;
-			tutorials = GetComponents<Tutorial>();
-			SetNextTutorial(0);
-			btn_stopTutorial.onClick.AddListener(CompletedAllTutorials);
+			
+			StartTutorial();
 		}
 
 		private void Update()
 		{
+			if (!IsActive)
+			{
+				return;
+			}
+			
 			if (!paused && !TimeManager.Instance.IsPaused())
 			{
 				PauseGame();
@@ -68,14 +80,23 @@ namespace Tutorials
 			narrator.gameObject.SetActive(false);
 		}
 
+		protected void StartTutorial()
+		{
+			IsActive     = true;
+			tutorials    = GetComponents<Tutorial>();
+			SetNextTutorial(0);
+			btn_stopTutorial.onClick.AddListener(CompletedAllTutorials);
+		}
+
 		private void CompletedAllTutorials()
 		{
 			IsActive = false;
 			TimeManager.Instance.UnPause();
 			narrator.SetActive(false);
 			
-			//TODO: make it adjustable
-			EventManager.Instance.RaiseEvent(new IncreaseMoneyEvent(1000));
+			Tutorial.ResetIndex();
+
+			EventManager.Instance.RaiseEvent(new IncreaseMoneyEvent(money));
 			Destroy(gameObject);
 		}
 
@@ -89,7 +110,7 @@ namespace Tutorials
 				return;
 			}
 
-			currentTutorial.StartTutorial(arrow);
+			currentTutorial.StartTutorial(arrow, this);
 		}
 
 		private Tutorial GetTutorialByOrder(int order)

@@ -31,11 +31,13 @@ namespace Tutorials
 
 		private TMP_InputField inputText;
 
-		public override void StartTutorial(GameObject arrow)
+		public override void StartTutorial(GameObject arrow, TutorialManager manager)
 		{
 			inputPopup.SetActive(true);
 			SetHeader();
 			inputText = inputPopup.GetComponentInChildren<TMP_InputField>();
+
+			base.manager = manager;
 			
 			submit.onClick.RemoveAllListeners();
 			submit.onClick.AddListener(CompleteTutorial);
@@ -47,7 +49,7 @@ namespace Tutorials
 		{
 			CheckInputData();
 			inputPopup.SetActive(false);
-			TutorialManager.Instance.CompletedTutorial();
+			manager.CompletedTutorial();
 		}
 
 		private void SetHeader()

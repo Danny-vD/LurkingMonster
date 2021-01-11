@@ -4,16 +4,16 @@ namespace Tutorials
 {
 	public class NarratorTutorial : Tutorial
 	{
-		public override void StartTutorial(GameObject arrow)
+		public override void StartTutorial(GameObject arrow, TutorialManager manager)
 		{
-			base.StartTutorial(arrow);
+			base.StartTutorial(arrow, manager);
 			ShowNextText();
 			SetNextButton(ShowNextText);
 		}
 
 		protected override void ReachEndOfText()
 		{
-			TutorialManager.Instance.CompletedTutorial();
+			manager.CompletedTutorial();
 		}
 	}
 }

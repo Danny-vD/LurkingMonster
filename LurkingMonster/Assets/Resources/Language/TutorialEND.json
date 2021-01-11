@@ -5,11 +5,11 @@
             "Value": [
                 {
                     "Key": "NL",
-                    "Value": "Wauw, je bent ver gekomen met [plaatsnaam]! Weet je nog dat er maar één huis was?"
+                    "Value": "Wauw, je bent ver gekomen met {1}! Weet je nog dat er maar één huis was?"
                 },
                 {
                     "Key": "EN",
-                    "Value": "Wow, you have come far with [Cityname]! Remember when there was just one house?"
+                    "Value": "Wow, you have come far with {1}! Remember when there was just one house?"
                 }
             ]
         },
@@ -18,11 +18,11 @@
             "Value": [
                 {
                     "Key": "NL",
-                    "Value": "Je hebt [Cityname] tot zijn maximale potentieel gebracht, goed gedaan!"
+                    "Value": "Je hebt {1} tot zijn maximale potentieel gebracht, goed gedaan!"
                 },
                 {
                     "Key": "EN",
-                    "Value": "You have brought [Cityname] to its maximal potential, good job!"
+                    "Value": "You have brought {1} to its maximal potential, good job!"
                 }
             ]
         },
@@ -57,11 +57,11 @@
             "Value": [
                 {
                     "Key": "NL",
-                    "Value": "Ben je vergeten wat de tekens waren? Bekijk de handige links in het profiel menu! /n/n Nu je werk met [Stadsnaam] gedaan is, heb je de mogelijkheid om hier te blijven en je eigendommen te onderhouden of opnieuw te beginnen."
+                    "Value": "Ben je vergeten wat de tekens waren? Bekijk de handige links in het profiel menu! \n\n Nu je werk met {1} gedaan is, heb je de mogelijkheid om hier te blijven en je eigendommen te onderhouden of opnieuw te beginnen."
                 },
                 {
                     "Key": "EN",
-                    "Value": "You forgot what the signs were? Check out the useful links in the Profile Menu! /n/n Now that your job with [Cityname] is done, you have the option to stay here and maintain your properties or start over."
+                    "Value": "You forgot what the signs were? Check out the useful links in the Profile Menu! \n\n Now that your job with {1} is done, you have the option to stay here and maintain your properties or start over."
                 }
             ]
         }

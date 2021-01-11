@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Enums;
 using Events;
 using Events.Achievements;
+using Gameplay.Buildings;
 using VDFramework.EventSystem;
 using VDFramework.Extensions;
 using VDFramework.Singleton;
@@ -76,13 +78,29 @@ namespace Singletons
 			
 			counter--;
 			EventManager.Instance.RaiseEvent(new AchievementUnlockedEvent());
+			CheckIfAllAchievementsUnlocked();
 		}
 
 		public void IncreaseCounter()
 		{
 			counter++;
 		}
-		
+
+		public void FinishAllAchievements()
+		{
+			EventManager.Instance.RaiseEvent(new EndGameEvent());
+		}
+
+		private void CheckIfAllAchievementsUnlocked()
+		{
+			if (soilReward.All(pair => pair.Value) &&
+				foundationReward.All(pair => pair.Value) &&
+				buildingReward.All(pair => pair.Value))
+			{
+				FinishAllAchievements();
+			}
+		}
+
 		private void Print(object obj)
 		{
 			foreach (KeyValuePair<SoilType, bool> soil in soilReward)
