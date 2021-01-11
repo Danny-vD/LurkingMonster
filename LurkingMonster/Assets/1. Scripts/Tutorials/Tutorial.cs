@@ -46,6 +46,7 @@ namespace Tutorials
 
 		public virtual void StartTutorial(GameObject arrow, TutorialManager manager)
 		{
+			this.manager = manager;
 			FillJsonKey();
 			
 			if (moveCamera)
@@ -54,7 +55,6 @@ namespace Tutorials
 			}
 			
 			Arrow        = arrow;
-			this.manager = manager;
 			
 			GameObject narrator = manager.Narrator;
 			explainText = narrator.GetComponentInChildren<TextMeshProUGUI>();
@@ -62,6 +62,11 @@ namespace Tutorials
 			index       = 0;
 		}
 
+		public static void ResetIndex()
+		{
+			beginIndex = 1;
+		}
+		
 		protected virtual void ReachEndOfText()
 		{
 		}
@@ -114,7 +119,7 @@ namespace Tutorials
 
 			for (int i = 0; i < jsonCount; i++, beginIndex++)
 			{
-				jsonKeys[i] = $"TUTORIAL_{beginIndex}";
+				jsonKeys[i] = $"TUTORIAL_{manager.Suffix}{beginIndex}";
 			}
 		}
 	}

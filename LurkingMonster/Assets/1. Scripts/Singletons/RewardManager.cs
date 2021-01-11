@@ -88,22 +88,7 @@ namespace Singletons
 
 		public void FinishAllAchievements()
 		{
-			foreach (KeyValuePair<SoilType, bool> pair in soilReward)
-			{
-				soilReward[pair.Key] = true;
-			}
-			
-			foreach (KeyValuePair<FoundationType, bool> pair in foundationReward)
-			{
-				foundationReward[pair.Key] = true;
-			}
-			
-			foreach (KeyValuePair<BuildingType, bool> pair in buildingReward)
-			{
-				buildingReward[pair.Key] = true;
-			}
-
-			CheckIfAllAchievementsUnlocked();
+			EventManager.Instance.RaiseEvent(new EndGameEvent());
 		}
 
 		private void CheckIfAllAchievementsUnlocked()
@@ -112,7 +97,7 @@ namespace Singletons
 				foundationReward.All(pair => pair.Value) &&
 				buildingReward.All(pair => pair.Value))
 			{
-				EventManager.Instance.RaiseEvent(new EndGameEvent());
+				FinishAllAchievements();
 			}
 		}
 
