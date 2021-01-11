@@ -3,8 +3,8 @@
 	public enum EventType
 	{
 		MenuMusic,
-		CityAmbience,
-		RainWind,
-		Thunder,
+		HeavyRain,
+		WindBlowing,
+		RainAndWind,
 	}
 }

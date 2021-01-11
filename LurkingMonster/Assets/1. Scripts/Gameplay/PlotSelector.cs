@@ -6,7 +6,7 @@ using Interfaces;
 using Singletons;
 using Tutorials;
 using UnityEngine;
-using UnityEngine.EventSystems;
+using Utility;
 using VDFramework;
 using VDFramework.EventSystem;
 
@@ -92,7 +92,7 @@ namespace Gameplay
 
 		private void HandleSelection()
 		{
-			if (EventSystem.current.IsPointerOverGameObject() || TutorialManager.IsInitialized && TutorialManager.Instance.IsActive)
+			if (PointerUtil.IsPointerOverUIElement() || TutorialManager.IsInitialized && TutorialManager.Instance.IsActive)
 			{
 				return;
 			}
