@@ -2,12 +2,13 @@
 using Singletons;
 using UnityEngine;
 using UnityEngine.UI;
+using VDFramework;
 using VDFramework.EventSystem;
 using VDFramework.Singleton;
 
 namespace Tutorials
 {
-	public class TutorialManager : Singleton<TutorialManager>
+	public class TutorialManager : BetterMonoBehaviour
 	{
 		[SerializeField]
 		private GameObject narrator;
@@ -22,7 +23,7 @@ namespace Tutorials
 
 		private Tutorial currentTutorial;
 
-		public bool IsActive { get; private set; }
+		public static bool IsActive { get; private set; }
 
 		private bool paused;
 
@@ -89,7 +90,7 @@ namespace Tutorials
 				return;
 			}
 
-			currentTutorial.StartTutorial(arrow);
+			currentTutorial.StartTutorial(arrow, this);
 		}
 
 		private Tutorial GetTutorialByOrder(int order)

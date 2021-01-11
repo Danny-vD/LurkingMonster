@@ -1,7 +1,8 @@
-﻿namespace Events
+﻿using VDFramework.EventSystem;
+
+namespace Events
 {
-	public class EndGameEvent
+	public class EndGameEvent : VDEvent
 	{
-		
 	}
 }

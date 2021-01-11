@@ -8,9 +8,9 @@ namespace Tutorials
 		[SerializeField]
 		private Button continueButton;
 		
-		public override void StartTutorial(GameObject arrow)
+		public override void StartTutorial(GameObject arrow, TutorialManager manager)
 		{
-			base.StartTutorial(arrow);
+			base.StartTutorial(arrow, manager);
 
 			if (keyCount != 0)
 			{
@@ -29,7 +29,7 @@ namespace Tutorials
 
 			foreach (Button disableButton in buttons)
 			{
-				if (continueButton == disableButton || disableButton == TutorialManager.Instance.StopTutorialButton)
+				if (continueButton == disableButton || disableButton == manager.StopTutorialButton)
 				{
 					continue;
 				}
@@ -38,9 +38,9 @@ namespace Tutorials
 			}
 		}
 
-		private static void CompleteTutorial()
+		private void CompleteTutorial()
 		{
-			TutorialManager.Instance.CompletedTutorial();
+			manager.CompletedTutorial();
 		}
 	}
 }

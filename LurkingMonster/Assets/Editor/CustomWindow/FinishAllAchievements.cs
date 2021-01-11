@@ -5,26 +5,24 @@ using UnityEngine;
 
 namespace CustomWindow
 {
-	public class RemoveSaveWindow : EditorWindow
+	public class FinishAllAchievements : EditorWindow
 	{
-		[MenuItem("SaveGame/Delete")]
+		[MenuItem("Achievements/Finish All")]
 		public static void ShowWindow()
 		{
-			GetWindow<RemoveSaveWindow>("Remove Save");
+			GetWindow<FinishAllAchievements>("Finish All Achievements");
 		}
 
 		private void OnGUI()
 		{
-			if (UserSettings.SettingsExist)
+			if (!EditorApplication.isPlaying)
 			{
-				if (!GUILayout.Button("Delete Save", EditorStyles.miniButtonMid)) return;
+				return;
+			}
+			
+			if (!GUILayout.Button("Finish All Achievements", EditorStyles.miniButtonMid)) return;
 
-				File.Delete(UserSettings.SavePath);
-			}
-			else
-			{
-				GUILayout.Label("No savefile found at " + UserSettings.SavePath);
-			}
+			RewardManager.Instance.FinishAllAchievements();
 		}
 	}
 }

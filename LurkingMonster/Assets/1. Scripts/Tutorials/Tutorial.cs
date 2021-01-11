@@ -35,6 +35,8 @@ namespace Tutorials
 
 		private Camera playerCamera;
 
+		protected TutorialManager manager;
+
 		protected int keyCount => jsonCount;
 		
 		private void Awake()
@@ -42,7 +44,7 @@ namespace Tutorials
 			playerCamera = Camera.main;
 		}
 
-		public virtual void StartTutorial(GameObject arrow)
+		public virtual void StartTutorial(GameObject arrow, TutorialManager manager)
 		{
 			FillJsonKey();
 			
@@ -51,9 +53,10 @@ namespace Tutorials
 				playerCamera.transform.position = position;
 			}
 			
-			Arrow   = arrow;
-
-			GameObject narrator = TutorialManager.Instance.Narrator;
+			Arrow        = arrow;
+			this.manager = manager;
+			
+			GameObject narrator = manager.Narrator;
 			explainText = narrator.GetComponentInChildren<TextMeshProUGUI>();
 			next        = narrator.GetComponentInChildren<Button>();
 			index       = 0;
@@ -78,14 +81,14 @@ namespace Tutorials
 			index++;
 		}
 
-		private static void EnableNarrator()
+		private void EnableNarrator()
 		{
-			TutorialManager.Instance.EnableNarrator();
+			manager.EnableNarrator();
 		}
 
-		private static void DisableNarrator()
+		private void DisableNarrator()
 		{
-			TutorialManager.Instance.DisableNarrator();
+			manager.DisableNarrator();
 		}
 
 		private void SetText(string jsonKey)

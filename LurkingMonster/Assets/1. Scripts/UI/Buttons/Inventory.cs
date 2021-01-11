@@ -113,7 +113,7 @@ namespace UI.Buttons
 				return;
 			}
 			
-			if (TutorialManager.IsInitialized && TutorialManager.Instance.IsActive)
+			if (TutorialManager.IsActive)
 			{
 				return;
 			}

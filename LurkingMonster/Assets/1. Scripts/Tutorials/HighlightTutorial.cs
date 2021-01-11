@@ -19,9 +19,9 @@ namespace Tutorials
 
 		private GameObject prefabInstance;
 
-		public override void StartTutorial(GameObject arrow)
+		public override void StartTutorial(GameObject arrow, TutorialManager manager)
 		{
-			base.StartTutorial(arrow);
+			base.StartTutorial(arrow, manager);
 
 			if (keyCount == 0)
 			{
@@ -44,7 +44,7 @@ namespace Tutorials
 
 			foreach (Button disableButton in buttons)
 			{
-				if (continueButton == disableButton || disableButton == TutorialManager.Instance.StopTutorialButton)
+				if (continueButton == disableButton || disableButton == manager.StopTutorialButton)
 				{
 					continue;
 				}
@@ -68,7 +68,7 @@ namespace Tutorials
 		private void CompleteTutorial()
 		{
 			Destroy(prefabInstance);
-			TutorialManager.Instance.CompletedTutorial();
+			manager.CompletedTutorial();
 		}
 	}
 }

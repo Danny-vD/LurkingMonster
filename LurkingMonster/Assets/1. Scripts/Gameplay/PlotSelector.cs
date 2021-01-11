@@ -93,7 +93,7 @@ namespace Gameplay
 
 		private void HandleSelection()
 		{
-			if (PointerUtil.IsPointerOverUIElement() || TutorialManager.IsInitialized && TutorialManager.Instance.IsActive)
+			if (PointerUtil.IsPointerOverUIElement() || TutorialManager.IsActive)
 			{
 				return;
 			}
