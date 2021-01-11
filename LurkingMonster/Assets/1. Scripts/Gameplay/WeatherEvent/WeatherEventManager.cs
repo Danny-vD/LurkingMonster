@@ -50,7 +50,7 @@ namespace Gameplay.WeatherEvent
 
 		private WeatherEventData weatherEventData;
 
-		private WeatherEventType[] availableWeather = {WeatherEventType.Earthquake, WeatherEventType.Storm, WeatherEventType.HeavyRain};
+		private readonly WeatherEventType[] availableWeather = {WeatherEventType.Earthquake, WeatherEventType.Storm, WeatherEventType.HeavyRain};
 
 		private void Start()
 		{

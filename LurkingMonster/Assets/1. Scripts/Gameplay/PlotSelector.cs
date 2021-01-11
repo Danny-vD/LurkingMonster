@@ -6,7 +6,6 @@ using Interfaces;
 using Singletons;
 using Tutorials;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using Utility;
 using VDFramework;
 using VDFramework.EventSystem;
