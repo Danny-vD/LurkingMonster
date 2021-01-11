@@ -5,11 +5,11 @@
 	  "Value": [
 		{
 		  "Key": "NL",
-		  "Value": "Hallo, mijn naam is -Peter-, ik werk voor de KCAF als adviseur. Ik zal je door het process begeleiden om Erik's probleem op te lossen."
+		  "Value": "Hallo, mijn naam is Peter, ik werk voor de KCAF als adviseur. Ik zal je door het process begeleiden om Erik's probleem op te lossen."
 		},
 		{
 		  "Key": "EN",
-		  "Value": "Hi there! I am -Peter- the consultant for the KCAF, I will be guiding you through the steps Erik needs to take to solve his problem."
+		  "Value": "Hi there! I am Peter the consultant for the KCAF, I will be guiding you through the steps Erik needs to take to solve his problem."
 		}
 	  ]
 	},
@@ -18,11 +18,11 @@
 	  "Value": [
 		{
 		  "Key": "NL",
-		  "Value": "Het probleem met dit huis is dat de lange leegstand de fundering heeft aangetast.\n\nTijdens de leegstand droogde de grond op waardoor de houten palen werden blootgesteld aan zuurstof."
+		  "Value": "Het probleem met dit huis is dat de lange leegstand de fundering heeft aangetast.\n\n Tijdens de leegstand droogde de grond op waardoor de houten palen werden blootgesteld aan zuurstof."
 		},
 		{
 		  "Key": "EN",
-		  "Value": "The problem with this house is that the long vacancy has affected its foundation.\n\nDuring the vacancy, the soil dried out and it exposed the wooden poles to oxygen."
+		  "Value": "The problem with this house is that the long vacancy has affected its foundation.\n\n During the vacancy, the soil dried out and it exposed the wooden poles to oxygen."
 		}
 	  ]
 	},
