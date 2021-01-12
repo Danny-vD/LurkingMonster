@@ -1,5 +1,4 @@
-﻿using Events;
-using Events.OpenMarketEvents;
+﻿using Events.OpenMarketEvents;
 using Gameplay.Buildings;
 using Grid.Tiles.Buildings;
 using UnityEngine;

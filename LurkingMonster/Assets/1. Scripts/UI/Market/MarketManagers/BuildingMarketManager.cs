@@ -1,5 +1,4 @@
-﻿using Events;
-using Events.OpenMarketEvents;
+﻿using Events.OpenMarketEvents;
 using Grid.Tiles.Buildings;
 using UI.Market.MarketScreens;
 

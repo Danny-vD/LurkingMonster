@@ -1,11 +1,9 @@
-﻿using Enums;
-using Events.MoneyManagement;
+﻿using Events.MoneyManagement;
 using Singletons;
 using UnityEngine;
 using UnityEngine.UI;
 using VDFramework;
 using VDFramework.EventSystem;
-using VDFramework.Singleton;
 
 namespace Tutorials
 {
