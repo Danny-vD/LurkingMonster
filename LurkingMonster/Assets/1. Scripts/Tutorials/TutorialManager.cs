@@ -21,7 +21,7 @@ namespace Tutorials
 		[SerializeField]
 		private string suffix;
 
-		[SerializeField]
+		[SerializeField, Tooltip("The money you receive upon completion")]
 		private int money;
 
 		protected Tutorial[] tutorials;

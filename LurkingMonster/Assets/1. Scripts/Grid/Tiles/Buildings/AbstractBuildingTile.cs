@@ -180,7 +180,7 @@ namespace Grid.Tiles.Buildings
 		public void SetBuildingType(BuildingType building)
 		{
 			buildingType  = building;
-			FirstTierData = spawner.GetBuildingData(buildingType, default, FirstTierData.SoilType)[0];
+			FirstTierData = spawner.GetBuildingData(buildingType, FirstTierData.Foundation, FirstTierData.SoilType)[0];
 		}
 
 		public BuildingType GetBuildingType()
