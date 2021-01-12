@@ -28,7 +28,7 @@ namespace Tutorials
 
 		private Tutorial currentTutorial;
 
-		public static bool IsActive { get; protected set; }
+		public static bool IsActive { get; private set; }
 
 		public string Suffix => suffix;
 

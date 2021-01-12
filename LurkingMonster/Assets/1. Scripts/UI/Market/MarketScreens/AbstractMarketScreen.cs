@@ -76,7 +76,7 @@ namespace UI.Market.MarketScreens
 			button.EnsureComponent<LockEnabler>().SetLocked(block);
 		}
 
-		protected static bool CanAffort(int price)
+		protected virtual bool CanAffort(int price)
 		{
 			return MoneyManager.Instance.PlayerHasEnoughMoney(price);
 		}
