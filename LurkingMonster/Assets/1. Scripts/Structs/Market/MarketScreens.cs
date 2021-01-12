@@ -53,7 +53,7 @@ namespace Structs.Market
 			screens = new List<AbstractMarketScreen>()
 			{
 				mainScreen, buildingBuyScreen, buildingManageScreen, foundationBuyScreen,
-				foundationManageScreen, soilBuyScreen, soilManageScreen
+				foundationManageScreen, soilBuyScreen, soilManageScreen,
 			};
 
 			// HACK: temporary get rid of the nulls

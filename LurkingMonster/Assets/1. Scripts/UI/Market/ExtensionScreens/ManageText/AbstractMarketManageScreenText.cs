@@ -1,6 +1,7 @@
 ﻿using System;
 using Grid.Tiles.Buildings;
 using TMPro;
+using UI.Market.MarketManagers;
 using UnityEngine;
 using Utility;
 
@@ -15,7 +16,7 @@ namespace UI.Market.ExtensionScreens.ManageText
 		[SerializeField]
 		private SerializableEnumDictionary<TType, string> jsonKeys;
 
-		protected override void ActivateExtension(AbstractBuildingTile tile, MarketManager manager)
+		protected override void ActivateExtension(AbstractBuildingTile tile, AbstractMarketManager manager)
 		{
 			informationText.text = LanguageUtil.GetJsonString(jsonKeys[GetType(tile)]);
 		}

@@ -4,6 +4,7 @@ using System.Linq;
 using Grid.Tiles.Buildings;
 using Structs.Market;
 using Structs.Utility;
+using UI.Market.MarketManagers;
 using UnityEngine;
 using UnityEngine.UI;
 using Utility;
@@ -21,7 +22,7 @@ namespace UI.Market.MarketScreens
 
 		private SerializableKeyValuePair<TBuyType, BuyButtonData>? selectedButtonDatum;
 
-		protected override void SetupScreen(AbstractBuildingTile tile, MarketManager manager)
+		protected override void SetupScreen(AbstractBuildingTile tile, AbstractMarketManager manager)
 		{
 			selectedButtonDatum = null;
 			SetupTypeButtons(tile, manager);
@@ -39,12 +40,12 @@ namespace UI.Market.MarketScreens
 
 		protected abstract int GetPrice(AbstractBuildingTile tile);
 
-		protected virtual void BuyButtonClick(AbstractBuildingTile tile, MarketManager manager)
+		protected virtual void BuyButtonClick(AbstractBuildingTile tile, AbstractMarketManager manager)
 		{
 			manager.CloseMarket();
 		}
 
-		private void SetupBuyButton(AbstractBuildingTile tile, MarketManager manager)
+		private void SetupBuyButton(AbstractBuildingTile tile, AbstractMarketManager manager)
 		{
 			int price = GetPrice(tile);
 
@@ -65,7 +66,7 @@ namespace UI.Market.MarketScreens
 			}
 		}
 
-		private void SetupTypeButtons(AbstractBuildingTile tile, MarketManager manager)
+		private void SetupTypeButtons(AbstractBuildingTile tile, AbstractMarketManager manager)
 		{
 			TBuyType[] unlocked = GetUnlockedTypes();
 
@@ -89,7 +90,7 @@ namespace UI.Market.MarketScreens
 			}
 		}
 
-		private void Select(AbstractBuildingTile tile, SerializableKeyValuePair<TBuyType, BuyButtonData> pair, MarketManager manager)
+		private void Select(AbstractBuildingTile tile, SerializableKeyValuePair<TBuyType, BuyButtonData> pair, AbstractMarketManager manager)
 		{
 			// if we select the selected button, don't do anything
 			if (selectedButtonDatum != null && selectedButtonDatum.Value.Equals(pair))

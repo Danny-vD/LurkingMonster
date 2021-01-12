@@ -1,6 +1,7 @@
 ﻿using Gameplay.Buildings;
 using Grid.Tiles.Buildings;
 using TMPro;
+using UI.Market.MarketManagers;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -20,7 +21,7 @@ namespace UI.Market.MarketScreens.FoundationScreens
 		[SerializeField]
 		private TextMeshProUGUI repairText = null;
 
-		protected override void SetupScreen(AbstractBuildingTile tile, MarketManager manager)
+		protected override void SetupScreen(AbstractBuildingTile tile, AbstractMarketManager manager)
 		{
 			if (tile.HasBuilding)
 			{
@@ -35,7 +36,7 @@ namespace UI.Market.MarketScreens.FoundationScreens
 			SetupDemolishButton(tile, manager);
 		}
 
-		private void SetupRepairButton(AbstractBuildingTile tile, MarketManager manager)
+		private void SetupRepairButton(AbstractBuildingTile tile, AbstractMarketManager manager)
 		{
 			int price = tile.GetCurrentFoundationData().RepairCost;
 			repairText.text = price.ToString();
@@ -59,7 +60,7 @@ namespace UI.Market.MarketScreens.FoundationScreens
 			}
 		}
 
-		private void SetupDemolishButton(AbstractBuildingTile tile, MarketManager manager)
+		private void SetupDemolishButton(AbstractBuildingTile tile, AbstractMarketManager manager)
 		{
 			int price = tile.GetCurrentFoundationData().DestructionCost;
 			demolishText.text = price.ToString();

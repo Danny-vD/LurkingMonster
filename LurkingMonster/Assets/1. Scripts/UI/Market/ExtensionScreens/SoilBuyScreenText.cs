@@ -3,6 +3,7 @@ using Enums;
 using Grid.Tiles.Buildings;
 using ScriptableObjects;
 using Structs.Market;
+using UI.Market.MarketManagers;
 using UI.Market.MarketScreens.SoilScreens;
 using UnityEngine;
 using Utility;
@@ -18,7 +19,7 @@ namespace UI.Market.ExtensionScreens
 
 		private StringVariableWriter typeTextWriter;
 
-		protected override void ActivateExtension(AbstractBuildingTile tile, MarketManager manager)
+		protected override void ActivateExtension(AbstractBuildingTile tile, AbstractMarketManager manager)
 		{
 			SerializableEnumDictionary<SoilType, BuyButtonData> buildingButtons =
 				GetComponent<SoilBuyScreen>().GetbuyButtonData();

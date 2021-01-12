@@ -3,6 +3,7 @@ using Gameplay.Buildings;
 using Grid.Tiles.Buildings;
 using Structs.Market;
 using TMPro;
+using UI.Market.MarketManagers;
 using UnityEngine;
 using UnityEngine.UI;
 using Utility;
@@ -40,7 +41,7 @@ namespace UI.Market.MarketScreens
 
 		private MainScreenData screenData;
 
-		protected override void SetupScreen(AbstractBuildingTile tile, MarketManager manager)
+		protected override void SetupScreen(AbstractBuildingTile tile, AbstractMarketManager manager)
 		{
 			if (tile.HasDebris) // Tile has debris
 			{
@@ -82,7 +83,7 @@ namespace UI.Market.MarketScreens
 			return screenData;
 		}
 
-		private void HasDebris(AbstractBuildingTile tile, MarketManager manager)
+		private void HasDebris(AbstractBuildingTile tile, AbstractMarketManager manager)
 		{
 			BlockButtons(true, true, true);
 
@@ -91,7 +92,7 @@ namespace UI.Market.MarketScreens
 			SetText("Blocked by Debris!", "Blocked by Debris!", "Blocked by Debris!");
 		}
 
-		private void HasBuilding(AbstractBuildingTile tile, MarketManager manager)
+		private void HasBuilding(AbstractBuildingTile tile, AbstractMarketManager manager)
 		{
 			BlockButtons(false, false, false);
 
@@ -104,7 +105,7 @@ namespace UI.Market.MarketScreens
 			SetText(tile.Building.BuildingType.ToString(), tile.GetFoundationType().ToString(), tile.GetSoilType().ToString());
 		}
 
-		private void HasFoundation(AbstractBuildingTile tile, MarketManager manager)
+		private void HasFoundation(AbstractBuildingTile tile, AbstractMarketManager manager)
 		{
 			BlockButtons(false, false, false);
 
@@ -117,7 +118,7 @@ namespace UI.Market.MarketScreens
 			SetText("NoBuilding!", tile.GetFoundationType().ToString(), tile.GetSoilType().ToString());
 		}
 
-		private void HasSoil(AbstractBuildingTile tile, MarketManager manager)
+		private void HasSoil(AbstractBuildingTile tile, AbstractMarketManager manager)
 		{
 			BlockButtons(true, false, false);
 
@@ -129,7 +130,7 @@ namespace UI.Market.MarketScreens
 			SetText("NoBuilding!", "NoFoundation!", tile.GetSoilType().ToString());
 		}
 
-		private void HandleEmpty(AbstractBuildingTile tile, MarketManager manager)
+		private void HandleEmpty(AbstractBuildingTile tile, AbstractMarketManager manager)
 		{
 			BlockButtons(true, true, false);
 
