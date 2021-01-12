@@ -15,8 +15,8 @@ namespace UI.TextScrips
 		{
 			text = GetComponent<TextMeshProUGUI>();
 
-			SetDefaultName();
 			AddListener();
+			SetName();
 		}
 
 		private void AddListener()
@@ -27,6 +27,12 @@ namespace UI.TextScrips
 
 		private void SetName()
 		{
+			if (string.IsNullOrEmpty(UserSettings.GameData.UserName))
+			{
+				SetDefaultName();
+				return;
+			}
+			
 			text.text = UserSettings.GameData.UserName;
 		}
 		

@@ -26,7 +26,6 @@ namespace Singletons
 
 		private void OnDisable()
 		{
-			UserSettings.GameData.Money = CurrentMoney;
 			RemoveListeners();
 		}
 

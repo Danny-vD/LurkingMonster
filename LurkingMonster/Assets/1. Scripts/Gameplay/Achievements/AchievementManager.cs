@@ -72,7 +72,7 @@ namespace Gameplay.Achievements
 
 		public bool AllAchievementsUnlocked()
 		{
-			return achievements.All(achievement => achievement.Unlocked.All(t => achievement.Unlocked.Last()));
+			return achievements.All(achievement => achievement.Unlocked.Last());
 		}
 
 		private void AddListeners()

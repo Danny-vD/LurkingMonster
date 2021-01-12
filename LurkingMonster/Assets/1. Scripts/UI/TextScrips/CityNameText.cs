@@ -14,10 +14,17 @@ namespace UI.TextScrips
 		{
 			text = GetComponent<TMP_Text>();
 			EventManager.Instance.AddListener<InputChangedEvent>(ChangeCityName);
+			ChangeCityName();
 		}
 
 		private void ChangeCityName()
 		{
+			if (string.IsNullOrEmpty(UserSettings.GameData.CityName))
+			{
+				text.text = "Monstrocity";
+				return;
+			}
+			
 			text.text = UserSettings.GameData.CityName;
 		}
 
