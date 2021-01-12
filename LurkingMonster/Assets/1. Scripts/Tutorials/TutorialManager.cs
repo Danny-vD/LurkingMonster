@@ -86,7 +86,7 @@ namespace Tutorials
 			btn_stopTutorial.onClick.AddListener(CompletedAllTutorials);
 		}
 
-		private void CompletedAllTutorials()
+		protected virtual void CompletedAllTutorials()
 		{
 			IsActive = false;
 			TimeManager.Instance.UnPause();

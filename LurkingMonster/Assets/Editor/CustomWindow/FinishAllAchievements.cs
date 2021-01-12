@@ -1,7 +1,7 @@
-﻿using System.IO;
-using Singletons;
+﻿using Events;
 using UnityEditor;
 using UnityEngine;
+using VDFramework.EventSystem;
 
 namespace CustomWindow
 {
@@ -22,7 +22,7 @@ namespace CustomWindow
 			
 			if (!GUILayout.Button("Finish All Achievements", EditorStyles.miniButtonMid)) return;
 
-			RewardManager.Instance.FinishAllAchievements();
+			EventManager.Instance.RaiseEvent(new EndGameEvent());
 		}
 	}
 }
