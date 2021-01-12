@@ -81,7 +81,7 @@ namespace UI.Market.MarketScreens
 			return MoneyManager.Instance.PlayerHasEnoughMoney(price);
 		}
 
-		protected static void ReduceMoney(int price)
+		protected virtual void ReduceMoney(int price)
 		{
 			EventManager.Instance.RaiseEvent(new DecreaseMoneyEvent(price));
 		}

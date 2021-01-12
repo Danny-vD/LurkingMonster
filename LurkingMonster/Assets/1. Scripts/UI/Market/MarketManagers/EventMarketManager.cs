@@ -10,7 +10,7 @@ namespace UI.Market.MarketManagers
 		{
 			EventManager.Instance.AddListener<T>(EnableMarket, 1);
 		}
-
+		
 		public void RemoveListeners()
 		{
 			EventManager.Instance.RemoveListener<T>(EnableMarket);

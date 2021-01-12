@@ -70,7 +70,7 @@ namespace UI.Market
 
 		private void OnSelectedBuilding(SelectedBuildingEvent selectedBuildingEvent)
 		{
-			AbstractBuildingTile tile = selectedBuildingEvent.tile;
+			AbstractBuildingTile tile = selectedBuildingEvent.Tile;
 
 			if (tile == null || tile.HasDebris)
 			{

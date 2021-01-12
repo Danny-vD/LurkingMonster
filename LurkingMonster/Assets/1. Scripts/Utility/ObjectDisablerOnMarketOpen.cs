@@ -9,6 +9,7 @@ namespace Utility
 		private void Start()
 		{
 			EventManager.Instance.AddListener<OpenMarketEvent>(Disable);
+			EventManager.Instance.AddListener<OpenResearchFacilityEvent>(Disable);
 		}
 
 		private void OnDestroy()
@@ -19,6 +20,7 @@ namespace Utility
 			}
 			
 			EventManager.Instance.RemoveListener<OpenMarketEvent>(Disable);
+			EventManager.Instance.RemoveListener<OpenResearchFacilityEvent>(Disable);
 		}
 
 		private void Disable()

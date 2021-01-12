@@ -1,6 +1,9 @@
-﻿using Enums;
+﻿using System.Linq;
+using Enums;
 using Grid.Tiles.Buildings;
+using Singletons;
 using UI.Market.MarketManagers;
+using VDFramework.Extensions;
 
 namespace UI.Market.MarketScreens.BuildingScreens
 {

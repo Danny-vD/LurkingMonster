@@ -15,5 +15,10 @@ namespace UI.Market.ResearchFacility
 		protected override PowerUpType[] GetUnlockedTypes() => default(PowerUpType).GetValues().ToArray();
 
 		protected override int GetPrice(AbstractBuildingTile tile) => 1000;
+
+		protected override void ReduceMoney(int price)
+		{
+			//TODO: Decrease soil samples
+		}
 	}
 }
