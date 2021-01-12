@@ -1,4 +1,5 @@
 ﻿using Events.MoneyManagement;
+using Events.SoilSamplesManagement;
 using UnityEngine;
 using VDFramework.EventSystem;
 using VDFramework.Singleton;
@@ -8,11 +9,14 @@ namespace Singletons
 	public class MoneyManager : Singleton<MoneyManager>
 	{
 		public int CurrentMoney { get; private set; }
+		
+		public int CurrentSoilSamples { get; private set; }
 
 		protected override void Awake()
 		{
 			base.Awake();
-			CurrentMoney = UserSettings.GameData.Money;
+			CurrentMoney       = UserSettings.GameData.Money;
+			CurrentSoilSamples = UserSettings.GameData.SoilSamples;
 		}
 
 		private void OnEnable()
@@ -28,16 +32,18 @@ namespace Singletons
 
 		private void AddListeners()
 		{
-			UserSettings.OnGameQuit += SaveCurrentMoney;
+			UserSettings.OnGameQuit += SaveCurrentCurrencies;
 
 			EventManager.Instance.AddListener<IncreaseMoneyEvent>(OnIncreaseMoney);
 			EventManager.Instance.AddListener<DecreaseMoneyEvent>(OnDecreaseMoney);
 			EventManager.Instance.AddListener<CollectRentEvent>(OnCollectRent);
+			EventManager.Instance.AddListener<IncreaseSoilSamplesEvent>(OnIncreaseSoilSamples, 100);
+			EventManager.Instance.AddListener<DecreaseSoilSamplesEvent>(OnDecreaseSoilSamples, 100);
 		}
 
 		private void RemoveListeners()
 		{
-			UserSettings.OnGameQuit -= SaveCurrentMoney;
+			UserSettings.OnGameQuit -= SaveCurrentCurrencies;
 
 			if (!EventManager.IsInitialized)
 			{
@@ -49,9 +55,10 @@ namespace Singletons
 			EventManager.Instance.RemoveListener<CollectRentEvent>(OnCollectRent);
 		}
 
-		private void SaveCurrentMoney()
+		private void SaveCurrentCurrencies()
 		{
-			UserSettings.GameData.Money = CurrentMoney;
+			UserSettings.GameData.Money       = CurrentMoney;
+			UserSettings.GameData.SoilSamples = CurrentSoilSamples;
 		}
 
 		public bool PlayerHasEnoughMoney(int price)
@@ -79,6 +86,16 @@ namespace Singletons
 		private void OnCollectRent(CollectRentEvent collectRentEvent)
 		{
 			ChangeMoney(collectRentEvent.Rent);
+		}
+
+		private void OnIncreaseSoilSamples(IncreaseSoilSamplesEvent @event)
+		{
+			CurrentSoilSamples += @event.Amount;
+		}
+
+		private void OnDecreaseSoilSamples(DecreaseSoilSamplesEvent @event)
+		{
+			CurrentSoilSamples -= @event.Amount;
 		}
 
 #if UNITY_EDITOR

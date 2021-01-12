@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using Enums;
 using Events;
 using Events.BuildingEvents;
@@ -35,19 +36,19 @@ namespace Gameplay.Achievements
 			achievements = new List<Achievement>();
 
 			buildingBuildAchievement = new Achievement(new[] {3, 7, 10}, "BUILDINGSBUILDACHIEVEMENT",
-				new object[] {SoilType.Loam, PowerUpType.AvoidMonster, FoundationType.Shallow_Foundation}, "ACHIEVEMENT_1");
+				new int[] {100, 200, 400}, "ACHIEVEMENT_1");
 
 			rentCollectedAchievement = new Achievement(new[] {1000, 10000, 100000}, "RENTCOLLECTEDACHIEVEMENT",
-				new object[] {FoundationType.Floating_Floor_Plate, SoilType.Clay, FoundationType.Reinforced_Concrete}, "ACHIEVEMENT_2");
+				new int[] {100, 200, 400}, "ACHIEVEMENT_2");
 
 			buildingSavedAchievement = new Achievement(new[] {10, 20, 30}, "BUILDINGSAVEDACHIEVEMENT",
-				new object[] {SoilType.Peat, PowerUpType.FixProblems, SoilType.Sand}, "ACHIEVEMENT_3");
+				new int[] {100, 200, 400}, "ACHIEVEMENT_3");
 
 			buyPlotsAchievement = new Achievement(new[] {5, 10, 15}, "BUYPLOTACHIEVEMENT",
-				new object[] {PowerUpType.AvoidMonster, PowerUpType.AvoidMonster, BuildingType.Apartment}, "ACHIEVEMENT_4");
+				new int[] {100, 200, 400}, "ACHIEVEMENT_4");
 
 			upgradeBuildingAchievement = new Achievement(new[] {1, 3, 6}, "UPGRADEBUILDINGSACHIEVEMENT",
-				new object[] {PowerUpType.AvoidWeatherEvent, FoundationType.Wooden_Poles, BuildingType.Store}, "ACHIEVEMENT_5");
+				new int[] {100, 200, 400}, "ACHIEVEMENT_5");
 
 			//TODO: make seperate system where it activates a weatherEvent when conditions are met?
 			//buildingConsumedAchievement = new Achievement(new[] {5, 10, 20}, "BUILDINGCONSUMEDACHIEVEMENT",
@@ -67,6 +68,11 @@ namespace Gameplay.Achievements
 			{
 				LoadData();
 			}
+		}
+
+		public bool AllAchievementsUnlocked()
+		{
+			return achievements.All(achievement => achievement.Unlocked.All(t => achievement.Unlocked.Last()));
 		}
 
 		private void AddListeners()
