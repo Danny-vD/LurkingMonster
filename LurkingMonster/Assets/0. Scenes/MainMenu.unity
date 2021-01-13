@@ -201,7 +201,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.06166785, y: 0.2536995}
   m_AnchorMax: {x: 0.94067466, y: 0.25857893}
-  m_AnchoredPosition: {x: 8.021423, y: -5.9959717}
+  m_AnchoredPosition: {x: 8.021484, y: -5.9959717}
   m_SizeDelta: {x: 15.940796, y: -1.6864014}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &131959014
@@ -475,11 +475,11 @@ MonoBehaviour:
     - key: 0
       value: event:/Music/MenuMusic
     - key: 1
-      value: event:/Ambient/CityAmbience
+      value: event:/Ambient/Disaster/HeavyRain
     - key: 2
-      value: event:/Ambient/Rain&WindBlowing
+      value: event:/Ambient/Disaster/WindBlowing
     - key: 3
-      value: event:/SFX/Thunder
+      value: event:/Ambient/Disaster/Rain&WindBlowing
     buses:
     - key: 0
       value: Bus:/
@@ -1245,6 +1245,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startMoney: 100
+  startSoilSamples: 1000
 --- !u!114 &635546120
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1342,7 +1343,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 53.1
+  m_fontSize: 60
   m_fontSizeBase: 0
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -4345,7 +4346,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 70.2
+  m_fontSize: 119.95
   m_fontSizeBase: 120
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -4657,7 +4658,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 54.1
+  m_fontSize: 60
   m_fontSizeBase: 0
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -5496,7 +5497,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 50
+  m_fontSize: 60
   m_fontSizeBase: 0
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -5593,7 +5594,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.06166785, y: 0.75522864}
   m_AnchorMax: {x: 0.94067466, y: 0.762}
-  m_AnchoredPosition: {x: 8.021423, y: -1.8342285}
+  m_AnchoredPosition: {x: 8.021484, y: -1.8342285}
   m_SizeDelta: {x: 15.940796, y: 0.048095703}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1859100008
