@@ -19,20 +19,20 @@ namespace Gameplay.Achievements
 
 		private readonly string achievementInfo;
 
-		private readonly object[] objects;
+		private readonly int[] soilSamples;
 
 		public bool[] rewardsCollected { get; private set;}
 		
-		public Achievement(int[] limits, string keyMessage, object[] objects, string achievementInfo)
+		public Achievement(int[] limits, string keyMessage, int[] soilSamples, string achievementInfo)
 		{
 			this.limits          = limits;
 			this.keyMessage      = keyMessage;
 			counter              = 0;
-			this.objects         = objects;
+			this.soilSamples     = soilSamples;
 			this.achievementInfo = achievementInfo;
 			
 			unlocked             = new bool[limits.Length];
-			rewardsCollected     = new bool[objects.Length];
+			rewardsCollected     = new bool[soilSamples.Length];
 		}
 
 		public void CheckAchievement(int value)
@@ -51,8 +51,6 @@ namespace Gameplay.Achievements
 						//MessageManager.Instance.ShowMessageGameUI(LanguageUtil.GetJsonString("ACHIEVEMENT_UNLOCKED"), Color.green);
 						RewardManager.Instance.IncreaseCounter();
 						EventManager.Instance.RaiseEvent(new AchievementUnlockedEvent());
-						
-						//TODO show achievement!!
 						return;
 					}
 				}
@@ -93,23 +91,18 @@ namespace Gameplay.Achievements
 		{
 			int i = GetIndexFirstNotCollectedReward();
 			rewardsCollected[i] = true;
-			RewardManager.Instance.Unlock(objects[i]);
+			RewardManager.Instance.Unlock(soilSamples[i]);
 		}
 
-		public object GetNextReward()
-		{
-			return objects[GetIndexFirstNotCollectedReward()];
-		}
-		
-		public string GetAchievementInfo()
+		/*public string GetAchievementInfo()
 		{
 			return LanguageUtil.GetJsonString(achievementInfo);
 		}
 
 		public string RewardInfo()
 		{
-			return LanguageUtil.GetJsonString(LanguageUtil.GetRewardInfo(objects[GetIndexFirstNotCollectedReward()]));
-		}
+			return LanguageUtil.GetJsonString(LanguageUtil.GetRewardInfo(soilSamples[GetIndexFirstNotCollectedReward()]));
+		}*/
 
 		private int GetIndexFirstNotCollectedReward()
 		{

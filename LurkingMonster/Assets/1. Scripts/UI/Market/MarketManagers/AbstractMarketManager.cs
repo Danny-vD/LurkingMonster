@@ -1,44 +1,29 @@
-﻿using Events;
-using Grid.Tiles.Buildings;
-using Interfaces;
-using UI.Market.MarketScreens;
+﻿using UI.Market.MarketScreens;
 using UnityEngine;
 using UnityEngine.UI;
 using VDFramework;
-using VDFramework.EventSystem;
 
-namespace UI.Market
+namespace UI.Market.MarketManagers
 {
-	public class MarketManager : BetterMonoBehaviour, IListener
+	public abstract class AbstractMarketManager : BetterMonoBehaviour
 	{
 		[SerializeField]
 		private GameObject[] enableOnExit = new GameObject[0];
-		
+
 		[SerializeField]
 		private Button btnExit;
-		
+
 		[SerializeField]
 		private Structs.Market.MarketScreens screens;
 
 		public Structs.Market.MarketScreens Screens => screens;
 
-		private AbstractBuildingTile tile;
-
-		public void AddListeners()
+		public void OpenMarket()
 		{
-			EventManager.Instance.AddListener<OpenMarketEvent>(OpenMarket, 1);
-		}
+			CachedGameObject.SetActive(true);
+			SetupReturnButtons();
 
-		public void RemoveListeners()
-		{
-			EventManager.Instance.RemoveListener<OpenMarketEvent>(OpenMarket);
-		}
-
-		public void PutScreenInFocus(AbstractMarketScreen screen)
-		{
-			screens.Screens.ForEach(Hide);
-			Show(screen);
-			screen.SetUI(tile, this);
+			PutScreenInFocus(screens.MainScreen);
 		}
 
 		public void CloseMarket()
@@ -50,6 +35,17 @@ namespace UI.Market
 				@object.SetActive(true);
 			}
 		}
+		
+		public void PutScreenInFocus(AbstractMarketScreen screen)
+		{
+			screens.Screens.ForEach(Hide);
+			Show(screen);
+			OnScreenFocus(screen);
+		}
+
+		protected virtual void OnScreenFocus(AbstractMarketScreen screen)
+		{
+		}
 
 		private void SetupReturnButtons()
 		{
@@ -58,27 +54,12 @@ namespace UI.Market
 
 			// Set the mainscreen back button to exit market
 			screens.MainScreen.SetReturnButton(CloseMarket);
-			
+
 			// Setup the market exit button
 			btnExit.onClick.RemoveAllListeners();
 			btnExit.onClick.AddListener(CloseMarket);
 		}
-		
-		private void OpenMarket(OpenMarketEvent openMarketEvent)
-		{
-			CachedGameObject.SetActive(true);
-			SetupReturnButtons();
-			
-			tile = openMarketEvent.BuildingTile;
-			
-			if (!tile)
-			{
-				tile = openMarketEvent.Building.GetComponentInParent<AbstractBuildingTile>();
-			}
 
-			PutScreenInFocus(screens.MainScreen);
-		}
-		
 		private static void Show(AbstractMarketScreen screen)
 		{
 			screen.Show();

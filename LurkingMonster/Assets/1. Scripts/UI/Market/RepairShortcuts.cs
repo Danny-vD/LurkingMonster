@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using Events;
 using Events.BuildingEvents;
 using Events.MoneyManagement;
+using Events.OpenMarketEvents;
 using Gameplay;
 using Gameplay.Buildings;
 using Grid.Tiles.Buildings;
@@ -70,7 +70,7 @@ namespace UI.Market
 
 		private void OnSelectedBuilding(SelectedBuildingEvent selectedBuildingEvent)
 		{
-			AbstractBuildingTile tile = selectedBuildingEvent.tile;
+			AbstractBuildingTile tile = selectedBuildingEvent.Tile;
 
 			if (tile == null || tile.HasDebris)
 			{

@@ -1,5 +1,9 @@
-﻿using Enums;
+﻿using System.Linq;
+using Enums;
 using Grid.Tiles.Buildings;
+using Singletons;
+using UI.Market.MarketManagers;
+using VDFramework.Extensions;
 
 namespace UI.Market.MarketScreens.BuildingScreens
 {
@@ -10,7 +14,7 @@ namespace UI.Market.MarketScreens.BuildingScreens
 			tile.SetBuildingType(buyType);
 		}
 
-		protected override void BuyButtonClick(AbstractBuildingTile tile, MarketManager manager)
+		protected override void BuyButtonClick(AbstractBuildingTile tile, AbstractMarketManager manager)
 		{
 			tile.SpawnBuilding(true);
 			base.BuyButtonClick(tile, manager);

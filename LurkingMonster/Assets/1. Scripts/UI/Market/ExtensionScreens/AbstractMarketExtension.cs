@@ -1,4 +1,5 @@
 ﻿using Grid.Tiles.Buildings;
+using UI.Market.MarketManagers;
 using UI.Market.MarketScreens;
 using UnityEngine;
 using VDFramework;
@@ -18,6 +19,6 @@ namespace UI.Market.ExtensionScreens
 			extension.Extensions += ActivateExtension;
 		}
 
-		protected abstract void ActivateExtension(AbstractBuildingTile tile, MarketManager manager);
+		protected abstract void ActivateExtension(AbstractBuildingTile tile, AbstractMarketManager manager);
 	}
 }

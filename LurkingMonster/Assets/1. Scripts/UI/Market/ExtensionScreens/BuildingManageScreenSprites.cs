@@ -1,6 +1,7 @@
 ﻿using Enums;
 using Gameplay.Buildings;
 using Grid.Tiles.Buildings;
+using UI.Market.MarketManagers;
 using UnityEngine;
 using UnityEngine.UI;
 using Utility;
@@ -18,7 +19,7 @@ namespace UI.Market.ExtensionScreens
 		[SerializeField]
 		private SerializableEnumDictionary<BuildingType, SerializableDictionary<int, Sprite>> sprites;
 		
-		protected override void ActivateExtension(AbstractBuildingTile tile, MarketManager manager)
+		protected override void ActivateExtension(AbstractBuildingTile tile, AbstractMarketManager manager)
 		{
 			SetSpriteToCurrent(currentBuildingSprite, tile.Building);
 

@@ -1,11 +1,9 @@
-﻿using Enums;
-using Events.MoneyManagement;
+﻿using Events.MoneyManagement;
 using Singletons;
 using UnityEngine;
 using UnityEngine.UI;
 using VDFramework;
 using VDFramework.EventSystem;
-using VDFramework.Singleton;
 
 namespace Tutorials
 {
@@ -23,14 +21,14 @@ namespace Tutorials
 		[SerializeField]
 		private string suffix;
 
-		[SerializeField]
+		[SerializeField, Tooltip("The money you receive upon completion")]
 		private int money;
 
 		protected Tutorial[] tutorials;
 
 		private Tutorial currentTutorial;
 
-		public static bool IsActive { get; protected set; }
+		public static bool IsActive { get; private set; }
 
 		public string Suffix => suffix;
 
@@ -88,7 +86,7 @@ namespace Tutorials
 			btn_stopTutorial.onClick.AddListener(CompletedAllTutorials);
 		}
 
-		private void CompletedAllTutorials()
+		protected virtual void CompletedAllTutorials()
 		{
 			IsActive = false;
 			TimeManager.Instance.UnPause();

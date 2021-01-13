@@ -2,7 +2,7 @@
 using Grid.Tiles.Buildings;
 using VDFramework.EventSystem;
 
-namespace Events
+namespace Events.OpenMarketEvents
 {
 	public class OpenMarketEvent : VDEvent<OpenMarketEvent>
 	{
