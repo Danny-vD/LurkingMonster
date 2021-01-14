@@ -383,6 +383,7 @@ GameObject:
   - component: {fileID: 472988314417894494}
   - component: {fileID: 4217036813707069561}
   - component: {fileID: 2375193678091250356}
+  - component: {fileID: 4090770469377411949}
   m_Layer: 5
   m_Name: HealthBar
   m_TagString: Untagged
@@ -474,6 +475,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 4217036813707069561}
+--- !u!114 &4090770469377411949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3181564111240099938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73f40b74877bbba4ebfb02f0872d4854, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ColorPerPercentage:
+    serializedDictionary:
+    - key: 1
+      value: {r: 0.6862745, g: 0.427451, b: 0.23529413, a: 1}
+    - key: 0.25
+      value: {r: 0.3773585, g: 0.22923212, b: 0.119259514, a: 1}
+    - key: 0.1
+      value: {r: 0.9339623, g: 0, b: 0, a: 1}
+  fillarea: {fileID: 8139466020588459974}
 --- !u!1 &5338143314773929652
 GameObject:
   m_ObjectHideFlags: 0
@@ -532,7 +554,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.6862745, g: 0.42745098, b: 0.23529412, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

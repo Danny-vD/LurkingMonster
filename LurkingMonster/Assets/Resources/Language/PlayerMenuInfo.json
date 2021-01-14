@@ -124,11 +124,11 @@
 	  "Value": [
       {
         "Key": "NL",
-        "Value": "/n<size=50>Soilmates Studios is een groep van 7 studenten van Saxion University of Applied Sciences. Lena Van, Dominique de Graaff, Rania Zouganeli, Julien Trübiger, Els Krajenbrink, Danny van Duist en Niek Tempert zijn ontwerpers, artiesten en ontwikkelaars, die samen werkten om het idee van KCAF tot leven te brengen.</size>"
+        "Value": "\n<size=50>Soilmates Studios is een groep van 7 studenten van Saxion University of Applied Sciences. Lena Van, Dominique de Graaff, Rania Zouganeli, Julien Trübiger, Els Krajenbrink, Danny van Duist en Niek Tempert zijn ontwerpers, artiesten en ontwikkelaars, die samen werkten om het idee van KCAF tot leven te brengen.</size>"
       },
       {
         "Key": "EN",
-        "Value": "/n<size=50>Soilmates studios is a group of 7 students from Saxion University of Applied Sciences. Lena Van, Dominique de Graaff, Rania Zouganeli, Julien Trübiger, Els Krajenbrink, Danny van Duist and Niek Tempert are designers, artists and engineers, who worked together to bring KCAF’s idea to life. </size>"
+        "Value": "\n<size=50>Soilmates studios is a group of 7 students from Saxion University of Applied Sciences. Lena Van, Dominique de Graaff, Rania Zouganeli, Julien Trübiger, Els Krajenbrink, Danny van Duist and Niek Tempert are designers, artists and engineers, who worked together to bring KCAF’s idea to life. </size>"
       },
 		{
 		  "Key": "DE",
@@ -192,11 +192,11 @@
 	  "Value": [
       {
         "Key": "NL",
-        "Value": "<size=53><b> Contact informatie KCAF</b></size>\n Email: info@kcad.nl \n\n Contactinformatie directeur: d.dejong@kcaf.nl \n\n Webpagina: https://www.kcaf.nl/contact-kcaf/ \n Telefoon: 030 608 1001 \n\n\n <size=53><b> Contact informatie SoilMatesStudios</b></size>\n Email: soilmatesstudio@gmail.com \n\n WebPagina: https://soilmatesblog.wordpress.com/"
+        "Value": "<size=53><b> Contact informatie KCAF</b></size>\n Email: info@kcad.nl \n\n Webpagina: https://www.kcaf.nl/contact-kcaf/ \n Telefoon: 030 608 1001 \n\n\n <size=53><b> Contact informatie SoilMatesStudios</b></size>\n Email: soilmatesstudio@gmail.com \n\n WebPagina: https://soilmatesblog.wordpress.com/"
       },
       {
         "Key": "EN",
-        "Value": "<size=53><b> Contact information KCAF</b></size>\n Email: info@kcad.nl \n\n Contact the CEO directly: d.dejong@kcaf.nl \n\n Webpage: https://www.kcaf.nl/contact-kcaf/ \n Phone: 030 608 1001 \n\n\n <size=53><b> Contact information SoilMatesStudios</b></size>\n Email: soilmatesstudio@gmail.com \n\n WebPage: https://soilmatesblog.wordpress.com/"
+        "Value": "<size=53><b> Contact information KCAF</b></size>\n Email: info@kcad.nl \n\n Webpage: https://www.kcaf.nl/contact-kcaf/ \n Phone: 030 608 1001 \n\n\n <size=53><b> Contact information SoilMatesStudios</b></size>\n Email: soilmatesstudio@gmail.com \n\n WebPage: https://soilmatesblog.wordpress.com/"
       },
 		{
 		  "Key": "DE",
