@@ -10,5 +10,7 @@
 		DISASTER_HeavyRain,
 		DISASTER_WindBlowing,
 		DISASTER_RainAndWind,
+		
+		
 	}
 }
