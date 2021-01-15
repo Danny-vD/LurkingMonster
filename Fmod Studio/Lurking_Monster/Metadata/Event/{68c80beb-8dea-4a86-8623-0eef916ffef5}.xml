@@ -5,7 +5,7 @@
 			<value>MonsterEating</value>
 		</property>
 		<property name="outputFormat">
-			<value>2</value>
+			<value>1</value>
 		</property>
 		<relationship name="folder">
 			<destination>{1f8d2a5a-17ba-4d0c-bc0f-976946fb6017}</destination>
@@ -189,7 +189,6 @@
 	<object class="MixerBusEffectChain" id="{c6949681-fa73-4961-bab0-0c433a954096}">
 		<relationship name="effects">
 			<destination>{2ba27efb-fa09-4cbb-b8e2-34936829d10f}</destination>
-			<destination>{97574533-38ea-416a-bc73-468224f3f4d5}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{443f8d5f-eda8-4739-bbec-eaa31f0f1ff6}" />
@@ -213,7 +212,6 @@
 	</object>
 	<object class="MixerBusPanner" id="{29d240a1-f585-48cb-a605-6f0306c03899}" />
 	<object class="MixerBusFader" id="{2ba27efb-fa09-4cbb-b8e2-34936829d10f}" />
-	<object class="SpatialiserEffect" id="{97574533-38ea-416a-bc73-468224f3f4d5}" />
 	<object class="MixerBusFader" id="{7dccb6b1-ffa7-4a7e-9b18-5e5444d9429c}" />
 	<object class="MixerBusFader" id="{e92a3f3c-9dcc-4a19-b8fc-dd2bf1c5ed66}" />
 	<object class="MixerBusFader" id="{0ff73669-e03d-46fb-8b91-2ea154ffc18e}" />
