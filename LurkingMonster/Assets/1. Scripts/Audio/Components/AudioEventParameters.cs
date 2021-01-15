@@ -9,18 +9,17 @@ namespace Audio.Components
 {
 	public class AudioEventParameters : AbstractEventReactor
 	{
-		//TODO: find a way to serialize the parameters
-		[SerializeField]
-		private SerializableEnumDictionary<UnityFunction, EventParameters> parameters;
-
 		[SerializeField]
 		private AudioEventPlayer audioEventPlayer;
+		
+		[SerializeField]
+		private SerializableEnumDictionary<UnityFunction, EventParameters> parameters;
 
 		protected override void ReactToEvent(UnityFunction unityFunction)
 		{
 			EventInstance eventInstance = audioEventPlayer.GetInstance;
 
-			foreach (KeyValuePair<string, float> pair in parameters[unityFunction].ParameterValues)
+			foreach (KeyValuePair<string, float> pair in parameters[unityFunction].Parameters)
 			{
 				eventInstance.setParameterByName(pair.Key, pair.Value);
 			}

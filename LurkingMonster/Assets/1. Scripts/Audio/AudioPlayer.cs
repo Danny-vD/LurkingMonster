@@ -37,7 +37,7 @@ namespace Audio
 		{
 			EventInstance eventInstance = RuntimeManager.CreateInstance(AudioManager.Instance.EventPaths.GetPath(@event));
 
-			foreach (KeyValuePair<string, float> pair in parameters.ParameterValues)
+			foreach (KeyValuePair<string, float> pair in parameters.Parameters)
 			{
 				eventInstance.setParameterByName(pair.Key, pair.Value);
 			}
@@ -51,7 +51,7 @@ namespace Audio
 			EventInstance eventInstance = RuntimeManager.CreateInstance(AudioManager.Instance.EventPaths.GetPath(@event));
 			eventInstance.set3DAttributes(gameObject.transform.To3DAttributes());
 
-			foreach (KeyValuePair<string, float> pair in parameters.ParameterValues)
+			foreach (KeyValuePair<string, float> pair in parameters.Parameters)
 			{
 				eventInstance.setParameterByName(pair.Key, pair.Value);
 			}
@@ -82,7 +82,7 @@ namespace Audio
 		{
 			EventInstance eventInstance = RuntimeManager.CreateInstance(AudioManager.Instance.EventPaths.GetPath(@event));
 
-			foreach (KeyValuePair<string, float> pair in parameters.ParameterValues)
+			foreach (KeyValuePair<string, float> pair in parameters.Parameters)
 			{
 				eventInstance.setParameterByName(pair.Key, pair.Value);
 			}
