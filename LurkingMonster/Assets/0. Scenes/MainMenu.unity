@@ -480,39 +480,39 @@ MonoBehaviour:
     - key: 2
       value: event:/Music/ItemStore
     - key: 3
-      value: event:/Ambient/Disaster/HeavyRain
+      value: event:/Ambient/BirdsAmbience
     - key: 4
-      value: event:/Ambient/Disaster/WindBlowing
+      value: event:/Ambient/Disaster/HeavyRain
     - key: 5
-      value: event:/Ambient/Disaster/Rain&WindBlowing
+      value: event:/Ambient/Disaster/WindBlowing
     - key: 6
-      value: 
+      value: event:/Ambient/Disaster/Rain&WindBlowing
     - key: 7
-      value: 
+      value: event:/Ambient/Disaster/Earthquake
     - key: 8
-      value: 
+      value: event:/SFX/QuakeMix
     - key: 9
-      value: 
+      value: event:/SFX/ThunderMix
     - key: 10
-      value: 
+      value: event:/SFX/AudioResponse/BuildingSoil
     - key: 11
-      value: 
+      value: event:/SFX/AudioResponse/BuildingFoundation
     - key: 12
-      value: 
+      value: event:/SFX/AudioResponse/BuildingHouse
     - key: 13
-      value: 
+      value: event:/SFX/AudioResponse/HouseUpgrade
     - key: 14
-      value: 
+      value: event:/SFX/AudioResponse/Repairing
     - key: 15
-      value: 
+      value: event:/SFX/SoilSinking
     - key: 16
-      value: 
+      value: event:/SFX/FoundationCrack
     - key: 17
-      value: 
+      value: event:/SFX/HouseCrack
     - key: 18
-      value: 
+      value: event:/SFX/MonsterEating
     - key: 19
-      value: 
+      value: event:/SFX/MonsterGrowl
     - key: 20
       value: event:/SFX/AudioResponse/Click
     - key: 21
@@ -520,19 +520,19 @@ MonoBehaviour:
     - key: 22
       value: event:/SFX/AudioResponse/OpeningInventory
     - key: 23
-      value: 
+      value: event:/SFX/AudioResponse/CollectingRent
     - key: 24
-      value: 
+      value: event:/SFX/AudioResponse/PayingCoins
     - key: 25
-      value: 
+      value: event:/SFX/AudioResponse/KCAF
     - key: 26
-      value: 
+      value: event:/SFX/AudioResponse/MonsterFood
     - key: 27
-      value: 
+      value: event:/SFX/AudioResponse/TimeFreeze
     - key: 28
-      value: 
+      value: event:/SFX/AchievementUnlocked
     - key: 29
-      value: 
+      value: event:/SFX/CarEngine
     buses:
     - key: 0
       value: Bus:/

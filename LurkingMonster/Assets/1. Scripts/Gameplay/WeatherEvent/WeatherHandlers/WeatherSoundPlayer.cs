@@ -11,7 +11,7 @@ namespace Gameplay.WeatherEvent.WeatherHandlers
 		private EventInstance wind;
 		private EventInstance rain;
 
-		protected override bool AddWeatherListener => false;
+		protected override bool AddWeatherListener => true;
 
 		protected override void Start()
 		{
@@ -36,6 +36,16 @@ namespace Gameplay.WeatherEvent.WeatherHandlers
 		protected override void OnStormStart(WeatherEventData weatherData)
 		{
 			rainWind.start();
+		}
+
+		protected override void OnEarthQuakeStart(WeatherEventData weatherData)
+		{
+			AudioPlayer.PlayOneShot2D(EventType.SFX_DISASTER_Earthquake);
+		}
+
+		protected override void OnEarthQuake(WeatherEventData weatherData)
+		{
+			AudioPlayer.PlayOneShot2D(EventType.SFX_DISASTER_EARTHQUAKE_Quake);
 		}
 
 		protected override void SetToDefault()

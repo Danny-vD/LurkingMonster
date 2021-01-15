@@ -7,6 +7,8 @@
 		MUSIC_Background,
 		MUSIC_ResearchFacility,
 		
+		AMBIENT_Birds,
+		
 		SFX_DISASTER_HeavyRain,
 		SFX_DISASTER_WindBlowing,
 		SFX_DISASTER_RainAndWind,
@@ -14,8 +16,6 @@
 		SFX_DISASTER_EARTHQUAKE_Quake,
 		SFX_DISASTER_Thunder,
 
-		AMBIENT_Birds,
-		
 		SFX_BUILDING_Soil,
 		SFX_BUILDING_Foundation,
 		SFX_BUILDING_BUILDING,

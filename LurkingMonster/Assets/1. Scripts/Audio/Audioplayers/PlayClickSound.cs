@@ -1,9 +1,8 @@
-﻿using Audio;
-using UnityEngine;
+﻿using UnityEngine;
 using VDFramework;
 using EventType = Enums.Audio.EventType;
 
-namespace Utility
+namespace Audio.Audioplayers
 {
 	public class PlayClickSound : BetterMonoBehaviour
 	{
