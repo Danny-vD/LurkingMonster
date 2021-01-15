@@ -220,6 +220,19 @@
           "Value": "MAX"
         }
       ]
+    },
+    {
+      "Key": "RESEARCH_FACILITY",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "Onderzoeksfaciliteit"
+        },
+        {
+          "Key": "EN",
+          "Value": "Research Facility"
+        }
+      ]
     }
   ]
 }

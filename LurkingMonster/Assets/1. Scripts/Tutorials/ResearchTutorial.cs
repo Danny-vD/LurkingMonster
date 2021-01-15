@@ -13,12 +13,7 @@ namespace Tutorials
 				return;
 			}
 			
-			EventManager.Instance.AddListener<OpenResearchFacilityEvent>(StartEndTutorial);
-		}
-
-		private void StartEndTutorial()
-		{
-			StartTutorial();
+			EventManager.Instance.AddListener<OpenResearchFacilityEvent>(StartTutorial);
 		}
 
 		protected override void CompletedAllTutorials()
@@ -31,7 +26,7 @@ namespace Tutorials
 			
 			UserSettings.GameData.RTutorial = true;
 			
-			EventManager.Instance.RemoveListener<OpenResearchFacilityEvent>(StartEndTutorial);
+			EventManager.Instance.RemoveListener<OpenResearchFacilityEvent>(StartTutorial);
 		}
 	}
 }
