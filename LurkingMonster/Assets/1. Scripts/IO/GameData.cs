@@ -13,6 +13,7 @@ namespace IO
 		private string cityName;
 		private string userName;
 		private int money;
+		private int soilSamples;
 		private bool vibrate;
 		private float musicVolume;
 		private float ambientVolume;
@@ -26,21 +27,24 @@ namespace IO
 		private WeatherEventType weatherEventType;
 		private float timerWeatherEvent;
 		private int achievementCounter;
+		private int characterIndex;
+		private bool rTutorial, eTutorial;
 		
 		private Dictionary<Vector2IntSerializable, TileData> dictionary;
 		
-		public GameData(int money, bool vibrate)
+		public GameData(int money, int soilSamples, bool vibrate)
 		{
-			this.money         = money;
-			dictionary         = new Dictionary<Vector2IntSerializable, TileData>();
-			achievementData    = new AchievementData[0];
-			powerUps           = new int[2];
-			musicVolume        = AudioManager.Instance.GetVolume(BusType.Music);
-			ambientVolume      = AudioManager.Instance.GetVolume(BusType.Ambient);
-			sfxVolume          = AudioManager.Instance.GetVolume(BusType.SFX);
-			masterMute         = AudioManager.Instance.GetVolume(BusType.Master) == 0;
-			language           = LanguageSettings.Language;
-			this.vibrate       = vibrate;
+			this.money       = money;
+			this.soilSamples = soilSamples;
+			dictionary       = new Dictionary<Vector2IntSerializable, TileData>();
+			achievementData  = new AchievementData[0];
+			powerUps         = new int[2];
+			musicVolume      = AudioManager.Instance.GetVolume(BusType.Music);
+			ambientVolume    = AudioManager.Instance.GetVolume(BusType.Ambient);
+			sfxVolume        = AudioManager.Instance.GetVolume(BusType.SFX);
+			masterMute       = AudioManager.Instance.GetVolume(BusType.Master) == 0;
+			language         = LanguageSettings.Language;
+			this.vibrate     = vibrate;
 		}
 
 		public string CityName
@@ -59,6 +63,12 @@ namespace IO
 		{
 			get => money;
 			set => money = value;
+		}
+
+		public int SoilSamples
+		{
+			get => soilSamples;
+			set => soilSamples = value;
 		}
 
 		public bool Vibrate
@@ -143,6 +153,24 @@ namespace IO
 		{
 			get => achievementCounter;
 			set => achievementCounter = value;
+		}
+
+		public int CharacterIndex
+		{
+			get => characterIndex;
+			set => characterIndex = value;
+		}
+
+		public bool RTutorial
+		{
+			get => rTutorial;
+			set => rTutorial = value;
+		}
+
+		public bool ETutorial
+		{
+			get => eTutorial;
+			set => eTutorial = value;
 		}
 	}
 }

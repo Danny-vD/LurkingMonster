@@ -10,8 +10,6 @@ namespace Structs
 	[Serializable]
 	public class TileData
 	{
-		// TODO: split up between structs?
-		
 		private TileType tileType;
 		private BuildingType buildingType;
 		private int buildingTier;
@@ -20,7 +18,7 @@ namespace Structs
 		private bool hasSoil;
 		private bool hasFoundation;
 		private bool hasDebris;
-		
+
 		private float buildingHealth;
 		private float foundationHealth;
 		private float soilHealth;
@@ -61,15 +59,27 @@ namespace Structs
 				hasFoundation = buildingTile.HasFoundation;
 				hasDebris     = buildingTile.HasDebris;
 
-				if (buildingTile.Building == null)
+				if (!hasSoil)
 				{
 					return;
 				}
 
-				buildingType   = buildingTile.GetBuildingType();
-				buildingTier   = buildingTile.Building.CurrentTier;
-				soilType       = buildingTile.GetSoilType();
+				soilType = buildingTile.GetSoilType();
+
+				if (!hasFoundation)
+				{
+					return;
+				}
+
 				foundationType = buildingTile.GetFoundationType();
+
+				if (!buildingTile.HasBuilding || hasDebris)
+				{
+					return;
+				}
+
+				buildingType = buildingTile.GetBuildingType();
+				buildingTier = buildingTile.Building.CurrentTier;
 
 				BuildingHealth buildingHealth = buildingTile.Building.GetComponent<BuildingHealth>();
 

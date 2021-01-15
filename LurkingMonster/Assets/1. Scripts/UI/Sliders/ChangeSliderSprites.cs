@@ -2,7 +2,7 @@
 using UnityEngine.UI;
 using VDFramework;
 
-namespace UI.Buttons
+namespace UI.Sliders
 {
 	public class ChangeSliderSprites : BetterMonoBehaviour
 	{

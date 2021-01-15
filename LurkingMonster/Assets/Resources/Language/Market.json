@@ -113,7 +113,7 @@
         },
         {
           "Key": "EN",
-          "Value": "Rent"
+          "Value": "Rent {0} Coin/Hour"
         }
       ]
     },
@@ -218,6 +218,19 @@
         {
           "Key": "EN",
           "Value": "MAX"
+        }
+      ]
+    },
+    {
+      "Key": "RESEARCH_FACILITY",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "Onderzoeksfaciliteit"
+        },
+        {
+          "Key": "EN",
+          "Value": "Research Facility"
         }
       ]
     }

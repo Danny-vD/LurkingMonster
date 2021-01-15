@@ -8,13 +8,15 @@ namespace Gameplay
 		private float timer;
 		private string name;
 		private PowerUpType powerUpType;
+		private int price;
 
-		public PowerUp(bool isActive, float timer, string name, PowerUpType powerUpType)
+		public PowerUp(bool isActive, float timer, string name, PowerUpType powerUpType, int price)
 		{
 			this.isActive    = isActive;
 			this.timer       = timer;
 			this.name        = name;
 			this.powerUpType = powerUpType;
+			this.price       = price;
 		}
 
 		public bool IsActive
@@ -39,6 +41,12 @@ namespace Gameplay
 		{
 			get => powerUpType;
 			set => powerUpType = value;
+		}
+
+		public int Price
+		{
+			get => price;
+			set => price = value;
 		}
 	}
 }

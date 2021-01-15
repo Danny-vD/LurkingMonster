@@ -15,14 +15,17 @@ namespace ScriptableObjects
 		private int rentPercentage = 30;
 
 		[SerializeField]
+		private float secondsPerRent = 18.0f;
+
+		[SerializeField]
 		private int weight = 100;
 
 		[SerializeField]
 		private int price = 10;
-		
+
 		[SerializeField]
 		private int repairPrice = 50;
-		
+
 		[SerializeField]
 		private int destructionCost = 50;
 
@@ -32,17 +35,18 @@ namespace ScriptableObjects
 		[SerializeField]
 		private float maxHealth = 100;
 
-		public BuildingData GetStruct()
+		public BuildingData GetData()
 		{
-			return new BuildingData(GetPricePercentage(rentPercentage), weight, price, repairPrice, destructionCost, cleanupCosts, default, default, maxHealth);
+			return new BuildingData(GetPricePercentage(rentPercentage), secondsPerRent, weight, price, repairPrice, destructionCost,
+				cleanupCosts, default, default, maxHealth);
 		}
 
 		public GameObject GetPrefab()
 		{
 			return Prefabs.GetRandomItem();
 		}
-		
-		
+
+
 		private int GetPricePercentage(int percentage)
 		{
 			return (int) (percentage / 100.0f * price);

@@ -17,5 +17,6 @@
 		RoadBridge,
 		RiverStraight,
 		RiverCorner,
+		ResearchFacility,
 	}
 }

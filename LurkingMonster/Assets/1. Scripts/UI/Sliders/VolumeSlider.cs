@@ -70,6 +70,7 @@ namespace UI.Sliders
 					print("Master volume is handled by the device itself");
 					break;
 				case BusType.SFX:
+					UserSettings.GameData.SFXVolume = volume;
 					break;
 				case BusType.Music:
 				case BusType.Ambient:

@@ -415,6 +415,19 @@
 		  "Value": "Playername"
 		}
 	  ]
+	},
+	{
+	  "Key": "CITY_NAME",
+	  "Value": [
+		{
+		  "Key": "NL",
+		  "Value": "Stadsnaam"
+		},
+		{
+		  "Key": "EN",
+		  "Value": "City name"
+		}
+	  ]
 	}
   ]
 }

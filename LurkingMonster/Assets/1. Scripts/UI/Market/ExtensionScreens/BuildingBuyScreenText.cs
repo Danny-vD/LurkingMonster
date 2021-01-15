@@ -3,6 +3,7 @@ using Enums;
 using Gameplay.Buildings;
 using Grid.Tiles.Buildings;
 using Structs.Market;
+using UI.Market.MarketManagers;
 using UI.Market.MarketScreens.BuildingScreens;
 using UnityEngine;
 using Utility;
@@ -20,7 +21,7 @@ namespace UI.Market.ExtensionScreens
 		
 		private StringVariableWriter typeTextWriter;
 
-		protected override void ActivateExtension(AbstractBuildingTile tile, MarketManager manager)
+		protected override void ActivateExtension(AbstractBuildingTile tile, AbstractMarketManager manager)
 		{
 			SerializableEnumDictionary<BuildingType, BuyButtonData> buildingButtons = GetComponent<BuildingBuyScreen>().GetbuyButtonData();
 
@@ -50,8 +51,7 @@ namespace UI.Market.ExtensionScreens
 			buttonData.Value.Text.Health.text = string.Format(GetString(healthKey), data[0].MaxHealth);
 
 			// Rent
-			float secondsUntilRent = tile.Building.GetComponent<BuildingRent>().TimeUntilRent;
-			float rentPerMinute = 60.0f / secondsUntilRent;
+			float rentPerMinute = 60.0f / data[0].SecondsPerRent;
 			float rentcollectionsPerHour = rentPerMinute * 60.0f;
 			
 			buttonData.Value.Text.Rent.text = string.Format(GetString(rentKey), data[0].Rent * rentcollectionsPerHour);

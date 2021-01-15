@@ -15,6 +15,9 @@ namespace Singletons
 		[SerializeField]
 		private int startMoney = 10000;
 
+		[SerializeField]
+		private int startSoilSamples = 1000;
+
 		public delegate void GameQuit();
 
 		public static event GameQuit OnGameQuit; // Create an event that will be called as the application quits
@@ -130,7 +133,7 @@ namespace Singletons
 		{
 			bool vibrate = gameData == null || gameData.Vibrate;
  
-			gameData = new GameData(startMoney, vibrate);
+			gameData = new GameData(startMoney, startSoilSamples, vibrate);
 		}
 	}
 }

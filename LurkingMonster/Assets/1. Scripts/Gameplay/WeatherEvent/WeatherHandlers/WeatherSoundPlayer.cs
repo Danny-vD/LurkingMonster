@@ -8,7 +8,8 @@ namespace Gameplay.WeatherEvent.WeatherHandlers
 	public class WeatherSoundPlayer : AbstractWeatherHandler
 	{
 		private EventInstance rainWind; 
-		private EventInstance thunder;
+		private EventInstance wind;
+		private EventInstance rain;
 
 		protected override bool AddWeatherListener => false;
 
@@ -19,20 +20,22 @@ namespace Gameplay.WeatherEvent.WeatherHandlers
 				return;
 			}
 			
-			rainWind = AudioPlayer.GetEventInstance(EventType.RainWind);
-			thunder  = AudioPlayer.GetEventInstance(EventType.Thunder);
-			
+			rain = AudioPlayer.GetEventInstance(EventType.DISASTER_HeavyRain);
+			rainWind = AudioPlayer.GetEventInstance(EventType.DISASTER_RainAndWind);
+			wind = AudioPlayer.GetEventInstance(EventType.DISASTER_WindBlowing);
+
 			base.Start();
 		}
 
 		protected override void OnHeavyRainStart(WeatherEventData weatherData)
 		{
-			PlayThunderAndWind();
+			rain.start();
+			wind.start();
 		}
 
 		protected override void OnStormStart(WeatherEventData weatherData)
 		{
-			PlayThunderAndWind();
+			rainWind.start();
 		}
 
 		protected override void SetToDefault()
@@ -40,23 +43,18 @@ namespace Gameplay.WeatherEvent.WeatherHandlers
 			StopPlaying();
 		}
 
-		private void PlayThunderAndWind()
-		{
-			rainWind.start();
-			thunder.start();
-		}
-
 		private void StopPlaying()
 		{
 			rainWind.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
-			thunder.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+			wind.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+			rain.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
 		}
 
 		protected override void OnDestroy()
 		{
 			// Release the FMOD events
 			rainWind.release();
-			thunder.release();
+			wind.release();
 			
 			base.OnDestroy();
 		}

@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using Enums;
 using Grid.Tiles.Buildings;
+using UI.Market.MarketManagers;
 using VDFramework.Extensions;
 
 namespace UI.Market.MarketScreens.FoundationScreens
@@ -12,7 +13,7 @@ namespace UI.Market.MarketScreens.FoundationScreens
 			tile.SetFoundationType(buyType);
 		}
 
-		protected override void BuyButtonClick(AbstractBuildingTile tile, MarketManager manager)
+		protected override void BuyButtonClick(AbstractBuildingTile tile, AbstractMarketManager manager)
 		{
 			tile.SpawnFoundation();
 			base.BuyButtonClick(tile, manager);

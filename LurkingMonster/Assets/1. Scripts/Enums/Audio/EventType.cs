@@ -1,10 +1,16 @@
 ﻿namespace Enums.Audio
 {
+	// ReSharper disable InconsistentNaming
 	public enum EventType
 	{
-		MenuMusic,
-		CityAmbience,
-		RainWind,
-		Thunder,
+		MUSIC_Title,
+		MUSIC_Background,
+		MUSIC_ResearchFacility,
+		
+		DISASTER_HeavyRain,
+		DISASTER_WindBlowing,
+		DISASTER_RainAndWind,
+		
+		
 	}
 }

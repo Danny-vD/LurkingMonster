@@ -14,6 +14,9 @@ namespace Gameplay.Buildings
 		private int rent;
 
 		[SerializeField]
+		private float secondsPerRent;
+
+		[SerializeField]
 		private int weight;
 
 		[SerializeField]
@@ -31,12 +34,14 @@ namespace Gameplay.Buildings
 		[SerializeField]
 		private float maxHealth;
 
-		public BuildingData(int rent,       int weight, int price, int repairCost, int destructionCost, int cleanupCosts, SoilType soilType,
+		public BuildingData(int rent, float secondsPerRent, int weight, int price, int repairCost, int destructionCost, int cleanupCosts,
+			SoilType            soilType,
 			FoundationType      foundation, float maxHealth)
 		{
-			this.rent   = rent;
-			this.weight = weight;
-			this.price  = price;
+			this.rent           = rent;
+			this.secondsPerRent = secondsPerRent;
+			this.weight         = weight;
+			this.price          = price;
 
 			this.repairCost      = repairCost;
 			this.destructionCost = destructionCost;
@@ -48,6 +53,8 @@ namespace Gameplay.Buildings
 		}
 
 		public int Rent => rent;
+
+		public float SecondsPerRent => secondsPerRent;
 
 		public int Weight => weight;
 

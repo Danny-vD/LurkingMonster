@@ -1,12 +1,14 @@
 ﻿using System;
-using Events;
 using Events.BuildingEvents;
+using Events.OpenMarketEvents;
+using Grid.Tiles;
 using Grid.Tiles.Buildings;
+using Grid.Tiles.SpecialBuildings;
 using Interfaces;
 using Singletons;
 using Tutorials;
 using UnityEngine;
-using UnityEngine.EventSystems;
+using Utility;
 using VDFramework;
 using VDFramework.EventSystem;
 
@@ -92,7 +94,7 @@ namespace Gameplay
 
 		private void HandleSelection()
 		{
-			if (EventSystem.current.IsPointerOverGameObject() || TutorialManager.IsInitialized && TutorialManager.Instance.IsActive)
+			if (PointerUtil.IsPointerOverUIElement() || TutorialManager.IsActive)
 			{
 				return;
 			}
@@ -109,8 +111,30 @@ namespace Gameplay
 
 		private void Select(PlotSelectable selectable)
 		{
-			AbstractBuildingTile abstractBuildingTile = selectable.GetTile();
+			AbstractTile abstractTile = selectable.GetTile();
 
+			if (!(abstractTile is AbstractBuildingTile))
+			{
+				// we did not select a building, so tell our listeners
+				EventManager.Instance.RaiseEvent(new SelectedBuildingEvent(null));
+			}
+
+			switch (abstractTile) // Handle special actions if we selected an already selected tile
+			{
+				case AbstractBuildingTile buildingTile when SelectedBuilding(selectable, buildingTile):
+				case ResearchFacilityTile researchFacilityTile when SelectedResearchFacilityTile(selectable):
+					return;
+			}
+
+			Deselect(selected); // Deselect the last selected object
+
+			// select the new object
+			selected = selectable;
+			selectable.Select(selectedMaterial);
+		}
+
+		private static bool SelectedBuilding(PlotSelectable selectable, AbstractBuildingTile abstractBuildingTile)
+		{
 			// Selected the selected object, so open market
 			if (selectable == selected)
 			{
@@ -119,21 +143,31 @@ namespace Gameplay
 				if (abstractBuildingTile.HasDebris)
 				{
 					EventManager.Instance.RaiseEvent(new SelectedBuildingEvent(abstractBuildingTile));
-					return;
+					return true;
 				}
 
 				EventManager.Instance.RaiseEvent(new OpenMarketEvent(abstractBuildingTile));
-				return;
+				return true;
 			}
 
-			// Send the tile if it has a building, else send null so that the listeners know you selected something that's has no building
+			// Send the tile if it has a building, else send null so that the listeners know you selected something that has no building
 			EventManager.Instance.RaiseEvent(new SelectedBuildingEvent(abstractBuildingTile.HasBuilding ? abstractBuildingTile : null));
 
-			Deselect(selected); // Deselect the last selected object
+			return false;
+		}
 
-			// select the new object
-			selected = selectable;
-			selectable.Select(selectedMaterial);
+		private static bool SelectedResearchFacilityTile(PlotSelectable selectable)
+		{
+			// Selected the selected object, so open research facility
+			if (selectable == selected)
+			{
+				Deselect(selectable);
+
+				EventManager.Instance.RaiseEvent(new OpenResearchFacilityEvent());
+				return true;
+			}
+
+			return false;
 		}
 
 		private static void Deselect(ISelectable selectable)

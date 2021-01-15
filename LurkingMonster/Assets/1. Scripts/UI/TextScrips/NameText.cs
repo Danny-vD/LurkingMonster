@@ -1,5 +1,4 @@
-﻿using System;
-using Events;
+﻿using Events;
 using Singletons;
 using TMPro;
 using Utility;
@@ -16,8 +15,8 @@ namespace UI.TextScrips
 		{
 			text = GetComponent<TextMeshProUGUI>();
 
-			SetDefaultName();
 			AddListener();
+			SetName();
 		}
 
 		private void AddListener()
@@ -28,7 +27,14 @@ namespace UI.TextScrips
 
 		private void SetName()
 		{
-			text.text = UserSettings.GameData.UserName;
+			if (string.IsNullOrEmpty(UserSettings.GameData.UserName))
+			{
+				SetDefaultName();
+				return;
+			}
+			
+			LanguageChangedEvent.ParameterlessListeners -= SetDefaultName;
+			text.text                                   =  UserSettings.GameData.UserName;
 		}
 		
 		private void RemoveListener()

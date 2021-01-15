@@ -1,11 +1,8 @@
-﻿using System.Collections.Generic;
-using Enums;
-using Events.Achievements;
+﻿using Events.Achievements;
 using Gameplay.Achievements;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using Utility;
 using VDFramework;
 using VDFramework.EventSystem;
 
@@ -24,21 +21,6 @@ namespace UI
 
 		[SerializeField]
 		private Button collectReward = null;
-
-		[SerializeField]
-		private Image RewardImage = null;
-
-		[SerializeField]
-		private SerializableEnumDictionary<SoilType, Sprite> soilSprites;
-		
-		[SerializeField]
-		private SerializableEnumDictionary<FoundationType, Sprite> foundationSprites;
-		
-		[SerializeField]
-		private SerializableEnumDictionary<BuildingType, Sprite> buildingSprites;
-		
-		[SerializeField]
-		private SerializableEnumDictionary<PowerUpType, Sprite> powerUpSprites;
 		
 		private void Start()
 		{
@@ -52,10 +34,9 @@ namespace UI
 			Achievement achievement = achievementTappedEvent.Achievement;
 
 			collectReward.onClick.RemoveAllListeners();
-			RewardImage.sprite   = CheckType(achievement.GetNextReward());
-			title.text           = achievement.GetTitleString();
 			achievementInfo.text = achievement.GetAchievementInfo();
-			rewardInfo.text      = achievement.RewardInfo();
+			title.text           = achievement.GetTitleString();
+			rewardInfo.text      = achievement.GetRewardAmount().ToString();
 			
 			if (!achievement.CheckIfRewardReady())
 			{
@@ -67,28 +48,6 @@ namespace UI
 			collectReward.onClick.AddListener(achievement.CollectReward);
 			
 			collectReward.onClick.AddListener(() => CachedTransform.GetChild(0).gameObject.SetActive(false));
-		}
-
-		private Sprite CheckType(object obj)
-		{
-			switch (obj)
-			{
-				case SoilType soilType:
-					return GetSprite<SoilType>(soilSprites, obj);
-				case FoundationType foundationType:
-					return GetSprite<FoundationType>(foundationSprites, obj);
-				case BuildingType buildingType:
-					return GetSprite<BuildingType>(buildingSprites, obj);
-				case PowerUpType powerUpType:
-					return GetSprite<PowerUpType>(powerUpSprites, obj);
-				default:
-					return null;
-			}
-		}
-
-		private static Sprite GetSprite<TKey>(Dictionary<TKey, Sprite> dictionary, object obj)
-		{
-			return dictionary.TryGetValue((TKey) obj, out Sprite sprite) ? sprite : null;
 		}
 	}
 }

@@ -201,7 +201,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.06166785, y: 0.2536995}
   m_AnchorMax: {x: 0.94067466, y: 0.25857893}
-  m_AnchoredPosition: {x: 8.021423, y: -5.9959717}
+  m_AnchoredPosition: {x: 8.021484, y: -5.9959717}
   m_SizeDelta: {x: 15.940796, y: -1.6864014}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &131959014
@@ -473,13 +473,17 @@ MonoBehaviour:
   EventPaths:
     events:
     - key: 0
-      value: event:/Music/MenuMusic
+      value: event:/Music/TitleMusic
     - key: 1
-      value: event:/Ambient/CityAmbience
+      value: event:/Music/MenuMusic
     - key: 2
-      value: event:/Ambient/Rain&WindBlowing
+      value: event:/Music/ItemStore
     - key: 3
-      value: event:/SFX/Thunder
+      value: event:/Ambient/Disaster/HeavyRain
+    - key: 4
+      value: event:/Ambient/Disaster/WindBlowing
+    - key: 5
+      value: event:/Ambient/Disaster/Rain&WindBlowing
     buses:
     - key: 0
       value: Bus:/
@@ -493,9 +497,9 @@ MonoBehaviour:
     - key: 0
       value: 0
     - key: 1
-      value: 2
+      value: 1
     - key: 2
-      value: 3
+      value: 2
   initialVolumes:
   - key: 0
     value: 1
@@ -1245,6 +1249,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startMoney: 100
+  startSoilSamples: 1000
 --- !u!114 &635546120
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1342,7 +1347,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 53.1
+  m_fontSize: 60
   m_fontSizeBase: 0
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -3042,6 +3047,7 @@ GameObject:
   - component: {fileID: 1163837774}
   - component: {fileID: 1163837773}
   - component: {fileID: 1163837777}
+  - component: {fileID: 1163837778}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -3142,6 +3148,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae3c57b0bb9eba947bfe276f78465771, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1163837778
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1163837772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bb839d558e44895bdfdb749b3151697, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unityFunction: 16
+  emitterType: 0
 --- !u!1 &1173532041
 GameObject:
   m_ObjectHideFlags: 0
@@ -4345,7 +4365,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 70.2
+  m_fontSize: 119.95
   m_fontSizeBase: 120
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -4657,7 +4677,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 54.1
+  m_fontSize: 60
   m_fontSizeBase: 0
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -5496,7 +5516,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 50
+  m_fontSize: 60
   m_fontSizeBase: 0
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -5593,7 +5613,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.06166785, y: 0.75522864}
   m_AnchorMax: {x: 0.94067466, y: 0.762}
-  m_AnchoredPosition: {x: 8.021423, y: -1.8342285}
+  m_AnchoredPosition: {x: 8.021484, y: -1.8342285}
   m_SizeDelta: {x: 15.940796, y: 0.048095703}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1859100008

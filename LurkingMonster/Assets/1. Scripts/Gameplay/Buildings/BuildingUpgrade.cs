@@ -79,7 +79,7 @@ namespace Gameplay.Buildings
 			meshRenderer.sharedMaterial = meshData.Material;
 		}
 
-		private void RaiseUpgradeEvent()
+		private static void RaiseUpgradeEvent()
 		{
 			EventManager.Instance.RaiseEvent(new BuildingUpgradeEvent());
 		}

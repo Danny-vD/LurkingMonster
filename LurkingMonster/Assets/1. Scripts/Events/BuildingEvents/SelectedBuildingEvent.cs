@@ -5,11 +5,11 @@ namespace Events.BuildingEvents
 {
 	public class SelectedBuildingEvent : VDEvent<SelectedBuildingEvent>
 	{
-		public readonly AbstractBuildingTile tile;
+		public readonly AbstractBuildingTile Tile;
 
 		public SelectedBuildingEvent(AbstractBuildingTile tile)
 		{
-			this.tile = tile;
+			Tile = tile;
 		}
 	}
 }

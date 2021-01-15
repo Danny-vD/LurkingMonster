@@ -11,10 +11,11 @@ namespace Tests.Playmode
     public class TestNewGame
     {
 		private const int startMoney = 10000;
+		private const int startSoilSamples = 1000;
 		
 		private readonly string destination = Application.persistentDataPath + "/save.dat";
 		
-		private GameData gameData = new GameData(startMoney, true);
+		private GameData gameData = new GameData(startMoney, startSoilSamples, true);
 		
 		[Test]
         public void TestCollectRent()

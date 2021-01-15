@@ -34,10 +34,10 @@ namespace Singletons
 		{
 			powerUps = new[]
 			{
-				//TODO: use a formatted json string to print the actual time
-				new PowerUp(false, 120f, "Monster Feed", PowerUpType.AvoidMonster),
-				new PowerUp(false, 120f, "KCAF Manager", PowerUpType.FixProblems),
-				new PowerUp(false, 300f, "Time Stop", PowerUpType.AvoidWeatherEvent)
+				//TODO: use a formatted json string to print the actual time for the description
+				new PowerUp(false, 120f, "Monster Feed", PowerUpType.AvoidMonster, 1000),
+				new PowerUp(false, 120f, "KCAF Manager", PowerUpType.FixProblems, 500),
+				new PowerUp(false, 300f, "Time Stop", PowerUpType.AvoidWeatherEvent, 300),
 			};
 			
 			//TODO change: don't start with powerups
@@ -56,7 +56,6 @@ namespace Singletons
 				ActivatePowerUpOnLoad(UserSettings.GameData.TimerPowerUp, UserSettings.GameData.PowerUpType);
 			}
 
-			EventManager.Instance.AddListener<PowerUpIncreaseEvent>(AddPowerUp);
 			UserSettings.OnGameQuit += SavePowerUps;
 		}
 
@@ -93,12 +92,7 @@ namespace Singletons
 			
 			EventManager.Instance.RaiseEvent(new PowerUpDisableEvent(powerUpType));
 		}
-
-		private void AddPowerUp(PowerUpIncreaseEvent powerType)
-		{
-			ChangePowerUpAmount(powerType.Type, 1);
-		}
-
+		
 		private void ChangePowerUpAmount(PowerUpType powerType, int amount)
 		{
 			switch (powerType)
@@ -153,16 +147,6 @@ namespace Singletons
 			gameData.TimerPowerUp = timer;
 		}
 
-		protected override void OnDestroy()
-		{
-			if (!EventManager.IsInitialized)
-			{
-				return;
-			}
-
-			EventManager.Instance.RemoveListener<PowerUpIncreaseEvent>(AddPowerUp);
-		}
-
 		public bool AvoidMonsterFeedActive => powerUps[0].IsActive;
 		public bool FixProblemsActive => powerUps[1].IsActive;
 
@@ -172,23 +156,40 @@ namespace Singletons
 		{
 			return powerUps.Any(powerUp => powerUp.IsActive);
 		}
+
+		public PowerUp GetPowerUp(PowerUpType powerUpType)
+		{
+			return powerUps.First(item => item.PowerUpType == powerUpType);
+		}
 		
 		public int AvoidMonsters
 		{
 			get => avoidMonsters;
-			set => avoidMonsters = value;
+			set
+			{
+				avoidMonsters = value;
+				EventManager.Instance.RaiseEvent(new PowerUpIncreaseEvent());
+			}
 		}
 
 		public int FixProblems
 		{
 			get => fixProblems;
-			set => fixProblems = value;
+			set
+			{
+				fixProblems = value;
+				EventManager.Instance.RaiseEvent(new PowerUpIncreaseEvent());
+			}
 		}
 
 		public int AvoidWeather
 		{
 			get => avoidWeather;
-			set => avoidWeather = value;
+			set
+			{
+				avoidWeather = value;
+				EventManager.Instance.RaiseEvent(new PowerUpIncreaseEvent());
+			}
 		}
 	}
 }

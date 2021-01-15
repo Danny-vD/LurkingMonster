@@ -2,6 +2,7 @@
 using Enums;
 using Grid.Tiles.Buildings;
 using Structs.Market;
+using UI.Market.MarketManagers;
 using UI.Market.MarketScreens;
 using UnityEngine;
 using UnityEngine.UI;
@@ -44,7 +45,7 @@ namespace UI.Market.ExtensionScreens
 		[SerializeField]
 		private SerializableEnumDictionary<SoilType, Sprite> soilSprites;
 
-		protected override void ActivateExtension(AbstractBuildingTile tile, MarketManager manager)
+		protected override void ActivateExtension(AbstractBuildingTile tile, AbstractMarketManager manager)
 		{
 			SetSprites(tile, GetComponent<MainScreen>().GetScreenData(tile));
 		}

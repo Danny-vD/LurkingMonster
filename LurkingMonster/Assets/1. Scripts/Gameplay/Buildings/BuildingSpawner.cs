@@ -89,7 +89,7 @@ namespace Gameplay.Buildings
 
 			for (int i = 0; i < buildingTypeData.Count; i++)
 			{
-				BuildingData datum = buildingTypeData[i].GetStruct();
+				BuildingData datum = buildingTypeData[i].GetData();
 
 				datum.SoilType   = soilType;
 				datum.Foundation = foundationType;
