@@ -436,6 +436,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 318278770}
+  - component: {fileID: 318278772}
   - component: {fileID: 318278771}
   m_Layer: 0
   m_Name: AudioManager Singleton
@@ -484,6 +485,54 @@ MonoBehaviour:
       value: event:/Ambient/Disaster/WindBlowing
     - key: 5
       value: event:/Ambient/Disaster/Rain&WindBlowing
+    - key: 6
+      value: 
+    - key: 7
+      value: 
+    - key: 8
+      value: 
+    - key: 9
+      value: 
+    - key: 10
+      value: 
+    - key: 11
+      value: 
+    - key: 12
+      value: 
+    - key: 13
+      value: 
+    - key: 14
+      value: 
+    - key: 15
+      value: 
+    - key: 16
+      value: 
+    - key: 17
+      value: 
+    - key: 18
+      value: 
+    - key: 19
+      value: 
+    - key: 20
+      value: event:/SFX/AudioResponse/Click
+    - key: 21
+      value: 
+    - key: 22
+      value: 
+    - key: 23
+      value: 
+    - key: 24
+      value: 
+    - key: 25
+      value: 
+    - key: 26
+      value: 
+    - key: 27
+      value: 
+    - key: 28
+      value: 
+    - key: 29
+      value: 
     buses:
     - key: 0
       value: Bus:/
@@ -513,6 +562,18 @@ MonoBehaviour:
   - key: 3
     value: 0.7
     isMuted: 0
+--- !u!114 &318278772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 318278769}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b0a558807e34e098a224c6ff7d02497, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &350520107
 GameObject:
   m_ObjectHideFlags: 0

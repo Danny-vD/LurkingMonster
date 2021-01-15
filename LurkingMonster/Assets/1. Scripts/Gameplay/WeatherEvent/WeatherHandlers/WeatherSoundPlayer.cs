@@ -20,9 +20,9 @@ namespace Gameplay.WeatherEvent.WeatherHandlers
 				return;
 			}
 			
-			rain = AudioPlayer.GetEventInstance(EventType.DISASTER_HeavyRain);
-			rainWind = AudioPlayer.GetEventInstance(EventType.DISASTER_RainAndWind);
-			wind = AudioPlayer.GetEventInstance(EventType.DISASTER_WindBlowing);
+			rain = AudioPlayer.GetEventInstance(EventType.SFX_DISASTER_HeavyRain);
+			rainWind = AudioPlayer.GetEventInstance(EventType.SFX_DISASTER_RainAndWind);
+			wind = AudioPlayer.GetEventInstance(EventType.SFX_DISASTER_WindBlowing);
 
 			base.Start();
 		}
