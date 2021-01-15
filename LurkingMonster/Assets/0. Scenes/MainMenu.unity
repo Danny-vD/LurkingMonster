@@ -1347,7 +1347,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 60
+  m_fontSize: 52.7
   m_fontSizeBase: 0
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -2624,7 +2624,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: -10.0000305, y: 0.62}
+  m_AnchoredPosition: {x: -10, y: 0.62}
   m_SizeDelta: {x: 510.80518, y: 65.48334}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!1 &1065293848
@@ -3028,18 +3028,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unityFunction: 0
+  audioEventPlayer: {fileID: 1360273641}
   parameters:
     serializedDictionary:
-    - key: 1
     - key: 2
+      value:
+        parameters:
+          serializedDictionary:
+          - key: ItemStoreExited
+            value: 0
     - key: 4
+      value:
+        parameters:
+          serializedDictionary: []
     - key: 8
-  audioplayer:
-    id: 0
-  references:
-    version: 1
-    00000000:
-      type: {class: , ns: , asm: }
+      value:
+        parameters:
+          serializedDictionary: []
+    - key: 16
+      value:
+        parameters:
+          serializedDictionary: []
 --- !u!4 &1130310791
 Transform:
   m_ObjectHideFlags: 0
@@ -4451,7 +4460,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 119.95
+  m_fontSize: 70
   m_fontSizeBase: 120
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -4763,7 +4772,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 60
+  m_fontSize: 53.7
   m_fontSizeBase: 0
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -5602,7 +5611,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 60
+  m_fontSize: 50
   m_fontSizeBase: 0
   m_fontWeight: 400
   m_enableAutoSizing: 1

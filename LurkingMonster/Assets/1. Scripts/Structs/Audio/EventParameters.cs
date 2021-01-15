@@ -1,39 +1,46 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using UnityEngine;
+using Utility;
 
 namespace Structs.Audio
 {
-	public readonly struct EventParameters
+	[Serializable]
+	public struct EventParameters
 	{
-		public readonly Dictionary<string, float> ParameterValues;
+		[SerializeField]
+		private SerializableDictionary<string, float> parameters;
 
+		public Dictionary<string, float> Parameters => new Dictionary<string, float>(parameters);
+		
 		public EventParameters(params KeyValuePair<string, float>[] values)
 		{
-			ParameterValues = new Dictionary<string, float>();
+			parameters = new Dictionary<string, float>();
 			
 			foreach (KeyValuePair<string, float> pair in values)
 			{
-				ParameterValues.Add(pair.Key, pair.Value);
+				parameters.Add(pair.Key, pair.Value);
 			}
 		}
 		
 		public void AddParameter(string parameterName, float parameterValue)
 		{
-			ParameterValues.Add(parameterName, parameterValue);
+			parameters.Add(parameterName, parameterValue);
 		}
 
 		public void ChangeParameterValue(string parameterName, float parameterValue)
 		{
-			ParameterValues[parameterName] = parameterValue;
+			parameters[parameterName] = parameterValue;
 		}
 
 		public void RemoveParameter(string parameterName)
 		{
-			ParameterValues.Remove(parameterName);
+			parameters.Remove(parameterName);
 		}
 
 		public float GetParameterValue(string parameterName)
 		{
-			return ParameterValues[parameterName];
+			return parameters[parameterName];
 		}
 	}
 }
