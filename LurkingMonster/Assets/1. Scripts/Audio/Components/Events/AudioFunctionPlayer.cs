@@ -6,7 +6,7 @@ using EventType = Enums.Audio.EventType;
 
 namespace Audio.Components.Events
 {
-	public class AudioEventPlayer : AbstractFunctionAudioHandler, IAudioplayer
+	public class AudioFunctionPlayer : AbstractFunctionAudioHandler, IAudioplayer
 	{
 		[SerializeField]
 		private EventType eventType;

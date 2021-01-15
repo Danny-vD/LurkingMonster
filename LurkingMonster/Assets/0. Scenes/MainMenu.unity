@@ -516,9 +516,9 @@ MonoBehaviour:
     - key: 20
       value: event:/SFX/AudioResponse/Click
     - key: 21
-      value: 
+      value: event:/SFX/AudioResponse/ClosingInventory
     - key: 22
-      value: 
+      value: event:/SFX/AudioResponse/OpeningInventory
     - key: 23
       value: 
     - key: 24
@@ -569,7 +569,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 318278769}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9b0a558807e34e098a224c6ff7d02497, type: 3}
   m_Name: 

@@ -7,7 +7,7 @@ namespace Audio.Components.Events
 	public class AudioEventStopper : AbstractFunctionAudioHandler
 	{
 		[SerializeField]
-		private AudioEventPlayer audioEventPlayer;
+		private AudioFunctionPlayer audioEventPlayer;
 		
 		protected override void ReactToEvent(UnityFunction unityFunction)
 		{
@@ -18,7 +18,7 @@ namespace Audio.Components.Events
 
 		private void Reset()
 		{
-			audioEventPlayer = GetComponent<AudioEventPlayer>();
+			audioEventPlayer = GetComponent<AudioFunctionPlayer>();
 		}
 	}
 }
