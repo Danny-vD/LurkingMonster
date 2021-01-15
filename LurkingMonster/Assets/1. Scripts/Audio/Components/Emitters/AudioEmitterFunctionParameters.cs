@@ -1,11 +1,9 @@
 ﻿using System.Collections.Generic;
 using Enums;
 using Enums.Audio;
-using FMOD.Studio;
 using FMODUnity;
 using Structs.Audio;
 using UnityEngine;
-using UnityEngine.Serialization;
 using Utility;
 
 namespace Audio.Components.Emitters
