@@ -34,9 +34,9 @@ namespace UI
 			Achievement achievement = achievementTappedEvent.Achievement;
 
 			collectReward.onClick.RemoveAllListeners();
+			achievementInfo.text = achievement.GetAchievementInfo();
 			title.text           = achievement.GetTitleString();
-			/*achievementInfo.text = achievement.GetAchievementInfo();
-			rewardInfo.text      = achievement.RewardInfo();*/
+			rewardInfo.text      = achievement.GetRewardAmount().ToString();
 			
 			if (!achievement.CheckIfRewardReady())
 			{

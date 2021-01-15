@@ -94,15 +94,17 @@ namespace Gameplay.Achievements
 			RewardManager.Instance.Unlock(soilSamples[i]);
 		}
 
-		/*public string GetAchievementInfo()
+		public int GetRewardAmount()
+		{
+			int i = GetIndexFirstNotCollectedReward();
+			return soilSamples[i];
+		}
+		
+		public string GetAchievementInfo()
 		{
 			return LanguageUtil.GetJsonString(achievementInfo);
 		}
 
-		public string RewardInfo()
-		{
-			return LanguageUtil.GetJsonString(LanguageUtil.GetRewardInfo(soilSamples[GetIndexFirstNotCollectedReward()]));
-		}*/
 
 		private int GetIndexFirstNotCollectedReward()
 		{
