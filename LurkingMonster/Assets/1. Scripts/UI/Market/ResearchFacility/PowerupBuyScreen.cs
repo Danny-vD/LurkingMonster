@@ -2,7 +2,6 @@
 using System.Linq;
 using Enums;
 using Events.SoilSamplesManagement;
-using Gameplay;
 using Grid.Tiles.Buildings;
 using Singletons;
 using UI.Market.MarketManagers;
@@ -15,7 +14,7 @@ namespace UI.Market.ResearchFacility
 	public class PowerupBuyScreen : AbstractMarketBuyScreen<PowerUpType>
 	{
 		private PowerUpType selectedPowerup;
-		
+
 		protected override void OnSelectBuyButton(AbstractBuildingTile tile, PowerUpType buyType)
 		{
 			selectedPowerup = buyType;
