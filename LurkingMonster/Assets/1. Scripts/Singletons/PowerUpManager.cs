@@ -34,10 +34,10 @@ namespace Singletons
 		{
 			powerUps = new[]
 			{
-				//TODO: use a formatted json string to print the actual time
+				//TODO: use a formatted json string to print the actual time for the description
 				new PowerUp(false, 120f, "Monster Feed", PowerUpType.AvoidMonster),
 				new PowerUp(false, 120f, "KCAF Manager", PowerUpType.FixProblems),
-				new PowerUp(false, 300f, "Time Stop", PowerUpType.AvoidWeatherEvent)
+				new PowerUp(false, 300f, "Time Stop", PowerUpType.AvoidWeatherEvent),
 			};
 			
 			//TODO change: don't start with powerups

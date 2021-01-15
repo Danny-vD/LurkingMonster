@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="ParameterPreset" id="{1032e612-6910-4ef2-a861-036229206cd5}">
+		<property name="name">
+			<value>ItemStoreExited</value>
+		</property>
+		<relationship name="folder">
+			<destination>{e6a26038-8e3f-46f5-8fd8-cc08b765cead}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{5e4cb27c-6b93-4377-a293-b94f6b15327a}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{5e4cb27c-6b93-4377-a293-b94f6b15327a}">
+		<property name="parameterType">
+			<value>2</value>
+		</property>
+		<property name="maximum">
+			<value>2</value>
+		</property>
+		<property name="enumerationLabels">
+			<value>False</value>
+			<value>True</value>
+		</property>
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
+</objects>

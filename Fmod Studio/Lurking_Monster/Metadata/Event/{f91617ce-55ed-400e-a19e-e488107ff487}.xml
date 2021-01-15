@@ -5,7 +5,7 @@
 			<value>AchievementUnlocked</value>
 		</property>
 		<property name="outputFormat">
-			<value>2</value>
+			<value>1</value>
 		</property>
 		<relationship name="folder">
 			<destination>{1f8d2a5a-17ba-4d0c-bc0f-976946fb6017}</destination>
@@ -119,7 +119,6 @@
 	<object class="MixerBusEffectChain" id="{9f2154cf-8bd7-404c-bff9-4dc020cdaaf2}">
 		<relationship name="effects">
 			<destination>{29511e10-8f65-4ce3-8550-159f80036bdb}</destination>
-			<destination>{b378da4e-d012-495b-b986-337a0dbca684}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{f10c2f6b-b37e-4227-93dd-952d06709759}" />
@@ -139,7 +138,6 @@
 	</object>
 	<object class="MixerBusPanner" id="{e1f86534-4a90-4315-af6c-dad058e21921}" />
 	<object class="MixerBusFader" id="{29511e10-8f65-4ce3-8550-159f80036bdb}" />
-	<object class="SpatialiserEffect" id="{b378da4e-d012-495b-b986-337a0dbca684}" />
 	<object class="AutomationPoint" id="{583131a4-3f15-461b-a7c7-d3f21e80b28a}">
 		<property name="position">
 			<value>1.5</value>

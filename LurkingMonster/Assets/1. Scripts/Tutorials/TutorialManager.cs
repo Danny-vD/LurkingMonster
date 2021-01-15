@@ -28,7 +28,7 @@ namespace Tutorials
 
 		private Tutorial currentTutorial;
 
-		public static bool IsActive { get; private set; }
+		public static bool IsActive { get; protected set; }
 
 		public string Suffix => suffix;
 
@@ -70,12 +70,12 @@ namespace Tutorials
 
 		public void EnableNarrator()
 		{
-			narrator.gameObject.SetActive(true);
+			narrator.SetActive(true);
 		}
 
 		public void DisableNarrator()
 		{
-			narrator.gameObject.SetActive(false);
+			narrator.SetActive(false);
 		}
 
 		protected void StartTutorial()

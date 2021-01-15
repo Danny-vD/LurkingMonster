@@ -1,8 +1,6 @@
-﻿using System;
-using Events.SoilSamplesManagement;
+﻿using Events.SoilSamplesManagement;
 using Singletons;
 using TMPro;
-using Utility.ListenerAdders;
 using VDFramework;
 using VDFramework.EventSystem;
 

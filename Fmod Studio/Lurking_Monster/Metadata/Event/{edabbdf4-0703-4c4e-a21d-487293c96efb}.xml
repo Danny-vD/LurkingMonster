@@ -5,7 +5,7 @@
 			<value>Quake_2</value>
 		</property>
 		<property name="outputFormat">
-			<value>2</value>
+			<value>1</value>
 		</property>
 		<relationship name="folder">
 			<destination>{1de005dd-0dd4-43b7-9151-c3e0b2510932}</destination>
@@ -122,7 +122,6 @@
 	<object class="MixerBusEffectChain" id="{b5ec234a-cc28-4140-9525-f9e36fc07f9f}">
 		<relationship name="effects">
 			<destination>{09da15bd-19f2-437d-a874-7617341a3913}</destination>
-			<destination>{cc755306-a474-4acf-afe6-ef2aebfad9d6}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{f33c285f-c982-4ff0-9af4-f5c66e1a9736}" />
@@ -150,7 +149,6 @@
 	</object>
 	<object class="MixerBusPanner" id="{9bf34f4e-cd36-42c0-9e51-f83ff7310d2f}" />
 	<object class="MixerBusFader" id="{09da15bd-19f2-437d-a874-7617341a3913}" />
-	<object class="SpatialiserEffect" id="{cc755306-a474-4acf-afe6-ef2aebfad9d6}" />
 	<object class="AutomationPoint" id="{af65036f-aa33-4430-84db-24797977c599}">
 		<property name="position">
 			<value>0</value>

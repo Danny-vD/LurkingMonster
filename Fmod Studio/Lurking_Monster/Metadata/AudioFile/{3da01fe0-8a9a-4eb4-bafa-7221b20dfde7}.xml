@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="AudioFile" id="{3da01fe0-8a9a-4eb4-bafa-7221b20dfde7}">
+		<property name="assetPath">
+			<value>Interaction/Building Foundation.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>1</value>
+		</property>
+		<property name="length">
+			<value>30.343174603174603</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{1358fc95-f107-4962-83f0-4d24c4b25416}</destination>
+		</relationship>
+	</object>
+</objects>

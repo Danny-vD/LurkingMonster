@@ -2,8 +2,8 @@
 {
 	public enum EmitterType
 	{
+		TitleMusic,
 		BackgroundMusic,
-		RainWind,
-		Thunder,
+		ResearchFacilityMusic,
 	}
 }

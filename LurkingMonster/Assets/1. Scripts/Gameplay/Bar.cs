@@ -6,7 +6,6 @@ namespace Gameplay
 	public class Bar : BetterMonoBehaviour
 	{
 		public Slider slider;
-		
 
 		public void SetMax(int progress)
 		{
