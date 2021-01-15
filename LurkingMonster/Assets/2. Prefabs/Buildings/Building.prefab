@@ -490,7 +490,7 @@ MonoBehaviour:
   ColorPerPercentage:
     serializedDictionary:
     - key: 1
-      value: {r: 0.6862745, g: 0.427451, b: 0.23529413, a: 1}
+      value: {r: 0.06666667, g: 0.4509804, b: 0.019607844, a: 1}
     - key: 0.25
       value: {r: 0.3773585, g: 0.22923212, b: 0.119259514, a: 1}
     - key: 0.1
@@ -554,7 +554,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.6862745, g: 0.42745098, b: 0.23529412, a: 1}
+  m_Color: {r: 0.065038994, g: 0.4528302, b: 0.019223915, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
