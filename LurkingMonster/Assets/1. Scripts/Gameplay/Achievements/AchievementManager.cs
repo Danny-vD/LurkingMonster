@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using Enums;
 using Events;
 using Events.BuildingEvents;
 using Events.MoneyManagement;
@@ -37,7 +38,7 @@ namespace Gameplay.Achievements
 			buildingBuildAchievement = new Achievement(new[] {3, 7, 10}, "BUILDINGSBUILDACHIEVEMENT",
 				new int[] {100, 200, 400}, "ACHIEVEMENT_1");
 
-			rentCollectedAchievement = new Achievement(new[] {1000, 10000, 100000}, "RENTCOLLECTEDACHIEVEMENT",
+			rentCollectedAchievement = new Achievement(new[] {1000, 5000, 10000}, "RENTCOLLECTEDACHIEVEMENT",
 				new int[] {100, 200, 400}, "ACHIEVEMENT_2");
 
 			buildingSavedAchievement = new Achievement(new[] {10, 20, 30}, "BUILDINGSAVEDACHIEVEMENT",
@@ -46,7 +47,7 @@ namespace Gameplay.Achievements
 			buyPlotsAchievement = new Achievement(new[] {5, 10, 15}, "BUYPLOTACHIEVEMENT",
 				new int[] {100, 200, 400}, "ACHIEVEMENT_4");
 
-			upgradeBuildingAchievement = new Achievement(new[] {1, 3, 6}, "UPGRADEBUILDINGSACHIEVEMENT",
+			upgradeBuildingAchievement = new Achievement(new[] {6, 12, 16}, "UPGRADEBUILDINGSACHIEVEMENT",
 				new int[] {100, 200, 400}, "ACHIEVEMENT_5");
 
 			//TODO: make seperate system where it activates a weatherEvent when conditions are met?
