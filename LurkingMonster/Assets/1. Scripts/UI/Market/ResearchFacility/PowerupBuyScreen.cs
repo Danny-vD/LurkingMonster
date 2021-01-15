@@ -2,6 +2,7 @@
 using System.Linq;
 using Enums;
 using Events.SoilSamplesManagement;
+using Gameplay;
 using Grid.Tiles.Buildings;
 using Singletons;
 using UI.Market.MarketManagers;
@@ -22,10 +23,9 @@ namespace UI.Market.ResearchFacility
 
 		protected override PowerUpType[] GetUnlockedTypes() => default(PowerUpType).GetValues().ToArray();
 
-		//TODO: hookup with moneyManager
-		protected override bool CanAffort(int price) => true;
+		protected override bool CanAffort(int price) => MoneyManager.Instance.CurrentSoilSamples >= price;
 
-		protected override int GetPrice(AbstractBuildingTile tile) => 1000;
+		protected override int GetPrice(AbstractBuildingTile tile) => PowerUpManager.Instance.GetPowerUp(selectedPowerup).Price;
 
 		protected override void BuyButtonClick(AbstractBuildingTile tile, AbstractMarketManager manager)
 		{
