@@ -1,5 +1,4 @@
-﻿using Events;
-using Events.OpenMarketEvents;
+﻿using Events.OpenMarketEvents;
 using Singletons;
 using VDFramework.EventSystem;
 
@@ -24,8 +23,15 @@ namespace Tutorials
 
 		protected override void CompletedAllTutorials()
 		{
-			base.CompletedAllTutorials();
+			IsActive = false;
+			DisableNarrator();
+			
+			Tutorial.ResetIndex();
+			Destroy(gameObject);
+			
 			UserSettings.GameData.RTutorial = true;
+			
+			EventManager.Instance.RemoveListener<OpenResearchFacilityEvent>(StartEndTutorial);
 		}
 	}
 }

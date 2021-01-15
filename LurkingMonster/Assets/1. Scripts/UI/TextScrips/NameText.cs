@@ -33,7 +33,8 @@ namespace UI.TextScrips
 				return;
 			}
 			
-			text.text = UserSettings.GameData.UserName;
+			LanguageChangedEvent.ParameterlessListeners -= SetDefaultName;
+			text.text                                   =  UserSettings.GameData.UserName;
 		}
 		
 		private void RemoveListener()

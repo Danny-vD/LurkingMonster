@@ -5,7 +5,7 @@
 			<value>HouseCrack</value>
 		</property>
 		<property name="outputFormat">
-			<value>2</value>
+			<value>1</value>
 		</property>
 		<relationship name="folder">
 			<destination>{1f8d2a5a-17ba-4d0c-bc0f-976946fb6017}</destination>
@@ -151,7 +151,6 @@
 	<object class="MixerBusEffectChain" id="{7fd43dc4-a333-41ec-be92-93dfac7e9cd6}">
 		<relationship name="effects">
 			<destination>{b76558ca-570b-4fd2-8a34-b379b310cf90}</destination>
-			<destination>{b10f809c-d158-471a-8471-e22d8c990bc3}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{140d6fca-e736-48b1-88ef-666267ae80de}" />
@@ -163,6 +162,5 @@
 	</object>
 	<object class="MixerBusPanner" id="{298bc151-29f1-4808-9c90-1be4121e397c}" />
 	<object class="MixerBusFader" id="{b76558ca-570b-4fd2-8a34-b379b310cf90}" />
-	<object class="SpatialiserEffect" id="{b10f809c-d158-471a-8471-e22d8c990bc3}" />
 	<object class="MixerBusFader" id="{3334ccb9-f646-4d91-895f-c57af51f7fe5}" />
 </objects>

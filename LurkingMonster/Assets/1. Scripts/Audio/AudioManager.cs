@@ -27,7 +27,7 @@ namespace Audio
 			DontDestroyOnLoad(gameObject);
 
 			SetInitialVolumes();
-			AudioPlayer.PlayEmitter(EmitterType.BackgroundMusic);
+			AudioPlayer.PlayEmitter(EmitterType.TitleMusic);
 		}
 
 		private void Start()

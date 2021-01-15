@@ -5,7 +5,7 @@
 			<value>FoundationCrack</value>
 		</property>
 		<property name="outputFormat">
-			<value>2</value>
+			<value>1</value>
 		</property>
 		<relationship name="folder">
 			<destination>{1f8d2a5a-17ba-4d0c-bc0f-976946fb6017}</destination>
@@ -122,7 +122,6 @@
 	<object class="MixerBusEffectChain" id="{44fa3bd2-9a54-46ea-9a73-67fbbe59e999}">
 		<relationship name="effects">
 			<destination>{acc669a7-e370-434c-939e-dcc5b1f1b62e}</destination>
-			<destination>{f825c954-24e0-47d8-a201-c65aac3f4cd1}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{19e68fb5-ad4c-4d78-ae06-3ed3cf5de2b0}" />
@@ -150,7 +149,6 @@
 	</object>
 	<object class="MixerBusPanner" id="{75dd0dfb-9aa6-4055-ab38-5d98495110c7}" />
 	<object class="MixerBusFader" id="{acc669a7-e370-434c-939e-dcc5b1f1b62e}" />
-	<object class="SpatialiserEffect" id="{f825c954-24e0-47d8-a201-c65aac3f4cd1}" />
 	<object class="AutomationPoint" id="{95ffb5e7-2894-4028-a81c-93fe7cbf0961}">
 		<property name="position">
 			<value>0</value>

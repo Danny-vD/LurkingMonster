@@ -473,12 +473,16 @@ MonoBehaviour:
   EventPaths:
     events:
     - key: 0
-      value: event:/Music/MenuMusic
+      value: event:/Music/TitleMusic
     - key: 1
-      value: event:/Ambient/Disaster/HeavyRain
+      value: event:/Music/MenuMusic
     - key: 2
-      value: event:/Ambient/Disaster/WindBlowing
+      value: event:/Music/ItemStore
     - key: 3
+      value: event:/Ambient/Disaster/HeavyRain
+    - key: 4
+      value: event:/Ambient/Disaster/WindBlowing
+    - key: 5
       value: event:/Ambient/Disaster/Rain&WindBlowing
     buses:
     - key: 0
@@ -493,9 +497,9 @@ MonoBehaviour:
     - key: 0
       value: 0
     - key: 1
-      value: 2
+      value: 1
     - key: 2
-      value: 3
+      value: 2
   initialVolumes:
   - key: 0
     value: 1
@@ -2620,7 +2624,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: -10, y: 0.62}
+  m_AnchoredPosition: {x: -10.0000305, y: 0.62}
   m_SizeDelta: {x: 510.80518, y: 65.48334}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!1 &1065293848
@@ -2994,6 +2998,62 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1118529243}
   m_CullTransparentMesh: 0
+--- !u!1 &1130310789
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1130310791}
+  - component: {fileID: 1130310790}
+  m_Layer: 0
+  m_Name: GameObject (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1130310790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1130310789}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 516f1e746bb54d59b6f99b083bca41cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unityFunction: 0
+  parameters:
+    serializedDictionary:
+    - key: 1
+    - key: 2
+    - key: 4
+    - key: 8
+  audioplayer:
+    id: 0
+  references:
+    version: 1
+    00000000:
+      type: {class: , ns: , asm: }
+--- !u!4 &1130310791
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1130310789}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 540, y: 1140, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1152663443
 GameObject:
   m_ObjectHideFlags: 0
@@ -3962,6 +4022,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1334646189}
   m_CullTransparentMesh: 0
+--- !u!1 &1360273640
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1360273642}
+  - component: {fileID: 1360273641}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1360273641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1360273640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ccc1766e60c4cc789881c1aff1ff0f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unityFunction: 0
+  eventType: 0
+--- !u!4 &1360273642
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1360273640}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 535.14294, y: 1128.8446, z: 0.5314678}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1374055787
 GameObject:
   m_ObjectHideFlags: 0

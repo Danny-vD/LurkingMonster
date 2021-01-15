@@ -30,7 +30,7 @@ namespace Audio
 
 		public EventPaths()
 		{
-			buses.Add(new BusPathPerBus() {Key = BusType.Master, Value = masterBusPath});
+			buses.Add(new BusPathPerBus {Key = BusType.Master, Value = masterBusPath});
 		}
 
 		public void UpdateDictionaries()

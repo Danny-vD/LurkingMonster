@@ -5,7 +5,7 @@
 			<value>Earthquake</value>
 		</property>
 		<property name="outputFormat">
-			<value>2</value>
+			<value>1</value>
 		</property>
 		<relationship name="folder">
 			<destination>{61385e03-fc9d-4fa3-91ed-4dc394b75441}</destination>
@@ -160,7 +160,6 @@
 	<object class="MixerBusEffectChain" id="{6ea8a729-9857-45de-bde3-ee886ea9edce}">
 		<relationship name="effects">
 			<destination>{9e135576-6d50-435a-8ffd-7714ec0a1513}</destination>
-			<destination>{4e74d9f6-be91-4098-a9cb-3e64ffebe72e}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{c6430bdf-41dd-4461-a44e-e9b24c4f97ce}" />
@@ -186,7 +185,6 @@
 	</object>
 	<object class="MixerBusPanner" id="{4c64a5e5-3a7c-47f4-867c-2fe16b3247e8}" />
 	<object class="MixerBusFader" id="{9e135576-6d50-435a-8ffd-7714ec0a1513}" />
-	<object class="SpatialiserEffect" id="{4e74d9f6-be91-4098-a9cb-3e64ffebe72e}" />
 	<object class="AutomationPoint" id="{2eff4eb2-9bc7-485e-9daf-db7d31eb2f6f}">
 		<property name="position">
 			<value>10</value>

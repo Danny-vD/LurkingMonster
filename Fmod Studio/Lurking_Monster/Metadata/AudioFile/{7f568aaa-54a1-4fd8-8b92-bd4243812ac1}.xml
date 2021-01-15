@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="AudioFile" id="{7f568aaa-54a1-4fd8-8b92-bd4243812ac1}">
+		<property name="assetPath">
+			<value>Interaction/HouseUpgradeAchievement.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>4.3483749999999999</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{1358fc95-f107-4962-83f0-4d24c4b25416}</destination>
+		</relationship>
+	</object>
+</objects>
