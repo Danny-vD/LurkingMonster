@@ -36,19 +36,19 @@ namespace Gameplay.Achievements
 			achievements = new List<Achievement>();
 
 			buildingBuildAchievement = new Achievement(new[] {3, 7, 10}, "BUILDINGSBUILDACHIEVEMENT",
-				new int[] {100, 200, 400}, "ACHIEVEMENT_1");
+				new int[] {2000, 4000, 10000}, "ACHIEVEMENT_1");
 
 			rentCollectedAchievement = new Achievement(new[] {1000, 5000, 10000}, "RENTCOLLECTEDACHIEVEMENT",
-				new int[] {100, 200, 400}, "ACHIEVEMENT_2");
+				new int[] {500, 2500, 5000}, "ACHIEVEMENT_2");
 
 			buildingSavedAchievement = new Achievement(new[] {10, 20, 30}, "BUILDINGSAVEDACHIEVEMENT",
-				new int[] {100, 200, 400}, "ACHIEVEMENT_3");
+				new int[] {1000, 5000, 8000}, "ACHIEVEMENT_3");
 
 			buyPlotsAchievement = new Achievement(new[] {5, 10, 15}, "BUYPLOTACHIEVEMENT",
-				new int[] {100, 200, 400}, "ACHIEVEMENT_4");
+				new int[] {400, 700, 1000}, "ACHIEVEMENT_4");
 
 			upgradeBuildingAchievement = new Achievement(new[] {6, 12, 16}, "UPGRADEBUILDINGSACHIEVEMENT",
-				new int[] {100, 200, 400}, "ACHIEVEMENT_5");
+				new int[] {500, 2000, 3500}, "ACHIEVEMENT_5");
 
 			//TODO: make seperate system where it activates a weatherEvent when conditions are met?
 			//buildingConsumedAchievement = new Achievement(new[] {5, 10, 20}, "BUILDINGCONSUMEDACHIEVEMENT",
