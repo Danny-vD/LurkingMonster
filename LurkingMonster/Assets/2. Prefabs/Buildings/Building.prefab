@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 138696814}
   - component: {fileID: 138696813}
   - component: {fileID: 138696816}
-  - component: {fileID: 6991433119222752068}
   m_Layer: 5
   m_Name: btnCollectRent
   m_TagString: Untagged
@@ -157,19 +156,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54abd7f22c5343cabcd598e4e811d6eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &6991433119222752068
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 138696811}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 32b6ad8113cb42fb943bd3846ca33912, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  eventType: 23
 --- !u!1 &265130011
 GameObject:
   m_ObjectHideFlags: 0

@@ -33,8 +33,8 @@
 		SFX_INVENTORY_Close,
 		SFX_INVENTORY_Open,
 		
-		SFX_CollectingRent,
-		SFX_Paying,
+		SFX_IncreaseMoney,
+		SFX_DecreaseMoney,
 		
 		SFX_POWERUP_KCAF,
 		SFX_POWERUP_Meat,

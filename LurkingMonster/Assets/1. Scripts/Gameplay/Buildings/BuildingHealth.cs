@@ -1,7 +1,9 @@
 ﻿using System;
 using Enums;
+using Events.BuildingEvents.RepairEvents;
 using ScriptableObjects;
 using VDFramework;
+using VDFramework.EventSystem;
 
 namespace Gameplay.Buildings
 {
@@ -93,18 +95,21 @@ namespace Gameplay.Buildings
 		{
 			CurrentSoilHealth = MaxSoilHealth;
 			OnSoilRepair?.Invoke();
+			EventManager.Instance.RaiseEvent(new SoilRepairEvent());
 		}
 
 		public void ResetFoundationHealth()
 		{
 			CurrentFoundationHealth = MaxFoundationHealth;
 			OnFoundationRepair?.Invoke();
+			EventManager.Instance.RaiseEvent(new FoundationRepairEvent());
 		}
 
 		public void ResetBuildingHealth()
 		{
 			CurrentBuildingHealth = MaxBuildingHealth;
 			OnBuildingRepair?.Invoke();
+			EventManager.Instance.RaiseEvent(new BuildingRepairEvent());
 		}
 
 		public bool IsHealthBelowLimit(float percentage)
@@ -158,18 +163,13 @@ namespace Gameplay.Buildings
 					SetBuildingHealthBar(bar);
 					return BreakType.Building;
 				}
-				
-				// Soil < Building && Soil < Foundation
-				SetSoilHealthBar(bar);
-				return BreakType.Soil;
 			}
-
-			if (foundationPercentage < soilPercentage) // Foundation < Soil
+			else if (foundationPercentage < soilPercentage) // Foundation < Soil
 			{
 				SetFoundationHealthBar(bar);
 				return BreakType.Foundation;
 			}
-
+			
 			SetSoilHealthBar(bar); // Soil < Foundation && Soil < Building
 			return BreakType.Soil;
 		}

@@ -18,4 +18,4 @@ MonoBehaviour:
   Timer: 30
   JsonEventKey: STORM
   JsonContentKey: STORM_CONTENT
-  interval: 30
+  interval: 2

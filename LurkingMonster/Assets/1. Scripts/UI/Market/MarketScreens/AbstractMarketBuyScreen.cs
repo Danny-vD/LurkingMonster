@@ -35,7 +35,6 @@ namespace UI.Market.MarketScreens
 		
 		protected abstract void OnSelectBuyButton(AbstractBuildingTile tile, TBuyType buyType);
 
-		//TODO: use the reward manager for the overrides
 		protected abstract TBuyType[] GetUnlockedTypes();
 
 		protected abstract int GetPrice(AbstractBuildingTile tile);

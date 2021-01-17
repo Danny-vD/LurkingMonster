@@ -78,7 +78,7 @@ namespace Gameplay.Achievements
 		private void AddListeners()
 		{
 			CollectRentEvent.Listeners                   += OnRentCollectListener;
-			BuildingBuildEvent.ParameterlessListeners    += OnBuildingBuildListener;
+			BuildingBuiltEvent.ParameterlessListeners    += OnBuildingBuildListener;
 			BuildingSavedEvent.ParameterlessListeners    += OnBuildingsSavedListener;
 			BuildingConsumedEvent.ParameterlessListeners += OnBuildingsConsumedListener;
 			BuyPlotEvent.ParameterlessListeners          += OnAmountOfPlotsListener;
@@ -159,7 +159,7 @@ namespace Gameplay.Achievements
 			if (!EventManager.IsInitialized) return;
 
 			CollectRentEvent.Listeners                   -= OnRentCollectListener;
-			BuildingBuildEvent.ParameterlessListeners    -= OnBuildingBuildListener;
+			BuildingBuiltEvent.ParameterlessListeners    -= OnBuildingBuildListener;
 			BuildingSavedEvent.ParameterlessListeners    -= OnBuildingsSavedListener;
 			BuildingConsumedEvent.ParameterlessListeners -= OnBuildingsConsumedListener;
 			BuyPlotEvent.ParameterlessListeners          -= OnAmountOfPlotsListener;
