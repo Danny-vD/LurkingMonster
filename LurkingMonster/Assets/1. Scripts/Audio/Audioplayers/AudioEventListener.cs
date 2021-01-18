@@ -35,6 +35,8 @@ namespace Audio.Audioplayers
 
 		private static EventInstance achievementUnlocked;
 
+		private static EventInstance selectPlot;
+
 		private void Awake()
 		{
 			increaseMoney = AudioPlayer.GetEventInstance(EventType.SFX_IncreaseMoney);
@@ -56,6 +58,8 @@ namespace Audio.Audioplayers
 			kcafPowerup   = AudioPlayer.GetEventInstance(EventType.SFX_POWERUP_KCAF);
 			
 			achievementUnlocked = AudioPlayer.GetEventInstance(EventType.SFX_ACHIEVEMENT_Unlocked);
+
+			selectPlot = AudioPlayer.GetEventInstance(EventType.SFX_SelectPlot);
 		}
 
 		public void AddListeners()
@@ -77,6 +81,8 @@ namespace Audio.Audioplayers
 			EventManager.Instance.AddListener<PowerUpActivateEvent>(PowerupSound);
 
 			EventManager.Instance.AddListener<AchievementUnlockedEvent>(AchievementSound);
+			
+			EventManager.Instance.AddListener<SelectedBuildingEvent>(SelectPlot);
 		}
 
 		public void RemoveListeners()
@@ -98,6 +104,8 @@ namespace Audio.Audioplayers
 			EventManager.Instance.RemoveListener<PowerUpActivateEvent>(PowerupSound);
 
 			EventManager.Instance.RemoveListener<AchievementUnlockedEvent>(AchievementSound);
+			
+			EventManager.Instance.RemoveListener<SelectedBuildingEvent>(SelectPlot);
 		}
 
 		// Currency sounds
@@ -178,6 +186,15 @@ namespace Audio.Audioplayers
 		{
 			achievementUnlocked.start();
 		}
+		
+		// Selecting
+		private static void SelectPlot(SelectedBuildingEvent selectedBuildingEvent)
+		{
+			if (selectedBuildingEvent.Tile != null)
+			{
+				selectPlot.start();
+			}
+		}
 
 		private void OnDestroy()
 		{
@@ -200,6 +217,8 @@ namespace Audio.Audioplayers
 			kcafPowerup.release();
 
 			achievementUnlocked.release();
+
+			selectPlot.release();
 		}
 	}
 }

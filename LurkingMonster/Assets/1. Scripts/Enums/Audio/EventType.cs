@@ -43,5 +43,7 @@
 		SFX_ACHIEVEMENT_Unlocked,
 		
 		SFX_CAR_Engine,
+		
+		SFX_SelectPlot,
 	}
 }
