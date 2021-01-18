@@ -757,7 +757,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parent: {fileID: 4754912547741685802}
   prefabImage: {fileID: 2277310962652356669, guid: 30931c39d8bd34f4f9d210758d886b48, type: 3}
-  unlockedColor: {r: 0.11612021, g: 0.764151, b: 0.025231415, a: 1}
+  collectedColor: {r: 0.11764706, g: 0.7647059, b: 0.023529412, a: 1}
+  unlockedColor: {r: 0.83137256, g: 0.83137256, b: 0, a: 1}
   lockedColor: {r: 1, g: 1, b: 1, a: 1}
   collectReward: {fileID: 4675197183078135986}
 --- !u!1 &6475424643440965883
