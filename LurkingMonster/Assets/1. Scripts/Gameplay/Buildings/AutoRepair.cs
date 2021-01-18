@@ -5,12 +5,15 @@ using VDFramework;
 
 namespace Gameplay.Buildings
 {
+	[RequireComponent(typeof(Button))]
 	public class AutoRepair : BetterMonoBehaviour
 	{
-		[SerializeField]
-		private Button btnRepair = null;
-		
-		private bool fixProblems;
+		private Button button;
+
+		private void Awake()
+		{
+			button = GetComponent<Button>();
+		}
 
 		private void Update()
 		{
@@ -19,7 +22,7 @@ namespace Gameplay.Buildings
 				return;
 			}
 
-			btnRepair.onClick.Invoke();
+			button.onClick.Invoke();
 		}
 	}
 }
