@@ -88,7 +88,7 @@ namespace Grid.Tiles.Buildings
 
 			if (raiseEvent)
 			{
-				EventManager.Instance.RaiseEvent(new BuildingBuildEvent());
+				EventManager.Instance.RaiseEvent(new BuildingBuiltEvent());
 			}
 		}
 

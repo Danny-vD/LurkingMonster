@@ -18,4 +18,4 @@ MonoBehaviour:
   Timer: 40
   JsonEventKey: HEAVY_RAIN
   JsonContentKey: HEAVY_RAIN_CONTENT
-  interval: 20
+  interval: 2

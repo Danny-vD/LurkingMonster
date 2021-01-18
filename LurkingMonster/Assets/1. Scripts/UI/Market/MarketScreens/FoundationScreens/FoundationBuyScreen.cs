@@ -1,7 +1,9 @@
 ﻿using System.Linq;
 using Enums;
+using Events.BuildingEvents;
 using Grid.Tiles.Buildings;
 using UI.Market.MarketManagers;
+using VDFramework.EventSystem;
 using VDFramework.Extensions;
 
 namespace UI.Market.MarketScreens.FoundationScreens
@@ -17,6 +19,7 @@ namespace UI.Market.MarketScreens.FoundationScreens
 		{
 			tile.SpawnFoundation();
 			base.BuyButtonClick(tile, manager);
+			EventManager.Instance.RaiseEvent(new FoundationBuildEvent());
 		}
 
 		protected override FoundationType[] GetUnlockedTypes() => default(FoundationType).GetValues().ToArray();

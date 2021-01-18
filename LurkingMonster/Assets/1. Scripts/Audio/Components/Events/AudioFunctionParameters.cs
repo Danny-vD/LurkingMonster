@@ -10,7 +10,7 @@ namespace Audio.Components.Events
 	public class AudioFunctionParameters : AbstractFunctionAudioHandler
 	{
 		[SerializeField]
-		private AudioEventPlayer audioEventPlayer;
+		private AudioFunctionPlayer audioEventPlayer;
 		
 		[SerializeField]
 		private SerializableEnumDictionary<UnityFunction, EventParameters> parameters;
@@ -27,7 +27,7 @@ namespace Audio.Components.Events
 
 		private void Reset()
 		{
-			audioEventPlayer = GetComponent<AudioEventPlayer>();
+			audioEventPlayer = GetComponent<AudioFunctionPlayer>();
 		}
 	}
 }

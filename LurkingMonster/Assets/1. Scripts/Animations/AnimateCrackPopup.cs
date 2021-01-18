@@ -1,8 +1,10 @@
 ﻿using System;
+using Audio;
 using Enums;
 using Gameplay.Buildings;
 using UnityEngine;
 using VDFramework;
+using EventType = Enums.Audio.EventType;
 
 namespace Animations
 {
@@ -32,12 +34,15 @@ namespace Animations
 			{
 				case BreakType.Building:
 					TriggerPopup(building);
+					AudioPlayer.PlayOneShot2D(EventType.SFX_BUILDING_BuildingCrack);
 					break;
 				case BreakType.Foundation:
 					TriggerPopup(foundation);
+					AudioPlayer.PlayOneShot2D(EventType.SFX_BUILDING_FoundationCrack);
 					break;
 				case BreakType.Soil:
 					TriggerPopup(soil);
+					AudioPlayer.PlayOneShot2D(EventType.SFX_BUILDING_SoilCrack);
 					break;
 				default:
 					throw new ArgumentOutOfRangeException(nameof(breakType), breakType, null);
