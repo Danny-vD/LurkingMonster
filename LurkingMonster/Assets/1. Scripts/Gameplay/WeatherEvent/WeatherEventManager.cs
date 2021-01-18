@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using _1._Scripts.Gameplay.WeatherEvent;
 using Enums;
 using Events.WeatherEvents;
@@ -92,8 +93,7 @@ namespace Gameplay.WeatherEvent
 					return;
 				}
 
-				// TODO: instead of taking a random event, have a list of unlocked events or something
-				weatherEventType = availableWeather.GetRandomItem(); //default(WeatherEventType).GetRandomValue();
+				weatherEventType = GetRandomWeather();
 				weatherEventData = GetData(weatherEventType);
 
 				EventManager.Instance.RaiseEvent(new StartWeatherEvent(abstractWeatherEvent));
@@ -170,6 +170,14 @@ namespace Gameplay.WeatherEvent
 			weatherEventActive      = true;
 
 			EventManager.Instance.RaiseEvent(new StartWeatherEvent(abstractWeatherEvent));
+		}
+
+		private WeatherEventType GetRandomWeather()
+		{
+			WeatherEventType oldType = weatherEventType;
+			IEnumerable<WeatherEventType> weatherEventTypes = availableWeather.Where(element => element != oldType);
+
+			return weatherEventTypes.GetRandomItem();
 		}
 
 		[ContextMenu("Populate")]
