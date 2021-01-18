@@ -1,5 +1,4 @@
-﻿using System;
-using Interfaces;
+﻿using Interfaces;
 using VDFramework.EventSystem;
 
 namespace UI.Market.MarketManagers
