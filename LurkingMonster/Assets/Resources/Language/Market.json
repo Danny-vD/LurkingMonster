@@ -233,6 +233,32 @@
           "Value": "Research Facility"
         }
       ]
+    },
+    {
+      "Key": "CONFIRM_TEXT",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "Weet je zeker dat je hiermee door wilt gaan?"
+        },
+        {
+          "Key": "EN",
+          "Value": "Are you sure you want to continue with this action?"
+        }
+      ]
+    },
+    {
+      "Key": "CONFIRM",
+      "Value": [
+        {
+          "Key": "NL",
+          "Value": "Bevestig"
+        },
+        {
+          "Key": "EN",
+          "Value": "Confirm"
+        }
+      ]
     }
   ]
 }
