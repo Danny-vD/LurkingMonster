@@ -796,10 +796,14 @@ MonoBehaviour:
               value: {x: 0.698, y: 3.45, z: -0.603}
         - key: 2
           value:
-            serializedDictionary: []
+            serializedDictionary:
+            - key: {fileID: 362989756019003262}
+              value: {x: 0.038, y: 3.993, z: -0.68}
         - key: 3
           value:
-            serializedDictionary: []
+            serializedDictionary:
+            - key: {fileID: 362989756019003262}
+              value: {x: 1.206, y: 5.046, z: -0.781}
     - key: 1
       value:
         serializedDictionary: []
@@ -808,7 +812,9 @@ MonoBehaviour:
         serializedDictionary:
         - key: 1
           value:
-            serializedDictionary: []
+            serializedDictionary:
+            - key: {fileID: 362989756019003262}
+              value: {x: -1.446, y: 3.075, z: -0.464}
 --- !u!1 &7029731273974737261
 GameObject:
   m_ObjectHideFlags: 0
@@ -998,7 +1004,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8745763208570330060}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.0000004172325}
+  m_LocalPosition: {x: 0, y: 0, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3887749120517592952}
@@ -1008,7 +1014,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 2.7}
+  m_AnchoredPosition: {x: -0.23, y: 2.7}
   m_SizeDelta: {x: 0, y: 4.5370007}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &6679245814785429220
@@ -1062,15 +1068,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3848355593189218575, guid: c7866caef7188004dac1a0f6d94e4f5b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.698
+      value: -1.446
       objectReference: {fileID: 0}
     - target: {fileID: 3848355593189218575, guid: c7866caef7188004dac1a0f6d94e4f5b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.45
+      value: 3.075
       objectReference: {fileID: 0}
     - target: {fileID: 3848355593189218575, guid: c7866caef7188004dac1a0f6d94e4f5b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.603
+      value: -0.464
       objectReference: {fileID: 0}
     - target: {fileID: 3848355593189218575, guid: c7866caef7188004dac1a0f6d94e4f5b, type: 3}
       propertyPath: m_LocalRotation.w
