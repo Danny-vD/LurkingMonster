@@ -87,6 +87,7 @@ namespace UI.Buttons
 			transform.gameObject.SetActive(true);
 			Button activate = transform.GetComponentInChildren<Button>();
 
+			activate.onClick.RemoveAllListeners();
 			activate.onClick.AddListener(Activate);
 
 			void Activate()

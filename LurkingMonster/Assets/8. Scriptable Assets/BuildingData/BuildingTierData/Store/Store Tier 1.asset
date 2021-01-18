@@ -15,9 +15,10 @@ MonoBehaviour:
   Prefabs:
   - {fileID: 6758913166034969596, guid: 3a07d0b780df67844a24d52cd795bb3c, type: 3}
   rentPercentage: 20
+  secondsPerRent: 18
   weight: 500
   price: 1000
   repairPrice: 315
   destructionCost: 150
-  cleanupCosts: 925
+  cleanupCosts: 70
   maxHealth: 535

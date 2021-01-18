@@ -428,6 +428,19 @@
 		  "Value": "City name"
 		}
 	  ]
+	},
+	{
+	  "Key": "FOR_SALE",
+	  "Value": [
+		{
+		  "Key": "NL",
+		  "Value": "TE KOOP"
+		},
+		{
+		  "Key": "EN",
+		  "Value": "FOR SALE"
+		}
+	  ]
 	}
   ]
 }

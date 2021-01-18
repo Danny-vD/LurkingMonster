@@ -6,7 +6,6 @@ using Events.Achievements;
 using Events.BuildingEvents;
 using Events.BuildingEvents.RepairEvents;
 using Events.MoneyManagement;
-using FMOD.Studio;
 using Interfaces;
 using VDFramework;
 using VDFramework.EventSystem;
@@ -15,49 +14,6 @@ namespace Audio.Audioplayers
 {
 	public class AudioEventListener : BetterMonoBehaviour, IListener
 	{
-		private static EventInstance increaseMoney;
-		private static EventInstance decreaseMoney;
-
-		private static EventInstance upgrade;
-		private static EventInstance buildingConsumed;
-
-		private static EventInstance buildingRepair;
-		private static EventInstance foundationRepair;
-		private static EventInstance soilRepair;
-
-		private static EventInstance buildingBuilding;
-		private static EventInstance buildingFoundation;
-		private static EventInstance buildingSoil;
-
-		private static EventInstance meatPowerup;
-		private static EventInstance freezePowerup;
-		private static EventInstance kcafPowerup;
-
-		private static EventInstance achievementUnlocked;
-
-		private void Awake()
-		{
-			increaseMoney = AudioPlayer.GetEventInstance(EventType.SFX_IncreaseMoney);
-			decreaseMoney = AudioPlayer.GetEventInstance(EventType.SFX_DecreaseMoney);
-
-			upgrade          = AudioPlayer.GetEventInstance(EventType.SFX_BUILDING_Upgrade);
-			buildingConsumed = AudioPlayer.GetEventInstance(EventType.SFX_BUILDING_Consumed);
-
-			buildingRepair   = AudioPlayer.GetEventInstance(EventType.SFX_BUILDING_Repair);
-			foundationRepair = AudioPlayer.GetEventInstance(EventType.SFX_BUILDING_Repair); // Only 1 sound for repairing atm
-			soilRepair       = AudioPlayer.GetEventInstance(EventType.SFX_BUILDING_Repair);
-
-			buildingBuilding   = AudioPlayer.GetEventInstance(EventType.SFX_BUILDING_Building);
-			buildingFoundation = AudioPlayer.GetEventInstance(EventType.SFX_BUILDING_Foundation);
-			buildingSoil       = AudioPlayer.GetEventInstance(EventType.SFX_BUILDING_Soil);
-
-			meatPowerup   = AudioPlayer.GetEventInstance(EventType.SFX_POWERUP_Meat);
-			freezePowerup = AudioPlayer.GetEventInstance(EventType.SFX_POWERUP_FreezeTime);
-			kcafPowerup   = AudioPlayer.GetEventInstance(EventType.SFX_POWERUP_KCAF);
-			
-			achievementUnlocked = AudioPlayer.GetEventInstance(EventType.SFX_ACHIEVEMENT_Unlocked);
-		}
-
 		public void AddListeners()
 		{
 			EventManager.Instance.AddListener<CollectRentEvent>(IncreaseMoneySound);
@@ -77,6 +33,8 @@ namespace Audio.Audioplayers
 			EventManager.Instance.AddListener<PowerUpActivateEvent>(PowerupSound);
 
 			EventManager.Instance.AddListener<AchievementUnlockedEvent>(AchievementSound);
+			
+			EventManager.Instance.AddListener<SelectedBuildingEvent>(SelectPlot);
 		}
 
 		public void RemoveListeners()
@@ -98,60 +56,62 @@ namespace Audio.Audioplayers
 			EventManager.Instance.RemoveListener<PowerUpActivateEvent>(PowerupSound);
 
 			EventManager.Instance.RemoveListener<AchievementUnlockedEvent>(AchievementSound);
+			
+			EventManager.Instance.RemoveListener<SelectedBuildingEvent>(SelectPlot);
 		}
 
 		// Currency sounds
 		private static void IncreaseMoneySound()
 		{
-			increaseMoney.start();
+			AudioPlayer.PlayOneShot2D(EventType.SFX_IncreaseMoney);
 		}
 
 		private static void DecreaseMoneySound()
 		{
-			decreaseMoney.start();
+			AudioPlayer.PlayOneShot2D(EventType.SFX_DecreaseMoney);
 		}
 
 		// Building event sounds
 		private static void UpgradeSound()
 		{
-			upgrade.start();
+			AudioPlayer.PlayOneShot2D(EventType.SFX_BUILDING_Upgrade);
 		}
 
 		private static void BuildingConsumedSound()
 		{
-			buildingConsumed.start();
+			AudioPlayer.PlayOneShot2D(EventType.SFX_BUILDING_Consumed);
 		}
 
 		// Repair sounds
 		private static void BuildingRepairSound()
 		{
-			buildingRepair.start();
+			AudioPlayer.PlayOneShot2D(EventType.SFX_BUILDING_Repair);
 		}
 
 		private static void FoundationRepairSound()
 		{
-			foundationRepair.start();
+			AudioPlayer.PlayOneShot2D(EventType.SFX_BUILDING_Repair);
 		}
 
 		private static void SoilRepairSound()
 		{
-			soilRepair.start();
+			AudioPlayer.PlayOneShot2D(EventType.SFX_BUILDING_Repair);
 		}
 
 		// Building sounds
 		private static void BuildingBuildingSound()
 		{
-			buildingBuilding.start();
+			AudioPlayer.PlayOneShot2D(EventType.SFX_BUILDING_Building);
 		}
 
 		private static void BuildingFoundationSound()
 		{
-			buildingFoundation.start();
+			AudioPlayer.PlayOneShot2D(EventType.SFX_BUILDING_Foundation);
 		}
 
 		private static void BuildingSoilSound()
 		{
-			buildingSoil.start();
+			AudioPlayer.PlayOneShot2D(EventType.SFX_BUILDING_Soil);
 		}
 
 		// Powerups
@@ -160,13 +120,13 @@ namespace Audio.Audioplayers
 			switch (powerUpActivateEvent.Type)
 			{
 				case PowerUpType.AvoidMonster:
-					meatPowerup.start();
+					AudioPlayer.PlayOneShot2D(EventType.SFX_POWERUP_Meat);
 					break;
 				case PowerUpType.FixProblems:
-					kcafPowerup.start();
+					AudioPlayer.PlayOneShot2D(EventType.SFX_POWERUP_KCAF);
 					break;
 				case PowerUpType.AvoidWeatherEvent:
-					freezePowerup.start();
+					AudioPlayer.PlayOneShot2D(EventType.SFX_POWERUP_FreezeTime);
 					break;
 				default:
 					throw new ArgumentOutOfRangeException(nameof(powerUpActivateEvent.Type), "The powerup type is not valid");
@@ -176,30 +136,16 @@ namespace Audio.Audioplayers
 		// Achievements
 		private static void AchievementSound()
 		{
-			achievementUnlocked.start();
+			AudioPlayer.PlayOneShot2D(EventType.SFX_ACHIEVEMENT_Unlocked);
 		}
-
-		private void OnDestroy()
+		
+		// Selecting
+		private static void SelectPlot(SelectedBuildingEvent selectedBuildingEvent)
 		{
-			increaseMoney.release();
-			decreaseMoney.release();
-
-			upgrade.release();
-			buildingConsumed.release();
-
-			buildingRepair.release();
-			foundationRepair.release();
-			soilRepair.release();
-
-			buildingBuilding.release();
-			buildingFoundation.release();
-			buildingSoil.release();
-
-			meatPowerup.release();
-			freezePowerup.release();
-			kcafPowerup.release();
-
-			achievementUnlocked.release();
+			if (selectedBuildingEvent.Tile != null)
+			{
+				AudioPlayer.PlayOneShot2D(EventType.SFX_SelectPlot);
+			}
 		}
 	}
 }

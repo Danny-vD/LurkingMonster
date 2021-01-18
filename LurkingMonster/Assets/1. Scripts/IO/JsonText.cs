@@ -7,17 +7,17 @@ using VDFramework.EventSystem;
 
 namespace IO
 {
-    [RequireComponent(typeof(TextMeshProUGUI))]
+    [RequireComponent(typeof(TMP_Text))]
     public class JsonText : BetterMonoBehaviour
     {
         [SerializeField]
         private string textType = "PLACEHOLDER";
         
-        private TextMeshProUGUI text;
+        private TMP_Text text;
 
         private void Awake()
         {
-            text = GetComponent<TextMeshProUGUI>();
+            text = GetComponent<TMP_Text>();
         }
 
         private void Start()

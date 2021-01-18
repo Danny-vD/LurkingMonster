@@ -149,7 +149,6 @@ namespace Singletons
 
 		public bool AvoidMonsterFeedActive => powerUps[0].IsActive;
 		public bool FixProblemsActive => powerUps[1].IsActive;
-
 		public bool AvoidWeatherActive => powerUps[2].IsActive;
 
 		public bool CheckIfAnPowerUpIsActive()

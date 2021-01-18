@@ -14,10 +14,13 @@ namespace UI
 
 		[SerializeField]
 		private GameObject prefabImage = null;
-	
+
 		[SerializeField]
-		private Color unlockedColor = Color.green;
-	
+		private Color collectedColor = Color.green;
+		
+		[SerializeField]
+		private Color unlockedColor = Color.yellow;
+
 		[SerializeField]
 		private Color lockedColor = Color.red;
 
@@ -32,9 +35,18 @@ namespace UI
 			
 			for (int i = 0; i < achievement.Unlocked.Length; i++)
 			{
-				GameObject gameObject = Instantiate(prefabImage, parent);
+				GameObject prefabInstance = Instantiate(prefabImage, parent);
 
-				gameObject.GetComponent<Image>().color = achievement.Unlocked[i] ? unlockedColor : lockedColor;
+				Image image = prefabInstance.GetComponent<Image>();
+
+				if (achievement.Unlocked[i])
+				{
+					image.color = achievement.rewardsCollected[i] ? collectedColor : unlockedColor;
+				}
+				else
+				{
+					image.color = lockedColor;
+				}
 			}
 			
 			collectReward.onClick.AddListener(ShowPopup);

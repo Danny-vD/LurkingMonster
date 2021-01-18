@@ -45,9 +45,14 @@ namespace UI
 			}
 
 			collectReward.interactable = true;
-			collectReward.onClick.AddListener(achievement.CollectReward);
-			
-			collectReward.onClick.AddListener(() => CachedTransform.GetChild(0).gameObject.SetActive(false));
+			collectReward.onClick.AddListener(OnClick);
+
+			void OnClick()
+			{
+				achievement.CollectReward();
+				CachedTransform.GetChild(0).gameObject.SetActive(false);
+				EventManager.Instance.RaiseEvent(new RewardCollectedEvent());
+			}
 		}
 	}
 }
