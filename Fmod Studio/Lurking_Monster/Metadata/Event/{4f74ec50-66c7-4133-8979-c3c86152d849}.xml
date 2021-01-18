@@ -90,11 +90,14 @@
 	<object class="MixerBusPanner" id="{8ef67392-975d-4527-a3db-351ce85a1d63}" />
 	<object class="SingleSound" id="{780a0634-4ca2-40fe-aab8-afff9c62b21e}">
 		<property name="length">
-			<value>0.66999999999999982</value>
+			<value>0.16</value>
 		</property>
 		<property name="timelockedOffset">
 			<value>0.23000000000000001</value>
 		</property>
+		<relationship name="fadeOutCurve">
+			<destination>{2c7dde09-6d8f-4c6a-aa26-a9a21694d5bb}</destination>
+		</relationship>
 		<relationship name="audioFile">
 			<destination>{9bfe8f07-bd3b-4eb0-a775-d13838a2608d}</destination>
 		</relationship>
@@ -123,6 +126,14 @@
 	</object>
 	<object class="MixerBusPanner" id="{623f8fa3-9ed7-45d2-967a-d83cd70d2789}" />
 	<object class="MixerBusFader" id="{66521625-c7c3-4202-944f-68a03968500a}" />
+	<object class="FadeCurve" id="{2c7dde09-6d8f-4c6a-aa26-a9a21694d5bb}">
+		<relationship name="startPoint">
+			<destination>{f428104d-0235-4a5a-a9eb-2e16df94639b}</destination>
+		</relationship>
+		<relationship name="endPoint">
+			<destination>{d7828d49-637c-4b53-982a-4180c474b4f1}</destination>
+		</relationship>
+	</object>
 	<object class="MixerBusEffectChain" id="{1646e06a-aa19-4bd5-9f7f-8de18f6e7a8a}">
 		<relationship name="effects">
 			<destination>{ea42dba3-2ba6-462f-8f52-3f8166e6f567}</destination>
@@ -130,5 +141,24 @@
 	</object>
 	<object class="MixerBusPanner" id="{78b9e9c8-c02a-4cae-8bfb-14ce8db060bc}" />
 	<object class="MixerBusFader" id="{a369f149-53cc-45dd-b90f-e8c2aecdabff}" />
+	<object class="AutomationPoint" id="{f428104d-0235-4a5a-a9eb-2e16df94639b}">
+		<property name="position">
+			<value>0.080000000000000002</value>
+		</property>
+		<property name="value">
+			<value>1</value>
+		</property>
+		<property name="curveShape">
+			<value>0.25471893</value>
+		</property>
+	</object>
+	<object class="AutomationPoint" id="{d7828d49-637c-4b53-982a-4180c474b4f1}">
+		<property name="position">
+			<value>0.16</value>
+		</property>
+		<property name="value">
+			<value>0</value>
+		</property>
+	</object>
 	<object class="MixerBusFader" id="{ea42dba3-2ba6-462f-8f52-3f8166e6f567}" />
 </objects>
