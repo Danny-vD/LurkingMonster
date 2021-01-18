@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using Events.Achievements;
 using Events.BuildingEvents;
 using Events.BuildingEvents.RepairEvents;
 using Events.MoneyManagement;
@@ -84,6 +85,7 @@ namespace Gameplay.Achievements
 			BuildingConsumedEvent.ParameterlessListeners += OnBuildingsConsumedListener;
 			BuyPlotEvent.ParameterlessListeners          += OnAmountOfPlotsListener;
 			BuildingUpgradeEvent.ParameterlessListeners  += OnBuildingDestroyedListener;
+			RewardCollectedEvent.ParameterlessListeners  += ShowAchievementProgress;
 
 			UserSettings.OnGameQuit += SaveData;
 		}
@@ -167,6 +169,7 @@ namespace Gameplay.Achievements
 			BuildingConsumedEvent.ParameterlessListeners -= OnBuildingsConsumedListener;
 			BuyPlotEvent.ParameterlessListeners          -= OnAmountOfPlotsListener;
 			BuildingUpgradeEvent.ParameterlessListeners  -= OnBuildingDestroyedListener;
+			RewardCollectedEvent.ParameterlessListeners  -= ShowAchievementProgress;
 		}
 	}
 }

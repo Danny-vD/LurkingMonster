@@ -1325,7 +1325,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startMoney: 100
-  startSoilSamples: 1000000
+  startSoilSamples: 1000
 --- !u!114 &635546120
 MonoBehaviour:
   m_ObjectHideFlags: 0
