@@ -20,6 +20,12 @@ namespace CustomWindow.DebugWindows
 
 		private void OnGUI()
 		{
+			if (!EditorApplication.isPlaying)
+			{
+				EditorGUILayout.LabelField("You need to be in playmode!");
+				return;
+			}
+			
 			defaultTime = EditorGUILayout.FloatField("Default scale", defaultTime);
 			newTime     = EditorGUILayout.FloatField("New scale", newTime);
 
