@@ -1,8 +1,10 @@
 ﻿using Events;
+using Events.MoneyManagement;
 using Singletons;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Utility;
 using VDFramework;
 using VDFramework.EventSystem;
 
@@ -18,6 +20,9 @@ namespace UI.Buttons.Settings
 		
 		[SerializeField]
 		private TMP_InputField inputCity;
+
+		[SerializeField]
+		private SerializableDictionary<string, int> cheats;
 		
 		private Button showInputField;
 		private Button submit;
@@ -38,17 +43,30 @@ namespace UI.Buttons.Settings
 			
 			submit = inputScreen.GetComponentInChildren<Button>();
 			
+			submit.onClick.RemoveAllListeners();
 			submit.onClick.AddListener(SubmitInput);
 		}
 
 		private void SubmitInput()
 		{
 			inputScreen.SetActive(false);
+
+			string username = inputName.text;
 			
-			UserSettings.GameData.UserName = inputName.text;
+			UserSettings.GameData.UserName = username;
 			UserSettings.GameData.CityName = inputCity.text;
 
+			CheckCheats(username);
+			
 			EventManager.Instance.RaiseEvent(new InputChangedEvent());
+		}
+
+		private void CheckCheats(string cheat)
+		{
+			if (cheats.ContainsKey(cheat))
+			{
+				EventManager.Instance.RaiseEvent(new IncreaseMoneyEvent(cheats[cheat]));
+			}
 		}
 	}
 }
