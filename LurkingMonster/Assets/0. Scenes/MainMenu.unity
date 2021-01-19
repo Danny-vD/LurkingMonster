@@ -2228,9 +2228,9 @@ MonoBehaviour:
   videoClips:
     serializedDictionary:
     - key: 9
-      value: {fileID: 32900000, guid: 49536d83c2a7dcc4eadf9791f7bbcf6b, type: 3}
+      value: {fileID: 32900000, guid: 438bd19a72ede8c4a8362d8d7aca266b, type: 3}
     - key: 10
-      value: {fileID: 32900000, guid: 49536d83c2a7dcc4eadf9791f7bbcf6b, type: 3}
+      value: {fileID: 32900000, guid: 5f01c92d62790dc409c116d1a724e781, type: 3}
 --- !u!328 &868837757
 VideoPlayer:
   m_ObjectHideFlags: 0
