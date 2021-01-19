@@ -17,8 +17,13 @@ namespace Gameplay.Buildings
 		public float MaxBuildingHealth { get; private set; }
 
 		public float CurrentSoilHealth { get; private set; }
+		public float CurrentSoilHealthPercentage => CurrentSoilHealth / MaxSoilHealth;
+		
 		public float CurrentFoundationHealth { get; private set; }
+		public float CurrentFoundationHealthPercentage => CurrentFoundationHealth / MaxFoundationHealth;
+		
 		public float CurrentBuildingHealth { get; private set; }
+		public float CurrentBuildingHealthPercentage => CurrentBuildingHealth / MaxBuildingHealth;
 		
 		public float TotalHealth => CurrentSoilHealth + CurrentFoundationHealth + CurrentBuildingHealth;
 		public float MaxTotalHealth => MaxSoilHealth + MaxFoundationHealth + MaxBuildingHealth;
