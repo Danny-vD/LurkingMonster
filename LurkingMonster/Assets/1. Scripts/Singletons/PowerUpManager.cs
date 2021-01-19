@@ -39,15 +39,8 @@ namespace Singletons
 				new PowerUp(false, 120f, "KCAF Manager", PowerUpType.FixProblems, 500),
 				new PowerUp(false, 300f, "Time Stop", PowerUpType.AvoidWeatherEvent, 300),
 			};
-			
-			//TODO change: don't start with powerups
-			if (!UserSettings.SettingsExist)
-			{
-				avoidMonsters = 1;
-				fixProblems   = 3;
-				avoidWeather  = 1;
-			}
-			else
+
+			if (UserSettings.SettingsExist)
 			{
 				avoidMonsters = UserSettings.GameData.PowerUps[0];
 				avoidWeather  = UserSettings.GameData.PowerUps[1];

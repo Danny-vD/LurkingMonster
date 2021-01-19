@@ -29,7 +29,7 @@ namespace _1._Scripts.Gameplay.WeatherEvent
 
 		public void StartTimer(float timer, Action timerEnd, WeatherEventType weatherEventType)
 		{
-			gameObject.SetActive(true);
+			transform.parent.gameObject.SetActive(true);
 			circleTimer.fillAmount = 1;
 
 			maxTimer      = timer;
@@ -52,9 +52,14 @@ namespace _1._Scripts.Gameplay.WeatherEvent
 			
 			timer = 0;
 			timerEnd.Invoke();
-			gameObject.SetActive(false);
+			DisableTimer();
 		}
 
+		public void DisableTimer()
+		{
+			transform.parent.gameObject.SetActive(false);
+		}
+		
 		public float Timer
 		{
 			get => timer;

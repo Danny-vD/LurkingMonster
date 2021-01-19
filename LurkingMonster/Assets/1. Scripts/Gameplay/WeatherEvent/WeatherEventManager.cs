@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using _1._Scripts.Gameplay.WeatherEvent;
 using Enums;
+using Events;
 using Events.WeatherEvents;
 using IO;
 using ScriptableObjects;
@@ -62,6 +63,7 @@ namespace Gameplay.WeatherEvent
 			weatherEventActive = false;
 
 			UserSettings.OnGameQuit += SaveData;
+			EventManager.Instance.AddListener<PowerUpActivateEvent>(CheckPowerUp);
 
 			if (UserSettings.SettingsExist)
 			{
@@ -69,17 +71,33 @@ namespace Gameplay.WeatherEvent
 			}
 		}
 
-		private void Update()
+		private void CheckPowerUp(PowerUpActivateEvent @event)
 		{
-			if (TimeManager.Instance.IsPaused())
+			if (@event.Type != PowerUpType.AvoidWeatherEvent)
 			{
 				return;
 			}
 
+			EndWeatherEvent();
+			weatherEventTimer.DisableTimer();
+		}
+
+		private void Update()
+		{
 			if (!weatherEventActive)
 			{
 				TimerToNextWeatherEvent();
 			}
+		}
+
+		private void OnDestroy()
+		{
+			if (!EventManager.IsInitialized)
+			{
+				return;
+			}
+			
+			EventManager.Instance.RemoveListener<PowerUpActivateEvent>(CheckPowerUp);
 		}
 
 		private void TimerToNextWeatherEvent()
