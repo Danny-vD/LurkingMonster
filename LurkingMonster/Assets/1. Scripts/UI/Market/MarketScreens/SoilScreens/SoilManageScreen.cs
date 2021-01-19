@@ -14,6 +14,9 @@ namespace UI.Market.MarketScreens.SoilScreens
 
 		[SerializeField]
 		private TextMeshProUGUI demolishText = null;
+		
+		[SerializeField]
+		private ConfirmPopup confirmDemolishPopup;
 
 		[Header("Repair"), SerializeField]
 		private Button btnRepair = null;
@@ -39,6 +42,12 @@ namespace UI.Market.MarketScreens.SoilScreens
 		private void SetupRepairButton(AbstractBuildingTile tile, AbstractMarketManager manager)
 		{
 			int price = tile.GetCurrentSoilData().RepairCost;
+			BuildingHealth buildingHealth = tile.Building.GetComponent<BuildingHealth>();
+			
+			float percentage = buildingHealth.CurrentSoilHealthPercentage;
+
+			price = (int) ((1 - percentage) * price);
+			
 			repairText.text = price.ToString();
 
 			if (!CanAffort(price))
@@ -54,7 +63,6 @@ namespace UI.Market.MarketScreens.SoilScreens
 			void OnClick()
 			{
 				ReduceMoney(price);
-				BuildingHealth buildingHealth = tile.Building.GetComponent<BuildingHealth>();
 				buildingHealth.ResetSoilHealth();
 				manager.CloseMarket();
 			}
@@ -74,8 +82,13 @@ namespace UI.Market.MarketScreens.SoilScreens
 			BlockButton(btnDemolish, false);
 
 			SetButton(btnDemolish, OnClick);
-
+			
 			void OnClick()
+			{
+				confirmDemolishPopup.ShowPopUp(OnConfirmDemolish);
+			}
+
+			void OnConfirmDemolish()
 			{
 				ReduceMoney(price);
 				tile.RemoveSoil();
