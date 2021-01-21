@@ -45,7 +45,7 @@ namespace Gameplay.Achievements
 				new int[] {1000, 5000, 8000}, "ACHIEVEMENT_3");
 
 			buyPlotsAchievement = new Achievement(new[] {5, 10, 15}, "BUYPLOTACHIEVEMENT",
-				new int[] {400, 700, 1000}, "ACHIEVEMENT_4");
+				new int[] {400, 600, 1000}, "ACHIEVEMENT_4");
 
 			upgradeBuildingAchievement = new Achievement(new[] {6, 12, 16}, "UPGRADEBUILDINGSACHIEVEMENT",
 				new int[] {500, 2000, 3500}, "ACHIEVEMENT_5");

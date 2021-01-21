@@ -9,7 +9,6 @@ using VDFramework.EventSystem;
 using VDFramework.Singleton;
 using VDFramework.Extensions;
 
-
 namespace Singletons
 {
 	public class PowerUpManager : Singleton<PowerUpManager>
@@ -30,14 +29,16 @@ namespace Singletons
 
 		private bool powerUpActive;
 
-		private void Start()
+		protected override void Awake()
 		{
+			base.Awake();
+			
 			powerUps = new[]
 			{
 				//TODO: use a formatted json string to print the actual time for the description
-				new PowerUp(false, 120f, "Monster Feed", PowerUpType.AvoidMonster, 1000),
-				new PowerUp(false, 120f, "KCAF Manager", PowerUpType.FixProblems, 500),
-				new PowerUp(false, 300f, "Time Stop", PowerUpType.AvoidWeatherEvent, 300),
+				new PowerUp(false, 120f, "Monster Feed", PowerUpType.AvoidMonster, 2000),
+				new PowerUp(false, 120f, "KCAF Manager", PowerUpType.FixProblems, 10000),
+				new PowerUp(false, 300f, "Time Stop", PowerUpType.AvoidWeatherEvent, 5000),
 			};
 
 			if (UserSettings.SettingsExist)

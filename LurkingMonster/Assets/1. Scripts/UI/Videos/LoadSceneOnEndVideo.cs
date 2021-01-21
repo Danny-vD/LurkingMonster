@@ -1,10 +1,6 @@
-﻿using Enums;
-using Events;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Video;
-using Utility;
 using VDFramework;
-using VDFramework.EventSystem;
 
 namespace UI.Videos
 {
@@ -14,9 +10,6 @@ namespace UI.Videos
 		[SerializeField]
 		private int sceneIndex;
 
-		[SerializeField]
-		private SerializableEnumDictionary<Language, VideoClip> videoClips;
-
 		private bool playingVideo;
 
 		private VideoPlayer videoPlayer;
@@ -24,26 +17,6 @@ namespace UI.Videos
 		private void Awake()
 		{
 			videoPlayer = GetComponent<VideoPlayer>();
-		}
-
-		private void Start()
-		{
-			LanguageChangedEvent.ParameterlessListeners += ChangedLanguage;
-		}
-
-		private void OnDestroy()
-		{
-			if (!EventManager.IsInitialized)
-			{
-				return;
-			}
-			
-			LanguageChangedEvent.ParameterlessListeners -= ChangedLanguage;
-		}
-
-		private void ChangedLanguage()
-		{
-			videoPlayer.clip = videoClips[LanguageSettings.Language];
 		}
 
 		public void PlayVideo()

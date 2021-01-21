@@ -2184,6 +2184,7 @@ GameObject:
   m_Component:
   - component: {fileID: 868837755}
   - component: {fileID: 868837756}
+  - component: {fileID: 868837758}
   - component: {fileID: 868837757}
   m_Layer: 5
   m_Name: Video
@@ -2225,12 +2226,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneIndex: 1
-  videoClips:
-    serializedDictionary:
-    - key: 9
-      value: {fileID: 32900000, guid: 438bd19a72ede8c4a8362d8d7aca266b, type: 3}
-    - key: 10
-      value: {fileID: 32900000, guid: 5f01c92d62790dc409c116d1a724e781, type: 3}
 --- !u!328 &868837757
 VideoPlayer:
   m_ObjectHideFlags: 0
@@ -2266,6 +2261,24 @@ VideoPlayer:
   m_WaitForFirstFrame: 1
   m_FrameReadyEventEnabled: 0
   m_VideoShaders: []
+--- !u!114 &868837758
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 868837754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5e3e712a0724c709399d10f05cf7444, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  videoClips:
+    serializedDictionary:
+    - key: 9
+      value: {fileID: 32900000, guid: 438bd19a72ede8c4a8362d8d7aca266b, type: 3}
+    - key: 10
+      value: {fileID: 32900000, guid: 5f01c92d62790dc409c116d1a724e781, type: 3}
 --- !u!1 &868908575
 GameObject:
   m_ObjectHideFlags: 0
