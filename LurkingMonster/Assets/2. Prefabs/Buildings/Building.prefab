@@ -800,7 +800,7 @@ MonoBehaviour:
           value:
             serializedDictionary:
             - key: {fileID: 362989756019003262}
-              value: {x: -1.446, y: 3.075, z: -0.464}
+              value: {x: 0.903, y: 3.075, z: -1.001}
 --- !u!1 &7029731273974737261
 GameObject:
   m_ObjectHideFlags: 0
@@ -1067,7 +1067,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3848355593189218575, guid: c7866caef7188004dac1a0f6d94e4f5b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.446
+      value: 0.903
       objectReference: {fileID: 0}
     - target: {fileID: 3848355593189218575, guid: c7866caef7188004dac1a0f6d94e4f5b, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1075,7 +1075,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3848355593189218575, guid: c7866caef7188004dac1a0f6d94e4f5b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.464
+      value: -1.001
       objectReference: {fileID: 0}
     - target: {fileID: 3848355593189218575, guid: c7866caef7188004dac1a0f6d94e4f5b, type: 3}
       propertyPath: m_LocalRotation.w
