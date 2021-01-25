@@ -20,10 +20,10 @@ namespace Gameplay.Buildings
 		
 		private void Start()
 		{
-			SelectedBuildingEvent.Listeners += OnSelectedBuilding;
+			SelectedBuildingTileEvent.Listeners += OnSelectedBuilding;
 		}
 
-		private void OnSelectedBuilding(SelectedBuildingEvent selectedBuildingEvent)
+		private void OnSelectedBuilding(SelectedBuildingTileEvent selectedBuildingEvent)
 		{
 			AbstractBuildingTile tile = selectedBuildingEvent.Tile;
 
@@ -66,7 +66,7 @@ namespace Gameplay.Buildings
 				return;
 			}
 
-			SelectedBuildingEvent.Listeners -= OnSelectedBuilding;
+			SelectedBuildingTileEvent.Listeners -= OnSelectedBuilding;
 		}
 	}
 }

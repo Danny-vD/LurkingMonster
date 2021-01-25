@@ -34,7 +34,7 @@ namespace Audio.Audioplayers
 
 			EventManager.Instance.AddListener<AchievementUnlockedEvent>(AchievementSound);
 			
-			EventManager.Instance.AddListener<SelectedBuildingEvent>(SelectPlot);
+			EventManager.Instance.AddListener<SelectedBuildingTileEvent>(SelectPlot);
 		}
 
 		public void RemoveListeners()
@@ -57,7 +57,7 @@ namespace Audio.Audioplayers
 
 			EventManager.Instance.RemoveListener<AchievementUnlockedEvent>(AchievementSound);
 			
-			EventManager.Instance.RemoveListener<SelectedBuildingEvent>(SelectPlot);
+			EventManager.Instance.RemoveListener<SelectedBuildingTileEvent>(SelectPlot);
 		}
 
 		// Currency sounds
@@ -140,9 +140,9 @@ namespace Audio.Audioplayers
 		}
 		
 		// Selecting
-		private static void SelectPlot(SelectedBuildingEvent selectedBuildingEvent)
+		private static void SelectPlot(SelectedBuildingTileEvent selectedBuildingEvent)
 		{
-			if (selectedBuildingEvent.Tile != null)
+			if (selectedBuildingEvent.SelectedBuildingTile)
 			{
 				AudioPlayer.PlayOneShot2D(EventType.SFX_SelectPlot);
 			}

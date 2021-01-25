@@ -45,7 +45,7 @@ namespace UI.Market
 
 		private void Start()
 		{
-			EventManager.Instance.AddListener<SelectedBuildingEvent>(OnSelectedBuilding);
+			EventManager.Instance.AddListener<SelectedBuildingTileEvent>(OnSelectedBuilding);
 
 			child = CachedTransform.GetChild(0).gameObject;
 		}
@@ -69,7 +69,7 @@ namespace UI.Market
 			SetButtons();
 		}
 
-		private void OnSelectedBuilding(SelectedBuildingEvent selectedBuildingEvent)
+		private void OnSelectedBuilding(SelectedBuildingTileEvent selectedBuildingEvent)
 		{
 			AbstractBuildingTile tile = selectedBuildingEvent.Tile;
 
@@ -265,7 +265,7 @@ namespace UI.Market
 				return;
 			}
 
-			EventManager.Instance.RemoveListener<SelectedBuildingEvent>(OnSelectedBuilding);
+			EventManager.Instance.RemoveListener<SelectedBuildingTileEvent>(OnSelectedBuilding);
 		}
 	}
 }

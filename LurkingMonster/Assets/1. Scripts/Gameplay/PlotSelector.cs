@@ -105,7 +105,7 @@ namespace Gameplay
 				return;
 			}
 
-			EventManager.Instance.RaiseEvent(new SelectedBuildingEvent(null));
+			EventManager.Instance.RaiseEvent(new SelectedBuildingTileEvent(null, false));
 			Deselect(selected);
 		}
 
@@ -116,7 +116,7 @@ namespace Gameplay
 			if (!(abstractTile is AbstractBuildingTile))
 			{
 				// we did not select a building, so tell our listeners
-				EventManager.Instance.RaiseEvent(new SelectedBuildingEvent(null));
+				EventManager.Instance.RaiseEvent(new SelectedBuildingTileEvent(null, false));
 			}
 
 			switch (abstractTile) // Handle special actions if we selected an already selected tile
@@ -142,7 +142,7 @@ namespace Gameplay
 
 				if (abstractBuildingTile.HasDebris)
 				{
-					EventManager.Instance.RaiseEvent(new SelectedBuildingEvent(abstractBuildingTile));
+					EventManager.Instance.RaiseEvent(new SelectedBuildingTileEvent(abstractBuildingTile, true));
 					return true;
 				}
 
@@ -151,7 +151,7 @@ namespace Gameplay
 			}
 
 			// Send the tile if it has a building, else send null so that the listeners know you selected something that has no building
-			EventManager.Instance.RaiseEvent(new SelectedBuildingEvent(abstractBuildingTile.HasBuilding ? abstractBuildingTile : null));
+			EventManager.Instance.RaiseEvent(new SelectedBuildingTileEvent(abstractBuildingTile.HasBuilding ? abstractBuildingTile : null, true));
 
 			return false;
 		}
