@@ -2171,7 +2171,7 @@ VideoPlayer:
   m_TargetMaterialRenderer: {fileID: 0}
   m_TargetMaterialProperty: _MainTex
   m_RenderMode: 2
-  m_AspectRatio: 1
+  m_AspectRatio: 5
   m_DataSource: 0
   m_PlaybackSpeed: 1
   m_AudioOutputMode: 2
@@ -3693,8 +3693,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.73700005, y: 0.055631585}
   m_AnchorMax: {x: 0.9433705, y: 0.1334386}
-  m_AnchoredPosition: {x: -1010.3503, y: 0}
-  m_SizeDelta: {x: -614.16675, y: 1.092041}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: -1.2463379, y: 1.092041}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1241545234
 MonoBehaviour:
@@ -5769,7 +5769,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 4050, y: 2280}
+  m_SizeDelta: {x: 1080, y: 2280}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1888425522
 MonoBehaviour:
