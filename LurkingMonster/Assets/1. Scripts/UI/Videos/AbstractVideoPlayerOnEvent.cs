@@ -11,7 +11,7 @@ namespace UI.Videos
 	{
 		[SerializeField]
 		protected GameObject RenderTexture;
-		
+
 		protected VideoPlayer VideoPlayer;
 		private bool playingVideo = false;
 
@@ -41,13 +41,16 @@ namespace UI.Videos
 
 		protected virtual void OnDestroy()
 		{
-			EventManager.Instance.RemoveListener<TEvent>(StartVideo);
+			if (EventManager.IsInitialized)
+			{
+				EventManager.Instance.RemoveListener<TEvent>(StartVideo);
+			}
 		}
 
 		/// <summary>
 		/// Starts the video
 		/// </summary>
-		public virtual void StartVideo()
+		public virtual void StartVideo(TEvent @event)
 		{
 			RenderTexture.SetActive(true);
 			CachedGameObject.SetActive(true);

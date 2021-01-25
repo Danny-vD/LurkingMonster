@@ -6,6 +6,7 @@ using Events.Achievements;
 using Events.BuildingEvents;
 using Events.BuildingEvents.RepairEvents;
 using Events.MoneyManagement;
+using FMOD.Studio;
 using Interfaces;
 using VDFramework;
 using VDFramework.EventSystem;
@@ -14,6 +15,53 @@ namespace Audio.Audioplayers
 {
 	public class AudioEventListener : BetterMonoBehaviour, IListener
 	{
+		private static EventInstance increaseMoney;
+		private static EventInstance decreaseMoney;
+
+		private static EventInstance upgrade;
+		private static EventInstance buildingConsumed;
+
+		private static EventInstance buildingRepair;
+		private static EventInstance foundationRepair;
+		private static EventInstance soilRepair;
+
+		private static EventInstance buildingBuilding;
+		private static EventInstance buildingFoundation;
+		private static EventInstance buildingSoil;
+
+		private static EventInstance meatPowerup;
+		private static EventInstance freezePowerup;
+		private static EventInstance kcafPowerup;
+
+		private static EventInstance achievementUnlocked;
+
+		private static EventInstance selectPlot;
+
+		private void Awake()
+		{
+			increaseMoney = AudioPlayer.GetEventInstance(EventType.SFX_IncreaseMoney);
+			decreaseMoney = AudioPlayer.GetEventInstance(EventType.SFX_DecreaseMoney);
+
+			upgrade          = AudioPlayer.GetEventInstance(EventType.SFX_BUILDING_Upgrade);
+			buildingConsumed = AudioPlayer.GetEventInstance(EventType.SFX_BUILDING_Consumed);
+
+			buildingRepair   = AudioPlayer.GetEventInstance(EventType.SFX_BUILDING_Repair); // Only 1 sound for repairing atm
+			foundationRepair = AudioPlayer.GetEventInstance(EventType.SFX_BUILDING_Repair); 
+			soilRepair       = AudioPlayer.GetEventInstance(EventType.SFX_BUILDING_Repair);
+
+			buildingBuilding   = AudioPlayer.GetEventInstance(EventType.SFX_BUILDING_Building);
+			buildingFoundation = AudioPlayer.GetEventInstance(EventType.SFX_BUILDING_Foundation);
+			buildingSoil       = AudioPlayer.GetEventInstance(EventType.SFX_BUILDING_Soil);
+
+			meatPowerup   = AudioPlayer.GetEventInstance(EventType.SFX_POWERUP_Meat);
+			freezePowerup = AudioPlayer.GetEventInstance(EventType.SFX_POWERUP_FreezeTime);
+			kcafPowerup   = AudioPlayer.GetEventInstance(EventType.SFX_POWERUP_KCAF);
+			
+			achievementUnlocked = AudioPlayer.GetEventInstance(EventType.SFX_ACHIEVEMENT_Unlocked);
+
+			selectPlot = AudioPlayer.GetEventInstance(EventType.SFX_SelectPlot);
+		}
+
 		public void AddListeners()
 		{
 			EventManager.Instance.AddListener<CollectRentEvent>(IncreaseMoneySound);
@@ -63,55 +111,55 @@ namespace Audio.Audioplayers
 		// Currency sounds
 		private static void IncreaseMoneySound()
 		{
-			AudioPlayer.PlayOneShot2D(EventType.SFX_IncreaseMoney);
+			increaseMoney.start();
 		}
 
 		private static void DecreaseMoneySound()
 		{
-			AudioPlayer.PlayOneShot2D(EventType.SFX_DecreaseMoney);
+			decreaseMoney.start();
 		}
 
 		// Building event sounds
 		private static void UpgradeSound()
 		{
-			AudioPlayer.PlayOneShot2D(EventType.SFX_BUILDING_Upgrade);
+			upgrade.start();
 		}
 
 		private static void BuildingConsumedSound()
 		{
-			AudioPlayer.PlayOneShot2D(EventType.SFX_BUILDING_Consumed);
+			buildingConsumed.start();
 		}
 
 		// Repair sounds
 		private static void BuildingRepairSound()
 		{
-			AudioPlayer.PlayOneShot2D(EventType.SFX_BUILDING_Repair);
+			buildingRepair.start();
 		}
 
 		private static void FoundationRepairSound()
 		{
-			AudioPlayer.PlayOneShot2D(EventType.SFX_BUILDING_Repair);
+			foundationRepair.start();
 		}
 
 		private static void SoilRepairSound()
 		{
-			AudioPlayer.PlayOneShot2D(EventType.SFX_BUILDING_Repair);
+			soilRepair.start();
 		}
 
 		// Building sounds
 		private static void BuildingBuildingSound()
 		{
-			AudioPlayer.PlayOneShot2D(EventType.SFX_BUILDING_Building);
+			buildingBuilding.start();
 		}
 
 		private static void BuildingFoundationSound()
 		{
-			AudioPlayer.PlayOneShot2D(EventType.SFX_BUILDING_Foundation);
+			buildingFoundation.start();
 		}
 
 		private static void BuildingSoilSound()
 		{
-			AudioPlayer.PlayOneShot2D(EventType.SFX_BUILDING_Soil);
+			buildingSoil.start();
 		}
 
 		// Powerups
@@ -120,13 +168,13 @@ namespace Audio.Audioplayers
 			switch (powerUpActivateEvent.Type)
 			{
 				case PowerUpType.AvoidMonster:
-					AudioPlayer.PlayOneShot2D(EventType.SFX_POWERUP_Meat);
+					meatPowerup.start();
 					break;
 				case PowerUpType.FixProblems:
-					AudioPlayer.PlayOneShot2D(EventType.SFX_POWERUP_KCAF);
+					kcafPowerup.start();
 					break;
 				case PowerUpType.AvoidWeatherEvent:
-					AudioPlayer.PlayOneShot2D(EventType.SFX_POWERUP_FreezeTime);
+					freezePowerup.start();
 					break;
 				default:
 					throw new ArgumentOutOfRangeException(nameof(powerUpActivateEvent.Type), "The powerup type is not valid");
@@ -136,7 +184,7 @@ namespace Audio.Audioplayers
 		// Achievements
 		private static void AchievementSound()
 		{
-			AudioPlayer.PlayOneShot2D(EventType.SFX_ACHIEVEMENT_Unlocked);
+			achievementUnlocked.start();
 		}
 		
 		// Selecting
@@ -144,8 +192,33 @@ namespace Audio.Audioplayers
 		{
 			if (selectedBuildingEvent.SelectedBuildingTile)
 			{
-				AudioPlayer.PlayOneShot2D(EventType.SFX_SelectPlot);
+				selectPlot.start();
 			}
+		}
+
+		private void OnDestroy()
+		{
+			increaseMoney.release();
+			decreaseMoney.release();
+			
+			upgrade.release();
+			buildingConsumed.release();
+			
+			buildingRepair.release();
+			foundationRepair.release();
+			soilRepair.release();
+			
+			buildingBuilding.release();
+			buildingFoundation.release();
+			buildingSoil.release();
+			
+			meatPowerup.release();
+			freezePowerup.release();
+			kcafPowerup.release();
+			
+			achievementUnlocked.release();
+			
+			selectPlot.release();
 		}
 	}
 }

@@ -187,7 +187,7 @@ namespace Gameplay.WeatherEvent
 			weatherEventTimer.Timer = gameData.TimerWeatherEvent;
 			weatherEventActive      = true;
 
-			EventManager.Instance.RaiseEvent(new StartWeatherEvent(abstractWeatherEvent));
+			EventManager.Instance.RaiseEvent(new StartWeatherEvent(abstractWeatherEvent, false));
 		}
 
 		private WeatherEventType GetRandomWeather()
