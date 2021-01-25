@@ -3,6 +3,9 @@ using VDFramework;
 
 namespace Gameplay
 {
+	/// <summary>
+	/// A class that encapulates some Slider functions to easily set the slider Value and MaxValue
+	/// </summary>
 	public class Bar : BetterMonoBehaviour
 	{
 		public Slider slider;

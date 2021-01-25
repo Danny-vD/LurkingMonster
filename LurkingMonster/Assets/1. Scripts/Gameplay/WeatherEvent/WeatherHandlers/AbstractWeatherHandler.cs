@@ -7,8 +7,14 @@ using VDFramework.EventSystem;
 
 namespace Gameplay.WeatherEvent.WeatherHandlers
 {
+	/// <summary>
+	/// A class that has functions for The Start, the intervals and the End for each weather event
+	/// </summary>
 	public abstract class AbstractWeatherHandler : BetterMonoBehaviour
 	{
+		/// <summary>
+		/// Should this class add listeners to listen to the callbacks per interval?
+		/// </summary>
 		protected abstract bool AddWeatherListener { get; }
 
 		private AbstractWeatherEvent abstractWeatherEvent;
@@ -114,6 +120,7 @@ namespace Gameplay.WeatherEvent.WeatherHandlers
 		{
 		}
 
+		// Weather ends
 		private void ResetState()
 		{
 			abstractWeatherEvent = null;

@@ -35,6 +35,10 @@ namespace UI.Market.MarketScreens
 			CachedGameObject.SetActive(true);
 		}
 
+		/// <summary>
+		/// Set the OnClick listener for the return button for this screen
+		/// </summary>
+		/// <param name="action"></param>
 		public void SetReturnButton(UnityAction action)
 		{
 			// Not using SetButton because in this case it's perfectly valid to not have a return button

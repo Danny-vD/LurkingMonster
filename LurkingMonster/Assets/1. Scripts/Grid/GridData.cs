@@ -16,6 +16,9 @@ namespace Grid
 		
 		public List<TileTypePerPosition> TileData = new List<TileTypePerPosition>();
 
+		/// <summary>
+		/// Set the TileType of a tile at a given position
+		/// </summary>
 		public void ChangeTile(Vector2Int gridPosition, TileType newType)
 		{
 			int length = TileData.Count;
