@@ -70,6 +70,9 @@ namespace Gameplay.Achievements
 			}
 		}
 
+		/// <summary>
+		/// Function that checks if all achievements are unlocked
+		/// </summary>
 		public bool AllAchievementsUnlocked()
 		{
 			return achievements.All(achievement => achievement.Unlocked.Last());
@@ -90,6 +93,9 @@ namespace Gameplay.Achievements
 			UserSettings.OnGameQuit += SaveData;
 		}
 
+		/// <summary>
+		/// Function that shows the progress on the achievement prefab
+		/// </summary>
 		public void ShowAchievementProgress()
 		{
 			achievementParent.DestroyChildren();

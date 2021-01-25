@@ -27,6 +27,9 @@ namespace Gameplay.Buildings
 			GetComponent<BuildingUpgrade>().OnUpgrade         += CacheMaterial;
 		}
 
+		/// <summary>
+		/// Function that changes the building texture
+		/// </summary>
 		public void ChangeTexture(Building building)
 		{
 			SetTextures(building.BuildingType, building.CurrentTier);

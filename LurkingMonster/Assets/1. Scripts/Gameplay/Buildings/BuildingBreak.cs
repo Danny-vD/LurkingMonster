@@ -68,6 +68,9 @@ namespace Gameplay.Buildings
 			}
 		}
 
+		/// <summary>
+		/// Function that checks if crackedPopup is clicked. (Is used for auto repair)
+		/// </summary>
 		public void CrackedPopupClicked()
 		{
 			if (PowerUpManager.Instance.FixProblemsActive)

@@ -29,6 +29,9 @@ namespace UI
 
 		private Achievement achievement;
 		
+		/// <summary>
+		/// Function Instantiate achievements prefabs for unlocking/collecting rewards
+		/// </summary>
 		public void Instantiate(Achievement achievement)
 		{
 			this.achievement = achievement;
@@ -38,7 +41,7 @@ namespace UI
 				GameObject prefabInstance = Instantiate(prefabImage, parent);
 
 				Image image = prefabInstance.GetComponent<Image>();
-
+				
 				if (achievement.Unlocked[i])
 				{
 					image.color = achievement.rewardsCollected[i] ? collectedColor : unlockedColor;

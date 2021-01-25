@@ -31,6 +31,9 @@ namespace Gameplay
 			circleTimer = GetComponent<Image>();
 		}
 
+		/// <summary>
+		/// Function that starts the power up timer
+		/// </summary>
 		public void StartTimer(float timer, Action powerUpActive, PowerUpType powerUpType)
 		{
 			transform.parent.gameObject.SetActive(true);

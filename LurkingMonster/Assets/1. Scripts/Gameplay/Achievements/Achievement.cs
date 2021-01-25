@@ -35,6 +35,9 @@ namespace Gameplay.Achievements
 			rewardsCollected     = new bool[soilSamples.Length];
 		}
 
+		/// <summary>
+		/// Function that checks if an achievement is unlocked
+		/// </summary>
 		public void CheckAchievement(int value)
 		{
 			counter += value;
@@ -47,8 +50,6 @@ namespace Gameplay.Achievements
 					{
 						unlocked[i] = true;
 						
-						//For now show message
-						//MessageManager.Instance.ShowMessageGameUI(LanguageUtil.GetJsonString("ACHIEVEMENT_UNLOCKED"), Color.green);
 						RewardManager.Instance.IncreaseCounter();
 						EventManager.Instance.RaiseEvent(new AchievementUnlockedEvent());
 						return;
@@ -57,16 +58,26 @@ namespace Gameplay.Achievements
 			}
 		}
 
+		/// <summary>
+		/// Function that returns achievement data
+		/// </summary>
 		public AchievementData GetData()
 		{
 			return new AchievementData(counter, unlocked, rewardsCollected);
 		}
 
+		/// <summary>
+		/// Function that returns json string
+		/// </summary>
+		/// <returns>Json string</returns>
 		public string GetTitleString()
 		{
 			return LanguageUtil.GetJsonString(keyMessage);
 		}
 
+		/// <summary>
+		/// Function that checks if an reward is ready
+		/// </summary>
 		public bool CheckIfRewardReady()
 		{
 			for (int i = 0; i < unlocked.Length; i++)
@@ -79,7 +90,10 @@ namespace Gameplay.Achievements
 
 			return false;
 		}
-
+		
+		/// <summary>
+		/// Function that sets the data for this achievement
+		/// </summary>
 		public void SetData(AchievementData data)
 		{
 			counter          = data.counter;
@@ -87,6 +101,9 @@ namespace Gameplay.Achievements
 			rewardsCollected = data.collected;
 		}
 		
+		/// <summary>
+		/// Function that collect the reward for the achievement
+		/// </summary>
 		public void CollectReward()
 		{
 			int i = GetIndexFirstNotCollectedReward();
@@ -94,18 +111,25 @@ namespace Gameplay.Achievements
 			RewardManager.Instance.Unlock(soilSamples[i]);
 		}
 
+		/// <summary>
+		/// Function that returns the reward amount
+		/// </summary>
+		/// <returns>Reward amount</returns>
 		public int GetRewardAmount()
 		{
 			int i = GetIndexFirstNotCollectedReward();
 			return soilSamples[i];
 		}
 		
+		/// <summary>
+		/// Function that returns an json string
+		/// </summary>
+		/// <returns>Json string</returns>
 		public string GetAchievementInfo()
 		{
 			return LanguageUtil.GetJsonString(achievementInfo);
 		}
-
-
+		
 		private int GetIndexFirstNotCollectedReward()
 		{
 			for (int i = 0; i < rewardsCollected.Length; i++)
@@ -119,8 +143,9 @@ namespace Gameplay.Achievements
 			throw new Exception("All rewards already collected");
 		}
 		
-		
-
+		/// <summary>
+		/// Function that prints the achievement data to the prefab
+		/// </summary>
 		public void PrintAchievement(GameObject prefabAchievement)
 		{
 			string message = LanguageUtil.GetJsonString(keyMessage);
