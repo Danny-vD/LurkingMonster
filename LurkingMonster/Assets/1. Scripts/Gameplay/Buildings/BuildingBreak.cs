@@ -75,7 +75,7 @@ namespace Gameplay.Buildings
 		{
 			if (PowerUpManager.Instance.FixProblemsActive)
 			{
-				buildingHealth.ResetHealth();
+				buildingHealth.ResetHealth(true);
 				return;
 			}
 

@@ -594,6 +594,7 @@ GameObject:
   - component: {fileID: 6232657342044896722}
   - component: {fileID: 5382402276222136242}
   - component: {fileID: 4675197183078135986}
+  - component: {fileID: 7488189472311285075}
   m_Layer: 5
   m_Name: BtnSpawnPopUp
   m_TagString: Untagged
@@ -702,6 +703,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &7488189472311285075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6146377233190867089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32b6ad8113cb42fb943bd3846ca33912, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventType: 20
 --- !u!1 &6420326430019333993
 GameObject:
   m_ObjectHideFlags: 0

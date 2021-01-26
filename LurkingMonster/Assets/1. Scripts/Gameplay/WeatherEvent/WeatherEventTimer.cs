@@ -1,11 +1,12 @@
 ﻿using System;
 using Enums;
+using UI.Popups;
 using UnityEngine;
 using UnityEngine.UI;
 using Utility;
 using VDFramework;
 
-namespace _1._Scripts.Gameplay.WeatherEvent
+namespace Gameplay.WeatherEvent
 {
 	public class WeatherEventTimer : BetterMonoBehaviour
 	{
@@ -14,6 +15,12 @@ namespace _1._Scripts.Gameplay.WeatherEvent
 
 		[SerializeField]
 		private Image icon;
+
+		[SerializeField]
+		private Button infoButton;
+
+		[SerializeField]
+		private WeatherInfoPopup informationPopup;
 
 		private Image circleTimer;
 
@@ -37,6 +44,8 @@ namespace _1._Scripts.Gameplay.WeatherEvent
 			this.timerEnd = timerEnd;
 
 			icon.sprite = weatherSprites[weatherEventType];
+			
+			SetInfoButton(weatherEventType);
 		}
 
 		private void Update()
@@ -64,6 +73,17 @@ namespace _1._Scripts.Gameplay.WeatherEvent
 		{
 			get => timer;
 			set => timer = value;
+		}
+
+		private void SetInfoButton(WeatherEventType eventType)
+		{
+			infoButton.onClick.RemoveAllListeners();
+			infoButton.onClick.AddListener(OpenPopup);
+
+			void OpenPopup()
+			{
+				informationPopup.EnablePopup(eventType);	
+			}
 		}
 	}
 }

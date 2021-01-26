@@ -10,6 +10,7 @@ using ScriptableObjects;
 using Singletons;
 using Structs;
 using TMPro;
+using Tutorials;
 using UnityEngine;
 using Utility;
 using VDFramework;
@@ -47,6 +48,7 @@ namespace Gameplay.WeatherEvent
 		private float timerTillNextEvent;
 
 		private WeatherEventType weatherEventType;
+		private WeatherEventType lastType = (WeatherEventType) (-1);
 
 		private AbstractWeatherEvent abstractWeatherEvent;
 
@@ -106,7 +108,7 @@ namespace Gameplay.WeatherEvent
 
 			if (timerTillNextEvent <= 0.0f && !PowerUpManager.Instance.AvoidWeatherActive)
 			{
-				if (TimeManager.Instance.IsPaused())
+				if (TimeManager.Instance.IsPaused() || TutorialManager.IsActive)
 				{
 					return;
 				}
@@ -192,10 +194,12 @@ namespace Gameplay.WeatherEvent
 
 		private WeatherEventType GetRandomWeather()
 		{
-			WeatherEventType oldType = weatherEventType;
-			IEnumerable<WeatherEventType> weatherEventTypes = availableWeather.Where(element => element != oldType);
+			IEnumerable<WeatherEventType> weatherEventTypes = availableWeather.Where(element => element != lastType);
 
-			return weatherEventTypes.GetRandomItem();
+			WeatherEventType randomItem = weatherEventTypes.GetRandomItem();
+			lastType = randomItem;
+
+			return randomItem;
 		}
 
 		[ContextMenu("Populate")]
