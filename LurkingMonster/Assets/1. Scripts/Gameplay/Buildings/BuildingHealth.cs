@@ -18,20 +18,20 @@ namespace Gameplay.Buildings
 
 		public float CurrentSoilHealth { get; private set; }
 		public float CurrentSoilHealthPercentage => CurrentSoilHealth / MaxSoilHealth;
-		
+
 		public float CurrentFoundationHealth { get; private set; }
 		public float CurrentFoundationHealthPercentage => CurrentFoundationHealth / MaxFoundationHealth;
-		
+
 		public float CurrentBuildingHealth { get; private set; }
 		public float CurrentBuildingHealthPercentage => CurrentBuildingHealth / MaxBuildingHealth;
-		
+
 		public float TotalHealth => CurrentSoilHealth + CurrentFoundationHealth + CurrentBuildingHealth;
 		public float MaxTotalHealth => MaxSoilHealth + MaxFoundationHealth + MaxBuildingHealth;
 
 		public event Action OnBuildingRepair;
 		public event Action OnFoundationRepair;
 		public event Action OnSoilRepair;
-		
+
 		private void Awake()
 		{
 			GetComponent<Building>().OnInitialize += Initialize;
@@ -43,7 +43,7 @@ namespace Gameplay.Buildings
 			SetMaxFoundationHealth(foundationData.MaxHealth);
 			SetMaxBuildingHealth(buildingData.MaxHealth);
 
-			ResetHealth();
+			ResetHealth(false);
 		}
 
 		public void SetCurrentHealth(float soilHealth, float foundationHealth, float buildingHealth)
@@ -53,11 +53,11 @@ namespace Gameplay.Buildings
 			CurrentBuildingHealth   = buildingHealth;
 		}
 
-		public void ResetHealth()
+		public void ResetHealth(bool raiseEvent)
 		{
-			ResetSoilHealth();
-			ResetFoundationHealth();
-			ResetBuildingHealth();
+			ResetSoilHealth(raiseEvent);
+			ResetFoundationHealth(raiseEvent);
+			ResetBuildingHealth(raiseEvent);
 		}
 
 		public bool DamageSoil(float damage)
@@ -96,25 +96,37 @@ namespace Gameplay.Buildings
 			MaxBuildingHealth = maxHealth;
 		}
 
-		public void ResetSoilHealth()
+		public void ResetSoilHealth(bool raiseEvent = true)
 		{
 			CurrentSoilHealth = MaxSoilHealth;
 			OnSoilRepair?.Invoke();
-			EventManager.Instance.RaiseEvent(new SoilRepairEvent());
+
+			if (raiseEvent)
+			{
+				EventManager.Instance.RaiseEvent(new SoilRepairEvent());
+			}
 		}
 
-		public void ResetFoundationHealth()
+		public void ResetFoundationHealth(bool raiseEvent = true)
 		{
 			CurrentFoundationHealth = MaxFoundationHealth;
 			OnFoundationRepair?.Invoke();
-			EventManager.Instance.RaiseEvent(new FoundationRepairEvent());
+
+			if (raiseEvent)
+			{
+				EventManager.Instance.RaiseEvent(new FoundationRepairEvent());
+			}
 		}
 
-		public void ResetBuildingHealth()
+		public void ResetBuildingHealth(bool raiseEvent = true)
 		{
 			CurrentBuildingHealth = MaxBuildingHealth;
 			OnBuildingRepair?.Invoke();
-			EventManager.Instance.RaiseEvent(new BuildingRepairEvent());
+
+			if (raiseEvent)
+			{
+				EventManager.Instance.RaiseEvent(new BuildingRepairEvent());
+			}
 		}
 
 		public bool IsHealthBelowLimit(float percentage)
@@ -174,7 +186,7 @@ namespace Gameplay.Buildings
 				SetFoundationHealthBar(bar);
 				return BreakType.Foundation;
 			}
-			
+
 			SetSoilHealthBar(bar); // Soil < Foundation && Soil < Building
 			return BreakType.Soil;
 		}
