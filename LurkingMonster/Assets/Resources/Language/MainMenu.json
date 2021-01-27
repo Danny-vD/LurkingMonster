@@ -27,15 +27,15 @@
 	  ]
 	},
 	{
-	  "Key": "QUIT_GAME",
+	  "Key": "UNDERSTOOD",
 	  "Value": [
 		{
 		  "Key": "NL",
-		  "Value": "Afsluiten"
+		  "Value": "Begrepen"
 		},
 		{
 		  "Key": "EN",
-		  "Value": "Quit"
+		  "Value": "Understood"
 		}
 	  ]
 	},
