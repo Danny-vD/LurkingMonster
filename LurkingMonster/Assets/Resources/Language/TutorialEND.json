@@ -52,18 +52,31 @@
                 }
             ]
         },
-        {
-            "Key": "TUTORIAL_END_5",
-            "Value": [
-                {
-                    "Key": "NL",
-                    "Value": "Ben je vergeten wat de tekens waren? Bekijk de handige links in het profiel menu! \n\n Nu je werk met {1} gedaan is, heb je de mogelijkheid om hier te blijven en je eigendommen te onderhouden of opnieuw te beginnen."
-                },
-                {
-                    "Key": "EN",
-                    "Value": "You forgot what the signs were? Check out the useful links in the Profile Menu! \n\n Now that your job with {1} is done, you have the option to stay here and maintain your properties or start over."
-                }
-            ]
-        }
+      {
+        "Key": "TUTORIAL_END_5",
+        "Value": [
+          {
+            "Key": "NL",
+            "Value": "Ben je vergeten wat de tekens waren? Bekijk de handige links in het profiel menu! \n\n Nu je werk met {1} gedaan is, heb je de mogelijkheid om hier te blijven en je eigendommen te onderhouden of opnieuw te beginnen."
+          },
+          {
+            "Key": "EN",
+            "Value": "You forgot what the signs were? Check out the useful links in the Profile Menu! \n\n Now that your job with {1} is done, you have the option to stay here and maintain your properties or start over."
+          }
+        ]
+      },
+      {
+        "Key": "TUTORIAL_END_5",
+        "Value": [
+          {
+            "Key": "NL",
+            "Value": "Het spel wordt nu afgesloten. Wanneer je het spel herstart, krijg je de mogelijkheid om door te gaan of om opnieuw te beginnen."
+          },
+          {
+            "Key": "EN",
+            "Value": "The game will now shut down, when you restart the game it'll five you the option to continue or to start over."
+          }
+        ]
+      }
     ]
 }
