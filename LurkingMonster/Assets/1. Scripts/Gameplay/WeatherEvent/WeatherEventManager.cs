@@ -1,13 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using _1._Scripts.Gameplay.WeatherEvent;
 using Enums;
+using Events;
 using Events.WeatherEvents;
 using IO;
 using ScriptableObjects;
 using Singletons;
 using Structs;
 using TMPro;
+using Tutorials;
 using UnityEngine;
 using Utility;
 using VDFramework;
@@ -45,6 +48,7 @@ namespace Gameplay.WeatherEvent
 		private float timerTillNextEvent;
 
 		private WeatherEventType weatherEventType;
+		private WeatherEventType lastType = (WeatherEventType) (-1);
 
 		private AbstractWeatherEvent abstractWeatherEvent;
 
@@ -61,6 +65,7 @@ namespace Gameplay.WeatherEvent
 			weatherEventActive = false;
 
 			UserSettings.OnGameQuit += SaveData;
+			EventManager.Instance.AddListener<PowerUpActivateEvent>(CheckPowerUp);
 
 			if (UserSettings.SettingsExist)
 			{
@@ -68,17 +73,33 @@ namespace Gameplay.WeatherEvent
 			}
 		}
 
-		private void Update()
+		private void CheckPowerUp(PowerUpActivateEvent @event)
 		{
-			if (TimeManager.Instance.IsPaused())
+			if (@event.Type != PowerUpType.AvoidWeatherEvent)
 			{
 				return;
 			}
 
+			EndWeatherEvent();
+			weatherEventTimer.DisableTimer();
+		}
+
+		private void Update()
+		{
 			if (!weatherEventActive)
 			{
 				TimerToNextWeatherEvent();
 			}
+		}
+
+		private void OnDestroy()
+		{
+			if (!EventManager.IsInitialized)
+			{
+				return;
+			}
+			
+			EventManager.Instance.RemoveListener<PowerUpActivateEvent>(CheckPowerUp);
 		}
 
 		private void TimerToNextWeatherEvent()
@@ -87,13 +108,12 @@ namespace Gameplay.WeatherEvent
 
 			if (timerTillNextEvent <= 0.0f && !PowerUpManager.Instance.AvoidWeatherActive)
 			{
-				if (TimeManager.Instance.IsPaused())
+				if (TimeManager.Instance.IsPaused() || TutorialManager.IsActive)
 				{
 					return;
 				}
 
-				// TODO: instead of taking a random event, have a list of unlocked events or something
-				weatherEventType = availableWeather.GetRandomItem(); //default(WeatherEventType).GetRandomValue();
+				weatherEventType = GetRandomWeather();
 				weatherEventData = GetData(weatherEventType);
 
 				EventManager.Instance.RaiseEvent(new StartWeatherEvent(abstractWeatherEvent));
@@ -169,7 +189,17 @@ namespace Gameplay.WeatherEvent
 			weatherEventTimer.Timer = gameData.TimerWeatherEvent;
 			weatherEventActive      = true;
 
-			EventManager.Instance.RaiseEvent(new StartWeatherEvent(abstractWeatherEvent));
+			EventManager.Instance.RaiseEvent(new StartWeatherEvent(abstractWeatherEvent, false));
+		}
+
+		private WeatherEventType GetRandomWeather()
+		{
+			IEnumerable<WeatherEventType> weatherEventTypes = availableWeather.Where(element => element != lastType);
+
+			WeatherEventType randomItem = weatherEventTypes.GetRandomItem();
+			lastType = randomItem;
+
+			return randomItem;
 		}
 
 		[ContextMenu("Populate")]

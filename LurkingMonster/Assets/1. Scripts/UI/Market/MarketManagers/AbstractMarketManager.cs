@@ -18,6 +18,9 @@ namespace UI.Market.MarketManagers
 
 		public Structs.Market.MarketScreens Screens => screens;
 
+		/// <summary>
+		/// Open the market, setup all the return buttons to return to the main screen and enable the main screen
+		/// </summary>
 		public void OpenMarket()
 		{
 			CachedGameObject.SetActive(true);
@@ -26,6 +29,9 @@ namespace UI.Market.MarketManagers
 			PutScreenInFocus(screens.MainScreen);
 		}
 
+		/// <summary>
+		/// Close the market
+		/// </summary>
 		public void CloseMarket()
 		{
 			gameObject.SetActive(false);
@@ -36,6 +42,9 @@ namespace UI.Market.MarketManagers
 			}
 		}
 		
+		/// <summary>
+		/// Enable a given screen and disable all others
+		/// </summary>
 		public void PutScreenInFocus(AbstractMarketScreen screen)
 		{
 			screens.Screens.ForEach(Hide);
@@ -43,6 +52,9 @@ namespace UI.Market.MarketManagers
 			OnScreenFocus(screen);
 		}
 
+		/// <summary>
+		/// Override to do additional functions when a screen is put in focus
+		/// </summary>
 		protected virtual void OnScreenFocus(AbstractMarketScreen screen)
 		{
 		}

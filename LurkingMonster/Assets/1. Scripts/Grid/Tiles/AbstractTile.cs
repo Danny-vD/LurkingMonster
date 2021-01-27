@@ -14,11 +14,18 @@ namespace Grid.Tiles
 
 		public Vector2Int GridPosition { get; private set; }
 
-		public void Instantiate(Vector2Int position)
+		/// <summary>
+		/// Set the GridPosition of this tile, intended to only set after instantiating the tile
+		/// </summary>
+		/// <param name="position"></param>
+		public void Initialize(Vector2Int position)
 		{
 			GridPosition = position;
 		}
 
+		/// <summary>
+		/// Tell the tile it has a new neighbor
+		/// </summary>
 		public virtual void AddNeighbor(AbstractTile tile)
 		{
 			if (Neighbors.Contains(tile))

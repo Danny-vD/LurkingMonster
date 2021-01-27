@@ -19,16 +19,26 @@ namespace UI.Market.MarketScreens
 
 		public event Action<AbstractBuildingTile, AbstractMarketManager> Extensions;
 
+		/// <summary>
+		/// Disables the screen
+		/// </summary>
 		public void Hide()
 		{
 			CachedGameObject.SetActive(false);
 		}
 
+		/// <summary>
+		/// Enables the screen
+		/// </summary>
 		public void Show()
 		{
 			CachedGameObject.SetActive(true);
 		}
 
+		/// <summary>
+		/// Set the OnClick listener for the return button for this screen
+		/// </summary>
+		/// <param name="action"></param>
 		public void SetReturnButton(UnityAction action)
 		{
 			// Not using SetButton because in this case it's perfectly valid to not have a return button
@@ -41,6 +51,9 @@ namespace UI.Market.MarketScreens
 			returnButton.onClick.AddListener(action);
 		}
 
+		/// <summary>
+		/// Initialize the screen
+		/// </summary>
 		public void SetUI(AbstractBuildingTile tile, AbstractMarketManager manager)
 		{
 			SetupScreen(tile, manager);

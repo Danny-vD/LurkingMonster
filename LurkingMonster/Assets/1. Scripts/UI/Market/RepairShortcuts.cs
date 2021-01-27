@@ -45,7 +45,7 @@ namespace UI.Market
 
 		private void Start()
 		{
-			EventManager.Instance.AddListener<SelectedBuildingEvent>(OnSelectedBuilding);
+			EventManager.Instance.AddListener<SelectedBuildingTileEvent>(OnSelectedBuilding);
 
 			child = CachedTransform.GetChild(0).gameObject;
 		}
@@ -66,9 +66,10 @@ namespace UI.Market
 			}
 
 			SetBars();
+			SetButtons();
 		}
 
-		private void OnSelectedBuilding(SelectedBuildingEvent selectedBuildingEvent)
+		private void OnSelectedBuilding(SelectedBuildingTileEvent selectedBuildingEvent)
 		{
 			AbstractBuildingTile tile = selectedBuildingEvent.Tile;
 
@@ -77,9 +78,12 @@ namespace UI.Market
 				SetActive(false);
 				return;
 			}
+			
+			selectedTile   = tile;
+			buildingHealth = tile.Building.GetComponent<BuildingHealth>();
 
 			SetActive(true);
-			SetButtons(tile);
+			SetButtons();
 		}
 
 		private void SetActive(bool active)
@@ -112,11 +116,8 @@ namespace UI.Market
 			}
 		}
 
-		private void SetButtons(AbstractBuildingTile tile)
+		private void SetButtons()
 		{
-			selectedTile   = tile;
-			buildingHealth = tile.Building.GetComponent<BuildingHealth>();
-
 			foreach (KeyValuePair<ShortCutButton, ButtonData> pair in buttons)
 			{
 				switch (pair.Key)
@@ -148,10 +149,15 @@ namespace UI.Market
 		private void SetBuildingButton(ButtonData buttonData)
 		{
 			int price = selectedTile.Building.Data.RepairCost;
-			Button button = buttonData.Button;
+
+			float percentage = buildingHealth.CurrentBuildingHealthPercentage;
+
+			price = (int) ((1 - percentage) * price);
 
 			buttonData.PriceText.text = price.ToString();
 			buildingHealth.SetBuildingHealthBar(buttonData.healthBar);
+
+			Button button = buttonData.Button;
 
 			if (!CanAffort(price))
 			{
@@ -172,10 +178,15 @@ namespace UI.Market
 		private void SetFoundationButton(ButtonData buttonData)
 		{
 			int price = selectedTile.GetCurrentFoundationData().RepairCost;
-			Button button = buttonData.Button;
+
+			float percentage = buildingHealth.CurrentFoundationHealthPercentage;
+
+			price = (int) ((1 - percentage) * price);
 
 			buttonData.PriceText.text = price.ToString();
 			buildingHealth.SetFoundationHealthBar(buttonData.healthBar);
+
+			Button button = buttonData.Button;
 
 			if (!CanAffort(price))
 			{
@@ -197,10 +208,14 @@ namespace UI.Market
 		{
 			int price = selectedTile.GetCurrentSoilData().RepairCost;
 
-			Button button = buttonData.Button;
+			float percentage = buildingHealth.CurrentSoilHealthPercentage;
+
+			price = (int) ((1 - percentage) * price);
 
 			buttonData.PriceText.text = price.ToString();
-			buildingHealth.SetFoundationHealthBar(buttonData.healthBar);
+			buildingHealth.SetSoilHealthBar(buttonData.healthBar);
+
+			Button button = buttonData.Button;
 
 			if (!CanAffort(price))
 			{
@@ -250,7 +265,7 @@ namespace UI.Market
 				return;
 			}
 
-			EventManager.Instance.RemoveListener<SelectedBuildingEvent>(OnSelectedBuilding);
+			EventManager.Instance.RemoveListener<SelectedBuildingTileEvent>(OnSelectedBuilding);
 		}
 	}
 }

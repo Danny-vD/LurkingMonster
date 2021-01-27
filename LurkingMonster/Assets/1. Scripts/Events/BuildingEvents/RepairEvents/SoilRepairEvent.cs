@@ -2,7 +2,7 @@
 
 namespace Events.BuildingEvents.RepairEvents
 {
-	public class SoilRepairEvent : VDEvent
+	public class SoilRepairEvent : VDEvent<SoilRepairEvent>
 	{
 	}
 }

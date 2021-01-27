@@ -48,6 +48,14 @@ namespace UI.Buttons
 			kcaf.onClick.AddListener(OpenKcafPopUp);
 			
 			EventManager.Instance.AddListener<PowerUpDisableEvent>(DisableLock);
+
+			if (UserSettings.SettingsExist)
+			{
+				if (PowerUpManager.Instance.CheckIfAnPowerUpIsActive())
+				{
+					EnableLock();
+				}
+			}
 		}
 
 		private void OpenMeatPopUp()
@@ -65,6 +73,11 @@ namespace UI.Buttons
 			OpenPopup(popupKcaf, PowerUpManager.Instance.FixProblems, PowerUpType.FixProblems);
 		}
 
+		private void EnableLock()
+		{
+			lockImage.gameObject.SetActive(true);
+		}
+		
 		private void DisableLock()
 		{
 			lockImage.gameObject.SetActive(false);
@@ -87,6 +100,7 @@ namespace UI.Buttons
 			transform.gameObject.SetActive(true);
 			Button activate = transform.GetComponentInChildren<Button>();
 
+			activate.onClick.RemoveAllListeners();
 			activate.onClick.AddListener(Activate);
 
 			void Activate()
@@ -103,7 +117,7 @@ namespace UI.Buttons
 			ToggleInventory();
 			EnablePowerUps();
 			PowerUpManager.Instance.ActivatePowerUp(type);
-			lockImage.gameObject.SetActive(true);
+			EnableLock();
 		}
 		
 		private void ToggleInventory()

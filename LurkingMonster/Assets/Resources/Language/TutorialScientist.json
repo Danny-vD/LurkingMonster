@@ -5,7 +5,7 @@
 	  "Value": [
         {
             "Key": "NL",
-            "Value": "Welkom bij de onderzoeksfaciliteit! Ik ben de operator van dit bedrijf, Kendra."
+            "Value": "Welkom bij de onderzoeksinstituut! Ik ben de manager van dit bedrijf, Kendra."
         },
         {
             "Key": "EN",
@@ -18,11 +18,11 @@
 	  "Value": [
         {
             "Key": "NL",
-            "Value": "Wij ruilen uw grondmonsters in voor artikelen. Om monsters te behalen, moet je speciale prestaties in deze stad behalen."
+            "Value": "Wij ruilen uw grondmonsters in voor speciale items. Om deze monsters te krijgen, moet je speciale prestaties in deze stad behalen."
         },
         {
             "Key": "EN",
-            "Value": "We trade your soil samples into items. To retrieve samples you have to complete special achievements in this city."
+            "Value": "We trade your soil samples into  special items. To get these samples you have to complete special achievements in this city."
         }
 	  ]
 	},
@@ -31,11 +31,11 @@
 	  "Value": [
         {
             "Key": "NL",
-            "Value": "Met die monsters onderzoeken we het probleem van de lokale bodemdaling. Je vraagt ​​je misschien af ​​waarom je van deze handel kunt profiteren, ik ben blij dat je dat vraagt."
+            "Value": "Met die monsters onderzoeken we het probleem van de lokale bodemdaling. Je vraagt ​​je misschien af ​​hoe je van deze handel kunt profiteren, ik ben blij dat je dat vraagt."
         },
         {
             "Key": "EN",
-            "Value": "We use those samples to research into the problem of local land subsidence. You may wonder why you could profit from this trade, I’m glad that you asked."
+            "Value": "We use those samples to research into the problem of local land subsidence. You may wonder how you could profit from this trade, I’m glad that you asked."
         }
 	  ]
 	},
@@ -44,11 +44,11 @@
 	  "Value": [
         {
             "Key": "NL",
-            "Value": "Hier kan je de grondmonsters gebruiken om speciale items te verhandelen die tijdelijk kunnen helpen bij het bodemdaling probleem in je stad. Elk item heeft zijn eigen voordelen, die kun je lezen in de beschrijving van het item."
+            "Value": "Hier kan je de grondmonsters gebruiken om speciale items te verhandelen die tijdelijk kunnen helpen bij het bodemdaling probleem in je stad. Elk item heeft zijn eigen voordelen, die kun je lezen in de beschrijving van de items."
         },
         {
             "Key": "EN",
-            "Value": "Here you can use the soil samples to trade special items that can temporarily help out with the land subsidence problem in your city. Each item comes with its own perks, you can read about those perks in the description of the item."
+            "Value": "Here you can use the soil samples to trade special items that can temporarily help out with the land subsidence problem in your city. Each item comes with its own perks, you can read about those perks in the description of the items."
         }
 	  ]
 	},
@@ -61,7 +61,7 @@
         },
         {
             "Key": "EN",
-            "Value": "To see how far you have progressed with your Achievements, you can check that in the ProfileMenu. Thank you for supporting our research, good luck!"
+            "Value": "To see how far you have progressed with your Achievements, you can check that in the Profile Menu. Thank you for supporting our research, good luck!"
         }
 	  ]
 	}

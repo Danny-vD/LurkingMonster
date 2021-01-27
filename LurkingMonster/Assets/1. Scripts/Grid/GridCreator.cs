@@ -14,9 +14,13 @@ namespace Grid
 {
 	public class GridCreator : BetterMonoBehaviour
 	{
+		//NOTE: the variable can be replaced by SerializedEnumDictionary<TileType, List<GameObject>>
 		[SerializeField]
 		private List<PrefabsPerTileType> prefabsPerTileTypes = new List<PrefabsPerTileType>();
 
+		/// <summary>
+		/// Generate the grid using the GridData attached to this gameobject will return the grid as a 2d array of tiles
+		/// </summary>
 		public AbstractTile[,] GenerateGrid()
 		{
 			GridData data = GetComponent<GridData>();
@@ -24,6 +28,9 @@ namespace Grid
 			return data ? GenerateGrid(data, data.CachedTransform) : new AbstractTile[0, 0];
 		}
 
+		/// <summary>
+		/// Generate the grid using the provided GridData will return the grid as a 2d array of tiles
+		/// </summary>
 		public AbstractTile[,] GenerateGrid(GridData data, Transform parent)
 		{
 			DestroyChildren();
@@ -42,7 +49,7 @@ namespace Grid
 				grid[gridPosition.y, gridPosition.x] = tile;
 				AddNeighborsToTile(grid, tile);
 			}
-			
+
 			return grid;
 		}
 
@@ -54,21 +61,21 @@ namespace Grid
 			{
 				throw new NullReferenceException($"A prefab for {type} is not assigned!");
 			}
-			
+
 			GameObject instance = Instantiate(prefab, parent);
 			instance.transform.position += CalculatePosition(data, parent, gridPosition);
 
 			instance.name = $"{type.ToString()} {gridPosition.ToString()}";
-			
+
 			AbstractTile tile = instance.GetComponent<AbstractTile>();
 
 			if (tile == null)
 			{
 				throw new NullReferenceException($"Prefab {prefab.name} does not have an AbstractTileComponent attached to it!");
 			}
-			
-			tile.Instantiate(gridPosition);
-			
+
+			tile.Initialize(gridPosition);
+
 			return tile;
 		}
 
@@ -88,7 +95,7 @@ namespace Grid
 		private static void AddNeighborsToTile(AbstractTile[,] grid, AbstractTile tile)
 		{
 			Vector2Int gridPosition = tile.GridPosition;
-			
+
 			// Make sure we can never sample below 0,0
 			Vector2Int samplePosition = Vector2Int.zero;
 			samplePosition.x = Mathf.Max(0, gridPosition.x - 1);
@@ -103,14 +110,14 @@ namespace Grid
 			}
 
 			neighbor = grid[gridPosition.y, samplePosition.x]; // One before us, in the same row
-			
+
 			if (neighbor != tile)
 			{
 				tile.AddNeighbor(neighbor);
 				neighbor.AddNeighbor(tile);
 			}
 		}
-		
+
 		private void DestroyChildren()
 		{
 #if UNITY_EDITOR
@@ -124,7 +131,7 @@ namespace Grid
 		}
 
 #if UNITY_EDITOR
-		
+
 		[ContextMenu("Remove Grid")]
 		public void DestroyChildrenImmediate()
 		{
@@ -133,11 +140,14 @@ namespace Grid
 				DestroyImmediate(CachedTransform.GetChild(i).gameObject);
 			}
 		}
-		
+
+		/// <summary>
+		/// Will add a KeyValuePair{TileType, List{GameObject}} for every tileType (called by the editor script) 
+		/// </summary>
 		public void PopulateDictionaries()
 		{
-			EnumDictionaryUtil.PopulateEnumDictionary<PrefabsPerTileType, TileType, List<GameObject>>(
-				prefabsPerTileTypes);
+			// The variable can be replaced by SerializedEnumDictionary<TileType, List<GameObject>>
+			EnumDictionaryUtil.PopulateEnumDictionary<PrefabsPerTileType, TileType, List<GameObject>>(prefabsPerTileTypes);
 		}
 #endif
 	}

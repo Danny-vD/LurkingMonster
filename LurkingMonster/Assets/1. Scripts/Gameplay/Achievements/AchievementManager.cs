@@ -1,8 +1,8 @@
 using System.Collections.Generic;
 using System.Linq;
-using Enums;
-using Events;
+using Events.Achievements;
 using Events.BuildingEvents;
+using Events.BuildingEvents.RepairEvents;
 using Events.MoneyManagement;
 using Singletons;
 using Structs;
@@ -45,7 +45,7 @@ namespace Gameplay.Achievements
 				new int[] {1000, 5000, 8000}, "ACHIEVEMENT_3");
 
 			buyPlotsAchievement = new Achievement(new[] {5, 10, 15}, "BUYPLOTACHIEVEMENT",
-				new int[] {400, 700, 1000}, "ACHIEVEMENT_4");
+				new int[] {400, 600, 1000}, "ACHIEVEMENT_4");
 
 			upgradeBuildingAchievement = new Achievement(new[] {6, 12, 16}, "UPGRADEBUILDINGSACHIEVEMENT",
 				new int[] {500, 2000, 3500}, "ACHIEVEMENT_5");
@@ -70,6 +70,9 @@ namespace Gameplay.Achievements
 			}
 		}
 
+		/// <summary>
+		/// Function that checks if all achievements are unlocked
+		/// </summary>
 		public bool AllAchievementsUnlocked()
 		{
 			return achievements.All(achievement => achievement.Unlocked.Last());
@@ -79,14 +82,20 @@ namespace Gameplay.Achievements
 		{
 			CollectRentEvent.Listeners                   += OnRentCollectListener;
 			BuildingBuiltEvent.ParameterlessListeners    += OnBuildingBuildListener;
-			BuildingSavedEvent.ParameterlessListeners    += OnBuildingsSavedListener;
+			BuildingRepairEvent.ParameterlessListeners   += OnBuildingsSavedListener;
+			FoundationRepairEvent.ParameterlessListeners += OnBuildingsSavedListener;
+			SoilRepairEvent.ParameterlessListeners       += OnBuildingsSavedListener;
 			BuildingConsumedEvent.ParameterlessListeners += OnBuildingsConsumedListener;
 			BuyPlotEvent.ParameterlessListeners          += OnAmountOfPlotsListener;
 			BuildingUpgradeEvent.ParameterlessListeners  += OnBuildingDestroyedListener;
+			RewardCollectedEvent.ParameterlessListeners  += ShowAchievementProgress;
 
 			UserSettings.OnGameQuit += SaveData;
 		}
 
+		/// <summary>
+		/// Function that shows the progress on the achievement prefab
+		/// </summary>
 		public void ShowAchievementProgress()
 		{
 			achievementParent.DestroyChildren();
@@ -160,10 +169,13 @@ namespace Gameplay.Achievements
 
 			CollectRentEvent.Listeners                   -= OnRentCollectListener;
 			BuildingBuiltEvent.ParameterlessListeners    -= OnBuildingBuildListener;
-			BuildingSavedEvent.ParameterlessListeners    -= OnBuildingsSavedListener;
+			BuildingRepairEvent.ParameterlessListeners   -= OnBuildingsSavedListener;
+			FoundationRepairEvent.ParameterlessListeners -= OnBuildingsSavedListener;
+			SoilRepairEvent.ParameterlessListeners       -= OnBuildingsSavedListener;
 			BuildingConsumedEvent.ParameterlessListeners -= OnBuildingsConsumedListener;
 			BuyPlotEvent.ParameterlessListeners          -= OnAmountOfPlotsListener;
 			BuildingUpgradeEvent.ParameterlessListeners  -= OnBuildingDestroyedListener;
+			RewardCollectedEvent.ParameterlessListeners  -= ShowAchievementProgress;
 		}
 	}
 }

@@ -9,7 +9,6 @@ using VDFramework.EventSystem;
 using VDFramework.Singleton;
 using VDFramework.Extensions;
 
-
 namespace Singletons
 {
 	public class PowerUpManager : Singleton<PowerUpManager>
@@ -30,24 +29,19 @@ namespace Singletons
 
 		private bool powerUpActive;
 
-		private void Start()
+		protected override void Awake()
 		{
+			base.Awake();
+			
 			powerUps = new[]
 			{
 				//TODO: use a formatted json string to print the actual time for the description
-				new PowerUp(false, 120f, "Monster Feed", PowerUpType.AvoidMonster, 1000),
-				new PowerUp(false, 120f, "KCAF Manager", PowerUpType.FixProblems, 500),
-				new PowerUp(false, 300f, "Time Stop", PowerUpType.AvoidWeatherEvent, 300),
+				new PowerUp(false, 120f, "Monster Feed", PowerUpType.AvoidMonster, 2000),
+				new PowerUp(false, 120f, "KCAF Manager", PowerUpType.FixProblems, 10000),
+				new PowerUp(false, 300f, "Time Stop", PowerUpType.AvoidWeatherEvent, 5000),
 			};
-			
-			//TODO change: don't start with powerups
-			if (!UserSettings.SettingsExist)
-			{
-				avoidMonsters = 1;
-				fixProblems   = 3;
-				avoidWeather  = 1;
-			}
-			else
+
+			if (UserSettings.SettingsExist)
 			{
 				avoidMonsters = UserSettings.GameData.PowerUps[0];
 				avoidWeather  = UserSettings.GameData.PowerUps[1];
@@ -149,7 +143,6 @@ namespace Singletons
 
 		public bool AvoidMonsterFeedActive => powerUps[0].IsActive;
 		public bool FixProblemsActive => powerUps[1].IsActive;
-
 		public bool AvoidWeatherActive => powerUps[2].IsActive;
 
 		public bool CheckIfAnPowerUpIsActive()

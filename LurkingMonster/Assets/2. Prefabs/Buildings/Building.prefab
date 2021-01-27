@@ -169,7 +169,6 @@ GameObject:
   - component: {fileID: 265130014}
   - component: {fileID: 265130013}
   - component: {fileID: 265130016}
-  - component: {fileID: 5051624712688164840}
   - component: {fileID: 776189073596000579}
   m_Layer: 5
   m_Name: Canvas
@@ -271,19 +270,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae3c57b0bb9eba947bfe276f78465771, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &5051624712688164840
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 265130011}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d74f99fa1474872812199e437a2e67b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  btnRepair: {fileID: 51152796584614185}
 --- !u!114 &776189073596000579
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -814,7 +800,7 @@ MonoBehaviour:
           value:
             serializedDictionary:
             - key: {fileID: 362989756019003262}
-              value: {x: -1.446, y: 3.075, z: -0.464}
+              value: {x: 0.903, y: 3.075, z: -1.001}
 --- !u!1 &7029731273974737261
 GameObject:
   m_ObjectHideFlags: 0
@@ -829,6 +815,7 @@ GameObject:
   - component: {fileID: 51152796584614185}
   - component: {fileID: 8444608800687576919}
   - component: {fileID: 6523130057064287436}
+  - component: {fileID: 1214677987737568959}
   m_Layer: 5
   m_Name: btnCrackHouse
   m_TagString: Untagged
@@ -979,6 +966,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f62fc226805b4ef7855671f12be9b621, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1214677987737568959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7029731273974737261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d74f99fa1474872812199e437a2e67b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8745763208570330060
 GameObject:
   m_ObjectHideFlags: 0
@@ -1068,7 +1067,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3848355593189218575, guid: c7866caef7188004dac1a0f6d94e4f5b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.446
+      value: 0.903
       objectReference: {fileID: 0}
     - target: {fileID: 3848355593189218575, guid: c7866caef7188004dac1a0f6d94e4f5b, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1076,7 +1075,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3848355593189218575, guid: c7866caef7188004dac1a0f6d94e4f5b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.464
+      value: -1.001
       objectReference: {fileID: 0}
     - target: {fileID: 3848355593189218575, guid: c7866caef7188004dac1a0f6d94e4f5b, type: 3}
       propertyPath: m_LocalRotation.w

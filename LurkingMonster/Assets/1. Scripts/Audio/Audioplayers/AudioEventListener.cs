@@ -35,6 +35,8 @@ namespace Audio.Audioplayers
 
 		private static EventInstance achievementUnlocked;
 
+		private static EventInstance selectPlot;
+
 		private void Awake()
 		{
 			increaseMoney = AudioPlayer.GetEventInstance(EventType.SFX_IncreaseMoney);
@@ -43,8 +45,8 @@ namespace Audio.Audioplayers
 			upgrade          = AudioPlayer.GetEventInstance(EventType.SFX_BUILDING_Upgrade);
 			buildingConsumed = AudioPlayer.GetEventInstance(EventType.SFX_BUILDING_Consumed);
 
-			buildingRepair   = AudioPlayer.GetEventInstance(EventType.SFX_BUILDING_Repair);
-			foundationRepair = AudioPlayer.GetEventInstance(EventType.SFX_BUILDING_Repair); // Only 1 sound for repairing atm
+			buildingRepair   = AudioPlayer.GetEventInstance(EventType.SFX_BUILDING_Repair); // Only 1 sound for repairing atm
+			foundationRepair = AudioPlayer.GetEventInstance(EventType.SFX_BUILDING_Repair); 
 			soilRepair       = AudioPlayer.GetEventInstance(EventType.SFX_BUILDING_Repair);
 
 			buildingBuilding   = AudioPlayer.GetEventInstance(EventType.SFX_BUILDING_Building);
@@ -56,6 +58,8 @@ namespace Audio.Audioplayers
 			kcafPowerup   = AudioPlayer.GetEventInstance(EventType.SFX_POWERUP_KCAF);
 			
 			achievementUnlocked = AudioPlayer.GetEventInstance(EventType.SFX_ACHIEVEMENT_Unlocked);
+
+			selectPlot = AudioPlayer.GetEventInstance(EventType.SFX_SelectPlot);
 		}
 
 		public void AddListeners()
@@ -77,6 +81,8 @@ namespace Audio.Audioplayers
 			EventManager.Instance.AddListener<PowerUpActivateEvent>(PowerupSound);
 
 			EventManager.Instance.AddListener<AchievementUnlockedEvent>(AchievementSound);
+			
+			EventManager.Instance.AddListener<SelectedBuildingTileEvent>(SelectPlot);
 		}
 
 		public void RemoveListeners()
@@ -98,6 +104,8 @@ namespace Audio.Audioplayers
 			EventManager.Instance.RemoveListener<PowerUpActivateEvent>(PowerupSound);
 
 			EventManager.Instance.RemoveListener<AchievementUnlockedEvent>(AchievementSound);
+			
+			EventManager.Instance.RemoveListener<SelectedBuildingTileEvent>(SelectPlot);
 		}
 
 		// Currency sounds
@@ -178,28 +186,39 @@ namespace Audio.Audioplayers
 		{
 			achievementUnlocked.start();
 		}
+		
+		// Selecting
+		private static void SelectPlot(SelectedBuildingTileEvent selectedBuildingEvent)
+		{
+			if (selectedBuildingEvent.SelectedBuildingTile)
+			{
+				selectPlot.start();
+			}
+		}
 
 		private void OnDestroy()
 		{
 			increaseMoney.release();
 			decreaseMoney.release();
-
+			
 			upgrade.release();
 			buildingConsumed.release();
-
+			
 			buildingRepair.release();
 			foundationRepair.release();
 			soilRepair.release();
-
+			
 			buildingBuilding.release();
 			buildingFoundation.release();
 			buildingSoil.release();
-
+			
 			meatPowerup.release();
 			freezePowerup.release();
 			kcafPowerup.release();
-
+			
 			achievementUnlocked.release();
+			
+			selectPlot.release();
 		}
 	}
 }

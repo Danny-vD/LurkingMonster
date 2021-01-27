@@ -3,6 +3,7 @@ using Enums;
 using FMOD.Studio;
 using Structs.Audio;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Utility;
 
 namespace Audio.Components.Events
@@ -10,14 +11,14 @@ namespace Audio.Components.Events
 	public class AudioFunctionParameters : AbstractFunctionAudioHandler
 	{
 		[SerializeField]
-		private AudioFunctionPlayer audioEventPlayer;
+		private AudioFunctionPlayer audioFunction;
 		
 		[SerializeField]
 		private SerializableEnumDictionary<UnityFunction, EventParameters> parameters;
 
 		protected override void ReactToEvent(UnityFunction unityFunction)
 		{
-			EventInstance eventInstance = audioEventPlayer.GetInstance;
+			EventInstance eventInstance = audioFunction.GetInstance;
 
 			foreach (KeyValuePair<string, float> pair in parameters[unityFunction].Parameters)
 			{
@@ -27,7 +28,7 @@ namespace Audio.Components.Events
 
 		private void Reset()
 		{
-			audioEventPlayer = GetComponent<AudioFunctionPlayer>();
+			audioFunction = GetComponent<AudioFunctionPlayer>();
 		}
 	}
 }

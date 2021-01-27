@@ -4,22 +4,29 @@ using VDFramework;
 
 namespace Grid
 {
+	/// <summary>
+	/// A class specifically made to be used in the insector to modify the grid
+	/// </summary>
 	public class GridModifier : BetterMonoBehaviour
 	{
-		private GridData data = null;
-		private GridCreator gridCreator = null;
-
-		public Vector2Int[] SelectedPositions = new Vector2Int[0];
-		
 		[SerializeField]
 		private TileType newType = default;
 		
+		public Vector2Int[] SelectedPositions = new Vector2Int[0];
+		
+		private GridData data = null;
+		private GridCreator gridCreator = null;
+
 		private void Awake()
 		{
 			data = GetComponent<GridData>();
 			gridCreator = GetComponent<GridCreator>();
 		}
 
+		/// <summary>
+		/// Change all selected tiles to the new tileType
+		/// </summary>
+		/// <param name="regenerateGrid">Regenerate the grid after setting the new tiles</param>
 		public void ModifyTiles(bool regenerateGrid)
 		{
 			if (!data)

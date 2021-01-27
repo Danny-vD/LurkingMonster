@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Enums;
 using Gameplay;
 using Grid.Tiles.Buildings;
@@ -30,14 +29,15 @@ namespace UI.Market.ResearchFacility.ExtensionScreens
 			}
 		}
 
-		private void SetText(KeyValuePair<PowerUpType, BuyButtonData> buttonData, AbstractBuildingTile tile)
+		private static void SetText(KeyValuePair<PowerUpType, BuyButtonData> buttonData, AbstractBuildingTile tile)
 		{
 			PowerUpType powerUpType = buttonData.Key;
 
 			PowerUp powerUp = PowerUpManager.Instance.GetPowerUp(powerUpType);
 
 			// Price
-			buttonData.Value.Text.Price.text = string.Format(GetString(priceKey), powerUp.Price);
+			string price = $"{powerUp.Price:N0}";
+			buttonData.Value.Text.Price.text = string.Format(GetString(priceKey), price);
 		}
 
 		private static string GetString(string key)

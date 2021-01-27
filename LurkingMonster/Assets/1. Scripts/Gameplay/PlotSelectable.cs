@@ -33,6 +33,9 @@ namespace Gameplay
 			}
 		}
 
+		/// <summary>
+		/// Select this selectable
+		/// </summary>
 		public void Select(Material selectMaterial)
 		{
 			@select(selectMaterial);
