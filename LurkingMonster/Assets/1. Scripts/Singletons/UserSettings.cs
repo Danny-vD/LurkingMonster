@@ -3,6 +3,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 using Enums;
 using IO;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using VDFramework.Singleton;
 
 namespace Singletons

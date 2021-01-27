@@ -31,6 +31,9 @@ namespace UI
 			HideLoadingScreen();
 		}
 
+		/// <summary>
+		/// Loads the scene with the given buildIndex
+		/// </summary>
 		public static void LoadScene(int buildIndex)
 		{
 			instance.ShowLoadingScreen();
@@ -39,6 +42,9 @@ namespace UI
 			instance.StartCoroutine(instance.Load());
 		}
 
+		/// <summary>
+		/// Loads the scene with the given Name
+		/// </summary>
 		public static void LoadScene(string sceneName)
 		{
 			instance.ShowLoadingScreen();

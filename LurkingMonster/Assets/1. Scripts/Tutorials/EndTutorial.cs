@@ -1,5 +1,7 @@
 ﻿using Events;
 using Singletons;
+using UI;
+using UnityEngine;
 using VDFramework.EventSystem;
 
 namespace Tutorials
@@ -25,6 +27,9 @@ namespace Tutorials
 		{
 			base.CompletedAllTutorials();
 			UserSettings.GameData.ETutorial = true;
+			
+			// Close the application after the player finishes to give them the choice to continue or just stop playing
+			Application.Quit();
 		}
 	}
 }
